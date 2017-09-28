@@ -2,7 +2,7 @@
 In order to get started with C++, we'll need to set up a few things on your computer.
 
 ## Reference Material
-We'll be using the tutorials at [http://www.learncpp.com](http://www.learncpp.com) as the backbone for this course. It has some great information and dives deeper intot he technical aspects of C++. If you want to do some deeper reading into this week's lesson I would skim through sections **0.1-0.4 and 1.1-1.3a**.
+We'll be using the tutorials at [http://www.learncpp.com](http://www.learncpp.com) as the backbone for this course. It has some great information and dives deeper into the technical aspects of C++. If you want to do some deeper reading into this week's lesson I would skim through sections **0.1-0.4 and 1.1-1.3a**.
 
 ## IDEs
 C++ is usually written in an IDE, or Integrated Development Environment. For robot programming, we'll be using [Eclipse](http://www.eclipse.org/downloads/packages/eclipse-ide-cc-developers/oxygen1), but for now, an online text editor will be fine.
@@ -25,4 +25,4 @@ Once C9 is up and running, you can run a c++ program using the following command
 ```
 $ g++ -o [executable-name] [c++ file name]
 ```
-For more info about this line, check out this [tutorial](http://www.learncpp.com/cpp-tutorial/06-writing-your-first-program/). Search for the heading **"If you’re using a command-line based compiler"**.
+For more info about this line, check out this [tutorial](http://www.learncpp.com/cpp-tutorial/06-writing-your-first-program/). Search for the heading **"If you’re using a command-line based compiler."**
