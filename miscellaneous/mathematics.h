@@ -5,6 +5,7 @@
     #include <iostream>
     double dabs (double d)
     {
-        return (d > 0) ? d : -1(d);
+        return (d > 0) ? d : -d;
     }
+    
 #endif
