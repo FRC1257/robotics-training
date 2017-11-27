@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include "mathematics.h"
 using namespace std;
 
 int main()
