@@ -18,7 +18,7 @@ struct Student
     double gpa;
 };
 
-void printEmail(Student dude);
+void printEmail(Student &dude);
 
 int main()
 {
@@ -41,7 +41,7 @@ int main()
     return 0;
 }
 
-void printEmail(Student dude)
+void printEmail(Student &dude)
 {
-    //???
+    cout << dude.first[0] << dude.last << "@ucvts.org\n";
 }
