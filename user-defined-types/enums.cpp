@@ -26,18 +26,20 @@ enum Monster
 
 int main()
 {
-    // Declare myFavoriteColor as VEGAN_CHEESE_YELLOW
+    // Declare myFavoriteColor as RED
     Color myFavoriteColor = RED;
 
     // What does it print out?
     cout << "myFavoriteColor: " << myFavoriteColor << endl;
 
+    // Delcare a new monster with a value of ORC
     Monster jeff = ORC;
 
     // What happens here?
     if (myFavoriteColor == jeff)
     {
         // This one prints because both jeff and myFavoriteColor equal 0
+        // (They are both the zeroeth element in the list for the enum values)
         cout << "Colors and monsters can be equal" << endl;
     }
     else
