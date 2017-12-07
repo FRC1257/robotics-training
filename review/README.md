@@ -3,8 +3,11 @@
 
 1. Instructions should be pretty simple. They can be found [here](https://projecteuler.net/problem=4).
     - The palindrome is the hardest part. I've got a hint below that you'll have to hover over to see.
-> ! Casting and coercion
 
+<details>
+  <summary>Spoiler</summary>
+  Casting and Coersion
+</details>
 # Assignment B  - Monster Class
 
 ### Directions
