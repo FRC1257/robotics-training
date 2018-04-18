@@ -44,7 +44,7 @@ class students
         inAttendence = !inAttendence;
     }
 
-    void compareAgainst(students student)
+    void compareAgainst(students &student)
     {
         cout << firstName << " has a QPA of " << QPA << "\% and " << student.firstName << " has a QPA of " << QPA << "\%. " << flush;
 
