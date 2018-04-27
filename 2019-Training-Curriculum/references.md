@@ -1,7 +1,12 @@
 # References
 
 ## Tasks
+
 help Zach
+
+* Easy: 
+* Medium: 
+* Hard: 
 
 ## Learn Cpp Articles
 

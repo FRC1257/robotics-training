@@ -2,9 +2,21 @@
 
 ## Tasks
 
-* Easy: Create a person class that includes variables for name, age, eye color, hair color, height, etc. Create a constructor, cout its properties. 
-* Medium: 
-* Hard: Create a class of Pokemon which includes HP, Speed, Defense, and Attack which are values on a scale of 1-10. It also includes its type which is included in an enum class. 
+* Easy: Person
+    * Create a person class that includes variables for name, age, eye color, hair color, height, etc.
+    * Create a constructor to initialize these variables.
+    * Create a function that prints all of its properties. 
+
+* Medium: Point
+    * Create a class called Point that includes an X and a Y coordinate.
+    * Create a function that takes in another Point object and returns the distance between the two. 
+    * Create a function that takes in another Point object and returns the midpoint between the two. 
+
+* Hard: Pokemon
+    * Create a class called Pokemon which includes HP, Speed, Defense, and Attack which are integers on a scale of 1-10. 
+    * It should also includes its type which is included in an enum class. 
+    * Create a function that allows a Pokemon to battle another given Pokemon and deduct health dependent on defense and attack. 
+    * Bonus: Implement types that make certain Pokemon stronger and weaker against others. 
 
 ## Learn Cpp Articles
 * [Enumerated types](http://www.learncpp.com/cpp-tutorial/45-enumerated-types/)

@@ -9,11 +9,11 @@ Example: User inputs " 5," " *," and " 2," and the program will output "10" (or 
 * Easy: Use if statements to build the calculator.
 * Medium: Use a switch statement to build the calculator.
 * Hard: In addition to returning the result, have the program say whether that number is even or odd.
-* Extra Hard: Have the program say whether the number is prime.
+* Extra Hard: Have the program say whether the number is prime
 
 ## Learn Cpp Articles
 
 * [Logical Operators](http://www.learncpp.com/cpp-tutorial/36-logical-operators/)
 * [If statements](http://www.learncpp.com/cpp-tutorial/52-if-statements/)
 * [Switch statements](http://www.learncpp.com/cpp-tutorial/53-switch-statements/)
-* [Operator Precedence](http://www.learncpp.com/cpp-tutorial/31-precedence-and-associativity/) (pemdas)
+* [Operator Precedence](http://www.learncpp.com/cpp-tutorial/31-precedence-and-associativity/) (PEMDAS)

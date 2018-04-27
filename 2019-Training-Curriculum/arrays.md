@@ -2,9 +2,11 @@
 
 ## Tasks
 
-* Easy: Rank your favorite food in an array (0 = most favorite, arr.length = least favorite). Cout "What is my __th/st/nd favorite food?" Cin the index number and cout the food name.
-* Medium: Write a program that reverses a string and prints it out.
-* Hard: Bubble Sorting Algorithm
+* Easy: Rank your favorite foods in an array with the (Beginning - most favorite, End - least favorite). Print out "What is my __th/st/nd favorite food?" Have the user enter an index number and print the food name. Bonus: Check if the user has entered a number too large or too small and if so, respond.
+
+* Medium: Write a program that takes in a string, reverses it and prints it out (For instance, "I like pie" => "eip ekil I").
+
+* Hard: Bubble Sorting Algorithm (Search online for more information and try to implement it yourself)
 
 ## Learn Cpp Articles
 
