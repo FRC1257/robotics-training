@@ -47,5 +47,7 @@ public class SimpleChatbot {
             String badResponse = scanner.next();
             System.out.println("That sucks, I hope your day gets better!");
         }
+
+        scanner.close();
     }
 }

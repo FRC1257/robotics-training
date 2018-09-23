@@ -12,5 +12,7 @@ public class EvenOdd {
         else if(number % 2 == 1) {
             System.out.println("The number " + number + " is odd.");
         }
+
+        scanner.close();
     }
 }

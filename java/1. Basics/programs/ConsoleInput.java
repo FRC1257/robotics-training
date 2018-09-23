@@ -11,5 +11,7 @@ public class ConsoleInput
         System.out.print("Type a String: ");
         String testString = scanner.nextLine();
         System.out.println("Here is your string twice: " + testString + testString);
+
+        scanner.close();
     }
 }

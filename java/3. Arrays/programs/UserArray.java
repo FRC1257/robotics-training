@@ -19,5 +19,7 @@ public class UserArray {
         for(int i = 0; i < numElements; i++) {
             System.out.println(i + ": " + array[i]);
         }
+
+        scanner.close();
 	}
 }

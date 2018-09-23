@@ -16,5 +16,7 @@ public class Exponent {
         }
 
         System.out.println("The result is: " + result);
+
+        scanner.close();
     }
 }

@@ -1,4 +1,4 @@
-public class HelloWorld {
+public class Variables {
     public static void main(String[] args) {
         boolean testBoolean = false;
         System.out.println("This is a boolean: " + testBoolean);
@@ -15,10 +15,10 @@ public class HelloWorld {
         int testInt = 4284298;
         System.out.println("This is a int: " + testInt);
                 
-        long testLong = 4289849812498;
+        long testLong = 428981491238L;
         System.out.println("This is a long: " + testLong);
 
-        float testFloat = 2.1313;
+        float testFloat = 2.1313f;
         System.out.println("This is a float: " + testFloat);
 
         double testDouble = 4.13113131313;
