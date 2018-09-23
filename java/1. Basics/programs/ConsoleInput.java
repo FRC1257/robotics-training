@@ -8,8 +8,10 @@ public class ConsoleInput
         int testInt = scanner.nextInt();
         System.out.println("Here is your integer multiplied by 2: " + (testInt * 2));
 
+        scanner.nextLine();
+
         System.out.print("Type a String: ");
-        String testString = scanner.nextLine();
+        String testString = scanner.next();
         System.out.println("Here is your string twice: " + testString + testString);
 
         scanner.close();
