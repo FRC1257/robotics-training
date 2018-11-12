@@ -10,6 +10,7 @@ The general course structure will be outlined in the "java/2019 Training Curricu
 * https://introcs.cs.princeton.edu/java/home/
 * More Advanced Reference - https://docs.oracle.com/javase/tutorial/java/index.html
 * Exercises - http://programmingbydoing.com/
+* Cheatsheet: https://introcs.cs.princeton.edu/java/11cheatsheet/
 
 ## IDEs
 Java programs are usually written in an IDE, or Integrated Development Environment. For robot programming, we'll be using [Visual Studio Code](https://code.visualstudio.com/). However, we cannot install IDEs on Chromebooks, so for now, we will be using an online programming environment called repl.it.
