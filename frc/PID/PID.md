@@ -23,3 +23,7 @@ error and output.
 
 See our [DriveTrain](https://github.com/FRC1257/2018JavaRewrite/blob/master/src/main/java/org/usfirst/frc/team1257/robot/subsystems/DriveTrain.java)
 for an annotated example.
+
+### Tuning Constants
+
+Just read [this thread](https://robotics.stackexchange.com/questions/167/what-are-good-strategies-for-tuning-pid-loops) to learn how to tune. You also need to be on a computer with DriverStation on it—the team laptop, for instance.
