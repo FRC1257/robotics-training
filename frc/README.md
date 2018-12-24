@@ -10,6 +10,8 @@ To program robots, we use a combination of Java and WPILib. Essentially, there i
 
 WPILib contains a lot of classes that help with managing motors, sensors, and sync your robot. They also give different structures for maintaining the flow of the robot program.
 
+[Java Documentation](http://first.wpi.edu/FRC/roborio/beta/docs/java/)
+
 ## IDE
 
 Up until this point, we have been using repl.it. However, to use robot code, we program in Visual Studio Code, which cannot be downloaded on Chromebooks. As a result, it is greatly appreciated if you all bring in your own computers. We can probably also form groups and some of you will have to program together. If you bring in your computer and ask me, I can help you set it up. You can also follow [this](https://wpilib.screenstepslive.com/s/currentCS/m/79833/l/932382-installing-vs-code) guide.
