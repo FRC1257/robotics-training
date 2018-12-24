@@ -12,7 +12,8 @@ These are all of the commands that we will most likely use. See Git Cheatsheet.p
 
 - `git clone LINK` - downloads the Github repository to the current directory (The LINK should be obtained from the green clone/download button
 - `git status` - displays the status of the current Github repository
-- `git add .` - adds all changes to the stage
+- `git add .` - adds all changes in this folder to the stage
+- `git add -a` - add all changes to the stage
 - `git commit -m "MESSAGE"` - puts all of the changes on the stage into a commit
 - `git push` - pushes all commits to online
 - `git pull` - update your local code with changes from the online repository
