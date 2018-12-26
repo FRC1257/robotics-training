@@ -10,7 +10,7 @@ A more complicated autonomous task, like getting the robot to drive in a horizon
 
 To use PID, first set a setpoint (that is, your goal). PID will use data from sensors to calculate the robot's actual point,
 and then will calculate an `error`, which is `setpoint - actual point`. PID will then calculate an output based on some 
-constants `Kp, Ki, Kd` and `error`: `output = Kp*error + Ki*error*time + Kd*error`. 
+constants `Kp, Ki, Kd` and `error`: `output = Kp*error + Ki*error*time + Kd*derror/dt`. 
 
 For example, if we want to drive in a horizontal line, we may set our angle `setpoint` to `0`, and then have gyro sensors 
 record the angle at which we're actually going. 
