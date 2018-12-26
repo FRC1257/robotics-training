@@ -19,4 +19,11 @@ For instance, for my purposes, I would type `git clone https://github.com/FRC125
 
 # Simpler Version
 
-Just use VSCode.
+Just use VSCode. When the repository's folder is open in VSCode, the symbol that looks like a Y on the side offers controls for Git, which can be used.
+
+To add files, hover over the file name and click the `+` icon.
+To commit files, type a message in and click the checkmark icon.
+To push files and access other commands, go to the `...` icon and inside, there are many useful commands
+To use Git branches, it is a bit more complicated. Hit `Ctrl+Shift+P` (`Cmd+Shift+P` on MacOS) and type in `Git Checkout` and use that command for checkout. For creating branches, type `Git Create Branch`.
+
+Note however that understsanding how to use the command line is still encouraged, as VSCode is not flawless and there are times where you might want to use the command line. However, using VSCode is still an easier option.
