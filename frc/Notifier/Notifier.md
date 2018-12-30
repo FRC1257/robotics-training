@@ -38,4 +38,5 @@ public class ColorSensor {
 	getColorSensorValue(); //This doesn't exist but it'll be executed every time the Notifier executes.
 	}
 
-}```
+}
+```
