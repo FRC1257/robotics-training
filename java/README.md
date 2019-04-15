@@ -3,9 +3,6 @@
 ## Programming Language
 This year, we will be using Java to write our robot code. In the past, we have used C++ but we have made the decision to use Java.
 
-## Course Structure
-The general course structure will be outlined in the "java/2019 Training Curriculum" folder. For each ".md" file, there will be a list of goals, tasks, and reference materials. Additionally, in the "java" folder, there will be a folder with the same name. In there, you will find relevant information and programs. We will typically spent 2-3 days on each topic, with some days of lectures and others of assignments to reinforce information.
-
 * Reference - https://www.tutorialspoint.com/java/java_basic_datatypes.htm
 * https://introcs.cs.princeton.edu/java/home/
 * More Advanced Reference - https://docs.oracle.com/javase/tutorial/java/index.html
@@ -26,18 +23,42 @@ If you want, you can create an account. This will allow you to save your project
 * Many other teams use Java, giving us more reference material
 * In general, people have stated that Java is easier to learn
 
-## What We Need for Robot Programming
+## Curriculum
 
-Don't worry if you have no clue what these things are, we will go over all of them and try our best to teach you them.
-* Variables
-* Control Statements (If, While, For)
-* Object-Oriented Concepts
-* User-Defined Types
-* Version Control
+Don't worry if you have no clue what these things are, we will go over all of them and try our best to teach you them. Anything with a star (*) next to it is essential and you should expect to see frequently in robotics programming. Anything without a star is still good to know, but you will make it by without knowing those.
+
+* Basics (1 day)
+  * First Program *
+  * Variables *
+  * Operators *
+  * Comments *
+* Control-Flow (1 day)
+  * If/Else Statements *
+  * Logical Operators *
+  * Switch Statements *
+  * While Loops
+  * For Loops
+  * Enums *
+* Arrays (1 day)
+  * Arrays
+  * Looping through Arrays
+* Functions (2 days)
+  * Basic Functions *
+  * Functions w/ Arguments *
+  * Functions w/ Return Types *
+  * Overloading
+* Objects (2 days)
+  * Objects *
+  * Classes *
+  * Inheritance *
+  * Overriding *
+  * Polymorphism
+
+Once we finish these topics, we will go onto robotics programming. This should hopefully start by around mid-November.
 
 ## What You Should Do
 
-We all go to one of the UCVTS schools, and we have a ton of schoolwork. However, to get good at programming, you will want to spent at least 10 minutes each day familiarizing youself with the language and trying out random things. Just coming to robotics twice a week won't make you a great programmer, but practice will. 
+We all have a ton of schoolwork. However, to get good at programming, you will want to spent at least 10 minutes each day familiarizing youself with the language and trying out random things. Just coming to robotics twice a week won't make you a great programmer, but practice will.
 
 ## Help
 

@@ -6,18 +6,22 @@ public class Variables {
         char testChar = 'a';
         System.out.println("This is a char: " + testChar);
                 
+        // Not important
         byte testByte = 38;
         System.out.println("This is a byte: " + testByte);
                 
+        // Not important
         short testShort = 31838;
         System.out.println("This is a short: " + testShort);
                 
         int testInt = 4284298;
         System.out.println("This is a int: " + testInt);
                 
+        // Not important
         long testLong = 428981491238L;
         System.out.println("This is a long: " + testLong);
 
+        // Not important
         float testFloat = 2.1313f;
         System.out.println("This is a float: " + testFloat);
 
