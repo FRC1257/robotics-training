@@ -4,7 +4,7 @@ These are all of the commands that we will most likely use. See Git Cheatsheet.p
 
 ## Terminal Commands
 
-- `ls` - view everything in current folder
+- `ls`/`dir` - view everything in current folder (`ls` for bash, `dir` for command prompt)
 - `cd` - change folder (directory)
 - `cd ..` - go back one folder
 
