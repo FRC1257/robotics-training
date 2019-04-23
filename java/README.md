@@ -10,13 +10,16 @@ This year, we will be using Java to write our robot code. In the past, we have u
 * Cheatsheet: https://introcs.cs.princeton.edu/java/11cheatsheet/
 
 ## IDEs
-Java programs are usually written in an IDE, or Integrated Development Environment. For robot programming, we'll be using [Visual Studio Code](https://code.visualstudio.com/). However, we cannot install IDEs on Chromebooks, so for now, we will be using an online programming environment called repl.it.
+Java programs are usually written in an IDE, or Integrated Development Environment. For robot programming, we'll be using [Visual Studio Code](https://code.visualstudio.com/). However, we cannot install IDEs on Chromebooks, so for now, we will be using an online cloud based IDE called codeanywhere.com.
 
-## repl.it
+## codeanywhere.com
 
-Go to [repl.it](https://repl.it/). Type Java in the center box and click "Java". On the left you will see your files, in the center is your code, and on the right is your code output. You can push the "Run" botton at the top to run your code. 
+Go to [codeanywhere.com](https://codeanywhere.com/). Scroll to the very bottom and select `Sign Up` (or just go to this link: [Sign Up](https://codeanywhere.com/signup)). Don't hit `Sign Up` in the top right, this will bring you to the pricing page. Enter in your details, and then go to your email to verify your account. Once you do this, you can press `Editor`, or just go to [Editor](https://codeanywhere.com/editor/). When prompted for the type of project, select `Java - Ubuntu 16.04`, or whatever version of Ubuntu they are on. For name, you can put anything you like. I put `robotics-training`. It might take a while, but eventually the container will be created.
 
-If you want, you can create an account. This will allow you to save your projects and share them with other people. I have created a classroom where I will post assignments and exercises you can tackle. Once you create an account, you can DM me on Slack (My username is rchang), or ask me in person to add you to the classroom.
+Close the initial tab, and you will be greeted with the below screen.
+![Code Anywhere Screen](img/CodeAnywhere.png)
+
+In the center, you will have the terminal. We will learn how to use this later. Take a look at  `git/Git Reference/md` and the `Terminal Commands` section for some basic commands. On the left, you will have the file explorer, and you can click the arrow to the left of `robotics-training` to expand the folder and see what is inside. For now, there should be nothing in it. You can also right click `robotics-training` to create new files and programs, but we will go over this in the Java tutorials.
 
 ## Why We Use Java
 

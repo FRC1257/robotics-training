@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 class Formulas{
+    
     public static double squareArea(double length1, double length2)
     {
         double answer = length1 * length2;

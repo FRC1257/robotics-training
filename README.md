@@ -2,8 +2,13 @@
 
 Team 1257's repository for training new members
 
-See /java for our Java tutorials
+## Folders
+ - java - Java tutorials
 
-See /git for our Git tutorials
+ - frc - WPILib tutorials for FRC programming
 
-See /frc for our WPILib/FRC tutorials
+ - git - Git/GitHub tutorials
+
+ - vision - Notes for using vision
+
+ - SNAILTalks - Notes from lectures on various Control Systems topics

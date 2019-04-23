@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class FancyText {
+    
 	public static void main(String[] args) {
         printFancy("Enter your text!");
 

@@ -1,4 +1,5 @@
 public class Variables {
+    
     public static void main(String[] args) {
         boolean testBoolean = false;
         System.out.println("This is a boolean: " + testBoolean);

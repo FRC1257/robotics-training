@@ -5,13 +5,13 @@ Programming is a means to an end.
 We can't fix everything in code, but we can make lives easier.
 
 Example: [254 in 2014](https://www.youtube.com/watch?v=aFZy8iibMD0)
- - Constant intaking
+ - Constant intaking to retain game pieces
  - Pathing
 
 ## WPILib
 
 **Features:**
- - Base software for FRC software
+ - Base software for FRC programs
  - Built around robot controller/peripherals
  - Writes a lot of stuff for us
 
@@ -50,11 +50,12 @@ Example: [254 in 2014](https://www.youtube.com/watch?v=aFZy8iibMD0)
    - Elevators
    - Anything remotely complicated (see 254 in 2018)
      - Multiuse subsystems with many moving parts
- - Subsystems are singletons automatically
+ - Subsystems are singletons
    - Can only create one version of something
    - Useful to avoid breaking control flow
    - Avoid having two instances of our code controlling the same hardware
      -  Can lead to very bad bugs
+   -  WPILib `Subsystem`s are automatically Singletons
    - Example: [2590 in 2018](https://github.com/Team2590/FRC2590-2018-PostIRI/blob/master/src/org/usfirst/frc/team2590/subsystems/Intake.java)
 
 ## Collision Avoidance
@@ -116,6 +117,7 @@ Reusable Code: [Falcon Library](https://github.com/5190GreenHopeRobotics/FalconL
    - Can cost us competitions if we are not careful
 
 ## Deploy & Run
+
  - roboRIO is very slow
    - 256 mb of RAM
    - Monitor CAN and ethernet bandwidth utilization
@@ -126,7 +128,7 @@ Reusable Code: [Falcon Library](https://github.com/5190GreenHopeRobotics/FalconL
 
 ## Misc
 
- - See how other teams did it first/if we can do it better
+ - See how other teams did it first and if we can do it better
  - Factory reset and reprogram motor controllers on reboot
    - If motor controller reboots and robot doesn't, this can cause huge issues
  - Burn flash command

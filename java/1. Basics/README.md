@@ -11,6 +11,7 @@
 
 * Print "Hello World"
 * Make a program that contains two variables, and then prints their sum, difference, product, and quotient
+* Make a program that takes in someone's name, and then prints "Hello [NAME]"
 
 * Have Fun! Programming is supposed to be fun, try random things, learn from your mistakes, just do your best.
 

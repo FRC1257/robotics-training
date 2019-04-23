@@ -1,3 +1,5 @@
+# Vision Basics
+
 All of the material in this documentation was found at this [link](https://www.youtube.com/watch?v=rLwOkAJqImo) to a youtube video (1:06:39) from Team #254.
 
 # When is Vision Used?
