@@ -6,7 +6,7 @@ We can't fix everything in code, but we can make lives easier.
 
 Example: [254 in 2014](https://www.youtube.com/watch?v=aFZy8iibMD0)
  - Constant intaking to retain game pieces
- - Pathing
+ - Pathing to dominate a game.
 
 ## WPILib
 
@@ -49,14 +49,14 @@ Example: [254 in 2014](https://www.youtube.com/watch?v=aFZy8iibMD0)
    - Arms
    - Elevators
    - Anything remotely complicated (see 254 in 2018)
-     - Multiuse subsystems with many moving parts
+   - Example: [2590 in 2018](https://github.com/Team2590/FRC2590-2018-PostIRI/blob/master/src/org/usfirst/frc/team2590/subsystems/Intake.java)
+     - Multiuse subsystems with many moving parts that need to be interrelated.
  - Subsystems are singletons
    - Can only create one version of something
    - Useful to avoid breaking control flow
    - Avoid having two instances of our code controlling the same hardware
      -  Can lead to very bad bugs
    -  WPILib `Subsystem`s are automatically Singletons
-   - Example: [2590 in 2018](https://github.com/Team2590/FRC2590-2018-PostIRI/blob/master/src/org/usfirst/frc/team2590/subsystems/Intake.java)
 
 ## Collision Avoidance
 
@@ -64,7 +64,7 @@ Using code to make sure subsystems don't collide with each other.
 
 [971 in 2016](https://www.youtube.com/watch?v=CMX4ynSQsyI)
 
-Used code to make sure the arm didn't crush their roboRIO. When their robot was e-stopped, physics took over and crushed their roboRIO.
+Used code to make sure the arm didn't hit their intake or climber while moving other subsystems. If their robot was e-stopped, physics took over and crushed their roboRIO.
 
 ## Iterative/Timed Robot
 
@@ -73,7 +73,9 @@ Used code to make sure the arm didn't crush their roboRIO. When their robot was 
 
 Just a ton of loops. Organization is your responsibility and you have to define your own structure.
 
-Top team use this, because it was the only option available back then and gives more freedom.
+You still can follow "guidelines" to get effective layout without reinventing the wheel.
+
+Top team use Iterative, because it was the only option available when they wrote their robot framework and wanted further functionality that didn't yet exist in WPILib Command as it was still very new.
 
 ## Command-Based
 
@@ -119,8 +121,10 @@ Reusable Code: [Falcon Library](https://github.com/5190GreenHopeRobotics/FalconL
 ## Deploy & Run
 
  - roboRIO is very slow
-   - 256 mb of RAM
+   - 256 MB of RAM
    - Monitor CAN and ethernet bandwidth utilization
+    - High CAN usage can result in super bad behavior.
+    - Fixable by changing status frame intervals (advanced!)
    - Offload tasks off of roboRIO if possible
    - Keep high-bandwith tasks on robot network
  - Work with build and electronics to get a headstart on code for parts not in yet
