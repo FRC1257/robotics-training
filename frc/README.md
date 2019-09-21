@@ -18,6 +18,21 @@ Up until this point, we have been using repl.it. However, to use robot code, we 
 
 It is highly suggested to, if you can, practice robot programming on a real computer. This way, you can see your errors and actually practice building your programs and getting comfortable with the program structure.
 
-## Testing
+## Import Statements
 
-In the past, we could always test your program ASAP. We would just have to hit the run button and the computer would run it. However, with robot code, we will not always have access to the robot. We can always ask for it, but we will have to wait much longer in between tests. As a result, it will be more difficult to test robot code.
+Many times in robot code snippets, I will omit import statements because I either forgot them or I want to save space. You can edit them into the tutorials if you want, but just note that you may have to use your IDE and auto import some stuff.
+
+## Examples
+
+One of the best ways to learn robot programming is to try stuff out and look at a **ton** of examples. Note that if you look at other teams' code, they will do things differently from us, but the general idea and logic behind their code is really good to learn from. Here are a few links to get you started:
+
+- [FRC 1257 2019 Robot - Command](https://github.com/Ryan10145/2019-Robot-Command)
+- [FRC 1257 2018 Robot - Command (Untested)](https://github.com/Ryan10145/2018-Robot-Command)
+- [FRC 340 2018 Robot - Command](https://github.com/Greater-Rochester-Robotics/PowerUp2018-340)
+- [FRC 1923 2019 Robot - Command](https://github.com/Team1923/Destination_Deep_Space_2019)
+- [FRC 1923 2018 Robot - Command](https://github.com/Team1923/Power_Up_2018)
+
+Here are some more advanced examples that use some custom infrastructure:
+
+- [FRC 2590 2018 Robot - Custom Command](https://github.com/Team2590/FRC2590-2018-PostIRI)
+- [FRC 254 2018 Robot - Command](https://github.com/Team254/FRC-2018-Public)
