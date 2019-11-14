@@ -14,7 +14,7 @@ This year, we will be using Java to write our robot code. In the past, we have u
 
 Java programs are usually written in an IDE, or Integrated Development Environment. For robot programming, we'll be using [Visual Studio Code](https://code.visualstudio.com/). However, we cannot install IDEs on Chromebooks, so for now, we will be using an online cloud based IDE called codeanywhere.com.
 
-## repl.it
+## [repl.it](https://repl.it/)
 
 Go to repl.it. Type Java in the center box and click "Java". On the left you will see your files, in the center is your code, and on the right is your code output. You can push the "Run" botton at the top to run your code.
 
