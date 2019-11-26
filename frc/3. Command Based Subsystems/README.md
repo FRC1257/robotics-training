@@ -1,6 +1,6 @@
 # Robot Subsystems
 
-[Basics of Commnad Based](https://wpilib.screenstepslive.com/s/currentCS/m/java/l/599732-what-is-command-based-programming)
+[Guide to Command-Based Robot Programming](http://docs.wpilib.org/en/latest/docs/software/commandbased/index.html)
 
 ## Goals
 

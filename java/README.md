@@ -65,4 +65,4 @@ If you need help, don't feel shy to ask a senior member or the captain about any
 
 ## Typos
 
-If you find any mistakes, tell me or even better, after we learn Git, make an issue and/or pull request on GitHub to notify me of the problem.
+If you find any mistakes, tell me, or even better, after we learn Git, make an issue and/or pull request on GitHub to notify me of the problem.

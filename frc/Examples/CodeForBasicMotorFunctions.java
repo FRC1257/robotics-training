@@ -1,77 +1,74 @@
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.drive.*;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
-public class Robot extends IterativeRobot {
-    // Just Declaring Motors
-  WPI_TalonSRX FrontRight;
-  WPI_TalonSRX FrontLeft;
-  WPI_TalonSRX BackRight;
-  WPI_TalonSRX BackLeft;
-  WPI_TalonSRX Linkage;
-  WPI_TalonSRX Elevator;
-  WPI_TalonSRX Elevator2;
 
+public class Robot extends TimedRobot {
 
-  SpeedControllerGroup Right;
-  SpeedControllerGroup Left;
-  DifferentialDrive DriveTrain;
-  XboxController ControllerDrive;
-  XboxController ControllerOther;
+	// Just Declaring Motors
+	WPI_TalonSRX frontRight;
+	WPI_TalonSRX frontLeft;
+	WPI_TalonSRX backRight;
+	WPI_TalonSRX backLeft;
+	WPI_TalonSRX linkage;
+	WPI_TalonSRX elevator;
+	WPI_TalonSRX elevator2;
 
-  @Override
-  public void robotInit() { FrontRight = new WPI_TalonSRX(1);
-    FrontLeft = new WPI_TalonSRX(0);
-    BackRight = new WPI_TalonSRX(3);
-    BackLeft = new WPI_TalonSRX(2);
-    Linkage = new WPI_TalonSRX(4);
-    Elevator = new WPI_TalonSRX(5);
-    Elevator2 = new WPI_TalonSRX(6);
+	SpeedControllerGroup right;
+	SpeedControllerGroup left;
+	DifferentialDrive drivetrain;
+	XboxController driveController;
+	XboxController operatorController;
 
-    Right = new SpeedControllerGroup(FrontRight, BackRight);
-    Left = new SpeedControllerGroup(FrontLeft, BackLeft);
+	@Override
+	public void robotInit() { 
+		frontLeft = new WPI_TalonSRX(0);
+		frontRight = new WPI_TalonSRX(1);
+		backRight = new WPI_TalonSRX(3);
+		backLeft = new WPI_TalonSRX(2);
+		linkage = new WPI_TalonSRX(4);
+		elevator = new WPI_TalonSRX(5);
+		elevator2 = new WPI_TalonSRX(6);
 
-    DriveTrain = new DifferentialDrive(Left, Right);
+		right = new SpeedControllerGroup(frontRight, backRight);
+		left = new SpeedControllerGroup(frontLeft, backLeft);
 
-    ControllerDrive = new XboxController(0);
-    ControllerOther = new XboxController(1);
-  }
+		drivetrain = new DifferentialDrive(left, right);
 
+		driveController = new XboxController(0);
+		operatorController = new XboxController(1);
 
-  @Override
-  public void teleopInit() {
-  }
+	}
+	@Override
+	public void teleopInit() {
 
+	}
 
-  @Override
-  public void teleopPeriodic() {
-    Elevator.set((-ControllerOther.getTriggerAxis(GenericHID.Hand.kLeft))+(ControllerOther.getTriggerAxis(GenericHID.Hand.kLeft)));
-    Elevator2.set((-ControllerOther.getTriggerAxis(GenericHID.Hand.kLeft))+(ControllerOther.getTriggerAxis(GenericHID.Hand.kLeft)));
-    Linkage.set(ControllerOther.getY(GenericHID.Hand.kLeft)/2);
+	@Override
+	public void teleopPeriodic() {
+		elevator.set((-operatorController.getTriggerAxis(GenericHID.Hand.kLeft))+(operatorController.getTriggerAxis(GenericHID.Hand.kLeft)));
+		elevator2.set((-operatorController.getTriggerAxis(GenericHID.Hand.kLeft))+(operatorController.getTriggerAxis(GenericHID.Hand.kLeft)));
+		linkage.set(operatorController.getY(GenericHID.Hand.kLeft)/2);
 
+		if (driveController.getAButton()) {
+			double y = driveController.getY(GenericHID.Hand.kLeft);
+			double x = driveController.getX(GenericHID.Hand.kLeft);
+			drivetrain.arcadeDrive(-y, x);
+		} else if (driveController.getBumper(GenericHID.Hand.kLeft)) {
+			double y = driveController.getY(GenericHID.Hand.kLeft);
+			double x = driveController.getX(GenericHID.Hand.kRight);
+			drivetrain.arcadeDrive(-y, x);
+		} else if (driveController.getBumper(GenericHID.Hand.kRight)) {
+			double y = driveController.getY(GenericHID.Hand.kRight);
+			double x = driveController.getX(GenericHID.Hand.kLeft);
+			drivetrain.arcadeDrive(-y, x);
+		} else {
+			// intentionally empty
+		}
 
-    if(ControllerDrive.getAButton()) {
-      double y = ControllerDrive.getY(GenericHID.Hand.kLeft);
-      double x = ControllerDrive.getX(GenericHID.Hand.kLeft);
-      DriveTrain.arcadeDrive(-y, x);
-  } else if(ControllerDrive.getBumper(GenericHID.Hand.kLeft)) {
-      double y = ControllerDrive.getY(GenericHID.Hand.kLeft);
-      double x = ControllerDrive.getX(GenericHID.Hand.kRight);
-      DriveTrain.arcadeDrive(-y, x);
-  } else if(ControllerDrive.getBumper(GenericHID.Hand.kRight)) {
-      double y = ControllerDrive.getY(GenericHID.Hand.kRight);
-      double x = ControllerDrive.getX(GenericHID.Hand.kLeft);
-      DriveTrain.arcadeDrive(-y, x);
-  } else {
-      // Nothing
+	}
 
-  }
+	@Override
+	public void testPeriodic() {
 
-  }
-
-  /**
-   * This function is called periodically during test mode.
-   */
-  @Override
-  public void testPeriodic() {
-  }
+	}
 }
