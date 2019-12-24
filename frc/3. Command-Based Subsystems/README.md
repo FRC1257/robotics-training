@@ -1,6 +1,6 @@
 # Robot Subsystems
 
-[Guide to Command-Based Robot Programming](http://docs.wpilib.org/en/latest/docs/software/commandbased/index.html)
+[Read the official documentation of Command-Based programming here.](http://docs.wpilib.org/en/latest/docs/software/commandbased/index.html)
 
 ## Goals
 

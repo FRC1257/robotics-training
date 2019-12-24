@@ -1,6 +1,9 @@
 # FRC Programming
 
-***If you haven't gone through the Java tutorials yet, go through those first***
+***If you haven't gone through the Java tutorials yet, go through those first.***
+
+TODO: 
+- adapt training code to 2020 framework (after release of 2020 WPILib)
 
 ## Libraries
 
