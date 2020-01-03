@@ -1,13 +1,12 @@
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.command.Subsystem;
+import static frc.robot.Constants.*;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-import frc.robot.commands.intake.NeutralCargoCommand;
-
-public class Intake extends Subsystem {
-    
+public class Intake extends SubsystemBase {
+  
     private WPI_VictorSPX intakeMotor;
 
     public enum State {
@@ -18,15 +17,11 @@ public class Intake extends Subsystem {
     private State state = State.EJECTING;
 
     public Intake() {
-        intakeMotor = new WPI_VictorSPX(0);
+        intakeMotor = new WPI_VictorSPX(INTAKE_MOTOR_ID);
     }
 
     @Override
-    public void initDefaultCommand() {
-        setDefaultCommand(new NeutralCargoCommand());
-    }
-
-    public void update() {
+    public void periodic() {
         switch(state) {
             case NEUTRAL:
                 intakeMotor.set(0);
