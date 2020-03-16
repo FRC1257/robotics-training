@@ -16,7 +16,7 @@ WPILib contains a lot of classes that help with managing motors, sensors, and sy
 
 ## Programming Environment
 
-For robot programming, we use something called Visual Studio Code, which offers a lot of features as well as the ability to compile and deploy robot code (if you install the WPILib extension). However, for learning it is essential for people to get as much practice as possible on your own, so if you do not have a computer available we can use direct editing in GitHub with our robot template. We will go over how to make a template project from this in the Basics section.
+For robot programming, we use something called Visual Studio Code, which offers a lot of features as well as the ability to compile and deploy robot code (if you install the WPILib extension). However, for learning it is essential for you to get as much practice as possible on your own, so if you do not have a computer available we can use direct editing in GitHub with our robot template. We will go over how to make a template project from this in the Basics section.
 
 ## Examples
 
