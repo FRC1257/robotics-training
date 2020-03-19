@@ -11,7 +11,9 @@ To program robots, we use a combination of Java and WPILib. Essentially, there i
 WPILib contains a lot of classes that help with managing motors, sensors, and sync your robot. They also give different structures for maintaining the flow of the robot program.
 
 [More Details](https://docs.wpilib.org/en/latest/docs/software/wpilib-overview/what-is-wpilib.html)
+
 [WPILib Documentation](https://docs.wpilib.org/en/latest/index.html)
+
 [Javadocs Documentation](http://first.wpi.edu/FRC/roborio/beta/docs/java/)
 
 ## Programming Environment
