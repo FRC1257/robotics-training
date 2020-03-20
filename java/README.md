@@ -57,7 +57,7 @@ Once we finish these topics, we will go onto robotics programming.
 
 ## Disclaimer
 
-This course teaches you a lot about making programs in Java, but it does not go fully in depth. One major thing is that we do not teach arrays since they are very rarely used in robotics programming. After build season, we might teach this so that people can learn more about the Java language.
+This course teaches you a lot about making programs in Java, but it does not go fully in depth. After build season, we might teach extra things so that people can learn more about the Java language.
 
 ## Help
 
