@@ -1,3 +1,3 @@
 # Rate Limiting
 
-- sorta explain the slew rate limiter and its various applications
+- sorta explain rate limiters (like the slew rate limiter) and various applications
