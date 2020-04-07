@@ -26,13 +26,27 @@ In order to make control more precise, especially at the smaller levels of input
 
 The blue curve represents **"squared input"** (x<sup>2</sup>), and the green curve represents **"cubed input"** (x<sup>3</sup>). We usually settle with just squared input, as cubing is generally a bit too drastic, but at the end of day, it all depends on the mechanism. 
 
-Implementing this in code is pretty simple. When storing joystick input into mechanism output, we could just use `Math.pow(input, 2);` accordingly. 
+Implementing this in code is pretty simple. When transforming joystick input into mechanism output, we could just use:
+
+```java
+Math.pow(input, 2);
+```
+
+*However*, for squared inputs, we need to also reconsider the fact that we can have negative joystick input (i.e. reversed direction). As a solution, we can get the sign of the original input using the `signum()` function and add it to the above:
+
+```java
+Math.signum(input) * Math.pow(input, 2);
+```
+
+This way, the sign is retained for negative input.
+
+More on the Java `signum()` function [here](https://www.tutorialspoint.com/java/lang/math_signum_float.htm).
 
 ## Deadbanding
 
 We'll now move into another topic: deadbanding. This is a process that helps us adjust for any defect in the joysticks themselves that affects controller input. 
 
-One situation where the joystick is inexact might be when it defaults to an input value *slightly* higher than 0, i.e. when no one touches the joystick but it still sends input. While that miniscule input probably won't move a large mechanism, it can definitely be problematic at times. Thus, implementing deadbanding is a good practice.
+A situation where the joystick is inexact would be when it defaults to an input value *slightly* higher or lower than 0, i.e. when no one touches the joystick but it still sends input. While that miniscule input probably won't move a large mechanism, it can definitely be problematic at times. Thus, implementing deadbanding is a good practice.
 
 The general idea is to create what's called a "deadband," or essentially a neutral zone in which we dictate the input to be 0. This helps us avoid that slight "default" input described above. 
 
@@ -48,20 +62,17 @@ The way to implement this in code isn't too difficult. If we let get and store j
 if (abs(input) < deadband) {
     output = 0;
 }
-else {
-    // do nothing, move on without adjustment
-}
 ```
 
 ### Scaled Deadbanding
 
-If you take a look at the basic deadband graph, you'll probably notice how the input jumps drastically up to the corresponding, unadjusted value. While this isn't necessarily *bad*, a substantial amount of precision is lost due to the deadband and that jump in value. If we applied the deadband above to a drivetrain, it would be very difficult to drive at lower speeds. 
+If you take a look at the basic deadband graph, you'll probably notice how the input jumps drastically up to the corresponding, unadjusted value. While this isn't necessarily *bad*, a substantial amount of precision is lost due to the deadband and that value jump. This can be problematic for sensitive mechanisms like arms and elevators that require very precise movement at times.  
 
-The way to avoid this is to *scale* our input outside of the deadband. This would be considered a "better" input system: 
+The way to avoid this jump is to *scale* our input outside of the deadband. This would be considered a "better" input system: 
 
 <img src="img/ScaledDeadband.jpg" width="350px">
 
-Here, the jump from before is completely eliminated, as the input is scaled down once outside of the deadband.  
+Here, the jump from before is completely eliminated, as the input outside of the deadband is scaled down.
 
 Implementing this in code isn't too difficult either, just with some extra math:
 
@@ -78,7 +89,7 @@ More on the Java `signum()` function [here](https://www.tutorialspoint.com/java/
 
 A mathematical explanation from the [source](https://www.chiefdelphi.com/t/joystick-scaling-deadband/355153) cited above:
 
-    Essentially, it is based off of the point slope form Y = M(X - X0) + Y0. However, Y0 is not used
+    Essentially, it is based off of the point-slope form Y = M(X - X0) + Y0. However, Y0 is not used
     because we want the value to start at 0. X0 is the deadband adjusted to be positive or negative
     depending on whether the joystick is in the positive or negative direction. The slope was based
     off of the slope formula, where slope = ( Y2 - Y1 ) / ( X2 – X1 ). Y2 is equal to 1 for achieving 100%
