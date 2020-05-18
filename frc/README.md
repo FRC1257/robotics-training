@@ -20,6 +20,10 @@ WPILib contains a lot of classes that help with managing motors, sensors, and sy
 
 For robot programming, we use something called Visual Studio Code, which offers a lot of features as well as the ability to compile and deploy robot code (if you install the WPILib extension). However, for learning it is essential for you to get as much practice as possible on your own, so if you do not have a computer available we can use direct editing in GitHub with our robot template. We will go over how to make a template project from this in the Basics section.
 
+## About Import Statements
+
+In this section, there will be a lot of `import` statements that pull code from other sections. In some code examples, we may have all of the required `import` statements, in some we may have too many, and in some we may have too few. We won't pay particular attention to this because when we program the robot, peer-review it, and check it, we will have IDEs that can automatically generate these `import` statements.
+
 ## Examples
 
 One of the best ways to learn robot programming is to try stuff out and look at examples. I would strongly recommend that you look at our 2020 code since it is one of the best examples we have of our current programming architecture and style.
