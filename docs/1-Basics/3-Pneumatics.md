@@ -4,7 +4,7 @@
 
 Pneumatic components provide a strong complement to motors and gearboxes for various actuations. Once again, it is our job as programmers to convert the commands of the drive team into physical movement on the robot. 
 
-Reasons to use pneumatics over motors include simplicity, ruggedness, and consistent, fast actuations. However, a disadvantage would be the time it takes to compress air. Actuations will also either be all the way in, or all the way out--this is a consequence of simplicity. This concept should be made more clear in the **Examples** section below. 
+Reasons to use pneumatics over motors include simplicity, ruggedness, and consistent, fast actuations. However, a disadvantage would be the time it takes to compress air. Actuations will also either be all the way in, or all the way out -- this is a consequence of simplicity. This concept should be made more clear in the [Example](#Example) section below.
 
 ## Components
 
@@ -12,7 +12,7 @@ The following section consists of descriptions for the main elements of a basic 
 
 ### Cylinders
 
-<img src="img/cylinder.jpg" width=350> 
+![Cylinder](img/cylinder.jpg ':size=350x224')
 
 Pneumatic cylinders are devices that use compressed gas to perform actuations with linear force--in other words, they can push or pull things. For our purposes, there are two main types of cylinders: single-acting and double-acting.
 
@@ -36,15 +36,15 @@ On the other hand, a double solenoid has two solenoids, and when we apply voltag
 
 ### Compressor & PCM
 
-<img src="img/compressor.jpg" width="200"> <img src="img/pcm.jpg" width="200">
+![Compressor](img/compressor.jpg ':size=200x200') ![PCM](img/pcm.jpg ':size=200x200')
 
 An air compressor gathers the pressurized air needed to power our pneumatic actuations. It is controlled by a pressure switch that tells it to automatically shut-off at certain point in order to conserve battery power. 
 
 The *Pneumatic Control Module* is an electronic interface used to control the compressor, solenoid(s), and pressure switch once it is wired up to the RoboRIO correctly. It can control **eight** single solenoid valves or **four** double solenoid valves.
 
-## Example 
+## Example
 
-<img src="img/intake2056.jpg" width="450">
+![2056 Intake](img/intake2056.jpg ':size=447x300')
 
 (Source: https://www.youtube.com/watch?v=JlKwRAvDue8)
 
@@ -54,7 +54,7 @@ As mentioned above, pneumatic mechanisms are great for linear motion that mainta
 - Two cylinders control the beak (pictured in the center). These two stay extended so that the beak move into a hatch, and then they are retracted in order to open up the beak and hold the hatch. 
 - The whole process is undone to *place* a disc: the beak-cylinders are extended, freeing the panel, and the two larger cylinders on the side are extended to push the panel onto the target. 
 
-This mechanism is an example of how actuations can be only "fully in" or "fully out." The beak cannot be opened midway, opened at certain speed, etc. Overall, though, 2056's intake is a very efficient usage of pneumatic cylinders that allows for consistent actuations. 
+This mechanism is an example of how actuations can be only "fully in" or "fully out." The beak cannot be opened midway, opened at certain speed, etc. Overall, though, 2056's intake is a very efficient usage of pneumatic cylinders that allows for consistent actuations.
 
 <hr>
 
@@ -64,8 +64,10 @@ We can now translate the basics of pneumatics into our robot program. Doing so i
 
 Initializing and commanding solenoids in the program is similar to how we did in the [Motors.md](https://github.com/FRC1257/robotics-training/blob/master/frc/1.%20Basics/3.%20Motors.md) section. Two things must be known before creating our program, however: whether *single* or *double* solenoids are being used, and also the respective ID port numbers on the PCM. Here's what we'll do:
 
-1. `Solenoid solenoid;`, `DoubleSolenoid doubleSolenoid;` - Declare Solenoid and DoubleSolenoid objects
-2. `solenoid = new Solenoid(SINGLE_SOLENOID_ID);`, `doubleSolenoid = new DoubleSolenoid(DOUBLE_SOLENOID_FORWARD, DOUBLE_SOLENOID_REVERSE);` - Initialize the objects with IDs(two IDs for a double solenoid, one each for the forward and reverse channels). Once again, remember that IDs should be constants referenced from `ElectricalLayout` in `Constants.java`.
+- `Solenoid solenoid;` or `DoubleSolenoid doubleSolenoid;`
+  - Declare Solenoid and DoubleSolenoid objects
+- `solenoid = new Solenoid(SINGLE_SOLENOID_ID);` or `doubleSolenoid = new DoubleSolenoid(DOUBLE_SOLENOID_FORWARD, DOUBLE_SOLENOID_REVERSE);` 
+  - Initialize the objects with IDs(two IDs for a double solenoid, one each for the forward and reverse channels). Once again, remember that IDs should be constants referenced from `ElectricalLayout` in `Constants.java`.
 
 Controlling the solenoid is just as simple as controlling a motor:
 
@@ -75,7 +77,7 @@ Controlling the solenoid is just as simple as controlling a motor:
 - `doubleSolenoid.set(Value.kReverse);` - set to "reverse" direction
 - `doubleSolenoid.set(Value.kOff);` - neither channel is activated, hence "off"**
 
-**Note that if we are using three-way solenoids, `Value.kOff` would freeze the cylinder in position at the time. 
+**Note that if we were using three-way solenoids, `Value.kOff` would freeze the cylinder in position at the time.**
 
 <hr>
 

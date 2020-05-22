@@ -15,7 +15,7 @@ First, some clarification:
 
 Motors are widely used throughout most, if not all of our robot's subsystems, e.g. on the drivetrain. At the time of writing, 1257 mainly uses NEO Brushless and NEO 550 motors, by REV Robotics. 
 
-<img src="img/SPARKMAX.png" width="330" height=""> <img src="img/NEOvs550.png" width="330"> 
+![SPARK MAX](img/SPARKMAX.png ':size=330x310') ![NEO 550](img/NEOvs550.png ':size=330x230')
 
 To control these motors and actually manipulate a robot mechanism, we interface with the corresponding motor controllers--this is what we do in code. A NEO-type motor is controlled with a SPARK MAX controller (also by REV Robotics).
 
@@ -43,7 +43,7 @@ For certain subsystems, we'll have multiple motors working in sync. In other wor
 
 `motor1.set(VALUE);` and `motor2.set(VALUE);`
 
-Here, both motor objects are referenced, with one output variable being passed into both. However, this is pretty inefficient. What we can do instead is treat `motor2` as a *secondary* motor and have it **follow** the primary motor:
+Here, both motor objects are referenced, with one output variable being passed into both. However, this is pretty inefficient. What we can do instead is treat `motor2` as a **secondary** motor and have it **follow** the primary motor:
 
 `motor2.follow(motor1);`, `motor1.set(VALUE);`
 
