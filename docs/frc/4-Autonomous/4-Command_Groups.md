@@ -120,7 +120,7 @@ public class TrajTopTrenchAuto extends SequentialCommandGroup {
 
 Not too bad, right? Here's a breakdown:
 
-<img src="img&gif/2020FieldDiagram.jpg" width="600">
+![2020 Field Diagram](img&gif/2020FieldDiagram.jpg)
 
 - We use our `Trajectories.java` generation class and grab two separate paths, one for driving up to the target zone ("Top-Power"), and one for going from the power port to the trench ("Power-Trench"; red trench from this diagram's view). 
 - The "Top-Power" trajectory is passed into `TrajDriveAndShoot`, which is from the previous example; this allows the robot to shoot power cells while following the trajectory. 

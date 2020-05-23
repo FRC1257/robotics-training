@@ -2,7 +2,7 @@
 
 ## Conceptual Aspect
 
-As mentioned before, autonomous is a 15-second period in the beginning of a match where robots can move independent of driver control to score and support their alliance. 
+As mentioned before, autonomous is a 15-second period in the beginning of a match where robots can move independent of driver control to score and prepare for teleop.
 
 **MAIN IDEA: To time-efficiently score as much as possible.**
 
@@ -39,4 +39,4 @@ Here's another great example of a robot (from Team 836, The RoboBees) in autonom
 
 Something that should be noted here is the distinction of complexity in auto. Although these are just three examples taken from three different seasons, it should be clear that robot functionality in autonomous has expanded very much in the past few years. 
 
-While 1257 generally has not reached such a "high" level of functionality in autonomous, we are striving towards it. That's what we're here to do as programmers, after all. In the next sections, you will learn how we manage our drivetrain trajectories for the autonomous period. 
+While 1257 generally has not reached such a "high" level of functionality for autonomous in the past, we are striving towards it. That's part of what we're here to do as programmers, after all. In the next sections, you will learn how we manage our drivetrain trajectories for the autonomous period. 

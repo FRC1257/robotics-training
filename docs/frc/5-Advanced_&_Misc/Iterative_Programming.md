@@ -4,7 +4,7 @@ There *are* alternatives to programming robots in the command-based paradigm. Te
 
 Another substitute is the `iterative` program structure. It's relatively simpler than command-based, and has a few differences that should be noted. 
 
-For now, try to pretend that you *don't* know about command-based; have an open mind, and it should come pretty easily.
+For now, try to pretend that you *don't* know about command-based; have an open mind, and this should come pretty easily.
 
 ## Structure Overview
 
