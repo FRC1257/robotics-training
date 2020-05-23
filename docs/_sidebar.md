@@ -1,3 +1,8 @@
 * [Home](/)
-* [Basics](1-Basics/README_BASICS.md)
+* [java](java/README.md)
+* [frc](frc/README.md)
+* [git](git/README.md)
+* [vision](vision/README.md)
+
+
 
