@@ -1,9 +1,10 @@
-I emailed a copy of the policy to your email/gmail
+* [Home](/)
+* [java](java/README.md)
+* [frc](frc/README.md)
+* [git](git/README.md)
+* [vision](vision/README.md)
+    * [Limelight Essentials](vision/Limelight_Essentials.md)
+    * [Vision Basics](vision/Vision_Basics.md)
 
-I was wrong about something I said yesterday, please note that we DO 
 
-we will visit your home for pictures ofhthe exterior
 
-we will call you around the time of the inspection for information about the interior of the house
-
-our procedure is modified

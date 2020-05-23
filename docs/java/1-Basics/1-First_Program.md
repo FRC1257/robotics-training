@@ -5,16 +5,18 @@
 All of our Java programs will have a similar basic structure. This structure is explained below. For now, we will be focusing on single file programs. This one in particular will be called `Main.java`. In codeanywhere.com, you can right click the project name and click `Create File` to make a file. Make sure you end it with `.java` to make it a Java program.
 
 ```java
+
 public class Main {
     public static void main(String[] args) {
 
     }
 }
+
 ```
 
-The above is essentially the template that will make up all of your programs. Essentially, a program is like a list of instructions, and all of these instructions are placed inside of the highlighted area below:
+The above is essentially the template that will make up all of your programs. Essentially, a program is like a list of instructions, and all of these instructions are placed inside of the labeled area below:
 
-TODO PUT PICTURE OF HIGHLIGHTED MAIN {} HERE
+![Highlighted Main](HighlightedMain.png ':size=425x120')
 
 Here, we can put commands and logic that will make our program actually do stuff. Don't worry too much about the stuff around it. All of that is just structural stuff that you don't have to be concerned with right now.
 
