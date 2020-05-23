@@ -1,18 +1,16 @@
 # Java
 
-## Programming Language
+This year, we will be using Java to write our robot code. We have used C++ in the past, but made the decision to switch to Java. Here are a few references:
 
-This year, we will be using Java to write our robot code. We have used C++ in the past, but made the decision to switch to Java.
-
-* [Reference TutorialsPoint](https://www.tutorialspoint.com/java/java_basic_datatypes.htm)
-* [Reference Princeton](https://introcs.cs.princeton.edu/java/home/)
-* [More Advanced Reference](https://docs.oracle.com/javase/tutorial/java/index.html)
+* [TutorialsPoint](https://www.tutorialspoint.com/java/java_basic_datatypes.htm)
+* [Princeton](https://introcs.cs.princeton.edu/java/home/)
+* [More Advanced Reference (Oracle)](https://docs.oracle.com/javase/tutorial/java/index.html)
 * [Exercises](http://programmingbydoing.com/)
 * [Cheatsheet](https://introcs.cs.princeton.edu/java/11cheatsheet/)
 
 ## IDEs
 
-Java programs are usually written in an IDE, or Integrated Development Environment. For robot programming, we'll be using [Visual Studio Code](https://code.visualstudio.com/). However, we cannot install IDEs on Chromebooks, so for now, we will be using an online cloud based IDE called codeanywhere.com.
+Java programs are usually written in an IDE, or Integrated Development Environment. For robot programming, we'll be using the text editor [Visual Studio Code](https://code.visualstudio.com/). However, we cannot install IDEs on Chromebooks, so for now, we will be using an online cloud based IDE called repl.it.
 
 ## [repl.it](https://repl.it/)
 
