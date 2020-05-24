@@ -1,8 +1,5 @@
 * [Home](/)
-* [java](java/README.md)
-* [frc](frc/README.md)
-* [git](git/README.md)
-* [vision](vision/README.md)
-
-
-
+* [Java](java/README.md)
+* [FRC](frc/README.md)
+* [Git / GitHub](git/README.md)
+* [Vision](vision/README.md)

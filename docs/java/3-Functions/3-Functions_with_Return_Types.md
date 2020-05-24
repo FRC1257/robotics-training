@@ -19,7 +19,6 @@ In this case, `return5()` will `return` the value of `5` back to whatever called
 
 You can think of it as simply taking whatever the function returns and directly replacing the original function call with that value.
 
-
 ```java
 public static void main(String[] args) {
     System.out.println(5); // prints 5
@@ -27,7 +26,6 @@ public static void main(String[] args) {
 ```
 
 This function we have included is not that great, since it just returns a static constant. However, let's spice things up a bit by implementing a function that squares a number.
-
 
 ```java
 public static int square(int number) {

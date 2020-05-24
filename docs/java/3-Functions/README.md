@@ -1,4 +1,4 @@
-# Functions
+# Functions {docsify-ignore-all}
 
 ## Goals
 

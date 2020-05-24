@@ -1,7 +1,7 @@
-# Closed Loop Control
+# Closed Loop Control {docsify-ignore-all}
 
 ## Goals
 
 - Learn the basic principles of closed-loop control
-- Learn about PID, feedforward, and their applications
-- Be introduced to motion profiling and its applications
+- Learn about position PID, feedforward, velocity PID, and their applications
+- Learn about motion profiling and its applications

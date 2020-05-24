@@ -1,4 +1,4 @@
-# robotics-training
+# Robotics Training
 
 Team 1257's repository for training new members.
 

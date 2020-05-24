@@ -18,17 +18,17 @@ Auto routines will be programmed in the form of commands, and therefore should g
 
 Here are a few examples of really riveting, top-tier autonomous robot performances.
 
-![254 Barrage Reveal](img&gif/254barrageReveal.gif) [Source](https://www.youtube.com/watch?v=aFZy8iibMD0)
+![254 Barrage Reveal](img/254barrageReveal.gif) [Source](https://www.youtube.com/watch?v=aFZy8iibMD0)
 
 Team 254 (The Cheesy Poofs) had a very consistent autonomous in 2014 that allowed them to score the maximum amount of game pieces. While their s-curve trajectory looks simple for today, it was revolutionary for a robot in 2014. The complexity also lies in their ability to hold the three balls and shoot them both quickly and reliably. 
 
-![254 Einstein Final 2](img&gif/254autoEinstein.gif) [Source](https://www.youtube.com/watch?v=pfhBCb6bXpE)
+![254 Einstein Final 2](img/254autoEinstein.gif) [Source](https://www.youtube.com/watch?v=pfhBCb6bXpE)
 
 254 went undefeated in the 2018 season, and the capability shown here is partly why. Autonomous was the main focal point of the 2018 game (Power Up), and paying deep attention to it clearly paid well for the team. 254 achieved their three/four-cube autos very frequently, which gave them a head start over the opponents in nearly every match played.
 
 It's honestly a prime example for robot control as well--just admire the sleekness of their robot's mechanism movement and their fluid trajectory following. 
 
-![836 11 Ball Auto](img&gif/836auto11ball.gif) [Source](https://www.youtube.com/watch?v=5bxq2N02pJM&feature=youtu.be)
+![836 11 Ball Auto](img/836auto11ball.gif) [Source](https://www.youtube.com/watch?v=5bxq2N02pJM&feature=youtu.be)
 
 Here's another great example of a robot (from Team 836, The RoboBees) in autonomous. A few things:
 - While they went for a more complex drivetrain (not the common tank drive), they definitely use it to its full potential; moving sideways made intaking a lot easier for this robot.

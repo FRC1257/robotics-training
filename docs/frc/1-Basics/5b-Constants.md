@@ -69,8 +69,6 @@ public final class Constants {
 
     // Other global/misc. constants such as current limits or pi
 }
-
-
 ```
 
 Let's break down the file structure:

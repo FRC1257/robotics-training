@@ -1,4 +1,4 @@
-# Conditionals
+# Conditionals {docsify-ignore-all}
 
 ## Goals
 

@@ -21,7 +21,7 @@ This is FRC 1257's general guide for code formatting. We use this set of formatt
 
 ```java
 if(a + b < 4) {
-      // Do stuff
+    // Do stuff
 }
 ```
 
@@ -33,9 +33,9 @@ if(a + b < 4) {
   
 ```java
 public class Main {
-      
-      int i = 0;
-      // more stuff
+
+    int i = 0;
+    // more stuff
 }
 ```
 
@@ -48,6 +48,7 @@ public class Main {
 - There should be a block comment for each state enum that explains what each state is
 - Comments for variables and explaining what a bit of code does can be in single line comments
 - Formatting for block comments:
+
 ```java
 /**
  * Text goes here

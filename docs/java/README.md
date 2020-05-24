@@ -1,4 +1,4 @@
-# Java
+# Java {docsify-ignore-all}
 
 This year, we will be using Java to write our robot code. We have used C++ in the past, but made the decision to switch to Java. Here are a few references:
 

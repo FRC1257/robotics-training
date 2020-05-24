@@ -54,7 +54,8 @@ where the type of the displayed options is specified between the <>.
 
 Now, let's jump to the method `configureAutoChoosers()`. Just as it says in the name, we'll set up our `SendableChooser`s and actually display the options. Here's what to do:
 
-- initialize objects first:
+- Initialize objects first:
+
 ```java
 autoTypeChooser = new SendableChooser<>();
 autoPositionChooser = new SendableChooser<>();
@@ -62,8 +63,8 @@ autoGoalChooser = new SendableChooser<>();
 ```
 
 - actually connect the enum states to the choosers (using `setDefaultOption()` and `addOption()`) 
-    - Here, we set default options as fall-throughs. Top would probably be our default starting position in a real competition for this game (easiest path for us to follow), so we set that accordingly. 
-    - The "Default Drive" option is for a basic driving auto moving the robot off the starting line--this is a backup in case any mechanisms are broken.
+  - Here, we set default options as fall-throughs. Top would probably be our default starting position in a real competition for this game (easiest path for us to follow), so we set that accordingly.
+  - The "Default Drive" option is for a basic driving auto moving the robot off the starting line--this is a backup in case any mechanisms are broken.
 
 ```java
 autoTypeChooser = new SendableChooser<>();
@@ -129,14 +130,14 @@ if (type == AutoType.TRAJECTORY) {
     return new DriveDistanceCommand(drivetrain, 2);
 ```
 
-Here's a breakdown: 
-- The selected options are locally stored using `getSelected()` on each of the choosers.
-- We then check the entered auto type (segmented vs. trajectory) 
-    - If it is segmented, we use a switch statement on the starting position to return the correct auto (since for the segmented autos, the ending position is always the same)
-- We follow a similar process for the trajectory autos, instead using a switch on the `AutoGoal`. *Then*, within each `case` statement, we check the starting position, and return the right command. 
-    - Note that if the starting position is bottom, we automatically return the bottom auto (it was decided that we wouldn't drive away from the power port if we started at the bottom, thus, no need to check the `AutoGoal`).
-- Finally, if *nothing* is selected, or if the `DEFAULT` goal is selected for `AutoType.TRAJECTORY`, the default `DriveDistanceCommand` is returned. Once again, this acts as a fall-through in case of a Shuffleboard error or if the drive team forgets to click.
+Here's a breakdown:
 
+- The selected options are locally stored using `getSelected()` on each of the choosers.
+- We then check the entered auto type (segmented vs. trajectory)
+  - If it is segmented, we use a switch statement on the starting position to return the correct auto (since for the segmented autos, the ending position is always the same)
+- We follow a similar process for the trajectory autos, instead using a switch on the `AutoGoal`. *Then*, within each `case` statement, we check the starting position, and return the right command.
+  - Note that if the starting position is bottom, we automatically return the bottom auto (it was decided that we wouldn't drive away from the power port if we started at the bottom, thus, no need to check the `AutoGoal`).
+- Finally, if *nothing* is selected, or if the `DEFAULT` goal is selected for `AutoType.TRAJECTORY`, the default `DriveDistanceCommand` is returned. Once again, this acts as a fall-through in case of a Shuffleboard error or if the drive team forgets to click.
 
 Thus, `RobotContainer.java` will look like this (imports/irrelevant content omitted for brevity):
 
@@ -231,7 +232,7 @@ We're almost finished! All we have to do now is call the autos correctly in `Rob
 ...
 
 public class Robot extends TimedRobot {
-    
+
     private RobotContainer robotContainer;
     private Command autoCommand;
 
@@ -277,7 +278,7 @@ Here's what happens:
 - First, we create a variable `Command autoCommand;` inside `Robot.java`.
 - In `autonomousInit()`, we use `autoCommand = robotContainer.getAutoCommand();`
 - If `autoCommand` is not `null` (which it never should be, since we always return either a selected or default command), we immediately schedule it with `autoCommand.schedule();`, thereby executing the auto.
-- Finally, in `teleopInit()`, we check again whether autoCommand has a value; if it does, we call `autoCommand.cancel();` and move into teleop. 
+- Finally, in `teleopInit()`, we check again whether autoCommand has a value; if it does, we call `autoCommand.cancel();` and move into teleop.
 
 <hr> 
 

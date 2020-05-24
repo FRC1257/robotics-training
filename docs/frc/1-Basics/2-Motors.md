@@ -4,7 +4,7 @@ Now that we've gone over formatting and other soft details, it's time to dive in
 
 ## Terminology
 
-An actuator is defined as "a component of a machine that is responsible for moving and controlling a mechanism or system." For our purposes, we need only consider *motors* and *pneumatics*. 
+An actuator is defined as "a component of a machine that is responsible for moving and controlling a mechanism or system." For our purposes, we need only consider *motors* and *pneumatics*.
 
 Our robot is essentially entirely made up of motors. All moving components are controlled by motors or pneumatics, and our job as programmers is to figure out how to convert drive team input into the robot actually doing its job. For instance, programming can make sure that certain motors move when drive team pushes buttons or joysticks on a game controller.
 
@@ -13,7 +13,7 @@ First, some clarification:
 - *motor* - the actual physical part that spins
 - *motor controller* - facilitator that takes in and sends signal to control the motor accordingly
 
-Motors are widely used throughout most, if not all of our robot's subsystems, e.g. on the drivetrain. At the time of writing, 1257 mainly uses NEO Brushless and NEO 550 motors, by REV Robotics. 
+Motors are widely used throughout most, if not all of our robot's subsystems, e.g. on the drivetrain. At the time of writing, 1257 mainly uses NEO Brushless and NEO 550 motors, by REV Robotics.
 
 ![SPARK MAX](img/SPARKMAX.png ':size=330x310') ![NEO 550](img/NEOvs550.png ':size=330x230')
 
@@ -21,9 +21,9 @@ To control these motors and actually manipulate a robot mechanism, we interface 
 
 ## Setup & Control
 
-We need to do a couple of things in our program before actually controlling a motor: 
+We need to do a couple of things in our program before actually controlling a motor:
 
-1. `CANSparkMax motor;` - Declare a SPARK MAX motor controller 
+1. `CANSparkMax motor;` - Declare a SPARK MAX motor controller
 2. `motor = new CANSparkMax(MOTOR_ID, MotorType.kBrushless);` - Initialize the object with an ID and set it to interface with a Brushless motor**
 3. `motor.setIdleMode(IdleMode.kBrake);` - Set the motor to "brake" mode
 4. `motor.setSmartCurrentLimit(80);` - Set a current limit of 80 amps to the motor

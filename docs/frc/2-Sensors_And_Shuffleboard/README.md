@@ -1,6 +1,6 @@
-# Sensors & Shuffleboard
+# Sensors & Shuffleboard {docsify-ignore-all}
 
 ## Goals
 
 - Learn about and how to use robot sensors
-- Be introduced to Shuffleboard and its applications
+- Learn about how to display data and tune constants with Shuffleboard
