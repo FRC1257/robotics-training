@@ -1,5 +1,5 @@
 # Limelight Essentials
-## Here could be found notes about the limelight about common mistakes that could occur. Learn from 2019's problems so we do not repeat them in the future!
+## Here are notes about common mistakes that could occur with the Limelight. Learn from 2019's problems so we do not repeat them in the future!
 
 * Updating the limelight
   * The computer will not detect the limelight with the usb software if you do not follow these steps!
