@@ -1,0 +1,114 @@
+# Inheritance
+
+Before, we discussed a multitude of different types of objects. For instance, we had books, cars, people, etc. Now what if we had the following objects: Doctor, Worker, Dentist, Librarian, Student, Teacher, etc. What do all of these objects share in common? They're all `People` with names, ages, and abilities (walking, talking). As a result, when we define all of these objects, we have to include all of these. However, this gets tiring quickly. To make this easier, we can use a property known as **inheritance**.
+
+## Extends
+
+Here is a basic Person class.
+
+```java
+public class Person
+{
+    String m_name;
+    int m_age;
+
+    Person(String name, int age)
+    {
+        m_name = name;
+        m_age = age;
+    }
+
+    void walk()
+    {
+        System.out.println("Person " + name + " is walking.");
+    }
+}
+```
+
+Without inheritance, if we wanted to add a Doctor and a Librarian, we would have to do the following:
+
+```java
+public class Doctor
+{
+    String m_name;
+    int m_age;
+    String m_field;
+
+    Doctor(String name, int age, String field)
+    {
+        m_name = name;
+        m_age = age;
+        m_field = field;
+    }
+
+    void walk()
+    {
+        System.out.println("person " + name + " is walking.");
+    }
+}
+```
+
+```java
+public class Librarian
+{
+    String m_name;
+    int m_age;
+    String m_libraryName;
+
+    Librarian(String name, int age, String libraryName)
+    {
+        m_name = name;
+        m_age = age;
+        m_libraryName = libraryName;
+    }
+
+    void walk()
+    {
+        System.out.println("Person  " + name + " is walking.");
+    }
+}
+```
+
+Notice that we are repeating code. Both `Doctor` and `Librarian` are `People`, and therefore have `m_name` and `m_age`. Imagine if we had 100 different types of people! This would be a lot of repeated code. And what if we had to change `Person` to also include their id? Then we would have to change 100 other files besides `Person.java`. To show this relationship between `Doctor` and `People` (as well as `Librarian` and `People`), we use something called **`inheritance`**.
+
+To represent that Object A **IS** a Object B, we use the Java word **`extends`**.
+
+```java
+public class Doctor extends Person
+{
+    String m_field;
+
+    Doctor(String name, int age, String field)
+    {
+        super(name, age);
+        m_field = field;
+    }
+}
+```
+
+```java
+public class Librarian extends Person
+{
+    String m_libraryName;
+
+    Librarian(String name, int age, String libraryName)
+    {
+        super(name, age);
+        m_libraryName = libraryName;
+    }
+}
+```
+
+Ok, let's break down what just happened. Everything that we had before, that was part of `Person`, we no longer need to include in `Doctor` and `Librarian`. Instead, **`extends`** will take care of it for us and put all of that stuff inside of `Doctor` and `Librarian`. For instance, the following will still work:
+
+```java
+public static void main(String[] args)
+{
+    Doctor doctor = new Doctor("Mike", 31, "Computer Science");
+    System.out.println(doctor.m_age);
+}
+```
+
+The `m_age` variable is **`inherited`** from `Person`. The same can be said for functions. With this method, we can make more powerful and flexible program structures.
+
+Next, the thing that is probably unfamiliar is the line `super(name, age)`. What this does is that it calls the parent class' constructor (in this case, it's `Person`'s constructor) with the arguments provided. Essentially, `super()` is just a keyword to call the parent class` version of that method.

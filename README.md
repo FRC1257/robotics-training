@@ -1,13 +1,7 @@
-# robotics-training
+# Robotics Training
 
 Team 1257's repository for training new members.
 
-## Folders
+View the formatted documentation [here](https://frc1257.github.io/robotics-training/#/)
 
-- `java` - Java programming language tutorial for robotics programming (DISCLAIMER: Does not fully teach you the language or enough for the AP Computer Science curriculum. Teaches you enough to effectively program the robot)
-
-- `frc` - WPILib tutorials for FRC programming of robots
-
-- `git` - Git/GitHub tutorials for version control and accessing code
-
-- `vision` - Notes for using vision
+Documentation generated with [Docsify](https://docsify.js.org/)
