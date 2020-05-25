@@ -22,7 +22,7 @@ Go to this link:
 
 Follow the appropriate directions for your operating system. For the `Download VS Code` section, click the `Download` button. Afterwards, you should see WPILib VS Code icon on your desktop.
 
-### Important: Make sure you move the installer from the .zip file or else the installation of VS Code will not work**
+**Important: Make sure you move the installer from the .zip file or else the installation of VS Code will not work**
 
 ### Installing GitHub Desktop
 

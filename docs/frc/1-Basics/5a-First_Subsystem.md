@@ -107,23 +107,23 @@ public class RollerIntake extends SnailSubsystem {
 
 The first part of the code is basic setup that imports a bunch of necessary lines for controlling `SPARK MAX` motors, and then creates the class that will hold the rest of our code for the subsystem. We will go over some of the crucial details of this, although most of what we have so far is just creating function outlines that we can fill in later.
 
-### `public enum State`
+### enum State
 
 The first chunk of code is when an enum called `State` is declared. If you need a refresher on enums, go to our [enums page](https://github.com/FRC1257/robotics-training/blob/Ethan-Subsystem/java/2.%20Control-Flow/7.%20Enums.md). This enum is essentially a custom data structures that could be any of the **possible** states that our subsystem could be in.
 
-### `public RollerIntake()`
+### RollerIntake()
 
 This is the constructor for the subsystem, where things like motor controllers, their settings, sensors, and extra variables are defined here.
 
-### `public void update()`
+### update()
 
 This function is responsible for making the robot do things based off of the subsystem's current state. For example, this function could make a motor spin inwards to suck a ball into the robot if the state variable were set to the value `INTAKING`. This function is run by the robot 100 times per second at the moment during a match, so it is very responsive.
 
-### `public State getState()`
+### getState()
 
 This function is very self-explanatory; it simply returns the state of the robot. That can be very useful when the state needs to be accessed from another file.
 
-### All Other Functions
+### Other Functions
 
 We will go over other functions related to extra functionality, such as outputting data, another time. For now, we **must** define them, but we can just leave them blank.
 

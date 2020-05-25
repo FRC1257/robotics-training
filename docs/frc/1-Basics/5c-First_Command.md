@@ -140,7 +140,7 @@ public void update() {
 }
 ```
 
-### Note
+### Other Commands
 
 If we were writing, for instance, `RollerIntakeEjectCommand` or `RollerIntakeNeutralCommand`, they would look nearly identical to `RollerIntakeIntakeCommand`. The only major change would be in `execute()`, with either `rollerIntake.eject()` or `rollerIntake.neutral()`.
 

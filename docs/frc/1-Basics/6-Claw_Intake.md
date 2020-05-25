@@ -4,8 +4,6 @@ Now that you know how to make a subystem and its supporting files we are going o
 
 ## Subsystem Overview
 
-### Picture Explanation
-
 ![openClaw](img/openClaw.jpeg) ![closedClaw](img/closedClaw.jpeg)
 
 Above is a basic claw like stucture that may be encountered. This claw has only one cylinder controlled by a solenoid to open and close it. In this specific claw, when the cylinder extends, the claw closes. There are many other claws that maybe used. For example, there may be a claw with pistons on both sides like team 1257's 2018 robot.

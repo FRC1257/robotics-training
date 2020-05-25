@@ -70,19 +70,19 @@ public class RobotContainer {
 }
 ```
 
-### `RobotContainer()`
+### RobotContainer()
 
 This is the constructor for the class. The `SnailController`s, the subsystems, and their default commands are defined here. The main purpose of the constructor is just to call some of our other subfunctions which will each do different things.
 
-### `configureSubsystems()`
+### configureSubsystems()
 
 This function is where we will create instances of all of our subsystems and define some things about them such as default commands. There is some extra code here, but you don't have to worry too much about it for now. We will mainly work in this function and the next one.
 
-### `configureButtonBindings()`
+### configureButtonBindings()
 
 This function is where all the button bindings actually happen, and is where we'll mainly work alongside the previous function in this lesson. In other words, we add functionality such that a button press will call a specific command.
 
-### Others
+### Other Functions
 
 There are more functions, but we will cover them later when we go over advanced topics such as diagnostic data and autonomous mode.
 

@@ -46,11 +46,9 @@ You don't have to worry about these intricacies with `CommandScheduler` however 
 
 ## Flowchart
 
-To help break down the entire system and make it easier to understand, we've created a flowchart for the general structure of the robot code. If the flowchart below doesn't load, [press here](https://drive.google.com/file/d/14_5zEcy0pHjJd9FZBrlYS0tvzkuuFQxd/view?usp=sharing) to view it. 
+To help break down the entire system and make it easier to understand, we've created a flowchart for the general structure of the robot code. If the flowchart below doesn't load, [press here](https://drive.google.com/file/d/14_5zEcy0pHjJd9FZBrlYS0tvzkuuFQxd/view?usp=sharing) to view it.
 
 The blue sections are sections that WPILib handles for us, while the orange/yellow sections are sections that we don't necessarily need to program **entirely** ourselves, but we need to have a bit of code to handle them.
-
-### Orange Sections
 
 | Flowchart Box | Our Responsibility |
 | :-: | :-: |
