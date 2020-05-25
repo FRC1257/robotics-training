@@ -4,7 +4,7 @@ When we use hardware from a third-party source, we need to place what are called
 
 A prime example of such hardware would be a motor controller (see [Motors](https://github.com/FRC1257/robotics-training/blob/master/frc/1.%20Basics/2.%20Motors.md) for more detail). Say we are using a SPARK MAX controller from REV Robotics--in order for the controller to actually function, we need to get the vendor dependency (a `.json` file) from REV Robotics' [website](http://www.revrobotics.com/sparkmax-software/).
 
-## Installing 
+## Installing
 
 The following steps for managing vendor dependencies **online** can be found on that site:
 
@@ -13,14 +13,14 @@ The following steps for managing vendor dependencies **online** can be found on 
 3. Select **Manage Vendor Libraries**.
 4. Select **Install new library (online)**.
 5. Enter the following installation URL and press ENTER:
-http://www.revrobotics.com/content/sw/max/sdk/REVRobotics.json
+`http://www.revrobotics.com/content/sw/max/sdk/REVRobotics.json`
 
-If you are managing vendor dependencies **offline**, you must: 
+If you are managing vendor dependencies **offline**, you must:
 
 1. Download and unzip the latest SPARK MAX C++ API into the C:\Users\Public\wpilib\2020 directory on windows and ~/wpilib/2020 directory on Unix systems.
 2. Follow the [Adding an offline-installed Library](https://docs.wpilib.org/en/latest/docs/software/wpilib-overview/3rd-party-libraries.html) instructions from WPI.
 
-Similar steps can be followed with other devices, such as the [Talon SRX motor controller](https://phoenix-documentation.readthedocs.io/en/latest/ch05a_CppJava.html) and [navX-MXP gyroscope](https://pdocs.kauailabs.com/navx-mxp/software/roborio-libraries/java/). 
+Similar steps can be followed with other devices, such as the [Talon SRX motor controller (or other motor controllers from CTRE)](https://phoenix-documentation.readthedocs.io/en/latest/ch05a_CppJava.html) and [navX-MXP gyroscope](https://pdocs.kauailabs.com/navx-mxp/software/roborio-libraries/java/).
 
 ## Updating
 

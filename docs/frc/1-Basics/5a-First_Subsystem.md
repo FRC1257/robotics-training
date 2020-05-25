@@ -22,7 +22,7 @@ For this tutorial, we'll assume that a SPARK MAX motor controller was used to co
 
 ## Flowchart
 
-Before we get into going over the code, we're going to review a flowchart of our code. If the flowchart does not load, please [press here](https://drive.google.com/file/d/1OdYeyfamvG7weoWkQY1DDX4__NVKelgm/view?usp=sharing) to view a copy of it.
+Before we get into going over the code, we're going to review a flowchart of our code and generally how the subsystem will fit into the command-based model. Make sure you zoom in to see the details. If the flowchart does not load, please [press here](https://drive.google.com/file/d/1OdYeyfamvG7weoWkQY1DDX4__NVKelgm/view?usp=sharing) to view a copy of it.
 
 The green sections will be handled by our subsystem class, while the red sections will be handled by the `RobotContainer` file.
 
@@ -32,7 +32,7 @@ Now that we have the basics out of the way, it's time to start coding!
 
 ## Snail Subsystem
 
-Before we make our file that represents the subsystem in code, there is one file in our template which is essential: `SnailSubsystem.java`. This file is an abstract class that each subsystem class extends to gain key abstract functions. For a refresh on what abstract classes are and their uses, go to our [Polymorphism page](https://github.com/FRC1257/robotics-training/blob/Ethan-Subsystem/java/4.%20Objects/6.%20Polymorphism.md).
+Before we make our file that represents the subsystem in code, there is one file in our template which is essential: `SnailSubsystem.java`. This file is an abstract class that each subsystem class must extend to be recognized as a subsystem in our code. For a refresh on what abstract classes are and their uses, go to our [Polymorphism page](https://github.com/FRC1257/robotics-training/blob/Ethan-Subsystem/java/4.%20Objects/6.%20Polymorphism.md).
 
 Here is a copy of the `SnailSubsystem` code:
 
