@@ -18,11 +18,21 @@ Now that we have an idea of how subsystems are structured in code, let's look at
 
 Pictured above is the intake from 1257's robot for 2019's Destination: Deep Space. The green wheels are connected to a single motor and motor controller combination. That motor can spin inwards to take in cargo balls, and then eject the balls by spinning outward. While the ball is *within* the intake, we will keep it in place by spinning the wheels at a small, neutral speed.
 
-For this tutorial, we'll assume that a SPARK MAX was used. Now that we have the basics out of the way, it's time to start coding!
+For this tutorial, we'll assume that a SPARK MAX motor controller was used to control our motor.
+
+## Flowchart
+
+Before we get into going over the code, we're going to review a flowchart of our code and generally how the subsystem will fit into the command-based model. Make sure you zoom in to see the details. If the flowchart does not load, please [press here](https://drive.google.com/file/d/1OdYeyfamvG7weoWkQY1DDX4__NVKelgm/view?usp=sharing) to view a copy of it.
+
+The green sections will be handled by our subsystem class, while the red sections will be handled by the `RobotContainer` file.
+
+<iframe frameborder="0" style="width:100%;height:343px;" src="https://app.diagrams.net/?lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=Roller%20Intake%20Flowchart.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1OdYeyfamvG7weoWkQY1DDX4__NVKelgm%26export%3Ddownload"></iframe>
+
+Now that we have the basics out of the way, it's time to start coding!
 
 ## Snail Subsystem
 
-Before we make our file that represents the subsystem in code, there is one file in our template which is essential: `SnailSubsystem.java`. This file is an abstract class that each subsystem class extends to gain key abstract functions. For a refresh on what abstract classes are and their uses, go to our [Polymorphism page](https://github.com/FRC1257/robotics-training/blob/Ethan-Subsystem/java/4.%20Objects/6.%20Polymorphism.md).
+Before we make our file that represents the subsystem in code, there is one file in our template which is essential: `SnailSubsystem.java`. This file is an abstract class that each subsystem class must extend to be recognized as a subsystem in our code. For a refresh on what abstract classes are and their uses, go to our [Polymorphism page](https://github.com/FRC1257/robotics-training/blob/Ethan-Subsystem/java/4.%20Objects/6.%20Polymorphism.md).
 
 Here is a copy of the `SnailSubsystem` code:
 
@@ -188,6 +198,8 @@ After declaring the states that the motor would be in, the motor controller is d
 
 4. Lastly, we set the current limit. If a motor experiences too much current it could get seriously damaged. This line of code is absolutely necessary to prevent that risk.
 
+For the flowchart, this section corresponds to the first step: "Create the roller intake subsystem with all of its motors." 
+
 ### Update Function
 
 ```java
@@ -209,7 +221,9 @@ After declaring the states that the motor would be in, the motor controller is d
     ...
 ```
 
-Once both the states and the motor controllers are declared, we can create the `update()` function q. Its main purpose is to look at the current state via the `state` variable and run the corresponding action. To determine the task based off the state, a `switch()` statement is used in conjunction with the enum. For a roller intake, the motor's speed is set to the appropriate values according to the state.
+Once both the states and the motor controllers are declared, we can create the `update()` function. Its main purpose is to look at the current state via the `state` variable and run the corresponding action. To determine the task based off the state, a `switch()` statement is used in conjunction with the enum. For a roller intake, the motor's speed is set to the appropriate values according to the state.
+
+With the flowchart, this section corresponds to the entire right green section, where we check the state and set the according motor speed.
 
 ### Making Methods To Trigger State Changes
 
@@ -293,7 +307,7 @@ public class RollerIntake extends SnailSubsystem {
     public void intake() {
         state = State.INTAKING;
     }
-    
+
     @Override
     public void displayShuffleboard() {
 

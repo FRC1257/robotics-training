@@ -46,7 +46,7 @@ case NEUTRAL:
 
 Now, instead of guessing what 0.0 means (speed, port, some mode), the reader will easily understand that it pertains to the speed during the neutral state.
 
-## The `Constants.java` File
+## The Constants File
 
 Above, we briefly showed how to use the constants in code. Now we will get to making the variables for constants in `Constants.java`. Below is the basic layout:
 

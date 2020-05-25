@@ -8,7 +8,7 @@
     * [1d. Vendor Dependencies](frc/1-Basics/1d-Vendor_Dependencies.md)
     * [2. Motors](frc/1-Basics/2-Motors.md)
     * [3. Pneumatics](frc/1-Basics/3-Pneumatics.md)
-    * [4. Command-Based](frc/1-Basics/4-CommAnd_Based.md)
+    * [4. Command-Based](frc/1-Basics/4-Command_Based.md)
     * [5a. First Subsystem (Roller Intake)](frc/1-Basics/5a-First_Subsystem.md)
     * [5b. Constants](frc/1-Basics/5b-Constants.md)
     * [5c. First Command](frc/1-Basics/5c-First_Command.md)

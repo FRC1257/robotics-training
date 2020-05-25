@@ -41,3 +41,24 @@ public class Robot extends TimedRobot {
     ...
 }
 ```
+
+You don't have to worry about these intricacies with `CommandScheduler` however since they are already included in our Snail-Robot-Template repository, but it is useful to know what is going on in here.
+
+## Flowchart
+
+To help break down the entire system and make it easier to understand, we've created a flowchart for the general structure of the robot code. If the flowchart below doesn't load, [press here](https://drive.google.com/file/d/14_5zEcy0pHjJd9FZBrlYS0tvzkuuFQxd/view?usp=sharing) to view it. 
+
+The blue sections are sections that WPILib handles for us, while the orange/yellow sections are sections that we don't necessarily need to program **entirely** ourselves, but we need to have a bit of code to handle them.
+
+### Orange Sections
+
+| Flowchart Box | Our Responsibility |
+| :-: | :-: |
+| Are there any subsystems with finished commands? | Define when our commands will be finished (could be custom or just button released) |
+| End the command on the subsystem | Define what happens when the command ends (could be nothing) |
+| Are there any new commands called? | Define when commands should be called (could be button presses) |
+| Initialize the new command on the required subsystem | Define what happens when the command (how does it change the state of the subsystem initially) |
+| For each subsystem, run the code associated with its current command | Define what each command actually does periodically (how does it change the state of subsystems over time) |
+| For each subsystem, adjust its actuators depending on the current state | In each subsystem, determine how to act depending on the state |
+
+<iframe frameborder="0" style="width:100%;height:525px;" src="https://app.diagrams.net/?lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=Command%20Based%20Flowchart.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D14_5zEcy0pHjJd9FZBrlYS0tvzkuuFQxd%26export%3Ddownload"></iframe>

@@ -1,8 +1,14 @@
 # First Bindings (Roller Intake)
 
-Now that we have created the commands, we need a way to actually call/use them. This is where bindings come in. All of the commands are bound to certain buttons/triggers on an Xbox controller so we can control the robot. 
+Now that we have created the commands, we need a way to actually call/use them. This is where bindings come in. All of the commands are bound to certain buttons/triggers on an Xbox controller so we can control the robot.
 
 Button bindings are created in the file `RobotContainer.java.` Certain parts in this file will be omitted for brevity, so read other lessons to get a full picture of what `RobotContainer` entails.
+
+Here is the flowchart explaining the entire program again. If the flowchart does not load, please [press here](https://drive.google.com/file/d/1OdYeyfamvG7weoWkQY1DDX4__NVKelgm/view?usp=sharing) to view a copy of it.
+
+<iframe frameborder="0" style="width:100%;height:343px;" src="https://app.diagrams.net/?lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=Roller%20Intake%20Flowchart.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1OdYeyfamvG7weoWkQY1DDX4__NVKelgm%26export%3Ddownload"></iframe>
+
+For our flowchart, this section corresponds to the red bottom left section of the flowchart, where we check what button is pressed and schedule the appropriate command.
 
 ## Robot Container Format
 
@@ -180,7 +186,7 @@ public class RobotContainer {
     private final SnailController operatorController;
 
     private final RollerIntake rollerIntake;
-    
+
     private ArrayList<SnailSubsystem> subsystems;
 
     public RobotContainer() {
@@ -195,9 +201,9 @@ public class RobotContainer {
 
         rollerIntake = new RollerIntake();
         rollerIntake.setDefaultCommand(new RollerIntakeNeutralCommand(rollerIntake));
-        
+
         subsystems = new ArrayList<>();
-        
+
         subsystems.add(rollerIntake)
     }
 

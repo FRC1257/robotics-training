@@ -8,7 +8,7 @@
     * [1. Overview](frc/4-Autonomous/1-Overview.md)
     * [2. Trajectory Generation](frc/4-Autonomous/2-Trajectory_Generation.md)
     * [3. Trajectory Following](frc/4-Autonomous/3-Trajectory_Following.md)
-    * [4. Command Groups](frc/4-Autonomous/4-CommAnd_Groups.md)
+    * [4. Command Groups](frc/4-Autonomous/4-Command_Groups.md)
     * [5. Auto Choosing](frc/4-Autonomous/5-Auto_Choosing.md)
   * [Advanced & Misc.](frc/5-Advanced_&_Misc/README.md)
 * [Git / GitHub](git/README.md)

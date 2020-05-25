@@ -6,6 +6,12 @@ With our subsystem file finished and filled with constants, it is now time to go
 
 Each action that the robot can perform should be represented as a command. The purpose of a command is to make the robot actually complete an action. As a result, there is usually one command per subsystem state. Each subsystem will *always* have a command running on it, whether it be a default neutral command, or a command called manually.
 
+Here is the flowchart explaining the entire program again. If the flowchart does not load, please [press here](https://drive.google.com/file/d/1OdYeyfamvG7weoWkQY1DDX4__NVKelgm/view?usp=sharing) to view a copy of it.
+
+<iframe frameborder="0" style="width:100%;height:343px;" src="https://app.diagrams.net/?lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=Roller%20Intake%20Flowchart.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1OdYeyfamvG7weoWkQY1DDX4__NVKelgm%26export%3Ddownload"></iframe>
+
+Looking at our flowchart, this section will handle defining what our commands do and how they modify the state of the roller intake subsystem. The corresponding cells are: "Initialize the command on the roller intake (does nothing for this subsystem)" and "Call the currently running command, which will configure the state of the roller intake."
+
 ## Command File Format
 
 We'll continue working with a roller intake. Below, you'll find the basic skeleton of a command.
