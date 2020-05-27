@@ -38,6 +38,23 @@ public class Arm {
 
 This would constantly update Shuffleboard with the arm angle reported by our gyroscope.
 
+## Current
+
+One sensor with data that we actually have access to already on almost every one of our motors is the current drawn by that motor. Almost all motors have some way of measuring this. Measuring current is extremely useful since if our current spikes, we can detect if there is a significant load on the motor or if the motor is stalling. We can measure this with the following:
+
+```java
+// this code should work on both SPARK MAXes and Talon SRXes
+SmartDashboard.putNumber("Motor Output Current (A)", motor.getOutputCurrent());
+```
+
+## Temperature
+
+Our SPARK MAXes also have a way to measure the temperature of the motor via code, which is shown below:
+
+```java
+SmartDashboard.putNumber("Motor Temperature (deg C)", motor.getMotorTemperature());
+```
+
 ## Lag Considerations
 
 One problem with Shuffleboard is that it can lag the computer running the robot **a lot**. To get around this, we do a few things. First of all, we do some behind the scenes work inside of RobotContainer to stagger the calls of `displayShuffleboard()` to ensure we don't output data too often. While this isn't something you can control too much, there are three things you can do to avoid lag.
