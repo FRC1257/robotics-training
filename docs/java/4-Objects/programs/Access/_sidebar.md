@@ -12,7 +12,7 @@
     * [6. Polymorphism](java/4-Objects/6-Polymorphism.md)
     * [Programs](java/4-Objects/programs/README.md)
       * [Access](java/4-Objects/programs/Access/README.md)  
-        * [Out](java/4-Objects/programs/Access/Out/MainOut.md)
+        * [Out](java/4-Objects/programs/Access/out/MainOut.md)
         * [MainSame](java/4-Objects/programs/Access/MainSame.md)
         * [Other](java/4-Objects/programs/Access/Other.md)
       * [Cars](java/4-Objects/programs/Cars/README.md)
