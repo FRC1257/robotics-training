@@ -2,7 +2,8 @@
 
 Compared to when we were just writing basic Java programs, our code had a very simple structure. We just had the `main()` function and then everything there runs just once. However with robot code, the structure gets more complex.
 
-**Before reading this, make sure you follow the `Setting Up` guide so that you can follow along on your version of the code**
+> [!NOTE]
+> Before reading this, make sure you follow the `Setting Up` guide so that you can follow along on your version of the code
 
 ## Code Location
 
@@ -34,7 +35,10 @@ However, it can be tedious sometimes to write out something like, say, `Constant
 import static frc.robot.Constants.Autonomous.*
 ```
 
-This allows us to just type something like `DRIVE_DIST` instead of the entire `Constants.Autonomous.DRIVE_DIST`. Note that all constants in this file need the code `public static` in front of the variable to make it usable.
+This allows us to just type something like `DRIVE_DIST` instead of the entire `Constants.Autonomous.DRIVE_DIST`.
+
+> [!NOTE]
+> All constants in this file need the code `public static` in front of the variable to make it usable.
 
 ## /subsystems
 
@@ -50,7 +54,7 @@ This folder contains some utility classes that are used by other sections of our
 
 ## RobotContainer.java
 
-This is the biggest file in the template and the most important. This file can be thought of as almost a map or blueprint of how the entire robot is put together. This file contains all the different components of the robot and brings them all together into a coherent system.
+This is the biggest file in the template and probably the most important. This file can be thought of as almost a map or blueprint of how the entire robot is put together. This file contains all the different components of the robot and brings them all together into a coherent system.
 
 Our template has a lot of components missing that are supposed to be filled in. To see a fully completed version of `RobotContainer`, please see our version in the 2020 robot: [`RobotContainer.java`](https://github.com/FRC1257/2020-Robot/blob/master/src/main/java/frc/robot/RobotContainer.java).
 
@@ -63,5 +67,3 @@ Next, we have `configureButtonBindings()`, where we define the mapping between o
 Finally, we have `configureAutoChoosers()` and `getAutoCommand()`. These functions are not needed for the basics that we are going over for now, but we will get more into depth on these when we go over autonomous.
 
 We also have some functions at the button that handle behind the scenes work. Once we register all of our subsystems inside of the `subsystems` ArrayList, these functions will take care of everything so we don't have to worry that much.
-
-Note that `RobotContainer` is instantiated in Robot.java, so everything setup in its constructor is called.

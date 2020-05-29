@@ -1,4 +1,4 @@
-# First Subsystem (Roller Intake)
+# Roller Intake
 
 Now that we have gone over what the command-based paradigm is and what actuators are, we can now try programming our first subsystem!
 
@@ -251,7 +251,7 @@ You may ask, what's the point of keeping the `state` variable private and go thr
 
 Encapsulation is useful because it prevents the `state` from being set improperly to a value such as `null`, or, when we get into more advanced mechanism control, prevents the state from getting changed without the other requirements being met.
 
-<hr>
+---
 
 Below is all the code completed during this lesson. This would make up a fully functional, roller intake subsystem file.
 
@@ -331,4 +331,4 @@ public class RollerIntake extends SnailSubsystem {
 
 ## Conclusion
 
-Now that you have a basic feel for a subsystem, we will be exploring how to make constants in our next lesson. If you have any questions or concerns about this lesson, feel free to ask a senior programmer.
+Now that we have this subsystem class created, we will be exploring how to make constants in our next lesson. If you have any questions or concerns about this lesson, feel free to ask a senior programmer.

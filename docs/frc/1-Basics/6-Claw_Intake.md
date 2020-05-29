@@ -1,6 +1,6 @@
 # Claw Intake
 
-Now that you know how to make a subystem and its supporting files we are going over how to make other subsystems with different features and purposes. The next few lessons will be learning about each of the major subsystems that 1257 uses, why they are important and how we can program them.
+Now that you know how to make a subystem and its supporting files, we are going to go over how to make other subsystems with different features and purposes. The next few lessons will be about learning each of the major subsystems that 1257 uses, why they are important and how we can program them.
 
 ## Subsystem Overview
 
@@ -40,17 +40,17 @@ Note: A different class would be used for a single acting solenoid, which can ap
 
 ### States
 
-```java 
+```java
     public enum State {
        CLOSED,
        OPEN
     }
 
     State state = State.OPEN;
- ```
- 
+```
+
 After declaring the solenoids, the states are declared. For the claw subsystem, there are only two states: `CLOSED` and `OPEN`. Closed represents when the claw shuts around the object and open is when the claw is opened so it is not capable of holding a block. 
- 
+
 Usually, the cylinders are extended when the claw is closed and not extended when the claw is open.
 
 After the states are declared, a state variable is set to `OPEN` as that will be the default state of the subsystem.
