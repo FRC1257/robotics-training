@@ -3,7 +3,7 @@
 Now that you know how to make a claw and a roller intake, it is time to learn about a subsystem usually made in conjunction with the two. In this lesson the purpose of the subsystem and the basic code to make it run will be gone over.
 ## Subsystem Overview
 
-![openClaw](img/2019Robot.jpg)
+![arm](img/2019Robot.jpg)
 
 Above is a picture of the entire robot as in order to understand what an arm truly is, the surrounding susbsystems are needed. Attached to the roller intake(the shovel like subsystem) are two bars. The bars are considered the arm of the robot and they are controlled by a motor and its motorcontoller on the other side. This allows the arm to bring the roller intake up or down.
 
