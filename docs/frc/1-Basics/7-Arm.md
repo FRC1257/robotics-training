@@ -110,8 +110,211 @@ These functions will be implemented in later posts
 Unlike the previous subsystems there is no function to make the state manual. That is because that is already handled by the `setArmSpeed()` function.
 
 ## Commands
+```java
+package frc.robot.commands.arm;
 
+import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.subsystems.Arm;
+
+import java.util.function.DoubleSupplier;
+
+public class ArmManualCommand extends CommandBase {
+
+    private final Arm arm;
+    private final DoubleSupplier speedSupplier;
+
+    public ArmManualCommand(Arm arm, DoubleSupplier speedSupplier) {
+        this.arm = arm;
+        this.speedSupplier = speedSupplier;
+
+        addRequirements(arm);
+    }
+
+    @Override
+    public void initialize() {
+
+    }
+
+    @Override
+    public void execute() {
+        arm.setArmSpeed(speedSupplier.getAsDouble());
+    }
+
+    @Override
+    public void end(boolean interrupted) {
+
+    }
+
+    @Override
+    public boolean isFinished() {
+        return false;
+    }
+}
+```
+
+Unlike the claw and the roller intake command files, the arm file has a few major differences.
+
+### Declaring Variables
+
+```java
+package frc.robot.commands.arm;
+
+import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.subsystems.Arm;
+
+import java.util.function.DoubleSupplier;
+
+public class ArmManualCommand extends CommandBase {
+
+    private final Arm arm;
+    private final DoubleSupplier speedSupplier;
+```
+First the subsystem is declared along with a variable called speedSupplier which is a part of the DoubleSupplier class. This class essentially makes objects which are accessible as doubles. 
+
+### Constructor
+
+```java
+public ArmManualCommand(Arm arm, DoubleSupplier speedSupplier) {
+        this.arm = arm;
+        this.speedSupplier = speedSupplier;
+
+        addRequirements(arm);
+}
+```
+
+Just like the previous commands for other subsystems the subsystem object is defined and `addrequirements()`is called. In short these two things allow for the command to actually run with the designated subsystem.
+
+In addition a speedSupplier onbject is also created in order for a speed function to be passed through when the object is made in robot container later on.
+
+### Initialize and Execute
+
+```java
+@Override
+    public void initialize() {
+
+    }
+
+    @Override
+    public void execute() {
+        arm.setArmSpeed(speedSupplier.getAsDouble());
+    }
+```
+
+`initialize` contains nothing inside of it as there are no actions to be done when the command is called. 
+
+In the `execute` function, `setArmSpeed()` is called with `speedSupplier.getAsDouble()` passed in. The `getAsDouble()` function essentially converts the DoubleSupplier object to a double. When this function is called the `speed` variable in subsystem file will be set to the value of the double inside of speedSupplier.
+
+### IsFinished and End
+
+```java
+@Override
+    public void end(boolean interrupted) {
+
+    }
+
+    @Override
+    public boolean isFinished() {
+        return false;
+    }
+```
+Nothing is inside of end() because there are no actions to complete when the command ends.
+
+In is finished there is only `return false` because the only trigger for ending the command is when the command isn't in use by the scheduler.
 
 ## Robot Container(Bindings)
+
+### Variable Declarations
+```java
+package frc.robot;
+
+import edu.wpi.first.wpilibj.Notifer;
+import edu.wpi.first.wpilibj.XboxController.Button;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.subsystems.SnailSubsystem;
+import frc.robot.util.SnailController;
+import frc.robot.subsystems.Arm;
+
+import frc.robot.commands.arm.ArmManualCommand;
+import java.util.ArrayList;
+
+import static frc.robot.Constants.ElectricalLayout.CONTROLLER_DRIVER_ID;
+import static frc.robot.Constants.ElectricalLayout.CONTROLLER_OPERATOR_ID;
+import static frc.robot.Constants.UPDATE_PERIOD;
+
+public class RobotContainer {
+
+    private SnailController driveController;
+    private SnailController operatorController;
+
+    private Arm arm;
+    
+    private ArrayList<SnailSubsystem> subsystems;
+```
+
+After the the neccesary imports are made, the objects are declared. The two Xbox controllers, the subsystems, and an arrayList for storing the subsytems are declared.
+
+### Constructor and Bindings
+```java
+public RobotContainer() {
+        driveController = new SnailController(CONTROLLER_DRIVER_ID);
+        operatorController = new SnailController(CONTROLLER_OPERATOR_ID);
+
+        configureSubsystems();
+        configureButtonBindings();
+    }
+
+    private void configureSubsystems() {
+        arm = new Arm();
+        arm.setDefaultCommand(new ArmManualCommand(arm, operatorController::getRightY));
+
+        subsystems = new ArrayList<>();
+        subsystems.add(arm);
+    }
+
+    private void configureButtonBindings() {
+        // Nothing here because the arm will always be in manual control
+    }
+```
+In the constructor there are a few things done:
+
+1. The two two controllers are defined with their IDs as their parameters.
+
+2. The configureSubsystems() is called. The subsystems are defined, the default commands are defined, and then the subsystems added to an arrayList. The reason an arrayList is used is so the subsystems can be updated more effciently later on in the code.
+
+There is one major difference in how the default commands are defined compared to the roller intake and the claw. In addition to arm getting passed in as a parameter, `operatorController::getRightY` is passed in. In this java notation, instead of simply passing in a value, the entire function is called. Therefore, each time `execute` is run in the command, getRightY can supply a different double value instead of sending in the same one without updating.
+
+3. Lastly, configureButtonBindings() is called. Since there are no other commands other than the default command in this subsystem, configureButtonBindings() is empty.
+
 ## Constants
+
+Below is the constants file which is self-explanatory and has been reviewed in the roller intake subsystem tutorial. Refer to that file if you need a refresher.
+
+```java
+package frc.robot;
+
+public final class Constants {
+
+    public static class ElectricalLayout {
+        public final static int CONTROLLER_DRIVER_ID = 0;
+        public final static int CONTROLLER_OPERATOR_ID = 1;
+    }
+
+    public static class Autonomous {
+        
+    }
+    public static class Arm {
+        public final static int ARM_ID = 0;
+    }
+
+    public static double PI = 3.14159265;
+    public static double UPDATE_PERIOD = 0.010; // seconds
+    public static int NEO_550_CURRENT_LIMIT = 25;
+
+}
+```
 ## Final Remarks
+
+If there are any lingering questions about anything gone over in this lesson, please ask a senior programming member.
+
+With the arm lesson over, you now know how to code three major subsystems that team 1257 uses! Next lesson, we will learn about yet another subsystem uses: the elevator!
