@@ -1,6 +1,9 @@
 # Git {docsify-ignore-all}
 
-This section covers the various areas of Git; use the sidebar to access the documents. Go through each one to get a better understanding of Git and how we use it.
+This section covers the various areas of Git in the commandline; use the sidebar to access the documents. Go through each one to get a better understanding of Git and how we use it. 
+
+> [!NOTE]
+> With software like GitHub desktop and VSCode, you don't need to learn how to use the command line, but it's definitely a valuable skill.
 
 You can find Github's official Git cheat sheet [here.](https://education.github.com/git-cheat-sheet-education.pdf)
 

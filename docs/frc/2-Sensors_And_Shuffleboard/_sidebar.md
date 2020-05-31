@@ -7,7 +7,7 @@
     * [2. Outputting Data](frc/2-Sensors_And_Shuffleboard/2-Outputting_Data.md)
     * [3. Encoders](frc/2-Sensors_And_Shuffleboard/3-Encoders.md)
     * [4. Gyro](frc/2-Sensors_And_Shuffleboard/4-Gyro.md)
-    * [5. Limit Switch & Break Beam](frc/2-Sensors_And_Shuffleboard/5-Limit_Switch_&_Break_Beam.md)
+    * [5. Boolean Sensors](frc/2-Sensors_And_Shuffleboard/5-Boolean_Sensors.md)
     * [6. Misc. Sensors](frc/2-Sensors_And_Shuffleboard/6-Misc_Sensors.md)
     * [7. Constant Tuning](frc/2-Sensors_And_Shuffleboard/7-Constant_Tuning.md)
   * [Closed Loop Control](frc/3-Closed_Loop_Control/README.md)

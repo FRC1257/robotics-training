@@ -14,7 +14,7 @@ Java programs are usually written in an IDE, or Integrated Development Environme
 
 ## [repl.it](https://repl.it/)
 
-Go to repl.it. Type Java in the center box and click "Java". On the left you will see your files, in the center is your code, and on the right is your code output. You can push the "Run" botton at the top to run your code.
+Go to [repl.it](https://repl.it/). Type `Java` in the center box and click "Java". On the left you will see your files, in the center is your code, and on the right is your code output. You can push the "Run" botton at the top to run your code.
 
 If you want, you can create an account. This will allow you to save your projects and share them with other people. I have created a classroom where I will post assignments and exercises you can tackle. Once you create an account, you can DM me on Slack (My username is rchang), or ask me in person to add you to the classroom.
 
@@ -25,37 +25,36 @@ If you want, you can create an account. This will allow you to save your project
 
 ## Curriculum
 
-Don't worry if you have no clue what these things are, we will go over all of them and try our best to teach you them. Anything with a star (*) next to it is essential and you should expect to see frequently in robotics programming. Anything without a star is still good to know, but you will make it by without knowing those.
+Don't worry if you have no clue what these things are, we will go over all of them and try our best to teach you them. Anything with a star (*) next to it is not required, but it would be nice to know.
 
 * Basics (1 day)
-  * First Program *
-  * Variables *
-  * Operators *
-  * Comments *
+  * First Program
+  * Variables
+  * Operators
+  * Comments
 * Control-Flow (1 day)
-  * If/Else Statements *
-  * Logical Operators *
-  * Switch Statements *
-  * While Loops
-  * For Loops
-  * Enums *
+  * If/Else Statements
+  * Logical Operators
+  * Switch Statements
+  * While Loops *
+  * For Loops *
+  * Enums
 * Functions (2 days)
-  * Basic Functions *
-  * Functions w/ Arguments *
-  * Functions w/ Return Types *
-  * Overloading
+  * Basic Functions
+  * Functions w/ Arguments
+  * Functions w/ Return Types
+  * Overloading *
 * Objects (2 days)
-  * Objects *
-  * Classes *
-  * Inheritance *
-  * Overriding *
-  * Polymorphism
+  * Objects
+  * Classes
+  * Inheritance
+  * Overriding
+  * Polymorphism *
 
 Once we finish these topics, we will go onto robotics programming.
 
-## Disclaimer
-
-This course teaches you a lot about making programs in Java, but it does not go fully in depth. After build season, we might teach extra things so that people can learn more about the Java language.
+> [!WARNING]
+> This documentation teaches you a lot about making programs in Java, but it does not go fully in depth. After build season, we might teach extra things so that people can learn more about the Java language.
 
 ## Help
 
