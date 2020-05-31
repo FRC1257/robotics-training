@@ -1,4 +1,6 @@
-# Limit Switches / Break Beams
+# Boolean Sensors
+
+We will go over two types of sensors that return `boolean` (true/false) values: limit switches and break beam sensors.
 
 ## Limit Switch
 
@@ -47,7 +49,8 @@ public class Arm extends SnailSubsystem {
 }
 ```
 
-**Remember that the limit switch and the break beam sensors have different conditions for when they return true or not. The limit switch returns true if something is touching it, while the breakbeam sensor returns true if someone is NOT in contact.**
+> [!WARNING]
+> Remember that the limit switch and the break beam sensors have different conditions for when they return true or not. The limit switch returns true if something is touching it, while the breakbeam sensor returns true if someone is NOT in contact.
 
 ## Usage
 

@@ -17,19 +17,22 @@ Motors are widely used throughout most, if not all of our robot's subsystems, e.
 
 ![SPARK MAX](img/SPARKMAX.png ':size=330x310') ![NEO 550](img/NEOvs550.png ':size=330x230')
 
-To control these motors and actually manipulate a robot mechanism, we interface with the corresponding motor controllers--this is what we do in code. A NEO-type motor is controlled with a SPARK MAX controller (also by REV Robotics).
+To control these motors and actually manipulate a robot mechanism, we interface, or connect to them, with the corresponding motor controllers. For each of the motor controllers on the actual robot, we have an `object` in code that represents it.
 
 ## Setup & Control
 
 We need to do a couple of things in our program before actually controlling a motor:
 
-1. `CANSparkMax motor;` - Declare a SPARK MAX motor controller
-2. `motor = new CANSparkMax(MOTOR_ID, MotorType.kBrushless);` - Initialize the object with an ID and set it to interface with a Brushless motor**
-3. `motor.setIdleMode(IdleMode.kBrake);` - Set the motor to "brake" mode
-4. `motor.setSmartCurrentLimit(80);` - Set a current limit of 80 amps to the motor
-5. `import ...;` - Done all of the above with the corresponding vendor dependency file and imports (WPILib-VSCode should assist you with this, or you can refer to old 1257 code)
+> [!NOTE]
+> We're just going to go over the syntax of how to create a motor, don't worry about creating the full fledged program around them yet. We will go over this in depth when we program our first subsystem.
 
-**Remember that all IDs should be stored in the static class `ElectricalLayout` of `Constants.java`, so `MOTOR_ID` would be a constant from there.
+1. `import com.revrobotics.CANSparkMax;` - We have to import the class containing our desired motor controller (don't worry about this if you're editing on GitHub and VSCode can handle this for you if you're using that)
+2. `CANSparkMax motor;` - Declare a SPARK MAX motor controller in code that will represent the motor on our robot.
+3. `motor = new CANSparkMax(0, MotorType.kBrushless);` - Initialize the motor controller object with an ID and set it's type to a brushless motor
+4. `motor.setIdleMode(IdleMode.kBrake);` - Set the motor to "brake" mode
+5. `motor.setSmartCurrentLimit(80);` - Set a current limit of 80 amps to the motor
+
+For each of the motor controllers on our robot, they will have something known as a **motor id**. This allows us to distinguish motors so that we can control the correct ones. Setting these up is normally done by electronics, so we have to communicate with them and get these motor IDs.
 
 You can read about [Brushed vs. Brushless motors](https://cordlessdrillzone.com/drill-wars/brushless-vs-brushed-motor/) and [Brake vs. Coast mode](https://www.chiefdelphi.com/t/what-is-brake-coast-mode/163649) for more information. As for current limiting, it's **absolutely necessary** to set an appropriate limit as a safety, such that risk of overdrawing/damaging the motor is reduced.
 
@@ -51,10 +54,10 @@ This way, we won't have to worry about commanding both motor objects in code, as
 
 ## Note
 
-The SPARK MAX is not the only motor controller we could use--in the past, 1257 has used Talon SRXs and Victor SPXs (both by [CTRE](http://www.ctr-electronics.com/control-system.html?p=3)).
+The SPARK MAX is not the only motor controller we could use -- in the past, 1257 has used Talon SRXs and Victor SPXs (both by [CTRE](http://www.ctr-electronics.com/control-system.html?p=3)).
 
 While the motor controller may differ, the general process of controlling the motor is most the same. If Talon SRXs were being used, changes would go towards the class name (now `WPI_TalonSRX`) and any functions taken from that class (e.g. `setIdleMode()` would go to `setNeutralMode()`, and `setSmartCurrentLimit()` would be `enableCurrentLimit()`.
 
-<hr>
+---
 
-We will organize all of this material into an actual subsystem class soon--the important part here is *how* to actually work with a motor in our programs.
+We will organize all of this material into an actual subsystem class soon -- the important part here is the basic idea of setting up motor controller objects in our code and then setting them.

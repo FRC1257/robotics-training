@@ -1,6 +1,6 @@
 # Robotics Training {docsify-ignore-all}
 
-> Team 1257's repository for training new members.
+Welcome to Team 1257's robotics training documentation! Here you will find reference articles, tutorials, and our curriculum for teaching students about the software side of FRC.
 
 ## Folders
 
