@@ -8,7 +8,7 @@ Ultimately, to organize our robot code, we use what is known as a **command-base
 
 All subsystems on a robot are composed of a few things: actuators (motors/pistons) and sensors. However, we won't worry too much about sensors right now. In a subsystem class, we will organize the according actuators and program their functionality. Also, remember that subsystems must extend `SnailSubsystem`.
 
-Each of these subsystems will have a few actions it can do with these actuators. For instance, a drivetrain can be moved with manual driver control. An intake could either take in or eject a game piece. An elevator can use either manual control, or precise control to get to a specific position.
+Each of these subsystems will have a few actions it can do with these actuators. For instance, a drivetrain can be moved with manual driver control. An intake could either take in or eject a game piece. An elevator can use either manual control or precise closed loop control to get to a specific position.
 
 ## Commands
 

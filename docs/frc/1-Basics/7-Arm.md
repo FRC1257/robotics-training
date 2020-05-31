@@ -1,18 +1,21 @@
 # Arm
 
 Now that you know how to make a claw and a roller intake, it is time to learn about a subsystem usually made in conjunction with the two. In this lesson, the purpose of the arm subsystem and the basic code to make it run will be gone over.
+
 ## Subsystem Overview
 
 ![arm](img/2019Robot.jpg)
 
-Above is a picture of the entire robot that team 1257 made in 2019.  Attached to the roller intake(the shovel-like subsystem) are two bars. The bars are essentially what make up the arm subsystem of the robot and they are controlled by a motor and its motor contoller on the other side. The motor allows the arm to spin up or down.
+Above is a picture of the entire robot that Team 1257 made for the 2019 game, Destination Deep Space. Our roller intake (the green wheels) are attacked to our arm, which is composed of the two bars that rotate the entire intake up or down via a single motor.
 
 ### Purpose
 
-The purpose of the arm is generally to make a subsystem of the robot be able to move up or down. This functionality is very important as it allows team 1257 to put game pieces in different heights. In 2019 the arm was used to eject balls at different heights in holes.
+The purpose of the arm is generally to make a subsystem of the robot be able to move up or down. In the 2019 game, the purpose of the arm was to move the intake to various important positions, such as the ground to pick up cargo balls, or up to score the balls into the various scoring areas.
+
 ## Subsystem File
 
 ### Declaring Motor Controllers
+
 ```java
 package frc.robot.subsystems;
 
@@ -28,44 +31,46 @@ import static frc.robot.Constants.NEO_550_CURRENT_LIMIT;
 public class Arm extends SnailSubsystem {
 
     private CANSparkMax armMotor;
+```
+
+After importing all of the required libraries, we declare the motor controllers needed for our subsystem. In this case, we just have a single motor that controls the arm's up and down motion.
+
+### States
+
+```java
+    public enum State {
+        MANUAL
+    }
+
+    State state = State.MANUAL;
     private double speed = 0;
 ```
 
-After importing the necessary libraries, the `armMotor` object is declared. The `armMotor` is the motor controller that controls the motor which allows the arm to rotate up or down. There is also another variable declared which is `speed` which is set to zero. That will be used later in the code to control the speed at which the arm moves.
-### States
-```java
-public enum State {
-    MANUAL
-}
-
-State state = State.MANUAL;
-```
-After declaring the motor controller, the states are declared. Unlike the roller intake and the claw, the arm only has one state called `MANUAL`. The reason there is only one state is because the `MANUAL` state means that the motor spins at whatever rate the speed variable tells it to. There are not several predetermined speeds for the motor like in the roller intkae which would require multiple variables. The specifics of what happens in the `MANUAL` state will be covered in the update function.
+After declaring the motor controller, the states are declared. The arm subsystem is a bit special however in that not only does it have an `enum` to keep track of the state, but it also has a `speed` variable. You can think of the `enum` as the "mode" that the subsystem is in. This could be in manual control where the operator controls the speed set to the motor directly or position closed loop control. However, while we're in this "manual control" mode, we also need to keep track of what speed we should be going out, so you can think of it as an extra part of our state that we have to keep track of.
 
 ### Constructor
 
 ```java
 public Arm() {
-      armMotor = new CANSparkMax(ARM_ID, MotorType.kBrushless); 
+      armMotor = new CANSparkMax(ARM_ID, MotorType.kBrushless);
       armMotor.restoreFactoryDefaults();
       armMotor.setIdleMode(IdleMode.kBrake);
-      armMotor.setSmartCurrentLimit(NEO_550_CURRENT_LIMIT); // in amps
-        
+      armMotor.setSmartCurrentLimit(NEO_CURRENT_LIMIT); // in amps
 }
 ```
 
-Similar to the roller intake, the constructor is used to define the motor controller and it is used to run several related functions. 
+Similar to the roller intake, the constructor is used to define the motor controller and set up parameters with it.
 
 1. The first line declares the motor controller. A motor controller, has two parameters which are the ID and the `MotorType`. For this specific motor controller the ID is set to a constant called `ARM_ID` and the `MotorType` is set to brushless. This is because this motor controller is used to control a NEO motor which is brushless.
 
-2. `restoreFactoryDefaults()` wipes all settings on the motor controller to its defaults, ensuring that we know exactly what they are and that we can safely change what we want.
+2. `restoreFactoryDefaults()` wipes all settings on the motor controller to its defaults, ensuring that we know exactly what they are and that we can safely change what we want. If we didn't do this, the motor controller might have some of its values changed from default, and this could be very dangerous.
 
 3. The next line sets the idle mode of our motor to **brake** mode, which essentially means that the motor will try to stop itself from moving when we give it a command of `0`.
 
-4. Lastly, we set the current limit. If a motor experiences too much current it could get seriously damaged. This line of code is absolutely necessary to prevent that risk. 
- 
+4. Lastly, we set the current limit. If a motor experiences too much current for a sustained period of time it could get seriously damaged. This line of code is absolutely necessary to prevent that risk. The value of this current limit can change depending on what motors we are using, but for NEOs we generally use a value of about 80A. We store this as a constant in our `Constants.java` file.
 
 ### Update Function and setArmSpeed()
+
 ```java
  @Override
     public void update() {
@@ -75,20 +80,15 @@ Similar to the roller intake, the constructor is used to define the motor contro
                 break;
         }
     }
-    
-    public void setArmSpeed(double speed){
-        this.speed = speed;
-        state = State.MANUAL;
-    }
 ```
 
-For this subsystem, the update function is grouped with `setArmSpeed()` when discussing its logic as they are dependent on each other. Since there is only one state, the state will always be `MANUAL` which means that each time the update function is called, `armMotor.set(speed);` is run. This means that the motor will spin at whatever value the variable speed is at. `setArmSpeed()` sets the previously mentioned speed variable to the value passed in and sets the state to `MANUAL` since that is the only state of the robot. Thus after setArmSpeed() is run, the update function will output different code if the speed changes.
+For our update function, we once again look at which state, or "mode," that we are in. Here, we only have one state, `MANUAL` for manual control. During this manual control state, we want to look at the current `speed` variable and set our motor's speed value to that. 
 
 ### Shuffle Board Functions
 
 ```java
     public void displayShuffleboard() {
-      
+
     }
 
     public void tuningInit() {
@@ -99,23 +99,82 @@ For this subsystem, the update function is grouped with `setArmSpeed()` when dis
 
     }
 ```
-These functions will be implemented in later posts.
+
+We will discuss how to write these functions in other sections.
 
 ### State Functions
 
 ```java
+    public void setArmSpeed(double speed){
+        this.speed = speed;
+        state = State.MANUAL;
+    }
+
     public State getState() {
         return state;
     }
 }
 ```
+
+In this case, we have the `setArmSpeed(double speed)` function to update the state of our arm. When this function is called, it takes in a `speed` parameter that it then stores as part of the state. Additionally, it will set the state, or "operating mode," of the subsystem to 
+
 Unlike the previous subsystems discussed, there is no function to set the state to one of the states. That is because the state is already set to `MANUAL` when `setArmSpeed()` is called.
 
-## Commands
+## Arm Manual Command
 
-Unlike the claw and the roller intake command files, the arm file has a few major differences. 
+Unlike the claw and the roller intake command files, the arm command file has a few major differences. First of all, we only have a single command for our arm right now since we only have one action we want to do with it right now: move it manual control.
 
-### Declaring Variables
+One of the crucial parts of this command is that it somehow has to pass a value from our XboxController in `RobotContainer` to the `Arm` subsystem to use as the speed. You may be tempted to try something like the following:
+
+### Incorrect Approach
+
+```java
+package frc.robot.commands.arm;
+
+import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.subsystems.Arm;
+
+import java.util.function.DoubleSupplier;
+
+public class ArmManualCommand extends CommandBase {
+
+    private final Arm arm;
+    private final double speed;
+
+    public ArmManualCommand(Arm arm, double speed) {
+        this.arm = arm;
+        this.speed = speed;
+
+        addRequirements(arm);
+    }
+
+    @Override
+    public void initialize() {
+
+    }
+
+    @Override
+    public void execute() {
+        arm.setArmSpeed(speed;
+    }
+    ...
+}
+```
+
+Then, in `RobotContainer.java`, you may try something like this:
+
+```java
+    arm.setDefaultCommand(new ArmManualCommand(operatorController.getLeftY()));
+```
+
+> [!NOTE]
+> Our `SnailController` class has various functions that allow us to easily access the joystick values from the two joystick values on our XboxController. We have four functions: `getLeftY()`, `getLeftX()`, `getRightY()`, and `getRightX()`. All of these correspond to the x and y offsets joystick where (0, 0) is the center of the joystick and each axis ranges from -1 to 1.
+
+However, this does **not** work. The reason is because when we just pass in a `double` variable, it merely passes in the value at the **time of initialization**. We want to be able to constantly query our controller for updated values, or essentially constantly ask our controller, "What is the **current** value of the joystick?" However, with the above setup, we will only get a **single, constant** value that we will store when the robot first boots up.
+
+If we want to fix this, we need to be able to somehow pass in not a constant double value, but something that can **supply** a changing value that will be updated over time. To do this, we can use a `DoubleSupplier`.
+
+### Correct Approach
 
 ```java
 package frc.robot.commands.arm;
@@ -130,24 +189,23 @@ public class ArmManualCommand extends CommandBase {
     private final Arm arm;
     private final DoubleSupplier speedSupplier;
 ```
-First, the subsystem is declared along with a variable called speedSupplier which is a part of the DoubleSupplier class. This class essentially makes objects which can be accessed as doubles if a certain function is called. 
 
-### Constructor
+Here, instead of storing a `double` called `speed`, we store a `DoubleSupplier`. A `DoubleSupplier` is an object that represents a function that returns a `double`. This allows us to pass in code that could for instance evaluate `operatorController.getLeftY()` constantly and give us access new, updated values.
+
+#### Constructor
 
 ```java
 public ArmManualCommand(Arm arm, DoubleSupplier speedSupplier) {
-        this.arm = arm;
-        this.speedSupplier = speedSupplier;
+    this.arm = arm;
+    this.speedSupplier = speedSupplier;
 
-        addRequirements(arm);
+    addRequirements(arm);
 }
 ```
 
-Just like the previous commands for other subsystems, the subsystem object is defined and `addrequirements()` is called. The object is defined in order for it to be possible to access certain functions related in the subsystem's class later on. `addrequirements()` is called in order for the `CommandSceduler` to know which subsystem is used in order to run the command.
+Just like the previous commands for other subsystems, the subsystem object is defined and `addRequirements()` is called. The object is defined in order for it to be possible to access certain functions related in the subsystem's class later on. `addRequirements()` is called in order for the `CommandScheduler` to know which subsystem is used in order to run the command.
 
-In addition, a speedSupplier object is defined so its double accessing function could be used later on.
-
-### Initialize and Execute
+#### initialize() and execute()
 
 ```java
 @Override
@@ -161,11 +219,11 @@ In addition, a speedSupplier object is defined so its double accessing function 
     }
 ```
 
-`initialize()` contains nothing inside of it as there are no actions to be done immediately after the command is called. 
+`initialize()` contains nothing inside of it as there are no actions to be done immediately after the command is called.
 
-In the `execute()` function, `setArmSpeed()` is called with `speedSupplier.getAsDouble()` as a parameter. The `getAsDouble()` function essentially converts `speedSupplier` to a double. When this function is called, the `speed` variable in the subsystem file will be set to the value of the double inside of speedSupplier.
+In the `execute()` function, `setArmSpeed()` from our subsystem is called with `speedSupplier.getAsDouble()` as a parameter. The `getAsDouble()` function essentially evaluates that stored function and passes in our speed value to the Arm subsystem.
 
-### IsFinished and End
+#### isFinished() and end()
 
 ```java
 @Override
@@ -178,13 +236,17 @@ In the `execute()` function, `setArmSpeed()` is called with `speedSupplier.getAs
         return false;
     }
 ```
+
 Nothing is inside of `end()` because there are no actions to complete when the command ends.
 
-In `isFinished()`, there is only `return false` because the only trigger for ending the command is when the command isn't being run by the scheduler.
+In `isFinished()`, there is only `return false` because the command should not end on its own. It can be **cancelled** by other commands in the future, but while running, there shouldn't be any end condition defined.
 
-## Robot Container(Bindings)
+With that, our command is done! However in `RobotContainer.java` now we have to set up when it is called.
+
+## Robot Container (Bindings)
 
 ### Variable Declarations
+
 ```java
 package frc.robot;
 
@@ -209,21 +271,16 @@ public class RobotContainer {
     private SnailController operatorController;
 
     private Arm arm;
-    
+
     private ArrayList<SnailSubsystem> subsystems;
 ```
 
-After the neccesary imports are made, the objects are declared. The two Xbox controllers, the subsystems, and an ArrayList for storing the subsystems are declared.
+The only important line we have to add here is the `private Arm arm;` line just to create an instance of our subsytem. Everything else is already present in our template (besides import statements but those can be added later automatically by VSCode).
 
 ### Constructor and Bindings
-```java
-public RobotContainer() {
-        driveController = new SnailController(CONTROLLER_DRIVER_ID);
-        operatorController = new SnailController(CONTROLLER_OPERATOR_ID);
 
-        configureSubsystems();
-        configureButtonBindings();
-    }
+```java
+    // constructor omitted because it is the exact same
 
     private void configureSubsystems() {
         arm = new Arm();
@@ -237,19 +294,44 @@ public RobotContainer() {
         // Nothing here because the arm will always be in manual control
     }
 ```
-In the constructor there are a few things done:
 
-1. The two controllers are defined with their IDs as their parameters.
+There is one major difference in how the default command is defined compared to the roller intake and the claw. In addition to the Arm subsystem getting passed in as a parameter, `operatorController::getRightY` is passed too. This is being passed in as our `DoubleSupplier` object. Essentially, we can pass in any function that returns a `double` variable into here. However, to ensure that we actually pass in the **function** itself and not the **result of evaluating that function**, we use Java's `::` operator.
 
-2. The `configureSubsystems()` function is called. The subsystems are defined, the default commands are defined, and then the subsystems added to an ArrayList. The reason an ArrayList is used is so the subsystems can be updated more efficiently later on in the code.
+When we do this, each time `execute()` is run in the command, `getRightY` is run and it supplies a different value based on what the XBox controller is doing. If the value of the function was passed in with `.getRightY()` the initial value would never update as the constructor is only run once.
 
-There is one major difference in how the default commands are defined compared to the roller intake and the claw. In addition to arm getting passed in as a parameter, `operatorController::getRightY` is passed too. In the `::` java notation, instead of simply passing in a value from a function, the entire function is passed in. Therefore, each time `execute()` is run in the command, `getRightY` is run and it supplies a different value based on what the xBox controller is doing. If the value of the function was passed in with `.getRightY()` the initial value would never update as the constructor is only run once.
+ince there are no other commands other than the default command in this subsystem, `configureButtonBindings()` is empty. There is never a need to change the command running with a button.
 
-3. Lastly, configureButtonBindings() is called. Since there are no other commands other than the default command in this subsystem, configureButtonBindings() is empty. There is never a need to change the command running with a button.
+#### Inline Option
+
+While we used the `::` operator above to pass in the function, we could also use another notation with `() -> {}`. Essentially, we can define an inline function with this:
+
+```java
+private void configureSubsystems() {
+    arm = new Arm();
+    arm.setDefaultCommand(new ArmManualCommand(arm, () -> {
+        return operatorController.getLeftY();
+    }));
+
+    subsystems = new ArrayList<>();
+    subsystems.add(arm);
+}
+```
+
+One advantage of this method is that if we have to do calculations (such as scaling the joystick value), we can use this method to perform other operations on that value:
+
+```java
+    arm.setDefaultCommand(new ArmManualCommand(arm, () -> {
+        return Math.pow(operatorController.getLeftY(), 2); // square the value passed in
+    }));
+```
+
+However, we use the `::` operator because its shorter and cleaner.
+
+There's so much more to be covered with all of the possibilities included with the Java functional interfaces, so feel free to search it up if you are interested.
 
 ## Constants
 
-Below, is the constants file which is self-explanatory and has been reviewed in the roller intake subsystem tutorial. Refer to that file if you need a refresher.
+Below, is the constants file which is self-explanatory and has been reviewed in the Roller Intake subsystem tutorial. Refer to that file if you need a refresher.
 
 ```java
 package frc.robot;
@@ -262,20 +344,22 @@ public final class Constants {
     }
 
     public static class Autonomous {
-        
+
     }
+
     public static class Arm {
         public final static int ARM_ID = 0;
     }
 
+    public static int NEO_CURRENT_LIMIT = 80;
     public static double PI = 3.14159265;
     public static double UPDATE_PERIOD = 0.010; // seconds
-    public static int NEO_550_CURRENT_LIMIT = 25;
 
 }
 ```
+
 ## Final Remarks
 
 If there are any lingering questions about anything gone over in this lesson, please ask a senior programming member.
 
-With the arm lesson over, you now know how to code three major subsystems that team 1257 uses! Next lesson, we will learn about yet another subsystem that team 1257 uses: the elevator!
+With the arm lesson over, you now know how to code three major subsystems that our team uses! Next lesson, we will learn about yet another subsystem that Team 1257 uses: the elevator!

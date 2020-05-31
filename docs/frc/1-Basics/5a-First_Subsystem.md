@@ -6,9 +6,9 @@ Now that we have gone over what the command-based paradigm is and what actuators
 
 A subsystem is any major mechanism on our robot that achieves a task, whether it be moving the robot to a desired position, or picking up and scoring game pieces. In code, a subsystem is represented by its **actuators** and **sensors**. We will cover sensors later and focus on actuators now.
 
-To manage our subsystem, we have to determine what its possible `state`s are. In other words, we must find the possible configurations/modes a subsystem can be set to.
+To manage our subsystem, we have to determine what its possible "states" are. In other words, we must find the possible configurations/modes a subsystem can be set to. You can think of a "state" as sort of an "operating mode." Our subsystem could be in different operating modes and swap through them as certain buttons are pressed. We will go over an example of this below when we discuss the states of our roller intake. Figuring out what the different states are is a crucial part of learning to design a robot subsystem in code.
 
-Once we have this state stored in our code, every time we want to update our subsystem and send commands to its respective actuators, we will check what our state is and call the appropriate action: this is called a `state machine`. For example, if a state is telling us that our subsystem should be ejecting, we will set the motors accordingly.
+Once we have this state stored in our code, every time we want to update our subsystem and send commands to its respective actuators, we will check what our state is and call the appropriate action: this design idea is known as a `state machine`. For example, if a state is telling us that our subsystem should be ejecting, we will set the motors to spin outwards.
 
 Now that we have an idea of how subsystems are structured in code, let's look at one of the simplest: a roller intake.
 
@@ -196,9 +196,9 @@ After declaring the states that the motor would be in, the motor controller is d
 
 3. The next line sets the idle mode of our motor to **brake** mode, which essentially means that the motor will try to stop itself from moving when we give it a command of `0`.
 
-4. Lastly, we set the current limit. If a motor experiences too much current it could get seriously damaged. This line of code is absolutely necessary to prevent that risk.
+4. Lastly, we set the current limit. If a motor experiences too much current for a sustained period of time it could get seriously damaged. This line of code is absolutely necessary to prevent that risk. The value of this current limit depends on the type of motor we are using. In this case, we are using a NEO 550 motor which is a smaller variant of the NEO motor and needs a relatively low current limit to prevent damage.
 
-For the flowchart, this section corresponds to the first step: "Create the roller intake subsystem with all of its motors." 
+For the flowchart, this section corresponds to the first step: "Create the roller intake subsystem with all of its motors."
 
 ### Update Function
 
