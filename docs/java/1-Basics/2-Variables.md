@@ -25,7 +25,7 @@ Declaring variables have multiple parts:
 * Next, we put the variable name: `variable`
 * Finally, we must declare its value, which we do with `= 0`
 
-We can manipulate the values in this expression. For instance, we can reassign our variable to another value `variable = 5;` Note that since we have already declared the type of `variable` and we are simply modifying the contents, we do not need to put `int` again.
+We can manipulate the values in this expression. For instance, we can reassign our variable to another value `variable = 5;` Since we have already declared the type of `variable` and we are simply modifying the contents, we do not need to put `int` again.
 
 We can also use variable in relation to each other. To see this, we can use two variables, `int var1 = 3;` and `int var2 = 4`. We can then write `var1 = var2 + 3`. This would set the value of `var1` to 7, and erase its original value of 3.
 
@@ -63,7 +63,10 @@ Note that we have 4 different types for integers and 2 different types of decima
 
 ## Strings
 
-So far, we have only discussed `char`, which supports a single character. To declare a block of text, we can use a `String`. For example, we can type `String text = "My text here";`. Note that in order to make the computer recognize "My text here", we must surround it with quotes. Otherwise, the computer may interpret it as programming keywords or variable names.
+So far, we have only discussed `char`, which supports a single character. To declare a block of text, we can use a `String`. For example, we can type `String text = "My text here";`.
+
+> [!NOTE]
+> In order to make the computer recognize "My text here", we must surround it with quotes. Otherwise, the computer may interpret it as programming keywords or variable names.
 
 Similar to how we can add numbers, we can also add strings, also called **concatenation**. We can use the `+` symbol to add strings, `String message = "Hello" + " " + "World!"`.
 
@@ -77,8 +80,7 @@ The same would happen even if we had put `4.0` instead of `4.1`, as the type wou
 
 To resolve this, we must do something called **casting**. We can cast the `double` value to an `int` value, removing the decimal place. We do this in code by typing `int test = (int) (4.1 + 3);`. We put the type that we want to cast to inside of the parentheses and put it in front of the value we want to cast.
 
-Note that sometimes the computer automatically casts some values, and sometimes cannot cast values. For instance, the computer will automatically cast an `int` to a `double` in order to calculate the operation `4.1 + 3`. In this case, the computer automatically casts `3` to `3.0`. However, it will not automatically cast `7.1` to `7` because this results in a lost of information past the decimal point, which the computer will refuse to do.
-
-Additionally, the computer will not cast between two data types that don't make sense. For instance, it cannot cast between a `String` and a `int`, because there is no `int` that can properly represent the string `"cat"`.
+> [!NOTE]
+> Sometimes the computer automatically casts some values, and sometimes cannot cast values. For instance, the computer will automatically cast an `int` to a `double` in order to calculate the operation `4.1 + 3`. In this case, the computer automatically casts `3` to `3.0`. However, it will not automatically cast `7.1` to `7` because this results in a lost of information past the decimal point, which the computer will refuse to do. Additionally, the computer will not cast between two data types that don't make sense. For instance, it cannot cast between a `String` and a `int`, because there is no `int` that can properly represent the string `"cat"`.
 
 You don't have to memorize all of this, just know how to cast variables when there is an error and know that the computer takes care of it for you sometimes.

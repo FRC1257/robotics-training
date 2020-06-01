@@ -5,8 +5,8 @@ Make sure you install git first from https://git-scm.com/downloads.
 ## Clone an Existing Repository and Make Changes
 
 **Step 1.** Go to the repository you want to clone. For instance, if I wanted to clone 
-<https://github.com/FRC1257/robotics-training>, I would go to the link. Click on the big green "Clone or Download"
-button and click on the clipboard icon that appears. For my purposes, I would type `git clone https://github.com/FRC1257/robotics-training.git`.
+<https://github.com/FRC1257/robotics-training>, I would go to the link, click on the big green "Clone or Download"
+button, and click on the clipboard icon that appears. For my purposes, I would type `git clone https://github.com/FRC1257/robotics-training.git`.
 
 **Step 2.** Go to your command line. Use `cd [directory]` to get to the desired directory and press enter. Then use `git clone `, paste the link after `clone`, and press enter.
 

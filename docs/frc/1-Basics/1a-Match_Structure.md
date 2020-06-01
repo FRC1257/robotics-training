@@ -4,9 +4,9 @@
 
 Competition matches are divided into two main periods: *autonomous* and *teleoperated* (teleop). In autonomous, the robot can move/score independent of driver control, running *solely* on code (there are exceptions to this in some years, e.g. 2019, where both driver control and autonomous routines were legal). Subsequently, in teleop, the robot is controlled by the drive team. 
 
-Once the match starts, autonomous begins and it lasts for 15 seconds. Then, teleop begins and lasts for 135 seconds. The match ends when teleop ends. 
+Once the match starts, autonomous begins and it lasts for 15 seconds. Then, teleop begins and lasts for 135 seconds. The match ends when teleop ends.
 
-During the autonomous period, we generally want to score points and position the robot appropriately for teleop. Thus, we tend to do a lot of preparation for this period. (See the [Autonomous section](https://github.com/FRC1257/robotics-training/tree/master/frc/4.%20Autonomous) for more details.)
+During the autonomous period, we generally want to score points and position the robot appropriately for teleop. Thus, we tend to do a lot of preparation for this period. (See the [Autonomous section](https://frc1257.github.io/robotics-training/#/frc/4-Autonomous/README) for more details.)
 
 ## Robot State & Functions
 
@@ -24,7 +24,7 @@ and the `periodic()` ones, which run at 50 Hz, or every 20 ms:
 
 There are two more functions we use, `testInit()` and `testPeriodic()`. While these are not directly tied to the structure of the match, they are useful when things need to be separated during robot testing. The testing period would be controlled through the [Driver Station](https://docs.wpilib.org/en/latest/docs/software/driverstation/driver-station.html). 
 
-<hr>
+---
 
 Here is a brief order of the states the robot goes through:
 

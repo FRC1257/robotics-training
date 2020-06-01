@@ -51,13 +51,13 @@ public class ShipFrontCommand extends SequentialCommandGroup {
 
 This is a `SequentialCommandGroup` that moves the robot forward a certain distance towards the nose of the cargo ship, ejects the pre-loaded cargo, and then turns left. Of course, this assumes that `DriveDistanceCommand`, `TurnLeftCommand`, and their respective parameters are defined, and that the necessary import statements are present. The class itself is the command group, and inside the constructor, we use `addCommands()` to *add* the appropriate commands, in sequence.
 
-Note: a command group would be bound to controller input in the same way an individual command would.
+> [!NOTE]
+> A command group would be bound to controller input in the same way an individual command would.
 
-### Restriction Note
+> [!WARNING]
+> The robot program will throw an error if a command is scheduled both *independently and from within a command group* at the same time. For instance, in the example above, it would be problematic if the `ShipFrontCommand` command group was called at the same time as `TurnLeftCommand`, since `TurnLeftCommand` would end up being called from multiple places at once.
 
-It is important to note that the robot program will throw an error if a command is scheduled both *independently and from within a command group* at the same time. For instance, in the example above, it would be problematic if the `ShipFrontCommand` command group was called at the same time as `TurnLeftCommand`, since `TurnLeftCommand` would end up being called from multiple places at once.
-
-<hr>
+---
 
 Now let's take a look at a more complex example, taken from 1257's robot code for 2020's Infinite Recharge.
 
@@ -89,7 +89,7 @@ We use `super()` as a way to grab `ParallelDeadlineGroup`'s constructor since we
 
 ### Timeouts
 
-Timeouts are a nice convenience feature provided by WPILib that allows us to decorate our commands with a time limit (see the full list of convenience features [here](https://docs.wpilib.org/en/latest/docs/software/commandbased/convenience-features.html)). One application of timeouts would be in autonomous. 
+Timeouts are a nice convenience feature provided by WPILib that allows us to decorate our commands with a time limit (see the full list of convenience features [here](https://docs.wpilib.org/en/latest/docs/software/commandbased/convenience-features.html)). One application of timeouts would be in autonomous.
 
 Most of the commands we write for our subsystems do not have a specific end condition, hence why `isFinished()` in the commands always returns `false`. We don't specify anything in `isFinished()` since our commands are bound to buttons and triggers, and start/end based off of those controller inputs.
 
@@ -98,7 +98,7 @@ So, if we want to use our teleop commands in autonomous, we can use `.withTimeou
 If we look at the example above, we see `.withTimeout(INDEXER_DUMP_TIME)`. This means that `IndexerShootCommand()` will be run for `INDEXER_DUMP_TIME`
 s value in seconds, launching the power cells as a result.
 
-<hr>
+---
 
 ## Trajectory Auto
 

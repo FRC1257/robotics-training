@@ -24,7 +24,8 @@ public class Arm extends SnailSubsystem {
 }
 ```
 
-**Do NOT use arrays for constant tuning. They are NOT editable.**
+> [!WARNING]
+> Do **NOT** use arrays for constant tuning. They are **NOT** editable.
 
 Just a note for when you're actually using the robot, enable `Test Mode` for a brief second before going back to `Teleoperated Mode` to actually populate Shuffleboard with the constant tuning variables.
 

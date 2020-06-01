@@ -1,20 +1,20 @@
 # Claw Intake
 
-Now that you know how to make a subystem and its supporting files we are going over how to make other subsystems with different features and purposes. The next few lessons will be learning about each of the major subsystems that 1257 uses, why they are important and how we can program them.
+Now that you know how to make a subystem and its supporting files we are going to cover making other subsystems with different features and purposes. The next few lessons will be about learning each of the major subsystems that 1257 uses, why they are important and how we can program them.
 
 ## Subsystem Overview
 
 ![openClaw](img/openClaw.jpeg) ![closedClaw](img/closedClaw.jpeg)
 
-Above is a basic claw like stucture that may be encountered. This claw has only one cylinder controlled by a solenoid to open and close it. In this specific claw, when the cylinder extends, the claw closes. There are many other claws that maybe used. For example, there may be a claw with pistons on both sides like team 1257's 2018 robot.
+Above is a basic claw-like structure that may be encountered. This claw has only one cylinder controlled by a solenoid to open and close it. In this specific claw, when the cylinder extends, the claw closes. There are many other types of claws that may be used. For example, there may be a claw with pistons on both sides like team 1257's 2018 robot.
 
 ### Purpose
 
-Claws are used to grab balls, cubes or other game objects. The claw may consist of only one piston or it can consists of two pistons that close and open the claw from both sides. Claws can also be run by motors though they are not ofen used due to a power deficiency.
+Claws are used to grab balls, cubes, or other game objects. The claw may consist of only one piston or it can consists of two pistons that close and open the claw from both sides. Claws can also be run by motors though they are not often used due to a power deficiency.
 
 ### Why Pneumatics?
 
-The reason team 1257 uses pneumatics is because pneumatics are relatively cheap while also being very strong. A claw needs to reliably hold the balls, cubes or any other game pieces, so a pneumatic claw seems like the obvious choice. An example of this is usage of a claw was in team 1257's 2018 robot where it was modified with pneumatics to hold cubes well without dropping them.
+The reason team 1257 uses pneumatics is because pneumatics are relatively cheap while also being very strong. A claw needs to reliably hold the balls, cubes, or any other game pieces, so a pneumatic claw seems like the obvious choice. An example of this usage of a claw was in team 1257's 2018 robot where it was modified with pneumatics to hold cubes well without dropping them.
 
 ## Subsystem File
 
@@ -34,23 +34,23 @@ public class Claw extends SnailSubsystem {
     private DoubleSolenoid leftSolenoid;
 ```
 
-First, the solenoids are declared. Since this subsystem uses pneumatics (air) instead of motors, solenoids replace motor controllers in the code. The solenoids are responsible for determining if air goes to the pneumatic cylinders or not. Since the claw we are making has a pneumatic cylinder on each side, there are two solenoids declared. Each of the solenoids are a part of the class `DoubleSolenoid` which means that the solenoids can hold two positions, forward and reverse. Each of these correspond to the claw being either open or closed. 
+First, the solenoids are declared. Since this subsystem uses pneumatics (air) instead of motors, solenoids replace motor controllers in the code. The solenoids are responsible for determining if air goes to the pneumatic cylinders or not. Since the claw we are making has a pneumatic cylinder on each side, there are two solenoids declared. Each of the solenoids is a part of the class `DoubleSolenoid` which means that the solenoids can hold two positions, forward and reverse. Each of these corresponds to the claw being either open or closed. 
 
-Note: A different class would be used for a single acting solenoid, which can apply force to one direction, but not the other. 
+Note: A different class would be used for a single-acting solenoid, which can apply force to one direction, but not the other. 
 
 ### States
 
-```java 
+```java
     public enum State {
        CLOSED,
        OPEN
     }
 
     State state = State.OPEN;
- ```
- 
+```
+
 After declaring the solenoids, the states are declared. For the claw subsystem, there are only two states: `CLOSED` and `OPEN`. Closed represents when the claw shuts around the object and open is when the claw is opened so it is not capable of holding a block. 
- 
+
 Usually, the cylinders are extended when the claw is closed and not extended when the claw is open.
 
 After the states are declared, a state variable is set to `OPEN` as that will be the default state of the subsystem.
@@ -121,7 +121,7 @@ These functions will be implemented in later posts.
 }
 ```
 
-The last thing that is done is the declaration of the functions which set the state to `OPEN` or `CLOSED` and the making of a function which returns the current state of the subsystem.
+The last thing that is done is the declaration of the functions which set the state to `OPEN` or `CLOSED` and the making of a function that returns the current state of the subsystem.
 
 ## Commands
 
@@ -169,12 +169,12 @@ The commands in the claw subsystem work in the exact same way as the commands in
 1. A local claw object is declared.
 2. In the constructor, the local object is set equal to a passed in claw and the requirements are added.
 3. In the execute function, the state is set to `CLOSED` through the close function.
-4. In the end function, the state is set to to `OPEN` through the open function. The end function triggers when the command ends.
+4. In the end function, the state is set to `OPEN` through the open function. The end function triggers when the command ends.
 5. In isFinished(), it is defined that the command ends when the command is no longer being run by the scheduler.
 
 ### Open Command
 
-The command for openning is the exact same as the command for closing except for the fact that claw.open() does not need to be called when the function ends as the state is already open. Nevertheless, the code for this command is included below.
+The command for opening is the exact same as the command for closing except for the fact that claw.open() does not need to be called when the function ends as the state is already open. Nevertheless, the code for this command is included below.
 
 ```java
 package frc.robot.commands.claw;
@@ -250,7 +250,7 @@ public class RobotContainer {
     private ArrayList<SnailSubsystem> subsystems;
 ```
 
-After the the neccesary imports are made, the objects are declared. The two Xbox controllers, the subsystems, and an arrayList for storing the subsytems are declared.
+After the neccesary imports are made, the objects are declared. The two Xbox controllers, the subsystems, and an ArrayList for storing the subsystems are declared.
 
 ### Constructor and the Bindings
 
@@ -279,11 +279,11 @@ After the the neccesary imports are made, the objects are declared. The two Xbox
 
 In the constructor there are a few things done:
 
-1. The two two controllers are defined with their ID is an parameter
+1. The two controllers are defined with their ID is a parameter.
 
-2. The configureSubsystems() is called. The subsystems are defined, the default commands are defined, and then the subsystems added to an arrayList. The reason an arayList is used is so the subsystems can be updated more effciently later on in the code.
+2. The configureSubsystems() is called. The subsystems are defined, the default commands are defined, and then the subsystems added to an ArrayList. The reason an ArrayList is used is so the subsystems can be updated more efficiently later on in the code.
 
-3. Lastly, configureButtonBindings() is called. Since `ClawOpenCommand` is the default command, there is no button binding for it. There is only a binding for `ClawCloseCommand`. WhileActiveOnce means that the close command runs if and only if the respective button is being pressed.
+3. Lastly, configureButtonBindings() is called. Since `ClawOpenCommand` is the default command, there is no button binding for it. There is only one binding for `ClawCloseCommand`. WhileActiveOnce means that the close command runs if and only if the respective button is being pressed.
 
 ## Constants
 
