@@ -6,7 +6,7 @@ Competition matches are divided into two main periods: *autonomous* and *teleope
 
 Once the match starts, autonomous begins and it lasts for 15 seconds. Then, teleop begins and lasts for 135 seconds. The match ends when teleop ends.
 
-During the autonomous period, we generally want to score points and position the robot appropriately for teleop. Thus, we tend to do a lot of preparation for this period. (See the [Autonomous section](https://github.com/FRC1257/robotics-training/tree/master/frc/4.%20Autonomous) for more details.)
+During the autonomous period, we generally want to score points and position the robot appropriately for teleop. Thus, we tend to do a lot of preparation for this period. (See the [Autonomous section](https://frc1257.github.io/robotics-training/#/frc/4-Autonomous/README) for more details.)
 
 ## Robot State & Functions
 

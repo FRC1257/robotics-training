@@ -24,7 +24,7 @@ One note to take is that using iterative programming for a robot makes working i
 
 Iterative still has its place for us as programmers. While command-based is definitely our go-to structure for main robot programming, times come where the team may need to quickly test hardware. The fastest way to prepare would be to write test code on the spot in iterative.
 
-For instance, we might need to quickly test a two-motor module. We would go through the same process outlined back in the [Basics](https://github.com/FRC1257/robotics-training/tree/master/frc/1.%20Basics) of declaring and using motors and an Xbox controller. However, we can declare our necessities directly in `Robot.java`, and then act accordingly in `teleopPeriodic()`, as shown here:
+For instance, we might need to quickly test a two-motor module. We would go through the same process of declaring and using motors and an Xbox controller outlined back in the [Basics](https://frc1257.github.io/robotics-training/#/frc/1-Basics/README) section. However, we can declare our necessities directly in `Robot.java`, and then act accordingly in `teleopPeriodic()`, as shown here:
 
 ```java
 package frc.robot;

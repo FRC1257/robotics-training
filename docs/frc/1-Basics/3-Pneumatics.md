@@ -62,7 +62,7 @@ This mechanism is an example of how actuations can be only "fully in" or "fully 
 
 We can now translate the basics of pneumatics into our robot program. Doing so isn't too difficult.
 
-Initializing and commanding solenoids in the program is similar to how we did in the [Motors.md](https://github.com/FRC1257/robotics-training/blob/master/frc/1.%20Basics/3.%20Motors.md) section. Two things must be known before creating our program, however: whether *single* or *double* solenoids are being used, and also the respective ID port numbers on the PCM. Here's what we'll do:
+Initializing and commanding solenoids in the program is similar to how we did in the [Motors.md](https://frc1257.github.io/robotics-training/#/frc/1-Basics/2-Motors) section. Two things must be known before creating our program, however: whether *single* or *double* solenoids are being used, and also the respective ID port numbers on the PCM. Here's what we'll do:
 
 - `Solenoid solenoid;` or `DoubleSolenoid doubleSolenoid;`
   - Declare Solenoid and DoubleSolenoid objects
