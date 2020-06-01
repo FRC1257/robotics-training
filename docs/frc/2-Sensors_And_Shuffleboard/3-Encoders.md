@@ -130,7 +130,7 @@ Note that in this case we do not have to divide by `4096.0` since the default un
 
 ## Uses
 
-We have many possible uses for encoders, but two of the msot common are listed here
+We have many possible uses for encoders, but two of the most common are listed here.
 
 ### Closed Loop Control
 
