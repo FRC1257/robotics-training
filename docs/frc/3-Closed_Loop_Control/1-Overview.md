@@ -24,10 +24,11 @@ We will go over this in the next few tutorials. We use these most often.
 
 ## Vocabulary
 
-Setpoint / Reference: the desired state of our mechanism
-Error: Setpoint - Actual, or how far off you are from your setpoint
-Steady-State Error: the error of the system after it has reached equilibrium (stopped moving)
-Response: behavior of a system after enabling closed loop control
-Settling Time: the time it takes for a system to settle to equilibrium
+- Setpoint / Reference: the desired state of our mechanism
+- Error: Setpoint - Actual, or how far off you are from your setpoint
+- Steady-State Error: the error of the system after it has reached equilibrium (stopped moving)
+- Response: behavior of a system after enabling closed loop control
+- Settling Time: the time it takes for a system to settle to equilibrium
+- Controller: the model or equations that control how data is interpreted and converted into outputs for actuators
 
 I've tried to put the most important ones above but here are some more: [Controls Glossary](https://docs.wpilib.org/en/latest/docs/software/advanced-control/introduction/controls-glossary.html)

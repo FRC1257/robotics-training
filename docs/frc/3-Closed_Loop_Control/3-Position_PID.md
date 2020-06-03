@@ -1,6 +1,7 @@
 # Position PID
 
-**Warning: this section is long**
+> [!WARNING]
+> This section is long
 
 Now that we have a basic overview of what PID does (for a quick summary, we use a combination of various terms to drive our error in some field to 0. For instance, our error could be our distance from the setpoint, our difference between desired velocity and current velocity, our angular displacement from a setpoint, etc.)
 
