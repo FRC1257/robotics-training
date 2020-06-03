@@ -4,7 +4,7 @@ Now that you know how to make a claw and a roller intake, it is time to learn ab
 
 ## Subsystem Overview
 
-![arm](img/2019Robot.jpg)
+![FRC 1257's 2019 Robot Arm](img/2019Robot.jpg)
 
 Above is a picture of the entire robot that Team 1257 made for the 2019 game, Destination Deep Space. Our roller intake (the green wheels) are attacked to our arm, which is composed of the two bars that rotate the entire intake up or down via a single motor.
 
