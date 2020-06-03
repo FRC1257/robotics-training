@@ -1,4 +1,4 @@
-# Command (Roller Intake)
+# Making Commands (Roller Intake)
 
 With our subsystem file finished and filled with constants, it is now time to go onto the next topic: commands.
 
@@ -16,7 +16,7 @@ Looking at our flowchart, this section will handle defining what our commands do
 
 We'll continue working with a roller intake. Below, you'll find the basic skeleton of a command.
 
-One thing you should note is the naming of the command: first comes the name of the subsystem, then the action, and then the word `Command`. This way, we can keep our class names consistent while also making them easy to organize / find. Note that this creates some interesting command names, as you will see with `RollerIntake + Intake + Command = RollerIntakeIntakeCommand`.
+One thing you should note is the naming of the command: first comes the name of the subsystem, then the action, and then the word `Command`. This way, we can keep our class names consistent while also making them easy to organize / find. This creates some interesting command names, as you will see with `RollerIntake + Intake + Command = RollerIntakeIntakeCommand`.
 
 Our class will extend `CommandBase`, which essentially allows our command to be recognized by WPILib's command-based framework.
 
@@ -58,9 +58,11 @@ Now we will briefly look over the purpose of the constructor and each function.
 
 * `RollerIntakeIntakeCommand()` - This is the constructor for the command. All this deals with is defining the intake for usage in the subsequent functions.
 
-* `initialize()` - This function is run once when the command is first scheduled. Nothing is usually put here since we generally use commands to call subsystem functions (therefore nothing really to initialize).
+* `initialize()` - This function is run **once** when the command is first scheduled. However, if a command is run once and then is **restarted**, this will run again. For this subsystem, this won't really do anything since we want to constantly update the state of our roller intake, not just set it once and risk something changing it again later. For other commands such as setting a subsystem to a certain position, this may have functionality to do such an action.
 
-* `execute()` - This function runs constantly at 50 Hz (once per period of 20 ms) *while* the command is scheduled. We use this to change the state of the subsystem with our command. This is where the actual functionality of our command is defined. 
+* One important distinction can be made between the constructor and the `initialize()` function. The constructor is run once when the program **first starts, no matter whether or not the command is actually scheduled**. The `initialize()` function is run once **every time the command is scheduled**.
+
+* `execute()` - This function runs constantly at 50 Hz (once per period of 20 ms) **while** the command is scheduled. We will use this here to constantly call 
 
 * `end(boolean interrupted)` - The end function is run once when the command ends, whether `isFinished()` returned true, or if the command was interrupted. It is usually used for reverting the subsystem back to the default state although occasionally, it is also used for other things like setting variables to certain values.
 
@@ -140,7 +142,7 @@ public void update() {
 }
 ```
 
-### Note
+### Other Commands
 
 If we were writing, for instance, `RollerIntakeEjectCommand` or `RollerIntakeNeutralCommand`, they would look nearly identical to `RollerIntakeIntakeCommand`. The only major change would be in `execute()`, with either `rollerIntake.eject()` or `rollerIntake.neutral()`.
 
@@ -167,7 +169,7 @@ With the main functionality of the command complete, it is now time to define wh
   * Side note: when the function is called, the `interrupted` variable will either be set to `true` or `false` depending on how the function was ended. The `interrupted` variable is set to `true` if another command had interrupted this command.
 * The `isFinished()` function is in charge of giving the conditions for which a command ends. By default, `false` is returned, which means that the function will never end by some specified condition in `isFinished()`. Instead, it will end when its corresponding button/trigger is no longer calling the command (we'll cover binding commands in the next section).
 
-<hr>
+---
 
 Below is all of the code we wrote for `RollerIntakeIntakeCommand`. Next, we'll cover how to call these commands with user input.
 

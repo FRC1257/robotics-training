@@ -1,4 +1,4 @@
-# First Bindings (Roller Intake)
+# Binding Commands (Roller Intake)
 
 Now that we have created the commands, we need a way to actually call/use them. This is where bindings come in. All of the commands are bound to certain buttons/triggers on an Xbox controller so we can control the robot.
 
@@ -70,19 +70,19 @@ public class RobotContainer {
 }
 ```
 
-### `RobotContainer()`
+### RobotContainer()
 
 This is the constructor for the class. The `SnailController`s, the subsystems, and their default commands are defined here. The main purpose of the constructor is just to call some of our other subfunctions which will each do different things.
 
-### `configureSubsystems()`
+### configureSubsystems()
 
 This function is where we will create instances of all of our subsystems and define some things about them such as default commands. There is some extra code here, but you don't have to worry too much about it for now. We will mainly work in this function and the next one.
 
-### `configureButtonBindings()`
+### configureButtonBindings()
 
 This function is where all the button bindings actually happen, and is where we'll mainly work alongside the previous function in this lesson. In other words, we add functionality such that a button press will call a specific command.
 
-### Others
+### Other Functions
 
 There are more functions, but we will cover them later when we go over advanced topics such as diagnostic data and autonomous mode.
 
@@ -145,7 +145,8 @@ There are many, many functions you can choose from, but we will go over a few of
 
 **`toggleWhenPressed()`** - This function will toggle the command to constantly be run when the button is first pressed. When the button is released, the command will continue running until the button is pressed again and retoggles it.
 
-**(Note: There is also a function in our controller to use Xbox triggers. Triggers unfortunately have a bit of a different naming convention, so see the below link for details on that)**
+> [!WARNING]
+> There is also a function in our controller to use Xbox triggers. Triggers unfortunately have a bit of a different naming convention, so see the below link for details on that)
 
 See [here](https://docs.wpilib.org/en/latest/docs/software/commandbased/binding-commands-to-triggers.html) for more controller/joystick functions from WPILib.
 
@@ -155,7 +156,7 @@ Since we want the motors to spin as long as the button is pressed, we use the `w
 
 Inside of the parentheses is the argument, which is the command we want to use. We use the `new` keyword here to create a quick object from our command, since we need to pass an object into the function.
 
-<hr>
+---
 
 Here is all of the code covered in this lesson.
 

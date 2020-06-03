@@ -1,6 +1,9 @@
 # Misc. Sensors
 
-There are other various sensors that are less commonly used but can still be encountered. We will list some here, as well as links to where you can find out how to program them. Note that sometimes if you're using sensors made by other companies, you may need to install vendor libraries to handle them.
+There are other various sensors that are less commonly used but can still be encountered. We will list some here, as well as links to where you can find out how to program them.
+
+> [!NOTE]
+> If you're using sensors made by other companies, you may need to install vendor libraries to handle them.
 
 Many of the more basic types of sensors can be found [here.](https://docs.wpilib.org/en/latest/docs/software/sensors/ultrasonics-software.html)
 

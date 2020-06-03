@@ -9,9 +9,9 @@ All of the material in this documentation was found at this [link](https://www.y
 * Can not align the robot manually (well or quickly)
 * Quick alignment to the goal is required
 
-##### Visual Servoing - reliable pointing your robot at the target
+**Visual Servoing - reliable pointing your robot at the target**
 
-## Requirements to Use Vision:
+## Requirements to Use Vision
 
 * Camera
 * Hardware
@@ -24,13 +24,13 @@ All of the material in this documentation was found at this [link](https://www.y
 * Camera + Roborio (slow but easy to do)
 * External camera + External CPU (fast) - This is what the limelight allows
 
-##### Reduce exposure, brightness, white balance, focus, and other settings to make the image as black as possible.
+**Reduce exposure, brightness, white balance, focus, and other settings to make the image as black as possible.**
 
 ### Target Detection
 
 Libraries that can be used are OpenCV, NIVision, and GRIP. Limelight uses its own software to do vision.
 
-#### A vision algorithm consists of:
+#### Components of a Vision Algorithm
 
 * Color threshold (Everything that is not the target is removed) - HSV Color thresholding is the best. HSV - hue, saturation, value
 * Group together nearby pixels
@@ -43,7 +43,7 @@ Libraries that can be used are OpenCV, NIVision, and GRIP. Limelight uses its ow
 
 ### Control Loop
 
-##### Note: A green LED ring will not always produce a green light when you overexposure the image, which could affect your algorithm. This can be seen [here](https://youtu.be/rLwOkAJqImo?t=1046) in the video.
+**Note: A green LED ring will not always produce a green light when you overexposure the image, which could affect your algorithm. This can be seen [here](https://youtu.be/rLwOkAJqImo?t=1046) in the video.**
 
 As long as you are not overexposing, Hue is the most important value for vision and should be tuned first.
 
@@ -52,4 +52,4 @@ As long as you are not overexposing, Hue is the most important value for vision 
   * Blue is 0 degrees
   * Red is 240 degrees
 
-##### Hue should be filtered as narrowly as possible.
+**Hue should be filtered as narrowly as possible.**

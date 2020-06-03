@@ -1,8 +1,8 @@
 # Iterative Programming
 
-There *are* alternatives to programming robots in the command-based paradigm. Teams might add custom controls and build upon command-based: Team 971 (Spartan Robotics) and Team 254 (The Cheesy Poofs) are prime examples. 
+There *are* alternatives to programming robots in the command-based paradigm. Teams might add custom controls and build their own custom versions of command-based: Team 971 (Spartan Robotics) and Team 254 (The Cheesy Poofs) are prime examples.
 
-Another substitute is the `iterative` program structure. It's relatively simpler than command-based, and has a few differences that should be noted. 
+Another substitute is the `iterative` program structure. It's relatively simpler than command-based, and has a few differences that should be noted.
 
 For now, try to pretend that you *don't* know about command-based; have an open mind, and this should come pretty easily.
 
@@ -22,14 +22,14 @@ One note to take is that using iterative programming for a robot makes working i
 
 ## Application
 
-Iterative still has its place for us as programmers. While command-based is definitely our go-to structure for main robot programming, times come where the team may need to quickly test hardware. The fastest way to prepare would be to write test code on the spot in iterative. 
+Iterative still has its place for us as programmers. While command-based is definitely our go-to structure for main robot programming, times come where the team may need to quickly test hardware. The fastest way to prepare would be to write test code on the spot in iterative.
 
-For instance, we might need to quickly test a two-motor module. We would go through the same process outlined back in the [Basics](https://github.com/FRC1257/robotics-training/tree/master/frc/1.%20Basics) of declaring and using motors and an Xbox controller. However, we can declare our necessities directly in `Robot.java`, and then act accordingly in `teleopPeriodic()`, as shown here:
+For instance, we might need to quickly test a two-motor module. We would go through the same process of declaring and using motors and an Xbox controller outlined back in the [Basics](https://frc1257.github.io/robotics-training/#/frc/1-Basics/README) section. However, we can declare our necessities directly in `Robot.java`, and then act accordingly in `teleopPeriodic()`, as shown here:
 
 ```java
 package frc.robot;
 
-... 
+...
 
 public class Robot extends TimedRobot {
 
@@ -55,11 +55,11 @@ public class Robot extends TimedRobot {
 
     }
 
-    @Override 
+    @Override
     public void teleopPeriodic() {
         if (controller.getAButton()) {
             motor1.set(1.0);
-        } 
+        }
         else if (controller.getBButton()) {
             motor1.set(-1.0);
         } 

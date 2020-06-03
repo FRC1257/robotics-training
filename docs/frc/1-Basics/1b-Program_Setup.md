@@ -22,7 +22,8 @@ Go to this link:
 
 Follow the appropriate directions for your operating system. For the `Download VS Code` section, click the `Download` button. Afterwards, you should see WPILib VS Code icon on your desktop.
 
-### Important: Make sure you move the installer from the .zip file or else the installation of VS Code will not work**
+> [!TIP]
+> Make sure you move the installer from the .zip file or else the installation of VS Code will not work
 
 ### Installing GitHub Desktop
 
@@ -50,4 +51,4 @@ Once you commit your changes, you then need to `push` that commit to the online 
 
 Editing the code directly on GitHub is not reccomended, but it can work to get you accustomed to robot code. However you will not be able to run your code / see errors on the GitHub website, which is unfortunate. Periodically, we will allow students to access computers so that they can test the code they have written on GitHub.
 
-To edit a file on GitHub, navigate to the file and click the pencil icon in the top right corner. This will allow you to edit the file directly in the browser. After you are done editing, you can go to the bottom where you can add a message describing your edit and then finally `Commit` it.
+To edit a file on GitHub, navigate to the file and click the pencil icon in the top right corner. This will allow you to edit the file directly in the browser. After you are done editing, you can go to the bottom where you can add a message describing your edit and then finally `commit` it.

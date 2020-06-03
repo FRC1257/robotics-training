@@ -1,4 +1,4 @@
-# First Subsystem (Roller Intake)
+# Roller Intake
 
 Now that we have gone over what the command-based paradigm is and what actuators are, we can now try programming our first subsystem!
 
@@ -6,9 +6,9 @@ Now that we have gone over what the command-based paradigm is and what actuators
 
 A subsystem is any major mechanism on our robot that achieves a task, whether it be moving the robot to a desired position, or picking up and scoring game pieces. In code, a subsystem is represented by its **actuators** and **sensors**. We will cover sensors later and focus on actuators now.
 
-To manage our subsystem, we have to determine what its possible `state`s are. In other words, we must find the possible configurations/modes a subsystem can be set to.
+To manage our subsystem, we have to determine what its possible "states" are. In other words, we must find the possible configurations/modes a subsystem can be set to. You can think of a "state" as sort of an "operating mode." Our subsystem could be in different operating modes and swap through them as certain buttons are pressed. We will go over an example of this below when we discuss the states of our roller intake. Figuring out what the different states are is a crucial part of learning to design a robot subsystem in code.
 
-Once we have this state stored in our code, every time we want to update our subsystem and send commands to its respective actuators, we will check what our state is and call the appropriate action: this is called a `state machine`. For example, if a state is telling us that our subsystem should be ejecting, we will set the motors accordingly.
+Once we have this state stored in our code, every time we want to update our subsystem and send commands to its respective actuators, we will check what our state is and call the appropriate action: this design idea is known as a `state machine`. For example, if a state is telling us that our subsystem should be ejecting, we will set the motors to spin outwards.
 
 Now that we have an idea of how subsystems are structured in code, let's look at one of the simplest: a roller intake.
 
@@ -32,7 +32,7 @@ Now that we have the basics out of the way, it's time to start coding!
 
 ## Snail Subsystem
 
-Before we make our file that represents the subsystem in code, there is one file in our template which is essential: `SnailSubsystem.java`. This file is an abstract class that each subsystem class must extend to be recognized as a subsystem in our code. For a refresh on what abstract classes are and their uses, go to our [Polymorphism page](https://github.com/FRC1257/robotics-training/blob/Ethan-Subsystem/java/4.%20Objects/6.%20Polymorphism.md).
+Before we make our file that represents the subsystem in code, there is one file in our template which is essential: `SnailSubsystem.java`. This file is an abstract class that each subsystem class must extend to be recognized as a subsystem in our code. For a refresh on what abstract classes are and their uses, go to our [Polymorphism page](https://frc1257.github.io/robotics-training/#/java/4-Objects/6-Polymorphism).
 
 Here is a copy of the `SnailSubsystem` code:
 
@@ -107,23 +107,23 @@ public class RollerIntake extends SnailSubsystem {
 
 The first part of the code is basic setup that imports a bunch of necessary lines for controlling `SPARK MAX` motors, and then creates the class that will hold the rest of our code for the subsystem. We will go over some of the crucial details of this, although most of what we have so far is just creating function outlines that we can fill in later.
 
-### `public enum State`
+### enum State
 
-The first chunk of code is when an enum called `State` is declared. If you need a refresher on enums, go to our [enums page](https://github.com/FRC1257/robotics-training/blob/Ethan-Subsystem/java/2.%20Control-Flow/7.%20Enums.md). This enum is essentially a custom data structures that could be any of the **possible** states that our subsystem could be in.
+The first chunk of code is when an enum called `State` is declared. If you need a refresher on enums, go to our page on [enums.](https://frc1257.github.io/robotics-training/#/java/2-Control_Flow/7-Enums) The enum is essentially a custom data structure holding any of the **possible** states that our subsystem could be in.
 
-### `public RollerIntake()`
+### RollerIntake()
 
 This is the constructor for the subsystem, where things like motor controllers, their settings, sensors, and extra variables are defined here.
 
-### `public void update()`
+### update()
 
 This function is responsible for making the robot do things based off of the subsystem's current state. For example, this function could make a motor spin inwards to suck a ball into the robot if the state variable were set to the value `INTAKING`. This function is run by the robot 100 times per second at the moment during a match, so it is very responsive.
 
-### `public State getState()`
+### getState()
 
 This function is very self-explanatory; it simply returns the state of the robot. That can be very useful when the state needs to be accessed from another file.
 
-### All Other Functions
+### Other Functions
 
 We will go over other functions related to extra functionality, such as outputting data, another time. For now, we **must** define them, but we can just leave them blank.
 
@@ -196,9 +196,9 @@ After declaring the states that the motor would be in, the motor controller is d
 
 3. The next line sets the idle mode of our motor to **brake** mode, which essentially means that the motor will try to stop itself from moving when we give it a command of `0`.
 
-4. Lastly, we set the current limit. If a motor experiences too much current it could get seriously damaged. This line of code is absolutely necessary to prevent that risk.
+4. Lastly, we set the current limit. If a motor experiences too much current for a sustained period of time it could get seriously damaged. This line of code is absolutely necessary to prevent that risk. The value of this current limit depends on the type of motor we are using. In this case, we are using a NEO 550 motor which is a smaller variant of the NEO motor and needs a relatively low current limit to prevent damage.
 
-For the flowchart, this section corresponds to the first step: "Create the roller intake subsystem with all of its motors." 
+For the flowchart, this section corresponds to the first step: "Create the roller intake subsystem with all of its motors."
 
 ### Update Function
 
@@ -251,7 +251,7 @@ You may ask, what's the point of keeping the `state` variable private and go thr
 
 Encapsulation is useful because it prevents the `state` from being set improperly to a value such as `null`, or, when we get into more advanced mechanism control, prevents the state from getting changed without the other requirements being met.
 
-<hr>
+---
 
 Below is all the code completed during this lesson. This would make up a fully functional, roller intake subsystem file.
 
@@ -331,4 +331,4 @@ public class RollerIntake extends SnailSubsystem {
 
 ## Conclusion
 
-Now that you have a basic feel for a subsystem, we will be exploring how to make constants in our next lesson. If you have any questions or concerns about this lesson, feel free to ask a senior programmer.
+Now that we have this subsystem class created, we will be exploring how to make constants in our next lesson. If you have any questions or concerns about this lesson, feel free to ask a senior programmer.

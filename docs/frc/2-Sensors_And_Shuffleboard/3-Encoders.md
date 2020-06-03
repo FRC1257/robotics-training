@@ -113,7 +113,8 @@ public void displayShuffleboard() {
 }
 ```
 
-Note that for these, the default units are in revolutions and revolutions per minute.
+> [!NOTE]
+> The default units are in revolutions and revolutions per minute for SPARK MAXes connected to NEO Brushless Motors.
 
 ### Scaling
 
@@ -126,11 +127,12 @@ primaryEncoder.setPositionConversionFactor(1 / 48.0 * Math.PI * 6);
 primaryEncoder.setVelocityConversionFactor(1 / 48.0 * Math.PI * 6 / 60);
 ```
 
-Note that in this case we do not have to divide by `4096.0` since the default units are already in revolutions. Additionally, for velocity, we have to divide by 60 to convert the units from per minute to per second.
+> [!NOTE]
+> In this case we do not have to divide by `4096.0` since the default units are already in revolutions. Additionally, for velocity, we have to divide by 60 to convert the units from per minute to per second.
 
 ## Uses
 
-We have many possible uses for encoders, but two of the msot common are listed here
+We have many possible uses for encoders, but two of the most common are listed here.
 
 ### Closed Loop Control
 
@@ -151,7 +153,8 @@ public void update() {
 }
 ```
 
-Note that the sign of `speed` has to be checked to ensure that when we're at the bottom, we can still go up and so that when we're at the top, we can still go down.
+> [!NOTE]
+> The sign of `speed` has to be checked to ensure that when we're at the bottom, we can still go up and so that when we're at the top, we can still go down.
 
 #### Overrides
 

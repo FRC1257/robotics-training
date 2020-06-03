@@ -39,7 +39,7 @@ public class Main {
 }
 ```
 
-### Misc.
+### Miscellaneous
 
 - If a class is a Singleton, put `public static CLASS instance = null` at the top. Put `getInstance()` at the bottom.
 
