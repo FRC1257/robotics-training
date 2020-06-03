@@ -1,16 +1,16 @@
 # Elevator
 
-You now know how to make three major subsystems that our team uses. In this lesson, it is time to learn a subsystem that works in a very similar way to the arm subsystem: the elevator. In this lesson the purpose of the elevator will be explained and the basic code to run the subsystem will be gone over.
+You now know how to make three major subsystems that our team uses. In this lesson, it is time to learn a subsystem that works in a very similar way to the arm subsystem: the elevator. In this lesson, the purpose of the elevator will be explained and the basic code to run the subsystem will be gone over.
 
 ## Subsystem Overview
 
 <img src="img/elevatorExtended.jpeg" width="40%">
 
-Above is a picture of an elevator subsystem. Not every elevator looks like this though almost all used by 1257 have followed the same general concept. There are pulleys set up that are spun using mootrs that raise the elevators up and down. In many designs the motors both spin in the same direction though there are also quite a few where the spinin oppiste directions because of the ways that the pulleys are set up.
+Above is a picture of an elevator subsystem. Not every elevator looks like this though almost all used by 1257 have followed the same general concept. There are pulleys set up that are spun using motors that raise the elevator up and down. In many designs the motors both spin in the same direction though there are also quite a few where the spin in oppocite directions because of the ways that the pulleys are set up.
 
 ### Purpose
 
-The purpose of an elevator is actually quite similar to an arm's. It is supposed to raise subsystems and game components up and down. Although we never actually used the our robot for 2020, team 1257 had an elevator which brought a hook higher so it could hang unto a bar. The biggest difference between an elevator and an arm is that an Elevator moves directly up instead of rotating up. That often saves space which is why team 1257 uses an elevator subsystem even though it is very complex.
+The purpose of an elevator is actually quite similar to an arm's. It is supposed to raise subsystems and game components up and down. Although we never actually used our robot for 2020, team 1257 had an elevator which brought a hook higher so it could hang unto a bar. The biggest difference between an elevator and an arm is that an Elevator moves directly up instead of rotating up. That often saves space which is why team 1257 uses an elevator subsystem even though it is very complex.
 
 ## Subsystem File
 
@@ -34,7 +34,7 @@ public class Elevator extends SnailSubsystem {
     private CANSparkMax elevatorFollowerMotor;
 ```
 
-After importing all of the required libraries, we declare the motor controllers needed for our subsystem. In this case, we  have two motors that control the elevator's up and down motion.
+After importing all of the required libraries, we declare the motor controllers needed for our subsystem. In this case, we have two motors that control the elevator's up and down motion.
 
 ### States
 
@@ -69,7 +69,7 @@ Similar to the arm, the constructor is used to define the motor controller and s
 
 #### First Motor
 
-1. The first line declares the motor controller. A motor controller, has two parameters which are the ID and the `MotorType`. For this specific motor controller the ID is set to a constant called `ELEVATOR_PRIMARY_ID` and the `MotorType` is set to brushless. This is because this motor controller is used to control a NEO motor which is brushless.
+1. The first line declares the motor controller. A motor controller has two parameters which are the ID and the `MotorType`. For this specific motor controller, the ID is set to a constant called `ELEVATOR_PRIMARY_ID` and the `MotorType` is set to brushless. This is because this motor controller is used to control a NEO motor which is brushless.
 
 2. `restoreFactoryDefaults()` wipes all settings on the motor controller to its defaults, ensuring that we know exactly what they are and that we can safely change what we want. If we didn't do this, the motor controller might have some of its values changed from default, and this could be very dangerous.
 
@@ -81,13 +81,13 @@ Similar to the arm, the constructor is used to define the motor controller and s
 
 The first four lines are exactly the same. 
 
-The difference is the fifth line `elevatorFollowerMotor.follow(elevatorMotor, false);` This line makes it so that the `elevatorFollowerMotor` does exactly what `elevatorMotor` does. The second parameter determines whethere the motor is inverted and it is not as it is false.
+The difference is the fifth line `elevatorFollowerMotor.follow(elevatorMotor, false);` This line makes it so that the `elevatorFollowerMotor` does exactly what `elevatorMotor` does. The second parameter determines whether the motor is inverted. In this motors case, it is not inverted as false is passed in.
 
 #### Inverted
 
-If a motor is inverted, that mean that the motor spins in the opposite direction compared to the motor is follows. Whether a robot is inverted or not completely depends on the robot layout and the configuration is completely different for each robot made.
+If a motor is inverted, that means that the motor spins in the opposite direction compared to the motor it follows. Whether a robot is inverted or not completely depends on the robot layout and the configuration is completely different for each robot made.
 
-The original motor can also be inverted with the function `setInverted(true);` If the value passed in is true it is inverted. If the value is false, the motor is not inverted.
+The original motor can also be inverted with the function `setInverted(true);`. If the value passed in is true it is inverted. If the value is false, the motor is not inverted.
 
 ### Update Function
 
@@ -102,9 +102,9 @@ public void update() {
 }
 ```
 
-For our update function, we once again look at which state, or "mode," that we are in. Here, we only have one state, `MANUAL` for manual control. During this manual control state, we want to look at the current `speed` variable and set our motor's speed value to that. 
+For our update function, we once again look at which state, or "mode", that we are in. Here, we only have one state, `MANUAL` for manual control. During this manual control state, we want to look at the current `speed` variable and set our motor's speed value to that. 
 
-The reason the speed is not set for the `elevatorFollowerMotor` is because it already followes what the `elevatorMotor` does so that line of code would be redundant.
+The reason the speed is not set for the `elevatorFollowerMotor` is because it already follows what the `elevatorMotor` does so that line of code would be redundant.
 
 
 ### Shuffle Board Functions
@@ -145,7 +145,7 @@ Just like in the arm subsystem, there is no function to set the state to one of 
 
 ## Elevator Manual Command
 
-Here we will briefly discuss how the `ElevatorManualCommand` works. If a more in depth overview is needed about how `DoubleSupplier` and why it is used, you may look at the arm file.
+Here we will briefly discuss how the `ElevatorManualCommand` works. If a more in-depth overview is needed about how `DoubleSupplier` works and why it is used, you may look at the Arm file.
 
 ### Variable Declarations
 
@@ -163,7 +163,7 @@ public class ElevatorManualCommand extends CommandBase {
     private final DoubleSupplier speedSupplier;
 ```
 
-Just like in the arm, instead of storing a `double` called `speed`, we store a `DoubleSupplier`. A `DoubleSupplier` is an object that represents a function that returns a `double`. This allows us to pass in code that could for instance evaluate `operatorController.getLeftY()` constantly and give us access new, updated values.
+Just like in the arm, instead of storing a `double` called `speed`, we store a `DoubleSupplier`. A `DoubleSupplier` is an object that represents a function that returns a `double`. This allows us to pass in code that could for instance evaluate `operatorController.getLeftY()` constantly and give us access to new, updated values.
 
 
 ### Constructor
@@ -248,7 +248,7 @@ public class RobotContainer {
     private ArrayList<SnailSubsystem> subsystems;
 ```
 
- The only important line we have to add here is the `private Elevator elevator;` line just to create an instance of our subsytem. Everything else is already present in our template (besides import statements but those can be added later automatically by VSCode).
+ The only important line we have to add here is the `private Elevator elevator;` line just to create an instance of our subsystem. Everything else is already present in our template (besides import statements but those can be added later automatically by VSCode).
 
 ### Constructor and Bindings
 
@@ -274,7 +274,7 @@ When we do this, each time `execute()` is run in the command, `getRightY` is run
 
 Since there are no other commands other than the default command in this subsystem, `configureButtonBindings()` is empty. There is never a need to change the command running with a button.
 
-For more information you may look at the Arm file.
+For more information, you may look at the Arm file.
  
  ## Constants
  
@@ -307,4 +307,4 @@ public final class Constants {
 
 If there are any lingering questions about anything gone over in this lesson, please ask a senior programming member.
 
-With the elevator lesson over, you now know how to code four major subsystems that our team uses! Next lesson, we will learn about arguably most important subsystem that Team 1257 uses: the drivetrain!
+With the elevator lesson over, you now know how to code four major subsystems that our team uses! Next lesson, we will learn about arguably the most important subsystem that Team 1257 uses: the drivetrain!
