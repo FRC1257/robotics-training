@@ -6,7 +6,7 @@ Welcome to the beginning of learning to program robots! Here we're going to get 
 
 First, you must make a GitHub account. I would recommend using a personal email for this. Then, go to this link:
 
-[Snail Robot Template](https://github.com/FRC1257/Snail-Robot-Template).
+[Snail Robot Template](https://github.com/FRC1257/snail-robot-template).
 
 Then, click the green button labeled `Use this template`. Make sure that the `Owner` tag has **your** account under it. For the name, you can put anything you want, like `Learning-Robot-Code`. For repository visibility, you can choose either `Public` or `Private`, but I would personally choose `Private`. Every time you want to make a new robot project, you should follow these steps.
 

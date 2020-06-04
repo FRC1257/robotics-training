@@ -43,7 +43,7 @@ public class Robot extends TimedRobot {
 ```
 
 > [!TIP]
-> You don't have to worry about these intricacies with `CommandScheduler` however since they are already included in our `Snail-Robot-Template` repository, but it is useful to know what is going on in here.
+> You don't have to worry about these intricacies with `CommandScheduler` however since they are already included in our `snail-robot-template` repository, but it is useful to know what is going on in here.
 
 ## Flowchart
 
