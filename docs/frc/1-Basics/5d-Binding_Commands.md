@@ -164,8 +164,8 @@ Here is all of the code covered in this lesson.
 package frc.robot;
 
 import frc.robot.commands.intake.RollerIntakeNeutralCommand;
-import frc.robot.commands.intake.IntakeIntakeNeutralCommand;
-import frc.robot.commands.intake.EjectIntakeNeutralCommand;
+import frc.robot.commands.intake.RollerIntakeIntakeCommand;
+import frc.robot.commands.intake.RollerIntakeEjectCommand;
 
 import edu.wpi.first.wpilibj.Notifier;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
