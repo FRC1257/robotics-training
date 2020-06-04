@@ -4,13 +4,13 @@ Now that you know how to make a claw and a roller intake, it is time to learn ab
 
 ## Subsystem Overview
 
-![arm](img/2019Robot.jpg)
+![FRC 1257's 2019 Robot Arm](img/2019Robot.jpg)
 
 Above is a picture of the entire robot that Team 1257 made for the 2019 game, Destination Deep Space. Our roller intake (the green wheels) are attacked to our arm, which is composed of the two bars that rotate the entire intake up or down via a single motor.
 
 ### Purpose
 
-The purpose of the arm is generally to make a subsystem of the robot be able to move up or down. In the 2019 game, the purpose of the arm was to move the intake to various important positions, such as the ground to pick up cargo balls, or up to score the balls into the various scoring areas.
+The purpose of the arm is generally to make a subsystem of the robot able to move up or down. In the 2019 game, the purpose of the arm was to move the intake to various important positions, such as the ground to pick up cargo balls, or up to score the balls into the various scoring areas.
 
 ## Subsystem File
 
@@ -61,7 +61,7 @@ public Arm() {
 
 Similar to the roller intake, the constructor is used to define the motor controller and set up parameters with it.
 
-1. The first line declares the motor controller. A motor controller, has two parameters which are the ID and the `MotorType`. For this specific motor controller the ID is set to a constant called `ARM_ID` and the `MotorType` is set to brushless. This is because this motor controller is used to control a NEO motor which is brushless.
+1. The first line declares the motor controller. A motor controller has two parameters which are the ID and the `MotorType`. For this specific motor controller, the ID is set to a constant called `ARM_ID` and the `MotorType` is set to brushless. This is because this motor controller is used to control a NEO motor which is brushless.
 
 2. `restoreFactoryDefaults()` wipes all settings on the motor controller to its defaults, ensuring that we know exactly what they are and that we can safely change what we want. If we didn't do this, the motor controller might have some of its values changed from default, and this could be very dangerous.
 
@@ -203,7 +203,7 @@ public ArmManualCommand(Arm arm, DoubleSupplier speedSupplier) {
 }
 ```
 
-Just like the previous commands for other subsystems, the subsystem object is defined and `addRequirements()` is called. The object is defined in order for it to be possible to access certain functions related in the subsystem's class later on. `addRequirements()` is called in order for the `CommandScheduler` to know which subsystem is used in order to run the command.
+Just like the previous commands for other subsystems, the subsystem object is defined and, `addRequirements()` is called. The object is defined in order for it to be possible to access certain functions related in the subsystem's class later on. `addRequirements()` is called in order for the `CommandScheduler` to know which subsystem is used in order to run the command.
 
 #### initialize() and execute()
 
@@ -275,7 +275,7 @@ public class RobotContainer {
     private ArrayList<SnailSubsystem> subsystems;
 ```
 
-The only important line we have to add here is the `private Arm arm;` line just to create an instance of our subsytem. Everything else is already present in our template (besides import statements but those can be added later automatically by VSCode).
+The only important line we have to add here is the `private Arm arm;` line just to create an instance of our subsystem. Everything else is already present in our template (besides import statements but those can be added later automatically by VSCode).
 
 ### Constructor and Bindings
 
@@ -299,7 +299,7 @@ There is one major difference in how the default command is defined compared to 
 
 When we do this, each time `execute()` is run in the command, `getRightY` is run and it supplies a different value based on what the XBox controller is doing. If the value of the function was passed in with `.getRightY()` the initial value would never update as the constructor is only run once.
 
-ince there are no other commands other than the default command in this subsystem, `configureButtonBindings()` is empty. There is never a need to change the command running with a button.
+Since there are no other commands other than the default command in this subsystem, `configureButtonBindings()` is empty. There is never a need to change the command running with a button.
 
 #### Inline Option
 
@@ -325,7 +325,7 @@ One advantage of this method is that if we have to do calculations (such as scal
     }));
 ```
 
-However, we use the `::` operator because its shorter and cleaner.
+However, we use the `::` operator because it is shorter and cleaner.
 
 There's so much more to be covered with all of the possibilities included with the Java functional interfaces, so feel free to search it up if you are interested.
 

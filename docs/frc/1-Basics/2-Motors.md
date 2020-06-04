@@ -39,6 +39,9 @@ motor.setIdleMode(IdleMode.kBrake);
 
 // Set a current limit of 80 amps to the motor
 motor.setSmartCurrentLimit(80);
+
+// Set the motor to not be inverted
+motor.setInverted(false);
 ```
 
 ### Motor IDs
@@ -63,6 +66,10 @@ Fortunately, most motor controller support `current limiting`, which allows us t
 
 For larger motors such as our NEOs or CIMs, we can set a limit of around `80A`. For smaller motors such as the fragile NEO 550s, we can set a limit of around `25A`.
 
+### Inversion
+
+Sometimes, our motors may be facing in direction so that when we apply a positive output, the mechanism does not move in the desired direction. While this could be solved by always multiplying the value passed in by `-1`, this can be confusing and lead to bugs. However, what we can do instead is set the motor to be "inverted", which will flip which direction corresponds to positive. We can do this in code by using `.setInverted(true)` on the desired motor.
+
 ### Following
 
 For certain subsystems, we'll have multiple motors working in sync. In other words, we might want to have two motors mimick each other and have the same output at all times. At this point, you might program it like this:
@@ -75,6 +82,14 @@ Here, both motor objects are referenced, with one output variable being passed i
 
 This way, we won't have to worry about commanding both motor objects in code, as `motor2` should always mirror the output of `motor1`.
 
+#### Following and Inverting
+
+One particular case we have to look at is when we want to make a motor follow another motor to mirror its output, but they have to run in opposite directions. This could occur if the motors are connected to the same mechanism, but are flipped. Specifically for the `SPARK MAXes`, instead of doing `.setInverted()` (which would have 0 effect), we would pass this as a second argument into the `.follow()` command.
+
+```java
+motor2.follow(motor1, true);
+```
+
 ## Commanding Motors
 
 Now, to apply power to the motor and make it move at a speed, we can use `motor.set(VALUE)`. `VALUE` could be a decimal between -1.0 and 1.0, with 1.0 meaning full speed forward, 0.0 meaning no speed/movement, and -1.0 meaning full speed reverse.
@@ -83,7 +98,7 @@ Now, to apply power to the motor and make it move at a speed, we can use `motor.
 
 The SPARK MAX is not the only motor controller we could use -- in the past, 1257 has used Talon SRXs and Victor SPXs (both by [CTRE](http://www.ctr-electronics.com/control-system.html?p=3)).
 
-While the motor controller may differ, the general process of controlling the motor is most the same. If Talon SRXs were being used, changes would go towards the class name (now `WPI_TalonSRX`) and any functions taken from that class (e.g. `setIdleMode()` would go to `setNeutralMode()`, and `setSmartCurrentLimit()` would be `enableCurrentLimit()`.
+While the motor controller may differ, the general process of controlling the motor is most the same. If Talon SRXs were being used, changes would go towards the class name (now `WPI_TalonSRX`) and any functions taken from that class (e.g. `setIdleMode()` would go to `setNeutralMode()`, and `setSmartCurrentLimit()` would be `configContinuousCurrentLimit()`.
 
 ```java
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
@@ -95,6 +110,7 @@ motor.setNeutralMode(NeutralMode.Brake);
 motor.configContinuousCurrentLimit(80);
 motor.enableCurrentLimit(true);
 motor.follow(otherMotor);
+motor.setInverted(false);
 ```
 
 > [!TIP]
@@ -119,7 +135,7 @@ primaryMotor.setSmartCurrentLimit(80);
 secondaryMotor = new CANSparkMAX(1, MotorType.kBrushless);
 secondaryMotor.setIdleMode(IdleMode.kBrake);
 secondaryMotor.setSmartCurrentLimit(25);
-secondaryMotor.follow(primaryMotor);
+secondaryMotor.follow(primaryMotor, true); // invert the follower motor with respect to the primary motor
 
 ejectMotor = new WPI_TalonSRX(2);
 ejectMotor.setNeutralMode(NeutralMode.Coast);
