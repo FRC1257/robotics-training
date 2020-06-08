@@ -2,7 +2,7 @@
 
 Now that you know how to make a claw and a roller intake, it is time to learn about a subsystem usually made in conjunction with the two. In this lesson, the purpose of the arm subsystem and the basic code to make it run will be gone over.
 
-## Subsystem Overview
+## Overview
 
 ![FRC 1257's 2019 Robot Arm](img/2019Robot.jpg)
 
