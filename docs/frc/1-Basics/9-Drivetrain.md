@@ -10,13 +10,13 @@ A drivetrain is defined as "the group of components that deliver power to the dr
 
 Source: <https://www.simbotics.org/wp-content/uploads/2019/12/simbotseminarseries-drivetraindesign.pdf>
 
-On 1257, we almost always use a normal kitbot 6 wheel tank drive, similar to the one pictured above. On this type of drivetrain, the wheels are fixed, and therefore cannot be rotated left or right, unlike a car. While this may seem restrictive to movement, it is much easier both to build an d to program. 
+On 1257, we almost always use a normal kitbot 6 wheel tank drive, similar to the one pictured above. On this type of drivetrain, the wheels are fixed and therefore cannot be rotated clockwise nor counterclockwise (unlike a car, where the front wheels can rotate to turn). While this may seem restrictive to movement, it is much easier to both build and program. 
 
 ## Subsystem File
 
 ### Declarations
 
-While we have 6 wheels on our drivetrain, we only use two motors per side. To begin our subsystem file, we might declare these motors as `frontLeftMotor`, `frontRightMotor`, `backLeftMotor`, and `backRightMotor`:
+While we have 6 wheels on each side, the 3 wheels are all connected to each other and must run in the same direction (which makes sense or else we would have wheels running in opposite directions). While we could just use one motor on both side of our robot, we actually use two per side (one labelled **front** and the other labelled **back**) to add extra power to our drivetrain. To begin our subsystem file, we might declare these motors as `frontLeftMotor`, `frontRightMotor`, `backLeftMotor`, and `backRightMotor`:
 
 With this tank drive design, going backwards and forwards is very easy: we simply set all the motors to full speed forwards or backwards. However, turning gets a bit more complicated. Instead, we have to spin the two sides of the drivetrain in opposite directions. For instance, to turn right, we would have to spin the right wheels backwards and the left wheels forwards. This would do a rotation about the center of our robot.
 
