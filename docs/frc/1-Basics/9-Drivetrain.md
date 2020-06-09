@@ -24,7 +24,7 @@ The above doesn't seem that bad to program until we get to the fact that driving
 
 Luckily, WPILib makes this much easier for us by introducing a class called `DifferentialDrive`. What this class does is introduce a way to control our motors for us and do the math to turn what we want into the individual motor outputs. Turning while driving (not turning in place) is essentially using mismatched speeds with respect to the two sides. 
 
-We can pass in values (i.e. inputs from the controller's joysticks) into a `DifferentialDrive` object in order to tell the robot to drive forward at full speed while turning right at half speed. We'll name those passed-in values `speedForward` and `speedTurn`.
+We can pass in values (i.e. inputs from the controller's joysticks) into a `DifferentialDrive` object in order to tell the robot to drive forward at full speed while turning right at half speed. 
 
 Then, `DifferentialDrive` will take in these commands, do the math, and then update the motors accordingly to make the robot perform this action. 
 
@@ -49,9 +49,6 @@ public class Drivetrain extends SnailSubsystem {
 
     private final DifferentialDrive drivetrain;
 
-    private double speedForward;
-    private double speedTurn;
-
     ...
 }
 ```
@@ -72,7 +69,14 @@ We'll declare our state(s) in the form of an [enum:](https://frc1257.github.io/r
 
 We then add a private variable that'll hold the default state of the subsystem, which, in this case, will be `MANUAL`. Having a separate default state variable is good for expandability in the program and also reduces confusion during robot testing or competition. Finally, we initialize our subsystem-wide state variable with the default state.
 
-The state we introduced above can be considered the "operating mode" or "configuration" the subsystem is in. For our purposes here, that would be manual control, where the driver controls the motor speeds. Now, take a step back to the `speedForward` and `speedTurn` variables. You can think of these as an extra part or extension of the state that we are keeping track of, as they represent more information *about* the state and current operating behavior.
+As mentioned before, we will need to pass in values into `DifferentialDrive` to command drivetrain movement. We can declare the speed variables as such: 
+
+```java
+    private double speedForward;
+    private double speedTurn;
+```
+
+The state we introduced above can be considered the "operating mode" or "configuration" the subsystem is in. For our purposes here, that would be manual control, where the driver controls the motor speeds. You can think of the `speedForward` and `speedTurn` variables as an extra part or extension of the state that we are keeping track of, as they represent more information *about* the state and current operating behavior.
 
 ### Constructor
 
