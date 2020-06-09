@@ -51,7 +51,7 @@ After declaring the motor controller, the states are declared. The Elevator subs
 ### Constructor
 
 ```java
- public Elevator() {
+public Elevator() {
     elevatorMotor = new CANSparkMax(ELEVATOR_PRIMARY_ID, MotorType.kBrushless);
     elevatorMotor.restoreFactoryDefaults();
     elevatorMotor.setIdleMode(IdleMode.kBrake);
