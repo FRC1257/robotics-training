@@ -8,7 +8,7 @@ A drivetrain is defined as "the group of components that deliver power to the dr
 
 ![Drivetrain](img/drivetrain.png ':size=400x300')
 
-Source: <https://www.simbotics.org/wp-content/uploads/2019/12/simbotseminarseries-drivetraindesign.pdf>
+[Source](https://www.simbotics.org/wp-content/uploads/2019/12/simbotseminarseries-drivetraindesign.pdf)
 
 On 1257, we almost always use a normal kitbot 6 wheel tank drive, similar to the one pictured above. On this type of drivetrain, the wheels are fixed and therefore cannot be rotated clockwise nor counterclockwise (unlike a car, where the front wheels can rotate to turn). While this may seem restrictive to movement, it is much easier to both build and program. 
 
@@ -76,7 +76,7 @@ As mentioned before, we will need to pass in values into `DifferentialDrive` to 
     private double speedTurn;
 ```
 
-The state we introduced above can be considered the "operating mode" or "configuration" the subsystem is in. For our purposes here, that would be manual control, where the driver controls the motor speeds. You can think of the `speedForward` and `speedTurn` variables as an extra part or extension of the state that we are keeping track of, as they represent more information *about* the state and current operating behavior.
+The state we introduced above can be considered the "operating mode" or "configuration" the subsystem is in. For our purposes here, that would be manual control, where the driver directly controls the motor speeds. You can think of the `speedForward` and `speedTurn` variables as an extra part or extension of the state that we are keeping track of, as they represent more information *about* the state and current operating behavior.
 
 ### Constructor
 
@@ -195,7 +195,7 @@ public class ManualDriveCommand extends CommandBase {
     ...
 }
 ```
-These are the basic declarations we'll need for this command to work. Just like in the previous examples, we use `DoubleSupplier`s to later store controller joystick inputs, instead of using doubles. 
+These are the basic declarations we'll need for this command to work. Just like in the previous examples, we use `DoubleSupplier`s to later store controller joystick inputs, instead of using `double`s. 
 
 ### Constructor
 
