@@ -2,15 +2,15 @@
 
 You now know how to make three major subsystems that our team uses. In this lesson, it is time to learn a subsystem that works in a very similar way to the arm subsystem: the elevator. In this lesson, the purpose of the elevator will be explained and the basic code to run the subsystem will be gone over.
 
-## Subsystem Overview
+## Overview
 
 ![Elevator CAD](img/elevatorExtended.jpeg ':size=392x389')
 
-Above is a picture of an elevator subsystem. Not every elevator looks like this though almost all used by 1257 have followed the same general concept. There are pulleys set up that are spun using motors that raise the elevator up and down. In many designs the motors both spin in the same direction though there are also quite a few where the spin in opposite directions because of the ways that the pulleys are set up.
+Pictured above is an elevator subsystem. Not every elevator looks like this, though almost all used by 1257 have followed the same general concept. There are pulleys set up that are spun using motors that raise the elevator up and down. In many designs, the motors both spin in the same direction though there are also quite a few where the spin in opposite directions because of the ways that the pulleys are set up.
 
 ### Purpose
 
-The purpose of an elevator is actually quite similar to an arm's. It is supposed to raise subsystems and game components up and down. Although we never actually used our robot for 2020, Team 1257 had an elevator which brought a hook higher so it could hang on a bar. The biggest difference between an elevator and an arm is that an elevator moves translationally instead of rotationally mechanically. However, they are both controlled by 1 (or 2 for more power) motors and work really similary at the basic programming level.
+The purpose of an elevator is actually quite similar to an arm's. It is supposed to raise subsystems and game components up and down. For our 2020 robot, 1257 had an elevator which raised a hook so that it could latch onto a bar and elevate the robot. The biggest difference between an elevator and an arm is that an elevator moves translationally instead of rotationally mechanically. However, they are both controlled by 1 (or 2 for more power) motors and work really similary at the basic programming level.
 
 ## Subsystem File
 
@@ -26,7 +26,6 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import static frc.robot.Constants.ElectricalLayout.*;
 import static frc.robot.Constants.Elevator.*;
 import static frc.robot.Constants.NEO_CURRENT_LIMIT;
-
 
 public class Elevator extends SnailSubsystem {
 
@@ -52,7 +51,7 @@ After declaring the motor controller, the states are declared. The Elevator subs
 ### Constructor
 
 ```java
- public Elevator() {
+public Elevator() {
     elevatorMotor = new CANSparkMax(ELEVATOR_PRIMARY_ID, MotorType.kBrushless);
     elevatorMotor.restoreFactoryDefaults();
     elevatorMotor.setIdleMode(IdleMode.kBrake);
@@ -269,7 +268,7 @@ private void configureButtonBindings() {
 
 Just like in the Arm subsystem, in addition to the Elevator subsystem getting passed in as a parameter, `operatorController::getRightY` is passed too. This is being passed in as our `DoubleSupplier` object. Essentially, we can pass in any function that returns a `double` variable into here. However, to ensure that we actually pass in the **function** itself and not the **result of evaluating that function**, we use Java's `::` operator.
 
-When we do this, each time `execute()` is run in the command, `getRightY` is run and it supplies a different value based on what the XBox controller is doing. If the value of the function was passed in with `.getRightY()` the initial value would never update as the constructor is only run once.
+When we do this, each time `execute()` is run in the command, `getRightY` is run and it supplies a different value based on what the Xbox controller is doing. If the value of the function was passed in with `.getRightY()` the initial value would never update as the constructor is only run once.
 
 Since there are no other commands other than the default command in this subsystem, `configureButtonBindings()` is empty. There is never a need to change the command running with a button.
 

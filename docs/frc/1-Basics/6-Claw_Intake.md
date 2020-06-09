@@ -2,7 +2,7 @@
 
 Now that you know how to make a subystem and its supporting files we are going to cover making other subsystems with different features and purposes. The next few lessons will be about learning each of the major subsystems that 1257 uses, why they are important and how we can program them.
 
-## Subsystem Overview
+## Overview
 
 ![openClaw](img/openClaw.jpeg) ![closedClaw](img/closedClaw.jpeg)
 
