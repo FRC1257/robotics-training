@@ -58,7 +58,7 @@ The purpose of the derivative term is to slow down the motor output of our contr
 
 ```java
 // set these up once
-double kP = 0.01;
+double kD = 0.01;
 double prevError = 0.0;
 
 // loop this
@@ -85,11 +85,39 @@ One important thing to notice is that while increasing `kP` increases the speed 
 
 ## I term
 
-TODO
+> [!TIP]
+> You can think of integral as the "sum of the error," or the error accumulated over time.
+
+The purpose of the **I**ntegral term is to get rid of steady state error, or when the value trying to be controlled settles on a value not equal to the setpoint. For example, sometimes the thing we are trying to control doesn't quite reach where we want it to be or might even overshoot, and then just stops moving due to friction opposing the actuator effort. However, the way the integral term works is that this error will be accumulated over time with the integral term, eventually overcoming the frictional force and allowing the actuator to go to the desired setpoint. The way it works is that we accumulate the error over time and then add it to our motor output.
+
+> [!WARNING]
+> There are **many** things that can go wrong with using an I term. The integral term can oversaturate and also the I term adds a lot of non-linear complexity to tuning PID. In FRC, it is very rare that we will even need the I term for our systems, so we will most of the time not include it.
+
+```java
+// set these up once
+double kI = 0.01;
+double prevError = 0.0;
+double errorSum = 0.0;
+
+// loop this
+double error = setpoint - encoder.getPosition();
+errorSum += (error - prevError) * (currentTime - prevTime);
+
+prevTime = currentTime;
+prevError = error;
+motor.set(kP * error - kD * dError + kI * errorSum);
+```
 
 ### Effects of kI
 
-TODO
+One important concept to understand is how different `kI` values will affect the response of the system. We can summarize this in the table below:
+
+| kI | Stability | Steady State Error |
+| :-: | :-: | :-: |
+| ↑↑ (increase) | ↓↓ (decrease) | ↓↓ (decrease) |
+| ↓↓ (decrease) | ↑↑ (increase) | ↑↑ (increase) |
+
+One important thing to notice is that increasing `kI` decreases the steady state error, it increases the speed and instability of the actuator. This happens because even while the actuator is in its normal movement, the integral term is still accumulating and actutator output.
 
 ## Types of Controllers
 
@@ -105,4 +133,9 @@ The following video shows a really good hardware demo of the effect of different
 
 ## Tuning PID
 
-One of the most critical parts about a PID controller is learning how to tune it depending on what kind of response you get.
+One of the most critical parts about a PID controller is learning how to tune it depending on what kind of response you get. For our team, we use almost solely PD controllers, so we will go over our general procedure below:
+
+1. Start with a very low `kP` value and gradually increase it until the actuator at least gets to the desired position. Make sure you increase it **gradually** to reduce the risk of growing an out of control system and doing damage. It is much better to have a slow, dissapointing system than a crazy frantic system that could injure someone.
+2. Increase `kP` more until the system continually oscillates around the setpoint, and it settles at the setpoint. It is **ok** if it has some violent oscillations as long as they are **consistent** and are about the desired setpoint.
+3. Increase the `kD` term until the oscillations slow down and eventually stop.
+4. Marginally adjust `kP` and `kD` to either add speed or damping respectively.
