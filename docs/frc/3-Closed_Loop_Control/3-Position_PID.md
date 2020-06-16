@@ -49,7 +49,7 @@ public class Elevator extends SnailSubsystem {
     }
 
     @Override
-    public void outputValues() {
+    public void displayShuffleboard() {
         SmartDashboard.putNumber("Elevator Position", primaryMotor.getSelectedSensorPosition());
     }
 
@@ -413,7 +413,7 @@ One **extremely** useful thing you can do while tuning PID is to make graphs, gr
 #### WPILib PIDController
 
 ```java
-public void outputValues() {
+public void displayShuffleboard() {
     SmartDashboard.putNumberArray("Elevator Dist PID", new double[] {primaryMotor.getSelectedSensorPosition(), elevatorPID.getSetpoint()});
 }
 ```
@@ -421,7 +421,7 @@ public void outputValues() {
 #### SPARK MAX PID
 
 ```java
-public void outputValues() {
+public void displayShuffleboard() {
     SmartDashboard.putNumberArray("Elevator Dist PID", new double[] {primaryEncoder.getPosition(), pidSetpoint});
 }
 ```
@@ -435,7 +435,7 @@ Shuffleboard tuning is rather straightforward with `PIDController`. We can simpl
 
 ```java
 @Override
-public void getConstantTuning() {
+public void tuningPeriodic() {
     ELEVATOR_PID[0] = Shuffleboard.getNumber("Elevator PID P", ELEVATOR_PID[0]);
     ...
 
@@ -448,7 +448,7 @@ For the SPARK MAX PID controller, it gets just a bit more tricky. For SPARK MAX,
 
 ```java
 @Override
-public void getConstantTuning() {
+public void tuningPeriodic() {
     ELEVATOR_PID[0] = Shuffleboard.getNumber("Elevator PID P", ELEVATOR_PID[0]);
     ...
 
