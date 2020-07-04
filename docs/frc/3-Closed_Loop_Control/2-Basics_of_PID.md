@@ -139,3 +139,11 @@ One of the most critical parts about a PID controller is learning how to tune it
 2. Increase `kP` more until the system continually oscillates around the setpoint, and it settles at the setpoint. It is **ok** if it has some violent oscillations as long as they are **consistent** and are about the desired setpoint.
 3. Increase the `kD` term until the oscillations slow down and eventually stop.
 4. Marginally adjust `kP` and `kD` to either add speed or damping respectively.
+
+## Sources
+
+If you want more information, I would strongly recommend reading / watching the sources below, which were used to help write this article.
+
+* https://docs.wpilib.org/en/stable/docs/software/advanced-control/introduction/introduction-to-pid.html
+* https://www.youtube.com/watch?v=wkfEZmsQqiA
+* https://www.youtube.com/watch?v=4Y7zG48uHRo
