@@ -8,6 +8,6 @@ There are two main implementations of PID that we can use, `PIDController` on th
 
 In the next two pages, we will go over both of the methods to set up PID control on our subsystems. In the third page, we will go over more general information that applies to both.
 
-### Why We Might Use PIDController on a SPARK MAX
+## Why We Might Use PIDController on a SPARK MAX
 
 Sometimes, we might choose to use the RoboRIO `PIDController` over the SPARK MAX because `PIDController` gives us way more flexibility in terms of what we do with that output. For instance, when we do PID control on our drivetrain to drive a straight distance, we use `PIDController` because it allows us to pass that value into the `arcadeDrive()` function and then pass another custom variable for turning speed into the second parameter of `arcadeDrive()`. If we used the onboard SPARK MAX PID, then we would not be able to do this since the calculated PID value would automatically be sent to the motor on a per controller basis.
