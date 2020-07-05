@@ -17,9 +17,9 @@ Below is the basic format of the `RobotContainer` file:
 ```java
 package frc.robot;
 
-import frc.robot.commands.intake.RollerIntakeNeutralCommand;
-import frc.robot.commands.intake.IntakeIntakeNeutralCommand;
-import frc.robot.commands.intake.EjectIntakeNeutralCommand;
+import frc.robot.commands.rollerintake.RollerIntakeNeutralCommand;
+import frc.robot.commands.rollerintake.IntakeIntakeNeutralCommand;
+import frc.robot.commands.rollerintake.EjectIntakeNeutralCommand;
 
 import edu.wpi.first.wpilibj.Notifier;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -163,9 +163,9 @@ Here is all of the code covered in this lesson.
 ```java
 package frc.robot;
 
-import frc.robot.commands.intake.RollerIntakeNeutralCommand;
-import frc.robot.commands.intake.IntakeIntakeNeutralCommand;
-import frc.robot.commands.intake.EjectIntakeNeutralCommand;
+import frc.robot.commands.rollerintake.RollerIntakeNeutralCommand;
+import frc.robot.commands.rollerintake.RollerIntakeIntakeCommand;
+import frc.robot.commands.rollerintake.RollerIntakeEjectCommand;
 
 import edu.wpi.first.wpilibj.Notifier;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
