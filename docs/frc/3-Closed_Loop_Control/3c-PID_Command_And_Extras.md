@@ -79,6 +79,8 @@ public class ElevatorPIDCommand extends CommandBase {
 }
 ```
 
+And with that, we're done with our command!
+
 ## Extras
 
 Now that we've implemented our PID controllers, it's time to go over some additional things.
@@ -145,3 +147,7 @@ When this happens, we can simple remove the clause in our `PID` state that ends 
 However, one should be careful with this to ensure that there is still a method available to exit the PID state. With the system described here, the release of our button is a way to end PID control. There are many other methods such as having manual control interrupt it.
 
 For freezing mechanisms, or making them maintain the same position, it is pretty easy. We follow the above steps to remove the end `PID` state clause, and then when we call the `setPosition()` function from our freeze command, we simply set the PID position to the current position. A really easy way to implement the `RobotContainer` calling of the freeze command would be to use the `toggleWhenPressed()` function when assigning buttons to commands.
+
+### Tuning Tip
+
+To properly tune, I would also recommend that you comment out the error checking clause in the `PID` state so that the PID is not ended prematurely. Once the PID is tuned, it can be uncommented. This is so that we can accurately measure the overshoot and instability of the system afterit reaches the setpoint.

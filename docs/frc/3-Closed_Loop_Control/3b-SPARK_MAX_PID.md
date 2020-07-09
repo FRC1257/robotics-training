@@ -121,8 +121,10 @@ public class Elevator extends SnailSubsystem {
                 primaryMotor.set(speed);
             break;
             case PID:
-                elevatorPID.setReference(setpoint);
+                // send the desired setpoint to the PID controller and specify we want to use position control
+                elevatorPID.setReference(setpoint, ControlType.kPosition);
 
+                // check our error and update the state if we finish
                 if(Math.abs(primaryEncoder.getPosition() - setpoint) < ELEVATOR_PID_TOLERANCE) {
                     state = State.MANUAL;
                 }

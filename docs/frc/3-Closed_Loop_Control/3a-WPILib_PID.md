@@ -100,7 +100,7 @@ public class Elevator extends SnailSubsystem {
 
     private PIDController elevatorPID;
 
-    private State state = defaultState;
+    private State state = State.MANUAL;
     private double speed;
 
     public Elevator() {
@@ -118,7 +118,9 @@ public class Elevator extends SnailSubsystem {
 }
 ```
 
-After this, we can add the state `PID` to our state list. In the `PID` state, we want to get our `PIDController` and calculate its output using our current sensor info. Then, we want to send this to the motor. Another thing we want to do is check if we are at our current setpoint. If we are, we want to end the `PID` state and go back to `MANUAL`. Another thing to note is that we might want to constrict the max output of our PID controller to ensure that the system moves at a slow and controllale pace. We can directly modify the output from our `PIDController` to do this.  Note that we have not implemented actually setting up the setpoint yet. This will be handled later.
+After this, we can add the state `PID` to our state list. In the `PID` state, we want to get our `PIDController` and calculate its output using our current sensor info. Then, we want to send this to the motor. Another thing we want to do is check if we are at our current setpoint. If we are, we want to end the `PID` state and go back to `MANUAL`.
+
+Another thing to note is that we might want to constrict the max output of our PID controller to ensure that the system moves at a slow and controllale pace. We can directly modify the output from our `PIDController` to do this. Note that we have not implemented actually setting up the setpoint yet. This will be handled later.
 
 ```java
 public class Elevator extends SnailSubsystem {
@@ -137,12 +139,14 @@ public class Elevator extends SnailSubsystem {
                 primaryMotor.set(speed);
             break;
             case PID:
+                // get the next PID value and limit it between the ranges
                 double output = elevatorPID.calculate(primaryMotor.getSelectedSensorPosition());
                 if(output > ELEVATOR_PID_MAX_OUTPUT) output = ELEVATOR_PID_MAX_OUTPUT;
                 if(output < -ELEVATOR_PID_MAX_OUTPUT) output = -ELEVATOR_PID_MAX_OUTPUT;
 
                 primaryMotor.set(output);
 
+                // check our error and update the state if we finish
                 if(elevatorPID.atSetpoint()) {
                     state = State.MANUAL;
                 }
