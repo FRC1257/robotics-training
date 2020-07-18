@@ -22,7 +22,7 @@ For 1257's 2020 robot, we used a polycarbonate clip attached to a servo to hold 
 
 You might be thinking that it would've been easier to add a motor to the intake and adjust it mechanically so that it would be rotatable/jointed (allowing us to simply lower the intake manually at the beginning of a match), but we already had numerous motors on the robot. Adding that extra motor would have really strained the current draw on the battery and possibly could have introduced other issues. 
 
-Also, the servo's built-in closed-loop functionality made it trivially easy to program, and ensured that the hook for the intake would stay in the desired positions and not slam into other parts of the robot, which is a possibility with a continuous motor. Thus, a servo was the most suitable solution for keeping the intake within frame perimeter. 
+Also, the servo's built-in closed-loop functionality made it trivially easy to program to go to the open and closed positions, and also ensured that the hook for the intake would stay in the desired positions and not slam into other parts of the robot, which is a possibility with a continuous motor. Thus, a servo was the most suitable solution for keeping the intake within frame perimeter. 
 
 ## Programming
 
@@ -42,3 +42,5 @@ We can then use the `set()` method to actually control the servo:
 servo.set(1.0) // pass in double to move to full right
 servo.set(0.0) // move back to full left
 ```
+
+When using the continuous rotation mode, we actually use the same `set()` function, but we can also pass in negative numbers to go backwards.
