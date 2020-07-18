@@ -43,4 +43,4 @@ servo.set(1.0) // pass in double to move to full right
 servo.set(0.0) // move back to full left
 ```
 
-When using the continuous rotation mode, we actually use the same `set()` function, but we can also pass in negative numbers to go backwards.
+When using the continuous rotation mode on the REV Smart Servo, we actually use the same `set()` function, but we can also pass in negative numbers to go backwards. We don't actually set up the continuous rotation mode in code, we have to do this physically with the servo itself.
