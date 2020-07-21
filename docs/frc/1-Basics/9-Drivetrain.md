@@ -181,7 +181,7 @@ Because the only state we are dealing with is the `MANUAL` state, we'll create a
 ```java 
 package frc.robot.commands.drivetrain;
 
-import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj.command.CommandBase;
 import frc.robot.subsystems.Drivetrain;
 
 import java.util.function.DoubleSupplier;
@@ -246,7 +246,7 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.Notifier;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.commands.drivetrain.ManualDriveCommand;
 import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.SnailSubsystem;
