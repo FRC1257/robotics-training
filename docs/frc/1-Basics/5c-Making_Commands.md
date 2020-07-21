@@ -176,7 +176,7 @@ Below is all of the code we wrote for `RollerIntakeIntakeCommand`. Next, we'll c
 ```java
 package frc.robot.commands.rollerintake;
 
-import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj.command.CommandBase;
 import frc.robot.subsystems.RollerIntake;
 
 public class RollerIntakeIntakeCommand extends CommandBase {

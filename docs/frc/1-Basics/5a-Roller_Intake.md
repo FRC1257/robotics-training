@@ -40,7 +40,7 @@ Here is a copy of the `SnailSubsystem` code:
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import edu.wpi.first.wpilibj.command.SubsystemBase;
 
 public abstract class SnailSubsystem extends SubsystemBase {
 

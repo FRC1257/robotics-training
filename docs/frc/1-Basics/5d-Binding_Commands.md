@@ -23,7 +23,7 @@ import frc.robot.commands.rollerintake.EjectIntakeNeutralCommand;
 
 import edu.wpi.first.wpilibj.Notifier;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.subsystems.SnailSubsystem;
 import frc.robot.util.SnailController;
 import edu.wpi.first.wpilibj.XboxController.Button;
@@ -169,7 +169,7 @@ import frc.robot.commands.rollerintake.RollerIntakeEjectCommand;
 
 import edu.wpi.first.wpilibj.Notifier;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.subsystems.SnailSubsystem;
 import frc.robot.util.SnailController;
 import frc.robot.subsystems.RollerIntake;

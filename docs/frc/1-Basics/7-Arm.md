@@ -131,7 +131,7 @@ One of the crucial parts of this command is that it somehow has to pass a value 
 ```java
 package frc.robot.commands.arm;
 
-import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj.command.CommandBase;
 import frc.robot.subsystems.Arm;
 
 import java.util.function.DoubleSupplier;
@@ -179,7 +179,7 @@ If we want to fix this, we need to be able to somehow pass in not a constant dou
 ```java
 package frc.robot.commands.arm;
 
-import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj.command.CommandBase;
 import frc.robot.subsystems.Arm;
 
 import java.util.function.DoubleSupplier;
@@ -253,7 +253,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Notifer;
 import edu.wpi.first.wpilibj.XboxController.Button;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.subsystems.SnailSubsystem;
 import frc.robot.util.SnailController;
 import frc.robot.subsystems.Arm;

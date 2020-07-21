@@ -130,7 +130,7 @@ The last thing that is done is the declaration of the functions which set the st
 ```java
 package frc.robot.commands.claw;
 
-import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj.command.CommandBase;
 import frc.robot.subsystems.Claw;
 
 public class ClawCloseCommand extends CommandBase {
@@ -179,7 +179,7 @@ The command for opening is the exact same as the command for closing except for 
 ```java
 package frc.robot.commands.claw;
 
-import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj.command.CommandBase;
 import frc.robot.subsystems.Claw;
 
 public class ClawOpenCommand extends CommandBase {
@@ -226,7 +226,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Notifier;
 import edu.wpi.first.wpilibj.XboxController.Button;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.subsystems.SnailSubsystem;
 import frc.robot.util.SnailController;
 import frc.robot.subsystems.Claw;
