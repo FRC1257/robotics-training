@@ -140,7 +140,7 @@ public void tuningPeriodic() {
 
 ### Maintaining Position
 
-Sometimes, we want to use our PID to maintain a position even after the movement has ended or to make it maintain the same position. For instance, if we have an arm or elevator that falls under gravity, we might not want to end PID when we reach the endpoint of our movement. 
+Sometimes, we want to use our PID to maintain a position even after the movement has ended or to make it maintain the same position. For instance, if we have an arm or elevator that falls under gravity, we might not want to end PID when we reach the endpoint of our movement.
 
 When this happens, we can simple remove the clause in our `PID` state that ends the `PID` state if the setpoint is reached. This will allow our closed loop control to persist.
 

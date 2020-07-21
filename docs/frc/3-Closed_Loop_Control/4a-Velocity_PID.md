@@ -42,7 +42,7 @@ public class Shooter extends SnailSubsystem {
         VELOCITY_PID
     }
 
-    private CANSparkMax primaryMotor;
+    private CANSparkMax shooterMotor;
     private CANEncoder encoder;
 
     private PIDController shooterPID;
@@ -51,8 +51,8 @@ public class Shooter extends SnailSubsystem {
     private double speed;
 
     public Elevator() {
-        primaryMotor = new CANSparkMax(SHOOTER_PRIMARY_MOTOR_ID, MotorType.kBrushless);
-        encoder = primaryMotor.getEncoder();
+        shooterMotor = new CANSparkMax(SHOOTER_PRIMARY_MOTOR_ID, MotorType.kBrushless);
+        encoder = shooterMotor.getEncoder();
 
         shooterPID = new PIDController(SHOOTER_PIDF[0], SHOOTER_PIDF[1], SHOOTER_PIDF[2], UPDATE_PERIOD);
     }
@@ -69,14 +69,13 @@ Next, we will have our `update()`, `setSpeed()`, and `endPID()` functions, which
 public void update() {
     switch(state) {
         case MANUAL:
-            primaryMotor.set(speed);
+            shooterMotor.set(speed);
         break;
         case VELOCITY_PID:
             // add our feedback and feedforward outputs together
             double output = shooterPID.calculate(encoder.getVelocity()) + SHOOTER_PIDF[3] * shooterPID.getSetpoint();
 
-
-            primaryMotor.set(output);
+            shooterMotor.set(output);
         break;
     }
 }
@@ -96,11 +95,68 @@ One thing to notice is that we do **not** define an end condition for our veloci
 
 ## SPARK MAX PID
 
-TODO
+Before we get onto making the command, we're going to also review how you could use the onboard SPARK MAX PID as well for velocity mode. To construct the controller and input our constants, we can have the following relatively self-explanatory code. Note that unlike the `PIDController`, the onboard SPARK MAX PID supports `kFF`, so we can can give it the constant.
+
+```java
+public class Shooter extends SnailSubsystem {
+
+    public enum State {
+        MANUAL,
+        VELOCITY_PID
+    }
+
+    private CANSparkMax shooterMotor;
+    private CANEncoder encoder;
+    private CANPIDController shooterPID;
+
+    private State state = defaultState;
+    private double speed;
+
+    public Elevator() {
+        shooterMotor = new CANSparkMax(SHOOTER_PRIMARY_MOTOR_ID, MotorType.kBrushless);
+        encoder = shooterMotor.getEncoder();
+
+        shooterPID = shooterMotor.getPIDController();
+        shooterPID.setP(SHOOTER_PIDF[0]);
+        shooterPID.setI(SHOOTER_PIDF[1]);
+        shooterPID.setD(SHOOTER_PIDF[2]);
+        shooterPID.setFF(SHOOTER_PIDF[3]);
+    }
+
+    ...
+}
+```
+
+Similar to the `PIDController` section, we also need to make our functions for controlling the PID states. The functions are pretty simple and self-explanatory.
+
+```java
+
+@Override
+public void update() {
+    switch(state) {
+        case MANUAL:
+            shooterMotor.set(speed);
+        break;
+        case VELOCITY_PID:
+            shooterPID.setReference(Constants.Shooter.SHOOTER_VEL_SETPOINT, ControlType.kVelocity);
+        break;
+    }
+}
+
+public void setVelocity(double setpoint) {
+    state = State.VELOCITY_PID;
+    speed = setpoint;
+}
+
+public void endPID() {
+    state = State.MANUAL;
+}
+
+```
 
 ## Velocity PID Command
 
-Our command for controlling velocity PID is pretty simple.
+Our command for controlling velocity PID is pretty simple, and the code is below.
 
 ```java
 public class ShooterVelocityPIDCommand extends CommandBase {
@@ -146,6 +202,8 @@ public class RobotContainer {
 ```
 
 ## Tuning Velocity PID
+
+Creating graphs of the desired output and the actual output is **crucial** for velocity PID to not only see how accurate you are, but also how well you are tracking the desired velocity as it changes or as interference is introduced to the system.
 
 1. Set all terms but `kFF` to `0`
 2. Set `kFF` to `1 / MAX_SPEED`
