@@ -30,11 +30,12 @@ We want to set up the encoder for the `primaryMotor`, so we can do the following
 public Elevator {
     primaryMotor = new WPI_TalonSRX(ELEVATOR_PRIMARY_MOTOR_ID);
     primaryMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative);
+    primaryMotor.setSelectedSensorPosition(0);
     primaryMotor.setSensorPhase(true);
 }
 ```
 
-`configSelectedFeedbackSensor` handles setting up the type of encoder we are using, while `setSensorPhase` determines the direction of the sensor (which way is positive/negative).
+`configSelectedFeedbackSensor` handles setting up the type of encoder we are using, while `setSensorPhase` determines the direction of the sensor (which way is positive/negative). We also want to zero our encoder because we want to measure our distance relative from our starting position.
 
 We can then obtain values from the encoder with the following:
 
@@ -54,7 +55,7 @@ Next, depending on the mechanism, we can scale to a real world value. One extrem
 
 ```java
 private double getHeight() {
-    return frontLeftMotor.getSelectedSensorPosition() / 4096.0 / 48.0 * Math.PI * 6; // 6" diameter pulley and 48:1 reduction would go in constants file
+    return frontLeftMotor.getSelectedSensorPosition() / 4096.0 / 48.0 * Math.PI * 6; // 6" diameter pulley and 48:1 reduction would go in Constants.java file
 }
 ```
 
@@ -100,6 +101,7 @@ private CANEncoder primaryEncoder;
 public Elevator {
     primaryMotor = new CANSparkMax(ELEVATOR_PRIMARY_MOTOR_ID, MotorType.kBrushless);
     primaryEncoder = primaryMotor.getEncoder(); // another option is primaryEncoder = new CANEncoder(primaryMotor);
+    primaryEncoder.setPosition(0);
 }
 ```
 

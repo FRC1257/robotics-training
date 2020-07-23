@@ -209,3 +209,7 @@ Creating graphs of the desired output and the actual output is **crucial** for v
 2. Set `kFF` to `1 / MAX_SPEED`
 3. Tune only the `kFF` value as much as possible until you get a pretty good approximation of the desired value. Using a graph is **crucial** for this step. To do so, you need to output both the target velocity and the current velocity in the same graph.
 4. Once you've gotten the best results possible with just `kFF`, gradually increase `kP` to account for small fluctuations until you get the desired results.
+
+## Velocity Control
+
+We can not only use velocity PID to obtain a desired set speed, but also for better control. With our typical methods of control, we pass the controller joystick output to the the motor directly, which will move the motor. However, this can be imprecise and the motor could not track the desired velocity perfectly. Especially for drivetrains, we may choose to use velocity control on our subsystem instead, where we convert our joystick values to a desired velocity and send that to our velocity PID. This is generally referred to as **closed loop control** compared to the typical **open loop control**.
