@@ -1,7 +1,6 @@
+# WPILib PIDController
 
-# RoboRIO PIDController
-
-When we run RoboRIO PID, we use the WPILib `PIDController` class to handle the PID calculations. We will start with the below subsystem (an elevator) and add PID functionality to it.
+The first option we have is to use the WPILib `PIDController` class to handle the PID calculations. We will start with the below subsystem (an elevator) and add PID functionality to it so that on the press of a button, we can move to a predetermined setpoint.
 
 ```java
 public class Elevator extends SnailSubsystem {
@@ -12,11 +11,13 @@ public class Elevator extends SnailSubsystem {
 
     private WPI_TalonSRX primaryMotor;
 
-    private State state = defaultState;
+    private State state = State.MANUAL;
     private double speed;
 
     public Elevator() {
         primaryMotor = new WPI_TalonSRX(ELEVATOR_PRIMARY_MOTOR_ID);
+
+        // configure our encoder and convert its units to our height in inches
         primaryMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative);
         primaryMotor.configSelectedFeedbackCoefficient(1 / 4096.0 / 48.0 * Math.PI * 6);
 
@@ -56,11 +57,11 @@ After we declare our `PIDController`, we have a variety of options that we can c
 - `setSetpoint()`: choose where this PIDController is bringing us.
 - `atSetpoint()`: returns whether or not we have reached the setpoint
 - `calculate()`: takes in the current position of our mechanism and returns the output calculated by the PID controller to get us there
-- `reset()`: resets the integral and derivative term. Good for right before we start using PID control
+- `reset()`: resets the integral and derivative term. Good for right before we start using PID control.
 
 ## Implementing PIDController
 
-Now that we've discussed the properties of `PIDController`, we can move on to actually implementing it. First, we want to set up the constants for it in `Constants.java`. We use an array to store all of our PID constants.
+Now that we've discussed the properties of `PIDController`, we can move on to actually implementing it. First, we want to set up the constants for it in `Constants.java`. We use an array to store all of our PID constants together to make our file more readable by grouping up related elements.
 
 ```java
 public final class Constants {
@@ -87,7 +88,7 @@ public final class Constants {
 }
 ```
 
-Next, we can create our `PIDController` in `Elevator`.
+Next, we can create our `PIDController` object in `Elevator` with the PID constants passed into the constructor. We also set the tolerance on it to the value in our `Constants.java` file.
 
 ```java
 public class Elevator extends SnailSubsystem {
@@ -118,9 +119,9 @@ public class Elevator extends SnailSubsystem {
 }
 ```
 
-After this, we can add the state `PID` to our state list. In the `PID` state, we want to get our `PIDController` and calculate its output using our current sensor info. Then, we want to send this to the motor. Another thing we want to do is check if we are at our current setpoint. If we are, we want to end the `PID` state and go back to `MANUAL`.
+After this, we can add the state `PID` to our state list, which will represent when we are currently using PID control to go to a certain setpoint. While updating during our `PID` state, we want to get our `PIDController` and calculate what output we should be sending to our motor by comparing our current sensor info and the desired setpoint. Then, we want to send this to the motor. Another thing we want to do is check if we are at our current setpoint, and if we are, we want to end the `PID` state and go back to `MANUAL`.
 
-Another thing to note is that we might want to constrict the max output of our PID controller to ensure that the system moves at a slow and controllale pace. We can directly modify the output from our `PIDController` to do this. Note that we have not implemented actually setting up the setpoint yet. This will be handled later.
+Another thing to note is that we might want to constrict the max output of our PID controller to ensure that the system moves at a slow and controllale pace. We can directly modify the output from our `PIDController` to do this. Note that we have not implemented actually setting up the setpoint yet. This will be handled later, and for now you can just assume that it has been appropriately set up.
 
 ```java
 public class Elevator extends SnailSubsystem {
@@ -156,7 +157,7 @@ public class Elevator extends SnailSubsystem {
 }
 ```
 
-Now that we've handled the state, it's time to handle actually triggering the state with one of our functions. We can make this function called `setPosition()` that will handle this. In this function we want to
+Now that we've handled the state, it's time to handle actually triggering the state with one of our functions. We can make this function called `setPosition()` that will handle this. In this function we want to:
 
 - enter the `PID` state
 - reset our `PIDController`
@@ -170,4 +171,4 @@ public void setPosition(double setpoint) {
 }
 ```
 
-With that, we're done setting up `PIDController` on our subsystem!
+With that, we're done setting up `PIDController` on our subsystem! Next up, we need to make a command that will call this `setPosition()` function with a desired setpoint. Then, the subsystem will enter the `PID` state, and continue sending output to the motors until it reaches the setpoint. Then, it will go back to the `MANUAL` state where we can go back to manual control of our subsystem. Before we get into that, we're going to review how we could accomplish the same thing the SPARK MAX PID.

@@ -2,7 +2,7 @@
 
 ## PID Command
 
-Once we've created the function that will enable our PID mode, we need to actually create a corresponding command. Actually making the command function is not difficult:
+Once we've created the function that will enable our PID mode, we need to actually create a corresponding command. Actually making the command function is not difficult. We simply need to call the `setPosition()` function on our subsystem when the command is first run.
 
 ```java
 public class ElevatorPIDCommand extends CommandBase {
@@ -31,6 +31,7 @@ public class ElevatorPIDCommand extends CommandBase {
     @Override
     public boolean isFinished() {
         // you may have to make a getState() function if it is not already made
+        // all it does is just return the state variable in our Elevator file
         return elevator.getState() != Elevator.State.PID;
     }
 }
@@ -148,6 +149,6 @@ However, one should be careful with this to ensure that there is still a method 
 
 For freezing mechanisms, or making them maintain the same position, it is pretty easy. We follow the above steps to remove the end `PID` state clause, and then when we call the `setPosition()` function from our freeze command, we simply set the PID position to the current position. A really easy way to implement the `RobotContainer` calling of the freeze command would be to use the `toggleWhenPressed()` function when assigning buttons to commands.
 
-### Tuning Tip
+### Tuning Tip Tip
 
-To properly tune, I would also recommend that you comment out the error checking clause in the `PID` state so that the PID is not ended prematurely. Once the PID is tuned, it can be uncommented. This is so that we can accurately measure the overshoot and instability of the system afterit reaches the setpoint.
+To properly tune, I would also recommend that you comment out the error checking clause in the `PID` state so that the PID is not ended prematurely. Once the PID is tuned, it can be uncommented. This is so that we can accurately measure the overshoot and instability of the system after it reaches the setpoint while tuning, but this is unnecessary once we finish tuning properly.

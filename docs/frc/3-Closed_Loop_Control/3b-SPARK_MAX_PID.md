@@ -143,4 +143,4 @@ public void setPosition(double setpoint) {
 }
 ```
 
-And with that we're done with the SPARK MAX PID in our subsystem! Creating the PID command is the exact same as in the previous section where we discussed the WPILib `PIDController`, so check that out to finish up the command.
+And with that we're done with the SPARK MAX PID in our subsystem! Now we just have to add the command that will actually trigger the `setPosition()` function and tell our subsystem to enter the `PID` state.
