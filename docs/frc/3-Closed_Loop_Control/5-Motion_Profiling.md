@@ -6,11 +6,25 @@ While PID is definitely really powerful, it definitely lacks some traits and lea
 
 ## Motion Profiling
 
+Motion profiling is essentially a method of using the physical constraints of your system (maximum velocity and maximum acceleration) and generating a profile, or plan, of the exact movement of the system to accomplish a certain task. For instance, if we wanted to go forward 10 feet and we knew our maximum velocity and acceleration, we could generate an exact profile that tells us where we should be and what speed we should be at for every time step in our path. For example, we could have a profile like this, which tells us the exact velocity we need to be moving at each time step to accomplish a smooth motion. (Credit to [Linear Motion Tips](https://www.linearmotiontips.com/how-to-calculate-velocity/))
 
+![Trapezoid Velocity Motion Profile](./img/trapezoidal-profile.jpg)
+
+Once we generate this motion profile, which in this case is a **trapezoidal motion profile**, we can follow it exactly and guarantee that we will reach our target goal. For each target distance we want to move, we will have to generate a new motion profile that will get us there. However, we need to somehow be able to follow this velocity graph over time to follow this motion profile. Fortunately, we just did a whole section on this, so we are well equipped to tackle motion profiling! Now, we just need to figure out how to generate the motion profile.
+
+Some advantages of this motion profile are that a) we can make the system obey a certain maximum velocity and acceleration, which will be parameters we pass in once we generate the motion profile, and b) we can know exactly how long the movement will take. Due to condition (a), we can also increase the stability of our mechanism easily by just adjusting the parameters such as the max velocity and acceleration.
 
 ### Generating Trapezoidal Profile
 
+There are various types of motion profiles, but the most basic one that we will be using is a trapezoidal motion profile. The trapezoidal motion profile consists of 3 parts, accelerating up to our maximum velocity at our designated maximum accceleration, then cruising at the maximum velocity, and finally deccelerating from our maximum velocity back to 0 at the negative of our designated maximum acceleration. If you look at the diagram above, these are represented by the `t_a`, `t_c`, and `t_d` present on the x-axis.
 
+Sometimes, the distance we need to go is so short that we don't have time to go to a cruising velocity. We can instead use a triangular motion profile instead, which is just where `t_c = 0`, or we spend 0 time cruising. Instead, halfway through our motion, we go straight from accelerating to deccelerating.
+
+We don't actually have to worry about generating these profiles alone, since WPILib provides the `TrapezoidProfile` class to handle all of these calculations for us. However, I'm going to take a dive into deriving these physics below. Feel free to skip it if you're not interested.
+
+### Physics of Generating Trapezoidal Profiles
+
+TODO
 
 ## Using WPILib TrapezoidProfile
 
