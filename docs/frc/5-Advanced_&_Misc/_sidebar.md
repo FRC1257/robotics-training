@@ -14,5 +14,6 @@
     * [Other Team's Code](frc/5-Advanced_&_Misc/Other_Team's_Code.md)
     * [Rate Limiting](frc/5-Advanced_&_Misc/Rate_Limiting.md)
     * [Servos](frc/5-Advanced_&_Misc/Servos.md)
+    * [Creating Files](frc/5-Advanced_&_Misc/Creating-Files.md)
 * [Git / GitHub](git/README.md)
 * [Vision](vision/README.md)
