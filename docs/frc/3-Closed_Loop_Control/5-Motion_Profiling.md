@@ -65,11 +65,117 @@ With that, we're done with generating our trapezoidal motion profile! Now we jus
 
 ## Using WPILib TrapezoidProfile
 
-TODO
+There are two primary steps of doing motion profiling: a) generating the motion profile and b) following it. To do the first, we can use the built in WPILbib `TrapezoidProfile` class, which takes in both the constraints, the beginning state, and the end state of our system. Upon generating the profile, we can then query it at each time step for what velocity and position we **should** be at. Then, we can pass this into our controllers for positional PID and velocity PID.
+
+Generally, we could use either WPILib `PIDController` or the built in SPARK MAX PID. However, we actually want to run two control loops, one to hone in on the desired velocity, and the other to hone in on the desired position. The velocity one wil be doing most of the work, and the PID one will be correcting for any built up error.
+
+First, let's generate the profile. Essentially, we want it so that every time we call the function to move to a specific location, we want to generate a brand new trapezoid profile between our current position and the desired position. We can use our current velocity and position as the initial state of our profile, and the desired position and a velocity of `0` as the desired end state of our profile. Let's take a look at how we would do that in code.
+
+```java
+public class Elevator extends SnailSubsystem {
+
+    private CANSparkMax motor;
+    private CANEncoder encoder;
+
+    public enum State {
+        MANUAL,
+        PROFILED
+    }
+
+    private State state = State.MANUAL;
+    private double speed;
+    private TrapezoidProfile profile;
+    private Timer profileTimer;
+
+    public Elevator() {
+        motor = new CANSparkMax(ElectricalLayout.ELEVATOR_MOTOR_ID, MotorType.kBrushless);
+        motor.restoreFactoryDefaults();
+        motor.setIdleMode(IdleMode.kBrake);
+
+        encoder = motor.getEncoder();
+        encoder.setPositionConversionFactor(Constants.Elevator.ELEVATOR_CONV_FACTOR);        // convert to distance
+        encoder.setVelocityConversionFactor(Constants.Elevator.ELEVATOR_CONV_FACTOR / 60.0); // convert to distance / second
+
+        // we initialize our profile to null because we don't need it at the moment while in MANUAL control
+        profile = null;
+        profileTimer = new Timer();
+    }
+
+    @Override
+    public void update() {
+        switch(state) {
+            case MANUAL:
+                motor.set(speed);
+            break;
+            case PROFILED:
+                // we will go over this later
+            break;
+        }
+    }
+
+    public void setElevatorSpeed(double speed) {
+        this.speed = speed;
+        state = State.MANUAL;
+    }
+
+    public void setPosition(double setpoint) {
+        // we need three parameters: constraints, desired state, initial state
+        profile = new TrapezoidProfile(
+            new TrapezoidProfile.Constraints(Constants.Elevator.ELEVATOR_PROFILE_MAX_VEL, 
+                Constants.Elevator.ELEVATOR_PROFILE_MAX_ACC),
+            new TrapezoidProfile.State(setpoint, 0), // we want to go to our setpoint and stop there at a velocity of 0
+            new TrapezoidProfile.State(encoder.getPosition(), encoder.getVelocity()) // our current position and speed
+        );
+        state = State.PROFILED;
+        profileTimer.reset();
+        profileTimer.start();
+    }
+
+    // ends the profile in case we need to get back manual control for some reason
+    public void endClosedLoop() {
+        profile = null;
+        state = State.MANUAL;
+    }
+}
+```
+
+We need to pass our parameters into the `TrapezoidProfile` constructor in a particularly curious way, where we need to create these other objects and then pass them in. Other than that, it's pretty self-explanatory. However, one thing to note is that in order to query our profile, we need to pass in the time that has passed since the profile has begun. This way, we can actually calculate the correct position into our profile. To do this, we can use a WPILib `Timer` object, and then start it once we begin our profile. Now, we just need to follow our profile.
+
+To do so, we first need to query our `TrapezoidProfile` object, which will tell us the current position and velocity we should be going at. We can then pass these into two PID controllers. We have a few options for how exactly we could implement these PID controllers, but what I'm going to do is basic `P` control for position, and then use the WPILib `PIDController` for the velocity calculation. We also need to augment the `PIDController` with the `kFF` term. Let's check that out in our `update()` function:
+
+```java
+@Override
+public void update() {
+    switch(state) {
+        case MANUAL:
+            motor.set(speed);
+        break;
+        case PROFILED:
+            TrapezoidProfile.State desiredState = profile.calculate(profileTimer.get());
+            double desiredPosition = desiredState.position;
+            double desiredVelocity = desiredState.velocity;
+
+            // do the calculations for P on the position
+            double positionError = desiredPosition - encoder.getPosition();
+            double positionOutput = positionError * Constants.Elevator.ELEVATOR_PROFILE_P;
+
+            // pass the new setpoint into the velocity PID controller and then calcualte
+            velocityPIDController.setSetpoint(desiredVelocity)
+            double velocityOutput = velocityPIDController.calculate(encoder.getVelocity());
+            double velocityFeedforward = desiredVelocity * Constants.Elevator.ELEVATOR_PROFILE_VEL_F;
+
+            // add them all up and pass into our motor!
+            motor.set(positionOutput + velocityOutput + velocityFeedforward)
+        break;
+    }
+}
+```
+
+Note that we had a lot of control over exactly how we used the motion profile position and velocity we received. In fact, we could augment this further by using SPARK MAX PID to achieve the velocity, using arbitrary feedforward, or even some other fancy control method. Now, we'll go over an easier, but less robust form of following motion profiles.
 
 ## Using SPARK MAX Smart Motion
 
-An alternative to generating the trapezoidal profile ourself and following it is to use a built-in feature of the SPARK MAXes: Smart Motion. This feature allows you to enter into the controller the max velocity and max acceleration you would like the motion profile, as well as the velocity PID terms. Then, you simply tell it to go to a certain encoder position, and it will automaticalyl generate the trapezoidal motion profile to achieve that. It's incredibly easy to set up, making it a great way to quickly achieve motion profiled control.
+An alternative to generating the trapezoidal profile ourself and following it is to use a built-in feature of the SPARK MAXes: Smart Motion. This feature allows you to enter into the controller the max velocity and max acceleration you would like the motion profile, as well as the velocity PID terms. Then, you simply tell it to go to a certain encoder position, and it will automatically generate the trapezoidal motion profile to achieve that. It's incredibly easy to set up, making it a great way to quickly achieve motion profiled control.
 
 ```java
 public class Elevator extends SnailSubsystem {
@@ -98,9 +204,10 @@ public class Elevator extends SnailSubsystem {
 
         elevatorPID = motor.getPIDController();
         // our velocity PID constants
-        elevatorPID.setP(Constants.Elevator.ELEVATOR_PID[0]);
-        elevatorPID.setI(Constants.Elevator.ELEVATOR_PID[1]); // most of the time this would be set to 0
-        elevatorPID.setD(Constants.Elevator.ELEVATOR_PID[2]); // most of the time this would be set to 0
+        elevatorPID.setP(Constants.Elevator.ELEVATOR_PIDF[0]);
+        elevatorPID.setI(Constants.Elevator.ELEVATOR_PIDF[1]); // most of the time this would be set to 0
+        elevatorPID.setD(Constants.Elevator.ELEVATOR_PIDF[2]); // most of the time this would be set to 0
+        elevatorPID.setFF(Constants.Elevator.ELEVATOR_PIDF[2]);
         // our smart motion constraints
         elevatorPID.setSmartMotionMaxVelocity(Constants.Elevator.ELEVATOR_PROFILE_MAX_VEL);
         elevatorPID.setSmartMotionMaxAccel(Constants.Elevator.ELEVATOR_PROFILE_MAX_ACC);
@@ -131,9 +238,16 @@ public class Elevator extends SnailSubsystem {
         state = State.PROFILED;
     }
 
+    // ends the profile in case we need to get back manual control for some reason
+    public void endClosedLoop() {
+        state = State.MANUAL;
+    }
+
     // should also add outputting data via outputValues() and constant tuning, but omitted here
 }
 ```
+
+Notice that unlike the previous section where we also had a separate control loop for running positional control, the Smart Motion parameters do not include that. This is one of the reasons we might not use Smart Motion: we don't have as much control over the parameters and how we choose to follow them. However, since the onboard PID runs more accurately than a RoboRIO one, we will also have better control over our velocity, which means that we don't need the positional PID correction as much.
 
 ## Profiled Command
 

@@ -73,7 +73,8 @@ public void update() {
         break;
         case VELOCITY_PID:
             // add our feedback and feedforward outputs together
-            double output = shooterPID.calculate(encoder.getVelocity()) + SHOOTER_PIDF[3] * shooterPID.getSetpoint();
+            double output = shooterPID.calculate(encoder.getVelocity()) + 
+                SHOOTER_PIDF[3] * shooterPID.getSetpoint();
 
             shooterMotor.set(output);
         break;
