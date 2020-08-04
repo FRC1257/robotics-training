@@ -59,15 +59,85 @@ We then know that we will need to cruise at our max velocity for the remainder o
 
 $$t_c = \frac{d - 2x}{2}$$
 
-Now, we have all of the time intervals for which we have to do each action. I'm not going to exactly into how to calculate the velocity during each time interval since it's pretty self-explanatory and similar to the triangular motion profile section. With that, we're done with generating our trapezoidal motion profile! Now we just need to implement it in code, for which we have two options: the WPILib builtin version and the SPARK MAX Smart Motion.
+Now, we have all of the time intervals for which we have to do each action. I'm not going to exactly into how to calculate the velocity during each time interval since it's pretty similar to the triangular motion profile section.
+
+With that, we're done with generating our trapezoidal motion profile! Now we just need to implement it in code, for which we have two options: the WPILib builtin version and the SPARK MAX Smart Motion.
 
 ## Using WPILib TrapezoidProfile
 
-
+TODO
 
 ## Using SPARK MAX Smart Motion
 
+An alternative to generating the trapezoidal profile ourself and following it is to use a built-in feature of the SPARK MAXes: Smart Motion. This feature allows you to enter into the controller the max velocity and max acceleration you would like the motion profile, as well as the velocity PID terms. Then, you simply tell it to go to a certain encoder position, and it will automaticalyl generate the trapezoidal motion profile to achieve that. It's incredibly easy to set up, making it a great way to quickly achieve motion profiled control.
 
+```java
+public class Elevator extends SnailSubsystem {
+
+    private CANSparkMax motor;
+    private CANPIDController elevatorPID;
+    private CANEncoder encoder;
+
+    public enum State {
+        MANUAL,
+        PROFILED
+    }
+
+    private State state = State.MANUAL;
+    private double speed;
+    private double setpoint;
+
+    public Elevator() {
+        motor = new CANSparkMax(ElectricalLayout.ELEVATOR_MOTOR_ID, MotorType.kBrushless);
+        motor.restoreFactoryDefaults();
+        motor.setIdleMode(IdleMode.kBrake);
+
+        encoder = motor.getEncoder();
+        encoder.setPositionConversionFactor(Constants.Elevator.ELEVATOR_CONV_FACTOR);        // convert to distance
+        encoder.setVelocityConversionFactor(Constants.Elevator.ELEVATOR_CONV_FACTOR / 60.0); // convert to distance / second
+
+        elevatorPID = motor.getPIDController();
+        // our velocity PID constants
+        elevatorPID.setP(Constants.Elevator.ELEVATOR_PID[0]);
+        elevatorPID.setI(Constants.Elevator.ELEVATOR_PID[1]); // most of the time this would be set to 0
+        elevatorPID.setD(Constants.Elevator.ELEVATOR_PID[2]); // most of the time this would be set to 0
+        // our smart motion constraints
+        elevatorPID.setSmartMotionMaxVelocity(Constants.Elevator.ELEVATOR_PROFILE_MAX_VEL);
+        elevatorPID.setSmartMotionMaxAccel(Constants.Elevator.ELEVATOR_PROFILE_MAX_ACC);
+    }
+
+    @Override
+    public void update() {
+        switch(state) {
+            case MANUAL:
+                motor.set(speed);
+                break;
+            case PROFILED:
+                elevatorPID.setReference(setpoint, ControlType.kSmartMotion);
+
+                // you can add some stuff to check if it reached its setpoint or not
+                // left as an exercise to the reader
+                break;
+        }
+    }
+
+    public void setElevatorSpeed(double speed) {
+        this.speed = speed;
+        state = State.MANUAL;
+    }
+
+    public void setPosition(double setpoint) {
+        this.setpoint = setpoint;
+        state = State.PROFILED;
+    }
+
+    // should also add outputting data via outputValues() and constant tuning, but omitted here
+}
+```
+
+## Profiled Command
+
+We're not going to discuss creating a command here because it would be the same as the PID version of the command, but we'd call a different function. Check out those sections if you need a refresher.
 
 ## Determining Velocity / Acceleration
 
