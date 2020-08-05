@@ -51,11 +51,11 @@ For the second half of our motion when $t_a \lt t \leq t_a + t_d$, we have that 
 
 This concludes the triangular profile, and now we can go onto the trapezoidal profile. For the trapezoidal profile, we know that we can safely accelerate to our maximum velocity, cruise at that velocity for some time, and then deccelerate. To calculate how long it will take to accelerate and deccelerate, we can use the kinematic equations again.
 
-$$v_max = 0 + at_a \rightarrow t_a = t_d = \frac{v_max}{a}$$
+$$v_{max} = 0 + at_a \rightarrow t_a = t_d = \frac{v_{max}}{a}$$
 
 We also need to calculate the distance that we travelled during this time, which can be done with the following equation:
 
-$$v_max^2 = 0^2 + 2ax \rightarrow x = \frac{v_max^2}{2a}$$
+$$v_{max}^2 = 0^2 + 2ax \rightarrow x = \frac{v_{max}^2}{2a}$$
 
 We then know that we will need to cruise at our max velocity for the remainder of the distance, which means that we will need to cruise for the time
 

@@ -14,7 +14,7 @@ double kFF = 1 / maxSpeed;
 motor.set(desiredSpeed * kFF);
 ```
 
-The other type of feedforward control takes into account the dynamics, or movement, of the system. We could calculate this mathematically thrugh physics, or empirically through testing, but we could do something such as counteract the effects of gravity on a system. For instance, gravity will always pull an elevator down, but we could use feedforward to counteract this by putting a constant force going up. This would prevent the elevator from naturally falling down, as well as going faster downwards than upwards.
+The other type of feedforward control takes into account the dynamics, or movement, of the system. For instance, we know that gravity will always pull an elevator down no matter what we do. We could counteract this by allowing our motor to constantly go up, which would prevent the elevator from naturally falling down, as well as going faster downwards than upwards. This type of feedforward's value could be calculated empirically through testing or via physics, which is generalyl much more complicated.
 
 As a basic code example, we could do the following, where we apply a constant motor output upwards to counteract gravity.
 
@@ -27,9 +27,14 @@ motor.set(input + feedForward);
 
 ## Combining with Feedback Control
 
+> [!NOTE]
+> PID is a form of feedback control, where we look at our error to drive our system to the desired setpoint.
+
 However, feedforward control is rarely enough to completely make a system responsive. In fact, it is best when feedforward control is used in conjunction with feedback control. For instance, if we wanted to control the velocity of our system, we could use feedforward control as the main driving force to get our system to the desired speed, and then use feedback control to correct any errors or fluctuations in that speed.
 
-Additionally, we could use feedback control to run PID on something like an elevator subsystem that will drive our position to a desired setpoint. To counteract the effects of gravity on the system, we use feedforward to make our motor apply an upward force. This would actually help linearize the model of our system (don't worry if you don't know what this means, it just means that it will make it simpler and nicer to control), as well as remove the need for separate PID gains going up and down.
+Additionally, another example is that we could run PID on something like an elevator subsystem that will drive our position to a desired setpoint. If we don't apply our knowledge of feedforward, we might have a difficult time tuning the PID properly. It would go faster down than up due to gravity, so we might need to have two sets of PID constants for our elevator.
+
+To counteract the effects of gravity on the system, we use feedforward to make our motor apply an upward force. This would actually help linearize the model of our system (don't worry if you don't know what this means, it just means that it will make it simpler and nicer to control), as well as remove the need for separate PID gains going up and down.
 
 ## Different Kinds of Feedforward
 

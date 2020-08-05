@@ -77,8 +77,6 @@ public class Elevator extends SnailSubsystem {
     public Elevator() {
         primaryMotor = new CANSparkMax(ELEVATOR_PRIMARY_MOTOR_ID, MotorType.kBrushless);
         primaryMotor.restoreFactoryDefaults();
-        primaryMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative);
-        primaryMotor.configSelectedFeedbackCoefficient(1 / 4096.0 / 48.0 * Math.PI * 6);
 
         primaryEncoder = new CANEncoder(primaryMotor);
         primaryEncoder.setPositionConversionFactor(48.0 * Math.PI * 6);
