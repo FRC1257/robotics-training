@@ -1,8 +1,8 @@
 # Functions with Return Types
 
-When we have a function, we have the option of whether or not to `return` a value back to whatever called that function. Up until now, we have always specificed the `return` type of our functions as `void`, or that we are choosing not to return anything.
+When we have a function, we have the option of whether or not to return a value back to whatever called that function. Up until now, we have always specificed the return type of our functions as `void`, or that we are choosing not to return anything.
 
-However, if we replace `void` something else, we can have the function `return` something back to the user.
+However, if we replace `void` something else, we can have the function return something back to the user.
 
 ```java
 // This function returns an int
@@ -15,7 +15,7 @@ public static void main(String[] args) {
 }
 ```
 
-In this case, `return5()` will `return` the value of `5` back to whatever called it. In this case, it will be returned back to `main()` and will be substituted into the `println()` statement, which prints it out to the console.
+In this case, `return5()` will return the value of `5` back to whatever called it. In this case, it will be returned back to `main()` and will be substituted into the `println()` statement, which prints it out to the console.
 
 You can think of it as simply taking whatever the function returns and directly replacing the original function call with that value.
 
