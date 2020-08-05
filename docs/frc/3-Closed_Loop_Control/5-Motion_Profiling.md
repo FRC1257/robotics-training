@@ -2,7 +2,7 @@
 
 ## Limits of PID
 
-While PID is definitely really powerful, it definitely lacks some traits and leaves much to be desired when thinking about the ideal control method. First of all, PID is very prone to overshooting. While this could be solved with an increase to the `kD` term, too much increasing will lead to a slow response. It is difficult to find the precise parameters that will give us both a smooth response that doesn't overshoot and moves quickly.
+While PID is extremely powerful, it definitely lacks some traits and leaves much to be desired when thinking about the ideal control method. First of all, PID is very prone to overshooting. While this could be solved with an increase to the `kD` term, too much increasing will lead to a slow response. It is difficult to find the precise parameters that will give us both a smooth response that doesn't overshoot and moves quickly.
 
 Additionally, PID accelerates very quickly at the beginning as the initial error is very large. This can lead to system instability that could damage our system or make it lose its grip on game pieces. Again, increasing the `kD` term can help us balance this out, but this also leads to a slower convergence to the final goal. Finding the perfect combination of PID parameters can be extremely difficult and maybe even nonexistent. 
 
@@ -10,7 +10,9 @@ The final problem is that PID is dependent on our robot's battery voltage. If ou
 
 ## Motion Profiling
 
-Motion profiling is essentially a method of using the physical constraints of your system (maximum velocity and maximum acceleration) and generating a profile, or plan, of the exact movement of the system to accomplish a certain task. For instance, if we wanted to go forward 10 feet and we knew our maximum velocity and acceleration, we could generate an exact profile that tells us where we should be and what speed we should be at for every time step in our path. For example, we could have a profile like this, which tells us the exact velocity we need to be moving at each time step to accomplish a smooth motion. (Credit to [Linear Motion Tips](https://www.linearmotiontips.com/how-to-calculate-velocity/))
+Motion profiling is essentially a method of using the physical constraints of your system (maximum velocity and maximum acceleration) and generating a *profile*, or plan, of the exact movement of the system to accomplish a certain task. For instance, if we wanted to go forward 10 feet and we knew our robot's maximum velocity and acceleration, we could generate an exact profile that tells us where we should be and what speed we should be at for every time step in our path. 
+
+For example, we could have a profile like this, which tells us the exact velocity we need to be moving at each time step to accomplish a smooth motion. (Credit to [Linear Motion Tips](https://www.linearmotiontips.com/how-to-calculate-velocity/))
 
 ![Trapezoid Velocity Motion Profile](./img/trapezoidal-profile.jpg)
 
@@ -59,15 +61,15 @@ We then know that we will need to cruise at our max velocity for the remainder o
 
 $$t_c = \frac{d - 2x}{2}$$
 
-Now, we have all of the time intervals for which we have to do each action. I'm not going to exactly into how to calculate the velocity during each time interval since it's pretty similar to the triangular motion profile section.
+Now, we have all of the time intervals for which we have to do each action. I'm not going to go exactly into how to calculate the velocity during each time interval since it's pretty similar to the triangular motion profile section.
 
-With that, we're done with generating our trapezoidal motion profile! Now we just need to implement it in code, for which we have two options: the WPILib builtin version and the SPARK MAX Smart Motion.
+With that, we're done with generating our trapezoidal motion profile! Now we just need to implement it in code, for which we have two options: the WPILib built-in version and the SPARK MAX Smart Motion.
 
 ## Using WPILib TrapezoidProfile
 
-There are two primary steps of doing motion profiling: a) generating the motion profile and b) following it. To do the first, we can use the built in WPILbib `TrapezoidProfile` class, which takes in both the constraints, the beginning state, and the end state of our system. Upon generating the profile, we can then query it at each time step for what velocity and position we **should** be at. Then, we can pass this into our controllers for positional PID and velocity PID.
+There are two primary steps of doing motion profiling: a) generating the motion profile and b) following it. To do the first, we can use the built in WPILib `TrapezoidProfile` class, which takes in both the constraints, the beginning state, and the end state of our system. Upon generating the profile, we can then query it at each time step for what velocity and position we **should** be at. Then, we can pass this into our positional PID and velocity PID controllers.
 
-Generally, we could use either WPILib `PIDController` or the built in SPARK MAX PID. However, we actually want to run two control loops, one to hone in on the desired velocity, and the other to hone in on the desired position. The velocity one wil be doing most of the work, and the PID one will be correcting for any built up error.
+Generally, we could use either WPILib's `PIDController` or the built-in SPARK MAX PID. However, we actually want to run *two* control loops, one to hone in on the desired velocity, and the other to hone in on the desired position. The velocity one wil be doing most of the work, and the PID one will be correcting for any built up error.
 
 First, let's generate the profile. Essentially, we want it so that every time we call the function to move to a specific location, we want to generate a brand new trapezoid profile between our current position and the desired position. We can use our current velocity and position as the initial state of our profile, and the desired position and a velocity of `0` as the desired end state of our profile. Let's take a look at how we would do that in code.
 
@@ -106,10 +108,10 @@ public class Elevator extends SnailSubsystem {
         switch(state) {
             case MANUAL:
                 motor.set(speed);
-            break;
+                break;
             case PROFILED:
                 // we will go over this later
-            break;
+                break;
         }
     }
 
@@ -139,7 +141,7 @@ public class Elevator extends SnailSubsystem {
 }
 ```
 
-We need to pass our parameters into the `TrapezoidProfile` constructor in a particularly curious way, where we need to create these other objects and then pass them in. Other than that, it's pretty self-explanatory. However, one thing to note is that in order to query our profile, we need to pass in the time that has passed since the profile has begun. This way, we can actually calculate the correct position into our profile. To do this, we can use a WPILib `Timer` object, and then start it once we begin our profile. Now, we just need to follow our profile.
+We need to pass our parameters into the `TrapezoidProfile` constructor in a particularly curious way, where we need to create these other objects and then pass the values in. Other than that, it's pretty self-explanatory. However, one thing to note is that in order to query our profile, we need to pass in the time that has passed since the profile has begun. This way, we can actually calculate the correct position into our profile. To do this, we can use a WPILib `Timer` object, and then start it once we begin our profile. Now, we just need to follow our profile.
 
 To do so, we first need to query our `TrapezoidProfile` object, which will tell us the current position and velocity we should be going at. We can then pass these into two PID controllers. We have a few options for how exactly we could implement these PID controllers, but what I'm going to do is basic `P` control for position, and then use the WPILib `PIDController` for the velocity calculation. We also need to augment the `PIDController` with the `kFF` term. Let's check that out in our `update()` function:
 
@@ -149,7 +151,7 @@ public void update() {
     switch(state) {
         case MANUAL:
             motor.set(speed);
-        break;
+            break;
         case PROFILED:
             TrapezoidProfile.State desiredState = profile.calculate(profileTimer.get());
             double desiredPosition = desiredState.position;
@@ -166,7 +168,7 @@ public void update() {
 
             // add them all up and pass into our motor!
             motor.set(positionOutput + velocityOutput + velocityFeedforward)
-        break;
+            break;
     }
 }
 ```
@@ -175,7 +177,7 @@ Note that we had a lot of control over exactly how we used the motion profile po
 
 ## Using SPARK MAX Smart Motion
 
-An alternative to generating the trapezoidal profile ourself and following it is to use a built-in feature of the SPARK MAXes: Smart Motion. This feature allows you to enter into the controller the max velocity and max acceleration you would like the motion profile, as well as the velocity PID terms. Then, you simply tell it to go to a certain encoder position, and it will automatically generate the trapezoidal motion profile to achieve that. It's incredibly easy to set up, making it a great way to quickly achieve motion profiled control.
+An alternative to generating the trapezoidal profile ourselves and following it is to use a built-in feature of the SPARK MAXes: Smart Motion. This feature allows you to enter into the controller the max velocity and max acceleration you would like in the motion profile, as well as the velocity PID terms. Then, you simply tell it to go to a certain encoder position, and it will automatically generate the trapezoidal motion profile to achieve that. It's incredibly easy to set up, making it a great way to quickly achieve motion profiled control.
 
 ```java
 public class Elevator extends SnailSubsystem {
@@ -257,7 +259,7 @@ We're not going to discuss creating a command here because it would be the same 
 
 There are several ways to determine the velocity and acceleration used for the system. Generally, however, you do **not** want to use the maximum possible velocity and acceleration the motor can output. This is because it can a) lead to instability, b) easily burn out the battery and c) not be reliable at inconsistent battery voltages. We typically use something a bit less than our maximum possible parameters to ensure a smooth and controlled motion.
 
-To actually determine the maximum possible parameters however, we have a few options. To do all of them, we need to first run our subsystem at maximum speed manually while monitoring the position of it via something like an encoder. To actually read the values from this and determine our parameters, we can do two main things.
+To actually determine the maximum possible parameters however, we have a few options. To do all of them, we need to first run our subsystem at maximum speed manually while monitoring the position of it via something like an encoder. To actually read the values from this and determine our parameters, we can do two things:
 
 The first is to have the encoder output the velocity to Shuffleboard every update loop and to calculate the acceleration between updates to output to Shuffleboard as well. Then we can observe the graphs, and eyeball a good approximation of the maximum parameters. Using code to output the maximum parameters can be problematic due to noise in the reading.
 
@@ -265,7 +267,7 @@ Another way that is more reliable would be to graph the position and velocity to
 
 ## Limits of Motion Profiling
 
-While motion profiling is incredibly powerful and can lead to really smooth and good-looking results, it too has its issues. The most prevalent issue is that motion profiling can't deal with disruptances very well as the profile follows a predetermined motion. If something such as a collision or mechanical issue moves the mechanism during its profile, the control loop will not be able to account for this in real time. Including the `kP` term with our motion profile helps us account for this, but it'll frequently have a small value so it can't do much to majorly correct the subsystem from it's deviation. 
+While motion profiling is incredibly powerful and can lead to really smooth and good-looking results, it still has its own issues. The most prevalent issue is that motion profiling can't deal with disruptances very well as the profile follows a predetermined motion. If something such as a collision or mechanical issue moves the mechanism during its profile, the control loop will not be able to account for this in real time. Including the `kP` term with our motion profile helps us account for this, but it'll frequently have a small value so it can't do much to majorly correct the subsystem from its deviation. 
 
 ## Sources
 

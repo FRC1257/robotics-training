@@ -1,6 +1,6 @@
 # WPILib PIDController
 
-The first option we have is to use the WPILib `PIDController` class to handle the PID calculations. We will start with the below subsystem (an elevator) and add PID functionality to it so that on the press of a button, we can move to a predetermined setpoint.
+To handle PID calculations, the first option we have is to use the WPILib `PIDController` class. We will start with a basic elevator subsystem and add PID functionality to it so that on the press of a button, we can move to a predetermined setpoint.
 
 ```java
 public class Elevator extends SnailSubsystem {
@@ -50,9 +50,9 @@ Currently, we only have the `MANUAL` state set up. In order to implement PID con
 
 ## PIDController
 
-The first thing we do when we create a `PIDController` is that we have to initialize its constants with its constructor. We are also given the option to specify the period, or how often the controller is being updated. The default is 0.02 seconds, which is for a 50 Hz update period, but we actually run our controllers twice as fast, at an update rate of 100 Hz. As a result, we need to use the `UPDATE_PERIOD` variable inside of `Constants.java` since it will have the actual period.
+The first thing we do when we create a `PIDController` is initialize its constants with the constructor. We are also given the option to specify the `period`, or how often the controller is being updated. The default is every 0.02 seconds, which is for a 50 Hz update period, but we actually run our controllers twice as fast, at an update rate of 100 Hz. As a result, we need to use the `UPDATE_PERIOD` variable inside of `Constants.java` since it will have the actual period.
 
-After we declare our `PIDController`, we have a variety of options that we can configure. We can configure things such as its tolerance for how close it can be to the setpoint before ending with `setTolerance()`. We can also change the PID constants (good for tuning constants). However once we have everything set up, we can finally use some of the functions to run it.
+After we declare our `PIDController`, we have a variety of options that we can configure. We can configure things such as its tolerance, or how close it can be to the setpoint before ending the PID run, with `setTolerance()`. We can also change the PID constants (useful for tuning constants). However, once we have everything set up, we can finally use some of the functions to run it.
 
 - `setSetpoint()`: choose where this PIDController is bringing us.
 - `atSetpoint()`: returns whether or not we have reached the setpoint
@@ -121,7 +121,7 @@ public class Elevator extends SnailSubsystem {
 
 After this, we can add the state `PID` to our state list, which will represent when we are currently using PID control to go to a certain setpoint. While updating during our `PID` state, we want to get our `PIDController` and calculate what output we should be sending to our motor by comparing our current sensor info and the desired setpoint. Then, we want to send this to the motor. Another thing we want to do is check if we are at our current setpoint, and if we are, we want to end the `PID` state and go back to `MANUAL`.
 
-Another thing to note is that we might want to constrict the max output of our PID controller to ensure that the system moves at a slow and controllale pace. We can directly modify the output from our `PIDController` to do this. Note that we have not implemented actually setting up the setpoint yet. This will be handled later, and for now you can just assume that it has been appropriately set up.
+Also, we should note that we might want to constrict the maximum output of our PID controller to ensure that the system moves at a slow and controllable pace. We can directly modify the output from our `PIDController` to do this. Keep in mind that we have not implemented actually setting up the setpoint yet. This will be handled later, and for now you can just assume that it has been appropriately set up.
 
 ```java
 public class Elevator extends SnailSubsystem {
@@ -171,4 +171,4 @@ public void setPosition(double setpoint) {
 }
 ```
 
-With that, we're done setting up `PIDController` on our subsystem! Next up, we need to make a command that will call this `setPosition()` function with a desired setpoint. Then, the subsystem will enter the `PID` state, and continue sending output to the motors until it reaches the setpoint. Then, it will go back to the `MANUAL` state where we can go back to manual control of our subsystem. Before we get into that, we're going to review how we could accomplish the same thing the SPARK MAX PID.
+With that, we're done setting up `PIDController` on our subsystem! Next up, we need to make a command that will call this `setPosition()` function with a desired setpoint. Then, the subsystem will enter the `PID` state, and continue sending output to the motors until it reaches the setpoint. Then, it will go back to the `MANUAL` state where we can go back to manual control of our subsystem. Before we get into that, we're going to first review how we could accomplish the same thing the SPARK MAX PID.

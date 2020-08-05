@@ -22,7 +22,7 @@ public class ElevatorPIDCommand extends CommandBase {
 }
 ```
 
-While this command will run, we also want to ensure that when the elevator reaches the position and ends the PID control, the command will end. In our subsystem class, we already handled this with our check for the setpoint difference, and we switch the state back to manual when the PID is finished. Therefore, in our command, we just need to check the state of our subsystem to see if it has left the `PID` state.
+While this command will run, we also want to ensure that when the elevator reaches the position and ends the PID control, the command will end. In our subsystem class, we already handled this with our check for the setpoint difference, after which we changed the state back to manual when the PID finished. Therefore, in our command, we just need to check the state of our subsystem to see if it has left the `PID` state.
 
 ```java
 public class ElevatorPIDCommand extends CommandBase {
@@ -55,7 +55,7 @@ public class RobotContainer {
 
 Notice that we use `whileActiveOnce()` here. In case you have not seen this before, `whileActiveOnce()` means that the command will be run once when the button is first pressed, but as soon as the button is released, the command will end. This ensures that we still have a manual way of stopping the PID in case it misbehaves. For instance, if our mechanism breaks and we need to stop closed loop control, we can merely release the button which should prematurely end the command.
 
-However, note that our command currently doesn't actually stop the elevator if the command is ended! The command starts the elevator moving, but has no way of stopping it. To make sure that if the command is ended prematurely, the closed loop does as well, we need to define the `end()` clause of our command to actually end the PID. First of all, we need to add a function to our elevator that stops the PID.
+However, note that our command currently doesn't actually stop the elevator if the command is ended! The command gets the elevator moving, but has no way of stopping it. To make sure that the closed-loop movements ends with the command itself, we need to define the `end()` clause of our command to actually end the PID. First of all, we need to add a function to our elevator that stops the PID.
 
 ```java
 public class Elevator extends SnailSubsystem {
@@ -88,7 +88,7 @@ Now that we've implemented our PID controllers, it's time to go over some additi
 
 ### Displaying Data
 
-One **extremely** useful thing you can do while tuning PID is to make graphs, graphs, and tons of graphs. Making graphs is good because it allows you to visualize instability, overshooting, and steady-state error. The best one you can make is one that has both your current position and your setpoint on it. A really convenient way to output the data is actually to output the current position and the setpoint in the same array, which will automatically make Shuffleboard put a graph of them on the screen together.
+One **extremely** useful thing you can do while tuning PID is to make graphs, graphs, and tons of graphs. Making graphs allows you to visualize instability, overshooting, and steady-state error. The best one you can make is one that has both your current position and your setpoint on it. A really convenient way to output the data is actually to output the current position and the setpoint in the same array, which will automatically make Shuffleboard put a graph of them on the screen together.
 
 #### WPILib PIDController
 
@@ -143,12 +143,12 @@ public void tuningPeriodic() {
 
 Sometimes, we want to use our PID to maintain a position even after the movement has ended or to make it maintain the same position. For instance, if we have an arm or elevator that falls under gravity, we might not want to end PID when we reach the endpoint of our movement.
 
-When this happens, we can simple remove the clause in our `PID` state that ends the `PID` state if the setpoint is reached. This will allow our closed loop control to persist.
+When this happens, we can simply remove the clause in our `PID` command that ends the `PID` state if the setpoint is reached. This will allow our closed loop control to persist.
 
 However, one should be careful with this to ensure that there is still a method available to exit the PID state. With the system described here, the release of our button is a way to end PID control. There are many other methods such as having manual control interrupt it.
 
 For freezing mechanisms, or making them maintain the same position, it is pretty easy. We follow the above steps to remove the end `PID` state clause, and then when we call the `setPosition()` function from our freeze command, we simply set the PID position to the current position. A really easy way to implement the `RobotContainer` calling of the freeze command would be to use the `toggleWhenPressed()` function when assigning buttons to commands.
 
-### Tuning Tip Tip
+### Tuning Tip
 
-To properly tune, I would also recommend that you comment out the error checking clause in the `PID` state so that the PID is not ended prematurely. Once the PID is tuned, it can be uncommented. This is so that we can accurately measure the overshoot and instability of the system after it reaches the setpoint while tuning, but this is unnecessary once we finish tuning properly.
+To properly tune, I would also recommend that you comment out the error-checking clause in the `PID` state so that the PID is not ended prematurely. Once the PID is tuned, it can be uncommented. This is so that we can accurately measure the overshoot and instability of the system after it reaches the setpoint while tuning, but this is unnecessary once we finish tuning properly.

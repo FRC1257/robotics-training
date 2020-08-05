@@ -1,8 +1,8 @@
 # SPARK MAX PID
 
-To use the SPARK MAX PID system, the process is a bit different, but not too complicated. The way SPARK MAX PID works is that we create a `CANPIDController` object from the SPARK MAX, and then we assign it a setpoint to reach. Then, the onboard controller will do the calculatins to arrive at the setpoint with the loaded constants. We will go over this in detail next. Go [here](http://www.revrobotics.com/content/sw/max/sw-docs/java/com/revrobotics/CANPIDController.html) to find the documentation.
+With the SPARK MAX PID system, the process is a bit different, but not too complicated. We first create a `CANPIDController` object from the SPARK MAX motor object, and then we assign it a setpoint to reach. Then, the onboard controller will do the calculations to arrive at the setpoint with the loaded constants. We will go over this in detail next. Click [here](http://www.revrobotics.com/content/sw/max/sw-docs/java/com/revrobotics/CANPIDController.html) to find the documentation on the `CANPIDController`.
 
-First, we need to do the same as the `PIDController` implementation and create our constants.
+First, we need to do the same as the `PIDController` implementation by creating our constants.
 
 ```java
 public final class Constants {
@@ -41,14 +41,13 @@ public class Elevator extends SnailSubsystem {
     private CANSparkMax primaryMotor;
     private CANEncoder primaryEncoder;
 
+    private State defaultState = State.MANUAL;
     private State state = defaultState;
     private double speed;
 
     public Elevator() {
         primaryMotor = new CANSparkMax(ELEVATOR_PRIMARY_MOTOR_ID, MotorType.kBrushless);
         primaryMotor.restoreFactoryDefaults();
-        primaryMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative);
-        primaryMotor.configSelectedFeedbackCoefficient(1 / 4096.0 / 48.0 * Math.PI * 6);
 
         primaryEncoder = new CANEncoder(primaryMotor);
         primaryEncoder.setPositionConversionFactor(48.0 * Math.PI * 6);
@@ -96,9 +95,11 @@ public class Elevator extends SnailSubsystem {
 }
 ```
 
-**Quick Note: if you have two different set of PID gains (constants), you can specify an optional parameter after each constant to add the PID slot that you want to use. This allows you to switch between constants if you need to use that feature. Read the documentation for more info.**
+**Quick Note: if you have two different set of PID gains (constants), you can specify an optional parameter after each constant to add the PID slot that you want to use. This allows you to switch between constants if you need to use that feature. Read the [documentation](http://www.revrobotics.com/content/sw/max/sw-docs/java/com/revrobotics/CANPIDController.html) for more info.**
 
-Next, we need to make our `update()` function with the `PID` state. The main difference here is that to make the SPARK MAX start using PID, we go to the `CANPIDController` and just tell it where we want to go. It handles everything else. Another difference is that while before, we would store the setpoint with the `PIDController` object, we now have to store it in a separate variable because the `CANPIDController` object does **not** store it as of the time of writing. Finally, we have to do the error checking ourselves to see if we have arrived at the desired position.
+Next, we need to make our `update()` function with the `PID` state. The main difference here is that to make the SPARK MAX start using PID, we go to the `CANPIDController` and just tell it where we want to go. It handles everything else. 
+
+Another difference is that while before, we would store the setpoint with the `PIDController` object, we now have to store it in a separate variable because the `CANPIDController` object does **not** store it as of the time of writing. Finally, we have to do the error checking ourselves to see if we have arrived at the desired position.
 
 ```java
 public class Elevator extends SnailSubsystem {
@@ -143,4 +144,4 @@ public void setPosition(double setpoint) {
 }
 ```
 
-And with that we're done with the SPARK MAX PID in our subsystem! Now we just have to add the command that will actually trigger the `setPosition()` function and tell our subsystem to enter the `PID` state.
+And with that, we're done with the SPARK MAX PID in our subsystem! Now, we just have to add the command that will actually trigger the `setPosition()` function and tell our subsystem to enter the `PID` state.

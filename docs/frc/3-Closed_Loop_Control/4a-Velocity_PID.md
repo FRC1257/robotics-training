@@ -4,23 +4,23 @@ Similar to positional PID control, there are a few ways of implementing velocity
 
 ## Purpose
 
-We might want to use velocity PID for tjree primary reasons:
+We might want to use velocity PID for three primary reasons:
 
 1. Ensuring our mechanism reaches a consistent speed for something such as a shooter's flywheel
 2. Motion profiling, which we will cover later
 3. More precise control of something like the drivetrain.
 
-We will cover the first use case in this lesson, the second case in a few lessons, and the final one in the future (most likely in the advanced section).
+We will cover the first use case in this lesson, the second case in a few lessons, and the final one in the future (most likely in the autonomous or advanced section).
 
 ## General Info
 
-Using velocity PID control is very similar to it for positional PID control. However, instead of using the constants `kP`, `kI`, and `kD`, we instead use `kFF` and `kP`. It is very rare that we will use `kD` or `kI` in velocity PID control, especially the latter. Essentially, the `kFF` term will be multiplied by the target velocity and added to the output, which will be the primary driving force for our controller. Then, the `kP` term will account for any small errors in the output and slightly modify the output to account for those. As a result, we will be using a combination of **feedback and feedforward control**.
+Velocity PID control is very similar programmatically to positional PID control. Instead of using the constants `kP`, `kI`, and `kD`, we instead use `kFF` and `kP`. It is very rare that we will use `kD` or `kI` in velocity PID control, especially the latter. Essentially, the `kFF` term will be multiplied by the target velocity and added to the output, which will be the primary driving force for our controller. Then, the `kP` term will account for any small errors in the output and slightly modify the output to account for those. As a result, we will be using a combination of **feedback and feedforward control**.
 
 To implement this, we first need to create the PID constants in our `Constants.java` file. Note that we add an extra term for the `kFF` term.
 
 Additionally, we will define the max speed of our shooter here, which will be important later. We actually define our `kFF` term as `1 / SHOOTER_MAX_SPEED` at first. This is normally a really good approximation for what the `kFF` term should be, assuming that `SHOOTER_MAX_SPEED` corresponds to the actual speed limit of our motor. We can later tune this further, but this normally gets us really close.
 
-We use the units RPM here, aka revolutions per minute. We could use whatever units we wanted here, as long as we are consistent. This means that we need to make sure to apply a scaling to our encoder values to ensure this is valid. However, SPARK MAXes actually have their default units set to revolutiosn per minute, making that unnecessary.
+We use the units RPM here, aka revolutions per minute. We *could* use whatever units we wanted here, as long as we are consistent. This means that we need to make sure to apply a scaling to our encoder values to ensure this is valid. However, SPARK MAXes actually have their default units set to revolutions per minute, making that unnecessary.
 
 ```java
 public static class Shooter {
@@ -32,7 +32,9 @@ public static class Shooter {
 
 ## WPILib PID
 
-Now, we will cover how to implement the subsytem functions if we are using WPILib's `PIDController`. We will update the initialization step of our subsytem as follows. We will a) add the `VELOCITY_PID` state, define our `PIDController`, configure the constants. We don't have to scale our encoder values because we are using SPARK MAXes. One thing we have to note is that we are actually not passing our `kFF` constant into the `PIDController`. WPILib's `PIDController` does not actually support feedforward, but it is simple to implement. We will instead use WPILib's `PIDController` to handle just the feedback section.
+Now, we will cover how to implement the subsytem functions if we are using WPILib's `PIDController`. We will update the initialization step of our subsystem as follows. We will first add the `VELOCITY_PID` state, define our `PIDController`, and configure the constants. We don't have to scale our encoder values because we are using SPARK MAXes. 
+
+One thing we have to note is that we are actually not passing our `kFF` constant into the `PIDController`. WPILib's `PIDController` does not actually support feedforward, but it is simple to implement. We will instead use WPILib's `PIDController` to handle just the feedback section.
 
 ```java
 public class Shooter extends SnailSubsystem {
@@ -92,7 +94,7 @@ public void endPID() {
 }
 ```
 
-One thing to notice is that we do **not** define an end condition for our velocity PID. This is typically because we don't actually want to end our velocity PID automatically, since the purpose of it is to **maintain** a certain velocity, not accomplish a single motion. The velocity PID will be frequently cancelled by how we set up our commands. We will see this in a moment. Before we do that, we will cover how to implement the subsytem for SPARK MAX PID.
+One thing to notice is that we do **not** define an end condition for our velocity PID. This is typically because we don't actually want to end our velocity PID automatically, since the purpose of it is to **maintain** a certain velocity, not accomplish a single motion. The velocity PID will be frequently cancelled by how we set up our commands. We will see this in a moment. Before we do that, we will cover how to implement the subsystem for SPARK MAX PID.
 
 ## SPARK MAX PID
 
@@ -213,4 +215,4 @@ Creating graphs of the desired output and the actual output is **crucial** for v
 
 ## Velocity Control
 
-We can not only use velocity PID to obtain a desired set speed, but also for better control. With our typical methods of control, we pass the controller joystick output to the the motor directly, which will move the motor. However, this can be imprecise and the motor could not track the desired velocity perfectly. Especially for drivetrains, we may choose to use velocity control on our subsystem instead, where we convert our joystick values to a desired velocity and send that to our velocity PID. This is generally referred to as **closed loop control** compared to the typical **open loop control**.
+We can not only use velocity PID to obtain a desired set speed, but also for better control. With our typical methods of control, we pass the controller joystick output to the motor directly, which will move the motor. However, this can be imprecise and the motor might not track the desired velocity perfectly. Especially for drivetrains, we may choose to use velocity control on our subsystem instead, where we convert our joystick values to a desired velocity and send that to our velocity PID. This is generally referred to as **closed loop control** compared to the typical **open loop control**.
