@@ -14,7 +14,7 @@ double kFF = 1 / maxSpeed;
 motor.set(desiredSpeed * kFF);
 ```
 
-The other type of feedforward control takes into account the dynamics, or movement, of the system. For instance, we know that gravity will always pull an elevator down no matter what we do. We could counteract this by allowing our motor to constantly go up, which would prevent the elevator from naturally falling down, as well as going faster downwards than upwards. This type of feedforward's value could be calculated empirically through testing or via physics, which is generalyl much more complicated.
+The other type of feedforward control takes into account the dynamics, or movement, of the system. For instance, we know that gravity will always pull an elevator down no matter what we do. We could counteract this by allowing our motor to constantly go up, which would prevent the elevator from naturally falling down, as well as going faster downwards than upwards. This type of feedforward's value could be calculated empirically through testing or via physics, which is generally much more complicated.
 
 As a basic code example, we could do the following, where we apply a constant motor output upwards to counteract gravity.
 
