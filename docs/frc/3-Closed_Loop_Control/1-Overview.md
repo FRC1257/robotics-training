@@ -8,7 +8,7 @@ However, this solution generally does not work for a variety of different reason
 
 ## Closed Loop Control
 
-In closed loop control, we add sensor feedback to make our control over our system MUCH better. We have a variety of different techniques that can use these sensors to get our desired behavior from the system, as long as our sensors are actually measuring that behavior. For instance, we can use sensors and closed loop control to either bring our mechanism to a certain position, or we could use them to make our mechanism move at a specified velocity.
+In closed loop control, we add sensor feedback to make our control over our system MUCH better. We have a variety of different techniques that can use these sensors to get our desired behavior from the system, as long as our sensors are actually measuring that behavior. For instance, we can use sensors and closed loop control to bring our mechanism to a certain position, or to make our mechanism move at a specified velocity.
 
 ## Common Types of Closed Loop Control
 
