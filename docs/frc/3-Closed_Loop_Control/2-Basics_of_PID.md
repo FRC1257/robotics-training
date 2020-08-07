@@ -11,7 +11,7 @@ One of the most common applications of PID is to try to get a certain mechanism 
 
 After this, we measure something known as **error**, which is defined as `error = setpoint - current`. For instance, if the current height of our elevator is 40 inches off the ground, the error would be `error = 60 - 40 = 20`. You can think of one of the purposes of PID control as driving the error towards 0.
 
-The main idea of PID control is turning that error term into a motor output that we can use to drive that error to 0. There are three components of PID control, each of which can be used independently of one another, but produce the best results when used all together.
+The main idea of PID control is turning that error term into a motor output that we can use to drive that error to 0. While each of the three components of PID control can be used independently of one another, they produce the best results when used all together.
 
 > [!NOTE]
 > Here, we are assuming that a positive motor output will increase our sensor reading. So when we apply a positive motor output, the elevator will rise up. This is important to note: if this wasn't the case, we'd have to invert our motor controller.
@@ -133,7 +133,7 @@ The following video shows a really good hardware demo of the effect of different
 
 ## Tuning PID
 
-One of the most critical parts about a PID controller is learning how to tune it depending on what kind of response you get. For our team, we use almost solely PD controllers, so we will go over our general procedure below:
+One of the most critical parts about a PID controller is learning how to tune it depending on what kind of response you get. For our team, we almost solely use PD controllers, so we will go over our general procedure below:
 
 1. Start with a very low `kP` value and gradually increase it until the actuator at least gets to the desired position. Make sure you increase it **gradually** to reduce the risk of growing an out of control system and doing damage. It is much better to have a slow, dissapointing system than a crazy frantic system that could injure someone.
 2. Increase `kP` more until the system continually oscillates around the setpoint, and it settles at the setpoint. It is **OK** if it has some violent oscillations as long as they are **consistent** and are about the desired setpoint.
