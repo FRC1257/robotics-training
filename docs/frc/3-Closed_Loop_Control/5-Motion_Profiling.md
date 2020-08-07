@@ -209,7 +209,7 @@ public class Elevator extends SnailSubsystem {
         elevatorPID.setP(Constants.Elevator.ELEVATOR_PIDF[0]);
         elevatorPID.setI(Constants.Elevator.ELEVATOR_PIDF[1]); // most of the time this would be set to 0
         elevatorPID.setD(Constants.Elevator.ELEVATOR_PIDF[2]); // most of the time this would be set to 0
-        elevatorPID.setFF(Constants.Elevator.ELEVATOR_PIDF[2]);
+        elevatorPID.setFF(Constants.Elevator.ELEVATOR_PIDF[3]);
         // our smart motion constraints
         elevatorPID.setSmartMotionMaxVelocity(Constants.Elevator.ELEVATOR_PROFILE_MAX_VEL);
         elevatorPID.setSmartMotionMaxAccel(Constants.Elevator.ELEVATOR_PROFILE_MAX_ACC);
