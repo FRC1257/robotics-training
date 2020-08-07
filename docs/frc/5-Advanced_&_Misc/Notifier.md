@@ -39,11 +39,3 @@ public RobotContainer() {
 ## Summary
 
 Now you know how to use the notifier. If you want to know more about its functionality, feel free to check out the [Documentation](https://first.wpi.edu/FRC/roborio/beta/docs/java/edu/wpi/first/wpilibj/Notifier.html) or ask a senior programming member.
-
-
-
-
-
-
-
-

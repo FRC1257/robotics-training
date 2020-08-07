@@ -102,7 +102,7 @@ public final class Constants {
     }
 
     public static class Autonomous {
-        //nothing
+        // nothing
     }
     public static class RollerIntake {
         public static double ROLLER_INTAKE_NEUTRAL_SPEED = 0.0;
@@ -110,7 +110,7 @@ public final class Constants {
         public static double ROLLER_INTAKE_EJECT_SPEED = -1.0;
     }
 
-    //Other constants such as current limit
+    // Other constants such as current limit
     public static int NEO_550_CURRENT_LIMIT = 25;
 
 }
@@ -120,9 +120,7 @@ In this example, there is something that may look peculiar. The ID is declared w
 
 Another important thing to notice is the phrase `public static` in front of every variable. `public` makes the constant globally accessible, and `static` means that this variable belongs to the class itself, not an object of it. For more information on `static` variables, check [this link](https://beginnersbook.com/2013/04/java-static-class-block-methods-variables/). For now, just know that all of our constants must have the prefix `public static`, while `final` is optional.
 
-## Importing Constants & Usage
-
-Now that all of the constants are declared, they can now be imported into the appropriate file. In this case, it is the `RollerIntake` file.
+## Using Constants
 
 ```java
 ...
@@ -130,18 +128,12 @@ import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMax.IdleMode;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
-import static frc.robot.Constants.ElectricalLayout.*;
-import static frc.robot.Constants.RollerIntake.*;
-import static frc.robot.Constants.NEO_550_CURRENT_LIMIT;
-
 public class RollerIntake extends SnailSubsystem {
     ...
 }
 ```
 
-The imports are made at the very beginning of the file along with the other imports. Here, all the necessary nested classes from `Constants.java` are imported along with certain variables such as the current limit.
-
-Now that the constants are imported, it is time to put them where they belong. Below is the code from the previous lesson, except for the fact that `constant` variables are now used.
+Now that the constants are imported, it is time to put them where they belong. Below is the code from the previous lesson, except for the fact that the `Constant.java` variables are now used.
 
 ```java
 package frc.robot.subsystems;
@@ -151,10 +143,6 @@ import com.revrobotics.CANSparkMax.IdleMode;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import frc.robot.Constants;
-
-import static frc.robot.Constants.ElectricalLayout.*;
-import static frc.robot.Constants.RollerIntake.*;
-import static frc.robot.Constants.NEO_550_CURRENT_LIMIT;
 
 public class RollerIntake extends SnailSubsystem {
 
@@ -169,23 +157,23 @@ public class RollerIntake extends SnailSubsystem {
     State state = State.NEUTRAL;
 
     public RollerIntake() {
-        rollerIntakeMotor = new CANSparkMax(ROLLER_INTAKE_MOTOR_ID, MotorType.kBrushless);
+        rollerIntakeMotor = new CANSparkMax(Constants.ElectricalLayout.ROLLER_INTAKE_MOTOR_ID, MotorType.kBrushless);
         rollerIntakeMotor.restoreFactoryDefaults();
         rollerIntakeMotor.setIdleMode(IdleMode.kBrake);
-        rollerIntakeMotor.setSmartCurrentLimit(NEO_550_CURRENT_LIMIT);
+        rollerIntakeMotor.setSmartCurrentLimit(Constants.NEO_550_CURRENT_LIMIT);
     }
 
     @Override
     public void update() {
         switch(state) {
             case NEUTRAL:
-                rollerIntakeMotor.set(ROLLER_INTAKE_NEUTRAL_SPEED);
+                rollerIntakeMotor.set(Constants.RollerIntake.ROLLER_INTAKE_NEUTRAL_SPEED);
                 break;
             case INTAKING:
-                rollerIntakeMotor.set(ROLLER_INTAKE_INTAKE_SPEED);
+                rollerIntakeMotor.set(Constants.RollerIntake.ROLLER_INTAKE_INTAKE_SPEED);
                 break;
             case EJECTING:
-                rollerIntakeMotor.set(ROLLER_INTAKE_EJECT_SPEED);
+                rollerIntakeMotor.set(Constants.RollerIntake.ROLLER_INTAKE_EJECT_SPEED);
                 break;
         }
     }
@@ -207,3 +195,17 @@ public class RollerIntake extends SnailSubsystem {
     }
 }
 ```
+
+### Import Static
+
+However, it might get tiring to have to write `Constants.RollerIntake` or `Constants.` in front of everything. Instead of doing this, we can use somethign known as a `static import`. We can include these three lines at the top of our file underneath the rest of our import statements.
+
+```java
+import static frc.robot.Constants.ElectricalLayout.*;
+import static frc.robot.Constants.RollerIntake.*;
+import static frc.robot.Constants.NEO_550_CURRENT_LIMIT;
+```
+
+These lines allow us to import all of the static variables either contained within entire classes like `ElectricalLayout` or `RollerIntake`, or allow us to import specific static variables we need such as `NEO_550_CURRENT_LIMIT`. As a result, we no longer have to say `Constants.RollerIntake.ROLLER_INTAKE_NEUTRAL_SPEED` and can instead just put `ROLLER_INTAKE_NEUTRAL_SPEED`.
+
+However, we don't **have** to do this and we can omit that occasionally (if we forget). We would prefer to use more static imports to increase code readability and brevity, but it is not strictly necessary.
