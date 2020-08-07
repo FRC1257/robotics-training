@@ -69,7 +69,7 @@ With that, we're done with generating our trapezoidal motion profile! Now we jus
 
 There are two primary steps of doing motion profiling: a) generating the motion profile and b) following it. To do the first, we can use the built in WPILib `TrapezoidProfile` class, which takes in both the constraints, the beginning state, and the end state of our system. Upon generating the profile, we can then query it at each time step for what velocity and position we **should** be at. Then, we can pass this into our positional PID and velocity PID controllers.
 
-Generally, we could use either WPILib's `PIDController` or the built-in SPARK MAX PID. However, we actually want to run *two* control loops, one to hone in on the desired velocity, and the other to hone in on the desired position. The velocity one wil be doing most of the work, and the PID one will be correcting for any built up error.
+Generally, we could use either WPILib's `PIDController` or the built-in SPARK MAX PID. However, we actually want to run *two* control loops, one to hone in on the desired velocity, and the other to hone in on the desired position. The velocity one will be doing most of the work, and the PID one will be correcting for any built up error.
 
 First, let's generate the profile. Essentially, we want it so that every time we call the function to move to a specific location, we want to generate a brand new trapezoid profile between our current position and the desired position. We can use our current velocity and position as the initial state of our profile, and the desired position and a velocity of `0` as the desired end state of our profile. Let's take a look at how we would do that in code.
 
