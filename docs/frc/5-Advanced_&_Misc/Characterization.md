@@ -42,6 +42,8 @@ Another thing to keep in mind is that the classes return a voltage value, not a 
 > [!WARNING]
 > The units for these measurements will match what was passed into the characterization tool. We recommend for consistency to use radians for arms, and meters for everything else.
 
+TODO: Add examples
+
 ## Sources
 
 If you want more information, I would strongly recommend reading / watching the sources below, which were used to help write this article.
