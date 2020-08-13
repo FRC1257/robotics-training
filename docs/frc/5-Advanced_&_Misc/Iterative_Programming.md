@@ -18,7 +18,7 @@ Once again, the structure is pretty similar to that of command-based. Obviously,
 
 For our purposes, we won't dive too deep into an iterative example program, as we'll really only be focusing on command-based and shouldn't be moving back to iterative. It's just good to know that iterative *does* exist. If you want to explore more, see 1257's [2019 code](https://github.com/FRC1257/2019-Robot).
 
-One note to take is that using iterative programming for a robot makes working in autonomous immensely more difficult. All the features and convenience that comes with command-based is thrown away, and you're essentially back to square one with autonomous routines. 
+One note to take is that using iterative programming for a robot makes working in autonomous immensely more difficult. All the features and convenience that comes with command-based is thrown away, and you're essentially back to square one with autonomous routines.
 
 ## Application
 

@@ -40,4 +40,4 @@ Learning to write good while loops and being able to find when you have created 
 
 ## Robotics Programming
 
-We generally try to avoid using while loops in robot code as if a while loop ever gets stuck, it can actually block our code and prevent it from continuing, halting all functionality. This has happened to us before and is a pain to debug, so we generally try to avoid using while loops. However, the idea of a while loop is still important to have as a programmer, which is why we teach it. 
+We generally try to avoid using while loops in robot code as if a while loop ever gets stuck, it can actually block our code and prevent it from continuing, halting all functionality. This has happened to us before and is a pain to debug, so we generally try to avoid using while loops. However, the idea of a while loop is still important to have as a programmer, which is why we teach it.

@@ -160,7 +160,7 @@ public void update() {
 
 #### Overrides
 
-One issue that can arise when we use the aforementioned system is that our encoder values can start to drift and not match the real world. For instance, with mechanical issues such as gearbox slop, chain slipping, etc., our encoder value can start to not match the desired value. This is generally why we prefer to use limit switches instead of encoders for limiting our mechanisms. 
+One issue that can arise when we use the aforementioned system is that our encoder values can start to drift and not match the real world. For instance, with mechanical issues such as gearbox slop, chain slipping, etc., our encoder value can start to not match the desired value. This is generally why we prefer to use limit switches instead of encoders for limiting our mechanisms.
 
 If it is unfeasible to place limit switches on our mechanism, we may have to use encoders. However, if the encoder values start to drift, we may find that our software stops prevent us from reaching our full, desired range of motion. In this case, we must implement overrides to ensure that if this case happens, the operator can override the soft stop and allow the mechanism to continue moving.
 

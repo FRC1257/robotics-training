@@ -171,7 +171,7 @@ public class RollerIntake extends SnailSubsystem {
     ...
 ```
 
-Next, the states of the subsystem should be thought of and declared in the top enum. For our intake, there are three main "operating modes" that it can be in: ejecting a game piece, intaking a game piece, or running at a neutral speed. These correspond with what we call `states` of the subsystem, which is what we are representing with the enum. 
+Next, the states of the subsystem should be thought of and declared in the top enum. For our intake, there are three main "operating modes" that it can be in: ejecting a game piece, intaking a game piece, or running at a neutral speed. These correspond with what we call `states` of the subsystem, which is what we are representing with the enum.
 
 The three states declared are `INTAKING`, `EJECTING`, and `NEUTRAL`. Each of them represents a different operation the robot would have to perform. Our enum will define that all of these possible states can exist, and then the actual `state` variable below holds which current state we are in. It is going to have a default value of `NEUTRAL`, and this makes logical sense as when the robot just turns on it should not be moving until given the command.
 

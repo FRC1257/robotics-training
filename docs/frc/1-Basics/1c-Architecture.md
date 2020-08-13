@@ -27,7 +27,7 @@ Again, don't worry if you don't 100% get what is going on here since it is mostl
 
 `Constants.java` is a file that will be frequently edited. When we make our robot code, we will many times have "magical numbers" that we just throw in. For instance, we might test our intake and discover that 60% is a good speed to set it to. Instead of just throwing this in our robot code where it could easily get lost, we put it in `Constants.java`. `Constants.java` serves as the main hub for every constant we could possible put in our robot. For an example, see this file in our 2020 Robot Code: [`Constants.java`](https://github.com/FRC1257/2020-Robot/blob/master/src/main/java/frc/robot/Constants.java).
 
-We structure this file with [inner static classes](https://www.geeksforgeeks.org/static-class-in-java/). An example would be `ElectricalLayout`, where we store all IDs/port numbers for robot hardware. Using static classes allows us to reference constants through something like `Constants.ElectricalLayout.CONTROLLER_DRIVER_ID` and put a lot more organization into our program. 
+We structure this file with [inner static classes](https://www.geeksforgeeks.org/static-class-in-java/). An example would be `ElectricalLayout`, where we store all IDs/port numbers for robot hardware. Using static classes allows us to reference constants through something like `Constants.ElectricalLayout.CONTROLLER_DRIVER_ID` and put a lot more organization into our program.
 
 However, it can be tedious sometimes to write out something like, say, `Constants.Autonomous` every time we call a constant from the `Autonomous` static class. It also wastes a lot of screen space. Instead, at the top of the file we want to use that autonomous constant in, we put the following line:
 

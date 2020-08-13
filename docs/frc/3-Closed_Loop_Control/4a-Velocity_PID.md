@@ -32,7 +32,7 @@ public static class Shooter {
 
 ## WPILib PID
 
-Now, we will cover how to implement the subsytem functions if we are using WPILib's `PIDController`. We will update the initialization step of our subsystem as follows. We will first add the `VELOCITY_PID` state, define our `PIDController`, and configure the constants. We don't have to scale our encoder values because we are using SPARK MAXes. 
+Now, we will cover how to implement the subsytem functions if we are using WPILib's `PIDController`. We will update the initialization step of our subsystem as follows. We will first add the `VELOCITY_PID` state, define our `PIDController`, and configure the constants. We don't have to scale our encoder values because we are using SPARK MAXes.
 
 One thing we have to note is that we are actually not passing our `kFF` constant into the `PIDController`. WPILib's `PIDController` does not actually support feedforward, but it is simple to implement. We will instead use WPILib's `PIDController` to handle just the feedback section.
 

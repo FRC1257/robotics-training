@@ -159,7 +159,7 @@ public class EnhancedProfileCreator extends Controller {
       }
 
 
-      //first leg of trap or triangle. 
+      //first leg of trap or triangle.
       // The "else if" is for the last leg of trap or triangle.
       if(distanceFromStart <= accelDistance) {
         //sets the output array
@@ -192,7 +192,7 @@ public class EnhancedProfileCreator extends Controller {
       }
 
       /* This is not PIDF.
-      This is three concurrent P loops. 
+      This is three concurrent P loops.
       The first of them is for the velocity.
       The second is for the acceleration.
       The third is for the position.

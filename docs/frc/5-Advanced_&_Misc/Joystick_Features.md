@@ -6,9 +6,9 @@ Once again, 1257 generally uses Xbox controllers to interact with a robot. One i
 
 ![Amazon Basics Controller](img/AmazonBasicsController.jpg ':size=350x300')
 
-The two joysticks on such a controller are almost always in use, whether it be for moving a drivetrain, an arm, or some other mechanism easily controlled with joystick input. However, the joysticks could have mechanical defect, and therefore may return erroneous input. 
+The two joysticks on such a controller are almost always in use, whether it be for moving a drivetrain, an arm, or some other mechanism easily controlled with joystick input. However, the joysticks could have mechanical defect, and therefore may return erroneous input.
 
-To counteract this physical issue, or to just increase precision, we can implement a few adjustments in code. 
+To counteract this physical issue, or to just increase precision, we can implement a few adjustments in code.
 
 ## Scaled Input
 
@@ -24,7 +24,7 @@ In order to make control more precise, especially at the smaller levels of input
 
 ![Scaled Input Graph](img/ScaledInputsDesmos.jpg ':size=400x400')
 
-The blue curve represents **"squared input"** (x<sup>2</sup>), and the green curve represents **"cubed input"** (x<sup>3</sup>). We usually settle with just squared input, as cubing is generally a bit too drastic, but at the end of day, it all depends on the mechanism. 
+The blue curve represents **"squared input"** (x<sup>2</sup>), and the green curve represents **"cubed input"** (x<sup>3</sup>). We usually settle with just squared input, as cubing is generally a bit too drastic, but at the end of day, it all depends on the mechanism.
 
 Implementing this in code is pretty simple. When transforming joystick input into mechanism output, we could just use:
 

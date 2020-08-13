@@ -34,9 +34,9 @@ public class Claw extends SnailSubsystem {
     private DoubleSolenoid leftSolenoid;
 ```
 
-First, the solenoids are declared. Since this subsystem uses pneumatics (air) instead of motors, solenoids replace motor controllers in the code. The solenoids are responsible for determining if air goes to the pneumatic cylinders or not. Since the claw we are making has a pneumatic cylinder on each side, there are two solenoids declared. Each of the solenoids is a part of the class `DoubleSolenoid` which means that the solenoids can hold two positions, forward and reverse. Each of these corresponds to the claw being either open or closed. 
+First, the solenoids are declared. Since this subsystem uses pneumatics (air) instead of motors, solenoids replace motor controllers in the code. The solenoids are responsible for determining if air goes to the pneumatic cylinders or not. Since the claw we are making has a pneumatic cylinder on each side, there are two solenoids declared. Each of the solenoids is a part of the class `DoubleSolenoid` which means that the solenoids can hold two positions, forward and reverse. Each of these corresponds to the claw being either open or closed.
 
-Note: A different class would be used for a single-acting solenoid, which can apply force to one direction, but not the other. 
+Note: A different class would be used for a single-acting solenoid, which can apply force to one direction, but not the other.
 
 ### States
 
@@ -49,7 +49,7 @@ Note: A different class would be used for a single-acting solenoid, which can ap
     State state = State.OPEN;
 ```
 
-After declaring the solenoids, the states are declared. For the claw subsystem, there are only two states: `CLOSED` and `OPEN`. Closed represents when the claw shuts around the object and open is when the claw is opened so it is not capable of holding a block. 
+After declaring the solenoids, the states are declared. For the claw subsystem, there are only two states: `CLOSED` and `OPEN`. Closed represents when the claw shuts around the object and open is when the claw is opened so it is not capable of holding a block.
 
 Usually, the cylinders are extended when the claw is closed and not extended when the claw is open.
 

@@ -39,7 +39,7 @@ Finally, we have the actual sections that pertain to the arbitrary feedforward, 
 
 ## Determining Elevator Feedforward
 
-We can determine our elevator feedforward value by testing it empirically. We first need to raise our elevator to a medium height, and due to the effects of gravity, it should start to slide downwards. Then, we need to apply a very small output to the motor until it stops sliding downwards. Once we find the minimum output where it will stop sliding downwards, we can write down this value. Then, we need to find the maximum output where it will stop sliding downwards, but will not go upwards. Write down this output as well, and then take the average of the two to get a good approximation of what the elevator feedforward value should be. 
+We can determine our elevator feedforward value by testing it empirically. We first need to raise our elevator to a medium height, and due to the effects of gravity, it should start to slide downwards. Then, we need to apply a very small output to the motor until it stops sliding downwards. Once we find the minimum output where it will stop sliding downwards, we can write down this value. Then, we need to find the maximum output where it will stop sliding downwards, but will not go upwards. Write down this output as well, and then take the average of the two to get a good approximation of what the elevator feedforward value should be.
 
 For those wondering, the reason why we want to take the average of the two is that the minimum output required would still take into account the static frictional force on the elevator going up, while the maximum output would also take into account the static frictional force going down. To cancel the two out, we can average the two outputs together.
 

@@ -18,6 +18,7 @@ In team 1257, a `Notifier` is typically used in `RobotContainer` to run the `upd
 ```java
 import edu.wpi.first.wpilibj.Notifier;
 ```
+
 Before using the notifier, its class must be imported in the statement above.
 
 ### Declaring and Defining Notifier
@@ -26,13 +27,13 @@ Before using the notifier, its class must be imported in the statement above.
 private Notifier updateNotifier;
 
 public RobotContainer() {
-    
+
     updateNotifier = new Notifier(this::update);
     updateNotifier.startPeriodic(1 / 100.0);
 }
 ```
 
-1. First, a private instance object of the `Notifier` class is declared. 
+1. First, a private instance object of the `Notifier` class is declared.
 2. Then, the object is defined with the constructor. The constructor takes in a function. In order to pass in a function a `::` operator is used. To read more about it, please go ot the the [Elevator Subsystem](Basics/Elevator.md) file, where we discussed it when we learned about how to pass in the controller joystick input. Now, the `Notifier` knows what function it is responsible for calling in parallel with the rest of the robot code.
 3. After the notifier is defined, the `startPeriodic()` function is called. A double is passed in as a parameter which is the period between the times the notifier is executed. In the above example, the notifier is run every hundredth of a second or at 100 Hz.
 

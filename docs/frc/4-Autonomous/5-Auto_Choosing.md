@@ -1,8 +1,8 @@
 # Auto Choosing
 
-Now that we've written out all of our robot's autonomous functionality, we need to actually *call* it at some point (through Shuffleboard) and command our robot to execute it. This section will be heavily based off 1257's 2020 autos, once again. 
+Now that we've written out all of our robot's autonomous functionality, we need to actually *call* it at some point (through Shuffleboard) and command our robot to execute it. This section will be heavily based off 1257's 2020 autos, once again.
 
-Most of the work here is done in `RobotContainer.java`, with a few scheduling necessities in `Robot.java` and some constants. 
+Most of the work here is done in `RobotContainer.java`, with a few scheduling necessities in `Robot.java` and some constants.
 
 ## Setup
 
@@ -117,7 +117,7 @@ if (type == AutoType.TRAJECTORY) {
         case TRENCH:
             if (position == AutoPosition.TOP) return new TrajTopTrenchAuto(drivetrain, indexer, shooter, intake);
             else if (position == AutoPosition.MIDDLE) return new TrajMiddleTrenchAuto(drivetrain, indexer, shooter, intake);
-        case GEN_TOP: 
+        case GEN_TOP:
             if (position == AutoPosition.TOP) return new TrajTopGenTopAuto(drivetrain, indexer, shooter, intake);
             else if (position == AutoPosition.MIDDLE) return new TrajMiddleGenTopAuto(drivetrain, indexer, shooter, intake);
         case GEN_BOTTOM:
@@ -206,7 +206,7 @@ public class RobotContainer {
                 case TRENCH:
                     if (position == AutoPosition.TOP) return new TrajTopTrenchAuto(drivetrain, indexer, shooter, intake);
                     else if (position == AutoPosition.MIDDLE) return new TrajMiddleTrenchAuto(drivetrain, indexer, shooter, intake);
-                case GEN_TOP: 
+                case GEN_TOP:
                     if (position == AutoPosition.TOP) return new TrajTopGenTopAuto(drivetrain, indexer, shooter, intake);
                     else if (position == AutoPosition.MIDDLE) return new TrajMiddleGenTopAuto(drivetrain, indexer, shooter, intake);
                 case GEN_BOTTOM:
@@ -226,7 +226,7 @@ public class RobotContainer {
 
 ## Execution
 
-We're almost finished! All we have to do now is call the autos correctly in `Robot.java`: 
+We're almost finished! All we have to do now is call the autos correctly in `Robot.java`:
 
 ```java
 ...

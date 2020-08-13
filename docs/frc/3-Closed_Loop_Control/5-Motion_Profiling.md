@@ -4,13 +4,13 @@
 
 While PID is extremely powerful, it definitely lacks some traits and leaves much to be desired when thinking about the ideal control method. First of all, PID is very prone to overshooting. While this could be solved with an increase to the `kD` term, too much increasing will lead to a slow response. It is difficult to find the precise parameters that will give us both a smooth response that doesn't overshoot and moves quickly.
 
-Additionally, PID accelerates very quickly at the beginning as the initial error is very large. This can lead to system instability that could damage our system or make it lose its grip on game pieces. Again, increasing the `kD` term can help us balance this out, but this also leads to a slower convergence to the final goal. Finding the perfect combination of PID parameters can be extremely difficult and maybe even nonexistent. 
+Additionally, PID accelerates very quickly at the beginning as the initial error is very large. This can lead to system instability that could damage our system or make it lose its grip on game pieces. Again, increasing the `kD` term can help us balance this out, but this also leads to a slower convergence to the final goal. Finding the perfect combination of PID parameters can be extremely difficult and maybe even nonexistent.
 
 The final problem is that PID is dependent on our robot's battery voltage. If our battery is not fully charged due to bad batteries or an accident, then the PID outputs will not be as strong and could mess up our tuning. Fortunately, we have another option: **motion profiling**.
 
 ## Motion Profiling
 
-Motion profiling is essentially a method of using the physical constraints of your system (maximum velocity and maximum acceleration) and generating a *profile*, or plan, of the exact movement of the system to accomplish a certain task. For instance, if we wanted to go forward 10 feet and we knew our robot's maximum velocity and acceleration, we could generate an exact profile that tells us where we should be and what speed we should be at for every time step in our path. 
+Motion profiling is essentially a method of using the physical constraints of your system (maximum velocity and maximum acceleration) and generating a *profile*, or plan, of the exact movement of the system to accomplish a certain task. For instance, if we wanted to go forward 10 feet and we knew our robot's maximum velocity and acceleration, we could generate an exact profile that tells us where we should be and what speed we should be at for every time step in our path.
 
 For example, we could have a profile like this, which tells us the exact velocity we need to be moving at each time step to accomplish a smooth motion. (Credit to [Linear Motion Tips](https://www.linearmotiontips.com/how-to-calculate-velocity/))
 
@@ -267,7 +267,7 @@ Another way that is more reliable would be to graph the position and velocity to
 
 ## Limits of Motion Profiling
 
-While motion profiling is incredibly powerful and can lead to really smooth and good-looking results, it still has its own issues. The most prevalent issue is that motion profiling can't deal with disruptances very well as the profile follows a predetermined motion. If something such as a collision or mechanical issue moves the mechanism during its profile, the control loop will not be able to account for this in real time. Including the `kP` term with our motion profile helps us account for this, but it'll frequently have a small value so it can't do much to majorly correct the subsystem from its deviation. 
+While motion profiling is incredibly powerful and can lead to really smooth and good-looking results, it still has its own issues. The most prevalent issue is that motion profiling can't deal with disruptances very well as the profile follows a predetermined motion. If something such as a collision or mechanical issue moves the mechanism during its profile, the control loop will not be able to account for this in real time. Including the `kP` term with our motion profile helps us account for this, but it'll frequently have a small value so it can't do much to majorly correct the subsystem from its deviation.
 
 ## Sources
 

@@ -10,7 +10,7 @@ A drivetrain is defined as "the group of components that deliver power to the dr
 
 [Source](https://www.simbotics.org/wp-content/uploads/2019/12/simbotseminarseries-drivetraindesign.pdf)
 
-On 1257, we almost always use a normal kitbot 6 wheel tank drive, similar to the one pictured above. On this type of drivetrain, the wheels are fixed and therefore cannot be rotated clockwise nor counterclockwise (unlike a car, where the front wheels can rotate to turn). While this may seem restrictive to movement, it is much easier to both build and program. 
+On 1257, we almost always use a normal kitbot 6 wheel tank drive, similar to the one pictured above. On this type of drivetrain, the wheels are fixed and therefore cannot be rotated clockwise nor counterclockwise (unlike a car, where the front wheels can rotate to turn). While this may seem restrictive to movement, it is much easier to both build and program.
 
 ## Subsystem File
 
@@ -20,13 +20,13 @@ While we have 6 wheels on each side, the 3 wheels are all connected to each othe
 
 With this tank drive design, going backwards and forwards is very easy: we simply set all the motors to full speed forwards or backwards. However, turning gets a bit more complicated. Instead, we have to spin the two sides of the drivetrain in opposite directions. For instance, to turn right, we would have to spin the right wheels backwards and the left wheels forwards. This would do a rotation about the center of our robot.
 
-The above doesn't seem that bad to program until we get to the fact that driving forward and turning simultaneously can be a bit challenging. While the code isn't *that* bad to write from scratch, our implementation can be buggy at first and be pretty tedious to polish. 
+The above doesn't seem that bad to program until we get to the fact that driving forward and turning simultaneously can be a bit challenging. While the code isn't *that* bad to write from scratch, our implementation can be buggy at first and be pretty tedious to polish.
 
-Luckily, WPILib makes this much easier for us by introducing a class called `DifferentialDrive`. What this class does is introduce a way to control our motors for us and do the math to turn what we want into the individual motor outputs. Turning while driving (not turning in place) is essentially using mismatched speeds with respect to the two sides. 
+Luckily, WPILib makes this much easier for us by introducing a class called `DifferentialDrive`. What this class does is introduce a way to control our motors for us and do the math to turn what we want into the individual motor outputs. Turning while driving (not turning in place) is essentially using mismatched speeds with respect to the two sides.
 
-We can pass in values (i.e. inputs from the controller's joysticks) into a `DifferentialDrive` object in order to tell the robot to drive forward at full speed while turning right at half speed. 
+We can pass in values (i.e. inputs from the controller's joysticks) into a `DifferentialDrive` object in order to tell the robot to drive forward at full speed while turning right at half speed.
 
-Then, `DifferentialDrive` will take in these commands, do the math, and then update the motors accordingly to make the robot perform this action. 
+Then, `DifferentialDrive` will take in these commands, do the math, and then update the motors accordingly to make the robot perform this action.
 
 > [!NOTE]
 > Click [here](https://github.com/wpilibsuite/allwpilib/blob/master/wpilibj/src/main/java/edu/wpi/first/wpilibj/drive/DifferentialDrive.java) for `DifferentialDrive`'s source code.
@@ -55,7 +55,7 @@ public class Drivetrain extends SnailSubsystem {
 
 ### States
 
-Just like we did for all the previous subsystems, we now need to determine our drivetrain's states. For now, we will only focus on the `MANUAL` state, and will leave more advanced drivetrain states for future sections. 
+Just like we did for all the previous subsystems, we now need to determine our drivetrain's states. For now, we will only focus on the `MANUAL` state, and will leave more advanced drivetrain states for future sections.
 
 We'll declare our state(s) in the form of an [enum:](https://frc1257.github.io/robotics-training/#/java/2-Control_Flow/7-Enums)
 
@@ -69,7 +69,7 @@ We'll declare our state(s) in the form of an [enum:](https://frc1257.github.io/r
 
 We then add a private variable that'll hold the default state of the subsystem, which, in this case, will be `MANUAL`. Having a separate default state variable is good for expandability in the program and also reduces confusion during robot testing or competition. Finally, we initialize our subsystem-wide state variable with the default state.
 
-As mentioned before, we will need to pass in values into `DifferentialDrive` to command drivetrain movement. We can declare the speed variables as such: 
+As mentioned before, we will need to pass in values into `DifferentialDrive` to command drivetrain movement. We can declare the speed variables as such:
 
 ```java
     private double speedForward;
@@ -117,8 +117,8 @@ In the constructor, we'll take all our declarations and initialize them. Most of
 1. Initialize each motor with respective ID variables, and set the brushed/brushless mode with `MotorType.kBrushless`.
 2. Use `restoreFactoryDefaults()` to reset any of the motors' internal settings.
 3. Use `setSmartCurrentLimit()` to apply the appropriate current limit value (for NEOs, we generally do 80 amps)
-4. Set the front two motors to brake mode and back two motors to coast mode with `setIdleMode()`. 
-5. Initialize the `DifferentialDrive` object by passing in the two front motors (front left and then front right), and then set driving speeds to 0. 
+4. Set the front two motors to brake mode and back two motors to coast mode with `setIdleMode()`.
+5. Initialize the `DifferentialDrive` object by passing in the two front motors (front left and then front right), and then set driving speeds to 0.
 
 > [!NOTE]
 > We add the combination of front motors set to brake mode and back motors set to coast mode because it allows for improved driving conditions. If all four motors were set to brake mode, there would be very rapid deceleration, i.e. too much tipping and jerky movement. But, if all motors were set to coast mode, there would be essentially no rapid deceleration, which would make sharp movements very difficult. Having this combination helps us find a nice middle ground for driving.
@@ -137,7 +137,7 @@ public void update() {
     }
 }
 ```
-When the drivetrain state is `MANUAL`, we use `DifferentialDrive`'s `arcadeDrive()` (see above for source code file) to command our drivetrain's movement by passing in the inputted forward and turn speeds. 
+When the drivetrain state is `MANUAL`, we use `DifferentialDrive`'s `arcadeDrive()` (see above for source code file) to command our drivetrain's movement by passing in the inputted forward and turn speeds.
 
 ### Other Functions
 
@@ -157,7 +157,7 @@ When the drivetrain state is `MANUAL`, we use `DifferentialDrive`'s `arcadeDrive
 
     }
 ```
-These are functions used mainly setup for robot testing/diagnostics. We will discuss these further in the next few sections. 
+These are functions used mainly setup for robot testing/diagnostics. We will discuss these further in the next few sections.
 
 As of right now, we have declared and initialized everything, and added the `update()` function that commands the drivetrain's motors based off the current state. However, we have no way of actually changing the state or `speedForward` and `speedTurn` variables yet. We can create a function to address these issues, and might call it `manualDrive()`:
 
@@ -169,13 +169,13 @@ As of right now, we have declared and initialized everything, and added the `upd
         state = defaultState;
     }
 ```
-With this, we can modify the driving speeds using passed-in values, and then change the state to the default state (manual control). 
+With this, we can modify the driving speeds using passed-in values, and then change the state to the default state (manual control).
 
 With all this done, we're now ready to move onto our first drivetrain command!
 
 ## Command File
 
-Because the only state we are dealing with is the `MANUAL` state, we'll create a command called `ManualDriveCommand`. 
+Because the only state we are dealing with is the `MANUAL` state, we'll create a command called `ManualDriveCommand`.
 
 ### Declarations
 ```java 
@@ -195,7 +195,7 @@ public class ManualDriveCommand extends CommandBase {
     ...
 }
 ```
-These are the basic declarations we'll need for this command to work. Just like in the previous examples, we use `DoubleSupplier`s to later store controller joystick inputs, instead of using `double`s. 
+These are the basic declarations we'll need for this command to work. Just like in the previous examples, we use `DoubleSupplier`s to later store controller joystick inputs, instead of using `double`s.
 
 ### Constructor
 
@@ -208,7 +208,7 @@ These are the basic declarations we'll need for this command to work. Just like 
         addRequirements(drivetrain);
     }
 ```
-Just like before, we initialize the subsystem object and suppliers with the passed in references. The functions passed in for the suppliers will be functions returning the respective joystick values. Finally, we call `addRequirements()` so that the command-based program architecture will know what subsystem is needed for this command. 
+Just like before, we initialize the subsystem object and suppliers with the passed in references. The functions passed in for the suppliers will be functions returning the respective joystick values. Finally, we call `addRequirements()` so that the command-based program architecture will know what subsystem is needed for this command.
 
 ### Functions
 ```java
@@ -222,7 +222,7 @@ Just like before, we initialize the subsystem object and suppliers with the pass
         drivetrain.manualDrive(forwardSupplier.getAsDouble(), turnSupplier.getAsDouble());
     }
 ```
-We don't need to run anything in `initialize()`, so that is left blank. The main focus is in `execute()`, where we finally reference the outer method `manualDrive()` and pass in the `DoubleSupplier`s as speeds. Using `getAsDouble()` evaluates the controller function and passes in the value to `manualDrive()`. 
+We don't need to run anything in `initialize()`, so that is left blank. The main focus is in `execute()`, where we finally reference the outer method `manualDrive()` and pass in the `DoubleSupplier`s as speeds. Using `getAsDouble()` evaluates the controller function and passes in the value to `manualDrive()`.
 
 ```java
     @Override
@@ -235,11 +235,11 @@ We don't need to run anything in `initialize()`, so that is left blank. The main
         return false;
     }
 ```
-In `end()`, we don't need to specify anything since we don't require any actions to happen when the command ends. However, we return false in `isFinished()` to prevent the command from ending prematurely--instead, it will only end when the command is cancelled/when there is no controller input. 
+In `end()`, we don't need to specify anything since we don't require any actions to happen when the command ends. However, we return false in `isFinished()` to prevent the command from ending prematurely--instead, it will only end when the command is cancelled/when there is no controller input.
 
 ## RobotContainer
 
-The final part of this process is to link the command to the subsystem and bind it to a controller. 
+The final part of this process is to link the command to the subsystem and bind it to a controller.
 
 ```java
 package frc.robot;
@@ -268,11 +268,11 @@ public class RobotContainer {
 
     ...
 ```
-Since most of the needed declarations for `RobotContainer` are pre-generated by our robot template, the only line we need to add is `private final Drivetrain drivetrain` to instantiate the subsystem. 
+Since most of the needed declarations for `RobotContainer` are pre-generated by our robot template, the only line we need to add is `private final Drivetrain drivetrain` to instantiate the subsystem.
 
 ### Constructor
 
-The next step is to set up our subsystem and add a default command: 
+The next step is to set up our subsystem and add a default command:
 
 ```java
     private void configureSubsystems() {
@@ -284,9 +284,9 @@ The next step is to set up our subsystem and add a default command:
     }
 ```
 
-We use `setDefaultCommand()` to pass in the `ManualDriveCommand` we wrote above. Note how in the manual command, after we pass in the `Drivetrain` object, we use `driveController::getDriveForward` and `driveController::getDriveTurn` to be passed in for the `DoubleSupplier`s. Using Java's `::` operator allows to pass in the function itself and not a result of evaluating that function. 
+We use `setDefaultCommand()` to pass in the `ManualDriveCommand` we wrote above. Note how in the manual command, after we pass in the `Drivetrain` object, we use `driveController::getDriveForward` and `driveController::getDriveTurn` to be passed in for the `DoubleSupplier`s. Using Java's `::` operator allows to pass in the function itself and not a result of evaluating that function.
 
-Once again, when `execute()` is run in `ManualDriveCommand`, the command will receive *constantly-updated* controller input values for the drivetrain instead of the result of evaluating the controller's functions once. 
+Once again, when `execute()` is run in `ManualDriveCommand`, the command will receive *constantly-updated* controller input values for the drivetrain instead of the result of evaluating the controller's functions once.
 
 Also, `configureButtonBindings()` is left empty here since we only have one source of functionality, which falls under the default command. If we added more button bindings, then we'd have to add to this function.
 

@@ -56,4 +56,4 @@ for(int i = 1; i <= 5; i++) {
 
 ## Robotics Programming
 
-We generally try to avoid using `for` loops in robot code as if a `for` loop ever gets stuck, it can actually block our code and prevent it from continuing, halting all functionality. However, the idea of a `for` loop is still important to have as a programmer, which is why we teach it. 
+We generally try to avoid using `for` loops in robot code as if a `for` loop ever gets stuck, it can actually block our code and prevent it from continuing, halting all functionality. However, the idea of a `for` loop is still important to have as a programmer, which is why we teach it.

@@ -1,6 +1,6 @@
 # Vendor Dependencies
 
-When we use hardware from a third-party source, we need to place what are called "vendor dependency" files into our robot program. 
+When we use hardware from a third-party source, we need to place what are called "vendor dependency" files into our robot program.
 
 A prime example of such hardware would be a motor controller (see [Motors](https://frc1257.github.io/robotics-training/#/frc/1-Basics/2-Motors) for more detail). Say we are using a SPARK MAX controller from REV Robotics--in order for the controller to actually function, we need to get the vendor dependency (a `.json` file) from REV Robotics' [website](http://www.revrobotics.com/sparkmax-software/).
 
@@ -24,7 +24,7 @@ Similar steps can be followed with other devices, such as the [Talon SRX motor c
 
 ## Updating
 
-Over time, those third-party vendors will most likely release new updates, and will do so through a new vendor dependency file. Therefore, it's our job to check for updates regularly. 
+Over time, those third-party vendors will most likely release new updates, and will do so through a new vendor dependency file. Therefore, it's our job to check for updates regularly.
 
 To update the vendor dependencies, the steps are similar to those above:
 

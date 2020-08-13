@@ -95,7 +95,7 @@ public class Elevator extends SnailSubsystem {
 
 **Quick Note: if you have two different set of PID gains (constants), you can specify an optional parameter after each constant to add the PID slot that you want to use. This allows you to switch between constants if you need to use that feature. Read the [documentation](http://www.revrobotics.com/content/sw/max/sw-docs/java/com/revrobotics/CANPIDController.html) for more info.**
 
-Next, we need to make our `update()` function with the `PID` state. The main difference here is that to make the SPARK MAX start using PID, we go to the `CANPIDController` and just tell it where we want to go. It handles everything else. 
+Next, we need to make our `update()` function with the `PID` state. The main difference here is that to make the SPARK MAX start using PID, we go to the `CANPIDController` and just tell it where we want to go. It handles everything else.
 
 Another difference is that while before, we would store the setpoint with the `PIDController` object, we now have to store it in a separate variable because the `CANPIDController` object does **not** store it as of the time of writing. Finally, we have to do the error checking ourselves to see if we have arrived at the desired position.
 

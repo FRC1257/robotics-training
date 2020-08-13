@@ -82,7 +82,7 @@ Similar to the roller intake, the constructor is used to define the motor contro
     }
 ```
 
-For our update function, we once again look at which state, or "mode," that we are in. Here, we only have one state, `MANUAL` for manual control. During this manual control state, we want to look at the current `speed` variable and set our motor's speed value to that. 
+For our update function, we once again look at which state, or "mode," that we are in. Here, we only have one state, `MANUAL` for manual control. During this manual control state, we want to look at the current `speed` variable and set our motor's speed value to that.
 
 ### Shuffle Board Functions
 
