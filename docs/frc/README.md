@@ -1,4 +1,4 @@
-# FRC Programming {docsify-ignore-all}
+# FRC Programming
 
 ***If you haven't gone through the Java tutorials yet, go through those first.***
 

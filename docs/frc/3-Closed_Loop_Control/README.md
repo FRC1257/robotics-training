@@ -1,4 +1,4 @@
-# Closed Loop Control {docsify-ignore-all}
+# Closed Loop Control
 
 ## Goals
 

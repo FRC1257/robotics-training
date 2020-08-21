@@ -1,4 +1,4 @@
-# Advanced Topics & Misc. {docsify-ignore-all}
+# Advanced Topics & Misc.
 
 ## Goals
 

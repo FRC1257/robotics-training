@@ -1,4 +1,4 @@
-# Basics of Java {docsify-ignore-all}
+# Basics of Java
 
 ## Goals
 

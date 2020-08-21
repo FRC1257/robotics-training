@@ -1,4 +1,4 @@
-# Autonomous {docsify-ignore-all}
+# Autonomous
 
 ## Goals
 

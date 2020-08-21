@@ -1,4 +1,4 @@
-# Basics {docsify-ignore-all}
+# Basics
 
 ## Goals
 

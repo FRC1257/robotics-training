@@ -1,4 +1,4 @@
-# Sensors & Shuffleboard {docsify-ignore-all}
+# Sensors & Shuffleboard
 
 ## Goals
 
