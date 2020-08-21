@@ -10,9 +10,14 @@ Programming is essentially all about manipulating numbers and objects to achieve
 
 ## Analogy
 
-Think of variables like a specific bucket. Each variable is a bucket and the name of the variable is a lebel that we throw on a bucket so that we know that we can identify it. However, there are different types of buckets, and each bucket can only store 1 thing. This corresponds to the data type. When we make a bucket, or create a variable, we have to specify what type of bucket it is.
+One way to think about variables is like buckets. For each bucket, we can have a label on the bucket that gives it a name. That way, we have a clear description of what it is stored inside of that bucket.
 
-However, at the moment we have an empty bucket, with nothing in it. However, using the assignment operator (`=`), we can fill up the bucket. However, we cannot fill the bucket with something it cannot hold, which will create an error. When we want to use the value in the bucket, we simply access the bucket and look at its contents. This is analogous to accessing a variable.
+However, there are different types of buckets, and for the sake of the analogy, assume each bucket can only store 1 type of thing. A bucket that is made for storing one thing **cannot** be used for storing a different type of thing. When we first make the bucket, we have to determine what type it is.
+
+When we first create a bucket, we have an empty bucket, with nothing in it. However, we can fill up the bucket and store stuff in there. When we want to use the value in the bucket, we simply look inside and take out the bucket.
+
+* variable name - bucket label
+* variable datatype - bucket type
 
 ## Variables in Java
 
@@ -22,12 +27,15 @@ Declaring variables have multiple parts:
 
 * First, we must put the type of the variable: `int`
   * In this case, `int` stands for integer, so the variable can be any whole number
-* Next, we put the variable name: `variable`
+  * Declaring the "bucket" type
+* Next, we put the variable name: `myFirstVariable`
+  * Making the "bucket" label
 * Finally, we must declare its value, which we do with `= 0`
+  * Filling the bucket with something
 
-We can manipulate the values in this expression. For instance, we can reassign our variable to another value `variable = 5;` Since we have already declared the type of `variable` and we are simply modifying the contents, we do not need to put `int` again.
+We can manipulate the values in this expression. For instance, we can reassign our variable to another value `myFirstVariable = 5;`Since we have already declared the type of `myFirstVariable` and we are simply modifying the contents, we do not need to put `int` again.
 
-We can also use variable in relation to each other. To see this, we can use two variables, `int var1 = 3;` and `int var2 = 4`. We can then write `var1 = var2 + 3`. This would set the value of `var1` to 7, and erase its original value of 3.
+We can also use variable in relation to each other. To see this, we can use two variables, `int var1 = 3;` and `int var2 = 4`. We can then write `var1 = var2 + 3`. This would set the value of `var1` to 7, and erase its original value of 3. You can think of this as first looking inside the `var2` bucket and seeing that there is `4` inside. Then, we add this to `3` to get `7`. We then take the `var1` bucket and throw away the value of `3` in it. Then, we put the value of `7` inside it.
 
 ## Variables Example
 
