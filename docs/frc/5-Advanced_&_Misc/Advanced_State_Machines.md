@@ -10,10 +10,10 @@ There are two parts of the state machine that I want to talk about here. First o
 
 - On the ground with both pistons retracted (starting)
 - Fully raised with both pistons extended. We can now control the hovercar wheels as well.
-- Half raised with one side retracted. We can still control the hover car wheels
+- Half raised with one side retracted. We can still control the hovercar wheels
 - Fully retract the pistons (back to start)
 
-Since the 4th stage is technically the same as the beginning, we really only have 3 different stages to consider. To make the process as easy as possible, we instead made it so that we would use the same button to advance from one stage to the next (we also had a back button in case we double tapped the button or something went wrong). Therefore, we had a bit more advanced of a state machine where once we pressed the button, we had to transition to a **different** state depending on which one we were already in. Let's take a look at the code to break this down.
+Since the 4th stage is technically the same as the beginning, we really only have 3 different stages to consider. To make the process as easy as possible, we instead made it so that we would use the same button to advance from one stage to the next (we also had a back button in case we double-tapped the button or something went wrong). Therefore, we had a bit more advanced of a state machine where once we pressed the button, we had to transition to a **different** state depending on which one we were already in. Let's take a look at the code to break this down.
 
 ```java
 public void update() {
@@ -55,9 +55,9 @@ As you can see, the code really isn't that complicated, but it makes good use of
 
 ## 2020 Indexer
 
-In 2020, we built a system where the balls would be fed from our roller intake into and held in a series of conveyer belts known as an **indexer**. It was very important in that year to maintain good, consistent spacing between the balls so that a) we could fit our maximum amount (5) and b) the balls didn't collide with each other and stick together. We had a few options to fix this issue:
+In 2020, we built a system where the balls would be fed from our roller intake into and held in a series of conveyor belts known as an **indexer**. It was very important in that year to maintain good, consistent spacing between the balls so that a) we could fit our maximum amount (5) and b) the balls didn't collide with each other and stick together. We had a few options to fix this issue:
 
-- Use PID to move the conveyer belts a certain distance each time
+- Use PID to move the conveyor belts a certain distance each time
   - This was our original plan, but it unfortunately didn't work because the distance we had to move and the control effort we had to put in were varied due to the friction of balls on the ground and the compression of the balls.
 - Put 2 breakbeam sensors in our indexer and after detecting a ball in the starting breakbeam, run the indexer until the ending breakbeam was no longer triggered.
   - Sometimes, there would be cases where the ball would overshoot the desired destination, leading to inconsistent spacing. This could be fixed by lowering the speed, but that would lead to a slow indexing process.
