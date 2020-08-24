@@ -4,13 +4,13 @@ In the past, we've covered some very basic state machines such as for an intake,
 
 ## 2019 Climb
 
-In 2019, one of the hardest tasks of the game was to build a climbing mechanism that could elevate our robot around 4 feet into the air and then go onto a podium-like platform. To do so, we build something we called the "hovercar," where we would use pneumatics to push up on a set of pistons (one in front, one in back) to raise our entire robot. Then, there would be wheels on the bottom of each set of pistons to allow us to drive around. We could then retract one side of the pistons and drive our robot on top of the platform. Then, we could retract the other set of pistons.
+In 2019, one of the hardest tasks of the game was to build a climbing mechanism that could elevate our robot around 4 feet into the air and then go onto a podium-like platform. To do so, we built something we called the "hovercar," where we would use pneumatics to push up on a set of pistons (one in front, one in back) to raise our entire robot. Then, there would be wheels on the bottom of each set of pistons to allow us to drive around. We could then retract one side of the pistons and partially drive onto the platform. Then, we could retract the other set of pistons and fully park on the platform.
 
 There are two parts of the state machine that I want to talk about here. First of all, we will go over the initial basic transition system we used. Rather than having it be manual control where the user can control whether or not the front and back pistons are extended or raised, we decided to utilize the power of a state machine. Essentially, our climb would be broken down into a series of stages that we could move between.
 
 - On the ground with both pistons retracted (starting)
 - Fully raised with both pistons extended. We can now control the hovercar wheels as well.
-- Half raised with one side retracted. We can still control the hovercar wheels
+- Half raised with one side retracted. We can still control the hovercar wheels.
 - Fully retract the pistons (back to start)
 
 Since the 4th stage is technically the same as the beginning, we really only have 3 different stages to consider. To make the process as easy as possible, we made it so that we would use the same button to advance from one stage to the next (we also had a back button in case we double-tapped the button or something went wrong). Therefore, we had a bit more advanced of a state machine where once we pressed the button, we had to transition to a **different** state depending on which one we were already in. Let's take a look at the code to break this down.
@@ -71,9 +71,9 @@ Ultimately, we settled for the last one (manual control), but the second to last
 ### Indexer Procedure
 
 - Constantly check if the bottom breakbeam is triggered. Once it is, begin the procedure.
-- At a medium speed, move the ball up until it is outside of the top breakbeam. At this point, it may have overshot due to the medium speed and gone to an unknown location
-- At a slow speed, move the ball down until it is touching the top breakbeam again.
-- Finally, nudge the ball up until it is no longer touching the bottom breakbeam.
+- At a medium speed, move the ball *up* until it is outside of the top breakbeam. At this point, it may have overshot due to the medium speed and gone to an unknown location.
+- At a slow speed, move the ball *down* until it is touching the top breakbeam again.
+- Finally, nudge the ball *up* until it is no longer touching the bottom breakbeam.
 
 With this simple setup, we can practically guarantee the ball will be in the same position, while still moving up at a pretty decent speed. Additionally, it looks really cool while in action to see the ball settle in place properly.
 
@@ -123,7 +123,7 @@ public void update() {
 }
 ```
 
-Here, we have the utility functions `ballAtBot()` which just returns if either one of the bottom breakbeams is being triggered. I would recommend taking a deep look at the code to understand how it works and how it matches up with the procedure.
+Here, we have the utility function `ballAtBot()`, which just returns if either one of the bottom breakbeams is being triggered. I would recommend taking a deep look at the code to understand how it works and how it matches up with the procedure.
 
 ## Other Teams
 

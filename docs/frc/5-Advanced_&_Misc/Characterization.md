@@ -1,6 +1,6 @@
 # Characterization
 
-Previously, we discussed how with feedforward, we could make our various systems perform better by using normal feedforward or arbitrary feedforward. However, we only discussed how we could calculate these values empirically. Fortunately, there are tools out there to actually **characterize** our motors and subsystems, allowing us to determines appropriate values to directly solve for these relationships. WPILib fortunately provides us with a suite of tools to allow us to perform these things.
+Previously, we discussed how with feedforward, we could make our various systems perform better by using normal feedforward or arbitrary feedforward. However, we only discussed how we could calculate these values empirically. Fortunately, there are tools out there to actually **characterize** our motors and subsystems, allowing us to determine appropriate values to directly solve for these relationships. WPILib fortunately provides us with a suite of tools to allow us to perform these things.
 
 The basic idea is that you have to run a tool that will test the robot and generate the parameters that characterize the system you are working with. Then, you can plug these parameters into various classes in WPILib to generate feedforward controllers. Finally, you can then query these controllers with desired velocity and acceleration values, which will then give you the appropriate motor value to do so.
 
@@ -19,11 +19,11 @@ To characterize a system, we first have to determine which of the following matc
 * arm
 * elevator
 
-Once you have the correct one, you have to type into the console `frc-characterization [type] new`. For instance, to open a drivetrain characterization, you could type `frc-characterization drive new`.
+Once you have the correct one, you have to open a console and type `frc-characterization [type] new`. For instance, to open a drivetrain characterization, you could type `frc-characterization drive new`.
 
 Next, you should see an interface with a ton of different options to configure. First, you have to configure the motor type in the top right, which is **very** important to select correctly so that the project even runs. Next, you have to configure the parameters in the center with things such as the motor types, port numbers, inversions, etc. One thing to make sure is that the units are consistent (normally we prefer to use meters and meters per second). Another thing is to make sure all values of `True` and `False` begin with a capital since this is Python code, which requires that. Most of the values are pretty self-explanatory though. The main issue is the `gearing` variable, which will have to vary depending on the gearbox ratio of the system. It's a good idea to ask the build subteam for this value.
 
-After setting everything up, you can press the `Generate Project` and `Deploy Project` button on the left.
+After setting everything up, you can press the `Generate Project` and `Deploy Project` buttons on the left.
 
 Finally, you can run the characterization routine as detailed [here](https://docs.wpilib.org/en/stable/docs/software/wpilib-tools/robot-characterization/characterization-routine.html).
 

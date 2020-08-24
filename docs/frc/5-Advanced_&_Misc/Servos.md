@@ -18,7 +18,7 @@ Find the official REV Smart Servo documentation [here](https://docs.revrobotics.
 
 ![Servo Intake Up](img/intakeup.jpg ':size=350x560') ![Servo Intake Down](img/intakedown.jpg ':size=325x560')
 
-For 1257's 2020 robot, we used a polycarbonate clip attached to a servo to hold up the roller intake and keep it in the robot's frame perimeter brefore the match started, as labeled in the left photo. We planned to drive the servo clip up at the beginning of autonomous so that the intake would be left down for the rest of the match, like it is in the right photo. This is just one example of the many applications a servo has to offer. 
+For 1257's 2020 robot, we used a polycarbonate clip attached to a servo to hold up the roller intake and keep it in the robot's frame perimeter before the start of the match, as labeled in the left photo. We planned to drive the servo clip up at the beginning of autonomous so that the intake would be left down for the rest of the match, like it is in the right photo. This is just one example of the many applications a servo has to offer. 
 
 You might be thinking that it would've been easier to add a motor to the intake and adjust it mechanically so that it would be rotatable/jointed (allowing us to simply lower the intake manually at the beginning of a match), but we already had numerous motors on the robot. Adding that extra motor would have really strained the current draw on the battery and possibly could have introduced other issues. 
 

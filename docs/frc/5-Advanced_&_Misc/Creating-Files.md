@@ -10,7 +10,7 @@ To write to a specific directory on the RoboRIO, we need to put `/home/lvuser` b
 
 To write to a flashdrive, we instead have to use the path `/u` or `/media/sda1`, provided that there is a flashdrive plugged into the USB port of the RoboRIO.
 
-Once we have our path, we can use the following code (this example writes directly to the RoboRIO):
+Once we have our path, we can use the following code (this example allows us to write directly to the RoboRIO):
 
 ```java
 PrintWriter writer = null;
@@ -35,13 +35,13 @@ First of all, we create a `PrintWriter` object, which can essentially output dat
 
 Next, we have a `try catch` block. Essentially, there is a chance that an error could occur when trying to write this file. For instance, the file could be inaccessible. Java essentially tells us that we have to be ready to catch this error when if it occurs, which is what the try catch block does. We **try** to execute this code, and we **catch** the error (in this case `IOException`) if it occurs. In this case, we will print out the stack trace, which will tell us where the error was.
 
-Inside of the `try` section, we're creating a lot of objects and passing them into each other. We first create a `FileWriter`, which points to the file we want to write to. Then, we surround it with a `BufferedWriter`, which allows us to buffer the data we send to it, allowing us to send large amounts of data efficiently. Then, we surround this again with a `PrintWriter`, which allows us to send formatted text easily.
+Inside of the `try` section, we're creating a lot of objects and passing them into each other. We first create a `FileWriter`, which points to the file we want to write to. Then, we surround it with a `BufferedWriter`, which allows us to buffer the data we send to it, enabling us to send large amounts of data efficiently. Then, we surround this again with a `PrintWriter`, which allows us to send formatted text easily.
 
 Once we create this object, we can finally send some data to it. However, before we send data, we first have to check if the `PrintWriter` was even successfully created in the first place. If it wasn't, and we tried to write data to it, we would get a `NullPointerException`. However, if this check passes, we can then write data to it the exact same way we would write data to `System.out`: we can use `println` and `print`.
 
 Finally, we have to close our `PrintWriter`, which is very important to make sure the resources are freed and we terminate the file properly. If we didn't do this, there would be a chance the file could corrupt.
 
-If you want more info about try catch blocks, check out [this article](https://www.w3schools.com/java/java_try_catch.asp).
+If you want more info about `try catch` blocks, check out [this article](https://www.w3schools.com/java/java_try_catch.asp).
 
 ## Accessing Files on the RoboRIO
 
@@ -52,7 +52,7 @@ To access files on the RoboRIO, you must first install a program called [FileZil
 3. Enter `lvuser` in the Username box.
 4. Leave the Password box blank.
 5. Enter `22` in the port box.
-6. Press `Quickconnect`
+6. Press `Quickconnect`.
 
 After this, you can browse through the RoboRIO filesystem on the right hand side, and you can drag and drop files to either add them to the robot or download them from the robot.
 
