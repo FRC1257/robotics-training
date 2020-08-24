@@ -10,7 +10,7 @@ To write to a specific directory on the RoboRIO, we need to put `/home/lvuser` b
 
 To write to a flashdrive, we instead have to use the path `/u` or `/media/sda1`, provided that there is a flashdrive plugged into the USB port of the RoboRIO.
 
-Once we have our path, we can use the following code (this example writes diretly to the RoboRIO):
+Once we have our path, we can use the following code (this example writes directly to the RoboRIO):
 
 ```java
 PrintWriter writer = null;
