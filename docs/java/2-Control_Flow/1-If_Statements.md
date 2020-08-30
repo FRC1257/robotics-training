@@ -2,10 +2,12 @@
 
 At this point, we know how to make a very linear program that executes certain statements. However, to add actual logic into our program, we can start with something known as **if statements**.
 
-If statements allow us to change how our program executes depending on a certain condition. For instance, we can change how our program executes depending on what the user inputs. For instance, the following are examples of if statements:
+If statements allow us to change how our program executes depending on a certain condition. **If** certain conditions are true, we can choose to run some block of code. Otherwise, that block of code will not be run. For instance, the following are examples of if statements:
 
 ```java
-int number = 4;
+Scanner scanner = new Scanner(System.in);
+
+int number = scanner.nextInt();
 if(number == 4) {
     System.out.println("The number is 4");
 }
@@ -35,6 +37,8 @@ int number = 4;
 boolean isFour = number == 4;
 boolean greaterThanFour= number > 4;
 ```
+
+## Booleans With If Statements
 
 Many times, we will also use boolean (true/false) variables with if statements. We can do what you may think, which is do `if(boolVar == true)` or `if(boolVar == false)`, which does work, but programmers have developed a shortcut. Instead, you can just do `if(boolVar)` or `if(!boolVar)`, which correspond to the above respectively.
 
