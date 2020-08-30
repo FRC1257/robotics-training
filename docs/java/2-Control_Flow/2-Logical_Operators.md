@@ -1,6 +1,6 @@
 # Logical Operators
 
-There are three logical operators, `&&`, `||`, and `!`. You may be thinking, "how do I type that straight pipe character?" On most keyboards, you type it by holding shift and hitting the key above Enter/Return. If this doesn’t work, ask around and see if you can find anyone who knows where the character is, or just look at your keyboard.
+There are three logical operators, `&&`, `||`, and `!`. You may be thinking, "how do I type that straight pipe character?" On most keyboards, you type it by holding shift and hitting the key above Enter/Return. If this doesn’t work, ask around and see if you can find anyone who knows where the character is or just look at your keyboard until you see a straight bar.
 
 The `&&` operator means "and", and the `||’=` operator means "or". Make sure you type 2 of them, typing only one of each character does something entirely different. If you want to learn more, you can research something called Bitwise operations, but they are complex and unnecessary for robot programming.
 
