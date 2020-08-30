@@ -42,7 +42,7 @@ boolean greaterThanFour= number > 4;
 
 Many times, we will also use boolean (true/false) variables with if statements. We can do what you may think, which is do `if(boolVar == true)` or `if(boolVar == false)`, which does work, but programmers have developed a shortcut. Instead, you can just do `if(boolVar)` or `if(!boolVar)`, which correspond to the above respectively.
 
-Comparing Strings:
+## Comparing Strings:
 
 When comparing strings, there is a slight difference. Sometimes, ‘==’ does not work with strings, so instead we must always use something different. To compare a String variable to another String, we must use ‘.equals()’.
 
