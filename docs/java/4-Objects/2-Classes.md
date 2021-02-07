@@ -13,8 +13,7 @@ In Java, each class, or each blueprint, is in its own file. The class name shoul
 Once we have this new file called `Car.java`, here is how we make a new class in that file:
 
 ```java
-public class Car
-{
+public class Car {
 
 }
 ```
@@ -24,8 +23,7 @@ That's all we need to make the most basic class, or blueprint. Now let's see how
 Back in our `public static void main(String[] args)` function, we can use this new class/blueprint to make an object.
 
 ```java
-public static void main(String[] args)
-{
+public static void main(String[] args) {
     Car carObject = new Car();
 }
 ```
@@ -39,8 +37,8 @@ One of the key things that is a part of objects, as we said before, is that they
 So, in our `Car.java` class, we want to introduce the `model`, `age`, `color`, and `speed` property.
 
 ```java
-public class Car
-{
+public class Car {
+
     String model;
     int age;
     String color;
@@ -51,8 +49,7 @@ public class Car
 Then, in our `main` function, we can set these properties in our `Car` object.
 
 ```java
-public static void main(String[] args)
-{
+public static void main(String[] args) {
     Car carObject = new Car();
     carObject.model = "Magic School Bus";
     carObject.age = 100;
@@ -73,28 +70,24 @@ The other key components of objects is that they can have actions. For instance,
 In our `Car` class, we want to be able to drive our car at the specified speed for a certain amount of time. We do this by making a function.
 
 ```java
-public class Car
-{
+public class Car {
     String model;
     int age;
     String color;
     double speed;
 
-    void driveFor(double time)
-    {
+    void driveFor(double time) {
         System.out.println("Drove " + (speed * time));
     }
 
-    int distance(double time)
-    {
+    int distance(double time) {
         return speed * time;
     }
 }
 ```
 
 ```java
-public static void main(String[] args)
-{
+public static void main(String[] args) {
     Car carObject = new Car();
     carObject.model = "Magic School Bus";
     carObject.age = 100;
@@ -120,8 +113,7 @@ This concept of `static` also extends to variables, or properties, as well. Just
 In `Car.java`
 
 ```java
-public class Car
-{
+public class Car {
     String manufacturer;
 
     static String type = "Car";
@@ -131,8 +123,7 @@ public class Car
 In `main()`
 
 ```java
-public static void main(String[] args)
-{
+public static void main(String[] args) {
     Car car1 = new Car();
     car1.manufacturer = "BMW";
 

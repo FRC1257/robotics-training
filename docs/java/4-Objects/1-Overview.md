@@ -10,7 +10,7 @@ Clearly, we can represent a lot of objects in our world with actions that they c
 
 ## Programming Objects
 
-This type of thinking can be expanded to programming. For instance, a String is an object. It has properties, such as its contents and its length. Additionally, Strings have actions, such as combining text, getting substrings, or finding characters.
+This type of thinking can be expanded to programming. For instance, a `String` is an object. It has properties, such as its contents and its length. Additionally, Strings have actions, such as combining text, getting substrings, or finding characters.
 
 All of the datatypes that we create will be objects. Using this, we can represent a lot of different types of things with objects in programming.
 
@@ -23,7 +23,7 @@ String chair1Country = "USA";
 int chair1NumLegs = 4;
 String chair1Material = "Wood";
 
-public void chair1Sit() {
+public static void chair1Sit() {
     System.out.println("Sitting in the " + chair1Material + " chair from " + chair1Country + " with " + chair1NumLegs + " legs.");
 }
 
@@ -31,9 +31,9 @@ String chair2Country = "China";
 int chair2NumLegs = 3;
 String chair2Material = "Metal";
 
-public void chair2Sit() {
+public static void chair2Sit() {
     System.out.println("Sitting in the " + chair2Material + " chair from " + chair2Country + " with " + chair2NumLegs + " legs.");
 }
 ```
 
-As a result, we may want to create our own datatype called Chair, and then be able to really easily set these properties and sit in it. We will look at how to do this next time, when we discuss progrmaming syntax of objects.
+As a result, we may want to create our own datatype called `Chair`, and then be able to really easily set these properties and sit in it. We will look at how to do this next time, when we discuss progrmaming syntax of objects.

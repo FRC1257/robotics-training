@@ -63,7 +63,7 @@ public class Main {
 - All general constants/IDs should be placed in RobotMap.java
 - All raw controller inputs should be handled in OI.java
 - All specific subsystem constants should belong at the top of that subsystem's file
-- All subsystems should have the functions `reset()`, `update()`, `setConstantTuning()`, and `tuningPeriodic()`
+- All subsystems should extend `SnailSubsystem`
 - All subsystems should use a state machine to handle all behavior
   - Public functions should never change motor/solenoid outputs directly, but should rather change the state/internal variables of the subsystem
     - Exception is for the `update()` method

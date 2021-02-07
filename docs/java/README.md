@@ -50,6 +50,7 @@ Don't worry if you have no clue what these things are, we will go over all of th
   * Inheritance
   * Overriding
   * Polymorphism *
+  * Abstract Classes *
 
 Once we finish these topics, we will go onto robotics programming.
 

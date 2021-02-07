@@ -1,4 +1,4 @@
-# How to Git
+# How to Git (Command Line and VSCode)
 
 Make sure you install git first from https://git-scm.com/downloads.
 
