@@ -11,18 +11,23 @@ int number = scanner.nextInt();
 if(number == 4) {
     System.out.println("The number is 4");
 }
+
 if(number != 4) {
     System.out.println("The number is not 4");
 }
+
 if(number > 4){
     System.out.println("The number is greater than 4");
 }
+
 if(number < 4){
     System.out.println("The number is less than 4");
 }
+
 if(number >= 4){
     System.out.println("The number is greater than or equal to 4");
 }
+
 if(number <= 4){
     System.out.println("The number is less than or equal to 4");
 }
@@ -40,9 +45,43 @@ boolean greaterThanFour= number > 4;
 
 ## Booleans With If Statements
 
-Many times, we will also use boolean (true/false) variables with if statements. We can do what you may think, which is do `if(boolVar == true)` or `if(boolVar == false)`, which does work, but programmers have developed a shortcut. Instead, you can just do `if(boolVar)` or `if(!boolVar)`, which correspond to the above respectively.
+Many times, we will also use boolean (true/false) variables with if statements. One way of doing this is the following:
 
-## Comparing Strings:
+```java
+boolean test = true;
+
+if(test == true) {
+    // Do something cool
+}
+if(test == false) {
+    // Do something different
+}
+```
+
+However, programmers have developed a shortcut. Instead, you can just do `if(boolVar)` or `if(!boolVar)`, which correspond to the above respectively.
+
+```java
+boolean test = true;
+
+if(test) {
+    // Do something cool
+}
+if(!test) {
+    // Do something different
+}
+```
+
+In programming, `!` is an inverting symbol. It turns `true` into `false` and `false` into `true`.
+
+```java
+boolean test = true;
+boolean antiTest = !test;
+
+System.out.println(test); // prints "true"
+System.out.println(antiTest); // prints "false"
+```
+
+## Comparing Strings
 
 When comparing strings, there is a slight difference. Sometimes, ‘==’ does not work with strings, so instead we must always use something different. To compare a String variable to another String, we must use ‘.equals()’.
 
@@ -54,5 +93,15 @@ if(testString == "This is a test") { // Bad
 }
 if(testString.equals("This is a test")) { // Good
     System.out.println("This will work 100% of the time");
+}
+```
+
+To check if `String`s are not equal, we must use the `!` operator.
+
+```java
+String testString = "This is a test";
+
+if(!testString.equals("This is a test")) {
+    System.out.println("The strings do not match");
 }
 ```

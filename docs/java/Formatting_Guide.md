@@ -1,6 +1,6 @@
 # Formatting Guide
 
-This is FRC 1257's general guide for code formatting. We use this set of formatting to maintain readability and consistency within our code. If you see any code that does not follow this formatting guide, feel free to conform it to these practices.
+This is FRC 1257's general guide for code formatting. We use this set of formatting to maintain readability and consistency within our code. If you see any code that does not follow this formatting guide, feel free to conform it to these practices. Note: most of this is based off of the Google Style Guide found [here](https://google.github.io/styleguide/javaguide.html#s4.7-grouping-parentheses) but it's modified for our team's use.
 
 ## Java
 

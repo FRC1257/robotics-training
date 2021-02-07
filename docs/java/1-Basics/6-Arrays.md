@@ -1,14 +1,13 @@
 # Arrays
 
-A few lessons back, we learned what variables were: a way to store data. While creating only one variable seems like a concise and efficient way to store data, things can get very messy once hundreds or thousands of variables need to be created. To deal with this issue, Java has a very useful feature which is called an array.
+## What Are Arrays?
 
-## What exactly are arrays?
+Arrays are another type of variable that are used to hold a list of variables. For instance, we can make an `int` array that stores several integers all in a single variable.
 
-The standard definition of an array is "a collection of variables from the same data type." From this collection variables we can access the variable that is needed very easily.
+## Making an Array
 
-## Declaring an array
+In Java, there are two different ways of creating an array. The more simple version is shown below:
 
-In Java, there are quite a few ways to declare arrays. Nevertheless, I will cover the most straightforawrd way first.
 ```java
 public class Main {
     public static void main(String[] args) {
@@ -16,43 +15,24 @@ public class Main {
     }
 }
 ```
-This array just created is an array of ints as the first word in the line was `int`. If the first word was `double`, the array would have `double`s in it.
 
-* Then, `int` is followed by two brackets. This is signifies that what your are declaring is an array.
+Let's break down exactly what this does:
 
-* After the brackets is the variable name. In this example the name is "myArray" but just like all variable names they can be whatever the programmer desires.
-
-* Then comes the equal sign which is always used when assigning a variable to something.
-The next word is not very relevant currently but in a few lessons it will be explored. For the the purposes of this lesson `new` just means that a new array will be made.
-
-* The last two things is the int followed by a number in brackets. Just like the `int` in the very beginning of the declaraton, it could be changed to `double` or `float` if the contents of the array were doubles or floats.
-
-* On the other hand, the number inside the brackets has nothing to do with data types in the array. It actually has to do with the number of "elements" or number of variables in the array. This number can not be changed so it is important to know beforehand the number of variables in an array. In the example there are five `int` variables in this array.
+* Arrays are just like any variable, so we must put the type: `int[]`
+  * The `[]` part is what tells us that this is an array of `int`s, not just a normal `int` variable
+* Next, we put the variable name: `myFirstVariable`
+* Finally, we have `= new int[5]`, where `5` is the length of the array, or how many elements it can contain
+  * An array has a fixed length that we have to set when we create the array
 
 ## Assigning Variable Values To An Array
 
-Although we created an array with five `int` variables in them, the varibles are undefined. Below the varibales will be assigned a value.
+Once we've created our `int` array, we can access each of the `int` elements inside of it using the following notation:
 
-```java
-public class Main {
-    public static void main(String[] args) {
-        int[] myArray = new int[5];
-        
-        myArray[0] = 4;
-        myArray[1] = 8;
-        myArray[2] = -7;
-        myArray[3] = 2;
-        myArray[4] = 1;
-    }
-}
-```
-To change the value of a variable we need to first access it by refering to it by its name. In arrays, we use the array name followed by brackets with its element number. In arrays the first element made has a number of 0 and the second has a number of 1. As a result, in an array with 5 variable the last element number will be 4.
+`myArray[` + index + `]`
 
-Once the variable is accessed the variable can be assigned a value with an equal sign followed by something from the same data type. For the data type `int`, we can only use whole numbers.
+The index is used to determine which of the 5 elements of the array we want to use. One thing to note about indices is that they start from `0`, meaning that `myArray[0]` refers to the first element in the array. `myArray[1]` refers to the second, `myArray[2]` refers to the third, and so on.
 
-## What Else Can Be Done With Variables In Arrays?
-
-Just like any normal variables the variables within arrays can be assigned a new value be added to or subtracted from. They can also be outputed. Below are examples of each instance happenning.
+Once we have accessed an element in the array, we can use it just like a normal `int` variable.
 
 ```java
 public class Main {
@@ -65,22 +45,21 @@ public class Main {
         myArray[3] = 2;
         myArray[4] = 1;
         
-        myArray[2] = 5; //Assigns the third element to 5.
-        myArray[3] += 2; // Adds to fourth element. It becomes 4.
-        System.out.println(myArray[4]); // Prints out the fifth element of the array.
+        myArray[2] = 5; // Assigns the third element to 5
+        myArray[3] += 2; // Adds to the fourth element, which becomes 4
+        System.out.println(myArray[4]); // Prints out the fifth element of the array
     }
 }
 ```
 
-## Alternate Ways of Declaring Arrays
-This section is optional to read but if you are interested, enjoy.
+## Making an Array with Initializer List
+
+When we want to create an array, sometimes we already know all of the values we're going to be storing, and it's very tedious to have to put all of them in on separate lines. To speed this up, there is a way to just create an array with all of the values inside of it using an initializer list:
 
 ```java
 public class Main {
     public static void main(String[] args) {
-        int[] myArray = new int[] {1, 4, 8, 9, -2}; // declares array
+        int[] myArray = new int[] {4, 8, -7, 2, 1}; // Creates the same array as from before
     }
 }
 ```
-
-Here, instead of declaring in one line and assigning in the subsequent lines, we are doing everything in the same line. There is also no need for a number in the brackets to represent the number of elements because all of them are listed out. While this is a concise way of declaring an array, the values of the numbers have to be given immediately which may not be ideal in certain situations.

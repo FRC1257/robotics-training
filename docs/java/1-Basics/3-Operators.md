@@ -9,9 +9,9 @@ Programming is all about manipulating values, so it makes sense that it has some
 * `%` Modulo (Remainder)
 
 > [!WARNING]
-> You have to be careful if you have an `int` like `3` and another one like `4`, `3 / 4` will not return `0.75`. Instead, it will give `0`. This is because on the left, you have an `int`, and on the right, you have an `int`. Therefore, when you do the operation, you will get another `int`, so the `.75` part will be chopped off, nor tounded. If you want the operation to return `0.75`, you would have to do `3.0 / 4`, `3 / 4.0`, or `3.0 / 4.0` to make sure the computer understands we want to work with decimals.
+> You have to be careful if you have an `int` such as `3` and another `int` such as `4`, `3 / 4` will not return `0.75`. Instead, it will give `0`. This is because on the left, you have an `int`, and on the right, you have an `int`. Therefore, when you do the operation, you will get another `int`, so the `.75` part will be chopped off, not rounded. If you want the operation to return `0.75`, you would have to do `3.0 / 4`, `3 / 4.0`, or `3.0 / 4.0` to make sure the computer understands we want to work with decimals.
 
-The fifth operator, `%` is an interesting one. It returns the remainder when the first number is divided by the second one. For instance, `3 % 2 = 1`, `4 % 2 = 0`, `10 % 3 = 1`, etc.
+The fifth operator `%` returns the remainder when the first number is divided by the second one. For instance, `3 % 2 = 1`, `4 % 2 = 0`, `10 % 3 = 1`, etc.
 
 ## Variables
 
@@ -37,9 +37,9 @@ When programming, you may find yourself wanting to add a number to a variable. F
 ```java
 int health = 2;
 
-//Player picks up a heart
+// Player picks up a heart
 heath = health + 1;
-//Health is now 3
+// Health is now 3
 ```
 
 In this case, we are reassigning the variable health to its current value plus 1. It's a weird concept to grasp, but try to just replace the second `health` with a `2` to see what is happening.

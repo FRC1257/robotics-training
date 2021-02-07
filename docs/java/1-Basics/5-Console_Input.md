@@ -1,17 +1,17 @@
-# Console Input	
+# Console Input
 
-In our first program, we printed some text to the console. However, our programs have been pretty dull so far with no user interaction. The program always runs the same, no matter what happens. Here, we will discuss how we can get some user input from the console. The console is the screen on the right of repl.it.
+In our first program, we printed some text to the console. However, our programs have been pretty dull so far with no user interaction. The program always runs the same, no matter what happens. Here, we will discuss how we can get some user input from the console, which is the same area as the one we have been printing to this entire time.
 
- ## Scanner	
+## Scanner
 
 `Scanner` is a file included with Java when you install it that we can use in our programs. It enables the program to read input from the user, whether it is through files, the console, or other mediums. In this case, we will be discussing how to use it with the console.
 
- ## Import Statements	
+## Import Statements
 
 For our program to use `Scanner`, we must write something called an import statement at the top of our file: `import java.util.Scanner`. This line tells the computer that when running this program, it should grab the `Scanner` file from the `java.util.` folder.. Without it, the program would not know what the `Scanner` file is, and we would not be able to use it.
 
-* `import` tells the program that we want to import something	
-* `java.util.` tells the program where the file that we want to import is	
+* `import` tells the program that we want to import something
+* `java.util.` tells the program where the file that we want to import is
 * `Scanner` is the name of the file that we want to import
 
 ## Using Scanner
@@ -23,14 +23,14 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);	
+        Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Type in an Integer: ");	
+        System.out.print("Type in an Integer: ");
         int testInt = scanner.nextInt();
         System.out.println("Here is your integer: " + testInt);
 
-        System.out.print("Type a String: ");	
-        String testString = scanner.next();	
+        System.out.print("Type a String: ");
+        String testString = scanner.next();
         System.out.println("Here is your string: " + testString);
     }
 }
@@ -44,8 +44,8 @@ After you run the program, you might notice that the program freezes after print
 
 ## Other Types You Might Want
 
- - `int`: `scanner.nextInt()`
- - `double`: `scanner.nextDouble()`
- - `boolean`: `scanner.nextBoolean()`
- - `String` (word): `scanner.next()`
- - `String` (line): `scanner.nextLine()`
+* `int`: `scanner.nextInt()`
+* `double`: `scanner.nextDouble()`
+* `boolean`: `scanner.nextBoolean()`
+* `String` (word): `scanner.next()`
+* `String` (line): `scanner.nextLine()`
