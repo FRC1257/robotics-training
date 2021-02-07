@@ -2,7 +2,7 @@
 
 ## What a Function is
 
-In programming, a **`function`** is simply a block of code that performs a specific task. For instance, a function might be a block of code that prints out a bunch of statements. Java comes with many built in functions that allow us to do cool things, but we also want to write our own user-defined functions. To see what a function is, the best way is to look at some code.
+In programming, a **function**, also known as a **method**, is a block of code that can be defined in a separate place and runs whenever it is called.
 
 ## Function Example
 
@@ -26,23 +26,21 @@ public static void printHello() {
 }
 ```
 
-In this example, we are creating a function named `printHello`. We can define a function by typing
+Let's break this down:
 
-`public static void printHello()`
+We first define our function by typing: `public static void printHello()`. For now, you can ignore everything except `printHello`, which will be the name of our function.
 
-Then, we put our familar brackets: `{}`
-
-Finally, we put all of the code that makes up our function inside of those brackets:
+Then, inside of the following curly brackets, we can put the code that will run whenever this function is called:
 
 ```java
-  System.out.println("--------------------");
-  System.out.println("       Hello!       ")
-  System.out.println("--------------------");
+    System.out.println("--------------------");
+    System.out.println("       Hello!       ")
+    System.out.println("--------------------");
 ```
 
-Then, inside of `main`, we call the function: `printHello();`
+Then, inside of `main`, we can call the function we have just created with its name: `printHello();`
 
-All of this comes together to produce the output
+All of this comes together to produce the output:
 
 ```text
 --------------------
@@ -52,7 +50,7 @@ All of this comes together to produce the output
 
 ## Function Usage
 
-You may be asking, why do we even bother with this function? After all, we could simply just type
+Functions initially may not seem very useful since we could have just typed the code directly into `main`:
 
 ```java
 public static void main(String[] args) {
@@ -80,7 +78,7 @@ public static void printHello() {
 }
 ```
 
-On the other hand, if we didn't use functions, the code would be the following:
+On the other hand, if we didn't use functions, the code would be the following, which is not only unnecessarily repeating code, but also hard to read.
 
 ```java
 public static void main(String[] args) {
@@ -103,5 +101,3 @@ public static void main(String[] args) {
 ```
 
 As we increase the usage of this function, the benefits increase as well. Additionally, say we wanted to update the `printHello()` function by changing `Hello!` to `Hello World!`. If we had used the function, we would only have to change one line to make this change. Then, the change would be reflected across all 5 of the print statements. However, if we did not use the function, we would have to change 5 lines, leading to a lot more work.
-
-Overall, these basic functions are used to reduce repeated code and work.

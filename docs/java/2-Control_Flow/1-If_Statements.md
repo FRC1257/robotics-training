@@ -2,7 +2,11 @@
 
 At this point, we know how to make a very linear program that executes certain statements. However, to add actual logic into our program, we can start with something known as **if statements**.
 
-If statements allow us to change how our program executes depending on a certain condition. **If** certain conditions are true, we can choose to run some block of code. Otherwise, that block of code will not be run. For instance, the following are examples of if statements:
+If statements allow us to change how our program executes depending on a certain condition. **If** certain conditions are true, we can choose to run some block of code. Otherwise, that block of code will not be run. Here is the format of an `if` statement:
+
+`if(` + conditional + `) { code you want to run }`
+
+Inside of the parentheses is where we put our **conditional** or an expression that evaluates to either `true` or `false` and tells our `if` statement whether or not to run the code inside of the curly brackets.
 
 ```java
 Scanner scanner = new Scanner(System.in);

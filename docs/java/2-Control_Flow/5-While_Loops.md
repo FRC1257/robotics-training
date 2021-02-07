@@ -1,43 +1,30 @@
 # While Loops
 
-Right now, we can make a program that has some decision-making, but is still linear. One of the primary tools that programmers have to deal with this is loops. This allows us to repeat code and run it constantly. However, having a program run forever with no control over when it stops is very bad. Therefore, we have to have some conditional to determine when the loop will stop. For instance, when the user quits the application, we might tell the program to stop the loop that updates buttons/graphics. Also, when a loop has run a certain amount of times, we might want the program to stop looping.
+So far, we have learned how to make our programs make decisions depending on the values of variables through `if` statements. The next important thing to learn are loops, which allow us to repeatedly execute code.
 
-To write this in code, we use something called a **`while`** loop. This allows us to run code repeatedly while a conditional is true. An example is shown below:
+The first type of loop we'll learn about is the **`while`** loop. This allows us to run code repeatedly while a conditional is true. An example is shown below (do NOT run the program below as it will crash repl.it)
 
 ```java
-int number = 0;
-
-while(number < 5) {
-    System.out.println(number);
-    number++;
+while(true) {
+    System.out.println("This will print an infinite amount of times");
 }
 ```
 
-Just like an if statement, we put the conditional inside the braces, and as long as that conditional is true, the code inside will be run. Note that it is a very common mistake to write loops that will never end. For instance, the following code will run forever.
+The `while` loop is very similar to an `if` statement except that as long as the conditional is true, the `while` loop will continue to execute the code inside of it over and over again. Every time the code inside of the while loop is run, the program will check the conditional inside of the `while` loop and see if it should continue running.
+
+In this case, since the conditional inside of the `while` loop is just `true`, this will continue running infinitely and never stop, which will crash repl.it.
+
+Let's take a look at a more useful `while` loop that does not run an infinite amount of times.
 
 ```java
-int number = 0;
+int counter = 0;
 
-while(number < 5) {
-    System.out.println(number);
+while(counter < 5) {
+    System.out.println(counter);
+    counter++;
 }
 ```
 
-On the other hand, the original code we had:
-
-```java
-int number = 0;
-
-while(number < 5) {
-    System.out.println(number);
-    number++;
-}
-```
-
-will not run forever. This is because as the number grows larger within the while loop, the number will eventually reach the value 5. As a result, the loop will break, causing the program to terminate. On the other hand, the other while loop will have the number stay constant. The conditional will never become true, since the crucial line of `number++;` is missing.
+What happens here is that we make use of a `int` variable to keep track of how many times our loop has run. `counter` initially starts at `0` and every time the code inside of the loop runs, `counter` will increase by `1`. By setting up the `while` loop so that it will only continue running while `counter` is less than 5, we can limit how many times our loop runs.
 
 Learning to write good while loops and being able to find when you have created an infinite one is a valuable skill to have as a programmer that comes with practice. Most of the time, you will know when your program has an infinite loop when it does not end within a few seconds. In that case, you can abort and investigate the loops to see what went wrong.
-
-## Robotics Programming
-
-We generally try to avoid using while loops in robot code as if a while loop ever gets stuck, it can actually block our code and prevent it from continuing, halting all functionality. This has happened to us before and is a pain to debug, so we generally try to avoid using while loops. However, the idea of a while loop is still important to have as a programmer, which is why we teach it.

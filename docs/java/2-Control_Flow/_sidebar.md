@@ -9,6 +9,7 @@
     * [While Loops](java/2-Control_Flow/5-While_Loops.md)
     * [For Loops](java/2-Control_Flow/6-For_Loops.md)
     * [Enums](java/2-Control_Flow/7-Enums.md)
+    * [Scope](java/2-Control_Flow/8-Scope.md)
     * [Programs](java/2-Control_Flow/programs/README.md)
   * [Functions](java/3-Functions/README.md)
   * [Objects](java/4-Objects/README.md)

@@ -2,11 +2,11 @@
 
 ## What Overloading Is
 
-Overloading is just a quick topic that deals with increased ease of coding. With the feature called **overloading**, we can define multiple functions with the same name. However, we can give them different arguments so that the program can differentiate them. The best way to see this is through an example that we should be very similar with: `System.out.println`.
+Another programming concept is **overloading**, which means that we can define multiple functions with the same name but different arguments. The best way to see this is through an example that we should be very similar with: `System.out.println`.
 
 ## Example of Overloading
 
-We discussed that `System.out.println` takes in a `String`, and then performs a few actions that causes the text to appear on the screen. However, some of you may have noticed that we don't just have to pass `Strings` in, we can also pass in `doubles`, `ints`, or even `booleans`. However, we always use the same spelling: `System.out.println`. The way this works is that in Java, there are multiple definitions of `System.out.println`, each with different argument:
+We discussed that `System.out.println` can be used to output text to appear on the screen. However, you may have noticed that we can pass in all types of variables such as `String`, `double`, `int`, or even `boolean`. However, we always use the same spelling: `System.out.println`. The way this works is that in Java, there are multiple definitions of `System.out.println`, each with different arguments:
 
 ```java
 
