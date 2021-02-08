@@ -1,6 +1,6 @@
 # Motors
 
-Now that we've gone over formatting and other soft details, it's time to dive into the technical side. We'll first start with motors.
+Now that we've gone over the overall structure and other details, let's get into actually learning some components of the robot, starting with the motors.
 
 ## Terminology
 

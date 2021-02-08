@@ -13,15 +13,19 @@ When we make a robot project, we have a lot of folders and files that may intimi
 
 `Robot.java` is one of the files that we'll seldom have to edit. In this file, we have a bunch of things that are happening behind the scenes to put the entire robot together. It grabs parts from files such as `RobotContainer.java` and puts them all together so that the robot knows when to execute certain parts of the code.
 
-For a quick rundown though, we have various functions that are all run when certain parts of the match begin and occur. In `robotInit()`, the components of the robot are all set up as a part of `RobotContainer`. Then, in `robotPeriodic()`, we periodically (every 20 ms) call `CommandScheduler.getInstance.run()`, which is a part of WPILib, to take all of our scheduled actions and actually send them to the various components of the robot. We also tell our `RobotContainer` output diagnostic data and update testing functionality.
+For a quick rundown though, we have various functions that are all run when certain parts of the match begin and occur.
 
-`autonomousInit()` and `teleopInit()` handle setting up and cancelling all of our actions during autonomous. Finally `testInit()` deals with setting up our testing interface.
+* In `robotInit()`, an instance of `RobotContainer` is created, which then sets creates all of the other classes and objects necessary to run our robot.
+* Then, in `robotPeriodic()`, we periodically (every 20 ms) call `CommandScheduler.getInstance.run()`, which is a part of WPILib, to take all of our scheduled actions and actually send them to the various components of the robot.
+  * We also tell our `RobotContainer` output diagnostic data and update testing functionality.
+* `autonomousInit()` and `teleopInit()` handle setting up and cancelling all of our actions during autonomous.
+* Finally `testInit()` deals with setting up our testing interface.
 
 Again, don't worry if you don't 100% get what is going on here since it is mostly behind-the-scenes stuff that will barely ever be changed.
 
 ## Main.java
 
-`Main.java` is a file that will **never** be edited. This is because it is a file that is super behind-the-scenes and just serves to initialize our `Robot.java` file and send it to the Robot system.
+`Main.java` is a file that will **never** be edited. This is because it is a file that is super behind-the-scenes and just serves to initialize our `Robot.java` file and tell the robot to begin executing code from it.
 
 ## Constants.java
 

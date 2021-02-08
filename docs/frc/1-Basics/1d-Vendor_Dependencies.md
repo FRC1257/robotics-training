@@ -17,7 +17,7 @@ The following steps for managing vendor dependencies **online** can be found on 
 
 If you are managing vendor dependencies **offline**, you must:
 
-1. Download and unzip the latest SPARK MAX C++ API into the C:\Users\Public\wpilib\2020 directory on windows and ~/wpilib/2020 directory on Unix systems.
+1. Download and unzip the latest SPARK MAX Java API into the C:\Users\Public\wpilib\2020 directory on windows and ~/wpilib/2020 directory on Unix systems.
 2. Follow the [Adding an offline-installed Library](https://docs.wpilib.org/en/latest/docs/software/wpilib-overview/3rd-party-libraries.html) instructions from WPI.
 
 Similar steps can be followed with other devices, such as the [Talon SRX motor controller (or other motor controllers from CTRE)](https://phoenix-documentation.readthedocs.io/en/latest/ch05a_CppJava.html) and [navX-MXP gyroscope](https://pdocs.kauailabs.com/navx-mxp/software/roborio-libraries/java/).
