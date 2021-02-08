@@ -10,15 +10,17 @@ First, you must make a GitHub account at [github.com](https://github.com). I wou
 
 Then, click the green button labeled `Use this template`. Make sure that the `Owner` tag has **your** account under it. For the name, you can put anything you want, like `Learning-Robot-Code`. For repository visibility, you can choose either `Public` or `Private`, but I would personally choose `Private`. Every time you want to make a new robot project, you should follow these steps.
 
-If you don't have access to a personal computer, please read the section `Editing on GitHub`. If you do, read the section `Editing on Visual Studio Code`.
+If you don't have access to a personal computer, please read the section [Editing on GitHub](#editing-on-github). If you do, read the section [Editing on Visual Studio Code](#editing-on-visual-studio-code).
 
-## Editing on GitHub
+## Editing in GitHub
 
 Editing the code directly on GitHub is not recommended, but it can work to get you accustomed to robot code. However you will not be able to run your code / see errors on the GitHub website, which is unfortunate. Periodically, we will allow students to access computers so that they can test the code they have written on GitHub.
 
 To edit a file on GitHub, navigate to the file and click the pencil icon in the top right corner. This will allow you to edit the file directly in the browser. After you are done editing, you can go to the bottom where you can add a message describing your edit and then finally `commit` it.
 
-## Visual Studio Code
+To make new files, then you have to navigate to the folder where you want to create that new file and then press the `Add file > Create new file` button. In the top left, make sure you put the name of your new file. To make a new file in a new folder, then when putting in the name of the file in the top left, then should put: `folder name + / + file name`. For instance, you could put `programs/Test.java` to make the file `Test.java` in the folder `programs`.
+
+## Editing in Visual Studio Code
 
 Please perform the following steps on a **personal** computer.
 
