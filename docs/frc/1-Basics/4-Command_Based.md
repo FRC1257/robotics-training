@@ -6,19 +6,21 @@ Ultimately, to organize our robot code, we use what is known as a **command-base
 
 ## Subsystems
 
-All subsystems on a robot are composed of a few things: actuators (motors/pistons) and sensors. However, we won't worry too much about sensors right now. In a subsystem class, we will organize the according actuators and program their functionality. Also, remember that subsystems must extend `SnailSubsystem`.
+All subsystems on a robot are composed of actuators (motors/pistons) and sensors. However, we won't worry about sensors right now. For each of these subsystems, we will make a class inside of our `/subsystems` folder that represents it. For instance, we will make a file called `Intake.java`, and this class should extend `SnailSubsystem`. In this class, we will include all of the code to run the subsystem.
 
-Each of these subsystems will have a few actions it can do with these actuators. For instance, a drivetrain can be moved with manual driver control. An intake could either take in or eject a game piece. An elevator can use either manual control or precise closed loop control to get to a specific position.
+Each of these subsystems will have a few actions it can do with these actuators. For instance, a drivetrain can be moved with manual driver control. An intake could either intake or eject a game piece. An elevator can use either manual control or precise closed loop control to get to a specific position.
 
 ## Commands
 
-Each of those aforementioned actions are a `command`. At any given time, a `subsystem` can have a single `command` running on it. There are many ways to set the current `command` of a subsystem. The most simple way to do so is to define the default `command` of a subsystem, which will run when no other specified action is sent. The next way to set `commands` to a `subsystem` is to schedule a `command` to be sent when a certain button is pressed on a controller.
+Each of those aforementioned actions are known as a `command`. At any given time, a subsystem has a current command running on  it that tells us what this subsystem is currently doing. For instance, an intake subsystem would have multiple commands available to it such as running in its neutral state, ejecting, or intaking an object. At any point, the roller intake subsystem would have one of these three commands running on it, which would tell us what the intake should currently be doing.
 
-For instance, a roller intake might be set up such that whenever nothing is being pressed on the controller, its default `command` is to run at a low, constant speed. Then, if the A button is pressed, we could schedule it to run an ejecting command, and when the B button is pressed, we might schedule it so that it runs an intaking command.
+We can set which command is currently running on our subsystem in two different ways. The first way we can do it is via setting one as the default command of a subsystem, which will run as long as no other commands are scheduled to run on the subsystem. The next way to set commands to a subsystem is to associate it with the press of a button.
+
+For instance, the roller intake might be set up such that whenever nothing is being pressed on the controller, its default `command` is to run at a low, constant speed that is associated with the neutral position. Then, if the A button is pressed, we could schedule it to run an ejecting command, and when the B button is pressed, we might schedule it so that it runs an intaking command. When these buttons are released, we can end these commands, and then the default nuetral command would take over.
 
 ## CommandScheduler
 
-The way WPILib handles all of `command-based` is through something known as the `CommandScheduler`. Its function is right in the name: it executes commands that are called, preventing conflicts between commands (e.g. stopping an elevator from moving up and down simultaneously), and removing completed or interrupted commands. We have to constantly call the `CommandScheduler` to make sure it actually reads our commands and sets the robot into action. Inside our `periodic` functions, or rather in Robot.java's `robotPeriodic()`, we will put the line `CommandScheduler.getInstance().run();`. As a result, the scheduler's `run()` method will be called once every 20 ms. Here is `Robot.java`:
+The way WPILib handles everything command-based is through something known as the `CommandScheduler`. Its function is right in the name: it executes commands that are called, preventing conflicts between commands (e.g. stopping an elevator from moving up and down simultaneously), and removing completed or interrupted commands. We have to constantly call the `CommandScheduler` to make sure it actually reads our commands and sets the robot into action. Inside our `periodic` functions, or rather in Robot.java's `robotPeriodic()`, we will put the line `CommandScheduler.getInstance().run();`. As a result, the scheduler's `run()` method will be called once every 20 ms. Here is `Robot.java`:
 
 ```java
 package frc.robot;
