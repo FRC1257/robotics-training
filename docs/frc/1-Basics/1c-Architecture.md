@@ -9,15 +9,39 @@ Compared to when we were just writing basic Java programs, our code had a very s
 
 When we make a robot project, we have a lot of folders and files that may intimidate you. However, we only have to focus on the files inside of the folder path `java/frc/robot/`. Here we have all of our files, which are organized into folders. Next, we will go over all of the files that are important for us.
 
+## /subsystems
+
+When we start programming, this folder will hold all of the subsystems, or major mechanisms, that make up our robot. Every subsystem on our robot will have it's own class in a .java file that will go in this folder. At the moment, we just have one file in here: `SnailSubsystem.java`. This file is something that all of our subsystems must extend since it allows the subsystem to be registered within RobotContainer and makes sure that all of its appropriate functions are called at the correct time.
+
+## /commands
+
+This folder doesn't contain anything at the moment, but when we start programming, it will hold all of the "commands," or actions, that all of the subsystems can perform. Each command will have it's own class in a .java file that corresponds to it.
+
+## RobotContainer.java
+
+This is the biggest file in the template and probably the most important. This file can be thought of as almost a map or blueprint of how the entire robot is put together. This file contains all the different components of the robot from the various classes in our project and puts them together.
+
+Our template has a lot of areas that are supposed to be filled in. To see a fully completed version of `RobotContainer`, please see our version in the 2020 robot: [`RobotContainer.java`](https://github.com/FRC1257/2020-Robot/blob/master/src/main/java/frc/robot/RobotContainer.java).
+
+First of all, in the constructor for `RobotContainer`, we create all of our controllers (we always use 2) that we use for controlling the robot. The primary function of our constructor is to call a bunch of other functions which we discuss below.
+
+We create all of the subsystems that compose our robot in `configureSubsystems()`. Again, see our 2020 code for an example of how this works. Next, we register each of our subsystems in the `subsystems` ArrayList. This allows all of our subsystems to have their functions called at the right time so they actually work in our robot. Finally, we have some extra stuff in our constructor that handle counting and actually calling the other functions inside of `RobotContainer`.
+
+Next, we have `configureButtonBindings()`, where we define the mapping between our buttons and the actions that we want our robot to perform. For instance, we might define a link between the A button on our operator controller and the intake ejecting.
+
+Finally, we have `configureAutoChoosers()` and `getAutoCommand()`. These functions are not needed for the basics that we are going over for now, but we will get more into depth on these when we go over autonomous.
+
+We also have some functions at the button that handle behind the scenes work. Once we register all of our subsystems inside of the `subsystems` ArrayList, these functions will take care of everything so we don't have to worry that much.
+
 ## Robot.java
 
 `Robot.java` is one of the files that we'll seldom have to edit. In this file, we have a bunch of things that are happening behind the scenes to put the entire robot together. It grabs parts from files such as `RobotContainer.java` and puts them all together so that the robot knows when to execute certain parts of the code.
 
 For a quick rundown though, we have various functions that are all run when certain parts of the match begin and occur.
 
-* In `robotInit()`, an instance of `RobotContainer` is created, which then sets creates all of the other classes and objects necessary to run our robot.
-* Then, in `robotPeriodic()`, we periodically (every 20 ms) call `CommandScheduler.getInstance.run()`, which is a part of WPILib, to take all of our scheduled actions and actually send them to the various components of the robot.
-  * We also tell our `RobotContainer` output diagnostic data and update testing functionality.
+* In `robotInit()`, an instance of `RobotContainer` is created, which then sets creates all of the other classes and objects necessary to run our robot. This is ran when our robot first starts.
+* Then, in `robotPeriodic()`, we periodically (every 20 ms) call `CommandScheduler.getInstance.run()`, which is a part of WPILib, to take all of our scheduled actions and actually send them to the various components of the robot. `robotPeriodic()` is constantly run every 20 ms from the moment our robot boots up to when it is shut down.
+  * We also tell `RobotContainer` to output diagnostic data and update testing functionality.
 * `autonomousInit()` and `teleopInit()` handle setting up and cancelling all of our actions during autonomous.
 * Finally `testInit()` deals with setting up our testing interface.
 
@@ -26,6 +50,10 @@ Again, don't worry if you don't 100% get what is going on here since it is mostl
 ## Main.java
 
 `Main.java` is a file that will **never** be edited. This is because it is a file that is super behind-the-scenes and just serves to initialize our `Robot.java` file and tell the robot to begin executing code from it.
+
+## /util
+
+This folder contains some utility classes that are used by other sections of our robot code. In the template, we only have stuff related to controllers that we use inside of `RobotContainer`. To summarize though, the `SnailController` is a subclass of the WPILib provided `XboxController` class. We use this because we need to add some extra features to the controller that make our lives way easier. Some of these include an easier way to bind controller inputs, getting the triggers, applying deadbands, and inverting the y-axis of both of the joysticks.
 
 ## Constants.java
 
@@ -43,31 +71,3 @@ This allows us to just type something like `DRIVE_DIST` instead of the entire `C
 
 > [!NOTE]
 > All constants in this file need the code `public static` in front of the variable to make it usable.
-
-## /subsystems
-
-When we start programming, this folder will hold all of the subsystems, or major mechanisms, that make up our robot. At the moment, we just have one file in here: `SnailSubsystem.java`. This file is something that all of our subsystems must extend since it allows the subsystem to be registered within RobotContainer and makes sure that all of its appropriate functions are called at the correct time.
-
-## /commands
-
-This folder doesn't contain anything at the moment, but when we start programming, it will hold all of the "commands," or actions, that all of the subsystems can use.
-
-## /util
-
-This folder contains some utility classes that are used by other sections of our robot code. In the template, we only have stuff related to controllers that we use inside of `RobotContainer`. To summarize though, the `SnailController` is a subclass of the WPILib provided `XboxController` class. We use this because we need to add some extra features to the controller that make our lives way easier. Some of these include an easier way to bind controller inputs, getting the triggers, applying deadbands, and inverting the y-axis of both of the joysticks.
-
-## RobotContainer.java
-
-This is the biggest file in the template and probably the most important. This file can be thought of as almost a map or blueprint of how the entire robot is put together. This file contains all the different components of the robot and brings them all together into a coherent system.
-
-Our template has a lot of components missing that are supposed to be filled in. To see a fully completed version of `RobotContainer`, please see our version in the 2020 robot: [`RobotContainer.java`](https://github.com/FRC1257/2020-Robot/blob/master/src/main/java/frc/robot/RobotContainer.java).
-
-First of all, in the constructor for `RobotContainer`, we create all of our controllers (we always use 2) that we use for controlling the robot. Later, we will define how to bind buttons on our controllers to actions of our robot. The primary function of our constructor is to call a bunch of other functions which we discuss below.
-
-We create all of the subsystems that compose our robot in `configureSubsystems()`. Again, see our 2020 code for an example of how this works. Next, we register each of our subsystems in the `subsystems` ArrayList. This allows all of our subsystems to have their functions called at the right time so they actually work in our robot. Finally, we have some extra stuff in our constructor that handle counting and actually calling the other functions inside of `RobotContainer`.
-
-Next, we have `configureButtonBindings()`, where we define the mapping between our buttons and the actions that we want our robot to perform. For instance, we might define a link between the A button on our operator controller and the intake ejecting.
-
-Finally, we have `configureAutoChoosers()` and `getAutoCommand()`. These functions are not needed for the basics that we are going over for now, but we will get more into depth on these when we go over autonomous.
-
-We also have some functions at the button that handle behind the scenes work. Once we register all of our subsystems inside of the `subsystems` ArrayList, these functions will take care of everything so we don't have to worry that much.
