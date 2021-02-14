@@ -19,3 +19,4 @@
 * [Variables (Exercises at the Bottom)](https://introcs.cs.princeton.edu/java/12types/)
 * [Operators](https://www.geeksforgeeks.org/operators-in-java/)
 * [Cheatsheet](https://introcs.cs.princeton.edu/java/11cheatsheet/)
+

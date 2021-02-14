@@ -18,3 +18,4 @@ Advanced trajectories -
 - go over how we can use the Trajectory Visualizer to visualize them
 - go over how we can then follow this path
 - finally explain the technical details for those interested
+

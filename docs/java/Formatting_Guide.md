@@ -86,3 +86,4 @@ All commit messages should adhere to the following guidelines:
 - Don't put periods at the end of the commit message
 - Put everything in the imperative mood
   - Use `fix`, not `fixes` or `fixed`
+

@@ -15,9 +15,9 @@
 	 style="enable-background:new 0 0 864.2 719.9;" xml:space="preserve">
 <style type="text/css">
 	.st0{fill:#51284F;}
-	.st1{fill:#FFFFFF;}
+	.st1{fill:#000;}
 	.st2{fill:#97D700;}
-	.st3{fill:#97D700;stroke:#FFFFFF;stroke-width:5.1661;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st3{fill:#97D700;stroke:#000;stroke-width:5.1661;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
 </style>
 <switch>
 	<foreignObject requiredExtensions="&ns_ai;" x="0" y="0" width="1" height="1">

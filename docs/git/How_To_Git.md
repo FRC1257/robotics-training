@@ -48,3 +48,4 @@ Note however that understsanding how to use the command line is still encouraged
 **Step 7.** Scroll down to the section "…or push an existing repository from the command line"
 
 **Step 8.** Copy and paste those 2 commands into your command prompt and press enter.
+

@@ -18,3 +18,4 @@ These are all of the commands that we will most likely use. See Git Cheatsheet.p
 - `git push` - pushes all commits to online
 - `git pull` - update your local code with changes from the online repository
 - `git checkout BRANCH_NAME` - switch to another branch (make a new branch in Github)
+

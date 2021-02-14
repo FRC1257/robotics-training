@@ -8,4 +8,4 @@
     * As soon as the limelight powers on, your computer should detect the limelight and the green light should briefly flash before turning off
     * After this, the limelight could be detected and actually turned on.
   * Once the limelight is reimaged and updated, all of the personalized settings are reset and need to be changed again. The team number of the limelight has to be changed again or else the program will not be able to communicate to the limelight.
-  
+

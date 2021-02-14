@@ -8,16 +8,16 @@ An actuator is defined as "a component of a machine that is responsible for movi
 
 Our robot is essentially entirely made up of motors. All moving components are controlled by motors or pneumatics, and our job as programmers is to figure out how to convert drive team input into the robot actually doing its job. For instance, programming can make sure that certain motors move when drive team pushes buttons or joysticks on a game controller.
 
-First, some clarification:
+Motors are widely used throughout most, if not all of our robot's subsystems, e.g. on the drivetrain. At the time of writing, 1257 mainly uses NEO Brushless and NEO 550 motors made by REV Robotics.
+
+![SPARK MAX](img/SPARKMAX.png ':size=330x310') ![NEO 550](img/NEOvs550.png ':size=330x230')
+
+Every motor is attached to something called a **motor controller**.
 
 - *motor* - the actual physical part that spins
 - *motor controller* - facilitator that takes in and sends signal to control the motor accordingly
 
-Motors are widely used throughout most, if not all of our robot's subsystems, e.g. on the drivetrain. At the time of writing, 1257 mainly uses NEO Brushless and NEO 550 motors, by REV Robotics.
-
-![SPARK MAX](img/SPARKMAX.png ':size=330x310') ![NEO 550](img/NEOvs550.png ':size=330x230')
-
-To control these motors and actually manipulate a robot mechanism, we interface, or connect to them, with the corresponding motor controllers. For each of the motor controllers on the actual robot, we have an `object` in code that represents it.
+For each of the motor controllers on the actual robot, we can create an object in code that represents this motor. By using functions that this object owns, we can send instructions to these motors.
 
 ## Setup & Control
 
@@ -25,13 +25,13 @@ To control these motors and actually manipulate a robot mechanism, we interface,
 > We're just going to go over the syntax of how to create a motor, don't worry about creating the full fledged program around them yet. We will go over this in depth when we program our first subsystem.
 
 ```java
- //  Import the required class from the Rev Robotics library (don't worry about memorizing this)
+ //  Import the required class from the Rev Robotics library
 import com.revrobotics.CANSparkMax;
 
-// Declare a SPARK MAX motor controller in code that will represent the motor on our robot.
+// Declare a SPARK MAX motor controller in code that will represent the motor
 CANSparkMax motor;
 
-// Initialize the motor controller object with an ID and set its type to a brushless motor
+// Initialize the motor controller with an ID and set its type to a brushless motor
 motor = new CANSparkMax(0, MotorType.kBrushless);
 
 // Set the motor to "brake" mode
@@ -135,7 +135,8 @@ primaryMotor.setSmartCurrentLimit(80);
 secondaryMotor = new CANSparkMAX(1, MotorType.kBrushless);
 secondaryMotor.setIdleMode(IdleMode.kBrake);
 secondaryMotor.setSmartCurrentLimit(25);
-secondaryMotor.follow(primaryMotor, true); // invert the follower motor with respect to the primary motor
+// invert the follower motor with respect to the primary motor
+secondaryMotor.follow(primaryMotor, true);
 
 ejectMotor = new WPI_TalonSRX(2);
 ejectMotor.setNeutralMode(NeutralMode.Coast);

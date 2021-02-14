@@ -30,7 +30,7 @@ A double-acting cylinder works similarly to a single-acting one in that it requi
 
 A solenoid is a device that essentially converts certain electrical signals into control of the air going into a *cylinder*. The types of solenoids include *single* and *double*: a single solenoid has a default position (e.g. cylinder retracted) that changes only when voltage is supplied (cylinded extended). When voltage is removed, the extended cylinder then retracts. Say that at the end of a match we have an intake mechanism with two single-acting cylinders extended while connected to single solenoids. Once the robot stops commanding/powering the solenoids, the cylinders will gradually return to their default positions.
 
-On the other hand, a double solenoid has two solenoids, and when we apply voltage to just one of them, the cylinder shifts in the corresponding direction. The double solenoid works like a light switch--the solenoid will use power to go to one position, but will stay there until the opposite solenoid is powered, thus flipping the "switch."
+On the other hand, a double solenoid has two solenoids, and when we apply voltage to just one of them, the cylinder shifts in the corresponding direction. The double solenoid works like a toggle -- the solenoid will use power to go to one position, but will stay there until the opposite solenoid is powered.
 
 1257 used *three-way, two-position* solenoids in their 2019 climb system. Along with the capabilities of a basic double solenoid, this device allows air to act on both sides/directions simultaneously, such that the cylinder can be "frozen" in a position.
 
@@ -64,18 +64,20 @@ We can now translate the basics of pneumatics into our robot program. Doing so i
 
 Initializing and commanding solenoids in the program is similar to how we did in the [Motors.md](https://frc1257.github.io/robotics-training/#/frc/1-Basics/2-Motors) section. Two things must be known before creating our program, however: whether *single* or *double* solenoids are being used, and also the respective ID port numbers on the PCM. Here's what we'll do:
 
-- `Solenoid solenoid;` or `DoubleSolenoid doubleSolenoid;`
-  - Declare Solenoid and DoubleSolenoid objects
-- `solenoid = new Solenoid(SINGLE_SOLENOID_ID);` or `doubleSolenoid = new DoubleSolenoid(DOUBLE_SOLENOID_FORWARD, DOUBLE_SOLENOID_REVERSE);`
-  - Initialize the objects with IDs(two IDs for a double solenoid, one each for the forward and reverse channels). Once again, remember that IDs should be constants referenced from `ElectricalLayout` in `Constants.java`.
+```java
+// Single Solenoid
+Solenoid solenoid;
+solenoid = new Solenoid(SINGLE_SOLENOID_ID);
+solenoid.set(true);
+solenoid.set(false);
 
-Controlling the solenoid is just as simple as controlling a motor:
-
-- `solenoid.set(true);` - set to "true" direction
-- `solenoid.set(false);` - set to "false" direction
-- `doubleSolenoid.set(Value.kForward);` - set to "forward" direction
-- `doubleSolenoid.set(Value.kReverse);` - set to "reverse" direction
-- `doubleSolenoid.set(Value.kOff);` - neither channel is activated, hence "off"**
+// Double Solenoid
+// The constructor takes in two IDs (forward and reverse channels)
+DoubleSolenoid doubleSolenoid = new DoubleSolenoid(DOUBLE_SOLENOID_FORWARD, DOUBLE_SOLENOID_REVERSE);
+doubleSolenoid.set(Value.kForward);
+doubleSolenoid.set(Value.kReverse);
+doubleSolenoid.set(Value.kOff);
+```
 
 > [!NOTE]
 > Ff we were using three-way solenoids, `Value.kOff` would freeze the cylinder in position at the time. We actually used these in 2019 for our climb!

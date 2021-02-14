@@ -33,3 +33,4 @@ To update the vendor dependencies, the steps are similar to those above:
 3. Select **Manage Vendor Libraries**.
 4. Select **Check for updates (online)**. (Can also be **(offline)**).
 5. If an update appears, click on it. Otherwise, you're all set.
+

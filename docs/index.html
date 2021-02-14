@@ -7,13 +7,17 @@
 		<meta name="description" content="Description">
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">
+		<link rel="stylesheet" href="./css/prism-material-dark.css">
+		<link rel="stylesheet" href="./css/toc.css">
+		<link rel="icon" href="./media/1257snail.svg">
 		<title>Robotics Training</title>
 		<style>
 			:root {
 				--theme-color: #36bc98;
 				--link-color: #36bc98;
     			--cover-heading-color : ;
-				--content-max-width: 77em;
+				--content-width: 60em;
+
 				--sidebar-nav-link-before-content             : none ;
 				--sidebar-nav-link-before-content--active     : none ;
 				--sidebar-nav-link-before-content-l1          : none ;
@@ -24,11 +28,23 @@
 				--sidebar-nav-link-before-content-l3--active  : none ;
 				--sidebar-nav-link-before-content-l4          : none ;
 				--sidebar-nav-link-before-content-l4--active  : none ;
+    			--sidebar-width                               : 20rem;
+				--sidebar-name-font-weight                    : 400;
+				--sidebar-name-font-size                      : 1.8rem;
+
+				--heading-h1-font-weight            : bold ;
+				--heading-h2-font-weight            : bold ;
+				--heading-h3-font-weight            : bold ;
+				--heading-h4-font-weight            : bold ;
+				--heading-h5-font-weight            : bold ;
+
+				--toc-width                         : 20rem ;
 			}
 		</style>
 	</head>
 	<body>
 		<div id="app"></div>
+		
 		<script>
 			window.$docsify = {
 				name: 'Robotics Training',
@@ -42,8 +58,29 @@
 				search: {
 					depth: 6
 				},
+				toc: {
+					scope: '.markdown-section',
+					headings: 'h1, h2, h3, h4, h5, h6',
+					title: 'Table of Contents',
+				},
+				
+				plugins: [					
+					function (hook, vm) {
+						hook.beforeEach(function(html) {
+							if (/githubusercontent\.com/.test(vm.route.file)) {
+								url = vm.route.file
+									.replace('raw.githubusercontent.com', 'github.com')
+									.replace(/\/master/, '/blob/master')
+							} else {
+								url = 'https://github.com/FRC1257/robotics-training/tree/master/docs/' + vm.route.file
+							}
+							var editHtml = '<a class="edit-button" href="' + url + '"><i class="fab fa-github"></i> Edit Page on GitHub</a>'
+
+							return html + "<br></br>" + editHtml
+						})
+					}
+				]
 			}
-			
 		</script>
 		
 		<script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
@@ -53,7 +90,10 @@
 		<script src="https://unpkg.com/docsify-plugin-flexible-alerts"></script>
 		<script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-java.min.js"></script>
         <script src="//cdn.jsdelivr.net/npm/docsify-katex@latest/dist/docsify-katex.js"></script>
+		<script src="https://unpkg.com/docsify-toc@1.0.0/dist/toc.js"></script>
+		<script src="https://kit.fontawesome.com/6ddc023efd.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"/>
+        <link rel="stylesheet" href="./css/override.css"/>
 	</body>
 </html>
 
