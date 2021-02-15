@@ -11,49 +11,9 @@
 
 ## Tasks
 
-* Have a variable with a number grade, and print the letter grade corresponding with it
-* Have a variable with a number, and then print out all numbers leading up to that number.
+* Create a program where the user can input a number grade, and then the program will print the letter grade corresponding with it
+* Create a program where the user can input a number, and then the program print out all numbers leading up to that number.
   * For instance, if the variable is 5, print "1 2 3 4 5"
-* Have a variable with a number, and then print out the following pattern
-  * Variable is 5
-  * Output:
-
-    \*
-
-    \*\*
-
-    \*\*\*
-
-    \*\*\*\*
-
-    \*\*\*\*\*
-  * Variable is 3
-  * Output:
-
-    \*
-
-    \*\*
-
-    \*\*\*
-  * Bonus: Repeat the pattern in reverse
-
-    \*
-
-    \*\*
-
-    \*\*\*
-
-    \*\*\*\*
-
-    \*\*\*\*\*
-
-    \*\*\*\*
-
-    \*\*\*
-
-    \*\*
-
-    \*
 
 ## Reference
 

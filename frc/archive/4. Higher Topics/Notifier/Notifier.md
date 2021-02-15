@@ -23,7 +23,6 @@ To break this down, let's start at the beginning.  `Notifier notif = new Notifie
 As such, an example usecase might be the following:
 
 ```java
-
 import edu.wpi.first.wpilibj.Notifier;
 
 public class ColorSensor {

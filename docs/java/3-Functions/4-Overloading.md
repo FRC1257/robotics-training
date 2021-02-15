@@ -9,7 +9,6 @@ Another programming concept is **overloading**, which means that we can define m
 We discussed that `System.out.println` can be used to output text to appear on the screen. However, you may have noticed that we can pass in all types of variables such as `String`, `double`, `int`, or even `boolean`. However, we always use the same spelling: `System.out.println`. The way this works is that in Java, there are multiple definitions of `System.out.println`, each with different arguments:
 
 ```java
-
 public static void println(String x) {
     // Do stuff specific to String
 }
@@ -33,3 +32,4 @@ This way, we can define multiple implementations of the same function dependent 
 ## Robotics Programming
 
 We don't use overloading too much in our robotics programs, so don't worry too much if you don't understand it. It's mostly that if you read library documentation and other people's code, you might see it present. Just make sure you know it exists and that you can use any of the implementations given to you.
+

@@ -11,7 +11,7 @@
   width: var(--toc-width, 200px);
   align-self: flex-start;
   flex: 0 0 auto;
-  margin-top: 1rem;
+  margin-top: 2.5rem;
 }
 aside.nav.nothing {
   width: 0;
@@ -40,7 +40,7 @@ aside.nav.nothing {
   margin: 0px 0 0px 9px;
   padding-bottom: 5px;
   font-weight: 600;
-  font-size: 1.2em;
+  font-size: 1.8em;
 }
 .page_toc .anchor:hover:after {
   content: "";
@@ -72,8 +72,8 @@ aside.nav.nothing {
 @media screen and (max-width: 1300px) {
   .page_toc {
     position: relative;
-    left: 0;
-    top: 20px;
+    left: 39px;
+    top: 1.5rem;
     padding: 10px 0;
     border: none;
     border-bottom: 1px solid #ddd;
@@ -85,7 +85,7 @@ aside.nav.nothing {
   }
   .page_toc p.title {
     font-weight: bold;
-    font-size: 1.8em;
+    font-size: 2.37rem;
   }
   .content {
     display: block;

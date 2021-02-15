@@ -66,7 +66,6 @@ public class Shooter extends SnailSubsystem {
 Next, we will have our `update()`, `setSpeed()`, and `endPID()` functions, which will handle, set, and end our `VELOCITY_PID` state respectively.
 
 ```java
-
 @Override
 public void update() {
     switch(state) {
@@ -133,7 +132,6 @@ public class Shooter extends SnailSubsystem {
 Similar to the `PIDController` section, we also need to make our functions for controlling the PID states. The functions are pretty simple and self-explanatory.
 
 ```java
-
 @Override
 public void update() {
     switch(state) {

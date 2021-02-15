@@ -37,7 +37,6 @@ Before we make our file that represents the subsystem in code, there is one file
 Here is a copy of the `SnailSubsystem` code:
 
 ```java
-
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -134,7 +133,6 @@ Now that we have the skeleton of the subsystem out of the way, we can start prog
 ### Declaring The Motor Controllers
 
 ```java
-
 package frc.robot.subsystems;
 
 import com.revrobotics.CANSparkMax;
@@ -178,7 +176,6 @@ The three states declared are `INTAKING`, `EJECTING`, and `NEUTRAL`. Each of the
 ### Making The Constructor
 
 ```java
-
  public RollerIntake() {
         rollerIntakeMotor = new CANSparkMax(2, MotorType.kBrushless);
         rollerIntakeMotor.restoreFactoryDefaults();
@@ -203,7 +200,6 @@ For the flowchart, this section corresponds to the first step: "Create the rolle
 ### Update Function
 
 ```java
-
    @Override
     public void update() {
         switch(state) {
@@ -228,7 +224,6 @@ With the flowchart, this section corresponds to the entire right green section, 
 ### Making Methods To Trigger State Changes
 
 ```java
-
     public void neutral() {
         state = State.NEUTRAL;
     }
