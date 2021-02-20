@@ -69,19 +69,23 @@ aside.nav.nothing {
   line-height: 1.6em;
 }
 
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 1500px) {
   .page_toc {
     position: relative;
-    left: 39px;
     top: 1.5rem;
-    padding: 10px 0;
+    padding: 10px 45px;
+    margin: 0 auto;
     border: none;
     border-bottom: 1px solid #ddd;
     font-size: 1.0em;
+    max-width: var(--content-max-width);
   }
   .nav {
     margin: 0 auto;
-    width: 800px;
+    width: 100%;
+  }
+  .page_toc a:before {
+    content: "- ";
   }
   .page_toc p.title {
     font-weight: bold;

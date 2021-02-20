@@ -58,9 +58,9 @@ This mechanism is an example of how actuations can be only "fully in" or "fully 
 
 ---
 
-## Programming: Setup and Control
+## Programming
 
-We can now translate the basics of pneumatics into our robot program. Doing so isn't too difficult.
+We can now translate the basics of pneumatics into our robot program.
 
 Initializing and commanding solenoids in the program is similar to how we did in the [Motors.md](https://frc1257.github.io/robotics-training/#/frc/1-Basics/2-Motors) section. Two things must be known before creating our program, however: whether *single* or *double* solenoids are being used, and also the respective ID port numbers on the PCM. Here's what we'll do:
 
@@ -80,7 +80,7 @@ doubleSolenoid.set(Value.kOff);
 ```
 
 > [!NOTE]
-> Ff we were using three-way solenoids, `Value.kOff` would freeze the cylinder in position at the time. We actually used these in 2019 for our climb!
+> If we were using three-way solenoids, `Value.kOff` would freeze the cylinder in position at the time. We actually used these in 2019 for our climb!
 
 ---
 
