@@ -4,7 +4,7 @@ Welcome to Team 1257's robotics training documentation! Here you will find refer
 
 ## Folders
 
-- `Java` - Java programming language tutorial for robotics programming (DISCLAIMER: Does not fully teach you the language or enough for the AP Computer Science curriculum. Teaches you enough to effectively program the robot)
+- `Java` - Java programming language tutorial for robotics programming
 
 - `FRC` - WPILib tutorials for FRC programming of robots
 

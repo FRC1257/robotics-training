@@ -2,9 +2,9 @@
 
 ## Basics
 
-Pneumatic components provide a strong complement to motors and gearboxes for various actuations. Once again, it is our job as programmers to convert the commands of the drive team into physical movement on the robot.
+So far, we have covered how we can apply a voltage across a motor to produce rotational motion. Another type of actuator we frequently use are pneumatics, which use solenoids to manipulate compressed air and move pistons.
 
-Reasons to use pneumatics over motors include simplicity, ruggedness, and consistent, fast actuations. However, a disadvantage would be the time it takes to compress air. Actuations will also either be all the way in, or all the way out -- this is a consequence of simplicity. This concept should be made more clear in the [Example](#Example) section below.
+Reasons to use pneumatics over motors include simplicity, ruggedness, and consistent, fast actuations. While moving a subsystem between two exact positions can be a difficult control problem, it is easy to do with pneumatics. One example of where pneumatics shine are with a claw that needs to open or close with a string force. However, a disadvantage of pneumatics would be if our system of pressurized air leaks, which can result in our pneumatics failing. Additionally, it takes time between each match for our system to finish pressurizing. Additionally, while pneumatics excel at moving between two fixed positions, it can be difficult for them to maintain positions in between them.
 
 ## Components
 
@@ -82,6 +82,3 @@ doubleSolenoid.set(Value.kOff);
 > [!NOTE]
 > If we were using three-way solenoids, `Value.kOff` would freeze the cylinder in position at the time. We actually used these in 2019 for our climb!
 
----
-
-Just like before with motors, all of this can be organized and expanded upon into a subsystem class. More on that to follow!

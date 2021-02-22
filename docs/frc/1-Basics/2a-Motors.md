@@ -8,7 +8,7 @@ An actuator is defined as "a component of a machine that is responsible for movi
 
 Our robot is essentially entirely made up of motors. All moving components are controlled by motors or pneumatics, and our job as programmers is to figure out how to convert drive team input into the robot actually doing its job. For instance, programming can make sure that certain motors move when drive team pushes buttons or joysticks on a game controller.
 
-Motors are widely used throughout most, if not all of our robot's subsystems, e.g. on the drivetrain. At the time of writing, 1257 mainly uses NEO Brushless and NEO 550 motors made by REV Robotics.
+Motors are widely used throughout most, if not all of our robot's subsystems, e.g. on the drivetrain. When we have a motor, we can have our robot code apply a voltage to the motor, which will cause it to spin. On our robot, this motor will be attached to a gearbox and other mechanical contraptions to transform this rotational motion into the motion desired for the robot. At the time of writing, 1257 mainly uses NEO Brushless and NEO 550 motors made by REV Robotics.
 
 ![SPARK MAX](img/SPARKMAX.png ':size=330x310') ![NEO 550](img/NEOvs550.png ':size=330x230')
 
