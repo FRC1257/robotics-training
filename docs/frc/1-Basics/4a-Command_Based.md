@@ -61,3 +61,4 @@ The blue sections are sections that WPILib handles for us, while the orange/yell
 | Initialize the new command on the required subsystem | Define what happens when the command (how does it change the state of the subsystem initially) |
 | For each subsystem, run the code associated with its current command | Define what each command actually does periodically (how does it change the state of subsystems over time) |
 | For each subsystem, adjust its actuators depending on the current state | In each subsystem, determine how to act depending on the state |
+
