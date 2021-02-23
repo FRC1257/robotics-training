@@ -16,9 +16,9 @@ Now that we have an idea of how subsystems are structured in code, let's look at
 
 ![intake](img/rollerintake.jpg)
 
-Pictured above is the intake from 1257's robot for 2019's Destination: Deep Space. The green wheels are connected to a single motor and motor controller combination. That motor can spin inwards to take in cargo balls, and then eject the balls by spinning outward. While the ball is *within* the intake, we will keep it in place by spinning the wheels at a small, neutral speed.
+Pictured above is the intake from 1257's robot for the 2019 game "Destination: Deep Space". The green wheels are connected to a single motor and motor controller combination. That motor can spin inwards to take in cargo balls, and then eject the balls by spinning outward. While the ball is *within* the intake, we will keep it in place by spinning the wheels at a small, neutral speed.
 
-For this tutorial, we'll assume that a SPARK MAX motor controller was used to control our motor.
+For this tutorial, we'll assume that a single SPARK MAX motor controller is used to control this motor.
 
 ## Flowchart
 
