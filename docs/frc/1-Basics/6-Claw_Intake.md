@@ -1,26 +1,22 @@
 # Claw Intake
 
-Now that you know how to make a subystem and its supporting files we are going to cover making other subsystems with different features and purposes. The next few lessons will be about learning each of the major subsystems that 1257 uses, why they are important and how we can program them.
+Now that you know the basics behind making a subystem and its supporting files, we are going to cover making other common subsystems to practice. The next few lessons will be about learning each of the major subsystems that 1257 uses and how to program them.
 
 ## Overview
 
 ![openClaw](img/openClaw.jpeg) ![closedClaw](img/closedClaw.jpeg)
 
-Above is a basic claw-like structure that may be encountered. This claw has only one cylinder controlled by a solenoid to open and close it. In this specific claw, when the cylinder extends, the claw closes. There are many other types of claws that may be used. For example, there may be a claw with pistons on both sides like team 1257's 2018 robot.
-
-### Purpose
-
-Claws are used to grab balls, cubes, or other game objects. The claw may consist of only one piston or it can consists of two pistons that close and open the claw from both sides. Claws can also be run by motors though they are not often used due to a power deficiency.
+The first subsystem we'll be covering is a claw intake, which uses force to clamp onto game pieces and hold them. Above is what a typical claw looks like that uses pneumatics to control the actuation of the claw. In this specific instance, when the cylinder extends, the claw closes, and when it retracts, the claw opens. In the past, we've used claws in robots such as Team 1257's second 2018 robot (the original robot did not have a claw, but it was rebuilt for the offseason Brunswick Eruption event).
 
 ### Why Pneumatics?
 
-The reason team 1257 uses pneumatics is because pneumatics are relatively cheap while also being very strong. A claw needs to reliably hold the balls, cubes, or any other game pieces, so a pneumatic claw seems like the obvious choice. An example of this usage of a claw was in team 1257's 2018 robot where it was modified with pneumatics to hold cubes well without dropping them.
+When looking at a claw, pneumatics seem to be an obvious choice. Pneumatics excel when a mechanism only has two states and needs to hold that state with a lot of force, which works perfectly with pneumatics. The compressed air provides a lot of force with which we can clamp down on game pieces and hold them firmly. Since we don't need to have the claw in any intermediate position between closed or open, the discrete nature of pneumatics is actually a bonus since doing the same with motors would rely on some complicated control to get the claw's movement consistent.
 
 ## Subsystem File
 
 ### Declaring Solenoids
 
-```java 
+```java
 package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
@@ -46,14 +42,10 @@ Note: A different class would be used for a single-acting solenoid, which can ap
        OPEN
     }
 
-    State state = State.OPEN;
+    private State state;
 ```
 
-After declaring the solenoids, the states are declared. For the claw subsystem, there are only two states: `CLOSED` and `OPEN`. Closed represents when the claw shuts around the object and open is when the claw is opened so it is not capable of holding a block.
-
-Usually, the cylinders are extended when the claw is closed and not extended when the claw is open.
-
-After the states are declared, a state variable is set to `OPEN` as that will be the default state of the subsystem.
+After declaring the solenoids, the states are declared. For the claw subsystem, there are only two states: `CLOSED` and `OPEN`. Closed represents when the claw shuts around the object and open is when the claw is opened so it is not capable of holding an object.
 
 ### Constructor
 
@@ -61,10 +53,12 @@ After the states are declared, a state variable is set to `OPEN` as that will be
     public Claw() {
         leftSolenoid = new DoubleSolenoid(CLAW_LEFT_FORWARD_ID, CLAW_LEFT_REVERSE_ID);
         rightSolenoid = new DoubleSolenoid(CLAW_RIGHT_FORWARD_ID, CLAW_RIGHT_REVERSE_ID);
+
+        state = State.OPEN;
     }
 ```
 
-The constructor is very straightforward. Each of the solenoid objects is defined. In the parameters, there are two IDs representing the forward and reverse direction for each pneumatic cylinder. The reason there are two IDs is because air needs to be pumped from a different tube for each direction the double-acting solenoid makes the piston in the cylinder go in.
+The constructor is pretty simple as all we do is just set up the solenoids and set up our initial state. In the parameters, there are two IDs representing the forward and reverse direction for each pneumatic cylinder. The reason there are two IDs is because air needs to be pumped from a different tube for each direction the double-acting solenoid makes the piston in the cylinder go in. In our previous subsystem, we would also define a ton of motor configuration settings here, but solenoids are much simpler and don't have such methods.
 
 ### Update Function
 
@@ -84,25 +78,28 @@ The constructor is very straightforward. Each of the solenoid objects is defined
     }
 ```
 
-Once each of the solenoids is defined and the states are declared, the update function is made in order to define what happens during each state. In the `CLOSED` state the pneumatic cylinders extend as the solenoids are set to `Value.kForward`. In the `OPEN` state, the pneumatic cylinders retract as the solenoids are set to `Value.kReverse`.
+Once each of the solenoids is defined and the states are declared, the update function is made in order to define what happens during each state. In the `CLOSED` state the pneumatic cylinders extend as the solenoids are set to `Value.kForward` which will close the claw. In the `OPEN` state, the pneumatic cylinders retract as the solenoids are set to `Value.kReverse`, which will open the claw.
 
 ### ShuffleBoard Functions
 
 ```java
+    @Override
     public void displayShuffleboard() {
 
     }
 
+    @Override
     public void tuningInit() {
 
     }
 
+    @Override
     public void tuningPeriodic() {
 
     }
 ```
 
-These functions will be implemented in later posts.
+Just like before, we need these functions present in our file to allow the robot project to compile. However, we will be leaving them blank for now.
 
 ### State Functions
 
@@ -121,7 +118,7 @@ These functions will be implemented in later posts.
 }
 ```
 
-The last thing that is done is the declaration of the functions which set the state to `OPEN` or `CLOSED` and the making of a function that returns the current state of the subsystem.
+The last thing that is done is the declaration of the functions that have to do with modifying the state. These will be used in the next section and will be called by our commands to perform actions on our subsystem.
 
 ## Commands
 
@@ -145,6 +142,7 @@ public class ClawCloseCommand extends CommandBase {
 
     @Override
     public void initialize() {
+
     }
 
     @Override
@@ -154,7 +152,7 @@ public class ClawCloseCommand extends CommandBase {
 
     @Override
     public void end(boolean interrupted) {
-        claw.open();
+        
     }
 
     @Override
@@ -164,17 +162,19 @@ public class ClawCloseCommand extends CommandBase {
 }
 ```
 
-The commands in the claw subsystem work in the exact same way as the commands in the roller intake. Below is a brief description of what happens in the command for closing the claw.
+The commands here are very similar to those of the roller intake in that all it does is simply call a single function on our `Claw.java` subsystem while it is executing.
 
-1. A local claw object is declared.
-2. In the constructor, the local object is set equal to a passed in claw and the requirements are added.
+1. A local `claw` object is passed into the constructor for the command, which will allow the command to modify the Claw subsystem.
+2. In the constructor, the Claw subsystem is added as a requirement for this command.
 3. In the execute function, the state is set to `CLOSED` through the close function.
-4. In the end function, the state is set to `OPEN` through the open function. The end function triggers when the command ends.
-5. In isFinished(), it is defined that the command ends when the command is no longer being run by the scheduler.
+4. In `end()`, we just leave it blank because when the command ends, there's nothing we have to do. We can just leave the claw and it'll maintain its state.
+5. In `isFinished()`, we just leave it as `return false;` since we don't want the command to end by itself. Instead, it'll end when the button triggering it is no longer being pressed or it is interrupted.
+
+One important caveat here is that while we were programming the roller intake's commands, we put code to return the intake to its neutral position when the command ended. However, here, we don't actually want to do that. The reason is because we want the commands to sort of act as a toggle for the claw. When `ClawCloseCommand` is ran, it should just close the claw. However, when it has stopped running, we don't want to just have the claw opened up again; we want to keep it closed. On the other hand, our roller intake shouldn't act as a toggle.
 
 ### Open Command
 
-The command for opening is the exact same as the command for closing except for the fact that claw.open() does not need to be called when the function ends as the state is already open. Nevertheless, the code for this command is included below.
+The command for opening is the exact same as the command for closing besides the change in the function called during `execute()` Nevertheless, the code for this command is included below.
 
 ```java
 package frc.robot.commands.claw;
@@ -194,6 +194,7 @@ public class ClawOpenCommand extends CommandBase {
 
     @Override
     public void initialize() {
+
     }
 
     @Override
@@ -203,6 +204,7 @@ public class ClawOpenCommand extends CommandBase {
 
     @Override
     public void end(boolean interrupted) {
+
     }
 
     @Override
@@ -212,13 +214,11 @@ public class ClawOpenCommand extends CommandBase {
 }
 ```
 
-If the specific functions in the commands need more explanation, refer to the rollerIntake commands tutorial file.
+If the specific functions in the commands need more explanation, refer to the section in the Roller Intake tutorials that cover making commands in more depth.
 
-## Robot Container(Bindings)
+## Robot Container (Bindings)
 
 The bindings for a claw are extremely similar to the roller intake bindings. If more information is needed about how bindings work, please go to the roller intake bindings tutorial.
-
-### Variable Declarations
 
 ```java
 package frc.robot;
@@ -230,7 +230,6 @@ import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.SnailSubsystem;
 import frc.robot.util.SnailController;
 import frc.robot.subsystems.Claw;
-
 
 import frc.robot.commands.claw.ClawCloseCommand;
 import frc.robot.commands.claw.ClawOpenCommand;
@@ -248,13 +247,7 @@ public class RobotContainer {
     private Claw claw;
 
     private ArrayList<SnailSubsystem> subsystems;
-```
 
-After the neccesary imports are made, the objects are declared. The two Xbox controllers, the subsystems, and an ArrayList for storing the subsystems are declared.
-
-### Constructor and the Bindings
-
-```java
     public RobotContainer() {
         driveController = new SnailController(CONTROLLER_DRIVER_ID);
         operatorController = new SnailController(CONTROLLER_OPERATOR_ID);
@@ -265,25 +258,23 @@ After the neccesary imports are made, the objects are declared. The two Xbox con
 
     private void configureSubsystems() {
         claw = new Claw();
-        claw.setDefaultCommand(new ClawOpenCommand(claw));
 
         subsystems = new ArrayList<>();
         subsystems.add(claw);
     }
 
     private void configureButtonBindings() {
-        operatorController.getButton(Button.kX.value).whileActiveOnce(new ClawCloseCommand(claw));
+        operatorController.getButton(Button.kX.value).whenPressed(new ClawCloseCommand(claw));
+        operatorController.getButton(Button.kY.value).whenPressed(new ClawOpenCommand(claw));
     }
 }
 ```
 
-In the constructor there are a few things done:
+In here, almost everything here is the same as for the roller intake except for a few crucial differences. First of all, we don't set up a default command for our `Claw` subsystem. Instead, we will take both of our commands and assign them to buttons.
 
-1. The two controllers are defined with their ID is a parameter.
+In `configureButtonBindings()`, we take our X and Y buttons on our Xbox controller and set them up so that they run the appropriate commands. Here, we chose to use `whenPressed()` instead of `whileActiveOnce()`. For more details on all of the possibilities, see the section on binding commands in the roller intake tutorials.
 
-2. The configureSubsystems() is called. The subsystems are defined, the default commands are defined, and then the subsystems added to an ArrayList. The reason an ArrayList is used is so the subsystems can be updated more efficiently later on in the code.
-
-3. Lastly, configureButtonBindings() is called. Since `ClawOpenCommand` is the default command, there is no button binding for it. There is only one binding for `ClawCloseCommand`. WhileActiveOnce means that the close command runs if and only if the respective button is being pressed.
+Here, we want to use `whenPressed()` because we just want the command to run once when the button is first pressed. This will cause the claw intake to change its state, and after it runs once, there's no need to keep the command running. As a result, using `whenPressed()` fits this perfectly since we just want the command to run when the button is pressed but it doesn't have to keep running while the button is being held down.
 
 ## Constants
 
@@ -296,6 +287,7 @@ public final class Constants {
     public static class ElectricalLayout {
         public final static int CONTROLLER_DRIVER_ID = 0;
         public final static int CONTROLLER_OPERATOR_ID = 1;
+
         public final static int CLAW_LEFT_FORWARD_ID = 0;
         public final static int CLAW_LEFT_REVERSE_ID = 1;
         public final static int CLAW_RIGHT_FORWARD_ID = 2;
@@ -303,11 +295,11 @@ public final class Constants {
     }
 
     public static class Autonomous {
-        //nothing
+        // nothing
     }
 
     public static class Claw {
-        //nothing here for now
+        // nothing here for now
     }
 
     public static double PI = 3.14159265;

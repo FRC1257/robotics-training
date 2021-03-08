@@ -141,9 +141,9 @@ There are many, many functions you can choose from, but we will go over a few of
 
 **`whileActive()`** - Runs the command constantly as the button is held down. It will constantly schedule the command, but stops when the button is let go. We typically don't use this and instead choose to use the next option (`whileActiveOnce()`).
 
-**`whileActiveOnce()`** - Runs the command when the button is first held down and will continue running for as long as the button stays down. If the command ends while the button is still active, it will *not* be rescheduled. This is why we returned false in `isFinished()`, if you recall. When the button itself is let go, the command will be cancelled and the default command will begin running.
+**`whileActiveOnce()`** - Runs the command when the button is first held down and will continue running for as long as the button stays down. If the command ends while the button is still active, it will *not* be rescheduled. When the button itself is let go, the command will be cancelled and the default command will begin running.
 
-**`toggleWhenPressed()`** - This function will toggle the command to constantly be run when the button is first pressed. When the button is released, the command will continue running until the button is pressed again and retoggles it.
+**`toggleWhenPressed()`** - This function will toggle the command to constantly be run when the button is first pressed. When the button is released, the command will continue running until the button is pressed again and toggles it to stop running.
 
 > [!WARNING]
 > There is also a function in our controller to use Xbox triggers. Triggers unfortunately have a bit of a different naming convention, so see the below link for details on that)
