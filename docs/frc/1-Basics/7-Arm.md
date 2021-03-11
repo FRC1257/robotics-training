@@ -23,7 +23,6 @@ import static frc.robot.Constants.ElectricalLayout.*;
 import static frc.robot.Constants.Arm.*;
 import static frc.robot.Constants.NEO_550_CURRENT_LIMIT;
 
-
 public class Arm extends SnailSubsystem {
 
     private CANSparkMax armMotor;
@@ -38,7 +37,7 @@ After importing all of the required libraries, we declare the motor controllers 
         MANUAL
     }
 
-    State state = State.MANUAL;
+    private State state = State.MANUAL;
     private double speed = 0;
 ```
 
@@ -61,7 +60,7 @@ public Arm() {
 
 These are all the typical motor configuration settings that we have gone over in the past, so look at previous tutorials if you want a refresher on these.
 
-### Update Function and setArmSpeed()
+### Update Function and manualControl()
 
 ```java
  @Override
@@ -97,7 +96,7 @@ Just like before, we need these functions present in our file to allow the robot
 ### State Functions
 
 ```java
-    public void setArmSpeed(double speed){
+    public void manualControl(double speed){
         this.speed = speed;
         state = State.MANUAL;
     }
@@ -108,9 +107,9 @@ Just like before, we need these functions present in our file to allow the robot
 }
 ```
 
-In this case, we have the `setArmSpeed(double speed)` function to update the state of our arm. When this function is called, it takes in a `speed` parameter that it then stores as part of the state. Additionally, it will set the state, or "operating mode," of the subsystem to `State.MANUAL` to ensure the arm is in the correct state.
+In this case, we have the `manualControl(double speed)` function to update the state of our arm. When this function is called, it takes in a `speed` parameter that it then stores as part of the state. Additionally, it will set the state, or "operating mode," of the subsystem to `State.MANUAL` to ensure the arm is in the correct state.
 
-Unlike the previous subsystems discussed, there is no function to set the state to one of the states. That is because the state is already set to `MANUAL` when `setArmSpeed()` is called.
+Unlike the previous subsystems discussed, there is no function to set the state to one of the states. That is because the state is already set to `MANUAL` when `manualControl()` is called.
 
 ## Arm Manual Command
 
@@ -147,7 +146,7 @@ public class ArmManualCommand extends CommandBase {
 
     @Override
     public void execute() {
-        arm.setArmSpeed(speed;
+        arm.manualControl(speed;
     }
     ...
 }
@@ -201,32 +200,32 @@ Just like the previous commands for other subsystems, the subsystem object is de
 
 ```java
 @Override
-    public void initialize() {
+public void initialize() {
 
-    }
+}
 
-    @Override
-    public void execute() {
-        arm.setArmSpeed(speedSupplier.getAsDouble());
-    }
+@Override
+public void execute() {
+    arm.manualControl(speedSupplier.getAsDouble());
+}
 ```
 
 `initialize()` contains nothing inside of it as there are no actions to be done immediately after the command is called.
 
-In the `execute()` function, `setArmSpeed()` from our subsystem is called with `speedSupplier.getAsDouble()` as a parameter. The `getAsDouble()` function essentially evaluates that stored function and passes in our speed value to the Arm subsystem.
+In the `execute()` function, `manualControl()` from our subsystem is called with `speedSupplier.getAsDouble()` as a parameter. The `getAsDouble()` function essentially evaluates that stored function and passes in our speed value to the Arm subsystem.
 
 #### isFinished() and end()
 
 ```java
 @Override
-    public void end(boolean interrupted) {
+public void end(boolean interrupted) {
 
-    }
+}
 
-    @Override
-    public boolean isFinished() {
-        return false;
-    }
+@Override
+public boolean isFinished() {
+    return false;
+}
 ```
 
 Nothing is inside of `end()` because there are no actions to complete when the command ends.
@@ -272,19 +271,19 @@ The only important line we have to add here is the `private Arm arm;` line just 
 ### Constructor and Bindings
 
 ```java
-    // constructor omitted because it is the exact same
+// constructor omitted because it is the exact same
 
-    private void configureSubsystems() {
-        arm = new Arm();
-        arm.setDefaultCommand(new ArmManualCommand(arm, operatorController::getRightY));
+private void configureSubsystems() {
+    arm = new Arm();
+    arm.setDefaultCommand(new ArmManualCommand(arm, operatorController::getRightY));
 
-        subsystems = new ArrayList<>();
-        subsystems.add(arm);
-    }
+    subsystems = new ArrayList<>();
+    subsystems.add(arm);
+}
 
-    private void configureButtonBindings() {
-        // Nothing here because the arm will always be in manual control
-    }
+private void configureButtonBindings() {
+    // Nothing here because the arm will always be in manual control
+}
 ```
 
 There is one major difference in how the default command is defined compared to the roller intake and the claw. In addition to the Arm subsystem getting passed in as a parameter, `operatorController::getRightY` is passed too. This is being passed in as our `DoubleSupplier` object. Essentially, we can pass in any function that returns a `double` variable into here. However, to ensure that we actually pass in the **function** itself and not the **result of evaluating that function**, we use Java's `::` operator.
@@ -312,9 +311,9 @@ private void configureSubsystems() {
 One advantage of this method is that if we have to do calculations (such as scaling the joystick value), we can use this method to perform other operations on that value:
 
 ```java
-    arm.setDefaultCommand(new ArmManualCommand(arm, () -> {
-        return Math.pow(operatorController.getLeftY(), 2); // square the value passed in
-    }));
+arm.setDefaultCommand(new ArmManualCommand(arm, () -> {
+    return Math.pow(operatorController.getLeftY(), 2); // square the value passed in
+}));
 ```
 
 However, we use the `::` operator because it is shorter and cleaner.
@@ -348,7 +347,6 @@ public final class Constants {
     public static int NEO_CURRENT_LIMIT = 80;
     public static double PI = 3.14159265;
     public static double UPDATE_PERIOD = 0.010; // seconds
-
 }
 ```
 
