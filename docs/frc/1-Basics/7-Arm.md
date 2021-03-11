@@ -1,16 +1,12 @@
 # Arm
 
-Now that you know how to make a claw and a roller intake, it is time to learn about a subsystem usually made in conjunction with the two. In this lesson, the purpose of the arm subsystem and the basic code to make it run will be gone over.
+Now that you know how to make a claw and a roller intake, we're going to learn about a subsystem usually made in conjunction with the two: the arm.
 
 ## Overview
 
 ![FRC 1257's 2019 Robot Arm](img/2019Robot.jpg)
 
-Above is a picture of the entire robot that Team 1257 made for the 2019 game, Destination Deep Space. Our roller intake (the green wheels) are attacked to our arm, which is composed of the two bars that rotate the entire intake up or down via a single motor.
-
-### Purpose
-
-The purpose of the arm is generally to make a subsystem of the robot able to move up or down. In the 2019 game, the purpose of the arm was to move the intake to various important positions, such as the ground to pick up cargo balls, or up to score the balls into the various scoring areas.
+Above is a picture of the entire robot that Team 1257 made for the 2019 game: Destination Deep Space. Our roller intake (the green wheels) are attached to our arm, which is composed of the two bars that rotate the entire intake up or down via a motor. In the 2019 game, the arm had to move up and down since we picked balls up off the ground and had to score them in higher up areas.
 
 ## Subsystem File
 
@@ -33,7 +29,7 @@ public class Arm extends SnailSubsystem {
     private CANSparkMax armMotor;
 ```
 
-After importing all of the required libraries, we declare the motor controllers needed for our subsystem. In this case, we just have a single motor that controls the arm's up and down motion.
+After importing all of the required libraries, we declare the motor controllers needed for our subsystem. In this case, we just have a single motor that controls the arm's motion.
 
 ### States
 
@@ -46,28 +42,24 @@ After importing all of the required libraries, we declare the motor controllers 
     private double speed = 0;
 ```
 
-After declaring the motor controller, the states are declared. The arm subsystem is a bit special however in that not only does it have an `enum` to keep track of the state, but it also has a `speed` variable. You can think of the `enum` as the "mode" that the subsystem is in. This could be in manual control where the operator controls the speed set to the motor directly or position closed loop control. However, while we're in this "manual control" mode, we also need to keep track of what speed we should be going out, so you can think of it as an extra part of our state that we have to keep track of.
+After declaring the motor controller, the states are declared. The arm subsystem is a bit special however in that not only does it have an `enum` to keep track of the state, but it also has a `speed` variable. You can think of the `enum` as the "mode" that the subsystem is in.
+
+This could be in manual control where the operator controls the speed set to the motor directly or in another mode where we control the position automatically (this is beyond the focus of this document though and will be covered more in depth in the sections on closed loop control).
+
+However, while we're in this "manual control" mode, we also need to keep track of what speed we should be going at, so you can think of it as an extra part of our state that we have to keep track of.
 
 ### Constructor
 
 ```java
 public Arm() {
-      armMotor = new CANSparkMax(ARM_ID, MotorType.kBrushless);
+      armMotor = new CANSparkMax(ARM_MOTOR_ID, MotorType.kBrushless);
       armMotor.restoreFactoryDefaults();
       armMotor.setIdleMode(IdleMode.kBrake);
       armMotor.setSmartCurrentLimit(NEO_CURRENT_LIMIT); // in amps
 }
 ```
 
-Similar to the roller intake, the constructor is used to define the motor controller and set up parameters with it.
-
-1. The first line declares the motor controller. A motor controller has two parameters which are the ID and the `MotorType`. For this specific motor controller, the ID is set to a constant called `ARM_ID` and the `MotorType` is set to brushless. This is because this motor controller is used to control a NEO motor which is brushless.
-
-2. `restoreFactoryDefaults()` wipes all settings on the motor controller to its defaults, ensuring that we know exactly what they are and that we can safely change what we want. If we didn't do this, the motor controller might have some of its values changed from default, and this could be very dangerous.
-
-3. The next line sets the idle mode of our motor to **brake** mode, which essentially means that the motor will try to stop itself from moving when we give it a command of `0`.
-
-4. Lastly, we set the current limit. If a motor experiences too much current for a sustained period of time it could get seriously damaged. This line of code is absolutely necessary to prevent that risk. The value of this current limit can change depending on what motors we are using, but for NEOs we generally use a value of about 80A. We store this as a constant in our `Constants.java` file.
+These are all the typical motor configuration settings that we have gone over in the past, so look at previous tutorials if you want a refresher on these.
 
 ### Update Function and setArmSpeed()
 
@@ -82,7 +74,7 @@ Similar to the roller intake, the constructor is used to define the motor contro
     }
 ```
 
-For our update function, we once again look at which state, or "mode," that we are in. Here, we only have one state, `MANUAL` for manual control. During this manual control state, we want to look at the current `speed` variable and set our motor's speed value to that.
+For our update function, we once again look at which state, or "mode," that we are in. Here, we only have one state, `MANUAL` for manual control. During this manual control state, we want to look at the current `speed` variable that's being stored and set our motor's speed value to that.
 
 ### Shuffle Board Functions
 
@@ -100,7 +92,7 @@ For our update function, we once again look at which state, or "mode," that we a
     }
 ```
 
-We will discuss how to write these functions in other sections.
+Just like before, we need these functions present in our file to allow the robot project to compile. However, we will be leaving them blank for now.
 
 ### State Functions
 
@@ -116,13 +108,13 @@ We will discuss how to write these functions in other sections.
 }
 ```
 
-In this case, we have the `setArmSpeed(double speed)` function to update the state of our arm. When this function is called, it takes in a `speed` parameter that it then stores as part of the state. Additionally, it will set the state, or "operating mode," of the subsystem to 
+In this case, we have the `setArmSpeed(double speed)` function to update the state of our arm. When this function is called, it takes in a `speed` parameter that it then stores as part of the state. Additionally, it will set the state, or "operating mode," of the subsystem to `State.MANUAL` to ensure the arm is in the correct state.
 
 Unlike the previous subsystems discussed, there is no function to set the state to one of the states. That is because the state is already set to `MANUAL` when `setArmSpeed()` is called.
 
 ## Arm Manual Command
 
-Unlike the claw and the roller intake command files, the arm command file has a few major differences. First of all, we only have a single command for our arm right now since we only have one action we want to do with it right now: move it manual control.
+Unlike the claw and the roller intake command files, the arm command file has a few major differences. First of all, we only have a single command for our arm right now since we only have one action we want to do with it right now: move it in manual control.
 
 One of the crucial parts of this command is that it somehow has to pass a value from our XboxController in `RobotContainer` to the `Arm` subsystem to use as the speed. You may be tempted to try something like the following:
 
@@ -164,7 +156,7 @@ public class ArmManualCommand extends CommandBase {
 Then, in `RobotContainer.java`, you may try something like this:
 
 ```java
-    arm.setDefaultCommand(new ArmManualCommand(operatorController.getLeftY()));
+arm.setDefaultCommand(new ArmManualCommand(operatorController.getLeftY()));
 ```
 
 > [!NOTE]
@@ -190,7 +182,7 @@ public class ArmManualCommand extends CommandBase {
     private final DoubleSupplier speedSupplier;
 ```
 
-Here, instead of storing a `double` called `speed`, we store a `DoubleSupplier`. A `DoubleSupplier` is an object that represents a function that returns a `double`. This allows us to pass in code that could for instance evaluate `operatorController.getLeftY()` constantly and give us access new, updated values.
+Here, instead of storing a `double` called `speed`, we store a `DoubleSupplier`. A `DoubleSupplier` is an object that represents a function that returns a `double`. This allows us to pass in code that could, for instance, evaluate `operatorController.getLeftY()` constantly and give us access new, updated values.
 
 #### Constructor
 
@@ -331,7 +323,7 @@ There's so much more to be covered with all of the possibilities included with t
 
 ## Constants
 
-Below, is the constants file which is self-explanatory and has been reviewed in the Roller Intake subsystem tutorial. Refer to that file if you need a refresher.
+Below, is the constants file which is self-explanatory and has been reviewed in previous tutorials. Refer to those if you need a refresher.
 
 ```java
 package frc.robot;
@@ -341,6 +333,8 @@ public final class Constants {
     public static class ElectricalLayout {
         public final static int CONTROLLER_DRIVER_ID = 0;
         public final static int CONTROLLER_OPERATOR_ID = 1;
+
+        public final static int ARM_MOTOR_ID = 0;
     }
 
     public static class Autonomous {
@@ -348,7 +342,7 @@ public final class Constants {
     }
 
     public static class Arm {
-        public final static int ARM_ID = 0;
+
     }
 
     public static int NEO_CURRENT_LIMIT = 80;
