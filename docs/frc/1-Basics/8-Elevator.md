@@ -1,6 +1,6 @@
 # Elevator
 
-You now know how to make three major subsystems that our team uses. In this lesson, it is time to learn a subsystem that works in a very similar way to the arm subsystem: the elevator. In this lesson, the purpose of the elevator will be explained and the basic code to run the subsystem will be gone over.
+You now know how to make three major subsystems that our team uses. In this lesson, it is time to learn a subsystem that works in a very similar way to the arm subsystem: the elevator.
 
 ## Overview
 
@@ -8,9 +8,7 @@ You now know how to make three major subsystems that our team uses. In this less
 
 Pictured above is an elevator subsystem. Not every elevator looks like this, though almost all used by 1257 have followed the same general concept. There are pulleys set up that are spun using motors that raise the elevator up and down. In many designs, the motors both spin in the same direction though there are also quite a few where the spin in opposite directions because of the ways that the pulleys are set up.
 
-### Purpose
-
-The purpose of an elevator is actually quite similar to an arm's. It is supposed to raise subsystems and game components up and down. For our 2020 robot, 1257 had an elevator which raised a hook so that it could latch onto a bar and elevate the robot. The biggest difference between an elevator and an arm is that an elevator moves translationally instead of rotationally mechanically. However, they are both controlled by 1 (or 2 for more power) motors and work really similary at the basic programming level.
+When considering only manual control, elevators are actually very similar to arms in that they just use 1-2 motors that you can control with a joystick. Typically, elevators have heaver loads than arms so they will use 2 motors often while arms may be seen with only one motor. In this tutorial, we'll review how to program an elevator that uses two motors.
 
 ## Subsystem File
 
@@ -61,29 +59,19 @@ public Elevator() {
     elevatorFollowerMotor.restoreFactoryDefaults();
     elevatorFollowerMotor.setIdleMode(IdleMode.kBrake);
     elevatorFollowerMotor.setSmartCurrentLimit(NEO_CURRENT_LIMIT);
-    elevatorFollowerMotor.follow(elevatorMotor, false);
+    elevatorFollowerMotor.follow(elevatorMotor, false); // following
 }
 ```
 
-Similar to the arm, the constructor is used to define the motor controller and set up parameters with it. Though one major difference is that there is a second motor that is also declared.
+Similar to the arm, the constructor is used to define the motor controller and set up parameters with it. Though one major difference is that there is a second motor that is also declared. We do the same configuration as before on both of the motors (restoring factory defaults, configuring brake mode, current limits).
 
-#### First Motor
+The difference is the line `elevatorFollowerMotor.follow(elevatorMotor, false);` This sets up `elevatorFollowerMotor` as a follower of `elevatorMotor` meaning that it always mirrors the output of `elevatorMotor`. This is crucial because the purpose of the follower motor is to add more power to the system. To do so, the motors have to move exactly in sync and always receive the commands or else they will fight against each other.
 
-1. The first line declares the motor controller. A motor controller has two parameters which are the ID and the `MotorType`. For this specific motor controller, the ID is set to a constant called `ELEVATOR_PRIMARY_ID` and the `MotorType` is set to brushless. This is because this motor controller is used to control a NEO motor which is brushless.
+To ensure that this always happens, we can just set up `elevatorFollowerMotor` as a follower and never have to worry about it again. We can just give our commands to `elevatorMotor` and have that handle everything.
 
-2. `restoreFactoryDefaults()` wipes all settings on the motor controller to its defaults, ensuring that we know exactly what they are and that we can safely change what we want. If we didn't do this, the motor controller might have some of its values changed from default, and this could be very dangerous.
+The second parameter of the `follow()` function determines whether the motor is inverted with respect to the primary motor. If it is `false`, then the motors will be in exact sync (clockwise on one means clockwise on the other). On the other hand, if we set it to `true`, then they will go in opposite directions.
 
-3. The next line sets the idle mode of our motor to **brake** mode, which essentially means that the motor will try to stop itself from moving when we give it a command of `0`.
-
-4. Lastly, we set the current limit. If a motor experiences too much current for a sustained period of time it could get seriously damaged. This line of code is absolutely necessary to prevent that risk. The value of this current limit can change depending on what motors we are using, but for NEOs we generally use a value of about 80A. We store this as a constant in our `Constants.java` file.
-
-#### Follower Motor
-
-The first four lines are exactly the same.
-
-The difference is the fifth line `elevatorFollowerMotor.follow(elevatorMotor, false);` This line makes it so that the `elevatorFollowerMotor` follows exactly what `elevatorMotor` does. This is crucial because the purpose of the follower motor is to add more power to the system. To do so, the motors have to move exactly in sync and always receieve the commands or else they will fight against each other. The second parameter of the `follow()` function determines whether the motor is inverted with respect to the primary motor.
-
-Whether a motor is inverted or not completely depends on the robot layout and the configuration is completely different for each robot made. The original motor can also be inverted with the function `setInverted(true);`, which is pretty self explanatory. See our [Motors](frc/1-Basics/2-Motors.md) file for more details.
+Whether a motor is inverted or not completely depends on the robot layout and the configuration is completely different for each robot made.
 
 > [!TIP]
 > We generally don't really worry about motor inversion when programming until we can actually see the mechanism and add in a few quick lines or do a bit of testing to see if the motors are moving in the desired direction. This is why it is essential when we are first testing the robot to move our mechanisms slowly and test one thing at a time in case we messed it up.
@@ -126,7 +114,7 @@ We will discuss how to write these functions in other sections.
 ### State Functions
 
 ```java
-public void setElevatorSpeed(double speed){
+public void manualControl(double speed){
     this.speed = speed;
     state = State.MANUAL;
 }
@@ -137,9 +125,9 @@ public State getState() {
 }
 ```
 
-In this case, we have the `setElevatorSpeed(double speed)` function to update the state of our elevator just like in the arm. When this function is called, it takes in a `speed` parameter that it then stores as part of the state. Additionally, it will set the state, or "operating mode," of the subsystem to `MANUAL`.
+In this case, we have the `manualControl(double speed)` function to update the state of our elevator just like in the arm. When this function is called, it takes in a `speed` parameter that it then stores as part of the state. Additionally, it will set the state, or "operating mode," of the subsystem to `MANUAL`.
 
-Just like in the arm subsystem, there is no function to set the state to one of the states. That is because the state is already set to `MANUAL` when `setElevatorSpeed()` is called.
+Just like in the arm subsystem, there is no function to set the state to one of the states. That is because the state is already set to `MANUAL` when `manualControl()` is called.
 
 ## Elevator Manual Command
 
@@ -186,13 +174,13 @@ public void initialize() {
 
 @Override
 public void execute() {
-    elevator.setElevatorSpeed(speedSupplier.getAsDouble());
+    elevator.manualControl(speedSupplier.getAsDouble());
 }
 ```
 
 `initialize()` contains nothing inside of it as there are no actions to be done immediately after the command is called.
 
-In the `execute()` function, `setElevatorSpeed()` from our subsystem is called with `speedSupplier.getAsDouble()` as a parameter. The `getAsDouble()` function essentially evaluates that stored function and passes in our speed value to the Elevator subsystem.
+In the `execute()` function, `manualControl()` from our subsystem is called with `speedSupplier.getAsDouble()` as a parameter. The `getAsDouble()` function essentially evaluates that stored function and passes in our speed value to the Elevator subsystem.
 
 ### isFinished() and end()
 
@@ -286,14 +274,16 @@ public final class Constants {
     public static class ElectricalLayout {
         public final static int CONTROLLER_DRIVER_ID = 0;
         public final static int CONTROLLER_OPERATOR_ID = 1;
+
+        public final static int ELEVATOR_PRIMARY_ID = 0;
+        public final static int ELEVATOR_FOLLOWER_ID = 1;
     }
 
     public static class Autonomous {
 
     }
     public static class Elevator {
-        public final static int ELEVATOR_PRIMARY_ID = 0;
-        public final static int ELEVATOR_FOLLOWER_ID = 1;
+        
     }
 
     public static int NEO_CURRENT_LIMIT = 80;
