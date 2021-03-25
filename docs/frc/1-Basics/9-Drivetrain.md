@@ -143,7 +143,7 @@ When the drivetrain state is `MANUAL`, we use `DifferentialDrive`'s `arcadeDrive
 ```java
     @Override
     public void displayShuffleboard() {
-        SmartDashboard.putString("Drive State", state.name());
+    
     }
 
     @Override
@@ -249,7 +249,6 @@ The final part of this process is to link the command to the subsystem and bind 
 package frc.robot;
 
 import edu.wpi.first.wpilibj.Notifier;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.commands.drivetrain.ManualDriveCommand;
 import frc.robot.subsystems.Drivetrain;
