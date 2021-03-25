@@ -80,6 +80,25 @@ The constructor is pretty simple as all we do is just set up the solenoids and s
 
 Once each of the solenoids is defined and the states are declared, the update function is made in order to define what happens during each state. In the `CLOSED` state the pneumatic cylinders extend as the solenoids are set to `Value.kForward` which will close the claw. In the `OPEN` state, the pneumatic cylinders retract as the solenoids are set to `Value.kReverse`, which will open the claw.
 
+### State Functions
+
+```java
+    public void open() {
+        state = State.OPEN;
+    }
+
+    public void close() {
+        state = State.CLOSED;
+    }
+
+    public State getState() {
+        return state;
+    }
+}
+```
+
+The next thing that is done is the declaration of the functions that have to do with modifying the state. These will be used in the next section and will be called by our commands to perform actions on our subsystem.
+
 ### ShuffleBoard Functions
 
 ```java
@@ -101,25 +120,6 @@ Once each of the solenoids is defined and the states are declared, the update fu
 
 Just like before, we need these functions present in our file to allow the robot project to compile. However, we will be leaving them blank for now.
 
-### State Functions
-
-```java
-    public void open() {
-        state = State.OPEN;
-    }
-
-    public void close() {
-        state = State.CLOSED;
-    }
-
-    public State getState() {
-        return state;
-    }
-}
-```
-
-The last thing that is done is the declaration of the functions that have to do with modifying the state. These will be used in the next section and will be called by our commands to perform actions on our subsystem.
-
 ## Commands
 
 ### Close Command
@@ -130,7 +130,7 @@ package frc.robot.commands.claw;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Claw;
 
-public class ClawCloseCommand extends CommandBase {
+public class ClawCloseCommand extends InstantCommand {
 
     private Claw claw;
 
@@ -154,23 +154,14 @@ public class ClawCloseCommand extends CommandBase {
     public void end(boolean interrupted) {
         
     }
-
-    @Override
-    public boolean isFinished() {
-        return false;
-    }
 }
 ```
 
-The commands here are very similar to those of the roller intake in that all it does is simply call a single function on our `Claw.java` subsystem while it is executing.
-
-1. A local `claw` object is passed into the constructor for the command, which will allow the command to modify the Claw subsystem.
-2. In the constructor, the Claw subsystem is added as a requirement for this command.
-3. In the execute function, the state is set to `CLOSED` through the close function.
-4. In `end()`, we just leave it blank because when the command ends, there's nothing we have to do. We can just leave the claw and it'll maintain its state.
-5. In `isFinished()`, we just leave it as `return false;` since we don't want the command to end by itself. Instead, it'll end when the button triggering it is no longer being pressed or it is interrupted.
+The commands here are very similar to those of the roller intake in that all it does is simply call a single function on our `Claw.java` subsystem.
 
 One important caveat here is that while we were programming the roller intake's commands, we put code to return the intake to its neutral position when the command ended. However, here, we don't actually want to do that. The reason is because we want the commands to sort of act as a toggle for the claw. When `ClawCloseCommand` is ran, it should just close the claw. However, when it has stopped running, we don't want to just have the claw opened up again; we want to keep it closed. On the other hand, our roller intake shouldn't act as a toggle.
+
+Another important thing to note is that we used `InstantCommand` instead of `CommandBase` here. The reason we did is that because this type of command is one that will just perform a single action and then instantly end. To make this happen, we can use the `InstantCommand` parent class, which is actually a subclass of `CommandBase`. We can actually put the `claw.close()` instruction in either `initialize()` or `execute()` since they will both run once. Because the command is an `InstantCommand`, we don't actually need to override the `isFinished()` function, and doing so will actually result in an error.
 
 ### Open Command
 
@@ -182,7 +173,7 @@ package frc.robot.commands.claw;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Claw;
 
-public class ClawOpenCommand extends CommandBase {
+public class ClawOpenCommand extends InstantCommand {
 
     private Claw claw;
 
@@ -205,11 +196,6 @@ public class ClawOpenCommand extends CommandBase {
     @Override
     public void end(boolean interrupted) {
 
-    }
-
-    @Override
-    public boolean isFinished() {
-        return false;
     }
 }
 ```
