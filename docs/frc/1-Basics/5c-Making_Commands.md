@@ -125,6 +125,7 @@ By calling this function, we actually change the subsystem state to `INTAKING` w
 
 ```java
 // Note: this code is inside of our RollerIntake.java file and is already programmed
+// The code should use constants to represent the speed values, but they have been omitted
 
 @Override
 public void update() {
@@ -155,7 +156,7 @@ With the main functionality of the command complete, it is now time to define wh
 
     @Override
     public void end(boolean interrupted) {
-        rollerIntake.neutral();
+    
     }
 
     @Override
@@ -165,8 +166,7 @@ With the main functionality of the command complete, it is now time to define wh
 }
 ```
 
-* The `end()` function is called when the command is finished running. In this case, the `RollerIntake` is reverted to the `neutral` state, which we defined as the default.
-  * Side note: when the function is called, the `interrupted` variable will either be set to `true` or `false` depending on how the function was ended. The `interrupted` variable is set to `true` if another command had interrupted this command.
+* The `end()` function is called when the command is finished running. In this case, we're not going to do anything special here. The subsequent action of the intake will be determined by which command runs next, so there's no need to explicitly change it to something when this command ends.
 * The `isFinished()` function is in charge of giving the conditions for which a command ends. By default, `false` is returned, which means that the function will never end by some specified condition in `isFinished()`. Instead, it will end when its corresponding button/trigger is no longer calling the command (we'll cover binding commands in the next section).
 
 ---
@@ -200,7 +200,7 @@ public class RollerIntakeIntakeCommand extends CommandBase {
 
     @Override
     public void end(boolean interrupted) {
-        rollerIntake.neutral();
+    
     }
 
     @Override
