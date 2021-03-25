@@ -219,6 +219,6 @@ public class RobotContainer {
 
 ## Final Remarks
 
-With that, we're done! We've created a fully functional subsystem with bound commands. Hopefully you can try this out on a robot and see the results yourself.
+With that, we're done! We've created a fully functional subsystem with bound commands. Hopefully you can try this out on a robot and see the results yourself. Click [here](https://github.com/FRC1257/training-programs/tree/master/basics/roller-intake) for a link to the full code.
 
 This is one of the first and most basic subsystems we can program, but you can be sure that we will learn how to program much, much more! We're going to go over a few more common subsystems, starting with another style of intake: a claw intake.

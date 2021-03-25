@@ -18,6 +18,7 @@
     * [Arm](frc/1-Basics/7-Arm.md)
     * [Elevator](frc/1-Basics/8-Elevator.md)
     * [Drivetrain](frc/1-Basics/9-Drivetrain.md)
+    * [Extra Features](frc/1-Basics/10-Extra_Features.md)
   * [Sensors & Shuffleboard](frc/2-Sensors_And_Shuffleboard/README.md)
   * [Closed Loop Control](frc/3-Closed_Loop_Control/README.md)
   * [Autonomous](frc/4-Autonomous/README.md)

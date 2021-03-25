@@ -296,6 +296,6 @@ public final class Constants {
 
 ## Final Remarks
 
-If there are any lingering questions about anything gone over in this lesson, please contact a senior programming member.
+If there are any lingering questions about anything gone over in this lesson, please contact a senior programming member. Click [here](https://github.com/FRC1257/training-programs/tree/master/basics/claw-intake) for a link to the full code.
 
 With the claw lesson over, you now know how to code two major subsystems that team 1257 uses! Next lesson, we will learn about yet another subsystem that team 1257 uses nearly every year: the arm!

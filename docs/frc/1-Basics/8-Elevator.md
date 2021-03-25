@@ -294,6 +294,6 @@ public final class Constants {
 
 ## Final Remarks
 
-If there are any lingering questions about anything gone over in this lesson, please ask a senior programming member.
+If there are any lingering questions about anything gone over in this lesson, please ask a senior programming member. Click [here](https://github.com/FRC1257/training-programs/tree/master/basics/elevator) for a link to the full code.
 
 With the elevator lesson over, you now know how to code four major subsystems that our team uses! Next lesson, we will learn about arguably the most important subsystem that Team 1257 uses: the drivetrain!

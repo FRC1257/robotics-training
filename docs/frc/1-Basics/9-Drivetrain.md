@@ -311,4 +311,6 @@ Another purpose of these functions is to facilitate different drivers who have v
 
 ## Conclusion
 
-With that, we're finished! Congratulations on finishing the `Basics` section and learning how to program multiple subsystems. In the next sections, you will learn about Shuffleboard and various robot sensors.
+With that, we're finished! Click [here](https://github.com/FRC1257/training-programs/tree/master/basics/drivetrain) for a link to the full code.
+
+In the next section, you will learn how to add a bit more functionality to the basic subsystems we have programmed so far with things like toggling precision / reversed mode.

@@ -352,6 +352,6 @@ public final class Constants {
 
 ## Final Remarks
 
-If there are any lingering questions about anything gone over in this lesson, please ask a senior programming member.
+If there are any lingering questions about anything gone over in this lesson, please ask a senior programming member. Click [here](https://github.com/FRC1257/training-programs/tree/master/basics/arm) for a link to the full code.
 
 With the arm lesson over, you now know how to code three major subsystems that our team uses! Next lesson, we will learn about yet another subsystem that Team 1257 uses: the elevator!
