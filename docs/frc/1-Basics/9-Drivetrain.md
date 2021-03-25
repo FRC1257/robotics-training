@@ -57,17 +57,15 @@ public class Drivetrain extends SnailSubsystem {
 
 Just like we did for all the previous subsystems, we now need to determine our drivetrain's states. For now, we will only focus on the `MANUAL` state, and will leave more advanced drivetrain states for future sections.
 
-We'll declare our state(s) in the form of an [enum:](https://frc1257.github.io/robotics-training/#/java/2-Control_Flow/7-Enums)
+We'll declare our state(s) in the form of an [enum:](https://frc1257.github.io/robotics-training/#/java/2-Control_Flow/7-Enums). We also have a variable to hold the state of the subsystem.
 
 ```java
     public enum State {
         MANUAL
     }
-    private final State defaultState = State.MANUAL;
-    private State state = defaultState;
+    
+    private State state;
 ```
-
-We then add a private variable that'll hold the default state of the subsystem, which, in this case, will be `MANUAL`. Having a separate default state variable is good for expandability in the program and also reduces confusion during robot testing or competition. Finally, we initialize our subsystem-wide state variable with the default state.
 
 As mentioned before, we will need to pass in values into `DifferentialDrive` to command drivetrain movement. We can declare the speed variables as such:
 
@@ -107,6 +105,7 @@ The state we introduced above can be considered the "operating mode" or "configu
 
         drivetrain = new DifferentialDrive(frontLeftMotor, frontRightMotor);
 
+        state = State.MANUAL;
         speedForward = 0;
         speedTurn = 0;
     }
