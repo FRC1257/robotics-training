@@ -19,6 +19,7 @@
     * [Elevator](frc/1-Basics/8-Elevator.md)
     * [Drivetrain](frc/1-Basics/9-Drivetrain.md)
     * [Extra Features](frc/1-Basics/E-Extra_Features.md)
+    * [Basic Subsystem Guide](frc/1-Basics/G-Guide.md)
   * [Sensors & Shuffleboard](frc/2-Sensors_And_Shuffleboard/README.md)
   * [Closed Loop Control](frc/3-Closed_Loop_Control/README.md)
   * [Autonomous](frc/4-Autonomous/README.md)
