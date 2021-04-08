@@ -25,9 +25,9 @@ public class Arm extends SnailSubsystem {
 ```
 
 > [!WARNING]
-> Do **NOT** use arrays for constant tuning. They are **NOT** editable.
+> Do **NOT** use arrays for constant tuning. They are **NOT** editable inside of the Shuffleboard.
 
-Just a note for when you're actually using the robot, enable `Test Mode` for a brief second before going back to `Teleoperated Mode` to actually populate Shuffleboard with the constant tuning variables.
+Just a note for when you're actually using the robot with the Driver Station, you need to first enable test mode for a brief moment to make sure that `tuningInit()` is actually run. Then, we can switch back to teleoperated mode to actually use them. The reason why we have to do this is not entirely clear at the time of writing this article (probably some bug in WPILib that prevents us from controlling our subsystems in test mode).
 
 ## Retrieving Constants from Shuffleboard
 
@@ -53,4 +53,4 @@ public class Arm extends SnailSubsystem {
 }
 ```
 
-Another note: when you're actually using the robot, you need to set the boolean `Testing` to true while `Teleoperated Mode` is enabled so that the robot will actually query the Shuffleboard for updates.
+Another note: when you're actually using the robot, you need to set the boolean `Testing` to true while teleoperated mode is enabled so that the robot will actually query the Shuffleboard for updates.

@@ -225,7 +225,7 @@ public class Elevator extends SnailSubsystem {
                 elevatorPID.setReference(setpoint, ControlType.kSmartMotion);
 
                 // you can add some stuff to check if it reached its setpoint or not
-                // left as an exercise to the reader
+                // (left as an exercise to the reader)
                 break;
         }
     }

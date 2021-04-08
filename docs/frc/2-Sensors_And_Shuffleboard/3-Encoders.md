@@ -27,7 +27,7 @@ public class Elevator extends SnailSubsystem {
 We want to set up the encoder for the `primaryMotor`, so we can do the following:
 
 ```java
-public Elevator {
+public Elevator() {
     primaryMotor = new WPI_TalonSRX(ELEVATOR_PRIMARY_MOTOR_ID);
     primaryMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative);
     primaryMotor.setSelectedSensorPosition(0);
@@ -216,7 +216,7 @@ public class ManualElevatorCommand extends CommandBase {
 
     @Override
     public void execute() {
-        elevator.setSpeed(speedSupplier.getAsDouble());
+        elevator.manualControl(speedSupplier.getAsDouble());
         elevator.setPrimaryEncoderOverride(overrideSupplier.getAsBoolean())
     }
 }

@@ -62,7 +62,7 @@ We can also do the same for any of the other functions available in our `Gyro` c
 For reference:
 
 - yaw = shaking head no
-- pitch = shaking your head yes (like a pitcher going forward)
+- pitch = shaking your head yes (like a baseball pitcher swinging their arm forward to throw a ball)
 - roll = do a barrel roll direction (roll left or right)
 
 When we refer to robot angle, we refer to yaw.

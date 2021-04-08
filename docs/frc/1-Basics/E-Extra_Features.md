@@ -125,4 +125,4 @@ private void configureButtonBindings() {
 
 ## Drivetrain Reverse and Slow Turn
 
-Another common thing we do inside of our drivetrain is to implement reverse drive and slow turn. These are both toggleable features that allow us to drive backwards and turn slowly upon pressing them. These are incredibly useful features that allow the driver to control the robot more precisely. They're implemented very similarly compared to the above, so we won't go over it here. However, checkout the example drivetrain code at [https://github.com/FRC1257/training-programs] to see an example of how it's implemented.
+Another common thing we do inside of our drivetrain is to implement reverse drive and slow turn. These are both toggleable features that allow us to drive backwards and turn slowly upon pressing them. These are incredibly useful features that allow the driver to control the robot more precisely. They're implemented very similarly compared to the above, so we won't go over it here. However, checkout the example drivetrain code at [https://github.com/FRC1257/training-programs](https://github.com/FRC1257/training-programs) to see an example of how it's implemented.
