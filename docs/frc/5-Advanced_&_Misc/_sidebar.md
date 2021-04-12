@@ -6,6 +6,7 @@
   * [Closed Loop Control](frc/3-Closed_Loop_Control/README.md)
   * [Autonomous](frc/4-Autonomous/README.md)
   * [Advanced & Misc.](frc/5-Advanced_&_Misc/README.md)
+    * [Limelight (Vision)](frc/5-Advanced_&_Misc/Limelight.md)
     * [Advanced State Machines](frc/5-Advanced_&_Misc/Advanced_State_Machines.md)
     * [Characterization](frc/5-Advanced_&_Misc/Characterization.md)
     * [Iterative Programming](frc/5-Advanced_&_Misc/Iterative_Programming.md)

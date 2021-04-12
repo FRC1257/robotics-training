@@ -1,7 +1,0 @@
-* [Home](/)
-* [Java](java/README.md)
-* [FRC](frc/README.md)
-* [Git / GitHub](git/README.md)
-* [Vision](vision/README.md)
-  * [Limelight Essentials](vision/Limelight_Essentials.md)
-  * [Vision Basics](vision/Vision_Basics.md)
