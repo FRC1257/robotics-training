@@ -12,4 +12,3 @@ In the next few sections, we'll learn how to create curved trajectories that the
 > located here: 
 >
 > https://github.com/Ryan10145/frc-drivetrain
-

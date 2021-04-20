@@ -2,6 +2,19 @@
 
 As mentioned in the overview, one of the most difficult parts of the autonomous routine is maneuviring the robot around the field efficiently. The first method we will use to solve this problem is through segmented trajectories, which just means that we use a combination of driving straight forward a specific distance and turning a specific distance to reach our final destination. For simplicity's sake, we normally use only 90 degree angles while doing this to reduce the propagation of error in our final result as much as possible.
 
+## Designing Trajectories
+
+We won't go into the exact specifics on how we would design these trajectories, but the general idea is as follows:
+
+1. Get a general idea of every autonomous path we think we could use in the game. Remember that there are 3 starting positions and a variety of objects we could go to, so we could have over a dozen different paths. Draw these roughly on an image file without any exact measurements.
+2. Download the field CAD for the game that we want to design the autonomous paths for
+3. Use the measure command in the appropriate CAD software to determine all of the necessary distances for each of the paths.
+4. Make sure we note where each autonomous starts from as well. There is a ton of leeway in where each robot is allowed to start and it isn't marked on the field anywhere, so it is important that we note this so when the drive team is putting the robot on the field, they put it in the right place.
+
+When we measure all units, they should be in meters for consistency. This is because this works the best with some WPILib classes that assume all units are in meters for the best results.
+
+## Programming Trajectories
+
 To make these trajectories, we need to define two key commands: one that drives the robot straight forward a specific distance and another that turns a specific angle. We will handle turning a specific angle first.
 
 ## Turn Angle Command
