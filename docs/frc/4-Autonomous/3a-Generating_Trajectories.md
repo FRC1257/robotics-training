@@ -8,7 +8,7 @@ To start PathWeaver, first open up the WPILib version of VSCode. Then, go to the
 
 When you open PathWeaver, you may be greeted by an interface that looks like this:
 
-![PathWeaver interface](./img/Pathweaver.png)
+![Pathweaver](img/Pathweaver.png ':size=500x')
 
 Press `Create Project` to get started or click on an existing project to open it. For the settings, do the following:
 
@@ -23,7 +23,7 @@ Press `Create Project` to get started or click on an existing project to open it
 
 After generating your project, you should be greeted with the following interface:
 
-![PathWeaver Editing Interface](./img/Pathweaver Interface.png)
+![PathWeaver Editing Interface](img/PathweaverInterface.png)
 
 First, we must talk about what exactly a `path` is in PathWeaver. A path is a single curved line that goes between two waypoints. Waypoints are just points on the field that also have a direction, or heading, associated with them. When you click on a waypoint in PathWeaver, you can use the text boxes on the bottom left to control exactly where the triangle is with the X and Y, and you can use the text boxes on the bottom right to control the tangent direction, which defines the direction the robot is facing. You can either type in exact values here or drag around the points with your mouse.
 
@@ -31,19 +31,19 @@ First, we must talk about what exactly a `path` is in PathWeaver. A path is a si
 > It is highly advised that you do not use the dragging around feature besides just to get an idea of what the path will look like.
 > For paths that will go on the robot, you should instead use field measurements to determine exactly where the positions we wish to go are as well as the tangents. On the below image, the red arrow marks where (0, 0) is.
 
-![PathWeaver Drawing Paths](./img/Pathweaver Paths.png)
+![PathWeaver Drawing Paths](./img/PathweaverPaths.png)
 
 The way we create paths in PathWeaver is by pressing the plus button in the bottom right. This will create a new path that you will see on the bottom right. You will also notice the path displayed in orange with the waypoints determining the path marked as orange triangles. The bright cyan lines determine the tangent vectors.
 
 When the orange path is filled in, this means that this is a forward trajectory, meaning that the robot will be driving forwards while following this. However, there are times when we want to actually drive our robot backwards. To do this, we can click the `Reverse Spline` checkbox in the bottom right. This will flip the headings so that the robot is actually driving backwards while following the path.
 
-![PathWeaver Drawing Reversed Paths](./img/Pathweaver Reverse.png)
+![PathWeaver Drawing Reversed Paths](./img/PathweaverReverse.png)
 
 ## Creating Path Groups
 
 If we wanted to make more complicated paths, we can actually create multiple paths and run them consecutively. To help visualize this easily, PathWeaver has something built in called Path Groups. Press the plus button in the top right to create a path group, and then drag the paths in the bottom panel into the group. When you click on the group, you should be able to see all of your paths at the same time, which is really convenient for visualizing how the entire path flows.
 
-![PathWeaver Path Groups](./img/Pathweaver Groups.png)
+![PathWeaver Path Groups](./img/PathweaverGroups.png)
 
 > [!WARNING]
 > The above image is NOT a good example of what a path group should look like since it just has two random paths in it that aren't linked at all. The purpose of path groups is for multiple paths that will be run consecutively.
