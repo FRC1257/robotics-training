@@ -10,7 +10,6 @@
     * [Advanced Trajectories](frc/4-Autonomous/3-Advanced_Trajectories.md)
       * [Generating Trajectories](frc/4-Autonomous/3a-Generating_Trajectories.md)
       * [Following Trajectories](frc/4-Autonomous/3b-Following_Trajectories.md)
-      * [Advanced Explanation](frc/4-Autonomous/3c-Advanced_Explanation.md)
     * [Command Groups](frc/4-Autonomous/4-Command_Groups.md)
     * [Auto Choosing](frc/4-Autonomous/5-Auto_Choosing.md)
   * [Advanced & Misc.](frc/5-Advanced_&_Misc/README.md)
