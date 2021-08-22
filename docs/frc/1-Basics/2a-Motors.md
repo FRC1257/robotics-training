@@ -1,14 +1,14 @@
 # Motors
 
-Now that we've gone over the overall structure and other details, let's get into actually learning some components of the robot, starting with the motors.
+Now that we've gone over the overall match structure and other details, let's get into actually learning about some components of the robot, starting with the motors.
 
 ## Terminology
 
 An actuator is defined as "a component of a machine that is responsible for moving and controlling a mechanism or system." For our purposes, we need only consider *motors* and *pneumatics*.
 
-Our robot is essentially entirely made up of motors. All moving components are controlled by motors or pneumatics, and our job as programmers is to figure out how to convert drive team input into the robot actually doing its job. For instance, programming can make sure that certain motors move when drive team pushes buttons or joysticks on a game controller.
+Our robot is essentially entirely made up of motors. All moving components are controlled by motors or pneumatics, and our job as programmers is to figure out how to convert drive team input into the robot actually doing its job. We can make sure that certain motors move when drive team pushes buttons or joysticks on a game controller.
 
-Motors are widely used throughout most, if not all of our robot's subsystems, e.g. on the drivetrain. When we have a motor, we can have our robot code apply a voltage to the motor, which will cause it to spin. On our robot, this motor will be attached to a gearbox and other mechanical contraptions to transform this rotational motion into the motion desired for the robot. At the time of writing, 1257 mainly uses NEO Brushless and NEO 550 motors made by REV Robotics.
+Motors are widely used throughout most, if not all of our robot's subsystems, especially on the drivetrain. When we have a motor, we can have our robot code apply a voltage to the motor, which will cause it to spin. On our robot, this motor will be attached to a gearbox and other mechanical contraptions to transform this rotational motion into the motion desired for the robot. As of the 2019-20 season, 1257 mainly uses NEO Brushless and NEO 550 motors made by REV Robotics.
 
 ![SPARK MAX](img/SPARKMAX.png ':size=330x310') ![NEO 550](img/NEOvs550.png ':size=330x230')
 
@@ -22,7 +22,7 @@ For each of the motor controllers on the actual robot, we can create an object i
 ## Setup & Control
 
 > [!NOTE]
-> We're just going to go over the syntax of how to create a motor, don't worry about creating the full fledged program around them yet. We will go over this in depth when we program our first subsystem.
+> We're just going to go over the syntax of how to create a motor, don't worry about creating the full-fledged program around them yet. We will go over this in depth when we program our first subsystem.
 
 ```java
  //  Import the required class from the Rev Robotics library
@@ -50,9 +50,9 @@ For each of the motor controllers on our robot, they will have something known a
 
 ### Brushed vs Brushless
 
-There are two main types of motors: brushed and brushless. The only supported brushless motors as of now are the NEOs, NEO 550s, and the Falcon 500. Additionally, the only motor controller that can run brushless motors are the SPARK MAXes and the Falcon 500s (the Falcon 500 is a motor and motor controller combined). As such, we only have to specify brushed vs brushless when we choose to use SPARK MAXes. You can read about [Brushed vs. Brushless motors](https://cordlessdrillzone.com/drill-wars/brushless-vs-brushed-motor/).
+There are two main types of motors: brushed and brushless. The only supported brushless motors as of now are the NEOs, NEO 550s, and the Falcon 500. Additionally, the only motor controller that can run brushless motors are the SPARK MAXes and the Falcon 500s (the Falcon 500 is a motor and motor controller combined). As such, we only have to specify brushed vs brushless when we choose to use SPARK MAXes. You can read about [Brushed vs. Brushless motors here](https://cordlessdrillzone.com/drill-wars/brushless-vs-brushed-motor/).
 
-A great feature of the SPARK MAX controller is that it can handle both brushless and brushed motors. This versatility is very convenient for teams that have many brushed motor spares, as it allows for quick motor replacement if a NEO/NEO 550 is broken. If a motor change from brushless to brushed is made, all that needs to be updated is `MotorType.kBrushless` to `MotorType.kBrushed`, and vice versa.
+A great feature of the SPARK MAX controller is that it can handle both brushless and brushed motors. This versatility is very convenient for teams that have many brushed motor spares, as it allows for quick motor replacement if a motor such as a NEO/NEO 550 is broken. If a motor change from brushless to brushed is made, all that needs to be updated is `MotorType.kBrushless` to `MotorType.kBrushed`, and vice versa.
 
 ### Brake vs Coast
 
@@ -62,13 +62,13 @@ All motor controller support the option to set the motor controller in either `b
 
 To make motors run, the electrical system supplies a "current" to the motor, measured in amperes, or amps for short. Normally, when there is nothing attached to the motor and the motor can freely spin, the motor runs perfectly fine with a normal amount of current draw. However, if there is a significant load or something impeding the rotation of the motor, then the current draw can spike. Sustained amounts of current draw can severely damage electrical components and even permanently damage motors. While our robot does have breakers and fuses to prevent severe electrical damage from occurring, motors can still become severely damaged if we draw too much current.
 
-Fortunately, most motor controller support `current limiting`, which allows us to specify a limit for the maximum current our motor can draw. It's **absolutely necessary** to set an appropriate limit as a safety, such that risk of overdrawing/damaging the motor is reduced.
+Fortunately, most motor controllers support `current limiting`, which allows us to specify a limit for the maximum current our motor can draw. It's **absolutely necessary** to set an appropriate limit as a safety, such that risk of overdrawing/damaging the motor is reduced.
 
-For larger motors such as our NEOs or CIMs, we can set a limit of around `80A`. For smaller motors such as the fragile NEO 550s, we can set a limit of around `25A`.
+For larger motors such as our NEOs or CIMs, we can set a limit of around `80A`. For smaller motors like NEO 550s, we can set a limit of around `25A`.
 
 ### Inversion
 
-Sometimes, our motors may be facing in direction so that when we apply a positive output, the mechanism does not move in the desired direction. While this could be solved by always multiplying the value passed in by `-1`, this can be confusing and lead to bugs. However, what we can do instead is set the motor to be "inverted", which will flip which direction corresponds to positive. We can do this in code by using `.setInverted(true)` on the desired motor.
+Sometimes, our motors may be oriented so that when we apply a positive output, the mechanism does not move in the desired direction. While this could be solved by always multiplying the value passed in by `-1`, this can be confusing and lead to bugs. However, what we can do instead is set the motor to be "inverted", which will flip which direction corresponds to positive. We can do this in code by using `.setInverted(true)` on the desired motor.
 
 ### Following
 
@@ -96,9 +96,9 @@ Now, to apply power to the motor and make it move at a speed, we can use `motor.
 
 ## Other Motor Controllers
 
-The SPARK MAX is not the only motor controller we could use -- in the past, 1257 has used Talon SRXs and Victor SPXs (both by [CTRE](http://www.ctr-electronics.com/control-system.html?p=3)).
+The SPARK MAX is not the only motor controller we could use—in the past, 1257 has used Talon SRXs and Victor SPXs (both by [CTRE](http://www.ctr-electronics.com/control-system.html?p=3)).
 
-While the motor controller may differ, the general process of controlling the motor is most the same. If Talon SRXs were being used, changes would go towards the class name (now `WPI_TalonSRX`) and any functions taken from that class (e.g. `setIdleMode()` would go to `setNeutralMode()`, and `setSmartCurrentLimit()` would be `configContinuousCurrentLimit()`.
+While the motor controller may differ, the general process of controlling the motor is most the same. If Talon SRXs were being used, changes would go towards the class name (now `WPI_TalonSRX`) and any functions taken from that class (e.g. `setIdleMode()` would be `setNeutralMode()`, and `setSmartCurrentLimit()` would be `configContinuousCurrentLimit()`.
 
 ```java
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
@@ -151,4 +151,4 @@ ejectMotor.set(-0.5);
 
 ---
 
-We will organize all of this material into an actual subsystem class soon -- the important part here is the basic idea of setting up motor controller objects in our code and then setting them.
+We will organize all of this material into an actual subsystem class soon—the important part here is the basic idea of setting up motor controller objects in our code and then setting them.

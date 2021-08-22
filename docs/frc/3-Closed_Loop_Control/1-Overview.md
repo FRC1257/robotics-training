@@ -1,6 +1,6 @@
 # Overview of Closed Loop Control
 
-Up until now, we have been using pretty much entirely `open loop control`, which is when the value that we sent to our actuators is determined solely by the input from something like a controller and does not use sensor feedback. For what we've dealt with so far, where we wanted the user to be able to control the mechanism's speed via a joystick or a button press, this has worked fine. However, if we wanted to do something such as move our mechanism to a setpoint, this becomes more difficult. For instance, in the 2019 game, we had 2 different setpoints for our arm that we used for scoring the cargo balls: one for the cargo ship goal height and one for the lowest rocket goal height.
+Up until now, we have been using pretty much entirely `open-loop control`, which is when the value that we sent to our actuators is determined solely by the input from something like a controller and does not use sensor feedback. For what we've dealt with so far, where we wanted the user to be able to control the mechanism's speed via a joystick or a button press, this has worked fine. However, if we wanted to do something such as move our mechanism to a setpoint, this becomes more difficult. For instance, in the 2019 game, we had 2 different setpoints for our arm that we used for scoring the cargo balls: one for the cargo ship goal height and one for the lowest rocket goal height.
 
 One might try to solve this problem of precise control by using timing. For instance, if we wanted to drive forward 10 feet, we could just time how long our robot takes to go 10 feet when we apply 70% power forward and then use that timing to allow our drivetrain to go at that speed.
 
@@ -8,13 +8,13 @@ However, this solution generally does not work for a variety of different reason
 
 ## Closed Loop Control
 
-In closed loop control, we add sensor feedback to make our control over our system MUCH better. We have a variety of different techniques that can use these sensors to get our desired behavior from the system, as long as our sensors are actually measuring that behavior. For instance, we can use sensors and closed loop control to bring our mechanism to a certain position or make our mechanism move at a specified velocity.
+In closed-loop control, we add sensor feedback to make our control over our system MUCH better. We have a variety of different techniques that can use these sensors to get our desired behavior from the system, as long as our sensors are actually measuring that behavior. For instance, we can use sensors and closed-loop control to bring our mechanism to a certain position or make our mechanism move at a specified velocity.
 
 ## Common Types of Closed Loop Control
 
 ### Bang Bang Control
 
-Bang bang control is the simplest type of closed loop controller. We simply check if our sensor reading is less than the desired value, and if it is, then we apply a motor output that will bring us towards the desired value. If the sensor reading is greater than the desired value, then we apply the reverse output. This is generally unstable and not recommended since the mechanism can bounce aggressively between the two sides of the setpoint.
+Bang bang control is the simplest type of closed-loop controller. We simply check if our sensor reading is less than the desired value, and if it is, then we apply a motor output that will bring us towards the desired value. If the sensor reading is greater than the desired value, then we apply the reverse output. This is generally unstable and not recommended since the mechanism can bounce aggressively between the two sides of the setpoint.
 
 ### PID Control on Position/Velocity
 

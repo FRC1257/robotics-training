@@ -1,6 +1,8 @@
 # Setting Up
 
-Welcome to the beginning of learning to program robots! Here we're going to get you started on programming some basic robots and later we can learn more about programming more advanced functionality such as closed loop control or outputting diagnostic data. First of all, we need to get set up with some projects.
+Welcome to the beginning of learning to program robots! Here, we're going to get you started on programming some basic robots, and later we can learn more about programming more advanced functionality such as closed-loop control or outputting diagnostic data. 
+
+First of all, we need to get set up with some projects.
 
 ## Using the GitHub template
 
@@ -8,13 +10,13 @@ First, you must make a GitHub account at [github.com](https://github.com). I wou
 
 [Snail Robot Template](https://github.com/FRC1257/snail-robot-template).
 
-Then, click the green button labeled `Use this template`. Make sure that the `Owner` tag has **your** account under it. For the name, you can put anything you want, like `Learning-Robot-Code`. For repository visibility, you can choose either `Public` or `Private`, but I would personally choose `Private`. Every time you want to make a new robot project, you should follow these steps.
+Click the green button labeled `Use this template`. Make sure that the `Owner` tag has **your** account under it. For the name, you can put anything you want, like `Learning-Robot-Code`. For repository visibility, you can choose either `Public` or `Private`, but I would personally choose `Private`. Every time you want to make a new robot project, you should follow these steps.
 
 If you don't have access to a personal computer, please read the section [Editing on GitHub](#editing-on-github). If you do, read the section [Editing on Visual Studio Code](#editing-on-visual-studio-code).
 
 ## Editing in GitHub
 
-Editing the code directly on GitHub is not recommended, but it can work to get you accustomed to robot code. However you will not be able to run your code / see errors on the GitHub website, which is unfortunate. Periodically, we will allow students to access computers so that they can test the code they have written on GitHub.
+Editing the code directly on GitHub is not recommended, but it can work to get you accustomed to robot code. However, you will not be able to run your code / see errors on the GitHub website, which is unfortunate. Periodically, we will allow students to access computers so that they can test the code they have written on GitHub.
 
 To edit a file on GitHub, navigate to the file and click the pencil icon in the top right corner. This will allow you to edit the file directly in the browser. After you are done editing, you can go to the bottom where you can add a message describing your edit and then finally `commit` it.
 
@@ -28,7 +30,7 @@ Go to this link:
 
 [Setting Up WPILib](https://docs.wpilib.org/en/latest/docs/getting-started/getting-started-frc-control-system/wpilib-setup.html)
 
-Follow the appropriate directions for your operating system. For the section where they give you four options, click the one that says "Download VS Code for Single Install" if you either do not already have a VS Code installation or you would like WPILib to be installed to a separate VS Code installation from one you already have. Personally, we would recommend always choosing this option even if you already have VS Code installed, although you can try the other options if you think they would work better for you. Afterwards, you should see WPILib VS Code installed onto your computer.
+Follow the appropriate directions for your operating system. For the section where they give you four options, click the one that says "Download VS Code for Single Install" if you either do not already have a VS Code installation or you would like WPILib to be installed to a separate VS Code installation from one you already have. Personally, we would recommend always choosing this option even if you already have VS Code installed, although you can try the other options if you think they would work better for you. Afterwards, you should see "[year] WPILib VS Code" installed onto your computer.
 
 ### Installing GitHub Desktop
 
@@ -50,6 +52,6 @@ To build the robot code, or essentially compile it and check for syntax errors, 
 
 ### Committing and Pushing Changes
 
-After you make a change on your local version of the code in something like Visual Studio Code, make sure you **save** the file. If you see any white circles next to any of the tabs in VS Code, this means that the file is **not** saved. After making sure everything you want is saved, go back to GitHub Desktop. On the left, you should see any changed files appear. Make sure all of the file you want to commit are checked off, and then go to the bottom left, where you will see a box to enter your commit information. Essentially, you can package all of your changes into something known as a `commit`, which can contain a message describing what changes that commit did. For instance, some commit messages could be something like, "Adds Elevator Subsystem".
+After you make a change on your local version of the code in something like Visual Studio Code, make sure you **save** the file. If you see any white circles next to any of the tabs in VS Code, this means that the file is **not** saved. After making sure everything you want is saved, go back to GitHub Desktop. On the left, you should see any changed files appear. Make sure all of the files you want to commit are checked off, and then go to the bottom left, where you will see a box to enter your commit information. Essentially, you can package all of your changes into something known as a `commit`, which can contain a message describing what changes that commit did. For instance, some commit messages could be something like, "Adds Elevator Subsystem".
 
 Once you commit your changes, you then need to `push` that commit to the online version of your repository. To do this, go to `Repository > Push`. After this, go back to the GitHub website in your browser and you should see the changes (you might need to refresh).

@@ -70,7 +70,7 @@ prevError = error;
 motor.set(kP * error - kD * dError);
 ```
 
-The idea behind this is that if we are going too fast and we might overshoot, our derivative will become higher and then we will more off, which will decrease our motor output. Note that this may even turn our motor output negative in an effort to slow down our mechanism more dramatically.
+The idea behind this is that if we are going too fast and we might overshoot, our derivative will become higher and then we will be more off, which will decrease our motor output. Note that this may even turn our motor output negative in an effort to slow down our mechanism more dramatically.
 
 ### Effects of kD
 

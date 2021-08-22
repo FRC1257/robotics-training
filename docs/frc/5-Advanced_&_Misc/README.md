@@ -6,5 +6,3 @@
 - Some topics include:
   - Characterization
   - Notifier
-  - Rate Limiting
-

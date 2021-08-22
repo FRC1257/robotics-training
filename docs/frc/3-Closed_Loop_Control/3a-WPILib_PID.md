@@ -52,7 +52,7 @@ Currently, we only have the `MANUAL` state set up. In order to implement PID con
 
 The first thing we do when we create a `PIDController` is initialize its constants with the constructor. We are also given the option to specify the `period`, or how often the controller is being updated. The default is every 0.02 seconds, which is for a 50 Hz update period, but we actually run our controllers twice as fast, at an update rate of 100 Hz. As a result, we need to use the `UPDATE_PERIOD` variable inside of `Constants.java` since it will have the actual period.
 
-After we declare our `PIDController`, we have a variety of options that we can configure. We can configure things such as its tolerance, or how close it can be to the setpoint before ending the PID run, with `setTolerance()`. We can also change the PID constants (useful for tuning constants). However, once we have everything set up, we can finally use some of the functions to run it.
+After we declare our `PIDController`, we have a variety of options that we can configure. We can configure things such as its tolerance, or how close it can be to the setpoint before ending the PID loop, with `setTolerance()`. We can also change the PID constants (useful for tuning constants). However, once we have everything set up, we can finally use some of the functions to run it.
 
 - `setSetpoint()`: choose where this PIDController is bringing us.
 - `atSetpoint()`: returns whether or not we have reached the setpoint

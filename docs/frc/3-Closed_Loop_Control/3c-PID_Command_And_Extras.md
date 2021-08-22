@@ -53,7 +53,7 @@ public class RobotContainer {
 }
 ```
 
-Notice that we use `whileActiveOnce()` here. In case you have not seen this before, `whileActiveOnce()` means that the command will be run once when the button is first pressed, but as soon as the button is released, the command will end. This ensures that we still have a manual way of stopping the PID in case it misbehaves. For instance, if our mechanism breaks and we need to stop closed loop control, we can merely release the button which should prematurely end the command.
+Notice that we use `whileActiveOnce()` here. In case you have not seen this before, `whileActiveOnce()` means that the command will be run once when the button is first pressed, but as soon as the button is released, the command will end. This ensures that we still have a manual way of stopping the PID in case it misbehaves. For instance, if our mechanism breaks and we need to stop closed-loop control, we can merely release the button which should prematurely end the command.
 
 However, note that our command currently doesn't actually stop the elevator if the command is ended! The command gets the elevator moving, but has no way of stopping it. To make sure that the closed-loop movements ends with the command itself, we need to define the `end()` clause of our command to actually end the PID. First of all, we need to add a function to our elevator that stops the PID.
 
@@ -143,7 +143,7 @@ public void tuningPeriodic() {
 
 Sometimes, we want to use our PID to maintain a position even after the movement has ended or to make it maintain the same position. For instance, if we have an arm or elevator that falls under gravity, we might not want to end PID when we reach the endpoint of our movement.
 
-When this happens, we can simply remove the clause in our `PID` command that ends the `PID` state if the setpoint is reached. This will allow our closed loop control to persist.
+When this happens, we can simply remove the clause in our `PID` command that ends the `PID` state if the setpoint is reached. This will allow our closed-loop control to persist.
 
 However, one should be careful with this to ensure that there is still a method available to exit the PID state. With the system described here, the release of our button is a way to end PID control. There are many other methods such as having manual control interrupt it.
 
