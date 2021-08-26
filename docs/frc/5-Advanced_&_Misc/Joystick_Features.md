@@ -6,9 +6,9 @@ Once again, 1257 generally uses Xbox controllers to interact with a robot. One i
 
 ![Amazon Basics Controller](img/AmazonBasicsController.jpg ':size=350x300')
 
-The two joysticks on such a controller are almost always in use, whether it be for moving a drivetrain, an arm, or some other mechanism easily controlled with joystick input. However, the joysticks could have mechanical defect, and therefore may return erroneous input.
+The two joysticks on such a controller are almost always in use, whether it be for moving a drivetrain, an arm, or some other mechanism easily controlled with joystick input. However, the joysticks could have mechanical defects, and therefore may return erroneous inputs. 
 
-To counteract this physical issue, or to just increase precision, we can implement a few adjustments in code.
+To counteract this physical issue, or to just increase precision, we can implement a few adjustments in code. 
 
 ## Scaled Input
 
@@ -24,7 +24,7 @@ In order to make control more precise, especially at the smaller levels of input
 
 ![Scaled Input Graph](img/ScaledInputsDesmos.jpg ':size=400x400')
 
-The blue curve represents **"squared input"** (x<sup>2</sup>), and the green curve represents **"cubed input"** (x<sup>3</sup>). We usually settle with just squared input, as cubing is generally a bit too drastic, but at the end of day, it all depends on the mechanism.
+The blue curve represents **"squared input"** (x<sup>2</sup>), and the green curve represents **"cubed input"** (x<sup>3</sup>). We usually settle with just squared input, as cubing is generally a bit too drastic, but at the end of day, it all depends on the mechanism. 
 
 Implementing this in code is pretty simple. When transforming joystick input into mechanism output, we could just use:
 
@@ -46,7 +46,7 @@ More on the Java `signum()` function [here](https://www.tutorialspoint.com/java/
 
 We'll now move into another topic: deadbanding. This is a process that helps us adjust for any defect in the joysticks themselves that affects controller input.
 
-A situation where the joystick is inexact would be when it defaults to an input value *slightly* higher or lower than 0, i.e. when no one touches the joystick but it still sends input. While that miniscule input probably won't move a large mechanism, it can definitely be problematic at times. Thus, implementing deadbanding is a good practice
+A situation where the joystick is inexact would be when it defaults to an input value *slightly* higher or lower than 0, i.e. when no one touches the joystick but it still sends input. While that miniscule input probably won't move a large mechanism, it can definitely be problematic at times. Thus, implementing deadbanding is a good practice.
 
 The general idea is to create what's called a "deadband," or essentially a neutral zone in which we dictate the input to be 0. This helps us avoid that slight "default" input described above.
 
@@ -89,6 +89,6 @@ More on the Java `signum()` function [here](https://www.tutorialspoint.com/java/
 
 A mathematical explanation from the [source](https://www.chiefdelphi.com/t/joystick-scaling-deadband/355153) cited above:
 
-> Essentially, it is based off of the point-slope form Y = M(X - X0) + Y0. However, Y0 is not used because we want the value to start at 0. X0 is the deadband adjusted to be positive or negativedepending on whether the joystick is in the positive or negative direction. The slope was based off of the slope formula, where slope = ( Y2 - Y1 ) / ( X2 – X1 ). Y2 is equal to 1 for achieving 100%on the output of the function and X2 is 1 for an input of 100%. Y1 is 0 because X1 is equal to thedeadband, because at the deadband we want the function output to be 0% and at 100% wewant the function output to be 100%.
+> Essentially, it is based off of the point-slope form Y = M(X - X0) + Y0. However, Y0 is not used because we want the value to start at 0. X0 is the deadband adjusted to be positive or negative depending on whether the joystick is in the positive or negative direction. The slope was based off of the slope formula, where slope = ( Y2 - Y1 ) / ( X2 – X1 ). Y2 is equal to 1 for achieving 100% on the output of the function and X2 is 1 for an input of 100%. Y1 is 0 because X1 is equal to the deadband, because at the deadband we want the function output to be 0% and at 100% we want the function output to be 100%.
 
 Scaled deadbanding should generally be used over basic deadbanding for the reasons described above: better precision and overall improved control.
