@@ -12,7 +12,7 @@
     * [Joystick Features](frc/5-Advanced_&_Misc/Joystick_Features.md)
     * [Notifier](frc/5-Advanced_&_Misc/Notifier.md)
     * [Other Team's Code](frc/5-Advanced_&_Misc/Other_Team's_Code.md)
-    * [Velocity Control and Rate Limiting](frc/5-Advanced_&_Misc/Velocity_Control_Rate_Limit.md)
+    * [Rate Limiting](frc/5-Advanced_&_Misc/Rate_Limit.md)
     * [Servos](frc/5-Advanced_&_Misc/Servos.md)
     * [Creating Files](frc/5-Advanced_&_Misc/Creating-Files.md)
 * [Git / GitHub](git/README.md)
