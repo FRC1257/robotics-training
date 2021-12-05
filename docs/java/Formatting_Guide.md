@@ -7,7 +7,7 @@ This is FRC 1257's general guide for code formatting. We use this set of formatt
 ### Naming
 
 - All class/file names should have all words with the first letter capitalized and no spaces/underscores in between the words
-  - `Main.java`, `Robot.java`, `RobotMap.java`, `CargoIntakeArm.java`
+  - `Main.java`, `Robot.java`, `Constants.java`, `CargoIntakeArm.java`
 - All variable names should have the first letter lowercase, and then all following words should have the first letter capitalized. There should be no spaces/underscores in between the words.
   - `armPosition`, `distance`, `robotEnabled`, `percentComplete`
 - All constant names should be all uppercase, with underscores in between each word.
@@ -60,9 +60,8 @@ public class Main {
 
 ## FRC Code Structure
 
-- All general constants/IDs should be placed in RobotMap.java
-- All raw controller inputs should be handled in OI.java
-- All specific subsystem constants should belong at the top of that subsystem's file
+- All general constants/IDs and subsystem-specific constants should be placed in Constants.java within nested static classes
+- All raw controller inputs should be handled in RobotContainer.java
 - All subsystems should extend `SnailSubsystem`
 - All subsystems should use a state machine to handle all behavior
   - Public functions should never change motor/solenoid outputs directly, but should rather change the state/internal variables of the subsystem
