@@ -16,7 +16,7 @@ Java programs are usually written in an IDE, or Integrated Development Environme
 
 Go to [repl.it](https://repl.it/). Type `Java` in the center box and click "Java". On the left you will see your files, in the center is your code, and on the right is your code output. You can push the "Run" botton at the top to run your code.
 
-If you want, you can create an account. This will allow you to save your projects and share them with other people. I have created a classroom where I will post assignments and exercises you can tackle. Once you create an account, you can DM me on Slack (My username is rchang), or ask me in person to add you to the classroom.
+If you want, you can create an account. This will allow you to save your projects and share them with other people. 
 
 ## Why We Use Java
 
