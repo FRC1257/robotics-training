@@ -30,6 +30,7 @@ public void update() {
             extendFront();
             retractBack();
             break;
+    }
 }
 
 

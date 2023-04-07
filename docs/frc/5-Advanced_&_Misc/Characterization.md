@@ -1,4 +1,4 @@
-# Characterization
+# Characterization using FRC Characterization
 
 Previously, we discussed how with feedforward, we could make our various systems perform better by using normal feedforward or arbitrary feedforward. However, we only discussed how we could calculate these values empirically. Fortunately, there are tools out there to actually **characterize** our motors and subsystems, allowing us to determine appropriate values to directly solve for these relationships. WPILib fortunately provides us with a suite of tools to allow us to perform these things.
 
