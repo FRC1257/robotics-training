@@ -2,7 +2,7 @@
 In the 2023 season, the team experimented with a fully customizable auto. We did this by using the Shuffleboard to choose score positions for our auto and then generating trajectories on the robot. 
 
 ## Creating Sendable Choosers
-In order to create a fully customizable auto, we needed to create a way to choose the score positions. We did this by creating a Sendable Chooser for each score position. 
+In order to create a fully customizable auto, we needed to create a way to choose score positions. We did this by creating a Sendable Chooser for each score position. 
 
 ```java
 // Create a Sendable Chooser for the score position
@@ -20,7 +20,7 @@ SmartDashboard.putData("Score Position", scorePositionChooser);
 
 ```
 
-We also used booleans to choose certain parts of our auto. We made them the same way you can put any other data on the dashboard.
+We also used booleans to choose certain parts of our auto. We set them the same way any other data can be put on the dashboard.
 
 ```java
 // Create a boolean for whether or not to shoot
@@ -34,7 +34,7 @@ shoot = SmartDashboard.getBoolean("Shoot", false);
 ```
 
 ## Generating Trajectories
-We used the [PathWeaver](https://docs.wpilib.org/en/stable/docs/software/wpilib-tools/pathweaver/index.html) to estimate the coordinates for certain positions on the field. We stored these positions as constants in the `Constants.java` file in a separate class called `Autonomous`. 
+We used [PathWeaver](https://docs.wpilib.org/en/stable/docs/software/wpilib-tools/pathweaver/index.html) to estimate the coordinates for certain positions on the field. We stored these positions as constants in the `Constants.java` file in a separate class called `Autonomous`. 
 
 In order to create autos, we created a class called [`GenerateTrajectories`](https://github.com/FRC1257/2023-Robot/blob/master/src/main/java/frc/robot/commands/GenerateTrajedies.java) that would use the information sent on the shuffleboard to generate trajectories for the robot to follow as well as coordinate movements for the robot to do to score.
 

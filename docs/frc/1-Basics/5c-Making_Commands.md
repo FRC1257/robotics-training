@@ -209,3 +209,9 @@ public class RollerIntakeIntakeCommand extends CommandBase {
     }
 }
 ```
+
+## Factory Commands
+TODO
+The commands above are custom commands. In some cases, we may only want to change a state in a command. For this, we can use factory commands. Factory commands are commands that are already defined in WPILib and are used to change the state of a subsystem. For example, we can use the `InstantCommand` to change the state of a subsystem to a certain value. The `InstantCommand` is a command that runs once and then ends.
+
+[Documentation](https://docs.wpilib.org/en/stable/docs/software/commandbased/commands.html)
