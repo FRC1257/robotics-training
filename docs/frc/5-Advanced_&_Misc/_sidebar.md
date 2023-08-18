@@ -16,5 +16,6 @@
     * [Rate Limiting](frc/5-Advanced_&_Misc/Rate_Limit.md)
     * [Servos](frc/5-Advanced_&_Misc/Servos.md)
     * [Creating Files](frc/5-Advanced_&_Misc/Creating-Files.md)
-    * [Vision](frc/5-Advanced_&_Misc/Vision.md)
+    * [Simulation](frc/5-Advanced_&_Misc/Simulation.md)
+    * [Advantage Scope](frc/5-Advanced_&_Misc/Advanced_Logging.md)
 * [Git / GitHub](git/README.md)
