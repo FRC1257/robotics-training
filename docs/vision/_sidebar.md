@@ -1,8 +1,0 @@
-* [Home](/)
-* [Java](java/README.md)
-* [FRC](frc/README.md)
-* [Git / GitHub](git/README.md)
-* [Vision](vision/README.md)
-  * [PhotonVision](vision/PhotonVision/README.md)
-  * [Limelight](vision/Limelight/README.md)
-  * [WPILibPi](vision/WPILibPi/README.md)

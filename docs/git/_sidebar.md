@@ -1,7 +1,0 @@
-* [Home](/)
-* [Java](java/README.md)
-* [FRC](frc/README.md)
-* [Git / GitHub](git/README.md)
-  * [Git Reference](git/Git_Reference.md)
-  * [How to Git](git/How_To_Git.md)
-* [Vision](vision/README.md)
