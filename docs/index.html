@@ -51,7 +51,7 @@
 				repo: '',
 				coverpage: false,
 				loadSidebar: true,
-  				auto2top: true,
+				auto2top: true,
 				'flexible-alerts': {
 					style: 'flat'
 				},
@@ -63,6 +63,7 @@
 					headings: 'h1, h2, h3, h4, h5, h6',
 					title: 'Contents',
 				},
+				sidebarDisplayLevel: 0,
 				
 				plugins: [					
 					function (hook, vm) {
@@ -71,12 +72,12 @@
 								url = vm.route.file
 									.replace('raw.githubusercontent.com', 'github.com')
 									.replace(/\/master/, '/blob/master')
-							} else {
-								url = 'https://github.com/FRC1257/robotics-training/tree/master/docs/' + vm.route.file
-							}
-							var editHtml = '<a class="edit-button" href="' + url + '"><i class="fab fa-github"></i> Edit Page on GitHub</a>'
-
-							return html + "<br><br>" + editHtml
+								} else {
+									url = 'https://github.com/FRC1257/robotics-training/tree/master/docs/' + vm.route.file
+								}
+								var editHtml = '<a class="edit-button" href="' + url + '"><i class="fab fa-github"></i> Edit Page on GitHub</a>'
+								
+								return html + "<br><br>" + editHtml
 						})
 					}
 				]
@@ -84,6 +85,8 @@
 		</script>
 		
 		<script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+
+		<!-- plugins -->
 		<script src="https://cdn.jsdelivr.net/npm/docsify-themeable@0"></script>
 		<script src="https://cdn.jsdelivr.net/npm/docsify-pagination@2/dist/docsify-pagination.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.js"></script>
@@ -93,7 +96,9 @@
 		<script src="https://unpkg.com/docsify-toc@1.0.0/dist/toc.js"></script>
 		<script src="https://kit.fontawesome.com/6ddc023efd.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"/>
-        <link rel="stylesheet" href="./css/override.css"/>
+		<script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
+        
+		<link rel="stylesheet" href="./css/override.css"/>
 	</body>
-</html>
+	</html>
 
