@@ -1,5 +1,8 @@
 # Roller Intake
 
+> [!NOTE]
+> For 2024, this is only one part of the process: creating the RollerIntakeIOSparkMax file. This will be updated later. 
+
 Now that we have gone over what the command-based paradigm is and what actuators are, we can now try programming our first subsystem!
 
 ## Overview
