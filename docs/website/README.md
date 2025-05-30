@@ -20,9 +20,3 @@ Here are some helpful tutorials to get you started on the technologies we use:
 - [codecademy](https://www.codecademy.com/catalog/subject/web-development)
 - [web.dev](https://web.dev/learn)
 - [Mozilla](https://developer.mozilla.org/en-US/docs/Learn_web_development)
-
-notes
-env setup
-structure
-annual updates
-deep dive verbose docs (less important)

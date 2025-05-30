@@ -85,4 +85,4 @@ You'll notice that images are stored in both `components/` and `assets/`.
 
 `assets/` mainly contains three sets of images: `imgGallery/`, `leadershipImages`, and `sponsors/`. `imgGallery/` images are displayed as a masonry layout on the `Gallery.tsx` page. `leadershipImages` are displayed on the `Leadership.tsx` page. `sponsors/` are displayed on the `Sponsors.tsx` page.
 
-`components/` contains more miscellaneous images. For example, images used on the Outreach pages are stored in `outreach/`. `backgrounds` contain the galaxy backgrounds used in the navbar. `robots/` contains robot pictures from the past but is not currently displayed anywhere.
+`components/` contains more miscellaneous images. For example, images used on the Outreach pages are stored in `outreach/`. `backgrounds/` contain the galaxy backgrounds used in the navbar. `robots/` contains robot pictures from the past but is not currently displayed anywhere.
