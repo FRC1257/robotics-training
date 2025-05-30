@@ -129,3 +129,5 @@
 * [Website](website/README.md)
   * [Getting Started](website/Getting_Started.md)
   * [Site Layout](website/1-Site_Layout.md/README.md)
+    * [Folders & Files in `SnailSite/`](website/1-Site_Layout.md/1-Folders_&_Files_in_SnailSite.md)
+    * [Folders & Files in `src/`](website/1-Site_Layout.md/2-Folders_&_Files_in_Src.md)
