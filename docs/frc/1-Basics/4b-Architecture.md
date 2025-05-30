@@ -1,5 +1,8 @@
 # Architecture
 
+> [!IMPORTANT]
+> For 2024, we are using the Advantage Kit architecture. This page will be updated some time before then.
+
 Compared to when we were just writing basic Java programs, our code had a very simple structure. We just had the `main()` function and then everything there runs just once. However with robot code, the structure gets more complex.
 
 > [!NOTE]
