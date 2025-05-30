@@ -131,3 +131,5 @@
   * [Site Layout](website/1-Site_Layout.md/README.md)
     * [Folders & Files in `SnailSite/`](website/1-Site_Layout.md/1-Folders_&_Files_in_SnailSite.md)
     * [Folders & Files in `src/`](website/1-Site_Layout.md/2-Folders_&_Files_in_Src.md)
+  * [Annual Updates](website/2-Annual_Updates/README.md)
+    * [Student Leadership](website/2-Annual_Updates/1-Student_Leadership.md)
