@@ -219,7 +219,7 @@ const Leadership: React.FC = () => {
 
 For the 2025-2026 season, this is what it should look like after changing everything commented as `UPDATE BELOW`.
 
-```tsx
+```jsx
 // UPDATE BELOW
 import teamphoto from "../../public/pics/photo2526.jpg";
 
