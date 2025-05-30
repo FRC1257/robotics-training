@@ -66,7 +66,13 @@ const leadership: LeaderProfilePropsList = [
 ];
 ```
 
-At this point, your typechecker is probably warning you that `Property 'image' is missing in type '{ name: string; position: string; schoolgrade: string; }' but required in type 'LeaderProfileProps'`! Don't worry, as the error suggests, we're missing an `image` key. Before we do anything about that though, let's actually put our `snouglas.jpg` image into the right folder.
+At this point, your typechecker is probably warning you that:
+
+```
+Property 'image' is missing in type '{ name: string; position: string; schoolgrade: string; }' but required in type 'LeaderProfileProps'
+```
+
+Don't worry, as the error suggests, we're missing an `image` key. Before we do anything about that though, let's actually put our `snouglas.jpg` image into the right folder.
 
 Locate `src/assets/leadershipImages/` and delete all the images inside (of course, keep the pictures of Mrs. Cook, Mr. Tollin, and any carryover leadership). Then, simply add in `snouglas.jpg`!
 
