@@ -133,3 +133,4 @@
     * [Folders & Files in `src/`](website/1-Site_Layout.md/2-Folders_&_Files_in_Src.md)
   * [Annual Updates](website/2-Annual_Updates/README.md)
     * [Student Leadership](website/2-Annual_Updates/1-Student_Leadership.md)
+    * [Sponsors](website/2-Annual_Updates/2-Sponsors.md)
