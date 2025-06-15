@@ -134,3 +134,4 @@
   * [Annual Updates](website/2-Annual_Updates/README.md)
     * [Student Leadership](website/2-Annual_Updates/1-Student_Leadership.md)
     * [Sponsors](website/2-Annual_Updates/2-Sponsors.md)
+    * [Awards](website/2-Annual_Updates/3-Awards.md)
