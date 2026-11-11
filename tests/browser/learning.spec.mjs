@@ -1,4 +1,19 @@
 import { test, expect } from "@playwright/test";
+async function capture(page, options) {
+  await page.evaluate(async () => {
+    window.scrollTo(0, 0);
+    await Promise.all(
+      document
+        .getAnimations()
+        .filter(
+          (animation) =>
+            animation.effect.getComputedTiming().iterations !== Infinity,
+        )
+        .map((animation) => animation.finished.catch(() => {})),
+    );
+  });
+  await page.screenshot(options);
+}
 function watch(page) {
   const errors = [];
   page.on("pageerror", (e) => errors.push(e.message));
@@ -38,7 +53,7 @@ test("home, legacy navigation, search and local progress work", async ({
     await page.keyboard.press("Escape");
     await expect(page.locator("#menu-toggle")).toBeFocused();
   }
-  await page.screenshot({
+  await capture(page, {
     path: testInfo.outputPath("home.png"),
     fullPage: true,
   });
@@ -62,7 +77,7 @@ test("home, legacy navigation, search and local progress work", async ({
   await page.locator("#theme-toggle").click();
   await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
   await expect(page.locator("#theme-toggle svg")).toHaveCount(2);
-  await page.screenshot({
+  await capture(page, {
     path: testInfo.outputPath("lesson-dark.png"),
     fullPage: true,
   });
@@ -97,7 +112,7 @@ test("hardware lesson shows sourced diagrams and actual component photographs", 
       () => document.documentElement.scrollWidth <= innerWidth + 1,
     ),
   ).toBeTruthy();
-  await page.screenshot({
+  await capture(page, {
     path: testInfo.outputPath("hardware.png"),
     fullPage: true,
   });
@@ -118,7 +133,7 @@ test("knowledge checks explain answers and progress import validates data", asyn
   await expect(page.locator("#quiz-body legend")).toContainText(
     "DoubleSupplier",
   );
-  await page.screenshot({
+  await capture(page, {
     path: testInfo.outputPath("knowledge-check.png"),
     fullPage: true,
   });
@@ -185,7 +200,7 @@ for (const lab of [
         () => document.documentElement.scrollWidth <= window.innerWidth + 1,
       ),
     ).toBeTruthy();
-    await page.screenshot({
+    await capture(page, {
       path: testInfo.outputPath(`${lab}.png`),
       fullPage: true,
     });
