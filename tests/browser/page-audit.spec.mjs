@@ -10,6 +10,11 @@ const pages = [
   "frc/4-Autonomous/3c-Following_Trajectories.html",
   "robots/2026-code.html",
   "guides/learning-paths.html",
+  "vision/index.html",
+  "vision/1-Pixels_To_Targets.html",
+  "vision/2-Geometry_And_Calibration.html",
+  "vision/3-Pose_Fusion.html",
+  "vision/4-Alignment_And_Debugging.html",
   "robot-types/index.html",
   "robot-types/turret-shooter.html",
   "robot-types/elevator-wrist.html",
@@ -21,6 +26,8 @@ const pages = [
     "5-Integration_Project",
     "6-Timing_And_State",
     "7-Filtering_And_Validity",
+    "8-State_Estimation",
+    "9-Control_Loop_Design",
   ].map((name) => `frc/6-Architecture/${name}.html`),
 ];
 for (const route of pages) {

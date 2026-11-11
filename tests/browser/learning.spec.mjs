@@ -165,6 +165,7 @@ for (const lab of [
   }, testInfo) => {
     const errors = watch(page);
     await page.goto(`/labs/${lab}.html`);
+    await page.locator("#lab-guide-explore").click();
     await expect(page.locator("h1")).toBeVisible();
     if (lab === "pid") {
       // Reset and pause with a single Step event before an animation frame can advance it.

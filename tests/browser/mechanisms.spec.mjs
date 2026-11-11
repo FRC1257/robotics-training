@@ -19,6 +19,8 @@ function watch(page) {
 async function ready(page) {
   await expect(page.locator("#mech")).toHaveAttribute("data-ready", "1");
   await expect(page.locator("#mech-code .ln").first()).toBeAttached();
+  await page.locator("#lab-guide-explore").click();
+  await page.locator("#mech-reset").click();
 }
 const state = (page) => page.evaluate(() => window.mechanismDemo.state());
 const step = (page, count = 1) =>
@@ -147,6 +149,8 @@ for (const id of ids) {
     await expect(frame.locator("#mech")).toHaveAttribute("data-ready", "1");
     await expect(frame.locator("#mech-code .ln").first()).toBeAttached();
     await expect(frame.locator("html")).toHaveAttribute("data-embed", "1");
+    await frame.locator("#lab-guide-explore").click();
+    await frame.locator("#mech-reset").click();
     await frame.locator('[data-scenario="ready"]').click();
     if (id === "climb-balance") await frame.locator("#in-cageDetected").check();
     await frame.locator("#mech-step").click();

@@ -392,6 +392,14 @@ function decorateLab(html, source, base, aiAssisted, outDir) {
   script.type = "module";
   script.src = base + "assets/site.mjs";
   body.append(script);
+  const guidedStyle = document.createElement("link");
+  guidedStyle.rel = "stylesheet";
+  guidedStyle.href = base + "labs/guided-labs.css";
+  document.head.append(guidedStyle);
+  const guided = document.createElement("script");
+  guided.type = "module";
+  guided.src = base + "labs/guided-labs.mjs";
+  body.append(guided);
   return document.toString();
 }
 function notFound(base, chrome) {

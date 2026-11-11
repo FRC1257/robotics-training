@@ -2,7 +2,7 @@
 
 # Explore a concept in the browser
 
-Each lab pairs a question with controls, a visual result, and numbers you can inspect. Start with a prediction before changing a setting. Explain the result to another student and connect it to the matching code example.
+Each lab opens with a short guided walkthrough: one explanation and one visual at a time. Use **Back** and **Next** to compare the staged results. Choose **Explore controls** for the full experiments described below; returning to the guide resets the current step. Start with a prediction, then explain the result to another student.
 
 ## Swerve translation and rotation
 
