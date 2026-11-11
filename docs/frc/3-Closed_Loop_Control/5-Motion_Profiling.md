@@ -9,6 +9,16 @@ For an ideal rest-to-rest trapezoidal profile, accelerate at the chosen magnitud
 
 ## Work the numbers
 
+For a positive travel distance $d$, positive acceleration limit $a$ and positive speed limit $v_{\max}$, with both endpoints at rest, the transition distance is:
+
+$$d_{\mathrm{switch}} = \frac{v_{\max}^{2}}{a}$$
+
+At or below that distance the move is triangular, with $v_{\mathrm{peak}}=\sqrt{ad}$ and $T=2\sqrt{d/a}$. Above it, the move includes cruise time:
+
+$$T = \frac{2v_{\max}}{a} + \frac{d-v_{\max}^{2}/a}{v_{\max}}$$
+
+The distance is in meters, speed in meters per second, acceleration in meters per second squared and duration in seconds. These formulas apply to this rest-to-rest reference; a moving initial state needs the more general profile calculation.
+
 Assume a 1 m/s² acceleration limit, 2 m/s speed limit and zero starting and ending velocity:
 
 | Move | Profile | Peak speed | Total time |
