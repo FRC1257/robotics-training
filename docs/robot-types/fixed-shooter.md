@@ -31,3 +31,17 @@ For a real design add debounced readiness, named units, bounds, release timing, 
 ## Practice and tests
 
 In fake IO or simulation, feed a speed trace that reaches target, then make the required heading stale. Expect a transition from `AIM` to `FAULT` and inhibited feed. Restore a fresh heading, explicitly acknowledge and clear the fault under the reviewed recovery policy, then re-enter `AIM`; feed becomes eligible only after all readiness conditions are satisfied. Inject a missing departure sensor and verify timeout and recovery are visible. Track requested/actual speed, heading error, sensor age and state transitions. A simple plant model can test ordering and logic; it cannot establish shot accuracy, actual ball contact or safe tuning. Compare this contract with the [turreted shooter](turret-shooter.md): what changes if chassis heading no longer directly determines barrel heading?
+
+## Predict, experiment, explain
+
+**Predict:** Can a ready flywheel feed while the chassis is still misaligned? What should happen after one modeled piece has fed?
+
+**Experiment:** Enable the model, set speed to `200 rad/s`, target heading to `3 rad` and mark the piece detected, then request a shot. After about 1.5 s the wheel is within its 4% speed tolerance but heading is about 2.25 rad; the aim gate is false and feed remains zero. Around 2 s the heading reaches the target and feeding becomes eligible. After one modeled feed interval, the phase becomes `spent`; clear the piece-detected input before representing another piece. Exact timing depends on the simulator step and UI speed.
+
+**Inject a fault:** Make the required sensor stale while the request remains held. Inspect the latched fault and requested outputs; clear the condition, release the request, then reset before a new request. The ideal model stops the flywheel immediately on disable; this does not model physical coast-down.
+
+**Explain:** Which readiness gate delayed feeding, and why is a feed request not evidence of a scored piece? Compare the conceptual stages with the linked team method. The browser model does not execute that Java; the cited 2024 robot used a turret, while chassis aiming is this lesson's adaptation.
+
+**Compare the source:** [Team 254 2024 `AimFactory.java`](https://github.com/Team254/FRC-2024-Public/blob/040f653744c9b18182be5f6bc51a7e505e346e59/src/main/java/com/team254/frc2024/command_factories/AimFactory.java#L50-L67). The source checks shooter speed, turret angle, hood angle and solution validity, then combines them. Shooter speed uses RPS; angles use radians. The demo adapts this idea and does not implement the source method.
+
+<!-- lab: mechanism-fixed-shooter -->

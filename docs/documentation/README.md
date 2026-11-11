@@ -49,7 +49,7 @@ Use a single H1 and sequential H2/H3 headings. Keep paragraphs focused and use l
 
 Mark AI-assisted lessons with `<!-- ai-assisted -->` before the H1. The page displays a compact provenance note. This labels the lesson text and teaching code; real photographs and screenshots retain their own captions and source credits. Describe review and execution evidence accurately rather than treating an AI label or a passing test as validation of hardware behavior.
 
-Use `<!-- lab: pid -->` to embed a supported local lab at a deliberate teaching point. The supported names are `pid`, `swerve`, `scheduler`, `encoder`, `motion`, `log` and `odometry`. Introduce a question before the experiment and explain what to inspect afterwards. Keep the standalone lab link available for a larger workspace. Do not embed every demo in an index page.
+Use `<!-- lab: pid -->` to embed a supported local lab at a deliberate teaching point. The concept names are `pid`, `swerve`, `scheduler`, `encoder`, `motion`, `log` and `odometry`. Mechanism demos use `mechanism-` followed by `fixed-shooter`, `turret-shooter`, `piece-handling`, `elevator-wrist`, `telescoping-arm`, `drivetrain` or `climb-balance` (for example, `<!-- lab: mechanism-turret-shooter -->`). Introduce a question before the experiment and explain what to inspect afterwards. Keep the standalone lab link available for a larger workspace. Do not embed every demo in an index page.
 
 Opening a lesson records completion as a visit, not proof of understanding. The top check icon permits a manual toggle, and progress import/export/reset lives in the footer.
 

@@ -41,6 +41,13 @@
     "labs/odometry.html",
     "labs/pid.html",
     "labs/scheduler.html",
-    "labs/swerve.html"
+    "labs/swerve.html",
+    "labs/mechanism-fixed-shooter.html",
+    "labs/mechanism-turret-shooter.html",
+    "labs/mechanism-piece-handling.html",
+    "labs/mechanism-elevator-wrist.html",
+    "labs/mechanism-telescoping-arm.html",
+    "labs/mechanism-drivetrain.html",
+    "labs/mechanism-climb-balance.html"
   ]
 }

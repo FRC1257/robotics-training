@@ -167,7 +167,7 @@ test("build emits semantic pages, legacy routes, search, math and copied assets"
   const missing = [];
   for (const file of walk(output).filter((f) => f.endsWith(".html"))) {
     const doc = parseHTML(fs.readFileSync(file, "utf8")).document;
-    const article = doc.querySelector("article");
+    const article = doc.querySelector("main.lesson > article");
     if (article) {
       assert.equal(
         article.querySelectorAll("h1").length,

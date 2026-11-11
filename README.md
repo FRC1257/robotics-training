@@ -1,6 +1,6 @@
 # Team 1257 Robotics Training
 
-Guided Java and FRC lessons, seven interactive labs, a tested Java 17/WPILib 2026.2.1 starter, and source-backed robot code/log case studies.
+Guided Java and FRC lessons, seven concept labs and seven mechanism/code demos, a tested Java 17/WPILib 2026.2.1 starter, and source-backed robot code/log case studies.
 
 [Open the training site](https://frc1257.github.io/robotics-training/) · [Learning paths](docs/guides/learning-paths.md) · [Robot starter](examples/robot-starter/README.md)
 
@@ -27,6 +27,7 @@ The robot starter has its own Gradle wrapper and sixteen behavior/model tests. F
 - `tests/`: numerical, routing, search, progress and browser behavior checks.
 - `examples/`: independently runnable Java exercises and the WPILib simulation starter.
 - `research_sources/`: pinned code/log/media provenance, textbook adaptations and link-check evidence.
+- `docs/labs/mechanism-sources.json`: exact licensed robot-code excerpts, source annotations and model differences; full notices are in `docs/labs/licenses/`.
 
 Search ranks topics and code identifiers, expands robotics synonyms, tolerates bounded spelling errors, provides contextual snippets and demotes historical material. Search queries stay in the browser. Opening a lesson marks it visited/completed automatically; the check icon can toggle that state. Learning progress is local, exportable and importable; it does not certify hardware competence. Knowledge checks include explanations and links to the matching lessons. PostHog configuration is deferred at the user's request; no tracking is initialized.
 
@@ -41,3 +42,5 @@ See [the authoring guide](docs/documentation/README.md). Include prerequisites, 
 New course code is MIT except where notices state otherwise. Dependencies and Gradle/WPILib components retain their notices. The real 2024 log excerpt derives from an Unlicense recording with its revision, hash and extraction steps recorded. Walkthroughs link season-specific robot code without importing ambiguously licensed team code. Original diagrams and unedited CI screenshots identify what they depict; no robot photographs or CAD were invented.
 
 The supplied 2026–2027 textbook informs corrected exercises and is not redistributed. The initial audit under `audit/` describes the pre-modernization revision; raw third-party HTML snapshots stay local and can be regenerated.
+
+To verify mechanism excerpts against their pinned public source files, run `npm run verify:mechanism-sources`. This checks full-file hashes and exact excerpt lines without modifying sources. `npm run verify:mechanism-sources -- --offline` uses the optional local snapshots in the ignored research cache.
