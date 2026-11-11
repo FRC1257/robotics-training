@@ -1,1 +1,193 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PID and feedforward lab</title><link rel="stylesheet" href="labs.css"></head><body><header><a href="../#/labs/">← Labs</a><h1>PID and feedforward lab</h1><p>Predict the response, run an experiment, then explain the tradeoff.</p></header><main><noscript>This lab requires JavaScript. The equations and experiment are still available below.</noscript><section class="intro"><h2>Try it</h2><ol><li>Predict what happens when gravity acts without feedforward.</li><li>Run the default response; add 2 N of feedforward. Compare the final error.</li><li>Challenge: use the windup preset, then enable anti-windup and compare the overshoot after the output leaves saturation.</li></ol><p>This idealized vertical mechanism has mass 1 kg, linear drag 1 N·s/m and a constant 2 N downward gravity force. The controller runs every 0.02 s, followed by semi-implicit Euler integration. There are no travel stops, motor dynamics, friction, noise, or sensor delay. Values are not hardware tuning recommendations.</p></section><div class="layout"><section class="card"><h2>Controls</h2><div class="controls" id="controls"><label>Preset <select id="preset"><option value="default">Gravity compensation</option><option value="windup">Windup challenge</option><option value="p">Proportional only</option></select></label><label>Setpoint (m) <input id="setpoint" type="number" min="-5" max="5" step="0.1" value="1"></label><label>kP (N/m) <input id="kp" type="number" min="0" max="100" step="0.5" value="8"></label><label>kI (N/(m·s)) <input id="ki" type="number" min="0" max="30" step="0.1" value="0"></label><label>kD (N·s/m) <input id="kd" type="number" min="0" max="30" step="0.1" value="4"></label><label>Feedforward (N) <input id="ff" type="number" min="-20" max="20" step="0.5" value="0"></label><label>Output limit (N) <input id="limit" type="number" min="0.1" max="20" step="0.5" value="10"></label><label>Disturbance (N) <input id="disturbance" type="number" min="-10" max="10" step="0.5" value="0"></label><label>Anti-windup <input id="antiwindup" type="checkbox" checked></label><div class="buttons"><button id="toggle">Pause</button><button id="step" class="secondary">Step 0.02 s</button><button id="reset" class="secondary">Reset</button></div></div><p class="note">Changing a control resets the run. Space activates the focused button. The simulation pauses when this tab is hidden and starts paused if reduced motion is preferred. Use Run to start it.</p></section><section class="card"><h2>Response</h2><canvas id="plot" width="800" height="260" role="img" aria-label="Plot of position, setpoint, and controller output over time. Numerical results follow."></canvas><p id="plot-scale">Blue: position; dashed black: setpoint; orange: output.</p><table><caption>Most recent samples (same values as plotted)</caption><thead><tr><th>Time (s)</th><th>Position (m)</th><th>Setpoint (m)</th><th>Output (N)</th></tr></thead><tbody id="sample-table"></tbody></table><div id="summary" class="status" aria-live="off"></div><p id="feedback"></p></section></div><section class="card"><h2>Model and interpretation</h2><p><code>error = setpoint − position</code>; <code>integral += error × dt</code>; <code>derivative = (error − previous error) / dt</code>. Requested force is <code>kP × error + kI × integral + kD × derivative + feedforward</code>, clipped to the output limit. Conditional anti-windup stops integration when error would push farther into saturation. The first derivative is zero. A setpoint step may produce a derivative kick.</p><p>Overshoot is the maximum excursion beyond the setpoint in the direction of the initial step. Settling is reported only after the position remains within ±0.05 m for a full second, and can be lost later. Saturation time counts controller samples at the output limit.</p><p><a href="https://docs.wpilib.org/en/stable/docs/software/advanced-controls/introduction/introduction-to-pid.html">WPILib: Introduction to PID</a> · <a href="https://docs.wpilib.org/en/stable/docs/software/advanced-controls/controllers/feedforward.html">WPILib: Feedforward control</a></p></section></main><script type="module" src="pid.mjs"></script></body></html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>PID and feedforward lab</title>
+    <link rel="stylesheet" href="labs.css" />
+  </head>
+  <body>
+    <header>
+      <a href="../#/labs/">← Labs</a>
+      <h1>PID and feedforward lab</h1>
+      <p>Predict the response, run an experiment, then explain the tradeoff.</p>
+    </header>
+    <main>
+      <noscript
+        >This lab requires JavaScript. The equations and experiment are still
+        available below.</noscript
+      >
+      <section class="intro">
+        <h2>Try it</h2>
+        <ol>
+          <li>Predict what happens when gravity acts without feedforward.</li>
+          <li>
+            Run the default response; add 2 N of feedforward. Compare the final
+            error.
+          </li>
+          <li>
+            Challenge: use the windup preset, then enable anti-windup and
+            compare the overshoot after the output leaves saturation.
+          </li>
+        </ol>
+        <p>
+          This idealized vertical mechanism has mass 1 kg, linear drag 1 N·s/m
+          and a constant 2 N downward gravity force. The controller runs every
+          0.02 s, followed by semi-implicit Euler integration. There are no
+          travel stops, motor dynamics, friction, noise, or sensor delay. Values
+          are not hardware tuning recommendations.
+        </p>
+      </section>
+      <div class="layout">
+        <section class="card">
+          <h2>Controls</h2>
+          <div class="controls" id="controls">
+            <label
+              >Preset
+              <select id="preset">
+                <option value="default">Gravity compensation</option>
+                <option value="windup">Windup challenge</option>
+                <option value="p">Proportional only</option>
+              </select></label
+            ><label
+              >Setpoint (m)
+              <input
+                id="setpoint"
+                type="number"
+                min="-5"
+                max="5"
+                step="0.1"
+                value="1" /></label
+            ><label
+              >kP (N/m)
+              <input
+                id="kp"
+                type="number"
+                min="0"
+                max="100"
+                step="0.5"
+                value="8" /></label
+            ><label
+              >kI (N/(m·s))
+              <input
+                id="ki"
+                type="number"
+                min="0"
+                max="30"
+                step="0.1"
+                value="0" /></label
+            ><label
+              >kD (N·s/m)
+              <input
+                id="kd"
+                type="number"
+                min="0"
+                max="30"
+                step="0.1"
+                value="4" /></label
+            ><label
+              >Feedforward (N)
+              <input
+                id="ff"
+                type="number"
+                min="-20"
+                max="20"
+                step="0.5"
+                value="0" /></label
+            ><label
+              >Output limit (N)
+              <input
+                id="limit"
+                type="number"
+                min="0.1"
+                max="20"
+                step="0.5"
+                value="10" /></label
+            ><label
+              >Disturbance (N)
+              <input
+                id="disturbance"
+                type="number"
+                min="-10"
+                max="10"
+                step="0.5"
+                value="0" /></label
+            ><label
+              >Anti-windup <input id="antiwindup" type="checkbox" checked
+            /></label>
+            <div class="buttons">
+              <button id="toggle">Pause</button
+              ><button id="step" class="secondary">Step 0.02 s</button
+              ><button id="reset" class="secondary">Reset</button>
+            </div>
+          </div>
+          <p class="note">
+            Changing a control resets the run. Space activates the focused
+            button. The simulation pauses when this tab is hidden and starts
+            paused if reduced motion is preferred. Use Run to start it.
+          </p>
+        </section>
+        <section class="card">
+          <h2>Response</h2>
+          <canvas
+            id="plot"
+            width="800"
+            height="260"
+            role="img"
+            aria-label="Plot of position, setpoint, and controller output over time. Numerical results follow."
+          ></canvas>
+          <p id="plot-scale">
+            Blue: position; dashed black: setpoint; orange: output.
+          </p>
+          <table>
+            <caption>
+              Most recent samples (same values as plotted)
+            </caption>
+            <thead>
+              <tr>
+                <th>Time (s)</th>
+                <th>Position (m)</th>
+                <th>Setpoint (m)</th>
+                <th>Output (N)</th>
+              </tr>
+            </thead>
+            <tbody id="sample-table"></tbody>
+          </table>
+          <div id="summary" class="status" aria-live="off"></div>
+          <p id="feedback"></p>
+        </section>
+      </div>
+      <section class="card">
+        <h2>Model and interpretation</h2>
+        <p>
+          <code>error = setpoint − position</code>;
+          <code>integral += error × dt</code>;
+          <code>derivative = (error − previous error) / dt</code>. Requested
+          force is
+          <code>kP × error + kI × integral + kD × derivative + feedforward</code
+          >, clipped to the output limit. Conditional anti-windup stops
+          integration when error would push farther into saturation. The first
+          derivative is zero. A setpoint step may produce a derivative kick.
+        </p>
+        <p>
+          Overshoot is the maximum excursion beyond the setpoint in the
+          direction of the initial step. Settling is reported only after the
+          position remains within ±0.05 m for a full second, and can be lost
+          later. Saturation time counts controller samples at the output limit.
+        </p>
+        <p>
+          <a
+            href="https://docs.wpilib.org/en/stable/docs/software/advanced-controls/introduction/introduction-to-pid.html"
+            >WPILib: Introduction to PID</a
+          >
+          ·
+          <a
+            href="https://docs.wpilib.org/en/stable/docs/software/advanced-controls/controllers/feedforward.html"
+            >WPILib: Feedforward control</a
+          >
+        </p>
+      </section>
+    </main>
+    <script type="module" src="pid.mjs"></script>
+  </body>
+</html>

@@ -10,11 +10,11 @@
 
 ![Hitec HS-322HD Servo](img/hitecservo.jpg ':size=250x250') ![REV Smart Servo & Programmer](img/revsmartservo.png ':size=290x250')
 
-In the left photo is the Hitec HS-322HD Servo, which was provided in the FIRST Kit of Parts in 2008. On 1257, though, we generally use the [REV Smart Servo](https://www.revrobotics.com/rev-41-1097/), pictured in the right. The large square device is called the "Servo Programmer." We can work with the electronics' members and use the programmer to customize the servo's range of motion. 
+In the left photo is the Hitec HS-322HD Servo, which was provided in the FIRST Kit of Parts in 2008. On 1257, though, we generally use the [REV Smart Servo](https://docs.revrobotics.com/rev-crossover-products/servo/srs), pictured in the right. The large square device is called the "Servo Programmer." We can work with the electronics' members and use the programmer to customize the servo's range of motion. 
 
 A special feature that the REV Smart Servo offers is the ability to switch parameter modes, hence the "Smart" in the name. The servo is in position mode by default, and we would command the servo by passing in values ranging from 0.0 to 1.0, with 0.0 and 1.0 corresponding to fully leftward and fully rightward respectively. But, the servo also offers what is called "continuous rotation" mode, where it can function as a motor by spinning continuously either clockwise or counterclockwise.
 
-Find the official REV Smart Servo documentation [here](https://docs.revrobotics.com/15mm/actuators/servos/smart-robot-servo).
+Find the official REV Smart Servo documentation [here](https://docs.revrobotics.com/rev-crossover-products/servo/srs).
 
 ## Usage Cases
 

@@ -1,57 +1,31 @@
-> **Historical lesson:** This material predates the 2026 course and may use older WPILib, vendor APIs, team wrappers, and game rules. Its original version is not verified here. Do not copy its robot code into a 2026 project without migration and mentor review. Start with [the 2026 subsystem lesson](../1-Basics/5-First_Subsystem.md).
+# Feedforward: predict the effort
 
-# Feedforward
+**Prerequisites:** [PID](2-Basics_of_PID.md), units and motor control. **Time:** 35 minutes. **Baseline:** WPILib 2026.2.1; the linked stable docs may change in future seasons. A model predicts how much voltage is needed for a requested motion; feedback corrects the error that remains when the model or real conditions are imperfect. A motion profile creates a feasible sequence of desired positions and velocities subject to its chosen limits; it is not itself a motor controller.
 
-So far, we've been using `feedback` control, where our system looks at the current error and, after seeing how behind the system is, applies outputs to correct that error. However, this system is very reactionary and doesn't incorporate what the system already knows about its surroundings. For instance, if you're trying to make a system go to a specific velocity with your controller, you can use `motor.set(value)`, which can actually get you very close to the desired speed value after some empirical testing. Additionally, if we have an elevator subsystem, we know that gravity will apply a force downwards on our system, and this is information we can incorporate in our system by applying a counteracting upwards force. This idea of incorporating knowledge into controlling our system without sensors is known as `feedforward` control.
+## A simple model
 
-There are two primary types of feedforward, which were actually discussed in the previous two examples. The first uses information about the intended result, or desired output of the system. This is most applicable for attempting to achieve a specific velocity with our system. For instance, if we want to reach a target velocity, we could scale that so the maximum velocity of our system is 1.0, and then apply that as a percentage output to the system.
+A commonly used model for a simple motor or drivetrain is:
 
-As a basic code example, we could do the following, where we scale `desiredSpeed` to be between `0` and `1`, and then pass it to our motor.
-
-```java
-double maxSpeed = 5000; // in rpm
-double desiredSpeed = 4000; // in rpm
-double kFF = 1 / maxSpeed;
-
-motor.set(desiredSpeed * kFF);
+```text
+V_ff = kS * sign(v_desired) + kV * v_desired + kA * a_desired
+V_request = V_ff + V_feedback
 ```
 
-The other type of feedforward control takes into account the dynamics, or movement, of the system. For instance, we know that gravity will always pull an elevator down no matter what we do. We could counteract this by allowing our motor to constantly go up, which would prevent the elevator from naturally falling down, as well as going faster downwards than upwards. This type of feedforward's value could be calculated empirically through testing or via physics, which is generally much more complicated.
+`V_ff` and `V_feedback` are volts. With velocity in m/s and acceleration in m/s², `kS` is volts, `kV` is V/(m/s), and `kA` is V/(m/s²). For a rotating mechanism, use radians, rad/s and rad/s² consistently instead. A voltage request is limited by battery voltage, controller capability and safety constraints; the applied voltage may differ from the request. The static-friction term's zero-velocity behavior is model/API-specific, so don't infer starting torque from `sign(0)` alone.
 
-As a basic code example, we could do the following, where we apply a constant motor output upwards to counteract gravity.
+An elevator model adds approximately constant `kG` volts to support gravity. A single-jointed arm has a gravity term `kG * cos(theta)` **when theta is measured from horizontal**, with positive conventions matched to the model. The actual arm may have counterweights, variable friction or other loads not captured by the simple model. Never assume the elevator and arm gravity terms are interchangeable. The gravity compensation may use a measured angle: feedforward describes prediction from a model/reference and is not defined by a ban on sensor inputs. Different vendor controllers use the term “arbitrary feedforward” for an additional supplied contribution; it can depend on a setpoint, velocity, angle or other modeled quantity. Check the specific API and units.
 
-```java
-double feedforward = 0.1; // counteract gravity
-double input = controller.getLeftY();
+## Worked example
 
-motor.set(input + feedForward);
-```
+Suppose hypothetical characterization yields `kS = 0.2 V`, `kV = 1.0 V/(m/s)` and `kA = 0.1 V/(m/s²)`. At desired +2 m/s and +1 m/s², predicted feedforward is `0.2 + 2.0 + 0.1 = 2.3 V`. If feedback contributes +0.4 V, the combined request is 2.7 V before limits. These are invented arithmetic values, not robot gains. For negative motion, the static term changes sign; acceleration can independently have either sign.
 
-## Combining with Feedback Control
+In a version-matched WPILib project, `SimpleMotorFeedforward`, `ElevatorFeedforward`, and `ArmFeedforward` implement models with documented units and calculation methods. Use the season's API documentation: acceleration support and signatures differ across versions. Sum compatible voltage outputs and use an appropriate voltage-control API instead of treating volts as a normalized motor percentage. The motor, sensor conversion, sign, travel limits, current limits and disable behavior require a separate hardware review.
 
-> [!NOTE]
-> PID is a form of feedback control, where we look at our error to drive our system to the desired setpoint.
+## Try it
 
-However, feedforward control is rarely enough to completely make a system responsive. In fact, it is best when feedforward control is used in conjunction with feedback control. For instance, if we wanted to control the velocity of our system, we could use feedforward control as the main driving force to get our system to the desired speed, and then use feedback control to correct any errors or fluctuations in that speed.
+1. Compute the simple model above at +1 m/s and zero acceleration. Expected: 1.2 V.
+2. At −1 m/s and zero acceleration, expected: −1.2 V with the stated model and sign convention.
+3. Why might the mechanism still miss its target? The model omits disturbances and parameter error; feedback can correct error within actuator limits. A saturated actuator cannot necessarily follow an infeasible reference.
+4. In simulation compare a profile with and without feedforward while plotting desired position, measured position and voltage. Record the model and sample period; do not treat the result as hardware tuning. If output drives the wrong way, check sensor and motor signs before changing gains.
 
-Additionally, another example is that we could run PID on something like an elevator subsystem that will drive our position to a desired setpoint. If we don't apply our knowledge of feedforward, we might have a difficult time tuning the PID properly. It would go faster down than up due to gravity, so we might need to have two sets of PID constants for our elevator.
-
-To counteract the effects of gravity on the system, we use feedforward to make our motor apply an upward force. This would actually help linearize the model of our system (don't worry if you don't know what this means, it just means that it will make it simpler and nicer to control), as well as remove the need for separate PID gains going up and down.
-
-## Different Kinds of Feedforward
-
-When looking at online documentation, there are a lot of different terms for feedforward. Generally however, feedforward refers to any type of control that is done without looking at sensor values. However when you see something like a `kFF` term, or feedforward term, similar to something like a `kP` term in PID control, this refers to the first type of feedforward mentioned where the motor output is based on the desired output. When this term is used, it multiplies the desired output by the constant `kFF` term and adds it to the motor output along with other terms such as the `kP` and `kD` terms. You would generally **never** use this for something like positional PID, and would only use it for velocity PID.
-
-The second type of feedforward that we mentioned, which is based off of the dynamics of the system and is used to counteract forces on it, is known generally as `arbitrary feedforward`. When you see something like this, this value is just added directly to the motor output and has no relationship with the desired setpoint.
-
-To summarize:
-
-* feedforward (`kFF`) adds the term `setpoint * kFF` to the output
-* arbitrary feedforward adds the term `arbFF` to the output
-
-## Sources
-
-If you want more information, I would strongly recommend reading / watching the sources below, which were used to help write this article.
-
-* https://docs.wpilib.org/en/stable/docs/software/advanced-control/controllers/feedforward.html
-* https://blog.wesleyac.com/posts/intro-to-control-part-five-feedforward-motion-profiling
+Next: [SysId and characterization](../5-Advanced_&_Misc/Sysid.md) and [motion profiles](5-Motion_Profiling.md). Sources: [WPILib feedforward](https://docs.wpilib.org/en/stable/docs/software/advanced-controls/controllers/feedforward.html), [WPILib system identification](https://docs.wpilib.org/en/stable/docs/software/advanced-controls/system-identification/introduction.html).

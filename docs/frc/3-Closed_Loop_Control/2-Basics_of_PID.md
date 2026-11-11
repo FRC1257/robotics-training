@@ -1,6 +1,6 @@
 # PID: correct the error
 
-**Prerequisites:** variables and feedback. **Time:** 30 minutes. **Status:** equations reviewed; robot tuning requires mentor review. Run the dependency-free example in [examples/PidDemo.java](https://github.com/FRC1257/robotics-training/blob/master/examples/PidDemo.java) and try the [PID lab](../../labs/pid.html).
+**Prerequisites:** variables and feedback. **Time:** 30 minutes. **Status:** equations reviewed; robot tuning requires mentor review. Run the dependency-free example in [examples/PidDemo.java](https://github.com/FRC1257/robotics-training/blob/main/examples/PidDemo.java) and try the [PID lab](../../labs/pid.html).
 
 A sensor measures position `x` in meters and the setpoint `r` is the desired position. Define error `e = r - x`. Assume positive output increases the measurement; verify sensor and motor directions before applying closed-loop control. A controller sampled every `dt` seconds can calculate:
 

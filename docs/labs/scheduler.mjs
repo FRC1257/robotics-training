@@ -1,4 +1,36 @@
-import {initialScheduler,schedulerStep} from './models.mjs';
-const $=id=>document.getElementById(id);let state=initialScheduler(),history=[];
-function render(){ $('state').textContent=`Cycle ${state.tick}. Button ${state.held?'held':'released'}. Requirement owner: ${state.active??'none'}. Motor output: ${state.motor.toFixed(1)}.`;$('log').replaceChildren(...history.map(line=>{const li=document.createElement('li');li.textContent=line;return li;}));}
-for(const [id,action] of Object.entries({tick:'tick',press:'press',release:'release',conflict:'conflict',finish:'finish'}))$(id).onclick=()=>{state=schedulerStep(state,action);history.push(`Cycle ${state.tick}: ${state.events.join(' → ')||'no lifecycle calls'}`);if(history.length>20)history.shift();render()};$('reset').onclick=()=>{state=initialScheduler();history=[];render()};render();
+import { initialScheduler, schedulerStep } from "./models.mjs";
+const $ = (id) => document.getElementById(id);
+let state = initialScheduler(),
+  history = [];
+function render() {
+  $("state").textContent =
+    `Cycle ${state.tick}. Button ${state.held ? "held" : "released"}. Requirement owner: ${state.active ?? "none"}. Motor output: ${state.motor.toFixed(1)}.`;
+  $("log").replaceChildren(
+    ...history.map((line) => {
+      const li = document.createElement("li");
+      li.textContent = line;
+      return li;
+    }),
+  );
+}
+for (const [id, action] of Object.entries({
+  tick: "tick",
+  press: "press",
+  release: "release",
+  conflict: "conflict",
+  finish: "finish",
+}))
+  $(id).onclick = () => {
+    state = schedulerStep(state, action);
+    history.push(
+      `Cycle ${state.tick}: ${state.events.join(" → ") || "no lifecycle calls"}`,
+    );
+    if (history.length > 20) history.shift();
+    render();
+  };
+$("reset").onclick = () => {
+  state = initialScheduler();
+  history = [];
+  render();
+};
+render();

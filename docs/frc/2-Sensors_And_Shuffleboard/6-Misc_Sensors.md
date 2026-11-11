@@ -11,5 +11,5 @@ Many of the more basic types of sensors can be found [here.](https://docs.wpilib
 
 One other sensor is the REV Robotics color sensor (which we have used in the past). The sensor can detect the color of what it looks at and can also serve as a distance sensor.
 
-- [JavaDocs](http://www.revrobotics.com/content/sw/color-sensor-v3/sdk/docs/javadoc/index.html)
+- [REV Color Sensor V3 documentation](https://docs.revrobotics.com/ion-control/ionsensors/color-sensor-v3)
 - [Example Code](https://github.com/REVrobotics/Color-Sensor-v3-Examples)

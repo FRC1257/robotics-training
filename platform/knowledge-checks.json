@@ -1,0 +1,145 @@
+{
+  "questions": [
+    {
+      "id": "java-boolean",
+      "prompt": "A readiness rule is enabled AND sensorHealthy. What is the result when enabled is true and sensorHealthy is false?",
+      "choices": [
+        "true",
+        "false",
+        "It depends on the previous result",
+        "Java cannot evaluate it"
+      ],
+      "answer": 1,
+      "explanation": "Both conditions must be true for an AND expression to be true.",
+      "lesson": "java/2-Control_Flow/2-Logical_Operators.md"
+    },
+    {
+      "id": "java-supplier",
+      "prompt": "What does a DoubleSupplier such as () -> joystick.getY() let a command do?",
+      "choices": [
+        "Read the joystick whenever the supplier is called",
+        "Read the joystick only when the supplier is created",
+        "Automatically reserve the drivetrain subsystem",
+        "Run the scheduler in a separate thread"
+      ],
+      "answer": 0,
+      "explanation": "The callback is evaluated when called; a subsystem requirement must still be specified separately.",
+      "lesson": "java/3-Functions/5-Lambdas.md"
+    },
+    {
+      "id": "command-interrupt",
+      "prompt": "Two interruptible commands require the same subsystem. If the second is scheduled while the first is running, what should you expect?",
+      "choices": [
+        "Both normally control the subsystem at the same time",
+        "The first is interrupted and the second may take the requirement",
+        "The subsystem is permanently disabled",
+        "The first command finishes naturally before the second starts"
+      ],
+      "answer": 1,
+      "explanation": "Under the normal interruptible behavior the scheduler interrupts the conflicting command. Commands can have different interruption policies, so inspect their configuration.",
+      "lesson": "labs/scheduler.html"
+    },
+    {
+      "id": "command-default",
+      "prompt": "When can a subsystem default command run?",
+      "choices": [
+        "Only once at startup",
+        "When the subsystem is available and the scheduler schedules its default",
+        "While a conflicting command owns the same requirement",
+        "Only while the robot is powered off"
+      ],
+      "answer": 1,
+      "explanation": "A default is scheduled when the subsystem is available; it yields to a command that requires that subsystem.",
+      "lesson": "frc/1-Basics/4a-Command_Based.md"
+    },
+    {
+      "id": "pid-derivative",
+      "prompt": "With error defined as target minus measurement, previous error 1.0 m and current error 0.8 m after 0.1 s, what is the error derivative?",
+      "choices": ["+2 m/s", "−2 m/s", "−0.2 m/s", "+0.2 m/s"],
+      "answer": 1,
+      "explanation": "(0.8 − 1.0) / 0.1 = −2 m/s. The error is decreasing.",
+      "lesson": "frc/3-Closed_Loop_Control/2-Basics_of_PID.md"
+    },
+    {
+      "id": "pid-windup",
+      "prompt": "What can happen when a controller output is saturated while integral error continues to accumulate?",
+      "choices": [
+        "Integral windup may delay recovery after the error changes",
+        "The integral term is guaranteed to remain zero",
+        "A motor gains unlimited torque",
+        "The sensor automatically recalibrates"
+      ],
+      "answer": 0,
+      "explanation": "Integral windup can build up while the actuator cannot provide more output; limiting or resetting integral state may help.",
+      "lesson": "frc/3-Closed_Loop_Control/2-Basics_of_PID.md"
+    },
+    {
+      "id": "feedforward",
+      "prompt": "What is the role of a gravity feedforward term on an arm?",
+      "choices": [
+        "Provide an estimated output to help counter gravity",
+        "Replace every sensor and safety limit",
+        "Measure the arm angle directly",
+        "Guarantee perfect tracking under any load"
+      ],
+      "answer": 0,
+      "explanation": "Feedforward estimates an output needed for a known effect; feedback and safe limits still matter, and the estimate can be imperfect.",
+      "lesson": "frc/3-Closed_Loop_Control/2-Basics_of_PID.md"
+    },
+    {
+      "id": "swerve-frame",
+      "prompt": "Using +x forward, +y left and counterclockwise positive heading, what robot-relative vector corresponds to field-forward (1, 0) m/s when the robot heading is +90°?",
+      "choices": ["(1, 0) m/s", "(0, −1) m/s", "(0, +1) m/s", "(−1, 0) m/s"],
+      "answer": 1,
+      "explanation": "Rotate the field-relative vector by the negative heading: field-forward is robot-right at +90°, or (0, −1) m/s.",
+      "lesson": "frc/1-Basics/Modern_Drivetrain_Project.md"
+    },
+    {
+      "id": "encoder-ratio",
+      "prompt": "An encoder measures 12 motor turns through a 6:1 motor-to-output reduction. Ignoring slip and sign, how many turns does the output make?",
+      "choices": ["2", "6", "12", "72"],
+      "answer": 0,
+      "explanation": "A 6:1 motor-to-output reduction means six motor turns per output turn, so 12 / 6 = 2.",
+      "lesson": "labs/encoder.html"
+    },
+    {
+      "id": "encoder-home",
+      "prompt": "Before a home reference is recorded, what does the encoder lab assume about its reference?",
+      "choices": [
+        "It assumes zero reference turns; that does not prove physical home",
+        "It proves the mechanism is at its physical home switch",
+        "It reads a limit switch without wiring or simulation",
+        "It automatically knows the drum diameter"
+      ],
+      "answer": 0,
+      "explanation": "The model assumes a zero reference until homing; a numerical zero alone is not evidence of the mechanism’s physical position.",
+      "lesson": "labs/encoder.html"
+    },
+    {
+      "id": "vision-time",
+      "prompt": "A camera observation arrives after a delay. Which time is needed to associate it with the robot state when the image was taken?",
+      "choices": [
+        "The image capture timestamp",
+        "Only the time at which the dashboard displayed it",
+        "The scheduled end of the next match",
+        "The moment the code file was saved"
+      ],
+      "answer": 0,
+      "explanation": "Capture and delivery times differ. Time-aware pose estimation needs a capture timestamp compatible with the estimator clock.",
+      "lesson": "labs/odometry.html"
+    },
+    {
+      "id": "log-causality",
+      "prompt": "A historical log shows an enable transition near a battery-voltage sample. What is supported by that proximity alone?",
+      "choices": [
+        "The transition caused the voltage change",
+        "The two samples occurred near each other in recorded time",
+        "The robot won its match",
+        "The sampled voltage was the lowest voltage in the full log"
+      ],
+      "answer": 1,
+      "explanation": "The samples have recorded times, but a causal claim requires additional context and evidence. Sparse sampling also can miss extrema.",
+      "lesson": "robots/2024-log.md"
+    }
+  ]
+}

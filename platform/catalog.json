@@ -1,0 +1,98 @@
+{
+  "paths": [
+    {
+      "id": "newcomer-java",
+      "title": "Newcomer: Java and robot basics",
+      "description": "Build programming vocabulary, practice small Java programs, and follow information and power through a robot. Time is an approximate self-paced estimate.",
+      "estimatedMinutes": 240,
+      "outcomes": [
+        "Explain variables, branching, loops, methods, and classes",
+        "Compile and check small Java programs",
+        "Trace a robot command from operator input to mechanism"
+      ],
+      "lessons": [
+        "guides/start-here.md",
+        "foundations/system.md",
+        "java/1-Basics/1-First_Program.md",
+        "java/1-Basics/2-Variables.md",
+        "java/2-Control_Flow/1-If_Statements.md",
+        "java/2-Control_Flow/6-For_Loops.md",
+        "java/3-Functions/1-Basics.md",
+        "java/4-Objects/2-Classes.md",
+        "java/Textbook_Practice.md",
+        "guides/practice-projects.md"
+      ]
+    },
+    {
+      "id": "robot-programmer",
+      "title": "Robot programmer: commands and mechanisms",
+      "description": "Connect command-based architecture, a simulated intake, scheduler behavior, and a real Team 1257 code trace. Time is an approximate self-paced estimate.",
+      "estimatedMinutes": 330,
+      "outcomes": [
+        "Explain subsystem requirements and interruption",
+        "Build or trace a command-based intake in simulation",
+        "Distinguish robot code from evidence of deployed behavior"
+      ],
+      "lessons": [
+        "foundations/safety.md",
+        "frc/1-Basics/4a-Command_Based.md",
+        "frc/1-Basics/4b-Architecture.md",
+        "frc/1-Basics/5-First_Subsystem.md",
+        "frc/1-Basics/5a-Roller_Intake.md",
+        "frc/1-Basics/5c-Making_Commands.md",
+        "frc/1-Basics/5d-Binding_Commands.md",
+        "frc/1-Basics/5e-Simulation.md",
+        "labs/scheduler.html",
+        "robots/2026-code.md",
+        "guides/practice-projects.md"
+      ]
+    },
+    {
+      "id": "controls-autonomous",
+      "title": "Controls, localization, and autonomous",
+      "description": "Connect sensors and feedback to motion, drivetrain coordinates, paths, and recorded data. Time is an approximate self-paced estimate.",
+      "estimatedMinutes": 360,
+      "outcomes": [
+        "Interpret encoder units, control error, and motion constraints",
+        "Predict swerve motion and explain odometry uncertainty",
+        "Trace a real autonomous selection and investigate a real log without overstating it"
+      ],
+      "lessons": [
+        "foundations/mechanical.md",
+        "labs/encoder.html",
+        "frc/3-Closed_Loop_Control/2-Basics_of_PID.md",
+        "labs/pid.html",
+        "labs/motion.html",
+        "labs/swerve.html",
+        "labs/odometry.html",
+        "frc/1-Basics/Modern_Drivetrain_Project.md",
+        "robots/2026-code.md",
+        "robots/2024-log.md",
+        "labs/log.html",
+        "guides/practice-projects.md"
+      ]
+    },
+    {
+      "id": "team-integration",
+      "title": "Team integration: build, investigate, and communicate",
+      "description": "Bring electrical, mechanical, programming, strategy, and safety perspectives into a shared review. Time is an approximate self-paced estimate.",
+      "estimatedMinutes": 240,
+      "outcomes": [
+        "Map power, signals, and mechanism interfaces",
+        "Develop a safe troubleshooting and test plan",
+        "Report observations, uncertainty, and decisions across subteams"
+      ],
+      "lessons": [
+        "foundations/system.md",
+        "foundations/electrical.md",
+        "foundations/mechanical.md",
+        "foundations/strategy.md",
+        "foundations/safety.md",
+        "robots/2024-log.md",
+        "labs/log.html",
+        "robots/2026-code.md",
+        "guides/practice-projects.md"
+      ]
+    }
+  ]
+}
