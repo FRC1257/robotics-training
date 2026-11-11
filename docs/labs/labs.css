@@ -20,9 +20,21 @@
   --banner-ink: #f2f7f4;
   --banner-muted: #c4dccf;
   --banner-link: #a9e3c6;
-  /* Plots are drawn by the lab scripts with fixed dark strokes, so figures stay light. */
+  /* Figure palette. Canvas plots read these at draw time (plot-theme.mjs); SVG
+     figures use the classes below. Series hues keep their meaning in both themes. */
   --figure: #f7faf8;
   --figure-line: #c3d1ca;
+  --plot-surface: #fff;
+  --plot-frame: #889999;
+  --plot-ink: #182b26;
+  --plot-muted: #506071;
+  --plot-blue: #076baf;
+  --plot-orange: #c45b00;
+  --plot-green: #26743a;
+  --plot-band: #dcebdc;
+  --plot-body: #e4edf4;
+  --plot-body-line: #263f55;
+  --plot-red: #a32b15;
   font-family:
     Inter,
     ui-sans-serif,
@@ -55,8 +67,19 @@
   --banner-ink: #e9e6f0;
   --banner-muted: #a39fb1;
   --banner-link: #c8baf0;
-  --figure: #e9e7f0;
+  --figure: #16141c;
   --figure-line: #3d3748;
+  --plot-surface: #1c1924;
+  --plot-frame: #5a5468;
+  --plot-ink: #e9e6f0;
+  --plot-muted: #a39fb1;
+  --plot-blue: #6cb6f2;
+  --plot-orange: #f5a05a;
+  --plot-green: #72cf8c;
+  --plot-band: #1f3327;
+  --plot-body: #252a36;
+  --plot-body-line: #a9bdd2;
+  --plot-red: #ff8a73;
 }
 * {
   box-sizing: border-box;
@@ -152,6 +175,11 @@ main label {
   gap: 0.5rem;
   align-items: center;
 }
+/* Preset menus hold long option names ("Gravity compensation"), so they get a full row. */
+main label:has(> select) {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.25rem;
+}
 main input[type="number"],
 main select {
   width: 100%;
@@ -201,10 +229,47 @@ main svg {
   background: var(--figure);
   border: 1px solid var(--figure-line);
   border-radius: 0.35rem;
-  color: #182b26;
+  color: var(--plot-ink);
 }
 main canvas {
   height: 260px;
+}
+main svg text {
+  fill: var(--plot-ink);
+}
+main svg .plot-area {
+  fill: var(--plot-surface);
+  stroke: var(--plot-frame);
+}
+main svg .plot-band {
+  fill: var(--plot-band);
+}
+main svg .is-blue {
+  --series: var(--plot-blue);
+}
+main svg .is-orange {
+  --series: var(--plot-orange);
+}
+main svg .is-green {
+  --series: var(--plot-green);
+}
+main svg .plot-point,
+main svg text.plot-label {
+  fill: var(--series);
+}
+main svg .plot-line {
+  fill: none;
+  stroke: var(--series);
+}
+main svg .robot-body {
+  fill: var(--plot-body);
+  stroke: var(--plot-body-line);
+}
+main svg .robot-module {
+  fill: var(--plot-body-line);
+}
+main svg text.robot-center {
+  fill: var(--plot-red);
 }
 main table {
   border-collapse: collapse;

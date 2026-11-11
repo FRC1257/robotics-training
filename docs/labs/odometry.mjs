@@ -21,14 +21,15 @@ function render() {
     scale = Math.min(470 / (xmax - xmin), 280 / (ymax - ymin)),
     x = (v) => 40 + (v - xmin) * scale,
     y = (v) => 310 - (v - ymin) * scale;
+  // Colors live in labs.css (.plot-*, .is-*) so the figure follows the theme.
   let svg =
-    '<rect x="40" y="30" width="470" height="280" fill="#fff" stroke="#899"/>';
-  for (const [path, color] of [
-    [r.truth, "#075d93"],
-    [r.odom, "#b75200"],
-    [r.corrected, "#26743a"],
+    '<rect class="plot-area" x="40" y="30" width="470" height="280"/>';
+  for (const [path, tone] of [
+    [r.truth, "is-blue"],
+    [r.odom, "is-orange"],
+    [r.corrected, "is-green"],
   ])
-    svg += `<polyline fill="none" stroke="${color}" stroke-width="3" points="${path.map((p) => `${x(p.x)},${y(p.y)}`).join(" ")}"/>`;
+    svg += `<polyline class="plot-line ${tone}" stroke-width="3" points="${path.map((p) => `${x(p.x)},${y(p.y)}`).join(" ")}"/>`;
   svg += `<text x="40" y="335">x: ${xmin.toFixed(2)}–${xmax.toFixed(2)} m; y: ${ymin.toFixed(2)}–${ymax.toFixed(2)} m</text>`;
   $("plot").innerHTML = svg;
   const last = (path) => path.at(-1),

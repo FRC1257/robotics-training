@@ -1,4 +1,5 @@
 import { pidStep, initialPID, clamp } from "./models.mjs";
+import { plotColors, onThemeChange } from "./plot-theme.mjs";
 const $ = (id) => document.getElementById(id),
   ids = ["setpoint", "kp", "ki", "kd", "ff", "limit", "disturbance"];
 const bounds = {
@@ -67,7 +68,8 @@ function render() {
   const c = $("plot"),
     ctx = c.getContext("2d"),
     w = c.width,
-    h = c.height;
+    h = c.height,
+    colors = plotColors(c);
   ctx.clearRect(0, 0, w, h);
   const positions = samples.map((s) => s.position).concat([p.setpoint, 0]);
   let min = Math.min(...positions) - 0.2,
@@ -78,7 +80,8 @@ function render() {
   }
   const x = (i) => (i / Math.max(500, samples.length - 1)) * w,
     y = (v) => h - ((v - min) / (max - min)) * h;
-  ctx.strokeStyle = "#506071";
+  ctx.strokeStyle = colors.muted;
+  ctx.lineWidth = 1.5;
   ctx.setLineDash([7, 5]);
   ctx.beginPath();
   ctx.moveTo(0, y(p.setpoint));
@@ -86,8 +89,8 @@ function render() {
   ctx.stroke();
   ctx.setLineDash([]);
   for (const [key, color, convert] of [
-    ["position", "#076baf", y],
-    ["output", "#c45b00", (v) => h / 2 - (v / p.limit) * h * 0.5],
+    ["position", colors.blue, y],
+    ["output", colors.orange, (v) => h / 2 - (v / p.limit) * h * 0.5],
   ]) {
     ctx.strokeStyle = color;
     ctx.lineWidth = 2;
@@ -159,5 +162,7 @@ $("preset").onchange = () => {
   reset();
 };
 reset();
+// Repaint the current run in the new colors; the simulation state is untouched.
+onThemeChange(render);
 $("toggle").textContent = running ? "Pause" : "Run";
 requestAnimationFrame(frame);

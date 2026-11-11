@@ -109,8 +109,20 @@ test("embedded PID runs in the lesson, follows theme and does not complete merel
   ).toBe(false);
   await frame.locator("#step").click();
   await expect(frame.locator("#summary")).toContainText("Time");
+  const pausedSummary = await frame.locator("#summary").innerText();
   await page.locator("#theme-toggle").click();
   await expect(frame.locator("html")).toHaveAttribute("data-theme", "dark");
+  await expect(frame.locator("#summary")).toHaveText(pausedSummary);
+  const plotBackground = await frame
+    .locator("#plot")
+    .evaluate((el) => getComputedStyle(el).backgroundColor);
+  expect(
+    Math.max(...plotBackground.match(/\d+/g).slice(0, 3).map(Number)),
+  ).toBeLessThan(40);
+  const presetWidth = await frame
+    .locator("#preset")
+    .evaluate((el) => el.getBoundingClientRect().width);
+  expect(presetWidth).toBeGreaterThan(180);
   const height = await frameElement.evaluate(
     (el) => el.getBoundingClientRect().height,
   );
@@ -118,7 +130,9 @@ test("embedded PID runs in the lesson, follows theme and does not complete merel
     .locator("body")
     .evaluate((el) => el.getBoundingClientRect().height);
   expect(Math.abs(height - contentHeight)).toBeLessThan(6);
-  await frameElement.scrollIntoViewIfNeeded();
+  await page
+    .locator("#lab-embed-pid .lab-embed-head")
+    .evaluate((el) => el.scrollIntoView({ block: "start" }));
   await page.screenshot({
     path: testInfo.outputPath("embedded-pid-dark.png"),
     animations: "disabled",
@@ -127,3 +141,49 @@ test("embedded PID runs in the lesson, follows theme and does not complete merel
   await labToggle.click();
   await expect(labToggle).toHaveAttribute("aria-pressed", "true");
 });
+
+for (const [name, lesson] of [
+  ["scheduler", "frc/1-Basics/5c-Making_Commands.html"],
+  ["encoder", "frc/2-Sensors_And_Shuffleboard/3-Encoders.html"],
+  ["motion", "frc/3-Closed_Loop_Control/5-Motion_Profiling.html"],
+  ["swerve", "frc/1-Basics/Modern_Drivetrain_Project.html"],
+  ["odometry", "frc/1-Basics/Modern_Drivetrain_Project.html"],
+  ["log", "robots/2024-log.html"],
+]) {
+  test(`embedded ${name} fits the page and receives its theme`, async ({
+    page,
+  }) => {
+    const errors = [];
+    page.on("pageerror", (error) => errors.push(error.message));
+    await page.goto(`/${lesson}`);
+    const selector = `iframe[src*="/labs/${name}.html?embed=1"]`;
+    const frameElement = page.locator(selector);
+    await frameElement.scrollIntoViewIfNeeded();
+    const frame = page.frameLocator(selector);
+    await expect(frame.locator("html")).toHaveAttribute("data-embed", "1");
+    await expect(page.locator(`#lab-embed-${name}`)).toHaveAttribute(
+      "data-sized",
+      "",
+    );
+    await page.locator("#theme-toggle").click();
+    await expect(frame.locator("html")).toHaveAttribute("data-theme", "dark");
+    expect(
+      await frame
+        .locator("body")
+        .evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1),
+    ).toBe(true);
+    await expect
+      .poll(async () => {
+        const height = await frameElement.evaluate(
+          (el) => el.getBoundingClientRect().height,
+        );
+        const content = await frame
+          .locator("body")
+          .evaluate((el) => el.getBoundingClientRect().height);
+        return Math.abs(height - content);
+      })
+      .toBeLessThan(6);
+    if (name === "log") await expect(frame.locator("#rows tr")).toHaveCount(29);
+    expect(errors).toEqual([]);
+  });
+}

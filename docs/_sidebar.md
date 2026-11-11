@@ -174,6 +174,7 @@
   * [Glossary](guides/glossary.md)
   * [Resources](guides/resources.md)
   * [For mentors](guides/mentors.md)
+  * [About this course](guides/about-this-course.md)
 * [Documentation](documentation/README.md)
 * [Website](website/README.md)
   * [Getting Started](website/Getting_Started.md)

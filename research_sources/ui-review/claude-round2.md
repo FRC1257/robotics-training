@@ -119,3 +119,47 @@ Everything else in `build-site.test.mjs` and the browser spec should still pass 
   - the tooltip at the left edge in the meta row (`.tip-start`);
   - a toolbar wrap on lab pages at 360px when the provenance badge is present;
   - `color-mix()` fallback in older Safari (falls back to a plain surface).
+
+## Follow-up: four fixes from the root audit
+
+Claude made these with Read/Glob/Grep/Edit/Write only. **Nothing in this follow-up has been built, tested or rendered by Claude**; the root agent reported that the first pass builds and its Node tests pass, but that predates these edits. Files changed: `scripts/build-site.mjs`, `platform/search-ui.mjs`, `docs/guides/about-this-course.md`, and this file. `platform/site.mjs` and `platform/site.css` needed no change.
+
+1. **Exactly one H1 per article** (`ensureSingleH1`, `inferredTitle` in the builder). This runs on the rendered DOM after callouts and before heading ids, so `#` lines and `<h1>` text inside code fences never count.
+   - The author's first H1 is kept as written.
+   - Every later H1 becomes an `h2` with the same attributes and inner HTML. It then gets a unique id, a TOC entry and a hover anchor like any H2. This affects the website `Site_Layout` and `Annual_Updates` pages.
+   - A page with no H1 (the code-only `java/**/programs/*.md`) gets one prepended. Its text is the page's first sidebar label (for example "Print an Array"). If there is no label, it uses the file name, or the folder name for a README, with the number prefix and underscores removed.
+   - The page `<title>`, `data-page-title`, `lesson-titles.json`, the search title and the iframe titles now all use this DOM title. The old regex `titleOf`, which could match a `# comment` inside a fence, is removed. On those code-only pages, the inferred H1 now starts the search text and the description.
+   - `.lesson-meta` is always inserted directly after the one H1.
+2. **Visiting completes every lesson, the knowledge checks included.** The per-page `completionCopy` exception (`auto: false`, "Checks reviewed") is gone. Every lesson toggle uses the same generic lesson copy with `data-auto="visit"`. These are unchanged:
+   - index pages and the learning-paths hub stay exempt;
+   - the manual un-mark and skip list still apply;
+   - embedded lab toggles still have no `data-auto`, and `autoComplete()` still returns early inside an iframe, so opening an embed never completes a lab.
+
+   The footer caveat now says a visit is "not understanding or a quiz score". The About page says the knowledge checks complete on visit and that answers and score are not saved. `practice.mjs` keeps the score in memory only.
+3. **Programming by robot type.**
+   - `robot-types` is in the builder's `SECTION_ORDER` (after Robot programming) and in `SECTION_LABELS` in `search-ui.mjs`. The section filter now offers it, and breadcrumbs read "Programming by robot type".
+   - The palette's empty-state Browse list gains one short "Robot types" link to `robot-types/README.md`. The list grows to seven items, which can leave one orphan in the auto-fill grid. No suggested-search chip was added, to avoid clutter.
+   - Navigation and catalog were not touched.
+4. **Media wording on the About page.** The blanket "not AI-generated" sentence is replaced. The AI-assisted label now covers the writing and the original teaching code (text, examples, pseudocode, lab models, diagram-drawing code). Sourced photos, diagrams and screenshots carry their own caption credits and licenses and are never covered by the label. Original teaching diagrams and models are identified in captions as illustrations, with their simplifications and assumptions.
+
+**For the root agent to verify:**
+- Run the build and the new all-article-headings test.
+- Check that the round-2 notes above saying "knowledge checks (manual)" are now superseded.
+- Spot-check that `[...h.attributes]` iterates under linkedom. Markdown headings carry no attributes, so the loop is normally empty.
+
+## Follow-up: final polish after the second browser run
+
+Claude made these with Read/Glob/Grep/Edit/Write only. Claude did not run any build, test or browser for these edits. Claude did read the root's three dark-mode screenshots: the search palette on desktop and mobile, and the embedded PID lab.
+
+**Browser run as reported by the root:** 62 of 64 Playwright checks passed. One test failed twice, once in the desktop project and once in the mobile project. In "search palette supports keyboard navigation and recovery", calling `input.press('Escape')` after typing a query with no matches left the dialog open. The cause is the native `<input type="search">`, which uses Escape to clear its own value. The keypress never reached the dialog's built-in cancel, so the dialog stayed open with an empty field. The test is correct and was not changed.
+
+1. **Escape closes the palette from the input** (`platform/search-ui.mjs`). The input's `keydown` handler now treats Escape first, unless an IME composition is in progress. It calls `preventDefault()` and `stopPropagation()`, then `close()`. The existing `close` listener on the dialog sends focus back to whatever opened the palette. Arrow keys, Enter, Ctrl/Cmd+Enter, `/` and Ctrl/Cmd+K behave as before. If the user presses Escape on the section `<select>` or a button, the dialog's own cancel still handles it.
+2. **Preset menus no longer clip** (`docs/labs/labs.css`). The PID preset showed "Gravity cc". The new rule `main label:has(> select)` puts the label text above a full-width menu. It outranks the 6rem/7rem number-field column at every width, including the mobile query. This is the only kind of select in the labs: the PID and swerve presets. Labels, ids and markup are unchanged.
+3. **Live figures follow the theme.**
+   - `labs.css` defines `--plot-*` tokens for light and dark: surface, frame, ink, muted, blue, orange, green, enabled band, robot body/line and red. The light values are the old hard-coded colors, so light mode looks the same. The dark values sit on a near-black figure (`#16141c`; the old value was `#e9e7f0`). They keep the meaning of each color: blue is position, truth or battery; orange is output, odometry or velocity; green is the corrected estimate or the enabled band. Each is lightened enough to read on the dark figure.
+   - The new `docs/labs/plot-theme.mjs` has `plotColors()`, which reads the tokens with `getComputedStyle` at draw time, and `onThemeChange()`, a `MutationObserver` on `data-theme`. That attribute is set both by the lab's own toggle and by the parent lesson's `postMessage`.
+   - `pid.mjs`: the canvas reads its colors on every render. When the theme changes it calls `render()`, which only repaints the current samples. The model is not reset and no run is started or stopped. The setpoint dash now has a fixed 1.5px width. Before, the dash took whatever width the previous stroke left behind.
+   - `log.mjs`, `odometry.mjs` and `swerve.mjs`: SVG markup now uses classes (`plot-area`, `plot-band`, `plot-point`, `plot-line`, `plot-label`, `is-blue/orange/green`, `robot-body/module/center`) in place of `fill`/`stroke` color attributes. Untagged SVG text uses `--plot-ink`. These figures change color through CSS alone, with no redraw. Geometry, stroke widths, data handling and CSV parsing are unchanged.
+   - `motion`, `encoder` and `scheduler` draw no figures, so they needed no change. `models.mjs`, the lab HTML and the photos were not touched. Nothing is inverted or filtered.
+
+**For the root agent to verify:** rerun the two Escape cases and the dark screenshots. Check the PID plot after switching the theme mid-run: the curves should stay and the run state should be unchanged. `:has()` needs Safari 15.4+ or Chromium 105+. Older browsers keep the old two-column row.

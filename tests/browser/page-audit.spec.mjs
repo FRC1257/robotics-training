@@ -3,6 +3,8 @@ import { test, expect } from "@playwright/test";
 const pages = [
   "java/1-Basics/2-Variables.html",
   "java/1-Basics/6-Arrays.html",
+  "java/1-Basics/programs/Variables.html",
+  "website/2-Annual_Updates/1-Student_Leadership.html",
   "frc/2-Sensors_And_Shuffleboard/5-Boolean_Sensors.html",
   "frc/3-Closed_Loop_Control/4-Feedforward.html",
   "frc/4-Autonomous/3c-Following_Trajectories.html",

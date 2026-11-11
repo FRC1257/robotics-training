@@ -135,31 +135,41 @@ function alternatives(term, vocabulary) {
   return options;
 }
 function makeSnippet(page, terms) {
-  const body = String(page.text || page.excerpt || "")
-    .replace(/\s+/g, " ")
-    .trim();
+  const body = String(page.text || page.excerpt || "").replace(/\s+/g, " ").trim();
   if (!body) return "";
   const lower = body.toLowerCase();
+  // Generated plaintext begins with the page title, followed on many lessons by
+  // short metadata sentences. Prefer actual prose while retaining source text.
+  const title = String(page.title || "").trim();
+  let floor = title && lower.startsWith(title.toLowerCase()) ? title.length : 0;
+  while (body[floor] === " ") floor++;
+  for (let i = 0; i < 6 && floor < body.length; i++) {
+    const rest = body.slice(floor);
+    if (!/^(?:prerequisites?|time|outcomes?|status|baseline)\s*:/i.test(rest)) break;
+    const end = rest.search(/[.!?](?:\s|$)/);
+    if (end < 0 || end > 500) break;
+    floor += end + 1;
+    while (body[floor] === " ") floor++;
+  }
+  // Never discard a short document merely because it consists of metadata.
+  if (floor >= body.length) floor = 0;
   let pos = -1;
   for (const word of terms) {
     if (word.length < 3) continue;
-    const at = lower.indexOf(word.toLowerCase());
+    const at = lower.indexOf(word.toLowerCase(), floor);
     if (at >= 0 && (pos < 0 || at < pos)) pos = at;
   }
-  if (pos < 0) pos = 0;
-  let start = Math.max(0, pos - 75),
-    end = Math.min(body.length, start + 220);
-  if (start > 0) {
-    const n = body.indexOf(" ", start);
-    if (n >= 0 && n < pos) start = n + 1;
+  if (pos < 0) pos = floor;
+  let start = Math.max(floor, pos - 75), end = Math.min(body.length, Math.max(floor, pos - 75) + 220);
+  if (start > floor) {
+    const next = body.indexOf(" ", start);
+    if (next >= 0 && next < pos) start = next + 1;
   }
   if (end < body.length) {
-    const n = body.lastIndexOf(" ", end);
-    if (n > start) end = n;
+    const last = body.lastIndexOf(" ", end);
+    if (last > start) end = last;
   }
-  return (
-    (start ? "…" : "") + body.slice(start, end) + (end < body.length ? "…" : "")
-  );
+  return (start ? "…" : "") + body.slice(start, end) + (end < body.length ? "…" : "");
 }
 export function searchLessons(index, query, limit = 20, options = {}) {
   if (typeof query !== "string" || !query.trim()) return [];

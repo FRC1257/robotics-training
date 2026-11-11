@@ -4,6 +4,7 @@ import { searchLessons, tokenize } from "./search.mjs";
 const SECTION_LABELS = {
   java: "Java",
   frc: "Robot programming",
+  "robot-types": "Programming by robot type",
   labs: "Interactive labs",
   foundations: "Robot foundations",
   robots: "Real robots",
@@ -249,7 +250,12 @@ export function mountSearch({ base }) {
   input.addEventListener("input", performSearch);
   input.addEventListener("keydown", (event) => {
     const count = options().length;
-    if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+    // type=search clears the field on Escape and swallows the dialog's cancel; close explicitly.
+    if (event.key === "Escape" && !event.isComposing) {
+      event.preventDefault();
+      event.stopPropagation();
+      close();
+    } else if (event.key === "ArrowDown" || event.key === "ArrowUp") {
       if (!count) return;
       event.preventDefault();
       setActive(active + (event.key === "ArrowDown" ? 1 : -1));

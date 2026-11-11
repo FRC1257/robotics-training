@@ -64,30 +64,30 @@ const slug = (s) =>
     .trim()
     .replace(/[^\p{L}\p{N}\s_-]/gu, "")
     .replace(/\s+/g, "-") || "section";
+// IDs the page chrome owns. A heading whose slug lands on one gets a "heading-" prefix
+// instead, so every other heading keeps the anchor it has always had.
+const CHROME_IDS = new Set([
+  "main", "sidebar", "site-status", "reading-progress", "theme-toggle", "menu-toggle",
+  "search-open", "search-dialog", "search-title", "search-input", "search-clear",
+  "search-close", "search-section", "search-status", "search-results", "search-retry",
+  "search-widen", "search-empty", "complete-lesson", "progress-summary", "next-activity",
+  "progress-export", "progress-import", "progress-reset", "404",
+]);
+const isChromeId = (id) => CHROME_IDS.has(id) || /^nav-\d+$/.test(id);
 // Ring plus check; CSS fills the ring and draws the check when aria-pressed is true.
 const completeIcon = `<svg class="complete-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><circle class="ring" cx="12" cy="12" r="9.25" pathLength="1"/><path class="check" d="m7.75 12.4 2.9 2.9 5.6-5.8" pathLength="1"/></svg>`;
 function completionToggle({ id, source, auto, noun, label, tipOff, tipOn, statusOff, statusOn, extraClass = "" }) {
   return `<button${id ? ` id="${id}"` : ""} class="icon-btn complete-toggle${extraClass}" type="button" data-complete-toggle data-lesson="${esc(source)}"${auto ? ' data-auto="visit"' : ""} data-noun="${esc(noun)}" data-tip-off="${esc(tipOff)}" data-tip-on="${esc(tipOn)}" data-status-off="${esc(statusOff)}" data-status-on="${esc(statusOn)}" data-tip="${esc(tipOff)}" aria-pressed="false" aria-label="${esc(label || `${noun} complete`)}">${completeIcon}</button>`;
 }
-// Lessons complete on visit; the knowledge checks only when the reader says so.
+// Every lesson page, the knowledge checks included, completes on visit. Completion records
+// the visit, never a quiz score; the reader can still undo it.
 const completionCopy = {
-  default: {
-    noun: "Lesson",
-    auto: true,
-    tipOff: "Mark lesson complete",
-    tipOn: "Completed on this browser · select to undo",
-    statusOff: "Not completed",
-    statusOn: "Completed",
-  },
-  "guides/knowledge-checks.md": {
-    noun: "Knowledge checks",
-    label: "Checks reviewed",
-    auto: false,
-    tipOff: "Mark checks reviewed",
-    tipOn: "Reviewed on this browser · select to undo",
-    statusOff: "Not reviewed",
-    statusOn: "Reviewed",
-  },
+  noun: "Lesson",
+  auto: true,
+  tipOff: "Mark lesson complete",
+  tipOn: "Completed on this browser · select to undo",
+  statusOff: "Not completed",
+  statusOn: "Completed",
 };
 // Explicit <!-- lab: name --> markers may only name these standalone labs.
 const LAB_NAMES = ["pid", "swerve", "scheduler", "encoder", "motion", "log", "odometry"];
@@ -214,11 +214,39 @@ function rawText(document) {
     .replace(/\s+/g, " ")
     .trim();
 }
-function titleOf(markdown, source) {
-  const found = markdown.match(/^#\s+(.+)$/m);
-  return found
-    ? found[1].replace(/[`*_]/g, "").trim()
-    : path.posix.basename(source, ".md").replaceAll("_", " ");
+// Title for a page without an H1: its sidebar label, else a tidied file or folder name.
+function inferredTitle(source, navLabels) {
+  if (navLabels.get(source)) return navLabels.get(source);
+  const parts = source.split("/"),
+    name = parts.at(-1) === "README.md" && parts.length > 1 ? parts.at(-2) : parts.at(-1);
+  return (
+    name
+      .replace(/\.md$/i, "")
+      .replace(/^\d+[a-z]?[-_]/i, "")
+      .replaceAll("_", " ")
+      .trim() || "Lesson"
+  );
+}
+// Every article gets exactly one H1, read from the rendered DOM so code fences never count.
+// The author's first H1 is kept; later ones become H2 (content intact, ids assigned later);
+// a page with none gets one from inferredTitle.
+function ensureSingleH1(article, document, fallback) {
+  const [first, ...extra] = article.querySelectorAll("h1");
+  for (const h of extra) {
+    const h2 = document.createElement("h2");
+    for (const attr of [...h.attributes]) h2.setAttribute(attr.name, attr.value);
+    h2.innerHTML = h.innerHTML;
+    h.replaceWith(h2);
+  }
+  const found = first?.textContent.replace(/\s+/g, " ").trim();
+  if (found) return found;
+  if (first) first.textContent = fallback;
+  else {
+    const h1 = document.createElement("h1");
+    h1.textContent = fallback;
+    article.prepend(h1);
+  }
+  return fallback;
 }
 function renderArticle(md, markdown, source, base, catalog, context) {
   let rendered = md.render(markdown);
@@ -242,12 +270,28 @@ function renderArticle(md, markdown, source, base, catalog, context) {
     counts = new Map(),
     toc = [];
   renderCallouts(article, document);
+  const title = ensureSingleH1(article, document, inferredTitle(source, context.navLabels));
+  // Headings may not take an ID the chrome, the lesson's own HTML, or a lab embed uses.
+  const taken = new Set();
+  for (const el of article.querySelectorAll("[id]"))
+    if (!/^H[123]$/.test(el.tagName)) taken.add(el.id);
+  for (const placeholder of article.querySelectorAll("[data-lab-marker]")) {
+    const key = context.labs.get(placeholder.getAttribute("data-lab-marker")).id.replace(/^labs\/|\.html$/g, "");
+    taken.add(`lab-embed-${key}`).add(`lab-${key}-title`);
+  }
   for (const h of article.querySelectorAll("h1,h2,h3")) {
     const name = h.textContent.trim(),
       key = slug(name),
       n = counts.get(key) || 0;
     counts.set(key, n + 1);
-    h.id = n ? `${key}-${n}` : key;
+    let id = n ? `${key}-${n}` : key;
+    if (isChromeId(id) || taken.has(id)) {
+      const prefixed = `heading-${id}`;
+      id = prefixed;
+      for (let i = 2; isChromeId(id) || taken.has(id); i++) id = `${prefixed}-${i}`;
+    }
+    taken.add(id);
+    h.id = id;
     if (h.tagName === "H2") toc.push({ id: h.id, text: name });
   }
   for (const el of article.querySelectorAll("a[href],img[src]")) {
@@ -277,7 +321,7 @@ function renderArticle(md, markdown, source, base, catalog, context) {
     } catch {}
     iframe.setAttribute(
       "title",
-      `${titleOf(markdown, source)}: ${provider} resource ${embedNumber}`,
+      `${title}: ${provider} resource ${embedNumber}`,
     );
     iframe.setAttribute("loading", "lazy");
   }
@@ -305,14 +349,12 @@ function renderArticle(md, markdown, source, base, catalog, context) {
       /<!--\s*ai-assisted\s*-->/i.test(markdown) || context.provenance.lessons.has(source),
     meta = lessonMeta(source, base, ai);
   if (meta) {
-    const h1 = article.querySelector("h1"),
-      row = document.createElement("div");
+    const row = document.createElement("div");
     row.setAttribute("class", "lesson-meta");
     row.innerHTML = meta;
-    if (h1) h1.after(row);
-    else article.prepend(row);
+    article.querySelector("h1").after(row);
   }
-  return { html: article.innerHTML, text, toc, ai };
+  return { html: article.innerHTML, title, text, toc, ai };
 }
 // Labs keep their own stylesheet. In a lesson iframe (?embed=1) the head script marks
 // the document so labs.css hides this bar and the lab header, and the parent's theme wins.
@@ -456,7 +498,7 @@ function progressTools(open = false) {
   return `<details class="progress-tools"${open ? " open" : ""}><summary>Manage progress</summary><div class="progress-tools-body"><p>Progress is saved only in this browser. Export a copy to move it to another device.</p><button id="progress-export" type="button">Export progress</button><label for="progress-import">Import progress</label><input id="progress-import" type="file" accept="application/json,.json"><button id="progress-reset" type="button">Reset progress</button></div></details>`;
 }
 const progressCaveat = (base) =>
-  `<p class="progress-caveat">Opening a lesson marks it complete on this browser. That records a visit, not understanding. Test yourself with the <a href="${esc(hrefFor("guides/knowledge-checks.md", base))}">knowledge checks</a> and labs. <a href="${esc(aboutHref(base, "#progress-on-this-browser"))}">How progress works</a></p>`;
+  `<p class="progress-caveat">Opening a lesson marks it complete on this browser. That records a visit, not understanding or a quiz score. Test yourself with the <a href="${esc(hrefFor("guides/knowledge-checks.md", base))}">knowledge checks</a> and labs. <a href="${esc(aboutHref(base, "#progress-on-this-browser"))}">How progress works</a></p>`;
 // Section landing pages and the learning-paths hub are not completable lessons.
 const isLesson = (source) =>
   source !== "README.md" &&
@@ -466,8 +508,7 @@ const isLesson = (source) =>
 function lessonMeta(source, base, ai) {
   let html = "";
   if (isLesson(source)) {
-    const copy = completionCopy[source] || completionCopy.default;
-    html += `<span class="completion">${completionToggle({ ...copy, id: "complete-lesson", source, extraClass: " tip-start" })}<span class="completion-status" aria-hidden="true"></span></span>`;
+    html += `<span class="completion">${completionToggle({ ...completionCopy, id: "complete-lesson", source, extraClass: " tip-start" })}<span class="completion-status" aria-hidden="true"></span></span>`;
   }
   if (ai) html += provenanceBadge(base, "AI-assisted lesson");
   return html;
@@ -486,6 +527,7 @@ function siteHeader(base, { menu = true } = {}) {
 const SECTION_ORDER = [
   ["java", "Java"],
   ["frc", "Robot programming"],
+  ["robot-types", "Programming by robot type"],
   ["labs", "Interactive labs"],
   ["foundations", "Robot foundations"],
   ["robots", "Real robots"],
@@ -517,6 +559,7 @@ function searchDialog(base, sections) {
     ["guides/start-here.md", "Start here"],
     ["java/README.md", "Java"],
     ["frc/README.md", "Robot programming"],
+    ["robot-types/README.md", "Robot types"],
     ["labs/README.md", "Interactive labs"],
     ["guides/learning-paths.md", "Learning paths"],
     ["guides/troubleshooting.md", "Troubleshooting"],
@@ -570,7 +613,14 @@ export function buildSite({
     entries = allEntries.filter((e) => e.href),
     catalog = readCatalog(),
     md = makeMarkdown(),
-    context = { labs: readLabs(), provenance: readProvenance() },
+    context = {
+      labs: readLabs(),
+      provenance: readProvenance(),
+      // First sidebar label per page; it names pages whose Markdown has no H1.
+      navLabels: new Map(
+        [...entries].reverse().filter((e) => e.source).map((e) => [e.source, e.label]),
+      ),
+    },
     sections = new Set([
       "labs",
       ...sources.filter((s) => s.includes("/")).map((s) => s.split("/")[0]),
@@ -582,8 +632,8 @@ export function buildSite({
     urls = [];
   for (const source of sources) {
     const markdown = fs.readFileSync(path.join(docs, source), "utf8"),
-      title = titleOf(markdown, source),
       article = renderArticle(md, markdown, source, base, catalog, context),
+      title = article.title,
       description =
         article.text.slice(0, 157).trim() || `Team 1257 training: ${title}`,
       idx = entries.findIndex((e) => e.source === source),
