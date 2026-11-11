@@ -77,20 +77,27 @@
         <section class="card">
           <h2>Results</h2>
           <p id="result" role="status"></p>
-          <table>
-            <caption>
-              Reference samples at equal fractions of total duration
-            </caption>
-            <thead>
-              <tr>
-                <th>Time (s)</th>
-                <th>Position (m)</th>
-                <th>Velocity (m/s)</th>
-                <th>Acceleration (m/s²)</th>
-              </tr>
-            </thead>
-            <tbody id="samples"></tbody>
-          </table>
+          <div
+            class="table-scroll"
+            role="region"
+            aria-label="Reference samples table"
+            tabindex="0"
+          >
+            <table>
+              <caption>
+                Reference samples at equal fractions of total duration
+              </caption>
+              <thead>
+                <tr>
+                  <th>Time (s)</th>
+                  <th>Position (m)</th>
+                  <th>Velocity (m/s)</th>
+                  <th>Acceleration (m/s²)</th>
+                </tr>
+              </thead>
+              <tbody id="samples"></tbody>
+            </table>
+          </div>
         </section>
       </div>
       <section class="card">

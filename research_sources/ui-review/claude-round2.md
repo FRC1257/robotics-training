@@ -163,3 +163,26 @@ Claude made these with Read/Glob/Grep/Edit/Write only. Claude did not run any bu
    - `motion`, `encoder` and `scheduler` draw no figures, so they needed no change. `models.mjs`, the lab HTML and the photos were not touched. Nothing is inverted or filtered.
 
 **For the root agent to verify:** rerun the two Escape cases and the dark screenshots. Check the PID plot after switching the theme mid-run: the curves should stay and the run state should be unchanged. `:has()` needs Safari 15.4+ or Chromium 105+. Older browsers keep the old two-column row.
+
+## Follow-up: embedded motion lab overflow at 390px
+
+Claude made this with Read/Grep/Edit/Write only. Claude ran no build, test or browser, and viewed no screenshot for this fix.
+
+**CI result as reported by the root** ([run 42957175227](https://github.com/FRC1257/robotics-training/actions/runs/42957175227)): 79 of 80 checks passed. The one failure was "embedded motion fits the page and receives its theme" in the mobile project (390px outer viewport). Inside the lesson the embedded iframe is about 310px wide. There, `document.documentElement.scrollWidth <= innerWidth + 1` was false. The other six embedded labs passed, and the standalone motion lab passed at 390px.
+
+**Cause (from reading source).** The Results table in `motion.html` has four columns. Its narrowest possible width is set by the headers, mainly the single word "Acceleration" in "Acceleration (m/s²)", plus the cell padding. That comes to roughly 290–300px. Inside a 310px frame, the card leaves only about 255px for content (embed `main` padding 0.6rem per side, card padding 1.1rem per side, borders). A table won't shrink below its narrowest width, so it spilled past the card and widened the document. `.card { min-width: 0 }` and the `minmax(0, 1fr)` layout stop the grid from growing, but they can't stop a table from overflowing.
+
+**Fix.**
+- `docs/labs/motion.html`: the table is now wrapped in `<div class="table-scroll" role="region" aria-label="Reference samples table" tabindex="0">`. The table, caption, headers, `#samples` id and script are unchanged; only the indentation changed. No new id was added.
+- `docs/labs/labs.css`: a new reusable `.table-scroll` rule with `max-width: 100%`, `overflow-x: auto`, `overscroll-behavior-x: contain` and `-webkit-overflow-scrolling: touch`.
+
+**How it behaves.**
+- The table keeps `width: 100%`, so on wide screens it looks as before.
+- On narrow screens the headers still wrap at spaces first. Only what is still too wide scrolls sideways, and only inside the wrapper. The page itself no longer gets wider.
+- Nothing is hidden, clipped or scaled. Every result can be reached by scrolling the wrapper, and the caption scrolls with the table.
+- Keyboard users can focus the region and scroll it with the arrow keys. It uses the existing `:focus-visible` outline.
+- The wrapper only scrolls sideways, so vertical swipes still scroll the page. `overscroll-behavior-x` only stops a sideways swipe at the table's edge from carrying on into the page or triggering back navigation.
+
+**Why a wrapper, not CSS alone.** Setting `table { display: block; overflow-x: auto }` would also work, but some engines, notably older WebKit, drop table semantics for a block-displayed table. A focusable, labelled region also gives keyboard users a scroll target. `log.html` already uses an inline `overflow-x: auto` wrapper; it could move to `.table-scroll` later, but it was left untouched here.
+
+**For the root agent to verify:** rerun all 80 browser checks, especially the mobile embedded-motion case. Also confirm that the iframe height message still matches the content height and that the dark embed screenshot looks right. Claude has not run any of these.

@@ -271,6 +271,15 @@ main svg .robot-module {
 main svg text.robot-center {
   fill: var(--plot-red);
 }
+/* Wide result tables scroll sideways inside their card instead of widening the page
+   (a lesson frame can be ~310px). Focusable so keyboard users can scroll it; vertical
+   swipes still reach the page. */
+.table-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+}
 main table {
   border-collapse: collapse;
   width: 100%;

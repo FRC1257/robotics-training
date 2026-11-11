@@ -170,6 +170,11 @@ for (const lab of [
       await page.locator("#step").click();
       await expect(page.locator("#summary")).toContainText("Time");
       await expect(page.locator("#sample-table tr").first()).toBeVisible();
+      // Capture a complete, repeatable ten-second teaching response via the actual Step control.
+      await page.locator("#step").evaluate((button) => {
+        for (let i = 0; i < 499; i++) button.click();
+      });
+      await expect(page.locator("#summary")).toContainText("Time 10.00 s");
     }
     if (lab === "swerve") {
       await page.locator("#preset").selectOption("rotation");
