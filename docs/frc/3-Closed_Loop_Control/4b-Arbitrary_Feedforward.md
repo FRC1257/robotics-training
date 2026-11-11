@@ -1,3 +1,5 @@
+> **Historical lesson:** This material predates the 2026 course and may use older WPILib, vendor APIs, team wrappers, and game rules. Its original version is not verified here. Do not copy its robot code into a 2026 project without migration and mentor review. Start with [the 2026 subsystem lesson](../1-Basics/5-First_Subsystem.md).
+
 # Arbitrary Feedforward
 
 So far, we've discussed how feedforward can be applied to velocity PID, where the setpoint is multiplied by a certain constant to achieve a specific velocity. The next form of feedforward that we will discuss is arbitrary feedforward, which takes into account our understanding of the system that we are trying to control and accounting for the forces present in it. We will go over two primary examples: elevators and arms. As you will see, the common theme of feedforward in both of these subsystems is to reduce/eliminate the effect of gravity.

@@ -1,3 +1,5 @@
+> **Historical lesson:** This material predates the 2026 course and may use older WPILib, vendor APIs, team wrappers, and game rules. Its original version is not verified here. Do not copy its robot code into a 2026 project without migration and mentor review. Start with [the 2026 subsystem lesson](../1-Basics/5-First_Subsystem.md).
+
 # Auto Choosing
 
 Now that we've written out all of our robot's autonomous functionality, we need to actually *call* it at some point (through Shuffleboard) and command our robot to execute it. This section will be heavily based off 1257's 2020 autos, once again.
@@ -282,4 +284,4 @@ Here's what happens:
 
 ---
 
-TODO: add screenshots of Shuffleboard choosers, just for visualization
+**Exercise:** Select the default and an alternate routine in a version-matched simulator. Confirm the selected command and cancellation at teleop in logs; a chooser display by itself does not prove the path ran.

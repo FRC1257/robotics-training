@@ -1,3 +1,5 @@
+> **Historical lesson:** This material predates the 2026 course and may use older WPILib, vendor APIs, team wrappers, and game rules. Its original version is not verified here. Do not copy its robot code into a 2026 project without migration and mentor review. Start with [the 2026 subsystem lesson](../1-Basics/5-First_Subsystem.md).
+
 # Rate Limiting
 
 ## Filters
@@ -30,4 +32,4 @@ In 2020, we used the slew rate limiter to make our closed-loop driving more smoo
 
 * Click [here](https://docs.wpilib.org/en/stable/docs/software/advanced-controls/filters/introduction.html) for more info on filters.
 
-* Click [here](https://first.wpi.edu/FRC/roborio/release/docs/java/edu/wpi/first/wpilibj/SlewRateLimiter.html) for the WPILib `SlewRateLimiter` documentation.
+* Click [here](https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/math/filter/SlewRateLimiter.html) for the WPILib `SlewRateLimiter` documentation.

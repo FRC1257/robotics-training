@@ -1,8 +1,10 @@
+> **Historical lesson:** This material predates the 2026 course and may use older WPILib, vendor APIs, team wrappers, and game rules. Its original version is not verified here. Do not copy its robot code into a 2026 project without migration and mentor review. Start with [the 2026 subsystem lesson](../1-Basics/5-First_Subsystem.md).
+
 # Vendor Dependencies
 
 When we use hardware from a third-party source, we need to place what are called "vendor dependency" files into our robot program.
 
-A prime example of such hardware would be a motor controller (see [Motors](https://frc1257.github.io/robotics-training/#/frc/1-Basics/2-Motors) for more detail). Say we are using a SPARK MAX controller from REV Robotics--in order for the controller to actually function, we need to get the vendor dependency (a `.json` file) from REV Robotics' [website](http://www.revrobotics.com/sparkmax-software/).
+A prime example of such hardware would be a motor controller (see [Motors](2a-Motors.md) for more detail). Say we are using a SPARK MAX controller from REV Robotics--in order for the controller to actually function, we need to get the vendor dependency (a `.json` file) from REV Robotics' [website](http://www.revrobotics.com/sparkmax-software/).
 
 ## Installing
 

@@ -1,3 +1,5 @@
+> **Historical lesson:** This material predates the 2026 course and may use older WPILib, vendor APIs, team wrappers, and game rules. Its original version is not verified here. Do not copy its robot code into a 2026 project without migration and mentor review. Start with [the 2026 subsystem lesson](../1-Basics/5-First_Subsystem.md).
+
 # Extra Features
 
 So far, we've just gone over very basic control of our subsystem. In this section, we're going to learn how we can augment a bit of that to create a better experience for the people controlling our robot.

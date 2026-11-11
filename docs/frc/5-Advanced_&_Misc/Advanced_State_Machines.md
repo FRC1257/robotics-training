@@ -1,3 +1,5 @@
+> **Historical lesson:** This material predates the 2026 course and may use older WPILib, vendor APIs, team wrappers, and game rules. Its original version is not verified here. Do not copy its robot code into a 2026 project without migration and mentor review. Start with [the 2026 subsystem lesson](../1-Basics/5-First_Subsystem.md).
+
 # Advanced State Machines
 
 In the past, we've covered some very basic state machines such as for an intake, which only has three states: neutral, intaking, and ejecting. We transitioned between these states depending on button presses, and there wasn't really much else about it. We then added some more spice to the mix by introducing various PID states we can use, where we stay in that PID state until we're finished going to our setpoint. We can automate leaving the PID state, which adds a bit more complexity to our subsystems. However, we're not really using the full power of a state machine, so we're going to go over some more complex examples from previous years that can hopefully show you why they are so powerful.

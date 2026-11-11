@@ -1,3 +1,5 @@
+> **Historical lesson:** This material predates the 2026 course and may use older WPILib, vendor APIs, team wrappers, and game rules. Its original version is not verified here. Do not copy its robot code into a 2026 project without migration and mentor review. Start with [the 2026 subsystem lesson](../1-Basics/5-First_Subsystem.md).
+
 # Generating Trajectories
 
 The first step of following trajectories is to actually generate them. In the previous article on segmented trajectories, we went over how one needs to use the field cad to do the measurements. The same is true for curved trajectories, although we will be using another tool: PathWeaver.

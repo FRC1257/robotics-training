@@ -1,0 +1,1827 @@
+[
+  {
+    "path": "docs/documentation/README.md",
+    "language": "md",
+    "code": "## Basic Markdown\n\nLet's start learning some basic Markdown syntax (don't worry, it's super simple!).\n\n- If you're in VSCode, create a new file ending in `.md`.\n- If you're on a Chromebook, go to [this](https://markdownlivepreview.com/) website.\n\n[This](https://www.markdownguide.org/cheat-sheet/#basic-syntax) cheat sheet 99% of all the Markdown you need to know.\n\nTry out each of the elements! Notice how what you write becomes nicely formatted when your Markdown gets parsed.\n\nFor example, the section you're reading **right now** was written like this:\n"
+  },
+  {
+    "path": "docs/documentation/README.md",
+    "language": "",
+    "code": "This sentence should be\non two lines.\n"
+  },
+  {
+    "path": "docs/documentation/README.md",
+    "language": "",
+    "code": "This sentence should be on two lines.\n"
+  },
+  {
+    "path": "docs/documentation/README.md",
+    "language": "",
+    "code": "This sentence should be\n\non two lines.\n"
+  },
+  {
+    "path": "docs/documentation/README.md",
+    "language": "md",
+    "code": "> [!CALLOUT_TYPE]\n> Sample text.\n"
+  },
+  {
+    "path": "docs/documentation/README.md",
+    "language": "html",
+    "code": "<iframe src=\"<slides embed link>\" frameborder=\"0\" width=\"<width>\" height=\"<height>\" allowfullscreen=\"true\" mozallowfullscreen=\"true\" webkitallowfullscreen=\"true\"></iframe>\n"
+  },
+  {
+    "path": "docs/documentation/README.md",
+    "language": "html",
+    "code": "<iframe src=\"https://docs.google.com/presentation/d/e/2PACX-1vSVQb1zfvkKVTH10OOZ76JOG49clUGdtJ4lggAwKyy6wUGJkcD1Qj6NqyMKi1EvCDwnq9S2bvHgZsZW/embed\" frameborder=\"0\" width=\"760\" height=\"569\" allowfullscreen=\"true\" mozallowfullscreen=\"true\" webkitallowfullscreen=\"true\"></iframe>\n"
+  },
+  {
+    "path": "docs/documentation/README.md",
+    "language": "html",
+    "code": "<iframe width=\"<width>\" height=\"<height>\" src=\"<YouTube link>\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>\n"
+  },
+  {
+    "path": "docs/documentation/README.md",
+    "language": "html",
+    "code": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/O-Ys8Ash1J4\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>\n"
+  },
+  {
+    "path": "docs/documentation/README.md",
+    "language": "md",
+    "code": "![alt text](img/image.jpg)\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/2a-Motors.md",
+    "language": "java\r",
+    "code": " //  Import the required class from the Rev Robotics library\r\nimport com.revrobotics.CANSparkMax;\r\n\r\n// Declare a SPARK MAX motor controller in code that will represent the motor\r\nCANSparkMax motor;\r\n\r\n// Initialize the motor controller with an ID and set its type to a brushless motor\r\nmotor = new CANSparkMax(0, MotorType.kBrushless);\r\n\r\n// Set the motor to \"brake\" mode\r\nmotor.setIdleMode(IdleMode.kBrake);\r\n\r\n// Set a current limit of 80 amps to the motor\r\nmotor.setSmartCurrentLimit(80);\r\n\r\n// Set the motor to not be inverted\r\nmotor.setInverted(false);\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/2a-Motors.md",
+    "language": "java\r",
+    "code": "motor2.follow(motor1, true);\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/2a-Motors.md",
+    "language": "java\r",
+    "code": "import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;\r\n\r\nWPI_TalonSRX motor;\r\n\r\nmotor = new WPI_TalonSRX(0);\r\nmotor.setNeutralMode(NeutralMode.Brake);\r\nmotor.configContinuousCurrentLimit(80);\r\nmotor.enableCurrentLimit(true);\r\nmotor.follow(otherMotor);\r\nmotor.setInverted(false);\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/2a-Motors.md",
+    "language": "java\r",
+    "code": "// include all needed import statements here\r\n\r\nCANSparkMAX primaryMotor;\r\nCANSparkMAX secondaryMotor;\r\n\r\nWPI_TalonSRX ejectMotor;\r\n\r\nprimaryMotor = new CANSparkMAX(0, MotorType.kBrushless);\r\nprimaryMotor.setIdleMode(IdleMode.kBrake);\r\nprimaryMotor.setSmartCurrentLimit(80);\r\n\r\nsecondaryMotor = new CANSparkMAX(1, MotorType.kBrushless);\r\nsecondaryMotor.setIdleMode(IdleMode.kBrake);\r\nsecondaryMotor.setSmartCurrentLimit(25);\r\n// invert the follower motor with respect to the primary motor\r\nsecondaryMotor.follow(primaryMotor, true);\r\n\r\nejectMotor = new WPI_TalonSRX(2);\r\nejectMotor.setNeutralMode(NeutralMode.Coast);\r\nejectMotor.configContinuousCurrentLimit(80);\r\nejectMotor.enableCurrentLimit(true);\r\n\r\n\r\n\r\nprimaryMotor.set(1.0); // this would command secondaryMotor as well\r\nejectMotor.set(-0.5);\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/3-Pneumatics.md",
+    "language": "java\r",
+    "code": "// Single Solenoid\r\nSolenoid solenoid;\r\nsolenoid = new Solenoid(SINGLE_SOLENOID_ID);\r\nsolenoid.set(true);\r\nsolenoid.set(false);\r\n\r\n// Double Solenoid\r\n// The constructor takes in two IDs (forward and reverse channels)\r\nDoubleSolenoid doubleSolenoid = new DoubleSolenoid(DOUBLE_SOLENOID_FORWARD, DOUBLE_SOLENOID_REVERSE);\r\ndoubleSolenoid.set(Value.kForward);\r\ndoubleSolenoid.set(Value.kReverse);\r\ndoubleSolenoid.set(Value.kOff);\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/4a-Command_Based.md",
+    "language": "java",
+    "code": "package frc.robot;\n\nimport edu.wpi.first.wpilibj.TimedRobot;\nimport edu.wpi.first.wpilibj2.command.CommandScheduler;\n\npublic class Robot extends TimedRobot {\n\n    @Override\n    public void robotInit() {\n\n    }\n\n    @Override\n    public void robotPeriodic() {\n        CommandScheduler.getInstance().run();\n    }\n\n    ...\n}\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/4b-Architecture.md",
+    "language": "java",
+    "code": "import static frc.robot.Constants.Autonomous.*\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/5a-Roller_Intake.md",
+    "language": "java\r",
+    "code": "package frc.robot.subsystems;\r\n\r\nimport edu.wpi.first.wpilibj2.command.SubsystemBase;\r\n\r\npublic abstract class SnailSubsystem extends SubsystemBase {\r\n\r\n    public abstract void update();\r\n    public abstract void displayShuffleboard();\r\n    public abstract void tuningInit();\r\n    public abstract void tuningPeriodic();\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/5a-Roller_Intake.md",
+    "language": "java\r",
+    "code": "package frc.robot.subsystems;\r\n\r\nimport com.revrobotics.CANSparkMax;\r\nimport com.revrobotics.CANSparkMax.IdleMode;\r\nimport com.revrobotics.CANSparkMaxLowLevel.MotorType;\r\n\r\npublic class RollerIntake extends SnailSubsystem {\r\n\r\n    public enum State {\r\n\r\n    }\r\n\r\n    public RollerIntake() {\r\n\r\n    }\r\n\r\n    @Override\r\n    public void update() {\r\n\r\n    }\r\n\r\n    @Override\r\n    public void displayShuffleboard() {\r\n\r\n    }\r\n\r\n    @Override\r\n    public void tuningInit() {\r\n\r\n    }\r\n\r\n    @Override\r\n    public void tuningPeriodic() {\r\n\r\n    }\r\n\r\n    public State getState() {\r\n        return state;\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/5a-Roller_Intake.md",
+    "language": "java\r",
+    "code": "package frc.robot.subsystems;\r\n\r\nimport com.revrobotics.CANSparkMax;\r\nimport com.revrobotics.CANSparkMax.IdleMode;\r\nimport com.revrobotics.CANSparkMaxLowLevel.MotorType;\r\n\r\npublic class RollerIntake extends SnailSubsystem {\r\n\r\n    private CANSparkMax rollerIntakeMotor;\r\n\r\n    ...\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/5a-Roller_Intake.md",
+    "language": "java\r",
+    "code": "...\r\n\r\npublic class RollerIntake extends SnailSubsystem {\r\n\r\n    private CANSparkMax rollerIntakeMotor;\r\n\r\n    public enum State {\r\n        INTAKING,\r\n        EJECTING,\r\n        NEUTRAL\r\n    }\r\n\r\n    State state = State.NEUTRAL;\r\n\r\n    ...\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/5a-Roller_Intake.md",
+    "language": "java\r",
+    "code": " public RollerIntake() {\r\n        rollerIntakeMotor = new CANSparkMax(2, MotorType.kBrushless);\r\n        rollerIntakeMotor.restoreFactoryDefaults();\r\n        rollerIntakeMotor.setIdleMode(IdleMode.kBrake);\r\n        rollerIntakeMotor.setSmartCurrentLimit(25); // in amps\r\n    }\r\n    ...\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/5a-Roller_Intake.md",
+    "language": "java\r",
+    "code": "   @Override\r\n    public void update() {\r\n        switch(state) {\r\n            case NEUTRAL:\r\n                rollerIntakeMotor.set(0.0);\r\n                break;\r\n            case INTAKING:\r\n                rollerIntakeMotor.set(1.0);\r\n                break;\r\n            case EJECTING:\r\n                rollerIntakeMotor.set(-1.0);\r\n                break;\r\n        }\r\n    }\r\n    ...\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/5a-Roller_Intake.md",
+    "language": "java\r",
+    "code": "    public void neutral() {\r\n        state = State.NEUTRAL;\r\n    }\r\n\r\n    public void eject() {\r\n        state = State.EJECTING;\r\n    }\r\n\r\n    public void intake() {\r\n        state = State.INTAKING;\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/5a-Roller_Intake.md",
+    "language": "java\r",
+    "code": "package frc.robot.subsystems;\r\n\r\nimport com.revrobotics.CANSparkMax;\r\nimport com.revrobotics.CANSparkMax.IdleMode;\r\nimport com.revrobotics.CANSparkMaxLowLevel.MotorType;\r\n\r\npublic class RollerIntake extends SnailSubsystem {\r\n\r\n    private CANSparkMax rollerIntakeMotor;\r\n\r\n    public enum State {\r\n        INTAKING,\r\n        EJECTING,\r\n        NEUTRAL\r\n    }\r\n\r\n    State state = State.NEUTRAL;\r\n\r\n    public RollerIntake() {\r\n        rollerIntakeMotor = new CANSparkMax(2, MotorType.kBrushless);\r\n        rollerIntakeMotor.restoreFactoryDefaults();\r\n        rollerIntakeMotor.setIdleMode(IdleMode.kBrake);\r\n        rollerIntakeMotor.setSmartCurrentLimit(25);\r\n    }\r\n\r\n    @Override\r\n    public void update() {\r\n        switch(state) {\r\n            case NEUTRAL:\r\n                rollerIntakeMotor.set(0.0);\r\n                break;\r\n            case INTAKING:\r\n                rollerIntakeMotor.set(1.0);\r\n                break;\r\n            case EJECTING:\r\n                rollerIntakeMotor.set(-1.0);\r\n                break;\r\n        }\r\n    }\r\n\r\n    public void neutral() {\r\n        state = State.NEUTRAL;\r\n    }\r\n\r\n    public void eject() {\r\n        state = State.EJECTING;\r\n    }\r\n\r\n    public void intake() {\r\n        state = State.INTAKING;\r\n    }\r\n\r\n    @Override\r\n    public void displayShuffleboard() {\r\n\r\n    }\r\n\r\n    @Override\r\n    public void tuningInit() {\r\n\r\n    }\r\n\r\n    @Override\r\n    public void tuningPeriodic() {\r\n\r\n    }\r\n\r\n    public State getState() {\r\n        return state;\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/5b-Constants.md",
+    "language": "java\r",
+    "code": "public RollerIntake() {\r\n    rollerIntakeMotor = new CANSparkMax(2, MotorType.kBrushless);\r\n    ...\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/5b-Constants.md",
+    "language": "java\r",
+    "code": "public RollerIntake() {\r\n    rollerIntakeMotor = new CANSparkMax(ROLLER_INTAKE_MOTOR_ID, MotorType.kBrushless);\r\n    ...\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/5b-Constants.md",
+    "language": "java\r",
+    "code": "case NEUTRAL:\r\n    rollerIntakeMotor.set(0.0);\r\n    break;\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/5b-Constants.md",
+    "language": "java\r",
+    "code": "case NEUTRAL:\r\n    rollerIntakeMotor.set(ROLLER_INTAKE_NEUTRAL_SPEED);\r\n    break;\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/5b-Constants.md",
+    "language": "java\r",
+    "code": "package frc.robot;\r\n\r\npublic final class Constants {\r\n\r\n    public static class ElectricalLayout {\r\n\r\n    }\r\n\r\n    public static class Autonomous {\r\n\r\n    }\r\n\r\n    public static class RollerIntake {\r\n\r\n    }\r\n\r\n    // Other global/misc. constants such as current limits or pi\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/5b-Constants.md",
+    "language": "java\r",
+    "code": "package frc.robot;\r\n\r\npublic final class Constants {\r\n\r\n    public static class ElectricalLayout {\r\n        public final static int ROLLER_INTAKE_MOTOR_ID = 2;\r\n    }\r\n\r\n    public static class Autonomous {\r\n        // nothing\r\n    }\r\n    public static class RollerIntake {\r\n        public static double ROLLER_INTAKE_NEUTRAL_SPEED = 0.0;\r\n        public static double ROLLER_INTAKE_INTAKE_SPEED = 1.0;\r\n        public static double ROLLER_INTAKE_EJECT_SPEED = -1.0;\r\n    }\r\n\r\n    // Other constants such as current limit\r\n    public static int NEO_550_CURRENT_LIMIT = 25;\r\n\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/5b-Constants.md",
+    "language": "java\r",
+    "code": "...\r\nimport com.revrobotics.CANSparkMax;\r\nimport com.revrobotics.CANSparkMax.IdleMode;\r\nimport com.revrobotics.CANSparkMaxLowLevel.MotorType;\r\n\r\npublic class RollerIntake extends SnailSubsystem {\r\n    ...\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/5b-Constants.md",
+    "language": "java\r",
+    "code": "package frc.robot.subsystems;\r\n\r\nimport com.revrobotics.CANSparkMax;\r\nimport com.revrobotics.CANSparkMax.IdleMode;\r\nimport com.revrobotics.CANSparkMaxLowLevel.MotorType;\r\n\r\nimport frc.robot.Constants;\r\n\r\npublic class RollerIntake extends SnailSubsystem {\r\n\r\n    private final CANSparkMax rollerIntakeMotor;\r\n\r\n    public enum State {\r\n        INTAKING,\r\n        EJECTING,\r\n        NEUTRAL\r\n    }\r\n\r\n    State state = State.NEUTRAL;\r\n\r\n    public RollerIntake() {\r\n        rollerIntakeMotor = new CANSparkMax(Constants.ElectricalLayout.ROLLER_INTAKE_MOTOR_ID, MotorType.kBrushless);\r\n        rollerIntakeMotor.restoreFactoryDefaults();\r\n        rollerIntakeMotor.setIdleMode(IdleMode.kBrake);\r\n        rollerIntakeMotor.setSmartCurrentLimit(Constants.NEO_550_CURRENT_LIMIT);\r\n    }\r\n\r\n    @Override\r\n    public void update() {\r\n        switch(state) {\r\n            case NEUTRAL:\r\n                rollerIntakeMotor.set(Constants.RollerIntake.ROLLER_INTAKE_NEUTRAL_SPEED);\r\n                break;\r\n            case INTAKING:\r\n                rollerIntakeMotor.set(Constants.RollerIntake.ROLLER_INTAKE_INTAKE_SPEED);\r\n                break;\r\n            case EJECTING:\r\n                rollerIntakeMotor.set(Constants.RollerIntake.ROLLER_INTAKE_EJECT_SPEED);\r\n                break;\r\n        }\r\n    }\r\n\r\n    public void neutral() {\r\n        state = State.NEUTRAL;\r\n    }\r\n\r\n    public void eject() {\r\n        state = State.EJECTING;\r\n    }\r\n\r\n    public void intake() {\r\n        state = State.INTAKING;\r\n    }\r\n\r\n    public State getState() {\r\n        return state;\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/5b-Constants.md",
+    "language": "java\r",
+    "code": "import static frc.robot.Constants.ElectricalLayout.*;\r\nimport static frc.robot.Constants.RollerIntake.*;\r\nimport static frc.robot.Constants.NEO_550_CURRENT_LIMIT;\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/5c-Making_Commands.md",
+    "language": "java\r",
+    "code": "package frc.robot.commands.rollerintake;\r\n\r\nimport edu.wpi.first.wpilibj2.command.CommandBase;\r\nimport frc.robot.subsystems.RollerIntake;\r\n\r\npublic class RollerIntakeIntakeCommand extends CommandBase {\r\n\r\n    public RollerIntakeIntakeCommand()\r\n\r\n    }\r\n\r\n    @Override\r\n    public void initialize() {\r\n\r\n    }\r\n\r\n    @Override\r\n    public void execute() {\r\n\r\n    }\r\n\r\n    @Override\r\n    public void end(boolean interrupted) {\r\n\r\n    }\r\n\r\n    @Override\r\n    public boolean isFinished() {\r\n\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/5c-Making_Commands.md",
+    "language": "java\r",
+    "code": "public class RollerIntakeIntakeCommand extends CommandBase {\r\n\r\n    private RollerIntake rollerIntake;\r\n\r\n    public RollerIntakeIntakeCommand(RollerIntake rollerIntake) {\r\n        this.rollerIntake = rollerIntake;\r\n\r\n        addRequirements(rollerIntake);\r\n    }\r\n\r\n    @Override\r\n    public void initialize() {\r\n\r\n    }\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/5c-Making_Commands.md",
+    "language": "java\r",
+    "code": "    @Override\r\n    public void initialize() {\r\n    }\r\n\r\n    @Override\r\n    public void execute() {\r\n        rollerIntake.intake();\r\n    }\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/5c-Making_Commands.md",
+    "language": "java\r",
+    "code": "// from RollerIntake.java\r\npublic void intake() {\r\n    state = State.INTAKING;\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/5c-Making_Commands.md",
+    "language": "java\r",
+    "code": "// Note: this code is inside of our RollerIntake.java file and is already programmed\r\n// The code should use constants to represent the speed values, but they have been omitted\r\n\r\n@Override\r\npublic void update() {\r\n    switch(state) {\r\n        case NEUTRAL:\r\n            rollerIntakeMotor.set(0.0);\r\n            break;\r\n        case INTAKING:\r\n            rollerIntakeMotor.set(1.0);\r\n            break;\r\n        case EJECTING:\r\n            rollerIntakeMotor.set(-1.0\r\n            break;\r\n        }\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/5c-Making_Commands.md",
+    "language": "java\r",
+    "code": "    ...\r\n\r\n    @Override\r\n    public void end(boolean interrupted) {\r\n    \r\n    }\r\n\r\n    @Override\r\n    public boolean isFinished() {\r\n        return false;\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/5c-Making_Commands.md",
+    "language": "java\r",
+    "code": "package frc.robot.commands.rollerintake;\r\n\r\nimport edu.wpi.first.wpilibj2.command.CommandBase;\r\nimport frc.robot.subsystems.RollerIntake;\r\n\r\npublic class RollerIntakeIntakeCommand extends CommandBase {\r\n\r\n    private RollerIntake rollerIntake;\r\n\r\n    public RollerIntakeIntakeCommand(RollerIntake rollerIntake) {\r\n        this.rollerIntake = rollerIntake;\r\n\r\n        addRequirements(rollerIntake);\r\n    }\r\n\r\n    @Override\r\n    public void initialize() {\r\n    }\r\n\r\n    @Override\r\n    public void execute() {\r\n        rollerIntake.intake();\r\n    }\r\n\r\n    @Override\r\n    public void end(boolean interrupted) {\r\n    \r\n    }\r\n\r\n    @Override\r\n    public boolean isFinished() {\r\n        return false;\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/5d-Binding_Commands.md",
+    "language": "java\r",
+    "code": "package frc.robot;\r\n\r\nimport frc.robot.commands.rollerintake.RollerIntakeNeutralCommand;\r\nimport frc.robot.commands.rollerintake.IntakeIntakeNeutralCommand;\r\nimport frc.robot.commands.rollerintake.EjectIntakeNeutralCommand;\r\n\r\nimport edu.wpi.first.wpilibj.Notifier;\r\nimport edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;\r\nimport edu.wpi.first.wpilibj2.command.Command;\r\nimport frc.robot.subsystems.SnailSubsystem;\r\nimport frc.robot.util.SnailController;\r\nimport edu.wpi.first.wpilibj.XboxController.Button;\r\n\r\nimport java.util.ArrayList;\r\n\r\nimport static frc.robot.Constants.ElectricalLayout.CONTROLLER_DRIVER_ID;\r\nimport static frc.robot.Constants.ElectricalLayout.CONTROLLER_OPERATOR_ID;\r\nimport static frc.robot.Constants.UPDATE_PERIOD;;\r\n\r\npublic class RobotContainer {\r\n\r\n    private SnailController driveController;\r\n    private SnailController operatorController;\r\n\r\n    private ArrayList<SnailSubsystem> subsystems;\r\n\r\n    public RobotContainer() {\r\n        driveController = new SnailController(CONTROLLER_DRIVER_ID);\r\n        operatorController = new SnailController(CONTROLLER_OPERATOR_ID);\r\n\r\n        configureSubsystems();\r\n        configureButtonBindings();\r\n    }\r\n\r\n    /**\r\n     * Declare all of our subsystems and their default bindings\r\n     */\r\n    private void configureSubsystems() {\r\n        // declare each of the subsystems here\r\n\r\n        subsystems = new ArrayList<>();\r\n        // add each of the subsystems to the arraylist here\r\n    }\r\n\r\n    /**\r\n     * Define button -> command mappings.\r\n     */\r\n    private void configureButtonBindings() {\r\n\r\n    }\r\n\r\n    ...\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/5d-Binding_Commands.md",
+    "language": "java\r",
+    "code": "    ...\r\n\r\n    private final SnailController driveController;\r\n    private final SnailController operatorController;\r\n\r\n    private final RollerIntake rollerIntake;\r\n\r\n    ...\r\n\r\n    private void configureSubsystems() {\r\n        rollerIntake = new RollerIntake(); // NEW\r\n        rollerIntake.setDefaultCommand(new RollerIntakeNeutralCommand(rollerIntake)); // NEW\r\n\r\n        subsystems = new ArrayList<>();\r\n\r\n        subsystems.add(rollerIntake);\r\n    }\r\n\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/5d-Binding_Commands.md",
+    "language": "java\r",
+    "code": "private void configureButtonBindings() {\r\n    operatorController.getButton(Button.kX.value).whileActiveOnce(new RollerIntakeEjectCommand(rollerIntake));\r\n    operatorController.getButton(Button.kA.value).whileActiveOnce(new RollerIntakeIntakeCommand(rollerIntake));\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/5d-Binding_Commands.md",
+    "language": "java\r",
+    "code": "package frc.robot;\r\n\r\nimport frc.robot.commands.rollerintake.RollerIntakeNeutralCommand;\r\nimport frc.robot.commands.rollerintake.RollerIntakeIntakeCommand;\r\nimport frc.robot.commands.rollerintake.RollerIntakeEjectCommand;\r\n\r\nimport edu.wpi.first.wpilibj.Notifier;\r\nimport edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;\r\nimport edu.wpi.first.wpilibj2.command.Command;\r\nimport frc.robot.subsystems.SnailSubsystem;\r\nimport frc.robot.util.SnailController;\r\nimport frc.robot.subsystems.RollerIntake;\r\nimport edu.wpi.first.wpilibj.XboxController.Button;\r\n\r\nimport java.util.ArrayList;\r\n\r\nimport static frc.robot.Constants.ElectricalLayout.CONTROLLER_DRIVER_ID;\r\nimport static frc.robot.Constants.ElectricalLayout.CONTROLLER_OPERATOR_ID;\r\nimport static frc.robot.Constants.UPDATE_PERIOD;\r\n\r\npublic class RobotContainer {\r\n\r\n    private final SnailController driveController;\r\n    private final SnailController operatorController;\r\n\r\n    private final RollerIntake rollerIntake;\r\n\r\n    private ArrayList<SnailSubsystem> subsystems;\r\n\r\n    public RobotContainer() {\r\n        driveController = new SnailController(CONTROLLER_DRIVER_ID);\r\n        operatorController = new SnailController(CONTROLLER_OPERATOR_ID);\r\n\r\n        configureSubsystems();\r\n        configureButtonBindings();\r\n    }\r\n\r\n    private void configureSubsystems() {\r\n\r\n        rollerIntake = new RollerIntake();\r\n        rollerIntake.setDefaultCommand(new RollerIntakeNeutralCommand(rollerIntake));\r\n\r\n        subsystems = new ArrayList<>();\r\n\r\n        subsystems.add(rollerIntake)\r\n    }\r\n\r\n    private void configureButtonBindings() {\r\n        operatorController.getButton(Button.kX.value).whileActiveOnce(new RollerIntakeEjectCommand(rollerIntake));\r\n        operatorController.getButton(Button.kA.value).whileActiveOnce(new RollerIntakeIntakeCommand(rollerIntake));\r\n    }\r\n\r\n    ...\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/6-Claw_Intake.md",
+    "language": "java\r",
+    "code": "package frc.robot.subsystems;\r\nimport edu.wpi.first.wpilibj.DoubleSolenoid;\r\nimport edu.wpi.first.wpilibj.DoubleSolenoid.Value;\r\n\r\nimport static frc.robot.Constants.ElectricalLayout.*;\r\nimport static frc.robot.Constants.Claw.*;\r\n\r\npublic class Claw extends SnailSubsystem {\r\n\r\n    private DoubleSolenoid rightSolenoid;\r\n    private DoubleSolenoid leftSolenoid;\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/6-Claw_Intake.md",
+    "language": "java\r",
+    "code": "    public enum State {\r\n       CLOSED,\r\n       OPEN\r\n    }\r\n\r\n    private State state;\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/6-Claw_Intake.md",
+    "language": "java\r",
+    "code": "    public Claw() {\r\n        leftSolenoid = new DoubleSolenoid(CLAW_LEFT_FORWARD_ID, CLAW_LEFT_REVERSE_ID);\r\n        rightSolenoid = new DoubleSolenoid(CLAW_RIGHT_FORWARD_ID, CLAW_RIGHT_REVERSE_ID);\r\n\r\n        state = State.OPEN;\r\n    }\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/6-Claw_Intake.md",
+    "language": "java\r",
+    "code": "    @Override\r\n    public void update() {\r\n        switch(state) {\r\n            case CLOSED:\r\n                leftSolenoid.set(Value.kForward);\r\n                rightSolenoid.set(Value.kForward);\r\n                break;\r\n            case OPEN:\r\n                leftSolenoid.set(Value.kReverse);\r\n                rightSolenoid.set(Value.kReverse);\r\n                break;\r\n        }\r\n    }\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/6-Claw_Intake.md",
+    "language": "java\r",
+    "code": "    public void open() {\r\n        state = State.OPEN;\r\n    }\r\n\r\n    public void close() {\r\n        state = State.CLOSED;\r\n    }\r\n\r\n    public State getState() {\r\n        return state;\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/6-Claw_Intake.md",
+    "language": "java\r",
+    "code": "    @Override\r\n    public void displayShuffleboard() {\r\n\r\n    }\r\n\r\n    @Override\r\n    public void tuningInit() {\r\n\r\n    }\r\n\r\n    @Override\r\n    public void tuningPeriodic() {\r\n\r\n    }\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/6-Claw_Intake.md",
+    "language": "java\r",
+    "code": "package frc.robot.commands.claw;\r\n\r\nimport edu.wpi.first.wpilibj2.command.CommandBase;\r\nimport frc.robot.subsystems.Claw;\r\n\r\npublic class ClawCloseCommand extends InstantCommand {\r\n\r\n    private Claw claw;\r\n\r\n    public ClawCloseCommand(Claw claw) {\r\n        this.claw = claw;\r\n\r\n        addRequirements(claw);\r\n    }\r\n\r\n    @Override\r\n    public void initialize() {\r\n\r\n    }\r\n\r\n    @Override\r\n    public void execute() {\r\n        claw.close();\r\n    }\r\n\r\n    @Override\r\n    public void end(boolean interrupted) {\r\n        \r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/6-Claw_Intake.md",
+    "language": "java\r",
+    "code": "package frc.robot.commands.claw;\r\n\r\nimport edu.wpi.first.wpilibj2.command.CommandBase;\r\nimport frc.robot.subsystems.Claw;\r\n\r\npublic class ClawOpenCommand extends InstantCommand {\r\n\r\n    private Claw claw;\r\n\r\n    public ClawOpenCommand(Claw claw) {\r\n        this.claw = claw;\r\n\r\n        addRequirements(claw);\r\n    }\r\n\r\n    @Override\r\n    public void initialize() {\r\n\r\n    }\r\n\r\n    @Override\r\n    public void execute() {\r\n        claw.open();\r\n    }\r\n\r\n    @Override\r\n    public void end(boolean interrupted) {\r\n\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/6-Claw_Intake.md",
+    "language": "java\r",
+    "code": "package frc.robot;\r\n\r\nimport edu.wpi.first.wpilibj.Notifier;\r\nimport edu.wpi.first.wpilibj.XboxController.Button;\r\nimport edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;\r\nimport edu.wpi.first.wpilibj2.command.Command;\r\nimport frc.robot.subsystems.SnailSubsystem;\r\nimport frc.robot.util.SnailController;\r\nimport frc.robot.subsystems.Claw;\r\n\r\nimport frc.robot.commands.claw.ClawCloseCommand;\r\nimport frc.robot.commands.claw.ClawOpenCommand;\r\nimport java.util.ArrayList;\r\n\r\nimport static frc.robot.Constants.ElectricalLayout.CONTROLLER_DRIVER_ID;\r\nimport static frc.robot.Constants.ElectricalLayout.CONTROLLER_OPERATOR_ID;\r\nimport static frc.robot.Constants.UPDATE_PERIOD;\r\n\r\npublic class RobotContainer {\r\n\r\n    private SnailController driveController;\r\n    private SnailController operatorController;\r\n\r\n    private Claw claw;\r\n\r\n    private ArrayList<SnailSubsystem> subsystems;\r\n\r\n    public RobotContainer() {\r\n        driveController = new SnailController(CONTROLLER_DRIVER_ID);\r\n        operatorController = new SnailController(CONTROLLER_OPERATOR_ID);\r\n\r\n        configureSubsystems();\r\n        configureButtonBindings();\r\n    }\r\n\r\n    private void configureSubsystems() {\r\n        claw = new Claw();\r\n\r\n        subsystems = new ArrayList<>();\r\n        subsystems.add(claw);\r\n    }\r\n\r\n    private void configureButtonBindings() {\r\n        operatorController.getButton(Button.kX.value).whenPressed(new ClawCloseCommand(claw));\r\n        operatorController.getButton(Button.kY.value).whenPressed(new ClawOpenCommand(claw));\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/6-Claw_Intake.md",
+    "language": "java\r",
+    "code": "package frc.robot;\r\npublic final class Constants {\r\n\r\n    public static class ElectricalLayout {\r\n        public final static int CONTROLLER_DRIVER_ID = 0;\r\n        public final static int CONTROLLER_OPERATOR_ID = 1;\r\n\r\n        public final static int CLAW_LEFT_FORWARD_ID = 0;\r\n        public final static int CLAW_LEFT_REVERSE_ID = 1;\r\n        public final static int CLAW_RIGHT_FORWARD_ID = 2;\r\n        public final static int CLAW_RIGHT_REVERSE_ID = 3;\r\n    }\r\n\r\n    public static class Autonomous {\r\n        // nothing\r\n    }\r\n\r\n    public static class Claw {\r\n        // nothing here for now\r\n    }\r\n\r\n    public static double PI = 3.14159265;\r\n    public static double UPDATE_PERIOD = 0.010;\r\n\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/7-Arm.md",
+    "language": "java\r",
+    "code": "package frc.robot.subsystems;\r\n\r\nimport com.revrobotics.CANSparkMax;\r\nimport com.revrobotics.CANSparkMax.IdleMode;\r\nimport com.revrobotics.CANSparkMaxLowLevel.MotorType;\r\n\r\nimport static frc.robot.Constants.ElectricalLayout.*;\r\nimport static frc.robot.Constants.Arm.*;\r\nimport static frc.robot.Constants.NEO_550_CURRENT_LIMIT;\r\n\r\npublic class Arm extends SnailSubsystem {\r\n\r\n    private CANSparkMax armMotor;\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/7-Arm.md",
+    "language": "java\r",
+    "code": "    public enum State {\r\n        MANUAL\r\n    }\r\n\r\n    private State state = State.MANUAL;\r\n    private double speed = 0;\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/7-Arm.md",
+    "language": "java\r",
+    "code": "public Arm() {\r\n      armMotor = new CANSparkMax(ARM_MOTOR_ID, MotorType.kBrushless);\r\n      armMotor.restoreFactoryDefaults();\r\n      armMotor.setIdleMode(IdleMode.kBrake);\r\n      armMotor.setSmartCurrentLimit(NEO_CURRENT_LIMIT); // in amps\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/7-Arm.md",
+    "language": "java\r",
+    "code": " @Override\r\n    public void update() {\r\n        switch(state) {\r\n            case MANUAL:\r\n                armMotor.set(speed);\r\n                break;\r\n        }\r\n    }\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/7-Arm.md",
+    "language": "java\r",
+    "code": "    public void displayShuffleboard() {\r\n\r\n    }\r\n\r\n    public void tuningInit() {\r\n\r\n    }\r\n\r\n    public void tuningPeriodic() {\r\n\r\n    }\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/7-Arm.md",
+    "language": "java\r",
+    "code": "    public void manualControl(double speed){\r\n        this.speed = speed;\r\n        state = State.MANUAL;\r\n    }\r\n\r\n    public State getState() {\r\n        return state;\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/7-Arm.md",
+    "language": "java\r",
+    "code": "package frc.robot.commands.arm;\r\n\r\nimport edu.wpi.first.wpilibj2.command.CommandBase;\r\nimport frc.robot.subsystems.Arm;\r\n\r\nimport java.util.function.DoubleSupplier;\r\n\r\npublic class ArmManualCommand extends CommandBase {\r\n\r\n    private final Arm arm;\r\n    private final double speed;\r\n\r\n    public ArmManualCommand(Arm arm, double speed) {\r\n        this.arm = arm;\r\n        this.speed = speed;\r\n\r\n        addRequirements(arm);\r\n    }\r\n\r\n    @Override\r\n    public void initialize() {\r\n\r\n    }\r\n\r\n    @Override\r\n    public void execute() {\r\n        arm.manualControl(speed;\r\n    }\r\n    ...\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/7-Arm.md",
+    "language": "java\r",
+    "code": "arm.setDefaultCommand(new ArmManualCommand(operatorController.getLeftY()));\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/7-Arm.md",
+    "language": "java\r",
+    "code": "package frc.robot.commands.arm;\r\n\r\nimport edu.wpi.first.wpilibj2.command.CommandBase;\r\nimport frc.robot.subsystems.Arm;\r\n\r\nimport java.util.function.DoubleSupplier;\r\n\r\npublic class ArmManualCommand extends CommandBase {\r\n\r\n    private final Arm arm;\r\n    private final DoubleSupplier speedSupplier;\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/7-Arm.md",
+    "language": "java\r",
+    "code": "public ArmManualCommand(Arm arm, DoubleSupplier speedSupplier) {\r\n    this.arm = arm;\r\n    this.speedSupplier = speedSupplier;\r\n\r\n    addRequirements(arm);\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/7-Arm.md",
+    "language": "java\r",
+    "code": "@Override\r\npublic void initialize() {\r\n\r\n}\r\n\r\n@Override\r\npublic void execute() {\r\n    arm.manualControl(speedSupplier.getAsDouble());\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/7-Arm.md",
+    "language": "java\r",
+    "code": "@Override\r\npublic void end(boolean interrupted) {\r\n\r\n}\r\n\r\n@Override\r\npublic boolean isFinished() {\r\n    return false;\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/7-Arm.md",
+    "language": "java\r",
+    "code": "package frc.robot;\r\n\r\nimport edu.wpi.first.wpilibj.Notifer;\r\nimport edu.wpi.first.wpilibj.XboxController.Button;\r\nimport edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;\r\nimport edu.wpi.first.wpilibj2.command.Command;\r\nimport frc.robot.subsystems.SnailSubsystem;\r\nimport frc.robot.util.SnailController;\r\nimport frc.robot.subsystems.Arm;\r\n\r\nimport frc.robot.commands.arm.ArmManualCommand;\r\nimport java.util.ArrayList;\r\n\r\nimport static frc.robot.Constants.ElectricalLayout.CONTROLLER_DRIVER_ID;\r\nimport static frc.robot.Constants.ElectricalLayout.CONTROLLER_OPERATOR_ID;\r\nimport static frc.robot.Constants.UPDATE_PERIOD;\r\n\r\npublic class RobotContainer {\r\n\r\n    private SnailController driveController;\r\n    private SnailController operatorController;\r\n\r\n    private Arm arm;\r\n\r\n    private ArrayList<SnailSubsystem> subsystems;\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/7-Arm.md",
+    "language": "java\r",
+    "code": "// constructor omitted because it is the exact same\r\n\r\nprivate void configureSubsystems() {\r\n    arm = new Arm();\r\n    arm.setDefaultCommand(new ArmManualCommand(arm, operatorController::getRightY));\r\n\r\n    subsystems = new ArrayList<>();\r\n    subsystems.add(arm);\r\n}\r\n\r\nprivate void configureButtonBindings() {\r\n    // Nothing here because the arm will always be in manual control\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/7-Arm.md",
+    "language": "java\r",
+    "code": "private void configureSubsystems() {\r\n    arm = new Arm();\r\n    arm.setDefaultCommand(new ArmManualCommand(arm, () -> {\r\n        return operatorController.getLeftY();\r\n    }));\r\n\r\n    subsystems = new ArrayList<>();\r\n    subsystems.add(arm);\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/7-Arm.md",
+    "language": "java\r",
+    "code": "arm.setDefaultCommand(new ArmManualCommand(arm, () -> {\r\n    return Math.pow(operatorController.getLeftY(), 2); // square the value passed in\r\n}));\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/7-Arm.md",
+    "language": "java\r",
+    "code": "package frc.robot;\r\n\r\npublic final class Constants {\r\n\r\n    public static class ElectricalLayout {\r\n        public final static int CONTROLLER_DRIVER_ID = 0;\r\n        public final static int CONTROLLER_OPERATOR_ID = 1;\r\n\r\n        public final static int ARM_MOTOR_ID = 0;\r\n    }\r\n\r\n    public static class Autonomous {\r\n\r\n    }\r\n\r\n    public static class Arm {\r\n\r\n    }\r\n\r\n    public static int NEO_CURRENT_LIMIT = 80;\r\n    public static double PI = 3.14159265;\r\n    public static double UPDATE_PERIOD = 0.010; // seconds\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/8-Elevator.md",
+    "language": "java\r",
+    "code": "package frc.robot.subsystems;\r\n\r\nimport com.revrobotics.CANSparkMax;\r\nimport com.revrobotics.CANSparkMax.IdleMode;\r\nimport com.revrobotics.CANSparkMaxLowLevel.MotorType;\r\n\r\nimport static frc.robot.Constants.ElectricalLayout.*;\r\nimport static frc.robot.Constants.Elevator.*;\r\nimport static frc.robot.Constants.NEO_CURRENT_LIMIT;\r\n\r\npublic class Elevator extends SnailSubsystem {\r\n\r\n    private CANSparkMax elevatorMotor;\r\n    private CANSparkMax elevatorFollowerMotor;\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/8-Elevator.md",
+    "language": "java\r",
+    "code": "    public enum State {\r\n        MANUAL\r\n    }\r\n\r\n    State state = State.MANUAL;\r\n    private double speed = 0;\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/8-Elevator.md",
+    "language": "java\r",
+    "code": "public Elevator() {\r\n    elevatorMotor = new CANSparkMax(ELEVATOR_PRIMARY_ID, MotorType.kBrushless);\r\n    elevatorMotor.restoreFactoryDefaults();\r\n    elevatorMotor.setIdleMode(IdleMode.kBrake);\r\n    elevatorMotor.setSmartCurrentLimit(NEO_CURRENT_LIMIT);\r\n\r\n    elevatorFollowerMotor = new CANSparkMax(ELEVATOR_FOLLOWER_ID, MotorType.kBrushless);\r\n    elevatorFollowerMotor.restoreFactoryDefaults();\r\n    elevatorFollowerMotor.setIdleMode(IdleMode.kBrake);\r\n    elevatorFollowerMotor.setSmartCurrentLimit(NEO_CURRENT_LIMIT);\r\n    elevatorFollowerMotor.follow(elevatorMotor, false); // following\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/8-Elevator.md",
+    "language": "java\r",
+    "code": "@Override\r\npublic void update() {\r\n    switch(state) {\r\n        case MANUAL:\r\n            elevatorMotor.set(speed);\r\n            break;\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/8-Elevator.md",
+    "language": "java\r",
+    "code": "public void displayShuffleboard() {\r\n\r\n}\r\n\r\npublic void tuningInit() {\r\n\r\n}\r\n\r\npublic void tuningPeriodic() {\r\n\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/8-Elevator.md",
+    "language": "java\r",
+    "code": "public void manualControl(double speed){\r\n    this.speed = speed;\r\n    state = State.MANUAL;\r\n}\r\n\r\npublic State getState() {\r\n    return state;\r\n}\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/8-Elevator.md",
+    "language": "java\r",
+    "code": "package frc.robot.commands.elevator;\r\n\r\nimport edu.wpi.first.wpilibj2.command.CommandBase;\r\nimport frc.robot.subsystems.Elevator;\r\n\r\nimport java.util.function.DoubleSupplier;\r\n\r\npublic class ElevatorManualCommand extends CommandBase {\r\n\r\n    private final Elevator elevator;\r\n    private final DoubleSupplier speedSupplier;\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/8-Elevator.md",
+    "language": "java\r",
+    "code": "public ElevatorManualCommand(Elevator elevator, DoubleSupplier speedSupplier) {\r\n    this.elevator = elevator;\r\n    this.speedSupplier = speedSupplier;\r\n\r\n    addRequirements(elevator);\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/8-Elevator.md",
+    "language": "java\r",
+    "code": "@Override\r\npublic void initialize() {\r\n\r\n}\r\n\r\n@Override\r\npublic void execute() {\r\n    elevator.manualControl(speedSupplier.getAsDouble());\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/8-Elevator.md",
+    "language": "java\r",
+    "code": "@Override\r\n    public void end(boolean interrupted) {\r\n\r\n    }\r\n\r\n    @Override\r\n    public boolean isFinished() {\r\n        return false;\r\n    }\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/8-Elevator.md",
+    "language": "java\r",
+    "code": "package frc.robot;\r\n\r\nimport edu.wpi.first.wpilibj.Notifier;\r\nimport edu.wpi.first.wpilibj.XboxController.Button;\r\nimport edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;\r\nimport edu.wpi.first.wpilibj2.command.Command;\r\nimport frc.robot.subsystems.SnailSubsystem;\r\nimport frc.robot.util.SnailController;\r\nimport frc.robot.subsystems.Elevator;\r\nimport frc.robot.commands.elevator.ElevatorManualCommand;\r\n\r\nimport java.util.ArrayList;\r\n\r\nimport static frc.robot.Constants.ElectricalLayout.CONTROLLER_DRIVER_ID;\r\nimport static frc.robot.Constants.ElectricalLayout.CONTROLLER_OPERATOR_ID;\r\nimport static frc.robot.Constants.UPDATE_PERIOD;;\r\n\r\npublic class RobotContainer {\r\n\r\n    private SnailController driveController;\r\n    private SnailController operatorController;\r\n\r\n    private Elevator elevator;\r\n\r\n    private ArrayList<SnailSubsystem> subsystems;\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/8-Elevator.md",
+    "language": "java\r",
+    "code": "// constructor omitted because it is the exact same\r\n\r\nprivate void configureSubsystems() {\r\n    elevator = new Elevator();\r\n    elevator.setDefaultCommand(new ElevatorManualCommand(elevator,  operatorController::getRightY));\r\n\r\n    subsystems = new ArrayList<>();\r\n    subsystems.add(elevator);\r\n}\r\n\r\nprivate void configureButtonBindings() {\r\n    // Nothing here because the elevator will always be in manual control\r\n}\r\n ```\r\n\r\nJust like in the Arm subsystem, in addition to the Elevator subsystem getting passed in as a parameter, `operatorController::getRightY` is passed too. This is being passed in as our `DoubleSupplier` object. Essentially, we can pass in any function that returns a `double` variable into here. However, to ensure that we actually pass in the **function** itself and not the **result of evaluating that function**, we use Java's `::` operator.\r\n\r\nWhen we do this, each time `execute()` is run in the command, `getRightY` is run and it supplies a different value based on what the Xbox controller is doing. If the value of the function was passed in with `.getRightY()` the initial value would never update as the constructor is only run once.\r\n\r\nSince there are no other commands other than the default command in this subsystem, `configureButtonBindings()` is empty. There is never a need to change the command running with a button.\r\n\r\nFor more information, you may look at the Arm file.\r\n\r\n## Constants\r\n\r\nBelow is the `Constants.java` file which is self-explanatory and has been reviewed in the [Roller Intake](frc/1-Basics/8-Elevator.md) tutorial. Refer to that file if you need a refresher.\r\n\r\n```java\r\npackage frc.robot;\r\n\r\npublic final class Constants {\r\n\r\n    public static class ElectricalLayout {\r\n        public final static int CONTROLLER_DRIVER_ID = 0;\r\n        public final static int CONTROLLER_OPERATOR_ID = 1;\r\n\r\n        public final static int ELEVATOR_PRIMARY_ID = 0;\r\n        public final static int ELEVATOR_FOLLOWER_ID = 1;\r\n    }\r\n\r\n    public static class Autonomous {\r\n\r\n    }\r\n    public static class Elevator {\r\n        \r\n    }\r\n\r\n    public static int NEO_CURRENT_LIMIT = 80;\r\n    public static double PI = 3.14159265;\r\n    public static double UPDATE_PERIOD = 0.010;\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/9-Drivetrain.md",
+    "language": "java\r",
+    "code": "package frc.robot.subsystems;\r\n\r\nimport com.revrobotics.CANSparkMax;\r\n\r\nimport edu.wpi.first.wpilibj.drive.DifferentialDrive;\r\n\r\npublic class Drivetrain extends SnailSubsystem {\r\n\r\n    private final CANSparkMax frontLeftMotor;\r\n    private final CANSparkMax frontRightMotor;\r\n    private final CANSparkMax backLeftMotor;\r\n    private final CANSparkMax backRightMotor;\r\n\r\n    private final DifferentialDrive drivetrain;\r\n\r\n    ...\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/9-Drivetrain.md",
+    "language": "java\r",
+    "code": "    public enum State {\r\n        MANUAL\r\n    }\r\n    \r\n    private State state;\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/9-Drivetrain.md",
+    "language": "java\r",
+    "code": "    private double speedForward;\r\n    private double speedTurn;\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/9-Drivetrain.md",
+    "language": "java\r",
+    "code": "    public Drivetrain() {\r\n        frontLeftMotor = new CANSparkMax(DRIVE_FRONT_LEFT, MotorType.kBrushless);\r\n        frontRightMotor = new CANSparkMax(DRIVE_FRONT_RIGHT, MotorType.kBrushless);\r\n        backLeftMotor = new CANSparkMax(DRIVE_BACK_LEFT, MotorType.kBrushless);\r\n        backRightMotor = new CANSparkMax(DRIVE_BACK_RIGHT, MotorType.kBrushless);\r\n\r\n        backLeftMotor.follow(frontLeftMotor);\r\n        backRightMotor.follow(frontRightMotor);\r\n\r\n        frontLeftMotor.restoreFactoryDefaults();\r\n        frontRightMotor.restoreFactoryDefaults();\r\n        backLeftMotor.restoreFactoryDefaults();\r\n        backRightMotor.restoreFactoryDefaults();\r\n\r\n        frontLeftMotor.setSmartCurrentLimit(NEO_CURRENT_LIMIT);\r\n        frontRightMotor.setSmartCurrentLimit(NEO_CURRENT_LIMIT);\r\n        backLeftMotor.setSmartCurrentLimit(NEO_CURRENT_LIMIT);\r\n        backRightMotor.setSmartCurrentLimit(NEO_CURRENT_LIMIT);\r\n\r\n        frontLeftMotor.setIdleMode(IdleMode.kBrake);\r\n        frontRightMotor.setIdleMode(IdleMode.kBrake);\r\n        backLeftMotor.setIdleMode(IdleMode.kCoast);\r\n        backRightMotor.setIdleMode(IdleMode.kCoast);\r\n\r\n        drivetrain = new DifferentialDrive(frontLeftMotor, frontRightMotor);\r\n\r\n        state = State.MANUAL;\r\n        speedForward = 0;\r\n        speedTurn = 0;\r\n    }\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/9-Drivetrain.md",
+    "language": "java\r",
+    "code": "@Override\r\npublic void update() {\r\n    switch (state) {\r\n        case MANUAL:\r\n            drivetrain.arcadeDrive(speedForward, speedTurn);\r\n            break;\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/9-Drivetrain.md",
+    "language": "java\r",
+    "code": "    @Override\r\n    public void displayShuffleboard() {\r\n    \r\n    }\r\n\r\n    @Override\r\n    public void tuningInit() {\r\n        \r\n    }\r\n\r\n    @Override\r\n    public void tuningPeriodic() {\r\n\r\n    }\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/9-Drivetrain.md",
+    "language": "java\r",
+    "code": "    public void manualDrive(double speedForward, double speedTurn) {\r\n        this.speedForward = speedForward;\r\n        this.speedTurn = speedTurn;\r\n\r\n        state = defaultState;\r\n    }\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/9-Drivetrain.md",
+    "language": "java \r",
+    "code": "package frc.robot.commands.drivetrain;\r\n\r\nimport edu.wpi.first.wpilibj2.command.CommandBase;\r\nimport frc.robot.subsystems.Drivetrain;\r\n\r\nimport java.util.function.DoubleSupplier;\r\n\r\npublic class ManualDriveCommand extends CommandBase {\r\n\r\n    private final Drivetrain drivetrain;\r\n    private final DoubleSupplier forwardSupplier;\r\n    private final DoubleSupplier turnSupplier;\r\n\r\n    ...\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/9-Drivetrain.md",
+    "language": "java\r",
+    "code": "    public ManualDriveCommand(Drivetrain drivetrain, DoubleSupplier forwardSupplier, DoubleSupplier turnSupplier) {\r\n        this.drivetrain = drivetrain;\r\n        this.forwardSupplier = forwardSupplier;\r\n        this.turnSupplier = turnSupplier;\r\n\r\n        addRequirements(drivetrain);\r\n    }\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/9-Drivetrain.md",
+    "language": "java\r",
+    "code": "    @Override\r\n    public void initialize() {\r\n\r\n    }\r\n\r\n    @Override\r\n    public void execute() {\r\n        drivetrain.manualDrive(forwardSupplier.getAsDouble(), turnSupplier.getAsDouble());\r\n    }\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/9-Drivetrain.md",
+    "language": "java\r",
+    "code": "    @Override\r\n    public void end(boolean interrupted) {\r\n\r\n    }\r\n\r\n    @Override\r\n    public boolean isFinished() {\r\n        return false;\r\n    }\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/9-Drivetrain.md",
+    "language": "java\r",
+    "code": "package frc.robot;\r\n\r\nimport edu.wpi.first.wpilibj.Notifier;\r\nimport edu.wpi.first.wpilibj2.command.Command;\r\nimport frc.robot.commands.drivetrain.ManualDriveCommand;\r\nimport frc.robot.subsystems.Drivetrain;\r\nimport frc.robot.subsystems.SnailSubsystem;\r\nimport frc.robot.util.SnailController;\r\n\r\nimport java.util.ArrayList;\r\n\r\nimport static frc.robot.Constants.ElectricalLayout.CONTROLLER_DRIVER_ID;\r\nimport static frc.robot.Constants.ElectricalLayout.CONTROLLER_OPERATOR_ID;\r\nimport static frc.robot.Constants.UPDATE_PERIOD;;\r\n\r\npublic class RobotContainer {\r\n\r\n    private SnailController driveController;\r\n    private SnailController operatorController;\r\n    \r\n    private ArrayList<SnailSubsystem> subsystems;\r\n    private final Drivetrain drivetrain;\r\n\r\n    ...\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/9-Drivetrain.md",
+    "language": "java\r",
+    "code": "    private void configureSubsystems() {\r\n        drivetrain = new Drivetrain();\r\n        drivetrain.setDefaultCommand(new ManualDriveCommand(drivetrain, driveController::getDriveForward,  \r\n            driveController::getDriveTurn));\r\n\r\n        subsystems = new ArrayList<>();\r\n        subsystems.add(drivetrain);\r\n    }\r\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/E-Extra_Features.md",
+    "language": "java",
+    "code": "public final class Constants {\n\n    public static class ElectricalLayout {\n        public final static int CONTROLLER_DRIVER_ID = 0;\n        public final static int CONTROLLER_OPERATOR_ID = 1;\n\n        // Arm\n        public final static int ARM_MOTOR_ID = 0;\n    }\n\n    public static class Autonomous {\n        \n    }\n\n    public static class Arm {\n        public static double ARM_MAX_OUTPUT = 0.7; // new line that we are adding\n    }\n\n    public static double PI = 3.14159265;\n    public static double UPDATE_PERIOD = 0.010; // seconds\n\n    public static int NEO_CURRENT_LIMIT = 80; // amps\n}\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/E-Extra_Features.md",
+    "language": "java",
+    "code": "public void manualControl(double speed) {\n    state = State.MANUAL;\n    this.speed = speed * ARM_MAX_OUTPUT;\n}\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/E-Extra_Features.md",
+    "language": "java",
+    "code": "...\npublic State state;\nprivate double speed;\n\nprivate boolean precisionEnabled; // new line\n\npublic Arm() {\n...\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/E-Extra_Features.md",
+    "language": "java",
+    "code": "@Override\npublic void update() {\n    switch(state) {\n        case MANUAL:\n            // this entire block has been modified\n            double adjustedSpeed = speed;\n            if(this.precisionEnabled) adjustedSpeed *= ARM_PRECISION_MULT;\n\n            motor.set(adjustedSpeed);\n            break;\n    }\n}\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/E-Extra_Features.md",
+    "language": "java",
+    "code": "public void togglePrecision() {\n    this.precisionEnabled = !this.precisionEnabled;\n}\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/E-Extra_Features.md",
+    "language": "java",
+    "code": "package frc.robot.commands.arm;\n\nimport edu.wpi.first.wpilibj2.command.InstantCommand;\nimport frc.robot.subsystems.Arm;\n\npublic class ArmTogglePrecision extends InstantCommand {\n\n    private final Arm arm;\n    \n    public ArmTogglePrecision(Arm arm) {\n        this.arm = arm;\n    }\n\n    @Override\n    public void initialize() {\n        arm.togglePrecision();\n    }\n\n    @Override\n    public void end(boolean interrupted) {\n\n    }\n}\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/E-Extra_Features.md",
+    "language": "java",
+    "code": "private void configureButtonBindings() {\n    operatorController.getButton(Button.kY.value).whenPressed(new ArmTogglePrecision(arm));\n}\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/G-Guide.md",
+    "language": "java",
+    "code": "package frc.robot.subsystems;\n\npublic class SubsystemNameHere {\n    \n}\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/G-Guide.md",
+    "language": "java",
+    "code": "private SubsystemNameHere subsystemNameHere;\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/G-Guide.md",
+    "language": "java",
+    "code": "subsystemNameHere = new SubsystemNameHere();\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/G-Guide.md",
+    "language": "java",
+    "code": "subsystemNameHere.setDefaultCommand(new SubsystemDefaultCommand(subsystemNameHere));\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/G-Guide.md",
+    "language": "java",
+    "code": "subsystems.add(subsystemNameHere);\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/G-Guide.md",
+    "language": "java",
+    "code": "operatorController.getButton(Button.kA.value).whileHeld(new IntakeIntakeCommand(intake)); \noperatorController.getButton(Button.kB.value).whileHeld(new IntakeEjectCommand(intake));\n\noperatorController.getButton(Button.kX.value).whenPressed(new ClimbAdvanceCommand(climb));\noperatorController.getButton(Button.kY.value).whenPressed(new ClimbBackCommand(climb));\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/G-Guide.md",
+    "language": "java",
+    "code": "package frc.robot.subsystems;\n\npublic class Roller extends SnailSubsystem {\n\n    @Override\n    public void update() {\n        \n    }\n\n    @Override\n    public void outputValues() {\n\n    }\n\n    @Override\n    public void setUpConstantTuning() {\n\n    }\n\n    @Override\n    public void getConstantTuning() {\n\n    }\n}\n"
+  },
+  {
+    "path": "docs/frc/1-Basics/G-Guide.md",
+    "language": "java",
+    "code": "package frc.robot.commands.intake;\n\nimport edu.wpi.first.wpilibj2.command.CommandBase;\n\npublic class CommandNameHere extends CommandBase {\n\n    private final SubsystemNameHere subsystemNameHere;\n    \n    public CommandNameHere(SubsystemNameHere subsystemNameHere) {\n        this.subsystemNameHere = subsystemNameHere;\n        addRequirements(subsystemNameHere);\n    }\n\n    @Override\n    public void initialize() {\n\n    }\n\n    @Override\n    public void execute() {\n        \n    }\n\n    @Override\n    public void end(boolean interrupted) {\n\n    }\n\n    @Override\n    public boolean isFinished() {\n        return false;\n    }\n}\n"
+  },
+  {
+    "path": "docs/frc/2-Sensors_And_Shuffleboard/2-Outputting_Data.md",
+    "language": "java\r",
+    "code": "SmartDashboard.putNumber(\"key name here\", 0);\r\nSmartDashboard.putNumberArray(\"key name here\", new double[] {12, 57});\r\nSmartDashboard.putBoolean(\"key name here\", true);\r\nSmartDashboard.putBooleanArray(\"key name here\", new boolean[] {true, false});\r\nSmartDashboard.putString(\"key name here\", \"string here\");\r\nSmartDashboard.putStringArray(\"key name here\", new String[] {\"string here\", \"another string here});\r\n"
+  },
+  {
+    "path": "docs/frc/2-Sensors_And_Shuffleboard/2-Outputting_Data.md",
+    "language": "java\r",
+    "code": "public class Arm {\r\n    ...\r\n\r\n    @Override\r\n    public void displayShuffleboard() {\r\n        SmartDashboard.putNumber(\"Arm Angle (deg)\", gyro.getAngle());\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/2-Sensors_And_Shuffleboard/2-Outputting_Data.md",
+    "language": "java\r",
+    "code": "// this code should work on both SPARK MAXes and Talon SRXes\r\nSmartDashboard.putNumber(\"Motor Output Current (A)\", motor.getOutputCurrent());\r\n"
+  },
+  {
+    "path": "docs/frc/2-Sensors_And_Shuffleboard/2-Outputting_Data.md",
+    "language": "java\r",
+    "code": "SmartDashboard.putNumber(\"Motor Temperature (deg C)\", motor.getMotorTemperature());\r\n"
+  },
+  {
+    "path": "docs/frc/2-Sensors_And_Shuffleboard/2-Outputting_Data.md",
+    "language": "java\r",
+    "code": "@Override\r\npublic void displayShuffleboard() {\r\n    SmartDashboard.putNumberArray(\"Encoder Pos (l, r)\", new double[] {leftEncoder.getPosition(), rightEncoder.getPosition()};\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/2-Sensors_And_Shuffleboard/2-Outputting_Data.md",
+    "language": "java\r",
+    "code": "@Override\r\npublic void displayShuffleboard() {\r\n    if(SmartDashboard.getBoolean(\"Testing\", false)) {\r\n        SmartDashboard.putNumber(\"Testing Value\", 10);\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/2-Sensors_And_Shuffleboard/3-Encoders.md",
+    "language": "java\r",
+    "code": "public class Elevator extends SnailSubsystem {\r\n\r\n    private WPI_TalonSRX primaryMotor;\r\n\r\n    public Elevator {\r\n        primaryMotor = new WPI_TalonSRX(ELEVATOR_PRIMARY_MOTOR_ID);\r\n    }\r\n\r\n    ...\r\n\r\n    @Override\r\n    public void displayShuffleboard() {\r\n\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/2-Sensors_And_Shuffleboard/3-Encoders.md",
+    "language": "java\r",
+    "code": "public Elevator() {\r\n    primaryMotor = new WPI_TalonSRX(ELEVATOR_PRIMARY_MOTOR_ID);\r\n    primaryMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative);\r\n    primaryMotor.setSelectedSensorPosition(0);\r\n    primaryMotor.setSensorPhase(true);\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/2-Sensors_And_Shuffleboard/3-Encoders.md",
+    "language": "java\r",
+    "code": "@Override\r\npublic void displayShuffleboard() {\r\n    SmartDashboard.putNumber(\"Elevator Primary Motor Position\", primaryMotor.getSelectedSensorPosition());\r\n    SmartDashboard.putNumber(\"Elevator Primary Motor Velocity\", primaryMotor.getSelectedSensorVelocity());\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/2-Sensors_And_Shuffleboard/3-Encoders.md",
+    "language": "java\r",
+    "code": "private double getHeight() {\r\n    return frontLeftMotor.getSelectedSensorPosition() / 4096.0 / 48.0 * Math.PI * 6; // 6\" diameter pulley and 48:1 reduction would go in Constants.java file\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/2-Sensors_And_Shuffleboard/3-Encoders.md",
+    "language": "java\r",
+    "code": "primaryMotor = new WPI_TalonSRX(ELEVATOR_PRIMARY_MOTOR_ID);\r\nprimaryMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative);\r\nprimaryMotor.setSensorPhase(true);\r\nprimaryMotor.configSelectedFeedbackCoefficient(1 / 4096.0 / 48.0 * Math.PI * 6);\r\n"
+  },
+  {
+    "path": "docs/frc/2-Sensors_And_Shuffleboard/3-Encoders.md",
+    "language": "java\r",
+    "code": "public class Elevator extends SnailSubsystem {\r\n\r\n    private CANSparkMax primaryMotor;\r\n\r\n    public Elevator {\r\n        primaryMotor = new CANSparkMax(ELEVATOR_PRIMARY_MOTOR_ID, MotorType.kBrushless);\r\n    }\r\n\r\n    ...\r\n\r\n    @Override\r\n    public void displayShuffleboard() {\r\n\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/2-Sensors_And_Shuffleboard/3-Encoders.md",
+    "language": "java\r",
+    "code": "private CANSparkMax primaryMotor;\r\nprivate CANEncoder primaryEncoder;\r\n\r\npublic Elevator {\r\n    primaryMotor = new CANSparkMax(ELEVATOR_PRIMARY_MOTOR_ID, MotorType.kBrushless);\r\n    primaryEncoder = primaryMotor.getEncoder(); // another option is primaryEncoder = new CANEncoder(primaryMotor);\r\n    primaryEncoder.setPosition(0);\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/2-Sensors_And_Shuffleboard/3-Encoders.md",
+    "language": "java\r",
+    "code": "@Override\r\npublic void displayShuffleboard() {\r\n    SmartDashboard.putNumber(\"Elevator Primary Motor Position\", primaryEncoder.getPosition());\r\n    SmartDashboard.putNumber(\"Elevator Primary Motor Velocity\", primaryEncoder.getVelocity());\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/2-Sensors_And_Shuffleboard/3-Encoders.md",
+    "language": "java\r",
+    "code": "primaryMotor = new CANSparkMax(ELEVATOR_PRIMARY_MOTOR_ID, MotorType.kBrushless);\r\nprimaryEncoder = primaryMotor.getEncoder();\r\nprimaryEncoder.setPositionConversionFactor(1 / 48.0 * Math.PI * 6);\r\nprimaryEncoder.setVelocityConversionFactor(1 / 48.0 * Math.PI * 6 / 60);\r\n"
+  },
+  {
+    "path": "docs/frc/2-Sensors_And_Shuffleboard/3-Encoders.md",
+    "language": "java\r",
+    "code": "public void update() {\r\n    if (primaryEncoder.getPosition() < 0 && speed < 0) speed = 0; // if we're at the bottom and we try to go down\r\n    if (primaryEncoder.getPosition() > ELEVATOR_MAX_HEIGHT && speed > 0) speed = 0; // if we're at the top and we try to go up\r\n\r\n    ... // do stuff with speed\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/2-Sensors_And_Shuffleboard/3-Encoders.md",
+    "language": "java\r",
+    "code": "public class Elevator extends SnailSubsystem {\r\n\r\n    private CANSparkMax primaryMotor;\r\n    private CANEncoder primaryEncoder;\r\n\r\n    private boolean overridePrimaryEncoder;\r\n\r\n    public Elevator {\r\n        primaryMotor = new CANSparkMax(ELEVATOR_PRIMARY_MOTOR_ID, MotorType.kBrushless);\r\n        primaryEncoder = new CANEncoder(primaryMotor);\r\n\r\n        overridePrimaryEncoder = false;\r\n    }\r\n\r\n    @Override\r\n    public void update() {\r\n        if (!overridePrimaryEncoder) {\r\n            if (primaryEncoder.getPosition() < 0 && speed < 0) speed = 0;\r\n            if (primaryEncoder.getPosition() > ELEVATOR_MAX_HEIGHT && speed > 0) speed = 0;\r\n        }\r\n\r\n        ... // do stuff with speed\r\n    }\r\n\r\n    public void setPrimaryEncoderOverride(boolean override) {\r\n        overridePrimaryEncoder = override;\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/2-Sensors_And_Shuffleboard/3-Encoders.md",
+    "language": "java\r",
+    "code": "public class ManualElevatorCommand extends CommandBase {\r\n\r\n    private Elevator elevator;\r\n    private DoubleSupplier speedSupplier;\r\n    private BooleanSupplier overrideSupplier;\r\n\r\n    public ManualElevatorCommand(Elevator elevator, DoubleSupplier speedSupplier, BooleanSupplier overrideSupplier) {\r\n        this.elevator = elevator;\r\n        this.speedSupplier = speedSupplier;\r\n        this.overrideSupplier = overrideSupplier;\r\n    }\r\n\r\n    @Override\r\n    public void execute() {\r\n        elevator.manualControl(speedSupplier.getAsDouble());\r\n        elevator.setPrimaryEncoderOverride(overrideSupplier.getAsBoolean())\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/2-Sensors_And_Shuffleboard/3-Encoders.md",
+    "language": "java\r",
+    "code": "elevator = new Elevator();\r\nelevator.setDefaultCommand(new ManualElevatorCommand(elevator, operatorController::getRightY, operatorController::getAButton);\r\n"
+  },
+  {
+    "path": "docs/frc/2-Sensors_And_Shuffleboard/4-Gyro.md",
+    "language": "java\r",
+    "code": "private Gyro() {\r\n    ...\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/2-Sensors_And_Shuffleboard/4-Gyro.md",
+    "language": "java\r",
+    "code": "private Gyro instance = null;\r\n\r\npublic static Gyro getInstance() {\r\n    if (instance != null) {\r\n        instance = new Gyro();\r\n    }\r\n\r\n    return instance;\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/2-Sensors_And_Shuffleboard/4-Gyro.md",
+    "language": "java\r",
+    "code": "public class Drivetrain extends SnailSubsystem {\r\n    ...\r\n\r\n    @Override\r\n    public void displayShuffleboard() {\r\n        SmartDashboard.putNumber(\"Robot Angle\", Gyro.getInstance().getRobotAngle());\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/2-Sensors_And_Shuffleboard/5-Boolean_Sensors.md",
+    "language": "java\r",
+    "code": "import static frc.robot.Constants.ElectricalLayout.*;\r\n\r\npublic class Arm extends SnailSubsystem {\r\n    ...\r\n\r\n    DigitalInput limitSwitchBottom;\r\n\r\n    public Arm () {\r\n        limitSwitchBottom = new DigitalInput(ARM_LIMIT_SWITCH_PORT_ID); // port defined in Constants\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/2-Sensors_And_Shuffleboard/5-Boolean_Sensors.md",
+    "language": "java\r",
+    "code": "public class Arm extends SnailSubsystem {\r\n    ...\r\n\r\n    @Override\r\n    public void displayShuffleboard() {\r\n        SmartDashboard.putBoolean(\"Arm Limit Switch Bottom\", limitSwitchBottom.get());\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/2-Sensors_And_Shuffleboard/5-Boolean_Sensors.md",
+    "language": "java\r",
+    "code": "public class Arm extends SnailSubsystem {\r\n    ...\r\n\r\n    private double speed;\r\n\r\n    private DigitalInput limitSwitchBottom;\r\n\r\n    public Arm() {\r\n        limitSwitchBottom = new DigitalInput(ARM_LIMIT_SWITCH_BOT_ID);\r\n    }\r\n\r\n    @Override\r\n    public void update() {\r\n        if(speed < 0 && limitSwitchBottom.get()) {\r\n            speed = 0; // prevent arm from moving down while the limit switch is pressed\r\n        }\r\n\r\n        // do stuff with the speed variable\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/2-Sensors_And_Shuffleboard/7-Constant_Tuning.md",
+    "language": "java\r",
+    "code": "public class Arm extends SnailSubsystem {\r\n    ...\r\n\r\n    @Override\r\n    public void tuningInit() {\r\n        SmartDashboard.putNumber(\"Arm Max Speed\", ARM_MAX_SPEED);\r\n    }\r\n\r\n    @Override\r\n    public void tuningPeriodic() {\r\n\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/2-Sensors_And_Shuffleboard/7-Constant_Tuning.md",
+    "language": "java\r",
+    "code": "public class Arm extends SnailSubsystem {\r\n    ...\r\n\r\n    @Override\r\n    public void tuningInit() {\r\n        SmartDashboard.putNumber(\"Arm Max Speed\", ARM_MAX_SPEED);\r\n    }\r\n\r\n    @Override\r\n    public void tuningPeriodic() {\r\n        ARM_MAX_SPEED = SmartDashboard.getNumber(\"Arm Max Speed\", ARM_MAX_SPEED);\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/2-Sensors_And_Shuffleboard/8-Zeroing_Sensors.md",
+    "language": "java\r",
+    "code": "public class Arm extends SnailSubsystem {\r\n    ...\r\n\r\n    DigitalInput limitSwitch;\r\n\r\n    ...\r\n\r\n    public void update() {\r\n        if(limitSwitch.get()) encoder.setPosition(0);\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/2-Sensors_And_Shuffleboard/8-Zeroing_Sensors.md",
+    "language": "java\r",
+    "code": "public class Arm extends SnailSubsystem {\r\n    ...\r\n\r\n    DigitalInput limitSwitch;\r\n\r\n    boolean lastLimitSwitch;\r\n\r\n    ...\r\n\r\n    public void update() {\r\n        if(!lastLimitSwitch && limitSwitch.get()) encoder.setPosition(0); // rising edge\r\n\r\n        lastLimitSwitch = limitSwitch.get();\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/3-Closed_Loop_Control/2-Basics_of_PID.md",
+    "language": "java\r",
+    "code": "// set these up once\r\ndouble kP = 0.01;\r\n\r\n// loop this\r\ndouble error = setpoint - encoder.getPosition();\r\nmotor.set(kP * error)\r\n"
+  },
+  {
+    "path": "docs/frc/3-Closed_Loop_Control/2-Basics_of_PID.md",
+    "language": "java\r",
+    "code": "// set these up once\r\ndouble kD = 0.01;\r\ndouble prevError = 0.0;\r\n\r\n// loop this\r\ndouble error = setpoint - encoder.getPosition();\r\ndouble dError = (error - prevError) / (currentTime - prevTime);\r\n\r\nprevTime = currentTime;\r\nprevError = error;\r\nmotor.set(kP * error - kD * dError);\r\n"
+  },
+  {
+    "path": "docs/frc/3-Closed_Loop_Control/2-Basics_of_PID.md",
+    "language": "java\r",
+    "code": "// set these up once\r\ndouble kI = 0.01;\r\ndouble prevError = 0.0;\r\ndouble errorSum = 0.0;\r\n\r\n// loop this\r\ndouble error = setpoint - encoder.getPosition();\r\nerrorSum += (error - prevError) * (currentTime - prevTime);\r\n\r\nprevTime = currentTime;\r\nprevError = error;\r\nmotor.set(kP * error - kD * dError + kI * errorSum);\r\n"
+  },
+  {
+    "path": "docs/frc/3-Closed_Loop_Control/3a-WPILib_PID.md",
+    "language": "java\r",
+    "code": "public class Elevator extends SnailSubsystem {\r\n\r\n    public enum State {\r\n        MANUAL\r\n    }\r\n\r\n    private WPI_TalonSRX primaryMotor;\r\n\r\n    private State state = State.MANUAL;\r\n    private double speed;\r\n\r\n    public Elevator() {\r\n        primaryMotor = new WPI_TalonSRX(ELEVATOR_PRIMARY_MOTOR_ID);\r\n\r\n        // configure our encoder and convert its units to our height in inches\r\n        primaryMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative);\r\n        primaryMotor.configSelectedFeedbackCoefficient(1 / 4096.0 / 48.0 * Math.PI * 6);\r\n\r\n        primaryMotor.setSelectedSensorPosition(0);\r\n    }\r\n\r\n    @Override\r\n    public void update() {\r\n        switch(state) {\r\n            case MANUAL:\r\n                primaryMotor.set(speed);\r\n            break;\r\n        }\r\n    }\r\n\r\n    public void setSpeed(double speed) {\r\n        this.speed = speed;\r\n    }\r\n\r\n    @Override\r\n    public void displayShuffleboard() {\r\n        SmartDashboard.putNumber(\"Elevator Position\", primaryMotor.getSelectedSensorPosition());\r\n    }\r\n\r\n    ...\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/3-Closed_Loop_Control/3a-WPILib_PID.md",
+    "language": "java\r",
+    "code": "public final class Constants {\r\n\r\n    public static class ElectricalLayout {\r\n        public final static int CONTROLLER_DRIVER_ID = 0;\r\n        public final static int CONTROLLER_OPERATOR_ID = 1;\r\n\r\n        public final static int ELEVATOR_PRIMARY_MOTOR_ID = 4;\r\n    }\r\n\r\n    public static class Autonomous {\r\n\r\n    }\r\n\r\n    public static class Elevator {\r\n        public static double[] ELEVATOR_PID = new double[] {0.1, 0, 0.01};\r\n        public static double ELEVATOR_PID_TOLERANCE = 0.1;\r\n        public static double ELEVATOR_PID_MAX_OUTPUT = 0.7;\r\n    }\r\n\r\n    public static double PI = 3.14159265;\r\n    public static double UPDATE_PERIOD = 0.010; // seconds\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/3-Closed_Loop_Control/3a-WPILib_PID.md",
+    "language": "java\r",
+    "code": "public class Elevator extends SnailSubsystem {\r\n\r\n    public enum State {\r\n        MANUAL\r\n    }\r\n\r\n    private WPI_TalonSRX primaryMotor;\r\n\r\n    private PIDController elevatorPID;\r\n\r\n    private State state = State.MANUAL;\r\n    private double speed;\r\n\r\n    public Elevator() {\r\n        primaryMotor = new WPI_TalonSRX(ELEVATOR_PRIMARY_MOTOR_ID);\r\n        primaryMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative);\r\n        primaryMotor.configSelectedFeedbackCoefficient(1 / 4096.0 / 48.0 * Math.PI * 6);\r\n\r\n        primaryMotor.setSelectedSensorPosition(0);\r\n\r\n        elevatorPID = new PIDController(ELEVATOR_PID[0], ELEVATOR_PID[1], ELEVATOR_PID[2], UPDATE_PERIOD);\r\n        elevatorPID.setTolerance(ELEVATOR_PID_TOLERANCE);\r\n    }\r\n\r\n    ...\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/3-Closed_Loop_Control/3a-WPILib_PID.md",
+    "language": "java\r",
+    "code": "public class Elevator extends SnailSubsystem {\r\n\r\n    public enum State {\r\n        MANUAL,\r\n        PID\r\n    }\r\n\r\n    ...\r\n\r\n    @Override\r\n    public void update() {\r\n        switch(state) {\r\n            case MANUAL:\r\n                primaryMotor.set(speed);\r\n            break;\r\n            case PID:\r\n                // get the next PID value and limit it between the ranges\r\n                double output = elevatorPID.calculate(primaryMotor.getSelectedSensorPosition());\r\n                if(output > ELEVATOR_PID_MAX_OUTPUT) output = ELEVATOR_PID_MAX_OUTPUT;\r\n                if(output < -ELEVATOR_PID_MAX_OUTPUT) output = -ELEVATOR_PID_MAX_OUTPUT;\r\n\r\n                primaryMotor.set(output);\r\n\r\n                // check our error and update the state if we finish\r\n                if(elevatorPID.atSetpoint()) {\r\n                    state = State.MANUAL;\r\n                }\r\n            break;\r\n        }\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/3-Closed_Loop_Control/3a-WPILib_PID.md",
+    "language": "java\r",
+    "code": "public void setPosition(double setpoint) {\r\n    state = State.PID;\r\n    elevatorPID.reset();\r\n    elevatorPID.setSetpoint(setpoint);\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/3-Closed_Loop_Control/3b-SPARK_MAX_PID.md",
+    "language": "java\r",
+    "code": "public final class Constants {\r\n\r\n    public static class ElectricalLayout {\r\n        public final static int CONTROLLER_DRIVER_ID = 0;\r\n        public final static int CONTROLLER_OPERATOR_ID = 1;\r\n\r\n        public final static int ELEVATOR_PRIMARY_MOTOR_ID = 4;\r\n    }\r\n\r\n    public static class Autonomous {\r\n\r\n    }\r\n\r\n    public static class Elevator {\r\n        public static double[] ELEVATOR_PID = new double[] {0.1, 0, 0.01};\r\n        public static double ELEVATOR_PID_TOLERANCE = 0.1;\r\n        public static double ELEVATOR_PID_MAX_OUTPUT = 0.7;\r\n    }\r\n\r\n    public static double PI = 3.14159265;\r\n    public static double UPDATE_PERIOD = 0.010; // seconds\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/3-Closed_Loop_Control/3b-SPARK_MAX_PID.md",
+    "language": "java\r",
+    "code": "public class Elevator extends SnailSubsystem {\r\n\r\n    public enum State {\r\n        MANUAL\r\n    }\r\n\r\n    private CANSparkMax primaryMotor;\r\n    private CANEncoder primaryEncoder;\r\n\r\n    private State defaultState = State.MANUAL;\r\n    private State state = defaultState;\r\n    private double speed;\r\n\r\n    public Elevator() {\r\n        primaryMotor = new CANSparkMax(ELEVATOR_PRIMARY_MOTOR_ID, MotorType.kBrushless);\r\n        primaryMotor.restoreFactoryDefaults();\r\n\r\n        primaryEncoder = new CANEncoder(primaryMotor);\r\n        primaryEncoder.setPositionConversionFactor(48.0 * Math.PI * 6);\r\n        primaryEncoder.setVelocityConversionFactor(48.0 * Math.PI * 6 / 60);\r\n    }\r\n\r\n    ...\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/3-Closed_Loop_Control/3b-SPARK_MAX_PID.md",
+    "language": "java\r",
+    "code": "public class Elevator extends SnailSubsystem {\r\n\r\n    public enum State {\r\n        MANUAL\r\n    }\r\n\r\n    private CANSparkMax primaryMotor;\r\n    private CANEncoder primaryEncoder;\r\n    private CANPIDController elevatorPID;\r\n\r\n    private State state = defaultState;\r\n    private double speed;\r\n\r\n    public Elevator() {\r\n        primaryMotor = new CANSparkMax(ELEVATOR_PRIMARY_MOTOR_ID, MotorType.kBrushless);\r\n        primaryMotor.restoreFactoryDefaults();\r\n\r\n        primaryEncoder = new CANEncoder(primaryMotor);\r\n        primaryEncoder.setPositionConversionFactor(48.0 * Math.PI * 6);\r\n        primaryEncoder.setVelocityConversionFactor(48.0 * Math.PI * 6 / 60);\r\n\r\n        elevatorPID = new CANPIDController(primaryMotor);\r\n        elevatorPID.setP(ELEVATOR_PID[0]);\r\n        elevatorPID.setI(ELEVATOR_PID[1]);\r\n        elevatorPID.setD(ELEVATOR_PID[2]);\r\n        elevatorPID.setOutputRange(-ELEVATOR_PID_MAX_OUTPUT, ELEVATOR_PID_MAX_OUTPUT);\r\n    }\r\n\r\n    ...\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/3-Closed_Loop_Control/3b-SPARK_MAX_PID.md",
+    "language": "java\r",
+    "code": "public class Elevator extends SnailSubsystem {\r\n\r\n    public enum State {\r\n        MANUAL,\r\n        PID\r\n    }\r\n\r\n    ...\r\n\r\n    private double setpoint;\r\n\r\n    ...\r\n\r\n    @Override\r\n    public void update() {\r\n        switch(state) {\r\n            case MANUAL:\r\n                primaryMotor.set(speed);\r\n            break;\r\n            case PID:\r\n                // send the desired setpoint to the PID controller and specify we want to use position control\r\n                elevatorPID.setReference(setpoint, ControlType.kPosition);\r\n\r\n                // check our error and update the state if we finish\r\n                if(Math.abs(primaryEncoder.getPosition() - setpoint) < ELEVATOR_PID_TOLERANCE) {\r\n                    state = State.MANUAL;\r\n                }\r\n            break;\r\n        }\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/3-Closed_Loop_Control/3b-SPARK_MAX_PID.md",
+    "language": "java\r",
+    "code": "public void setPosition(double setpoint) {\r\n    state = State.PID;\r\n    this.setpoint = setpoint;\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/3-Closed_Loop_Control/3c-PID_Command_And_Extras.md",
+    "language": "java\r",
+    "code": "public class ElevatorPIDCommand extends CommandBase {\r\n\r\n    private Elevator elevator;\r\n    private double setpoint;\r\n\r\n    public ElevatorPIDCommand(Elevator elevator, double setpoint) {\r\n        this.elevator = elevator;\r\n        this.setpoint = setpoint;\r\n    }\r\n\r\n    @Override\r\n    public void init() {\r\n        elevator.setPosition(setpoint);\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/3-Closed_Loop_Control/3c-PID_Command_And_Extras.md",
+    "language": "java\r",
+    "code": "public class ElevatorPIDCommand extends CommandBase {\r\n    ...\r\n\r\n    @Override\r\n    public boolean isFinished() {\r\n        // you may have to make a getState() function if it is not already made\r\n        // all it does is just return the state variable in our Elevator file\r\n        return elevator.getState() != Elevator.State.PID;\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/3-Closed_Loop_Control/3c-PID_Command_And_Extras.md",
+    "language": "java\r",
+    "code": "public class RobotContainer {\r\n    ...\r\n\r\n    public void configureButtonBindings() {\r\n        operatorController.getButton(Button.kY.value).whileActiveOnce(\r\n            new ElevatorPIDCommand(elevator, Elevator.SETPOINT_TOP));\r\n\r\n        operatorController.getButton(Button.kX.value).whileActiveOnce(\r\n            new ElevatorPIDCommand(elevator, Elevator.SETPOINT_BOT));\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/3-Closed_Loop_Control/3c-PID_Command_And_Extras.md",
+    "language": "java\r",
+    "code": "public class Elevator extends SnailSubsystem {\r\n    ...\r\n\r\n    public void endPID() {\r\n        state = State.MANUAL;\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/3-Closed_Loop_Control/3c-PID_Command_And_Extras.md",
+    "language": "java\r",
+    "code": "public class ElevatorPIDCommand extends CommandBase {\r\n    ...\r\n\r\n    @Override\r\n    public void end(boolean interrupted) {\r\n        elevator.endPID();\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/3-Closed_Loop_Control/3c-PID_Command_And_Extras.md",
+    "language": "java\r",
+    "code": "public void displayShuffleboard() {\r\n    SmartDashboard.putNumberArray(\"Elevator Dist PID\", new double[] \r\n        {primaryMotor.getSelectedSensorPosition(), elevatorPID.getSetpoint()});\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/3-Closed_Loop_Control/3c-PID_Command_And_Extras.md",
+    "language": "java\r",
+    "code": "public void displayShuffleboard() {\r\n    SmartDashboard.putNumberArray(\"Elevator Dist PID\", new double[] \r\n        {primaryEncoder.getPosition(), pidSetpoint});\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/3-Closed_Loop_Control/3c-PID_Command_And_Extras.md",
+    "language": "java\r",
+    "code": "@Override\r\npublic void tuningPeriodic() {\r\n    ELEVATOR_PID[0] = Shuffleboard.getNumber(\"Elevator PID P\", ELEVATOR_PID[0]);\r\n    ...\r\n\r\n    elevatorPID.setP(ELEVATOR_PID[0]);\r\n    ...\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/3-Closed_Loop_Control/3c-PID_Command_And_Extras.md",
+    "language": "java\r",
+    "code": "@Override\r\npublic void tuningPeriodic() {\r\n    ELEVATOR_PID[0] = Shuffleboard.getNumber(\"Elevator PID P\", ELEVATOR_PID[0]);\r\n    ...\r\n\r\n    if(elevatorPID.getP() != ELEVATOR_PID[0]) elevatorPID.setP(ELEVATOR_PID[0]);\r\n    ...\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/3-Closed_Loop_Control/4-Feedforward.md",
+    "language": "java\r",
+    "code": "double maxSpeed = 5000; // in rpm\r\ndouble desiredSpeed = 4000; // in rpm\r\ndouble kFF = 1 / maxSpeed;\r\n\r\nmotor.set(desiredSpeed * kFF);\r\n"
+  },
+  {
+    "path": "docs/frc/3-Closed_Loop_Control/4-Feedforward.md",
+    "language": "java\r",
+    "code": "double feedforward = 0.1; // counteract gravity\r\ndouble input = controller.getLeftY();\r\n\r\nmotor.set(input + feedForward);\r\n"
+  },
+  {
+    "path": "docs/frc/3-Closed_Loop_Control/4a-Velocity_PID.md",
+    "language": "java\r",
+    "code": "public static class Shooter {\r\n    ...\r\n    public static double SHOOTER_MAX_SPEED = 5000.0; // RPM\r\n    public static double[] SHOOTER_PIDF = new double[] {0.0001, 0, 0, 0.0002};\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/3-Closed_Loop_Control/4a-Velocity_PID.md",
+    "language": "java\r",
+    "code": "public class Shooter extends SnailSubsystem {\r\n\r\n    public enum State {\r\n        MANUAL,\r\n        VELOCITY_PID\r\n    }\r\n\r\n    private CANSparkMax shooterMotor;\r\n    private CANEncoder encoder;\r\n\r\n    private PIDController shooterPID;\r\n\r\n    private State state = defaultState;\r\n    private double speed;\r\n\r\n    public Elevator() {\r\n        shooterMotor = new CANSparkMax(SHOOTER_PRIMARY_MOTOR_ID, MotorType.kBrushless);\r\n        encoder = shooterMotor.getEncoder();\r\n\r\n        shooterPID = new PIDController(SHOOTER_PIDF[0], SHOOTER_PIDF[1], SHOOTER_PIDF[2], UPDATE_PERIOD);\r\n    }\r\n\r\n    ...\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/3-Closed_Loop_Control/4a-Velocity_PID.md",
+    "language": "java\r",
+    "code": "@Override\r\npublic void update() {\r\n    switch(state) {\r\n        case MANUAL:\r\n            shooterMotor.set(speed);\r\n        break;\r\n        case VELOCITY_PID:\r\n            // add our feedback and feedforward outputs together\r\n            double output = shooterPID.calculate(encoder.getVelocity()) + \r\n                SHOOTER_PIDF[3] * shooterPID.getSetpoint();\r\n\r\n            shooterMotor.set(output);\r\n        break;\r\n    }\r\n}\r\n\r\npublic void setVelocity(double setpoint) {\r\n    state = State.VELOCITY_PID;\r\n    shooterPID.reset();\r\n    shooterPID.setSetpoint(setpoint);\r\n}\r\n\r\npublic void endPID() {\r\n    state = State.MANUAL;\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/3-Closed_Loop_Control/4a-Velocity_PID.md",
+    "language": "java\r",
+    "code": "public class Shooter extends SnailSubsystem {\r\n\r\n    public enum State {\r\n        MANUAL,\r\n        VELOCITY_PID\r\n    }\r\n\r\n    private CANSparkMax shooterMotor;\r\n    private CANEncoder encoder;\r\n    private CANPIDController shooterPID;\r\n\r\n    private State state = defaultState;\r\n    private double speed;\r\n\r\n    public Elevator() {\r\n        shooterMotor = new CANSparkMax(SHOOTER_PRIMARY_MOTOR_ID, MotorType.kBrushless);\r\n        encoder = shooterMotor.getEncoder();\r\n\r\n        shooterPID = shooterMotor.getPIDController();\r\n        shooterPID.setP(SHOOTER_PIDF[0]);\r\n        shooterPID.setI(SHOOTER_PIDF[1]);\r\n        shooterPID.setD(SHOOTER_PIDF[2]);\r\n        shooterPID.setFF(SHOOTER_PIDF[3]);\r\n    }\r\n\r\n    ...\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/3-Closed_Loop_Control/4a-Velocity_PID.md",
+    "language": "java\r",
+    "code": "@Override\r\npublic void update() {\r\n    switch(state) {\r\n        case MANUAL:\r\n            shooterMotor.set(speed);\r\n        break;\r\n        case VELOCITY_PID:\r\n            shooterPID.setReference(Constants.Shooter.SHOOTER_VEL_SETPOINT, ControlType.kVelocity);\r\n        break;\r\n    }\r\n}\r\n\r\npublic void setVelocity(double setpoint) {\r\n    state = State.VELOCITY_PID;\r\n    speed = setpoint;\r\n}\r\n\r\npublic void endPID() {\r\n    state = State.MANUAL;\r\n}\r\n\r\n"
+  },
+  {
+    "path": "docs/frc/3-Closed_Loop_Control/4a-Velocity_PID.md",
+    "language": "java\r",
+    "code": "public class ShooterVelocityPIDCommand extends CommandBase {\r\n\r\n    private Shooter shooter;\r\n    private double setpoint;\r\n\r\n    public ShooterVelocityPIDCommand(Shooter shooter, double setpoint) {\r\n        this.shooter = shooter;\r\n        this.setpoint = setpoint;\r\n    }\r\n\r\n    @Override\r\n    public void init() {\r\n        shooter.setVelocity(setpoint);\r\n    }\r\n    @Override\r\n    public boolean isFinished() {\r\n        return false;\r\n    }\r\n\r\n    @Override\r\n    public void end(boolean interrupted) {\r\n        shooter.endPID();\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/3-Closed_Loop_Control/4a-Velocity_PID.md",
+    "language": "java\r",
+    "code": "public class RobotContainer {\r\n    ...\r\n\r\n    public void configureButtonBindings() {\r\n        operatorController.getButton(Button.kY.value).whileActiveOnce(\r\n            new ElevatorPIDCommand(elevator, Elevator.SETPOINT_TOP));\r\n\r\n        operatorController.getButton(Button.kX.value).whileActiveOnce(\r\n            new ElevatorPIDCommand(elevator, Elevator.SETPOINT_BOT));\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/3-Closed_Loop_Control/4b-Arbitrary_Feedforward.md",
+    "language": "java\r",
+    "code": "// in Constants.java\r\ndouble ELEVATOR_FEEDFORWARD = 0.05;\r\n\r\n// in Elevator.java\r\npublic void update() {\r\n    case MANUAL:\r\n        motor.set(speed + ELEVATOR_FEEDFORWARD);\r\n        break;\r\n    case WPILIB_PID:\r\n        double output = pidController.calculate(encoder.getPosition()) + ELEVATOR_FEEDFORWARD;\r\n        if(output > ELEVATOR_PID_MAX_OUTPUT) output = ELEVATOR_PID_MAX_OUTPUT;\r\n        if(output < -ELEVATOR_PID_MAX_OUTPUT) output = -ELEVATOR_PID_MAX_OUTPUT;\r\n\r\n        primaryMotor.set(output);)\r\n        break;\r\n    case SPARK_MAX_PID:\r\n        elevatorPID.setReference(setpoint, ControlType.kPosition,\r\n            0, CANPIDController.ArbFFUnits.kPercentOut, ELEVATOR_FEEDFORWARD);\r\n        break;\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/3-Closed_Loop_Control/4b-Arbitrary_Feedforward.md",
+    "language": "java\r",
+    "code": "// in Constants.java\r\ndouble ARM_FEEDFORWARD = 0.05;\r\n\r\n// in Arm.java\r\npublic Arm() {\r\n    // set up motor and PID and create encoder\r\n    ...\r\n\r\n    // this does assume that there is no reduction via a gearbox or chain between our motor and the actual arm\r\n    // this is extremely unlikely to ever happen on our robot, but it was excluded here for simplicity\r\n    encoder.setPositionConversionFactor(360);\r\n}\r\n\r\npublic void update() {\r\n    case MANUAL:\r\n        primaryMotor.set(speed + ARM_FEEDFORWARD * Math.cos(encoder.getPosition()));\r\n        break;\r\n    case WPILIB_PID:\r\n        double output = pidController.calculate(encoder.getPosition()) + ARM_FEEDFORWARD * Math.cos(encoder.getPosition());\r\n        if(output > ARM_PID_MAX_OUTPUT) output = ARM_PID_MAX_OUTPUT;\r\n        if(output < -ARM_PID_MAX_OUTPUT) output = -ARM_PID_MAX_OUTPUT;\r\n\r\n        primaryMotor.set(output);)\r\n        break;\r\n    case SPARK_MAX_PID:\r\n        armPID.setReference(setpoint, ControlType.kPosition,\r\n            0, CANPIDController.ArbFFUnits.kPercentOut, ARM_FEEDFORWARD * Math.cos(encoder.getPosition()));\r\n\r\n        // check our error and update the state if we finish\r\n        if(Math.abs(encoder.getPosition() - setpoint) < ARM_PID_TOLERANCE) {\r\n            state = State.MANUAL;\r\n        }\r\n        break;\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/3-Closed_Loop_Control/5-Motion_Profiling.md",
+    "language": "java\r",
+    "code": "public class Elevator extends SnailSubsystem {\r\n\r\n    private CANSparkMax motor;\r\n    private CANEncoder encoder;\r\n\r\n    public enum State {\r\n        MANUAL,\r\n        PROFILED\r\n    }\r\n\r\n    private State state = State.MANUAL;\r\n    private double speed;\r\n    private TrapezoidProfile profile;\r\n    private Timer profileTimer;\r\n\r\n    public Elevator() {\r\n        motor = new CANSparkMax(ElectricalLayout.ELEVATOR_MOTOR_ID, MotorType.kBrushless);\r\n        motor.restoreFactoryDefaults();\r\n        motor.setIdleMode(IdleMode.kBrake);\r\n\r\n        encoder = motor.getEncoder();\r\n        encoder.setPositionConversionFactor(Constants.Elevator.ELEVATOR_CONV_FACTOR);        // convert to distance\r\n        encoder.setVelocityConversionFactor(Constants.Elevator.ELEVATOR_CONV_FACTOR / 60.0); // convert to distance / second\r\n\r\n        // we initialize our profile to null because we don't need it at the moment while in MANUAL control\r\n        profile = null;\r\n        profileTimer = new Timer();\r\n    }\r\n\r\n    @Override\r\n    public void update() {\r\n        switch(state) {\r\n            case MANUAL:\r\n                motor.set(speed);\r\n                break;\r\n            case PROFILED:\r\n                // we will go over this later\r\n                break;\r\n        }\r\n    }\r\n\r\n    public void setElevatorSpeed(double speed) {\r\n        this.speed = speed;\r\n        state = State.MANUAL;\r\n    }\r\n\r\n    public void setPosition(double setpoint) {\r\n        // we need three parameters: constraints, desired state, initial state\r\n        profile = new TrapezoidProfile(\r\n            new TrapezoidProfile.Constraints(Constants.Elevator.ELEVATOR_PROFILE_MAX_VEL, \r\n                Constants.Elevator.ELEVATOR_PROFILE_MAX_ACC),\r\n            new TrapezoidProfile.State(setpoint, 0), // we want to go to our setpoint and stop there at a velocity of 0\r\n            new TrapezoidProfile.State(encoder.getPosition(), encoder.getVelocity()) // our current position and speed\r\n        );\r\n        state = State.PROFILED;\r\n        profileTimer.reset();\r\n        profileTimer.start();\r\n    }\r\n\r\n    // ends the profile in case we need to get back manual control for some reason\r\n    public void endClosedLoop() {\r\n        profile = null;\r\n        state = State.MANUAL;\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/3-Closed_Loop_Control/5-Motion_Profiling.md",
+    "language": "java\r",
+    "code": "@Override\r\npublic void update() {\r\n    switch(state) {\r\n        case MANUAL:\r\n            motor.set(speed);\r\n            break;\r\n        case PROFILED:\r\n            TrapezoidProfile.State desiredState = profile.calculate(profileTimer.get());\r\n            double desiredPosition = desiredState.position;\r\n            double desiredVelocity = desiredState.velocity;\r\n\r\n            // do the calculations for P on the position\r\n            double positionError = desiredPosition - encoder.getPosition();\r\n            double positionOutput = positionError * Constants.Elevator.ELEVATOR_PROFILE_P;\r\n\r\n            // pass the new setpoint into the velocity PID controller and then calcualte\r\n            velocityPIDController.setSetpoint(desiredVelocity)\r\n            double velocityOutput = velocityPIDController.calculate(encoder.getVelocity());\r\n            double velocityFeedforward = desiredVelocity * Constants.Elevator.ELEVATOR_PROFILE_VEL_F;\r\n\r\n            // add them all up and pass into our motor!\r\n            motor.set(positionOutput + velocityOutput + velocityFeedforward)\r\n            break;\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/3-Closed_Loop_Control/5-Motion_Profiling.md",
+    "language": "java\r",
+    "code": "public class Elevator extends SnailSubsystem {\r\n\r\n    private CANSparkMax motor;\r\n    private CANPIDController elevatorPID;\r\n    private CANEncoder encoder;\r\n\r\n    public enum State {\r\n        MANUAL,\r\n        PROFILED\r\n    }\r\n\r\n    private State state = State.MANUAL;\r\n    private double speed;\r\n    private double setpoint;\r\n\r\n    public Elevator() {\r\n        motor = new CANSparkMax(ElectricalLayout.ELEVATOR_MOTOR_ID, MotorType.kBrushless);\r\n        motor.restoreFactoryDefaults();\r\n        motor.setIdleMode(IdleMode.kBrake);\r\n\r\n        encoder = motor.getEncoder();\r\n        encoder.setPositionConversionFactor(Constants.Elevator.ELEVATOR_CONV_FACTOR);        // convert to distance\r\n        encoder.setVelocityConversionFactor(Constants.Elevator.ELEVATOR_CONV_FACTOR / 60.0); // convert to distance / second\r\n\r\n        elevatorPID = motor.getPIDController();\r\n        // our velocity PID constants\r\n        elevatorPID.setP(Constants.Elevator.ELEVATOR_PIDF[0]);\r\n        elevatorPID.setI(Constants.Elevator.ELEVATOR_PIDF[1]); // most of the time this would be set to 0\r\n        elevatorPID.setD(Constants.Elevator.ELEVATOR_PIDF[2]); // most of the time this would be set to 0\r\n        elevatorPID.setFF(Constants.Elevator.ELEVATOR_PIDF[3]);\r\n        // our smart motion constraints\r\n        elevatorPID.setSmartMotionMaxVelocity(Constants.Elevator.ELEVATOR_PROFILE_MAX_VEL);\r\n        elevatorPID.setSmartMotionMaxAccel(Constants.Elevator.ELEVATOR_PROFILE_MAX_ACC);\r\n    }\r\n\r\n    @Override\r\n    public void update() {\r\n        switch(state) {\r\n            case MANUAL:\r\n                motor.set(speed);\r\n                break;\r\n            case PROFILED:\r\n                elevatorPID.setReference(setpoint, ControlType.kSmartMotion);\r\n\r\n                // you can add some stuff to check if it reached its setpoint or not\r\n                // (left as an exercise to the reader)\r\n                break;\r\n        }\r\n    }\r\n\r\n    public void setElevatorSpeed(double speed) {\r\n        this.speed = speed;\r\n        state = State.MANUAL;\r\n    }\r\n\r\n    public void setPosition(double setpoint) {\r\n        this.setpoint = setpoint;\r\n        state = State.PROFILED;\r\n    }\r\n\r\n    // ends the profile in case we need to get back manual control for some reason\r\n    public void endClosedLoop() {\r\n        state = State.MANUAL;\r\n    }\r\n\r\n    // should also add outputting data via outputValues() and constant tuning, but omitted here\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/4-Autonomous/2-Segmented_Trajectories.md",
+    "language": "java",
+    "code": "// typical PID control on the distance travelled\ndouble forwardOutput = distancePIDController.calculate(leftEncoder.getPosition(), distSetpoint);\nforwardOutput = MathUtil.clamp(forwardOutput, -DRIVE_DIST_MAX_OUTPUT, DRIVE_DIST_MAX_OUTPUT);\n\n// calculate P control for maintaining our current angle\ndouble turnOutput = (angleSetpoint - Gyro.getInstance().getRobotAngle()) * DRIVE_DIST_ANGLE_P;\ndifferentialDrive.arcadeDrive(forwardOutput, turnOutput);\n"
+  },
+  {
+    "path": "docs/frc/4-Autonomous/3b-Generating-On-Bot.md",
+    "language": "java",
+    "code": "// Create a Sendable Chooser for the score position\nSendableChooser<ScorePosition> scorePositionChooser = new SendableChooser<>();\n\n// Add the score positions to the Sendable Chooser\n// Configure default score position and the place it starts at\nscorePositionChooser.setDefaultOption(\"Left\", ScorePosition.LEFT);\n// add other options\nscorePositionChooser.addOption(\"Center\", ScorePosition.CENTER);\nscorePositionChooser.addOption(\"Right\", ScorePosition.RIGHT);\n\n// Add the Sendable Chooser to the Shuffleboard\nSmartDashboard.putData(\"Score Position\", scorePositionChooser);\n\n"
+  },
+  {
+    "path": "docs/frc/4-Autonomous/3b-Generating-On-Bot.md",
+    "language": "java",
+    "code": "// Create a boolean for whether or not to shoot\nboolean shoot = false;\n\n// Add the boolean to the Shuffleboard\nSmartDashboard.putBoolean(\"Shoot\", shoot);\n\n// Get the boolean from the Shuffleboard\nshoot = SmartDashboard.getBoolean(\"Shoot\", false);\n"
+  },
+  {
+    "path": "docs/frc/4-Autonomous/3b-Generating-On-Bot.md",
+    "language": "java",
+    "code": "public class ToPosCommand extends CommandBase { \n    private final Drivetrain drivetrain;\n    private Trajectory trajectory;\n\n    // save the points for debugging\n    private List<Pose2d> points;\n\n    public ToPosCommand(Drivetrain drivetrain, List<Pose2d> trajPoints, boolean reverse) { \n        this.drivetrain = drivetrain;\n        points = trajPoints;\n        \n        // create the config for the trajectory\n        // basically constrains the trajectory\n        // controls the max velocity & acceleration\n        // also tell if the trajectory should be reversed\n        TrajectoryConfig config = new TrajectoryConfig(DRIVE_TRAJ_MAX_VEL, DRIVE_TRAJ_MAX_ACC).setReversed(reverse);\n        // create the trajectory using the config and waypoints\n        this.trajectory = TrajectoryGenerator.generateTrajectory(trajPoints, config);\n\n        addRequirements(drivetrain);\n    }\n\n    @Override\n    public void initialize() {\n        drivetrain.driveTrajectory(trajectory);\n    }\n"
+  },
+  {
+    "path": "docs/frc/4-Autonomous/3b-Generating-On-Bot.md",
+    "language": "java",
+    "code": "private void normalAuto() {\n    if (firstScore) { // boolean from Shuffleboard\n        // tell it how to score\n        if (getConeOrCube()) { // tell it if it is at a cone or cube score pose\n            addScoreMidCone();\n        } else {\n            addScoreMidCube();\n        }\n    }\n\n    if (charge) { // boolean from Shuffleboard\n        // create waypoints to go to the charge station and\n        // make a ToPosCommand to follow the trajectory\n        addChargeTrajectory();\n        // then add another command to balance\n        this.command.addCommands(new PDBalanceCommand(drivetrain, true));\n    } else if (goToCyclePose) { // boolean from Shuffleboard\n        // same thing\n        // create waypoints to go to the cycle pose\n        // make a ToPosCommand to follow the trajectory\n        addCycleTrajectory();\n        return;\n    }\n\n    // if none of these have run something has gone wrong\n    // so just leave the community\n    if (StartPose.equals(currentPose)) {\n        addLeaveCommunityTrajectory();\n    }\n    \n    // adds a command to turn 180\n    turn180();\n    \n}\n"
+  },
+  {
+    "path": "docs/frc/4-Autonomous/4-Command_Groups.md",
+    "language": "java\r",
+    "code": "...\r\n\r\npublic class ShipFrontCommand extends SequentialCommandGroup {\r\n\r\n    public ShipFrontCommand(Drivetrain drivetrain, Intake intake) {\r\n        addCommands(\r\n            new DriveDistanceCommand(autoDistance, drive),\r\n            new EjectCargoCommand(intake),\r\n            new TurnLeftCommand(90, drivetrain) // degrees\r\n        );\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/4-Autonomous/4-Command_Groups.md",
+    "language": "java\r",
+    "code": "public class TrajDriveAndShoot extends ParallelDeadlineGroup {\r\n\r\n    public TrajDriveAndShoot(Drivetrain drivetrain, Indexer indexer, Shooter shooter, Trajectory trajectory, Intake intake) {\r\n        super(new SequentialCommandGroup(\r\n                new SetRobotPoseCommand(drivetrain, trajectory.getInitialPose()),\r\n                new DriveTrajectoryCommand(drivetrain, trajectory),\r\n                (new IndexerShootCommand(indexer, shooter, () -> true)).withTimeout(INDEXER_DUMP_TIME)),\r\n            new ShooterPIDCommand(shooter)\r\n        );\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/4-Autonomous/4-Command_Groups.md",
+    "language": "java\r",
+    "code": "public class TrajTopTrenchAuto extends SequentialCommandGroup {\r\n\r\n    public TrajTopTrenchAuto(Drivetrain drivetrain, Indexer indexer, Shooter shooter, Intake intake) {\r\n\r\n        Trajectory topTrench1 = Trajectories.getTrajectory(\"Top-Power\");\r\n        Trajectory topTrench2 = Trajectories.getTrajectory(\"Power-Trench\");\r\n\r\n        addCommands(new TrajDriveAndShoot(drivetrain, indexer, shooter, topTrench1, intake), \r\n            new DriveTrajectoryCommand(drivetrain, topTrench2));\r\n    }\r\n\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/4-Autonomous/5-Auto_Choosing.md",
+    "language": "java\r",
+    "code": "...\r\n    public static class Autonomous {\r\n        public static enum AutoType {\r\n            SEGMENTED,\r\n            TRAJECTORY\r\n        }\r\n\r\n        public static enum AutoPosition {\r\n            TOP,\r\n            MIDDLE,\r\n            BOTTOM\r\n        }\r\n\r\n        public static enum AutoGoal {\r\n            DEFAULT,\r\n            TRENCH,\r\n            GEN_BOTTOM,\r\n            GEN_TOP\r\n        }\r\n\r\n        public static double SEC_PER_M = 1.0 * 100; // seconds / m for auto\r\n        public static double TURN_ANGLE_TIME = 1.5 * 100;\r\n        public static double INDEXER_DUMP_TIME = 2.0; // seconds\r\n    }\r\n...\r\n"
+  },
+  {
+    "path": "docs/frc/4-Autonomous/5-Auto_Choosing.md",
+    "language": "java\r",
+    "code": "SendableChooser<AutoType> autoTypeChooser;\r\nSendableChooser<AutoPosition> autoPositionChooser;\r\nSendableChooser<AutoGoal> autoGoalChooser;\r\n"
+  },
+  {
+    "path": "docs/frc/4-Autonomous/5-Auto_Choosing.md",
+    "language": "java\r",
+    "code": "autoTypeChooser = new SendableChooser<>();\r\nautoPositionChooser = new SendableChooser<>();\r\nautoGoalChooser = new SendableChooser<>();\r\n"
+  },
+  {
+    "path": "docs/frc/4-Autonomous/5-Auto_Choosing.md",
+    "language": "java\r",
+    "code": "autoTypeChooser = new SendableChooser<>();\r\nautoPositionChooser = new SendableChooser<>();\r\nautoGoalChooser = new SendableChooser<>();\r\n\r\nautoTypeChooser.setDefaultOption(\"Segmented\", AutoType.SEGMENTED);\r\nautoTypeChooser.addOption(\"Trajectory\", AutoType.TRAJECTORY);\r\n\r\nautoPositionChooser.setDefaultOption(\"Top Start\", AutoPosition.TOP);\r\nautoPositionChooser.addOption(\"Middle Start\", AutoPosition.MIDDLE);\r\nautoPositionChooser.addOption(\"Bottom Start\", AutoPosition.BOTTOM);\r\n\r\nautoGoalChooser.setDefaultOption(\"Default Drive\", AutoGoal.DEFAULT);\r\nautoGoalChooser.addOption(\"Trench\", AutoGoal.TRENCH);\r\nautoGoalChooser.addOption(\"Generator Top\", AutoGoal.GEN_TOP);\r\nautoGoalChooser.addOption(\"Generator Bottom\", AutoGoal.GEN_BOTTOM);\r\n\r\nSmartDashboard.putData(\"Auto Type\", autoTypeChooser);\r\nSmartDashboard.putData(\"Auto Start Position\", autoPositionChooser);\r\nSmartDashboard.putData(\"Auto Goal\", autoGoalChooser);\r\n"
+  },
+  {
+    "path": "docs/frc/4-Autonomous/5-Auto_Choosing.md",
+    "language": "java\r",
+    "code": "AutoType type = autoTypeChooser.getSelected();\r\nAutoPosition position = autoPositionChooser.getSelected();\r\nAutoGoal goal = autoGoalChooser.getSelected();\r\n\r\nif (type == AutoType.SEGMENTED) {\r\n    switch (position) {\r\n        case TOP:\r\n            return new SegTopAuto(drivetrain, indexer, shooter, intake);\r\n        case MIDDLE:\r\n            return new SegMiddleAuto(drivetrain, indexer, shooter, intake);\r\n        case BOTTOM:\r\n            return new SegBottomAuto(drivetrain, indexer, shooter, intake);\r\n    }\r\n}\r\n\r\nif (type == AutoType.TRAJECTORY) {\r\n    if (position == AutoPosition.BOTTOM) return new TrajBottomAuto(drivetrain, indexer, shooter, intake);\r\n\r\n    switch (goal) {\r\n        case TRENCH:\r\n            if (position == AutoPosition.TOP) return new TrajTopTrenchAuto(drivetrain, indexer, shooter, intake);\r\n            else if (position == AutoPosition.MIDDLE) return new TrajMiddleTrenchAuto(drivetrain, indexer, shooter, intake);\r\n        case GEN_TOP:\r\n            if (position == AutoPosition.TOP) return new TrajTopGenTopAuto(drivetrain, indexer, shooter, intake);\r\n            else if (position == AutoPosition.MIDDLE) return new TrajMiddleGenTopAuto(drivetrain, indexer, shooter, intake);\r\n        case GEN_BOTTOM:\r\n            if (position == AutoPosition.TOP) return new TrajTopGenBottomAuto(drivetrain, indexer, shooter, intake);\r\n            else if (position == AutoPosition.MIDDLE) return new TrajMiddleGenBottomAuto(drivetrain, indexer, shooter, intake);\r\n        case DEFAULT: // will go to drive distance command\r\n    }\r\n}\r\n\r\n    return new DriveDistanceCommand(drivetrain, 2);\r\n"
+  },
+  {
+    "path": "docs/frc/4-Autonomous/5-Auto_Choosing.md",
+    "language": "java\r",
+    "code": "    ...\r\n\r\npublic class RobotContainer {\r\n\r\n    ... // subsystems, notifier, etc\r\n\r\n    private SendableChooser<AutoType> autoTypeChooser;\r\n    private SendableChooser<AutoPosition> autoPositionChooser;\r\n    private SendableChooser<AutoGoal> autoGoalChooser;\r\n\r\n    public RobotContainer() {\r\n        ... // set up our subsystems/default commands, register notifier, etc\r\n        configureAutoChoosers();\r\n    }\r\n\r\n    private void configureButtonBindings() {\r\n        ...\r\n    }\r\n\r\n    public void configureAutoChoosers() {\r\n        autoTypeChooser = new SendableChooser<>();\r\n        autoPositionChooser = new SendableChooser<>();\r\n        autoGoalChooser = new SendableChooser<>();\r\n\r\n        autoTypeChooser.setDefaultOption(\"Segmented\", AutoType.SEGMENTED);\r\n        autoTypeChooser.addOption(\"Trajectory\", AutoType.TRAJECTORY);\r\n\r\n        autoPositionChooser.setDefaultOption(\"Top Start\", AutoPosition.TOP);\r\n        autoPositionChooser.addOption(\"Middle Start\", AutoPosition.MIDDLE);\r\n        autoPositionChooser.addOption(\"Bottom Start\", AutoPosition.BOTTOM);\r\n\r\n        autoGoalChooser.setDefaultOption(\"Default Drive\", AutoGoal.DEFAULT);\r\n        autoGoalChooser.addOption(\"Trench\", AutoGoal.TRENCH);\r\n        autoGoalChooser.addOption(\"Generator Top\", AutoGoal.GEN_TOP);\r\n        autoGoalChooser.addOption(\"Generator Bottom\", AutoGoal.GEN_BOTTOM);\r\n\r\n        SmartDashboard.putData(\"Auto Type\", autoTypeChooser);\r\n        SmartDashboard.putData(\"Auto Start Position\", autoPositionChooser);\r\n        SmartDashboard.putData(\"Auto Goal\", autoGoalChooser);\r\n    }\r\n\r\n    public Command getAutoCommand() {\r\n         AutoType type = autoTypeChooser.getSelected();\r\n         AutoPosition position = autoPositionChooser.getSelected();\r\n         AutoGoal goal = autoGoalChooser.getSelected();\r\n\r\n        if (type == AutoType.SEGMENTED) {\r\n            switch (position) {\r\n                case TOP:\r\n                    return new SegTopAuto(drivetrain, indexer, shooter, intake);\r\n                case MIDDLE:\r\n                    return new SegMiddleAuto(drivetrain, indexer, shooter, intake);\r\n                case BOTTOM:\r\n                    return new SegBottomAuto(drivetrain, indexer, shooter, intake);\r\n            }\r\n        }\r\n\r\n        if (type == AutoType.TRAJECTORY) {\r\n            if (position == AutoPosition.BOTTOM) return new TrajBottomAuto(drivetrain, indexer, shooter, intake);\r\n\r\n            switch (goal) {\r\n                case TRENCH:\r\n                    if (position == AutoPosition.TOP) return new TrajTopTrenchAuto(drivetrain, indexer, shooter, intake);\r\n                    else if (position == AutoPosition.MIDDLE) return new TrajMiddleTrenchAuto(drivetrain, indexer, shooter, intake);\r\n                case GEN_TOP:\r\n                    if (position == AutoPosition.TOP) return new TrajTopGenTopAuto(drivetrain, indexer, shooter, intake);\r\n                    else if (position == AutoPosition.MIDDLE) return new TrajMiddleGenTopAuto(drivetrain, indexer, shooter, intake);\r\n                case GEN_BOTTOM:\r\n                    if (position == AutoPosition.TOP) return new TrajTopGenBottomAuto(drivetrain, indexer, shooter, intake);\r\n                    else if (position == AutoPosition.MIDDLE) return new TrajMiddleGenBottomAuto(drivetrain, indexer, shooter, intake);\r\n                case DEFAULT: // will go to drive distance command\r\n            }\r\n        }\r\n\r\n       return new DriveDistanceCommand(drivetrain, 2);\r\n    }\r\n\r\n    ...\r\n\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/4-Autonomous/5-Auto_Choosing.md",
+    "language": "java\r",
+    "code": "...\r\n\r\npublic class Robot extends TimedRobot {\r\n\r\n    private RobotContainer robotContainer;\r\n    private Command autoCommand;\r\n\r\n    @Override\r\n    public void robotInit() {\r\n        robotContainer = new RobotContainer();\r\n        Trajectories.setUpTrajectories();\r\n    }\r\n\r\n    @Override\r\n    public void robotPeriodic() {\r\n        CommandScheduler.getInstance().run();\r\n        robotContainer.displayShuffleboard();\r\n        if (SmartDashboard.getBoolean(\"Testing\", false)) robotContainer.tuningPeriodic();\r\n    }\r\n\r\n    @Override\r\n    public void autonomousInit() {\r\n        autoCommand = robotContainer.getAutoCommand();\r\n\r\n        if (autoCommand != null) {\r\n            autoCommand.schedule();\r\n        }\r\n\r\n        robotContainer.resetIndexer();\r\n    }\r\n\r\n    @Override\r\n    public void teleopInit() {\r\n        if (autoCommand != null) {\r\n            autoCommand.cancel();\r\n        }\r\n\r\n        robotContainer.resetIndexer();\r\n    }\r\n\r\n    ...\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/5-Advanced_&_Misc/Advanced_State_Machines.md",
+    "language": "java",
+    "code": "public void update() {\n    switch (state) {\n        case GROUND:\n            retractFront();\n            retractBack();\n            break;\n        case EXTENDED:\n            extendFront();\n            extendBack();\n            break;\n        case HALF:\n            extendFront();\n            retractBack();\n            break;\n    }\n}\n\n\n/**\n  * Go to the next state of the climb\n  */\npublic void advanceClimb() {\n    switch (state) {\n        case GROUND:\n            state = State.EXTENDED;\n            break;\n        case EXTENDED:\n            state = State.HALF;\n            break;\n        case HALF:\n            state = State.GROUND;\n            break;\n    }\n}\n"
+  },
+  {
+    "path": "docs/frc/5-Advanced_&_Misc/Advanced_State_Machines.md",
+    "language": "java",
+    "code": "public void update() {\n    updateDistance();\n\n    switch(state) {\n        case NEUTRAL:\n            conveyorMotorFrontBottom.set(Constants.Indexer.INDEXER_CONVEYOR_NEUTRAL_SPEED);\n\n            // automatically index once it sees a ball\n            if (ballAtBot()) {\n                state = State.CELL_RAISING;\n            }\n            break;\n        // automatic indexing\n        case CELL_RAISING:\n            if (!ballAtBot()) {\n                state = State.CELL_RETURNING;\n            }\n            else {\n                conveyorMotorFrontBottom.set(Constants.Indexer.INDEXER_CONVEYOR_RAISE_SPEED);\n            }\n            break;\n        case CELL_RETURNING:\n            if (ballAtBot()) {\n                state = State.CELL_NUDGING;\n            }\n            else {\n                conveyorMotorFrontBottom.set(Constants.Indexer.INDEXER_CONVEYOR_RETURN_SPEED);\n            }\n            break;\n        case CELL_NUDGING:\n            if (!ballAtBot()) {\n                state = State.NEUTRAL;\n            }\n            else {\n                conveyorMotorFrontBottom.set(Constants.Indexer.INDEXER_CONVEYOR_NUDGE_SPEED);\n            }\n            break;\n    }\n}\n"
+  },
+  {
+    "path": "docs/frc/5-Advanced_&_Misc/Creating-Files.md",
+    "language": "java",
+    "code": "PrintWriter writer = null;\n\ntry {\n    writer = new PrintWriter(new BufferedWriter(new FileWriter(\"/home/lvuser/test.txt\")));\n}\ncatch(IOException e) {\n    e.printStackTrace();\n}\n\nif(writer != null) {\n    writer.println(\"Hello World!\");\n    writer.close();\n}\n\n"
+  },
+  {
+    "path": "docs/frc/5-Advanced_&_Misc/Iterative_Programming.md",
+    "language": "java\r",
+    "code": "package frc.robot;\r\n\r\n...\r\n\r\npublic class Robot extends TimedRobot {\r\n\r\n    CANSparkMax motor1;\r\n    CANSparkMax motor2;\r\n\r\n    XboxController controller;\r\n\r\n    public Robot() {\r\n        motor1 = new CANSparkMax(1, MotorType.kBrushless);\r\n        motor2 = new CANSparkMax(2, MotorType.kBrushless);\r\n\r\n        motor1.setSmartCurrentLimit(80);\r\n        motor2.setSmartCurrentLimit(80);\r\n\r\n        motor2.follow(motor1);\r\n\r\n        controller = new XboxController(0);\r\n    }\r\n\r\n    @Override\r\n    public void robotInit() {\r\n\r\n    }\r\n\r\n    @Override\r\n    public void teleopPeriodic() {\r\n        if (controller.getAButton()) {\r\n            motor1.set(1.0);\r\n        }\r\n        else if (controller.getBButton()) {\r\n            motor1.set(-1.0);\r\n        } \r\n        else {\r\n            motor1.set(0.0);\r\n        }\r\n    }\r\n\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/5-Advanced_&_Misc/Joystick_Features.md",
+    "language": "java",
+    "code": "Math.pow(input, 2);\n"
+  },
+  {
+    "path": "docs/frc/5-Advanced_&_Misc/Joystick_Features.md",
+    "language": "java",
+    "code": "Math.signum(input) * Math.pow(input, 2);\n"
+  },
+  {
+    "path": "docs/frc/5-Advanced_&_Misc/Joystick_Features.md",
+    "language": "java",
+    "code": "if (abs(input) < deadband) {\n    output = 0;\n}\n"
+  },
+  {
+    "path": "docs/frc/5-Advanced_&_Misc/Joystick_Features.md",
+    "language": "java",
+    "code": "if (abs(input) < deadband) {\n    output = 0;\n}\nelse {\n    output = (1 / (1 - deadband)) * (input + (-Math.signum(input) * deadband));\n}\n"
+  },
+  {
+    "path": "docs/frc/5-Advanced_&_Misc/Notifier.md",
+    "language": "java\r",
+    "code": "import edu.wpi.first.wpilibj.Notifier;\r\n"
+  },
+  {
+    "path": "docs/frc/5-Advanced_&_Misc/Notifier.md",
+    "language": "java\r",
+    "code": "private Notifier updateNotifier;\r\n\r\npublic RobotContainer() {\r\n\r\n    updateNotifier = new Notifier(this::update);\r\n    updateNotifier.startPeriodic(1 / 100.0);\r\n}\r\n"
+  },
+  {
+    "path": "docs/frc/5-Advanced_&_Misc/Rate_Limit.md",
+    "language": "java",
+    "code": "SlewRateLimiter filter = new SlewRateLimiter(0.5);\n"
+  },
+  {
+    "path": "docs/frc/5-Advanced_&_Misc/Rate_Limit.md",
+    "language": "java",
+    "code": "filter.calculate(input);\n"
+  },
+  {
+    "path": "docs/frc/5-Advanced_&_Misc/Servos.md",
+    "language": "java",
+    "code": "Servo servo;\n\nservo = new Servo(SERVO_ID);\n"
+  },
+  {
+    "path": "docs/frc/5-Advanced_&_Misc/Servos.md",
+    "language": "java ",
+    "code": "servo.set(1.0) // pass in double to move to full right\nservo.set(0.0) // move back to full left\n"
+  },
+  {
+    "path": "docs/frc/5-Advanced_&_Misc/Simulation.md",
+    "language": "java",
+    "code": "// Simulation classes help us simulate what's going on, including gravity.\nprivate final ElevatorSim m_elevatorSim =\n    new ElevatorSim(\n        m_elevatorGearbox,\n        Constants.kElevatorGearing,\n        Constants.kCarriageMass,\n        Constants.kElevatorDrumRadius,\n        Constants.kMinElevatorHeightMeters,\n        Constants.kMaxElevatorHeightMeters,\n        true,\n        VecBuilder.fill(0.01));\nprivate final EncoderSim m_encoderSim = new EncoderSim(m_encoder);\n"
+  },
+  {
+    "path": "docs/frc/5-Advanced_&_Misc/Simulation.md",
+    "language": "java",
+    "code": "// the main mechanism object\nMechanism2d mech = new Mechanism2d(3, 3);\n// the mechanism root node\nMechanismRoot2d root = mech.getRoot(\"climber\", 2, 0);\n\n// and draw them on screen\nm_elevator = root.append(new MechanismLigament2d(\"elevator\", kElevatorMinimumLength, 90));\n// post the mechanism to the dashboard\nSmartDashboard.putData(\"Mech2d\", mech);\n\n...\n\n// and update it periodically\n@Override\npublic void robotPeriodic() {\n    // update the dashboard mechanism's state\n    m_elevator.setLength(kElevatorMinimumLength + m_elevatorEncoder.getDistance());\n}\n"
+  },
+  {
+    "path": "docs/frc/5-Advanced_&_Misc/Simulation.md",
+    "language": "",
+    "code": "subsystems\n    - elevator\n        - Elevator.java\n        - ElevatorIO.java\n        - ElevatorIOSim.java\n        - ElevatorIOSparkMax.java\n"
+  },
+  {
+    "path": "docs/java/1-Basics/1-First_Program.md",
+    "language": "java\r",
+    "code": "public class Main {\r\n    public static void main(String[] args) {\r\n        System.out.println(\"Hello world!\");\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/1-Basics/1-First_Program.md",
+    "language": "java\r",
+    "code": "public class Main {\r\n    public static void main(String[] args) {\r\n        System.out.println(\"Put whatever you want here!\");\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/1-Basics/2-Variables.md",
+    "language": "java\r",
+    "code": "public class Main {\r\n    public static void main(String[] args) {\r\n        System.out.println(\"Hello world! We're learning about variables!\");\r\n\r\n        int myFirstVariable = 0;\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/1-Basics/2-Variables.md",
+    "language": "java\r",
+    "code": "public class Main {\r\n    public static void main(String[] args) {\r\n        System.out.println(\"Hello world! We're learning about variables!\");\r\n\r\n        int myFirstVariable = 0;\r\n        myFirstVariable = 5;\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/1-Basics/2-Variables.md",
+    "language": "java\r",
+    "code": "public class Main {\r\n    public static void main(String[] args) {\r\n        System.out.println(\"Hello world! We're learning about variables!\");\r\n\r\n        int myFirstVariable = 0;\r\n        myFirstVariable = 5;\r\n        System.out.println(myFirstVariable);\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/1-Basics/2-Variables.md",
+    "language": "java\r",
+    "code": "public class Main {\r\n    public static void main(String[] args) {\r\n        int a = 5;\r\n        System.out.println(a); // prints 5\r\n        a = 3;\r\n        System.out.println(a); // prints 3\r\n\r\n        int b = 6;\r\n        System.out.println(b); // prints 6\r\n        System.out.println(a + b); // prints 9\r\n\r\n        b = a + 5;\r\n        System.out.println(b); // prints 8\r\n\r\n        b = b + 1;\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/1-Basics/2-Variables.md",
+    "language": "java\r",
+    "code": "public class Main {\r\n    public static void main(String[] args) {\r\n        int c = 4.1;\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/1-Basics/2-Variables.md",
+    "language": "java\r",
+    "code": "public class Main {\r\n    public static void main(String[] args) {\r\n        int c = (int) 4.1;\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/1-Basics/3-Operators.md",
+    "language": "java\r",
+    "code": "int a = 3;\r\nint b = 4;\r\n\r\nint c = a + b; // This is 7\r\nint d = a * b; // This is 12\r\nint e = b - a; // This is 1\r\ndouble f = ((double) a) / b; // This is 0.75\r\n// Note the cast in order to make sure the first variable is treated as a double\r\n// Also, parantheses are used to make sure the variable is casted before the division takes place\r\nint g = b % a; // This is 1\r\n"
+  },
+  {
+    "path": "docs/java/1-Basics/3-Operators.md",
+    "language": "java\r",
+    "code": "int health = 2;\r\n\r\n// Player picks up a heart\r\nheath = health + 1;\r\n// Health is now 3\r\n"
+  },
+  {
+    "path": "docs/java/1-Basics/4-Comments.md",
+    "language": "java\r",
+    "code": "public static void main(String[] args) {\r\n    // This is a comment!\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/1-Basics/4-Comments.md",
+    "language": "java\r",
+    "code": "public static void main(String[] args) {\r\n    int testInt = 5; //This makes an integer\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/1-Basics/4-Comments.md",
+    "language": "java\r",
+    "code": "public static void main(String[] args) {\r\n    /**\r\n     * Everything in between those two symbols is a comment!\r\n     * This is also a comment!\r\n     */\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/1-Basics/4-Comments.md",
+    "language": "java\r",
+    "code": "int testInt = 219309; //This is a number\r\n"
+  },
+  {
+    "path": "docs/java/1-Basics/4-Comments.md",
+    "language": "java\r",
+    "code": "/**\r\n * Changes the elevator output depending on the position of the elevator\r\n * If the elevator is at the bottom, don't move the elevator down\r\n * If the elevator is approaching a mechanical stop, slow it down\r\n */\r\nprivate double capElevatorOutput(double output) {\r\n    double cappedOutput = output;\r\n    if (output < 0 && getEncoder() <= 0)\r\n        cappedOutput = 0;\r\n    else if (output < 0 && getEncoder() <= 5)\r\n        cappedOutput *= Constants.ELEVATOR_SPEED_REDUCTION;\r\n    else if (output > 0 && getEncoder() >= Constants.ELEVATOR_MAX_HEIGHT)\r\n        cappedOutput = 0;\r\n    else if (output > 0 && getEncoder() >= Constants.ELEVATOR_MAX_HEIGHT - 5)\r\n        cappedOutput *= Constants.ELEVATOR_SPEED_REDUCTION;\r\n\r\n    return cappedOutput;\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/1-Basics/5-Console_Input.md",
+    "language": "java\r",
+    "code": "import java.util.Scanner;\r\n\r\npublic class Main {\r\n    public static void main(String[] args) {\r\n        Scanner scanner = new Scanner(System.in);\r\n\r\n        System.out.print(\"Type in an Integer: \");\r\n        int testInt = scanner.nextInt();\r\n        System.out.println(\"Here is your integer: \" + testInt);\r\n\r\n        System.out.print(\"Type a String: \");\r\n        String testString = scanner.next();\r\n        System.out.println(\"Here is your string: \" + testString);\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/1-Basics/6-Arrays.md",
+    "language": "java\r",
+    "code": "public class Main {\r\n    public static void main(String[] args) {\r\n        int[] myArray = new int[5];\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/1-Basics/6-Arrays.md",
+    "language": "java\r",
+    "code": "public class Main {\r\n    public static void main(String[] args) {\r\n        int[] myArray = new int[5];\r\n        \r\n        myArray[0] = 4;\r\n        myArray[1] = 8;\r\n        myArray[2] = -7;\r\n        myArray[3] = 2;\r\n        myArray[4] = 1;\r\n        \r\n        myArray[2] = 5; // Assigns the third element to 5\r\n        myArray[3] += 2; // Adds to the fourth element, which becomes 4\r\n        System.out.println(myArray[4]); // Prints out the fifth element of the array\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/1-Basics/6-Arrays.md",
+    "language": "java\r",
+    "code": "public class Main {\r\n    public static void main(String[] args) {\r\n        int[] myArray = new int[] {4, 8, -7, 2, 1}; // Creates the same array as from before\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/1-Basics/programs/HelloWorld.md",
+    "language": "java\r",
+    "code": "public class HelloWorld {\r\n\t\r\n\tpublic static void main(String[] args) {\r\n\t\tSystem.out.println(\"Hello World!\");\r\n\t}\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/1-Basics/programs/Input.md",
+    "language": "java\r",
+    "code": "import java.util.Scanner;\r\n\r\npublic class Input {\r\n    public static void main(String[] args) {\r\n        Scanner scanner = new Scanner(System.in);\r\n        System.out.println(\"Enter your name: \");\r\n        String name = scanner.nextLine();\r\n        System.out.println(\"Enter your age: \");\r\n        int age = scanner.nextInt();\r\n\r\n        System.out.println(name + \" is \" + age + \" years old.\");\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/1-Basics/programs/Variables.md",
+    "language": "java\r",
+    "code": "public class Variables {\r\n    \r\n    public static void main(String[] args) {\r\n        boolean testBoolean = false;\r\n        System.out.println(\"This is a boolean: \" + testBoolean);\r\n\r\n        char testChar = 'a';\r\n        System.out.println(\"This is a char: \" + testChar);\r\n                \r\n        // Not important\r\n        byte testByte = 38;\r\n        System.out.println(\"This is a byte: \" + testByte);\r\n                \r\n        // Not important\r\n        short testShort = 31838;\r\n        System.out.println(\"This is a short: \" + testShort);\r\n                \r\n        int testInt = 4284298;\r\n        System.out.println(\"This is a int: \" + testInt);\r\n                \r\n        // Not important\r\n        long testLong = 428981491238L;\r\n        System.out.println(\"This is a long: \" + testLong);\r\n\r\n        // Not important\r\n        float testFloat = 2.1313f;\r\n        System.out.println(\"This is a float: \" + testFloat);\r\n\r\n        double testDouble = 4.13113131313;\r\n        System.out.println(\"This is a double: \" + testDouble);\r\n\r\n        //DOES NOT WORK\r\n        //int test = testInt + testDouble;\r\n\r\n        //THIS WORKS\r\n        int test = (int) (testInt + testDouble); // Casting\r\n        System.out.println(test);\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/2-Control_Flow/1-If_Statements.md",
+    "language": "java\r",
+    "code": "Scanner scanner = new Scanner(System.in);\r\n\r\nint number = scanner.nextInt();\r\nif(number == 4) {\r\n    System.out.println(\"The number is 4\");\r\n}\r\n\r\nif(number != 4) {\r\n    System.out.println(\"The number is not 4\");\r\n}\r\n\r\nif(number > 4){\r\n    System.out.println(\"The number is greater than 4\");\r\n}\r\n\r\nif(number < 4){\r\n    System.out.println(\"The number is less than 4\");\r\n}\r\n\r\nif(number >= 4){\r\n    System.out.println(\"The number is greater than or equal to 4\");\r\n}\r\n\r\nif(number <= 4){\r\n    System.out.println(\"The number is less than or equal to 4\");\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/2-Control_Flow/1-If_Statements.md",
+    "language": "java\r",
+    "code": "int number = 4;\r\nboolean isFour = number == 4;\r\nboolean greaterThanFour= number > 4;\r\n"
+  },
+  {
+    "path": "docs/java/2-Control_Flow/1-If_Statements.md",
+    "language": "java\r",
+    "code": "boolean test = true;\r\n\r\nif(test == true) {\r\n    // Do something cool\r\n}\r\nif(test == false) {\r\n    // Do something different\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/2-Control_Flow/1-If_Statements.md",
+    "language": "java\r",
+    "code": "boolean test = true;\r\n\r\nif(test) {\r\n    // Do something cool\r\n}\r\nif(!test) {\r\n    // Do something different\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/2-Control_Flow/1-If_Statements.md",
+    "language": "java\r",
+    "code": "boolean test = true;\r\nboolean antiTest = !test;\r\n\r\nSystem.out.println(test); // prints \"true\"\r\nSystem.out.println(antiTest); // prints \"false\"\r\n"
+  },
+  {
+    "path": "docs/java/2-Control_Flow/1-If_Statements.md",
+    "language": "java\r",
+    "code": "String testString = \"This is a test\";\r\n\r\nif(testString == \"This is a test\") { // Bad\r\n    System.out.println(\"This will not work 100% of the time\");\r\n}\r\nif(testString.equals(\"This is a test\")) { // Good\r\n    System.out.println(\"This will work 100% of the time\");\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/2-Control_Flow/1-If_Statements.md",
+    "language": "java\r",
+    "code": "String testString = \"This is a test\";\r\n\r\nif(!testString.equals(\"This is a test\")) {\r\n    System.out.println(\"The strings do not match\");\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/2-Control_Flow/2-Logical_Operators.md",
+    "language": "java\r",
+    "code": "if(true && true) {\r\n    System.out.println(\"This will print\");\r\n}\r\n\r\nif(false && true) {\r\n    System.out.println(\"This will not print\");\r\n}\r\n\r\nif(true && false) {\r\n    System.out.println(\"This will not print\");\r\n}\r\n\r\nif(false && false) {\r\n    System.out.println(\"This will not print\");\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/2-Control_Flow/2-Logical_Operators.md",
+    "language": "java\r",
+    "code": "if(true || true) {\r\n    System.out.println(\"This will print\");\r\n}\r\nif(false || true) {\r\n    System.out.println(\"This will print\");\r\n}\r\nif(true || false) {\r\n    System.out.println(\"This will print\");\r\n}\r\nif(false || false) {\r\n    System.out.println(\"This will not print\");\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/2-Control_Flow/2-Logical_Operators.md",
+    "language": "java\r",
+    "code": "if(!false) {\r\n    System.out.println(\"This will print\");\r\n}\r\nif(!true) {\r\n    System.out.println(\"This will not print\");\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/2-Control_Flow/3-Else_Statements.md",
+    "language": "java\r",
+    "code": "int number = 5;\r\n\r\nif(number % 2 == 0) { // Number is even\r\n    System.out.println(\"The number \" + number + \" is even!\");\r\n} else { // The number is not even, so it must be odd\r\n    System.out.println(\"The number \" + number + \" is odd!\");\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/2-Control_Flow/3-Else_Statements.md",
+    "language": "java\r",
+    "code": "String dayOfTheWeek = \"Thursday\";\r\n\r\nif(dayOfTheWeek.equals(\"Sunday\")) {\r\n    System.out.println(\"1st Day of the Week\");\r\n} else if(dayOfTheWeek.equals(\"Monday\")) {\r\n    System.out.println(\"2nd Day of the Week\");\r\n} else if(dayOfTheWeek.equals(\"Tuesday\")) {\r\n    System.out.println(\"3rd Day of the Week\");\r\n} else if(dayOfTheWeek.equals(\"Wednesday\")) {\r\n    System.out.println(\"4th Day of the Week\");\r\n} else if(dayOfTheWeek.equals(\"Thursday\")) {\r\n    System.out.println(\"5th Day of the Week\");\r\n} else if(dayOfTheWeek.equals(\"Friday\")) {\r\n    System.out.println(\"6th Day of the Week\");\r\n} else if(dayOfTheWeek.equals(\"Saturday\")) {\r\n    System.out.println(\"7th Day of the Week\");\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/2-Control_Flow/4-Switch_Statements.md",
+    "language": "java\r",
+    "code": "String dayOfTheWeek = \"Thursday\";\r\n\r\nif(dayOfTheWeek.equals(\"Sunday\")) {\r\n    System.out.println(\"1st Day of the Week\");\r\n} else if(dayOfTheWeek.equals(\"Monday\")) {\r\n    System.out.println(\"2nd Day of the Week\");\r\n} else if(dayOfTheWeek.equals(\"Tuesday\")) {\r\n    System.out.println(\"3rd Day of the Week\");\r\n} else if(dayOfTheWeek.equals(\"Wednesday\")) {\r\n    System.out.println(\"4th Day of the Week\");\r\n} else if(dayOfTheWeek.equals(\"Thursday\")) {\r\n    System.out.println(\"5th Day of the Week\");\r\n} else if(dayOfTheWeek.equals(\"Friday\")) {\r\n    System.out.println(\"6th Day of the Week\");\r\n} else if(dayOfTheWeek.equals(\"Saturday\")) {\r\n    System.out.println(\"7th Day of the Week\");\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/2-Control_Flow/4-Switch_Statements.md",
+    "language": "java\r",
+    "code": "String dayOfTheWeek = \"Monday\";\r\n\r\nswitch(dayOfTheWeek) {\r\n    case \"Sunday\":\r\n        System.out.println(\"1st Day of the Week\");\r\n        break;\r\n    case \"Monday\":\r\n        System.out.println(\"2nd Day of the Week\");\r\n        break;\r\n    case \"Tuesday\":\r\n        System.out.println(\"3rd Day of the Week\");\r\n        break;\r\n    case \"Wednesday\":\r\n        System.out.println(\"4th Day of the Week\");\r\n        break;\r\n    case \"Thursday\":\r\n        System.out.println(\"5th Day of the Week\");\r\n        break;\r\n    case \"Friday\":\r\n        System.out.println(\"6th Day of the Week\");\r\n        break;\r\n    case \"Saturday\":\r\n        System.out.println(\"7th Day of the Week\");\r\n        break;\r\n    default:\r\n        System.out.println(\"Error, unknown day of the week\");\r\n        break;\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/2-Control_Flow/5-While_Loops.md",
+    "language": "java\r",
+    "code": "while(true) {\r\n    System.out.println(\"This will print an infinite amount of times\");\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/2-Control_Flow/5-While_Loops.md",
+    "language": "java\r",
+    "code": "int counter = 0;\r\n\r\nwhile(counter < 5) {\r\n    System.out.println(counter);\r\n    counter++;\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/2-Control_Flow/6-For_Loops.md",
+    "language": "java\r",
+    "code": "int counter = 0;\r\n\r\nwhile(counter < 5) {\r\n    System.out.println(counter);\r\n    counter++;\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/2-Control_Flow/6-For_Loops.md",
+    "language": "java\r",
+    "code": "for(int i = 0; i < 5; i++) {\r\n    System.out.println(i);\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/2-Control_Flow/6-For_Loops.md",
+    "language": "java\r",
+    "code": "// Will print 1, 2, 3, 4, 5 instead of 0, 1, 2, 3, 4\r\nfor(int i = 1; i <= 5; i++) {\r\n    System.out.println(i);\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/2-Control_Flow/7-Enums.md",
+    "language": "java\r",
+    "code": "public class Main {\r\n    enum Day {\r\n        SUNDAY,\r\n        MONDAY,\r\n        TUESDAY,\r\n        WEDNESDAY,\r\n        THURSDAY,\r\n        FRIDAY,\r\n        SATURDAY;\r\n    }\r\n\r\n    public static void main(String[] args) {\r\n        Day today = Day.SUNDAY;\r\n        Day tomorrow = Day.MONDAY;\r\n\r\n        System.out.println(today.name()); // Prints SUNDAY\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/2-Control_Flow/7-Enums.md",
+    "language": "java\r",
+    "code": "public class Main {\r\n    enum Day {\r\n        SUNDAY,\r\n        MONDAY,\r\n        TUESDAY,\r\n        WEDNESDAY,\r\n        THURSDAY,\r\n        FRIDAY,\r\n        SATURDAY;\r\n    }\r\n\r\n    public static void main(String[] args) {\r\n        Day today = Day.SUNDAY;\r\n\r\n        switch(today) {\r\n            case SUNDAY:\r\n                System.out.println(\"domingo\");\r\n                break;\r\n            case MONDAY:\r\n                System.out.println(\"lunes\");\r\n                break;\r\n            case TUESDAY:\r\n                System.out.println(\"martes\");\r\n                break;\r\n            case WEDNESDAY:\r\n                System.out.println(\"miercoles\");\r\n                break;\r\n            case THURSDAY:\r\n                System.out.println(\"jueves\");\r\n                break;\r\n            case FRIDAY:\r\n                System.out.println(\"viernes\");\r\n                break;\r\n            case SATURDAY:\r\n                System.out.println(\"sabado\");\r\n                break;\r\n        }\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/2-Control_Flow/8-Scope.md",
+    "language": "java\r",
+    "code": "public static void main(String[] args) {\r\n    int availableInMain = 0; // this is available everywhere inside of main\r\n\r\n    if(true) {\r\n        int availableInIf = 0; // this is only available inside of the if statement\r\n\r\n        System.out.println(availableInMain); // we have access\r\n    }\r\n\r\n    System.out.println(availableInIf); // we do NOT have access\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/2-Control_Flow/8-Scope.md",
+    "language": "java\r",
+    "code": "for(int i = 0; i < 5; i++) {\r\n    System.out.println(i);\r\n}\r\nSystem.out.println(i); // we do NOT have access anymore\r\n"
+  },
+  {
+    "path": "docs/java/2-Control_Flow/programs/EvenOdd.md",
+    "language": "java\r",
+    "code": "import java.util.Scanner;\r\n\r\npublic class EvenOdd {\r\n    \r\n    public static void main(String[] args) {\r\n        Scanner scanner = new Scanner(System.in);\r\n        System.out.print(\"Type in an Integer: \");\r\n        int number = scanner.nextInt();\r\n        \r\n        if(number % 2 == 0) {\r\n            System.out.println(\"The number \" + number + \" is even.\");\r\n        }\r\n        else if(number % 2 == 1) {\r\n            System.out.println(\"The number \" + number + \" is odd.\");\r\n        }\r\n\r\n        scanner.close();\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/2-Control_Flow/programs/Exponent.md",
+    "language": "java\r",
+    "code": "import java.util.Scanner;\r\n\r\npublic class Exponent {\r\n    \r\n    public static void main(String[] args) {\r\n        Scanner scanner = new Scanner(System.in);\r\n\r\n        System.out.println(\"Enter the exponent base: \");\r\n        int base = scanner.nextInt();\r\n\r\n        System.out.println(\"Enter the exponent: \");\r\n        int exponent = scanner.nextInt();\r\n\r\n        long result = 1; // We use a long here because with exponents, the result can get very large\r\n        for(int i = 0; i < exponent; i++) {\r\n            result *= base;\r\n        }\r\n\r\n        System.out.println(\"The result is: \" + result);\r\n\r\n        scanner.close();\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/2-Control_Flow/programs/PrintNumbers.md",
+    "language": "java\r",
+    "code": "public class PrintNumbers {\r\n    \r\n    public static void main(String[] args) {\r\n        int countTo = 1000;\r\n\r\n        for(int i = 0; i < countTo; i++) {\r\n            System.out.println(i + 1);\r\n        }\r\n\r\n        // Alternate method\r\n        /*\r\n        for(int i = 1; i <= countTo; i++)\r\n        {\r\n            System.out.println(i);\r\n        }\r\n        */\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/2-Control_Flow/programs/SimpleChatbot.md",
+    "language": "java\r",
+    "code": "import java.util.Scanner;\r\n\r\npublic class SimpleChatbot {\r\n    \r\n    public static void main(String[] args) {\r\n        Scanner scanner = new Scanner(System.in);\r\n        \r\n        System.out.println(\"Hi! What's your name?\");\r\n        String name = scanner.next();\r\n\r\n        System.out.println(\"Hi \" + name + \"!\");\r\n        System.out.println(\"What grade are you in? (Please enter a number from 9-12)\");\r\n        int grade = scanner.nextInt();\r\n\r\n        switch(grade) {\r\n            case 9:\r\n                System.out.println(\"You must be a freshman! Welcome to UCVTS!\");\r\n            break;\r\n\r\n            case 10:\r\n                System.out.println(\"You must be a sophomore! Welcome back to UCVTS!\");\r\n            break;\r\n\r\n            case 11:\r\n                System.out.println(\"You must be a junior! Welcome back to UCVTS!\");\r\n            break;\r\n            \r\n            case 12:\r\n                System.out.println(\"You must be a senior! Welcome back to UCVTS!\");\r\n            break;\r\n\r\n            default:\r\n                System.out.println(\"I'm sorry, I didn't recognize that grade.\");\r\n            break;\r\n        }\r\n\r\n        System.out.println(\"How was your day? Good, fine, or bad?\");\r\n        // We use toLowerCase() to remove capitlization from the string. Then, we can recognize good, Good, GOOD, etc. as the same thing\r\n        String response = scanner.next().toLowerCase();\r\n        if(response.equals(\"good\")) {\r\n            System.out.println(\"Great! I hope you continue having a good day!\");\r\n        }\r\n        else if(response.equals(\"fine\")) {\r\n            System.out.println(\"That's good! I hope your day stays fine!\");\r\n        }\r\n        else if(response.equals(\"bad\")) {\r\n            System.out.println(\"Oh no! Why's your day bad?\");\r\n            String badResponse = scanner.next();\r\n            System.out.println(\"That sucks, I hope your day gets better!\");\r\n        }\r\n\r\n        scanner.close();\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/3-Functions/1-Basics.md",
+    "language": "text\r",
+    "code": "--------------------\r\n       Hello!\r\n--------------------\r\n"
+  },
+  {
+    "path": "docs/java/3-Functions/1-Basics.md",
+    "language": "java\r",
+    "code": "public static void main(String[] args) {\r\n    printHello();\r\n}\r\n\r\npublic static void printHello() {\r\n    System.out.println(\"--------------------\");\r\n    System.out.println(\"       Hello!       \");\r\n    System.out.println(\"--------------------\");\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/3-Functions/1-Basics.md",
+    "language": "java\r",
+    "code": "    System.out.println(\"--------------------\");\r\n    System.out.println(\"       Hello!       \")\r\n    System.out.println(\"--------------------\");\r\n"
+  },
+  {
+    "path": "docs/java/3-Functions/1-Basics.md",
+    "language": "text\r",
+    "code": "--------------------\r\n       Hello!\r\n--------------------\r\n"
+  },
+  {
+    "path": "docs/java/3-Functions/1-Basics.md",
+    "language": "java\r",
+    "code": "public static void main(String[] args) {\r\n    System.out.println(\"--------------------\");\r\n    System.out.println(\"       Hello!       \");\r\n    System.out.println(\"--------------------\");\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/3-Functions/1-Basics.md",
+    "language": "java\r",
+    "code": "public static void main(String[] args) {\r\n    printHello();\r\n    printHello();\r\n    printHello();\r\n    printHello();\r\n    printHello();\r\n}\r\n\r\npublic static void printHello() {\r\n    System.out.println(\"--------------------\");\r\n    System.out.println(\"       Hello!       \");\r\n    System.out.println(\"--------------------\");\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/3-Functions/1-Basics.md",
+    "language": "java\r",
+    "code": "public static void main(String[] args) {\r\n    System.out.println(\"--------------------\");\r\n    System.out.println(\"       Hello!       \");\r\n    System.out.println(\"--------------------\");\r\n    System.out.println(\"--------------------\");\r\n    System.out.println(\"       Hello!       \");\r\n    System.out.println(\"--------------------\");\r\n    System.out.println(\"--------------------\");\r\n    System.out.println(\"       Hello!       \");\r\n    System.out.println(\"--------------------\");\r\n    System.out.println(\"--------------------\");\r\n    System.out.println(\"       Hello!       \");\r\n    System.out.println(\"--------------------\");\r\n    System.out.println(\"--------------------\");\r\n    System.out.println(\"       Hello!       \");\r\n    System.out.println(\"--------------------\");\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/3-Functions/2-Functions_with_Arguments.md",
+    "language": "java\r",
+    "code": "public static void main(String[] args) {\r\n    printHello();\r\n}\r\n\r\npublic static void printHello() {\r\n    System.out.println(\"--------------------\");\r\n    System.out.println(\"       Hello!       \");\r\n    System.out.println(\"--------------------\");\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/3-Functions/2-Functions_with_Arguments.md",
+    "language": "java\r",
+    "code": "printHello(String name)\r\n"
+  },
+  {
+    "path": "docs/java/3-Functions/2-Functions_with_Arguments.md",
+    "language": "java\r",
+    "code": "public static void printHello(String name) {\r\n    System.out.println(\"--------------------\");\r\n    System.out.println(\"Hello \" + name + \"!\");\r\n    System.out.println(\"--------------------\");\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/3-Functions/2-Functions_with_Arguments.md",
+    "language": "java\r",
+    "code": "public static void main(String[] args) {\r\n    printHello(\"Bob\");\r\n}\r\n\r\npublic static void printHello(String name) {\r\n    System.out.println(\"--------------------\");\r\n    System.out.println(\"Hello \" + name + \"!\");\r\n    System.out.println(\"--------------------\");\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/3-Functions/2-Functions_with_Arguments.md",
+    "language": "text\r",
+    "code": "--------------------\r\nHello Bob!\r\n--------------------\r\n"
+  },
+  {
+    "path": "docs/java/3-Functions/2-Functions_with_Arguments.md",
+    "language": "java\r",
+    "code": "public static void main(String[] args) {\r\n    printHello(\"Apple\");\r\n    printHello(\"Banana\");\r\n    printHello(\"Cherry\");\r\n}\r\n\r\npublic static void printHello(String name) {\r\n    System.out.println(\"--------------------\");\r\n    System.out.println(\"Hello \" + name + \"!\");\r\n    System.out.println(\"--------------------\");\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/3-Functions/2-Functions_with_Arguments.md",
+    "language": "java\r",
+    "code": "public static void main(String[] args) {\r\n    printAdded(1, 1);\r\n    printAdded(9, 10);\r\n    printAdded(1231, 47829);\r\n}\r\n\r\npublic static void printAdded(int num1, int num2) {\r\n    int sum = num1 + num2;\r\n    System.out.println(num1 + \" + \" + num2 + \" = \" + sum);\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/3-Functions/3-Functions_with_Return_Types.md",
+    "language": "java\r",
+    "code": "public static void printHello() {\r\n\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/3-Functions/3-Functions_with_Return_Types.md",
+    "language": "java\r",
+    "code": "public static int return5() {\r\n\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/3-Functions/3-Functions_with_Return_Types.md",
+    "language": "java\r",
+    "code": "public static int return5() {\r\n    System.out.println(\"This function is going to return 5\");\r\n    return 5;\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/3-Functions/3-Functions_with_Return_Types.md",
+    "language": "java\r",
+    "code": "public static void main(String[] args) {\r\n    int value = return5();\r\n\r\n    System.out.println(value);\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/3-Functions/3-Functions_with_Return_Types.md",
+    "language": "java\r",
+    "code": "public static void main(String[] args) {\r\n    int value = 5;\r\n\r\n    System.out.println(value); // this will print \"5\"\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/3-Functions/3-Functions_with_Return_Types.md",
+    "language": "java\r",
+    "code": "// This function returns an int\r\npublic static int return5() {\r\n    System.out.println(\"This function is going to return 5\");\r\n    return 5;\r\n}\r\n\r\npublic static void main(String[] args) {\r\n    int value = return5(); // \"This function is going to return 5\" will be printed to the console\r\n\r\n    System.out.println(value); // this will print \"5\"\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/3-Functions/3-Functions_with_Return_Types.md",
+    "language": "java\r",
+    "code": "public static int square(int number) {\r\n    return number * number;\r\n}\r\n\r\npublic static void main(String[] args) {\r\n    System.out.println(square(5)); // prints 25\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/3-Functions/3-Functions_with_Return_Types.md",
+    "language": "java\r",
+    "code": "public static void main(String[] args) {\r\n    System.out.println(25); // prints 25\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/3-Functions/4-Overloading.md",
+    "language": "java\r",
+    "code": "public static void println(String x) {\r\n    // Do stuff specific to String\r\n}\r\n\r\npublic static void println(int x) {\r\n    // Do stuff specific to int\r\n}\r\n\r\npublic static void println(double x) {\r\n    // Do stuff specific to double\r\n}\r\n\r\npublic static void println(boolean x) {\r\n    // Do stuff specific to boolean\r\n}\r\n\r\n"
+  },
+  {
+    "path": "docs/java/3-Functions/programs/FancyText.md",
+    "language": "java\r",
+    "code": "import java.util.Scanner;\r\n\r\npublic class FancyText {\r\n    \r\n\tpublic static void main(String[] args) {\r\n        printFancy(\"Enter your text!\");\r\n\r\n        Scanner scanner = new Scanner(System.in);\r\n        String input = scanner.next();\r\n\r\n        printFancy(input);\r\n\r\n        scanner.close();\r\n    }\r\n    \r\n    public static void printFancy(String text) {\r\n        String dash = \"\";\r\n        // Create a String of '-' the length of the text\r\n        for(int i = 0; i < text.length(); i++) {\r\n            dash += \"-\";\r\n        }\r\n\r\n        System.out.println(\"|\" + dash + \"|\");\r\n        System.out.println(\"|\" + text + \"|\");\r\n        System.out.println(\"|\" + dash + \"|\");\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/3-Functions/programs/Formulas.md",
+    "language": "java\r",
+    "code": "import java.util.Scanner;\r\n\r\nclass Formulas{\r\n    \r\n    public static double squareArea(double length1, double length2)\r\n    {\r\n        double answer = length1 * length2;\r\n        return answer;\r\n    }\r\n\r\n    public static double circleArea(double radius)\r\n    {\r\n        double answer = radius * radius * 3.14;\r\n        return answer;\r\n    }\r\n\r\n    public static double triangleArea(double length1, double length2)\r\n    {\r\n        double answer = length1 * length2 * 0.5;\r\n        return answer;\r\n    }\r\n    \r\n    public static void main(String[] args) \r\n    {\r\n        Scanner scanner = new Scanner(System.in);\r\n        boolean again = true;\r\n        while(again)\r\n        {\r\n            System.out.println(\"Type in the formula that you want that you want the calculator to use\");\r\n            System.out.println(\"Type in 'squareArea','circleArea' or 'triangleArea'\");\r\n\r\n            String choiceFormula = scanner.next();\r\n\r\n            switch(choiceFormula)\r\n            {\r\n                case \"squareArea\":\r\n                {\r\n                    System.out.println(\"Enter the length of the two sides\");\r\n                    double sidesLength1 = scanner.nextDouble();\r\n                    double sidesLength2 = scanner.nextDouble();\r\n                    System.out.println(\"The area of the square is \" +squareArea(sidesLength1,sidesLength2)); \r\n                    break;\r\n                }\r\n                case \"circleArea\":\r\n                {\r\n                    System.out.println(\"Enter the length of the radius\");\r\n                    double radius = scanner.nextDouble();\r\n                    System.out.println(\"The area of the circle is \" +circleArea(radius));  \r\n                    break;      \r\n                }\r\n                case \"triangleArea\":\r\n                {\r\n                    System.out.println(\"Enter the length of the base and the length of the height\");\r\n                    double baseLength = scanner.nextDouble();\r\n                    double heightLength = scanner.nextDouble();\r\n\r\n                    System.out.println(\"The area of the triangle is \" +triangleArea(heightLength,baseLength));   \r\n                    break;     \r\n                }\r\n                default:\r\n                {\r\n                    System.out.println(\"You didn't type in one of the options\");\r\n                    break;\r\n                }\r\n            }\r\n            System.out.println(\"Do you want to run this code again? Type 'yes' or 'no'\");\r\n            String choose = scanner.next();\r\n            if(choose.equals(\"yes\"))\r\n            {\r\n                continue;\r\n            }\r\n            else\r\n            {\r\n                System.out.println(\"Ok the code is terminated\");\r\n                break;\r\n            }\r\n        }\r\n        scanner.close();\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/3-Functions/programs/PrintArray.md",
+    "language": "java\r",
+    "code": "public class PrintArray {\r\n    \r\n\tpublic static void main(String[] args) {\r\n        int[] array = new int[] {1, 2, 3, 41, 23, 1, 283};\r\n\r\n        printArray(array);\r\n        System.out.println(\"Sum: \" + arraySum(array));\r\n    }\r\n    \r\n    public static void printArray(int[] array) {\r\n        for(int i = 0; i < array.length; i++) {\r\n            System.out.print(array[i] + \" \");\r\n        }\r\n        System.out.println();\r\n    }\r\n\r\n    public static int arraySum(int[] array) {\r\n        int sum = 0;\r\n        for(int i = 0; i < array.length; i++) {\r\n            sum += array[i];\r\n        }\r\n\r\n        return sum;\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/3-Functions/programs/ReverseString.md",
+    "language": "java\r",
+    "code": "import java.util.Scanner;\r\n\r\npublic class ReverseString {\r\n    \r\n\tpublic static void main(String[] args) {\r\n        System.out.println(\"Hello!\");\r\n        System.out.println(reverse(\"Hello\"));\r\n\r\n        System.out.println(\"Enter your name!\");\r\n\r\n        Scanner scanner = new Scanner(System.in);\r\n        String name = scanner.next();\r\n\r\n        System.out.println(\"This is your name: \" + name);\r\n        System.out.println(\"This is your name reversed: \" + reverse(name));\r\n\r\n        System.out.println(\"Bye!\");\r\n        System.out.println(reverse(\"Bye\"));\r\n\r\n        scanner.close();\r\n    }\r\n    \r\n    public static String reverse(String input) {\r\n        String output = \"\";\r\n\r\n        // Loop through String backwards and add to output\r\n        for(int i = input.length() - 1; i >= 0; i--) {\r\n            output += input.charAt(i); // .charAt(index) returns the ith 0-indexed character of the string\r\n        }\r\n\r\n        return output;\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/4-Objects/1-Overview.md",
+    "language": "java\r",
+    "code": "String chair1Country = \"USA\";\r\nint chair1NumLegs = 4;\r\nString chair1Material = \"Wood\";\r\n\r\npublic static void chair1Sit() {\r\n    System.out.println(\"Sitting in the \" + chair1Material + \" chair from \" + chair1Country + \" with \" + chair1NumLegs + \" legs.\");\r\n}\r\n\r\nString chair2Country = \"China\";\r\nint chair2NumLegs = 3;\r\nString chair2Material = \"Metal\";\r\n\r\npublic static void chair2Sit() {\r\n    System.out.println(\"Sitting in the \" + chair2Material + \" chair from \" + chair2Country + \" with \" + chair2NumLegs + \" legs.\");\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/4-Objects/2-Classes.md",
+    "language": "java\r",
+    "code": "public class Car {\r\n\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/4-Objects/2-Classes.md",
+    "language": "java\r",
+    "code": "public static void main(String[] args) {\r\n    Car carObject = new Car();\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/4-Objects/2-Classes.md",
+    "language": "java\r",
+    "code": "public class Car {\r\n\r\n    String model;\r\n    int age;\r\n    String color;\r\n    double speed;\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/4-Objects/2-Classes.md",
+    "language": "java\r",
+    "code": "public static void main(String[] args) {\r\n    Car carObject = new Car();\r\n    carObject.model = \"Magic School Bus\";\r\n    carObject.age = 100;\r\n    carObject.color = \"Yellow\";\r\n    carObject.speed = 31415.9265;\r\n\r\n    System.out.println(carObject.model);\r\n    System.out.println(carObject.age);\r\n    System.out.println(carObject.color);\r\n    System.out.println(carObject.speed);\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/4-Objects/2-Classes.md",
+    "language": "java\r",
+    "code": "public class Car {\r\n    String model;\r\n    int age;\r\n    String color;\r\n    double speed;\r\n\r\n    void driveFor(double time) {\r\n        System.out.println(\"Drove \" + (speed * time));\r\n    }\r\n\r\n    int distance(double time) {\r\n        return speed * time;\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/4-Objects/2-Classes.md",
+    "language": "java\r",
+    "code": "public static void main(String[] args) {\r\n    Car carObject = new Car();\r\n    carObject.model = \"Magic School Bus\";\r\n    carObject.age = 100;\r\n    carObject.color = \"Yellow\";\r\n    carObject.speed = 31415.9265;\r\n\r\n    System.out.println(carObject.model);\r\n    System.out.println(carObject.age);\r\n    System.out.println(carObject.color);\r\n    System.out.println(carObject.speed);\r\n\r\n    car.driveFor(12.0);\r\n    System.out.println(\"Distance: \" + car.driveFor(24.0));\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/4-Objects/2-Classes.md",
+    "language": "java\r",
+    "code": "public class Car {\r\n    String manufacturer;\r\n\r\n    static String type = \"Car\";\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/4-Objects/2-Classes.md",
+    "language": "java\r",
+    "code": "public static void main(String[] args) {\r\n    Car car1 = new Car();\r\n    car1.manufacturer = \"BMW\";\r\n\r\n\r\n    Car car2 = new Car();\r\n    car2.manufacturer = \"Toyota\";\r\n\r\n    System.out.println(car1.manufacturer); // Needs an object\r\n\r\n    // Below does not work because `manufacturer` requires a object to be used (manufacturer is different for each object)\r\n    // System.out.println(Car.manufacturer);\r\n\r\n\r\n    System.out.println(Car.type); // Does not need an object\r\n    // Each car has the same type, so you can make that static. This will be the same for all of the `Car` variables and is shared\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/4-Objects/3-More_About_Classes.md",
+    "language": "java\r",
+    "code": "public class Car {\r\n\r\n    String model;\r\n    int age;\r\n    String color;\r\n    double speed;\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/4-Objects/3-More_About_Classes.md",
+    "language": "java\r",
+    "code": "public static void main(String[] args) {\r\n    Car carObject = new Car();\r\n    carObject.model = \"Magic School Bus\";\r\n    carObject.age = 100;\r\n    carObject.color = \"Yellow\";\r\n    carObject.speed = 31415.9265;\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/4-Objects/3-More_About_Classes.md",
+    "language": "java\r",
+    "code": "public class Car {\r\n\r\n    String model;\r\n    int age;\r\n    String color;\r\n    double speed;\r\n\r\n    Car(String model, int age, String color, double speed) {\r\n        this.model = model;\r\n        this.age = age;\r\n        this.color = color;\r\n        this.speed = speed;\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/4-Objects/3-More_About_Classes.md",
+    "language": "java\r",
+    "code": "public static void main(String[] args) {\r\n    Car carObject = new Car(\"Magic School Bus\", 100, \"Yellow\", 31415.9265);\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/4-Objects/3-More_About_Classes.md",
+    "language": "java\r",
+    "code": "public class Car {\r\n\r\n    String model;\r\n    int age;\r\n    String color;\r\n    double speed;\r\n    \r\n    Car() {\r\n        // automatically creates this constructor as long as there are NO other constructors defined\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/4-Objects/3-More_About_Classes.md",
+    "language": "java\r",
+    "code": "package automobiles;\r\n\r\npublic class Car {\r\n\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/4-Objects/3-More_About_Classes.md",
+    "language": "java\r",
+    "code": "package automobiles.cars;\r\n\r\npublic class Car {\r\n\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/4-Objects/3-More_About_Classes.md",
+    "language": "java\r",
+    "code": "package automobiles;\r\n\r\npublic class Car {\r\n\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/4-Objects/3-More_About_Classes.md",
+    "language": "java\r",
+    "code": "import automobiles.Car;\r\n\r\npublic class Main {\r\n\r\n    public static void main(String[] args) {\r\n        System.out.println(\"Imported Cars\");\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/4-Objects/3-More_About_Classes.md",
+    "language": "java\r",
+    "code": "public class Other {\r\n\r\n    private int privateNumber;\r\n    int defaultNumber;\r\n    public int publicNumber;\r\n\r\n    private void privatePrint() {\r\n        System.out.println(\"Print 1\");\r\n    }\r\n\r\n    void defaultPrint() {\r\n        System.out.println(\"Print 2\");\r\n    }\r\n\r\n    public void publicPrint() {\r\n        System.out.println(\"publicPrint \");\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/4-Objects/3-More_About_Classes.md",
+    "language": "java\r",
+    "code": "public class MainSame {\r\n\r\n    public static void main(String[] args) {\r\n        Other o = new Other();\r\n        System.out.println(o.privateNumber); // This will not work, nothing outside of the class Other can access private\r\n        System.out.println(o.defaultNumber); // This will work, since MainSame is in the same folder\r\n        System.out.println(o.publicNumber); // This will work, since anything can access public\r\n\r\n        o.privatePrint(); // This will not work, nothing outside of the class Other can access private\r\n        o.defaultPrint(); // This will work, since MainSame is in the same folder\r\n        o.publicPrint(); // This will work, since anything can access public\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/4-Objects/3-More_About_Classes.md",
+    "language": "java\r",
+    "code": "package folder;\r\n\r\npublic class MainOut {\r\n\r\n    public static void main(String[] args) {\r\n        Other o = new Other();\r\n        System.out.println(o.privateNumber); // This will not work, nothing outside of the class Other can access private\r\n        System.out.println(o.defaultNumber); // This will not work, since MainSame is not in the same folder\r\n        System.out.println(o.publicNumber); // This will work, since anything can access public\r\n\r\n        o.privatePrint(); // This will not work, nothing outside of the class Other can access private\r\n        o.defaultPrint(); // This will not work, since MainSame is not in the same folder\r\n        o.publicPrint(); // This will work, since anything can access public\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/4-Objects/3-More_About_Classes.md",
+    "language": "java\r",
+    "code": "public class Private {\r\n\r\n    private int number;\r\n    private String string;\r\n\r\n    public int getNumber() {\r\n        return number;\r\n    }\r\n\r\n    public String getString() {\r\n        return string;\r\n    }\r\n\r\n    public void setNumber(int number) {\r\n        this.number = number;\r\n    }\r\n\r\n    public void setString() {\r\n        this.string = string;\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/4-Objects/3-More_About_Classes.md",
+    "language": "java\r",
+    "code": "public class Private {\r\n\r\n    private int number;\r\n    private String string;\r\n\r\n    private int accessCounter = 0;\r\n\r\n    public int getNumber() {\r\n        accessCounter++;\r\n        return number;\r\n    }\r\n\r\n    public String getString() {\r\n        accessCounter++;\r\n        return string;\r\n    }\r\n\r\n    public int getAccessCounter() {\r\n        return accessCounter;\r\n    }\r\n\r\n    public void setNumber(int number) {\r\n        if(number > 0) {\r\n            this.number = number;\r\n        }\r\n    }\r\n\r\n    public void setString() {\r\n        if(string != \"\") {\r\n            this.string = string;\r\n        }\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/4-Objects/4-Inheritance.md",
+    "language": "java\r",
+    "code": "public class Person {\r\n\r\n    private String name;\r\n    private int age;\r\n    private String job;\r\n\r\n    public Person(String name, int age, String job) {\r\n        this.name = name;\r\n        this.age = age;\r\n        this.job = job;\r\n    }\r\n  \r\n    public void greet() {\r\n        System.out.println(name + \" says hi! They are \" + age + \" years old and are a \" + job + \".\");\r\n    }\r\n  \r\n    public void greet(Person person) {\r\n        System.out.println(name + \" says hi to \" + person.getName());\r\n    }\r\n  \r\n    public String getName() {\r\n        return this.name;\r\n    }\r\n  \r\n    // other getters and setters\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/4-Objects/4-Inheritance.md",
+    "language": "java\r",
+    "code": "public class Firefighter {\r\n\r\n    private String name;\r\n    private int age;\r\n    private String job;\r\n\r\n    private int numberOfHousesSaved;\r\n\r\n    public Person(String name, int age) {\r\n        this.name = name;\r\n        this.age = age;\r\n        this.job = \"Firefighter\";\r\n    }\r\n  \r\n    public void greet() {\r\n        System.out.println(name + \" says hi! They are \" + age + \" years old and are a \" + job + \".\");\r\n    }\r\n  \r\n    public void greet(Person person) {\r\n        System.out.println(name + \" says hi to \" + person.getName());\r\n    }\r\n  \r\n    public String getName() {\r\n        return this.name;\r\n    }\r\n  \r\n    // other getters and setters\r\n\r\n    public void fightFire(Person person) {\r\n        this.numberOfHousesSaved++;\r\n        System.out.println(getName() + \" saved \" + person.getName() + \"'s house from burning\");\r\n    }\r\n  \r\n    public int getNumberOfHousesSaved() {\r\n        return this.numberOfHousesSaved;\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/4-Objects/4-Inheritance.md",
+    "language": "java\r",
+    "code": "public class Firefighter extends Person {\r\n\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/4-Objects/4-Inheritance.md",
+    "language": "java\r",
+    "code": "public class Firefighter extends Person {\r\n  \r\n    public Firefighter(String name, int age) {\r\n        super(name, age, \"firefighter\");\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/4-Objects/4-Inheritance.md",
+    "language": "java\r",
+    "code": "public static void main(String[] args) {\r\n    Firefighter bob = new Firefighter(\"Bob\", 42);\r\n    bob.greet(); // will print \"Bob says hi! They are 42 years old and are a firefighter.\"\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/4-Objects/4-Inheritance.md",
+    "language": "java\r",
+    "code": "public class Firefighter extends Person {\r\n\r\n    private int numberOfHousesSaved;\r\n  \r\n    public Firefighter(String name, int age) {\r\n        super(name, age, \"firefighter\");\r\n        this.numberOfHousesSaved = 0;\r\n    }\r\n  \r\n    public void fightFire(Person person) {\r\n        this.numberOfHousesSaved++;\r\n        System.out.println(getName() + \" saved \" + person.getName() + \"'s house from burning\");\r\n    }\r\n  \r\n    public int getNumberOfHousesSaved() {\r\n        return this.numberOfHousesSaved;\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/4-Objects/4-Inheritance.md",
+    "language": "java\r",
+    "code": "public static void main(String[] args) {\r\n    Person person1 = new Person(\"Bob\", 32, \"farmer\");\r\n    Firefighter person2 = new Firefighter(\"Bill\", 42);\r\n\r\n    person1.greet();\r\n\r\n    person2.greet();\r\n    person2.greet(person1);\r\n    person2.fightFire(person2);\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/4-Objects/5-Overriding.md",
+    "language": "java\r",
+    "code": "public class Person {\r\n\r\n    private String name;\r\n    private int age;\r\n    private String job;\r\n\r\n    public Person(String name, int age, String job) {\r\n        this.name = name;\r\n        this.age = age;\r\n        this.job = job;\r\n    }\r\n  \r\n    public void greet() {\r\n        System.out.println(name + \" says hi! They are \" + age + \" years old and are a \" + job + \".\");\r\n    }\r\n  \r\n    public void greet(Person person) {\r\n        System.out.println(name + \" says hi to \" + person.getName());\r\n    }\r\n  \r\n    public String getName() {\r\n        return this.name;\r\n    }\r\n  \r\n    // other getters and setters\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/4-Objects/5-Overriding.md",
+    "language": "java\r",
+    "code": "public class Firefighter extends Person {\r\n\r\n    private int numberOfHousesSaved;\r\n  \r\n    public Firefighter(String name, int age) {\r\n        super(name, age, \"firefighter\");\r\n        this.numberOfHousesSaved = 0;\r\n    }\r\n  \r\n    public void fightFire(Person person) {\r\n        this.numberOfHousesSaved++;\r\n        System.out.println(getName() + \" saved \" + person.getName() + \"'s house from burning\");\r\n    }\r\n  \r\n    public int getNumberOfHousesSaved() {\r\n        return this.numberOfHousesSaved;\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/4-Objects/5-Overriding.md",
+    "language": "java\r",
+    "code": "public static void main(String[] args) {\r\n    Person person1 = new Person(\"Bob\", 32, \"farmer\");\r\n    Firefighter person2 = new Firefighter(\"Bill\", 42);\r\n\r\n    person1.greet();\r\n\r\n    person2.greet();\r\n    person2.greet(person1);\r\n    person2.fightFire(person2);\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/4-Objects/5-Overriding.md",
+    "language": "java\r",
+    "code": "public class Firefighter extends Person {\r\n\r\n    private int numberOfHousesSaved;\r\n  \r\n    public Firefighter(String name, int age) {\r\n        super(name, age, \"firefighter\");\r\n        this.numberOfHousesSaved = 0;\r\n    }\r\n  \r\n    public void fightFire(Person person) {\r\n        this.numberOfHousesSaved++;\r\n        System.out.println(getName() + \" saved \" + person.getName() + \"'s house from burning\");\r\n    }\r\n\r\n    // NEW CODE\r\n\r\n    public void greet() {\r\n\r\n    }\r\n\r\n    // END OF NEW CODE\r\n  \r\n    public int getNumberOfHousesSaved() {\r\n        return this.numberOfHousesSaved;\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/4-Objects/5-Overriding.md",
+    "language": "java\r",
+    "code": "public void greet() {\r\n    System.out.println(\"They have saved \" + numberOfHousesSaved + \" houses.\");\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/4-Objects/5-Overriding.md",
+    "language": "java\r",
+    "code": "public void greet(Person person) {\r\n    super.greet(person);\r\n    System.out.println(\"They have saved \" + numberOfHousesSaved + \" houses.\");\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/4-Objects/5-Overriding.md",
+    "language": "java\r",
+    "code": "public void greets(Person person) { // we put \"greets\" here instead of \"greet\"\r\n    System.out.println(\"They have saved \" + numberOfHousesSaved + \" houses.\");\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/4-Objects/5-Overriding.md",
+    "language": "java\r",
+    "code": "@Override\r\npublic void greets(Person person) { // we put \"greets\" here instead of \"greet\"\r\n    System.out.println(\"They have saved \" + numberOfHousesSaved + \" houses.\");\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/4-Objects/6-Polymorphism.md",
+    "language": "java\r",
+    "code": "public class Person {\r\n\r\n    private String name;\r\n    private int age;\r\n    private String job;\r\n\r\n    public Person(String name, int age, String job) {\r\n        this.name = name;\r\n        this.age = age;\r\n        this.job = job;\r\n    }\r\n  \r\n    public void greet() {\r\n        System.out.println(name + \" says hi! They are \" + age + \" years old and are a \" + job + \".\");\r\n    }\r\n  \r\n    public void greet(Person person) {\r\n        System.out.println(name + \" says hi to \" + person.getName());\r\n    }\r\n  \r\n    public String getName() {\r\n        return this.name;\r\n    }\r\n  \r\n    // other getters and setters\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/4-Objects/6-Polymorphism.md",
+    "language": "java\r",
+    "code": "public class Firefighter extends Person {\r\n\r\n    private int numberOfHousesSaved;\r\n  \r\n    public Firefighter(String name, int age) {\r\n        super(name, age, \"firefighter\");\r\n        this.numberOfHousesSaved = 0;\r\n    }\r\n    \r\n    @Override\r\n    public void greet(Person person) {\r\n        super.greet(person);\r\n        System.out.println(\"They have saved \" + numberOfHousesSaved + \" houses.\");\r\n    }\r\n  \r\n    public void fightFire(Person person) {\r\n        this.numberOfHousesSaved++;\r\n        System.out.println(getName() + \" saved \" + person.getName() + \"'s house from burning\");\r\n    }\r\n  \r\n    public int getNumberOfHousesSaved() {\r\n        return this.numberOfHousesSaved;\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/4-Objects/6-Polymorphism.md",
+    "language": "java\r",
+    "code": "public static void main(String[] args) {\r\n    Person person1 = new Person(\"Bob\", 32, \"farmer\");\r\n    Firefighter person2 = new Firefighter(\"Bill\", 42);\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/4-Objects/7-Abstract_Classes.md",
+    "language": "java\r",
+    "code": "public abstract class Person\r\n{\r\n    String m_name;\r\n    int m_age;\r\n\r\n    Person(String name, int age)\r\n    {\r\n        m_name = name;\r\n        m_age = age;\r\n    }\r\n\r\n    void walk()\r\n    {\r\n        System.out.println(\"Person \" + name + \" is walking.\");\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/4-Objects/7-Abstract_Classes.md",
+    "language": "java\r",
+    "code": "public static void main(String[] args)\r\n{\r\n    // This no longer works\r\n    Person person = new Person(\"Peter\", 214124);\r\n\r\n\r\n    // This still works\r\n    Person[] people = new Person[3];\r\n    people[0] = new Librarian(\"Bob\", 23, \"Aa\");\r\n    people[1] = new Librarian(\"Beth\", 21, \"Bb\");\r\n    people[2] = new Doctor(\"Jay\", 34, \"Astronomy\");\r\n\r\n    for(int i = 0; i < people.length; i++)\r\n    {\r\n        people[i].walk();\r\n        printPerson(people[i]);\r\n    }\r\n    /*\r\n    Output:\r\n    Librarian Bob is walking.\r\n    Bob 23\r\n    Librarian Beth is walking.\r\n    Beth 21\r\n    Dr. Jay is walking.\r\n    Jay 34\r\n    */\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/4-Objects/7-Abstract_Classes.md",
+    "language": "java\r",
+    "code": "public abstract class Person\r\n{\r\n    String m_name;\r\n    int m_age;\r\n\r\n    Person(String name, int age)\r\n    {\r\n        m_name = name;\r\n        m_age = age;\r\n    }\r\n\r\n    abstract void walk();\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/4-Objects/7-Abstract_Classes.md",
+    "language": "java\r",
+    "code": "public class Doctor extends Person\r\n{\r\n    String m_field;\r\n\r\n    Doctor(String name, int age, String field)\r\n    {\r\n        super(name, age);\r\n        m_field = field;\r\n    }\r\n\r\n    @Override // We MUST define this\r\n    void walk()\r\n    {\r\n        System.out.println(\"Dr. \" + name + \" is walking.\");\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/4-Objects/7-Abstract_Classes.md",
+    "language": "java\r",
+    "code": "public class Librarian extends Person\r\n{\r\n    String m_libraryName;\r\n\r\n    Librarian(String name, int age, String libraryName)\r\n    {\r\n        super(name, age);\r\n        m_libraryName = libraryName;\r\n    }\r\n\r\n    @Override // We MUST define this\r\n    void walk()\r\n    {\r\n        System.out.println(\"Librarian \" + name + \" is walking.\");\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/4-Objects/programs/Access/MainSame.md",
+    "language": "java\r",
+    "code": "public class MainSame {\r\n    \r\n    public static void main(String[] args) {\r\n        Other o = new Other();\r\n        System.out.println(o.privateNumber); // This will not work, nothing outside of the class Other can access private\r\n        System.out.println(o.defaultNumber); // This will work, since MainSame is in the same folder\r\n        System.out.println(o.publicNumber); // This will work, since anything can access public\r\n\r\n        o.privatePrint(); // This will not work, nothing outside of the class Other can access private\r\n        o.defaultPrint(); // This will work, since MainSame is in the same folder\r\n        o.publicPrint(); // This will work, since anything can access public\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/4-Objects/programs/Access/Other.md",
+    "language": "java\r",
+    "code": "public class Other {\r\n    \r\n    private int privateNumber;\r\n    int defaultNumber;\r\n    public int publicNumber;\r\n\r\n    private void privatePrint() {\r\n        System.out.println(\"Print 1\");\r\n    }\r\n    void defaultPrint() {\r\n        System.out.println(\"Print 2\");\r\n    }\r\n    public void publicPrint() {\r\n        System.out.println(\"publicPrint \");\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/4-Objects/programs/Access/out/MainOut.md",
+    "language": "java\r",
+    "code": "package out;\r\n\r\npublic class MainOut {\r\n    \r\n    public static void main(String[] args) {\r\n        Other o = new Other();\r\n        System.out.println(o.privateNumber); // This will not work, nothing outside of the class Other can access private\r\n        System.out.println(o.defaultNumber); // This will not work, since MainSame is not in the same folder\r\n        System.out.println(o.publicNumber); // This will work, since anything can access public\r\n\r\n        o.privatePrint(); // This will not work, nothing outside of the class Other can access private\r\n        o.defaultPrint(); // This will not work, since MainSame is not in the same folder\r\n        o.publicPrint(); // This will work, since anything can access public\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/4-Objects/programs/Cars/Car.md",
+    "language": "java\r",
+    "code": "public class Car {\r\n    \r\n    public String manufacturer;\r\n    public String model;\r\n    public int miles;\r\n    public double maxSpeed;\r\n\r\n    public Car(String manufacturer, String model, int miles, double maxSpeed) {\r\n        this.manufacturer = manufacturer;\r\n        this.model = model;\r\n        this.miles = miles;\r\n        this.maxSpeed = maxSpeed;\r\n    }\r\n\r\n    public void addMiles(int additionalMiles) {\r\n        this.miles += additionalMiles;\r\n    }\r\n\r\n    public void printInfo() {\r\n        System.out.println(manufacturer + \" \" + model + \" driven for \" + \r\n            miles + \" with a max speed of \" + maxSpeed + \".\");\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/4-Objects/programs/Cars/Main.md",
+    "language": "java\r",
+    "code": "public class Main {\r\n    \r\n    public static void main(String[] args) {\r\n        Car car = new Car(\"Honda\", \"Accord\", 16, 12);\r\n        car.printInfo();\r\n        car.addMiles(12);\r\n        car.printInfo();\r\n\r\n        Taxi taxi = new Taxi(2);\r\n        taxi.printInfo();\r\n        taxi.addMiles(1000);\r\n        taxi.printInfo();\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/4-Objects/programs/Cars/Taxi.md",
+    "language": "java\r",
+    "code": "public class Taxi extends Car {\r\n    \r\n    public int passengers;\r\n\r\n    public Taxi(int passengers) {\r\n        super(\"Taxi Company\", \"Taxi v2\", 0, 10); // call the constructor in Car\r\n\r\n        this.passengers = passengers;\r\n    }\r\n\r\n    @Override\r\n    public void printInfo() {\r\n        System.out.println(\"Taxi for \" + passengers + \" at \" + maxSpeed + \r\n            \" for \" + miles + \".\");\r\n    }\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/Formatting_Guide.md",
+    "language": "java\r",
+    "code": "if(a + b < 4) {\r\n    // Do stuff\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/Formatting_Guide.md",
+    "language": "java\r",
+    "code": "public class Main {\r\n\r\n    int i = 0;\r\n    // more stuff\r\n}\r\n"
+  },
+  {
+    "path": "docs/java/Formatting_Guide.md",
+    "language": "java\r",
+    "code": "/**\r\n * Text goes here\r\n * New line\r\n */\r\n"
+  },
+  {
+    "path": "docs/vision/Limelight/README.md",
+    "language": "java",
+    "code": "NetworkTableInstance.getDefault().getTable(\"limelight\").getEntry(\"<variable_name>\").getDouble(0);\n"
+  },
+  {
+    "path": "docs/vision/Limelight/README.md",
+    "language": "java",
+    "code": "NetworkTableInstance.getDefault().getTable(\"limelight\").getEntry(\"pipeline\").setNumber(<pipeline value>);\n"
+  },
+  {
+    "path": "docs/website/1-Site_Layout.md/1-Folders_&_Files_in_SnailSite.md",
+    "language": "html",
+    "code": "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <link rel=\"icon\" type=\"image/png\" href=\"/pics/favicons/favicon.ico\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n    <meta name=\"theme-color\" content=\"#000000\" />\n    <meta\n      name=\"description\"\n      content=\"Learn more about team 1257, Parallel Universe, and our mission to inspire the next generation of STEM leaders.\"\n    />\n    <meta property=\"og:image\" content=\"/pics/social_link.png\" />\n    <link rel=\"apple-touch-icon\" href=\"/pics/favicon/logo192.png\" />\n    <meta property=\"og:title\" content=\"Team 1257 | Parallel Universe\" />\n    <meta\n      property=\"og:description\"\n      content=\"Learn more about team 1257, Parallel Universe, and our mission to inspire the next generation of STEM leaders.\"\n    /> \n\n    <title>Team 1257 | Parallel Universe</title>\n  </head>\n  <body>\n    <div id=\"root\"></div>\n    <script type=\"module\" src=\"/src/main.tsx\"></script>\n  </body>\n</html>\n"
+  },
+  {
+    "path": "docs/website/1-Site_Layout.md/2-Folders_&_Files_in_Src.md",
+    "language": "tsx",
+    "code": "const router = createBrowserRouter([\n  {\n    element: <Layout />,\n    errorElement: <NotFound />,\n    children: [\n      {\n        path: \"/\",\n        element: <Home />,\n      },\n      {\n        path: \"info\",\n        element: <Info />,\n      },\n      {\n        path: \"awards\",\n        element: <Awards />,\n      },\n      {\n        path: \"support\",\n        element: <Support />,\n      },\n      {\n        path: \"sponsors\",\n        element: <Sponsors />,\n      },\n      {\n        path: \"leadership\",\n        element: <Leadership />,\n      },\n      {\n        path: \"donate\",\n        element: <Donate />,\n      },\n      {\n        path: \"linktree\",\n        element: <LinkTree />,\n      },\n      {\n        path: \"gallery\",\n        element: <Gallery />,\n      },\n      {\n        path: \"outreach/*\",\n        element: <OutreachRouter />,\n      },\n    ],\n  },\n]);\n"
+  },
+  {
+    "path": "docs/website/1-Site_Layout.md/2-Folders_&_Files_in_Src.md",
+    "language": "tsx",
+    "code": "const OutreachRouter = () => {\n  return (\n    <Routes>\n      <Route path=\"\" element={<Outreach />} />\n      <Route path=\"school\" element={<SchoolOutreach />} />\n      <Route path=\"local/*\" element={<LocalOutreachRouter />} />\n      <Route path=\"mar/*\" element={<MAROutreachRouter />} />\n      <Route path=\"first\" element={<FIRSTOutreach />} />\n    </Routes>\n  );\n};\n"
+  },
+  {
+    "path": "docs/website/2-Annual_Updates/1-Student_Leadership.md",
+    "language": "ts",
+    "code": "import { LeaderProfilePropsList } from \"../components/LeaderProfile\";\n\nimport kamila from \"../assets/leadershipImages/kamila.jpg\";\nimport douglas from \"../assets/leadershipImages/douglas.jpg\";\n\n// abridged from full 2024-2025 list\n\nconst leadership: LeaderProfilePropsList = [\n  {\n    name: \"Douglas Gee\",\n    position: \"Vice President\",\n    schoolgrade: \"MHS '26\",\n    image: douglas,\n  },\n  {\n    name: \"Kamila Castro-Dworzynska\",\n    position: \"Technical Director\",\n    schoolgrade: \"MHS '25\",\n    image: kamila,\n    fontsize: \"lg:text-xl text-md\",\n  },\n  {\n    name: \"Gali Avni\",\n    position: \"Documentation Director\",\n    schoolgrade: \"MHS '25\",\n    image: \"https://placehold.co/600x600\",\n  },\n  {\n    name: \"Antonios Theocharopoulus\",\n    position: \"Programming Co-Manager\",\n    schoolgrade: \"AIT '25\",\n    image: \"https://placehold.co/600x600\",\n    fontsize: \"lg:text-xl text-md\",\n  },\n];\n\nexport default leadership;\n"
+  },
+  {
+    "path": "docs/website/2-Annual_Updates/1-Student_Leadership.md",
+    "language": "ts",
+    "code": "const leadership: LeaderProfilePropsList = [];\n"
+  },
+  {
+    "path": "docs/website/2-Annual_Updates/1-Student_Leadership.md",
+    "language": "ts",
+    "code": "const leadership: LeaderProfilePropsList = [\n  {\n    name: \"Snouglas Gee\",\n    position: \"President\",\n    schoolgrade: \"MHS '26\",\n  },\n];\n"
+  },
+  {
+    "path": "docs/website/2-Annual_Updates/1-Student_Leadership.md",
+    "language": "",
+    "code": "Property 'image' is missing in type '{ name: string; position: string; schoolgrade: string; }' but required in type 'LeaderProfileProps'\n"
+  },
+  {
+    "path": "docs/website/2-Annual_Updates/1-Student_Leadership.md",
+    "language": "ts",
+    "code": "import snouglas from \"../assets/leadershipImages/snouglas.jpg\";\n\nconst leadership: LeaderProfilePropsList = [\n  {\n    name: \"Snouglas Gee\",\n    position: \"President\",\n    schoolgrade: \"MHS '26\",\n    image: snouglas,\n  },\n];\n"
+  },
+  {
+    "path": "docs/website/2-Annual_Updates/1-Student_Leadership.md",
+    "language": "ts",
+    "code": "import snouglas from \"../assets/leadershipImages/snouglas.jpg\";\n\nconst leadership: LeaderProfilePropsList = [\n  {\n    name: \"Snouglas Gee\",\n    position: \"President\",\n    schoolgrade: \"MHS '26\",\n    image: snouglas,\n  },\n  {\n    name: \"Snaila Akin\",\n    position: \"Vice President\",\n    schoolgrade: \"MHS '27\",\n    image: \"https://placehold.co/600x600\",\n  },\n];\n"
+  },
+  {
+    "path": "docs/website/2-Annual_Updates/1-Student_Leadership.md",
+    "language": "ts",
+    "code": "import snouglas from \"../assets/leadershipImages/snouglas.jpg\";\n\nconst leadership: LeaderProfilePropsList = [\n  {\n    name: \"Snouglas Gee\",\n    position: \"President\",\n    schoolgrade: \"MHS '26\",\n    image: snouglas,\n  },\n  {\n    name: \"Snaila Akin\",\n    position: \"Vice President\",\n    schoolgrade: \"MHS '27\",\n    image: \"https://placehold.co/600x600\",\n  },\n  {\n    name: \"Snamila Castro-Dworzynska\",\n    position: \"Technical Director\",\n    schoolgrade: \"MHS '25\",\n    image: \"https://placehold.co/600x600\",\n    fontsize: \"lg:text-xl text-md\",\n  },\n];\n"
+  },
+  {
+    "path": "docs/website/2-Annual_Updates/1-Student_Leadership.md",
+    "language": "ts",
+    "code": "import snouglas from \"../assets/leadershipImages/snouglas.jpg\";\n\nconst leadership: LeaderProfilePropsList = [\n  {\n    name: \"Snouglas Gee\",\n    position: \"President\",\n    schoolgrade: \"MHS '26\",\n    image: snouglas,\n  },\n  {\n    name: \"Snaila Akin\",\n    position: \"Vice President\",\n    schoolgrade: \"MHS '27\",\n    image: \"https://placehold.co/600x600\",\n  },\n  {\n    name: \"Snamila Castro-Dworzynska\",\n    position: \"Technical Director\",\n    schoolgrade: \"MHS '25\",\n    image: \"https://placehold.co/600x600\",\n    fontsize: \"lg:text-xl text-md\",\n  },\n  {\n    name: \"Karen Snailvedra\",\n    position: \"Business Director\",\n    schoolgrade: \"MHS '25\",\n    image: \"https://placehold.co/600x600\",\n  },\n];\n"
+  },
+  {
+    "path": "docs/website/2-Annual_Updates/1-Student_Leadership.md",
+    "language": "tsx",
+    "code": "// UPDATE BELOW\nimport teamphoto from \"../../public/pics/photo2425.jpg\";\n\nconst Leadership: React.FC = () => {\n  return (\n    <div className=\"lg:p-24 p-12 bg-black\">\n      <div className=\"mx-auto max-w-[96rem]\">\n        {/* code omitted */}\n\n        <h1 className=\"lg:text-4xl text-2xl text-white font-bold mx-auto text-center mt-8 mb-8\">\n          {/* UPDATE BELOW */}\n          2024-2025 Team Photo\n        </h1>\n        <img src={teamphoto} alt={\"team\"} className=\"rounded-lg\" />\n      </div>\n    </div>\n  );\n};\n"
+  },
+  {
+    "path": "docs/website/2-Annual_Updates/1-Student_Leadership.md",
+    "language": "tsx",
+    "code": "// UPDATE BELOW\nimport teamphoto from \"../../public/pics/photo2526.jpg\";\n\nconst Leadership: React.FC = () => {\n  return (\n    <div className=\"lg:p-24 p-12 bg-black\">\n      <div className=\"mx-auto max-w-[96rem]\">\n        {/* code omitted */}\n\n        <h1 className=\"lg:text-4xl text-2xl text-white font-bold mx-auto text-center mt-8 mb-8\">\n          {/* UPDATE BELOW */}\n          2025-2026 Team Photo\n        </h1>\n        <img src={teamphoto} alt={\"team\"} className=\"rounded-lg\" />\n      </div>\n    </div>\n  );\n};\n"
+  },
+  {
+    "path": "docs/website/2-Annual_Updates/1-Student_Leadership.md",
+    "language": "css",
+    "code": ".grid-layout {\n  display: grid;\n  align-items: center;\n  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\n  grid-gap: 5rem;\n}\n"
+  },
+  {
+    "path": "docs/website/2-Annual_Updates/1-Student_Leadership.md",
+    "language": "ts",
+    "code": "// from LeaderProfile.tsx\n\ninterface LeaderProfileProps {\n  name: string;\n  position?: string;\n  schoolgrade?: string;\n  image: string;\n  fontsize?: string;\n}\n\nexport type LeaderProfilePropsList = LeaderProfileProps[];\n"
+  },
+  {
+    "path": "docs/website/2-Annual_Updates/2-Sponsors.md",
+    "language": "tsx",
+    "code": "<div className=\"mt-2 mx-auto max-w-[96rem]\">\n    <ul className=\"flex flex-col lg:max-h-[30rem] lg:flex-wrap gap-2\">\n        {friends.map((friend) => (\n        <li className=\"text-white text-center\" key={friend}>{friend}</li>\n        ))}\n    </ul>\n</div>\n"
+  },
+  {
+    "path": "docs/website/2-Annual_Updates/2-Sponsors.md",
+    "language": "ts",
+    "code": "import exothermic from \"../assets/sponsors/bronze/Exothermic.png\";\nimport grotto from \"../assets/sponsors/bronze/Grotto Foundation.png\";\nimport hvac from \"../assets/sponsors/bronze/Jersey Strong Heating and Cooling.png\";\nimport learning from \"../assets/sponsors/bronze/Learning Beyond the Core.png\";\nimport maita from \"../assets/sponsors/bronze/Maita Roofing-Siding Windows-Gutters.png\";\nimport truck from \"../assets/sponsors/bronze/Port Truck Repair.png\";\nimport dental from \"../assets/sponsors/bronze/South Avenue Dental.png\";\nimport bike from \"../assets/sponsors/bronze/The Bike Stand.png\";\nimport wright from \"../assets/sponsors/bronze/Wright Family.png\";\nimport wu from \"../assets/sponsors/bronze/Wu IT Consulting.png\";\n\nconst sponsorsBronze: string[] = [exothermic, grotto, hvac, learning, maita, truck, dental, bike, wright, wu];\n\nexport default sponsorsBronze;\n"
+  },
+  {
+    "path": "docs/website/2-Annual_Updates/2-Sponsors.md",
+    "language": "tsx",
+    "code": "<h1 className=\"text-white text-3xl font-bold text-center mb-2\">Bronze Sponsors</h1>\n<hr />\n<div className=\"flex flex-row max-w-[72rem] flex-wrap justify-center mx-auto mb-5 gap-5\">\n    <img src={sponsorsBronze[0]} alt=\"\" className={BRONZE_SIZE} />\n    <img src={sponsorsBronze[1]} alt=\"\" className={BRONZE_SIZE} />\n    <img src={sponsorsBronze[2]} alt=\"\" className={BRONZE_SIZE} />\n    <img src={sponsorsBronze[3]} alt=\"\" className={BRONZE_SIZE} />\n    <img src={sponsorsBronze[4]} alt=\"\" className={BRONZE_SIZE} />\n    <img src={sponsorsBronze[5]} alt=\"\" className={BRONZE_SIZE + \" bg-white\"} />\n    <img src={sponsorsBronze[6]} alt=\"\" className={BRONZE_SIZE + \" bg-white\"} />\n    <img src={sponsorsBronze[7]} alt=\"\" className={BRONZE_SIZE + \" bg-white\"} />\n    <img src={sponsorsBronze[8]} alt=\"\" className={BRONZE_SIZE + \" bg-white\"} />\n    <img src={sponsorsBronze[9]} alt=\"\" className={BRONZE_SIZE + \" bg-white\"} />\n</div>\n"
+  },
+  {
+    "path": "docs/website/2-Annual_Updates/2-Sponsors.md",
+    "language": "tsx",
+    "code": "// using 18rem since max-w-[72rem] so 72/4 = 18\n// but factor in gap-5 aka 1.25rem so about 16 is good\nconst BRONZE_SIZE: string = \"w-[16rem] h-auto\";\nconst SILVER_SIZE: string = \"w-[22rem] h-auto\";\n"
+  },
+  {
+    "path": "docs/website/2-Annual_Updates/2-Sponsors.md",
+    "language": "html",
+    "code": "<h1 className=\"text-white text-3xl font-bold text-center mb-2\">Bronze Sponsors</h1>\n<hr />\n<div className=\"flex flex-row max-w-[72rem] flex-wrap justify-center mx-auto mb-5 gap-5\"></div>\n"
+  },
+  {
+    "path": "docs/website/2-Annual_Updates/2-Sponsors.md",
+    "language": "tsx",
+    "code": "import gold from \"../assets/sponsors/gold/Handsome Energy Systems INC.png\";\nimport plat from \"../assets/sponsors/platinum/Picatinny STEM.png\";\n\nconst Sponsors = () => {\n  return (\n    <div className=\"bg-black p-10\">\n      <h1 className=\"text-white text-3xl font-bold text-center mb-2\">Platinum Sponsors</h1>\n      <hr className=\"mb-5\" />\n      <img src={plat} alt=\"\" className=\"w-[32rem] h-auto mx-auto mb-5\" />\n\n      <h1 className=\"text-white text-3xl font-bold text-center mb-2\">Gold Sponsors</h1>\n      <hr className=\"mb-5\" />\n      <img src={gold} alt=\"\" className=\"w-[32rem] h-auto mx-auto bg-white mb-5\" />\n\n      {/* code below omitted */}\n"
+  },
+  {
+    "path": "docs/website/2-Annual_Updates/3-Awards.md",
+    "language": "ts",
+    "code": "export interface AwardProps {\n  year: number;\n  comp: string;\n  award: string;\n}\n\nexport type AwardPropsList = AwardProps[];\n\nconst awards = [\n  {\n    year: 2024,\n    comp: \"FMA Seneca Event 2024\",\n    award: \"Engineering Inspiration Award\",\n  },\n  { year: 2023, comp: \"FMA Montgomery Event 2023\", award: \"Finalist\" },\n  {\n    year: 2023,\n    comp: \"FMA Montgomery Event 2023\",\n    award: \"Autonomous Award sponsored by Ford\",\n  },\n  /* code below ommitted */\n];\n"
+  },
+  {
+    "path": "docs/website/2-Annual_Updates/3-Awards.md",
+    "language": "ts",
+    "code": "const awards = [\n  { year: 2024, comp: \"FMA District Championship\", award: \"Winner\" },\n  {\n    year: 2024,\n    comp: \"FMA Seneca Event 2024\",\n    award: \"Engineering Inspiration Award\",\n  },\n  { year: 2023, comp: \"FMA Montgomery Event 2023\", award: \"Finalist\" },\n  {\n    year: 2023,\n    comp: \"FMA Montgomery Event 2023\",\n    award: \"Autonomous Award sponsored by Ford\",\n  },\n  /* code below ommitted */\n];\n"
+  }
+]

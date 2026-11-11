@@ -1,0 +1,17 @@
+# Logging and diagnosis
+
+**Prerequisites:** commands and sensors. **Time:** 30 minutes. A log records timestamped signals for diagnosis. Record requested output, measured position and velocity with units, mode/enable state, setpoint, and relevant faults. A dashboard shows current values; a log preserves history. WPILib DataLog and AdvantageKit are different logging approaches; AdvantageScope can display compatible logs without requiring every robot to use replay.
+
+Team 1257's [2026 Robot.java](https://github.com/FRC1257/2026-Robot/blob/0c9a024dec1f58648d573ce26fcfd02639c5ca66/src/main/java/frc/robot/Robot.java) configures AdvantageKit, while [HopperIntakeIO](https://github.com/FRC1257/2026-Robot/blob/0c9a024dec1f58648d573ce26fcfd02639c5ca66/src/main/java/frc/robot/subsystems/Hopper/HopperIntake/HopperIntakeIO.java) defines inputs. Read those files to distinguish an input observation from a command or derived value. Replay can reproduce decisions only to the extent inputs, timing, code and configuration are captured; it is not a physical test.
+
+**Exercise:** use a team-provided log with known code and provenance. Find enable transitions, setpoint and measurement, and identify an interval where they disagree. Record signal names, units, timestamps and a competing explanation. If a signal is missing, say so rather than guessing. Do not claim a motor failed based solely on a plot. Sources: [WPILib data logs](https://docs.wpilib.org/en/stable/docs/software/telemetry/datalog.html), [AdvantageKit documentation](https://docs.advantagekit.org/), [AdvantageScope](https://docs.advantagescope.org/).
+
+## Lab: examine a real recording
+
+Open [the 2024 log investigation](../../robots/2024-log.md). It identifies the original file, source revision and a small extracted CSV. Download the original `.wpilog` from its linked repository and open it in AdvantageScope using **File → Open Log** (the exact menu wording can vary with release). In the signals list locate `/DriverStation/Enabled`, `/SystemStats/BatteryVoltage`, and `/Drive/Module0/DriveVelocityRadPerSec`. Add the numeric signals to a timeline, and inspect enabled state as a separate boolean. Use seconds consistently when comparing timestamps; the CSV uses microseconds.
+
+Find enabled at `19,307,236 µs` (19.307236 s); find the battery sample at `19,690,089 µs` (19.690089 s, about 11.66 V). The module sample at `20,434,111 µs` (20.434111 s) is about 0.044 rad/s. These are independent observations at different times. Zoom the original recording around the interval before interpreting changes; the CSV was downsampled and cannot show every transient.
+
+**Worked answer:** the module sample is about 1.127 seconds after the enabled sample. It does not establish distance traveled because angular velocity must be integrated over time and converted using the wheel/gear geometry. Battery voltage alone cannot establish motor current or the cause of a change. To investigate, inspect command, current, all module states and the test context, and report missing signals.
+
+**Try it:** compare the four module velocities over the enabled interval in the original file. Write one observation with signal name, value, unit and timestamp, and one hypothesis that would require another signal. Ask a mentor to distinguish them. If a signal is missing, check the file, signal tree and timestamp range; do not substitute another season's recording. See the case-study page for provenance and extraction limits.

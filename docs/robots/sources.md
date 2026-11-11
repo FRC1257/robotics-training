@@ -1,0 +1,17 @@
+# Sources, rights and limitations
+
+Sources were retrieved 2026-11-11 UTC. Revisions and hashes identify the inspected snapshots; a repository's current default branch may change. The source inventory and extraction script are also retained in the project under `research_sources/frc1257/`.
+
+| Source | Revision or SHA-256 | What it supports | Reuse |
+| --- | --- | --- | --- |
+| [2026 robot code](https://github.com/FRC1257/2026-Robot/tree/0c9a024dec1f58648d573ce26fcfd02639c5ca66) | Git commit `0c9a024dec1f58648d573ce26fcfd02639c5ca66` | Mechanism, command and simulation code in that snapshot; not proof of deployed hardware or match behavior | Code linked; repository-wide license not established |
+| [2025 robot code](https://github.com/FRC1257/2025-Robot/tree/944e4602061d51e6d2c02b08d6d680a89712f091) | Git commit `944e4602061d51e6d2c02b08d6d680a89712f091` | Code and configuration in that snapshot; not deployed configuration at an event | [AdvantageKit GPL-3.0 license file](https://github.com/FRC1257/2025-Robot/blob/944e4602061d51e6d2c02b08d6d680a89712f091/AdvantageKit-License.md) and [WPILib license file](https://github.com/FRC1257/2025-Robot/blob/944e4602061d51e6d2c02b08d6d680a89712f091/WPILib-License.md); no repository-wide license established; linked, not copied |
+| [2024 recording](https://raw.githubusercontent.com/FRC1257/2024-Logs/686c0d0f14ac1ce2d2c71fd57ca9d5b5c903a5dd/Week-of-1-29/Log_24-02-01_16-45-53.wpilog) | SHA-256 `c7f2dc5800d92954f97868c248aca14ee95c2969064c2c38b8ade6a7717b7d9e` | Values in this file; does not identify a test purpose | Repository [Unlicense](https://github.com/FRC1257/2024-Logs/blob/686c0d0f14ac1ce2d2c71fd57ca9d5b5c903a5dd/LICENSE); file remains on original host |
+| [2024 CSV excerpt](../media/robots/2024-log-excerpt.csv) | SHA-256 `0b6daa5db309ae744b333d8b061456126e1a12c609aabfeb27de18ebbc3b379a` | Sparse values extracted from the recording | Team source attributed; extraction uses robotpy-wpiutil 2026.2.2 |
+| [Extraction script](../media/robots/extract_log.py) | Checks the original file's SHA-256 | Reproduction of the excerpt, not validation of sensor calibration | Original site script |
+
+To reproduce, download the original recording through the source link above. In an isolated Python environment install `robotpy-wpiutil==2026.2.2`, then run `python extract_log.py downloaded.wpilog > excerpt.csv` and compare its hash. The script fails if the input is not the pinned recording. It retains all enabled changes and samples each numeric stream at intervals of at least one second; it does not interpolate, synchronize, or filter by enabled state.
+
+The diagram on the case study index is an original conceptual illustration based on the linked code, not robot media. No authorized robot photo or dimensioned CAD was established during this search. Ask the team for source, revision and reuse permission; don't infer dimensions or fabricate from an unverified model. Public files or GitHub visibility alone do not establish photo rights.
+
+The team website repository also has a [historical robot photo collection](https://github.com/FRC1257/team-website-new/tree/abe29e575619736f5f199c18021ea97c7f03dd7d/SnailSite/public/pics/robots). The inspected file names extend to 2023; the source and individual photographer rights for these images were not established, so the site links to the collection without republishing the photos. No public 2026 CAD or photo reuse provenance was established in this search.

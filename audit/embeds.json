@@ -1,0 +1,108 @@
+[
+  {
+    "path": "docs/documentation/README.md",
+    "attributes": {
+      "src": "https://docs.google.com/presentation/d/e/2PACX-1vSVQb1zfvkKVTH10OOZ76JOG49clUGdtJ4lggAwKyy6wUGJkcD1Qj6NqyMKi1EvCDwnq9S2bvHgZsZW/embed",
+      "frameborder": "0",
+      "width": "760",
+      "height": "569",
+      "allowfullscreen": "true",
+      "mozallowfullscreen": "true",
+      "webkitallowfullscreen": "true"
+    }
+  },
+  {
+    "path": "docs/documentation/README.md",
+    "attributes": {
+      "width": "560",
+      "height": "315",
+      "src": "https://www.youtube.com/embed/O-Ys8Ash1J4",
+      "title": "YouTube video player",
+      "frameborder": "0",
+      "allow": "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share",
+      "allowfullscreen": null
+    }
+  },
+  {
+    "path": "docs/frc/1-Basics/4a-Command_Based.md",
+    "attributes": {
+      "frameborder": "0",
+      "style": "width:100%;height:525px;",
+      "src": "https://app.diagrams.net/?lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=Command%20Based%20Flowchart.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D14_5zEcy0pHjJd9FZBrlYS0tvzkuuFQxd%26export%3Ddownload"
+    }
+  },
+  {
+    "path": "docs/frc/1-Basics/5-First_Subsystem.md",
+    "attributes": {
+      "src": "https://docs.google.com/document/d/e/2PACX-1vRca_hFEhCCCP7DI-UyLbndwjq5aHJuz0fG_53U7TmLYztETf4tKi-IMXNQbGymAQI5phnfV4QKmG-v/pub?embedded=true"
+    }
+  },
+  {
+    "path": "docs/frc/1-Basics/5a-Roller_Intake.md",
+    "attributes": {
+      "frameborder": "0",
+      "style": "width:100%;height:343px;",
+      "src": "https://app.diagrams.net/?lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=Roller%20Intake%20Flowchart.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1OdYeyfamvG7weoWkQY1DDX4__NVKelgm%26export%3Ddownload"
+    }
+  },
+  {
+    "path": "docs/frc/1-Basics/5c-Making_Commands.md",
+    "attributes": {
+      "frameborder": "0",
+      "style": "width:100%;height:343px;",
+      "src": "https://app.diagrams.net/?lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=Roller%20Intake%20Flowchart.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1OdYeyfamvG7weoWkQY1DDX4__NVKelgm%26export%3Ddownload"
+    }
+  },
+  {
+    "path": "docs/frc/1-Basics/5d-Binding_Commands.md",
+    "attributes": {
+      "frameborder": "0",
+      "style": "width:100%;height:343px;",
+      "src": "https://app.diagrams.net/?lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=Roller%20Intake%20Flowchart.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1OdYeyfamvG7weoWkQY1DDX4__NVKelgm%26export%3Ddownload"
+    }
+  },
+  {
+    "path": "docs/frc/3-Closed_Loop_Control/2-Basics_of_PID.md",
+    "attributes": {
+      "width": "560",
+      "height": "315",
+      "src": "https://www.youtube.com/embed/fusr9eTceEo",
+      "frameborder": "0",
+      "allow": "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture",
+      "allowfullscreen": null
+    }
+  },
+  {
+    "path": "docs/frc/4-Autonomous/1-Overview.md",
+    "attributes": {
+      "width": "560",
+      "height": "315",
+      "src": "https://www.youtube.com/embed/aFZy8iibMD0?start=20",
+      "frameborder": "0",
+      "allow": "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture",
+      "allowfullscreen": null
+    }
+  },
+  {
+    "path": "docs/frc/4-Autonomous/1-Overview.md",
+    "attributes": {
+      "width": "560",
+      "height": "315",
+      "src": "https://www.youtube.com/embed/pfhBCb6bXpE?start=4",
+      "frameborder": "0",
+      "allow": "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture",
+      "allowfullscreen": null
+    }
+  },
+  {
+    "path": "docs/frc/4-Autonomous/1-Overview.md",
+    "attributes": {
+      "width": "560",
+      "height": "315",
+      "src": "https://www.youtube.com/embed/5bxq2N02pJM?start=14",
+      "frameborder": "0",
+      "allow": "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture",
+      "allowfullscreen": null
+    }
+  }
+]

@@ -1,77 +1,33 @@
-# Architecture
+# Robot architecture: start simple
 
-> [!IMPORTANT]
-> For 2024, we are using the Advantage Kit architecture. This page will be updated some time before then.
+**Baseline:** Java 17 and WPILib/GradleRIO 2026.2.1. **Status:** educational starter; see its README for build results. **Prerequisites:** Java objects and lambdas. **Time:** 20 minutes.
 
-Compared to when we were just writing basic Java programs, our code had a very simple structure. We just had the `main()` function and then everything there runs just once. However with robot code, the structure gets more complex.
+A subsystem owns a mechanism and its state. A command declares the subsystems it needs, starts, runs over scheduler iterations, and stops when finished or interrupted. `Robot.robotPeriodic` runs the scheduler; bindings and autonomous routines schedule commands. This arrangement keeps two commands from controlling the same mechanism simultaneously. The starter's simulated intake is a small example. Begin with [the first subsystem](5-First_Subsystem.md); follow [simulation](5e-Simulation.md).
 
-> [!NOTE]
-> Before reading this, make sure you follow the `Setting Up` guide so that you can follow along on your version of the code
+Team 1257's [2026 robot at commit 0c9a024](https://github.com/FRC1257/2026-Robot/tree/0c9a024dec1f58648d573ce26fcfd02639c5ca66/src/main/java/frc/robot/subsystems/Hopper/HopperIntake) adds an IO interface with separate Spark MAX and simulation implementations. That boundary supports AdvantageKit input logging and replay. It is team-specific architecture, not a requirement for every WPILib subsystem. Read the interface and its implementations after the simple exercise; identify which class owns the command behavior and which exchanges hardware inputs and outputs. Do not assume an interface alone accurately simulates the physical mechanism.
 
-## Code Location
+**Check:** Why must a command declare its subsystem requirement? Expected: the scheduler can cancel a conflicting command before starting another. See [WPILib command-based programming](https://docs.wpilib.org/en/stable/docs/software/commandbased/index.html).
 
-When we make a robot project, we have a lot of folders and files that may intimidate you. However, we only have to focus on the files inside of the folder path `java/frc/robot/`. Here we have all of our files, which are organized into folders. Next, we will go over all of the files that are important for us.
+## Follow one signal through the starter
 
-## /subsystems
+1. `Robot` creates one `SimIntake`. It registers a command on the dashboard in `robotInit` and calls `CommandScheduler.getInstance().run()` in `robotPeriodic`.
+2. A dashboard activation schedules the command. The scheduler checks its `intake` requirement. If a different command owns that subsystem, the scheduler interrupts it before allowing the new command to proceed.
+3. During each scheduler iteration the command calls `setSpeed(0.5)`. The subsystem clamps the request and publishes the current value. The number is a command, not a measurement.
+4. The timeout finishes the command; `runEnd` calls `setSpeed(0)`. Interruption uses the same stop action. The robot's `disabledInit` adds an explicit stop.
 
-When we start programming, this folder will hold all of the subsystems, or major mechanisms, that make up our robot. Every subsystem on our robot will have it's own class in a .java file that will go in this folder. At the moment, we just have one file in here: `SnailSubsystem.java`. This file is something that all of our subsystems must extend since it allows the subsystem to be registered within RobotContainer and makes sure that all of its appropriate functions are called at the correct time.
+Draw this chain: button → scheduler → command → subsystem → published output. Which arrow would change when a real motor is added? The subsystem-to-output boundary: the motor controller needs a reviewed configuration, and input sensors need their own units and validity checks. The scheduler still coordinates commands. A hardware output is not proof that the mechanism actually moved; add measured velocity/current where appropriate.
 
-## /commands
+## Read the team architecture
 
-This folder doesn't contain anything at the moment, but when we start programming, it will hold all of the "commands," or actions, that all of the subsystems can perform. Each command will have it's own class in a .java file that corresponds to it.
+In the linked team code, `HopperIntakeIO` describes inputs and operations. `HopperIntakeIOSparkMax` talks to the controller; `HopperIntakeIOSim` supplies a simulation implementation. `HopperIntake` owns higher-level behavior. Locate the `updateInputs` call and the logger call in that class. Sketch arrows from a real sensor through IO inputs to the logger and subsystem. Then trace an output request in the reverse direction. You should be able to name which boundary would change for different hardware. Do not assume replay restores unrecorded state or that the simulated plant has been calibrated.
 
-## RobotContainer.java
+**Worked answer:** IO gives the rest of the subsystem a common interface, allowing a hardware-specific implementation to be replaced by a simulator. That separation helps testing and replay only if the relevant observations and outputs are actually represented and logged. The starter intentionally does not add that complexity until the command lifecycle is understood.
 
-This is the biggest file in the template and probably the most important. This file can be thought of as almost a map or blueprint of how the entire robot is put together. This file contains all the different components of the robot from the various classes in our project and puts them together.
+| Symptom | First check |
+| --- | --- |
+| Output never changes | Is the scheduler running, robot enabled, and command scheduled? |
+| Two controls fight | Do both commands require the same subsystem? |
+| Output remains active after interruption | Does the command's end action stop it? |
+| Logged value is plausible but behavior is wrong | Is it a requested output or an independent measured input? |
 
-Our template has a lot of areas that are supposed to be filled in. To see a fully completed version of `RobotContainer`, please see our version in the 2020 robot: [`RobotContainer.java`](https://github.com/FRC1257/2020-Robot/blob/master/src/main/java/frc/robot/RobotContainer.java).
-
-First of all, in the constructor for `RobotContainer`, we create all of our controllers (we always use 2) that we use for controlling the robot. The primary function of our constructor is to call a bunch of other functions which we discuss below.
-
-We create all of the subsystems that compose our robot in `configureSubsystems()`. Again, see our 2020 code for an example of how this works. Next, we register each of our subsystems in the `subsystems` ArrayList. This allows all of our subsystems to have their functions called at the right time so they actually work in our robot. Finally, we have some extra stuff in our constructor that handle counting and actually calling the other functions inside of `RobotContainer`.
-
-Next, we have `configureButtonBindings()`, where we define the mapping between our buttons and the actions that we want our robot to perform. For instance, we might define a link between the A button on our operator controller and the intake ejecting.
-
-Finally, we have `configureAutoChoosers()` and `getAutoCommand()`. These functions are not needed for the basics that we are going over for now, but we will get more into depth on these when we go over autonomous.
-
-We also have some functions at the button that handle behind the scenes work. Once we register all of our subsystems inside of the `subsystems` ArrayList, these functions will take care of everything so we don't have to worry that much.
-
-## Robot.java
-
-`Robot.java` is one of the files that we'll seldom have to edit. In this file, we have a bunch of things that are happening behind the scenes to put the entire robot together. It grabs parts from files such as `RobotContainer.java` and puts them all together so that the robot knows when to execute certain parts of the code.
-
-For a quick rundown though, we have various functions that are all run when certain parts of the match begin and occur.
-
-* In `robotInit()`, an instance of `RobotContainer` is created, which then sets creates all of the other classes and objects necessary to run our robot. This is ran when our robot first starts.
-* Then, in `robotPeriodic()`, we periodically (every 20 ms) call `CommandScheduler.getInstance.run()`, which is a part of WPILib, to take all of our scheduled actions and actually send them to the various components of the robot. `robotPeriodic()` is constantly run every 20 ms from the moment our robot boots up to when it is shut down.
-  * We also tell `RobotContainer` to output diagnostic data and update testing functionality.
-* `autonomousInit()` and `teleopInit()` handle setting up and cancelling all of our actions during autonomous.
-* Finally `testInit()` deals with setting up our testing interface.
-
-Again, don't worry if you don't 100% get what is going on here since it is mostly behind-the-scenes stuff that will barely ever be changed.
-
-## Main.java
-
-`Main.java` is a file that will **never** be edited. This is because it is a file that is super behind-the-scenes and just serves to initialize our `Robot.java` file and tell the robot to begin executing code from it.
-
-## /util
-
-This folder contains some utility classes that are used by other sections of our robot code. In the template, we only have stuff related to controllers that we use inside of `RobotContainer`. To summarize though, the `SnailController` is a subclass of the WPILib provided `XboxController` class. We use this because we need to add some extra features to the controller that make our lives way easier. Some of these include an easier way to bind controller inputs, getting the triggers, applying deadbands, and inverting the y-axis of both of the joysticks.
-
-## Constants.java
-
-`Constants.java` is a file that will be frequently edited. When we make our robot code, we will many times have "magical numbers" that we just throw in. For instance, we might test our intake and discover that 60% is a good speed to set it to. Instead of just throwing this in our robot code where it could easily get lost, we put it in `Constants.java`. `Constants.java` serves as the main hub for every constant we could possible put in our robot. For an example, see this file in our 2020 Robot Code: [`Constants.java`](https://github.com/FRC1257/2020-Robot/blob/master/src/main/java/frc/robot/Constants.java).
-
-We structure this file with [inner static classes](https://www.geeksforgeeks.org/static-class-in-java/). An example would be `ElectricalLayout`, where we store all IDs/port numbers for robot hardware. Using static classes allows us to reference constants through something like `Constants.ElectricalLayout.CONTROLLER_DRIVER_ID` and put a lot more organization into our program.
-
-However, it can be tedious sometimes to write out something like, say, `Constants.Autonomous` every time we call a constant from the `Autonomous` static class. It also wastes a lot of screen space. Instead, at the top of the file we want to use that autonomous constant in, we put the following line:
-
-```java
-import static frc.robot.Constants.Autonomous.*
-```
-
-This allows us to just type something like `DRIVE_DIST` instead of the entire `Constants.Autonomous.DRIVE_DIST`.
-
-> [!NOTE]
-> All constants in this file need the code `public static` in front of the variable to make it usable.
-
+For another guided walkthrough of the same revision, see the [2026 team code case study](../../robots/2026-code.md).

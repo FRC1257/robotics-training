@@ -1,3 +1,5 @@
+> **Historical lesson:** This material predates the 2026 course and may use older WPILib, vendor APIs, team wrappers, and game rules. Its original version is not verified here. Do not copy its robot code into a 2026 project without migration and mentor review. Start with [the 2026 subsystem lesson](../1-Basics/5-First_Subsystem.md).
+
 # Creating Files
 
 Sometimes, we want to be able to write to files on our robot's local storage and then read this data at a later time. This is useful for logging information and then later reading it to create a graph. Here, we'll go over how exactly you can a) write a file during robot code and b) retrieve this file.

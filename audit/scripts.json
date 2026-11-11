@@ -1,0 +1,42 @@
+[
+  {
+    "src": "//unpkg.com/docsify/lib/docsify.min.js"
+  },
+  {
+    "src": "https://cdn.jsdelivr.net/npm/docsify-themeable@0"
+  },
+  {
+    "src": "https://cdn.jsdelivr.net/npm/docsify-pagination@2/dist/docsify-pagination.min.js"
+  },
+  {
+    "src": "https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.js"
+  },
+  {
+    "src": "https://unpkg.com/docsify-plugin-flexible-alerts"
+  },
+  {
+    "src": "//cdn.jsdelivr.net/npm/prismjs/components/prism-java.min.js"
+  },
+  {
+    "src": "//cdn.jsdelivr.net/npm/docsify-katex@latest/dist/docsify-katex.js"
+  },
+  {
+    "src": "https://unpkg.com/docsify-toc@1.0.0/dist/toc.js"
+  },
+  {
+    "src": "https://kit.fontawesome.com/6ddc023efd.js",
+    "crossorigin": "anonymous"
+  },
+  {
+    "src": "//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"
+  },
+  {
+    "src": "//cdn.jsdelivr.net/npm/prismjs@1/components/prism-jsx.min.js"
+  },
+  {
+    "src": "//cdn.jsdelivr.net/npm/prismjs@1/components/prism-tsx.min.js"
+  },
+  {
+    "src": "//cdn.jsdelivr.net/npm/prismjs@1/components/prism-typescript.min.js"
+  }
+]

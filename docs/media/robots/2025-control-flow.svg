@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300" role="img" aria-labelledby="title desc">
+<title id="title">2025 robot code control and logging flow</title><desc id="desc">A conceptual diagram of scheduler, subsystem, IO, hardware and logger relationships.</desc>
+<rect width="900" height="300" rx="18" fill="#f5f8fc"/><style>text{font-family:Arial,sans-serif;fill:#142f48}.box{fill:white;stroke:#186b82;stroke-width:2}.line{stroke:#186b82;stroke-width:3;fill:none;marker-end:url(#arrow)}.small{font-size:15px}.label{font-size:18px;font-weight:bold}</style><defs><marker id="arrow" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0 0 L9 4 L0 8z" fill="#186b82"/></marker></defs>
+<rect class="box" x="22" y="40" width="165" height="95" rx="10"/><text class="label" x="40" y="70">Robot periodic</text><text class="small" x="40" y="96">runs scheduler</text><text class="small" x="40" y="116">each cycle</text>
+<rect class="box" x="235" y="40" width="170" height="95" rx="10"/><text class="label" x="253" y="70">Commands</text><text class="small" x="253" y="96">request actions;</text><text class="small" x="253" y="116">own requirements</text>
+<rect class="box" x="455" y="40" width="185" height="95" rx="10"/><text class="label" x="473" y="70">Subsystem</text><text class="small" x="473" y="96">updates inputs;</text><text class="small" x="473" y="116">applies control logic</text>
+<rect class="box" x="690" y="40" width="185" height="95" rx="10"/><text class="label" x="708" y="70">IO implementation</text><text class="small" x="708" y="96">real, sim, or replay</text><text class="small" x="708" y="116">hardware boundary</text>
+<rect class="box" x="455" y="195" width="420" height="70" rx="10"/><text class="label" x="473" y="224">AdvantageKit logger</text><text class="small" x="473" y="247">records inputs and outputs; sinks depend on selected mode</text>
+<path class="line" d="M187 87H230"/><path class="line" d="M405 87H450"/><path class="line" d="M640 87H685"/><path class="line" d="M550 135V190"/><path class="line" d="M783 135V190"/>
+<text class="small" x="22" y="244">Conceptual map; not a wiring diagram.</text></svg>

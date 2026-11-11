@@ -1,0 +1,26 @@
+plugins { id 'java'; id 'edu.wpi.first.GradleRIO' version '2026.2.1' }
+java { sourceCompatibility = JavaVersion.VERSION_17; targetCompatibility = JavaVersion.VERSION_17 }
+def ROBOT_MAIN_CLASS = 'frc.robot.Main'
+wpi.java.debugJni = false
+dependencies {
+ annotationProcessor wpi.java.deps.wpilibAnnotations()
+ implementation wpi.java.deps.wpilib()
+ implementation wpi.java.vendor.java()
+ nativeDebug wpi.java.deps.wpilibJniDebug(wpi.platforms.desktop)
+ simulationDebug wpi.sim.enableDebug()
+ nativeRelease wpi.java.deps.wpilibJniRelease(wpi.platforms.desktop)
+ simulationRelease wpi.sim.enableRelease()
+ testImplementation 'org.junit.jupiter:junit-jupiter:5.10.1'
+ testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+test { useJUnitPlatform() }
+wpi.sim.addGui().defaultEnabled = true
+wpi.sim.addDriverstation()
+jar {
+ from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
+ manifest edu.wpi.first.gradlerio.GradleRIOPlugin.javaManifest(ROBOT_MAIN_CLASS)
+ duplicatesStrategy = DuplicatesStrategy.INCLUDE
+}
+wpi.java.configureExecutableTasks(jar)
+wpi.java.configureTestTasks(test)
+tasks.withType(JavaCompile).configureEach { options.compilerArgs.add '-XDstringConcat=inline' }

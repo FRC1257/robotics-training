@@ -1,8 +1,17 @@
-# Code
-## New Vision Subsystem
+# PhotonVision pose integration
 
-## Pose Estimation
+**Prerequisites:** [camera setup](Setup.md), [odometry](../../frc/1-Basics/Modern_Drivetrain_Project.md), timestamps. **Time:** 45 minutes. This is an integration guide, not a drop-in implementation: estimator APIs and vendor versions must match the project.
 
-## Other Uses
+Read the pinned 2026 team's [VisionIOPhoton](https://github.com/FRC1257/2026-Robot/blob/0c9a024dec1f58648d573ce26fcfd02639c5ca66/src/main/java/frc/robot/subsystems/vision/VisionIOPhoton.java), [VisionIO](https://github.com/FRC1257/2026-Robot/blob/0c9a024dec1f58648d573ce26fcfd02639c5ca66/src/main/java/frc/robot/subsystems/vision/VisionIO.java), and [Drive](https://github.com/FRC1257/2026-Robot/blob/0c9a024dec1f58648d573ce26fcfd02639c5ca66/src/main/java/frc/robot/subsystems/drive/Drive.java). The project builds with its pinned dependencies but emits deprecation warnings; treat it as a season-specific case study, not the current API template. Trace camera results through pose estimation, timestamp, acceptance checks, uncertainty and the drive pose estimator. Check the code before deciding which checks are actually implemented.
 
-TODO
+A generic pipeline updates odometry every loop from gyro and wheel positions, receives camera estimates with their capture timestamps, checks validity and field bounds, assigns uncertainty, and adds accepted measurements to the pose estimator. A delayed observation must use its capture timestamp, not the time the processing loop receives it. A tag detection alone is not proof of an accurate robot pose; calibration, transforms, field layout, latency and geometry all matter.
+
+**Exercise:** draw the data flow and list one reason to reject a frame and one reason to reduce its weight. Expected examples: stale timestamp; distant or ambiguous observation. Log raw observations, rejected reasons and fused pose, then compare to surveyed ground truth. If fused pose jumps, check timestamp domain, transforms and tag layout before tuning weights. Sources: [PhotonLib pose estimator](https://docs.photonvision.org/en/v2026.3.3/docs/programming/photonlib/robot-pose-estimator.html), [WPILib pose estimators](https://docs.wpilib.org/en/stable/docs/software/advanced-controls/state-space/state-space-pose-estimators.html).
+
+## Worked timestamp and frame trace
+
+Suppose a frame is captured at 10.000 s and arrives at the robot at 10.080 s. If the robot moved at 2 m/s, it may have moved approximately 0.16 m during that 80 ms. Adding that observation as though captured at 10.080 s places old information at the wrong time. Pass the estimate's capture timestamp in the same clock domain expected by WPILib; the estimator can then account for motion since capture. Clock synchronization and estimator history limits still need checking.
+
+Trace one camera in the team's code: `VisionIOInputs` carries arrays of position estimates, rotation estimates and timestamps. `Drive` iterates estimates, builds separate position/rotation standard deviations, and submits them with the corresponding timestamp. The code's zero-pose sentinel and array assumptions are implementation-specific; a legitimate field-origin pose must not be rejected merely because it is zero in a new design. Record detection count and rejection reason separately instead of inventing a measurement.
+
+**Exercise:** with a known stationary robot, record 20 successive accepted estimates and compare their spread with an independently measured pose. Repeat at several distances and headings; note timestamp, target count, camera name, and calibration. If the mean is wrong but spread is small, more confidence will reinforce the bias rather than fix it: inspect camera transform, tag layout and calibration. If there are no estimates, check pipeline, connectivity, tag visibility and version compatibility. This procedure is a proposed experiment; no measurements are claimed here.

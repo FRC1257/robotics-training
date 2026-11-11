@@ -1,3 +1,5 @@
+> **Historical lesson:** This material predates the 2026 course and may use older WPILib, vendor APIs, team wrappers, and game rules. Its original version is not verified here. Do not copy its robot code into a 2026 project without migration and mentor review. Start with [the 2026 subsystem lesson](../1-Basics/5-First_Subsystem.md).
+
 # Following Trajectories
 
 Following trajectories requires a lot of code, but luckily, most of the code has already been written! It still needs to be tested though, so if anyone does test it, please either edit this article to reflect the changes from testing or leave an issue in GitHub describing what needs to be changed!

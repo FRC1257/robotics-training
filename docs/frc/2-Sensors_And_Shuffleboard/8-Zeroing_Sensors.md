@@ -1,3 +1,5 @@
+> **Historical lesson:** This material predates the 2026 course and may use older WPILib, vendor APIs, team wrappers, and game rules. Its original version is not verified here. Do not copy its robot code into a 2026 project without migration and mentor review. Start with [the 2026 subsystem lesson](../1-Basics/5-First_Subsystem.md).
+
 # Zeroing Sensors
 
 When we have sensors on our system, they will frequently drift due to various reasons, which can make going to absolute positions gradually worse and worse as we continue to use our mechanisms. As a result, we frequently have a limit switch at the end of our mechanism that allows us to "zero" our sensor reading. For instance, if we had an encoder on our arm that was measuring the angle that it was at, we might include a limit switch at the bottom that will zero the encoder's position when it hits the bottom. This not only allows us to zero the reading as the match progresses (since we will inevitably put our arm down), but it also gives us a way to recalibrate our arm if we know there are issues.

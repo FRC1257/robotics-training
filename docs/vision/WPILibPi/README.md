@@ -1,6 +1,5 @@
-# WPILibPi
-During the 2023 preseason, the team experimented with using WPILibPi and writing our own code (in python) for vision. This was a great learning experience, but we decided to switch to PhotonVision for the 2023 season. 
+# WPILibPi and camera alternatives
 
-[WPILibPi Documentation](https://docs.wpilib.org/en/stable/docs/software/vision-processing/wpilibpi/index.html)
+WPILibPi is a camera-processing image for supported Raspberry Pi configurations; availability and support depend on the season and image. It is not interchangeable with a PhotonVision pipeline or a Limelight. Consult [WPILib vision documentation](https://docs.wpilib.org/en/stable/docs/software/vision-processing/index.html) and the current installation instructions for the exact image and hardware before setup. For AprilTag localization follow the [PhotonVision path](../PhotonVision/Setup.md).
 
-TODO
+**Check:** identify where images are processed and how timestamps reach the robot. An unverified camera stream is not a calibrated pose estimate.

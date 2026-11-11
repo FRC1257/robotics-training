@@ -1,0 +1,1838 @@
+[
+  {
+    "path": "docs/README.md",
+    "bytes": 591,
+    "words_whitespace_including_code": 82,
+    "sha256": "5e6ec3ba0f25aa520f03e27b569059f06c3ad1caddf1d09dc77668c533f5a2a8",
+    "headings": [
+      "Robotics Training\r",
+      "Folders\r"
+    ],
+    "code_blocks": 0
+  },
+  {
+    "path": "docs/_coverpage.md",
+    "bytes": 167,
+    "words_whitespace_including_code": 14,
+    "sha256": "4e732896163a4ddad6ca50e1509accefd09ba1a8629c020f7008803f7c9e7cce",
+    "headings": [
+      "Robotics Training\r"
+    ],
+    "code_blocks": 0
+  },
+  {
+    "path": "docs/_sidebar.md",
+    "bytes": 8110,
+    "words_whitespace_including_code": 374,
+    "sha256": "0746d74e35536fdb8a5c2cd7b75f036968c620fda163e0bb2194eb7e67e7e9b2",
+    "headings": [],
+    "code_blocks": 0
+  },
+  {
+    "path": "docs/documentation/README.md",
+    "bytes": 9750,
+    "words_whitespace_including_code": 1242,
+    "sha256": "3731a08346bac1849cef2236dfa1e1abb029e651f4b69b37005d42055ac34a1b",
+    "headings": [
+      "Documentation Guide",
+      "Before you start",
+      "Why use your own device?",
+      "Sidenote: editing directly on GitHub",
+      "Preface",
+      "Basic Markdown",
+      "Basic Markdown",
+      "Basic Mistakes",
+      "Fancy Markdown",
+      "Callouts",
+      "Presentation Embeddings",
+      "Getting `<slides embed link>`",
+      "Video Embeddings",
+      "Getting `<YouTube link>`",
+      "Folder structure",
+      "The `docs` folder",
+      "The `README.md` file",
+      "The `img/` folder",
+      "The `_sidebar.md` file and folder setup",
+      "Recap",
+      "\ud83c\udf89 Conclusion"
+    ],
+    "code_blocks": 10
+  },
+  {
+    "path": "docs/frc/1-Basics/1a-Setup.md",
+    "bytes": 6062,
+    "words_whitespace_including_code": 1034,
+    "sha256": "a10fb7535f10efdb4625dd3d05c08b9f0d481152a75d902f95d3ea05e024bda9",
+    "headings": [
+      "Setting Up\r",
+      "Using the GitHub template\r",
+      "Editing in GitHub\r",
+      "Editing in Visual Studio Code\r",
+      "Installing GitHub Desktop\r",
+      "Cloning the GitHub repository\r",
+      "Editing in Visual Studio Code\r",
+      "Committing and Pushing Changes\r"
+    ],
+    "code_blocks": 0
+  },
+  {
+    "path": "docs/frc/1-Basics/1b-Match_Structure.md",
+    "bytes": 912,
+    "words_whitespace_including_code": 129,
+    "sha256": "76cf2a8e079b835fcd627d3a502f19df67b7c08c3b2f61bcdf80350e2e56f189",
+    "headings": [
+      "Match Structure\r",
+      "Autonomous vs. Teleoperated\r"
+    ],
+    "code_blocks": 0
+  },
+  {
+    "path": "docs/frc/1-Basics/2a-Motors.md",
+    "bytes": 9749,
+    "words_whitespace_including_code": 1466,
+    "sha256": "9ef99c7d7fd37102fac89493582ac1d2000cad2bde20333c17d62e5107bc69d5",
+    "headings": [
+      "Motors\r",
+      "Terminology\r",
+      "Setup & Control\r",
+      "Motor IDs\r",
+      "Brushed vs Brushless\r",
+      "Brake vs Coast\r",
+      "Current Limiting\r",
+      "Inversion\r",
+      "Following\r",
+      "Following and Inverting\r",
+      "Commanding Motors\r",
+      "Other Motor Controllers\r",
+      "Example\r"
+    ],
+    "code_blocks": 4
+  },
+  {
+    "path": "docs/frc/1-Basics/2b-Vendor_Dependencies.md",
+    "bytes": 2261,
+    "words_whitespace_including_code": 290,
+    "sha256": "0784ea682462262c15e98e506a570eb2e6736e5d2769e6dd6640f0dcb8d094a1",
+    "headings": [
+      "Vendor Dependencies\r",
+      "Installing\r",
+      "Updating\r"
+    ],
+    "code_blocks": 0
+  },
+  {
+    "path": "docs/frc/1-Basics/3-Pneumatics.md",
+    "bytes": 6153,
+    "words_whitespace_including_code": 888,
+    "sha256": "fd20d52d12eb5aa15f710d45f5de6a6bac3947c90bb664812af816d7162fc1e8",
+    "headings": [
+      "Pneumatics\r",
+      "Basics\r",
+      "Components\r",
+      "Cylinders\r",
+      "Solenoids\r",
+      "Compressor & PCM\r",
+      "Example\r",
+      "Programming\r"
+    ],
+    "code_blocks": 1
+  },
+  {
+    "path": "docs/frc/1-Basics/4a-Command_Based.md",
+    "bytes": 5407,
+    "words_whitespace_including_code": 826,
+    "sha256": "57582722db0f11ff08d9e8e01331c119b42e99c7657382a4d8531dd806720411",
+    "headings": [
+      "Command-Based",
+      "Subsystems",
+      "Commands",
+      "CommandScheduler",
+      "Flowchart"
+    ],
+    "code_blocks": 1
+  },
+  {
+    "path": "docs/frc/1-Basics/4b-Architecture.md",
+    "bytes": 7467,
+    "words_whitespace_including_code": 1209,
+    "sha256": "c702a81586aa19dc2b310af4a87493383c12dc7a4a6522ba72554a8629dcacb4",
+    "headings": [
+      "Architecture",
+      "Code Location",
+      "/subsystems",
+      "/commands",
+      "RobotContainer.java",
+      "Robot.java",
+      "Main.java",
+      "/util",
+      "Constants.java"
+    ],
+    "code_blocks": 1
+  },
+  {
+    "path": "docs/frc/1-Basics/5-First_Subsystem.md",
+    "bytes": 494,
+    "words_whitespace_including_code": 50,
+    "sha256": "edfc320c8e31747f9f672e2fd5a934b8021c581806090fc4971f858de719c21d",
+    "headings": [
+      "First Subsystem\r"
+    ],
+    "code_blocks": 0
+  },
+  {
+    "path": "docs/frc/1-Basics/5a-Roller_Intake.md",
+    "bytes": 14907,
+    "words_whitespace_including_code": 2089,
+    "sha256": "aae1621cbdb63e418bb5ed1db3601dafa6d2228e0be5b82829631544fd6efec8",
+    "headings": [
+      "Roller Intake\r",
+      "Overview\r",
+      "Roller Intake Description\r",
+      "Flowchart\r",
+      "Snail Subsystem\r",
+      "Programming\r",
+      "enum State\r",
+      "RollerIntake()\r",
+      "update()\r",
+      "getState()\r",
+      "Other Functions\r",
+      "Adding Functionality\r",
+      "Declaring The Motor Controllers\r",
+      "Making The States\r",
+      "Making The Constructor\r",
+      "Update Function\r",
+      "Making Methods To Trigger State Changes\r",
+      "Conclusion\r"
+    ],
+    "code_blocks": 8
+  },
+  {
+    "path": "docs/frc/1-Basics/5b-Constants.md",
+    "bytes": 8111,
+    "words_whitespace_including_code": 1032,
+    "sha256": "170a237eff9a5876f9216c38369b3a7f0e5a1424e0946c61dcf779bc5468b57b",
+    "headings": [
+      "Constants (Roller Intake)\r",
+      "Overview\r",
+      "Examples\r",
+      "The Constants File\r",
+      "Naming Convention\r",
+      "Creating Constants\r",
+      "Using Constants\r",
+      "Import Static\r"
+    ],
+    "code_blocks": 9
+  },
+  {
+    "path": "docs/frc/1-Basics/5c-Making_Commands.md",
+    "bytes": 9677,
+    "words_whitespace_including_code": 1314,
+    "sha256": "04834bc73e72469e503b73ba6a78ed6f372717730737c41393f3ba9d70a64c9c",
+    "headings": [
+      "Making Commands (Roller Intake)\r",
+      "What are commands?\r",
+      "Command File Format\r",
+      "Roller Intake Functionality\r",
+      "Initializing the Command\r",
+      "Changing The Subsystem State\r",
+      "Other Commands\r",
+      "Ending The Command\r",
+      "Factory Commands\r"
+    ],
+    "code_blocks": 7
+  },
+  {
+    "path": "docs/frc/1-Basics/5d-Binding_Commands.md",
+    "bytes": 10867,
+    "words_whitespace_including_code": 1252,
+    "sha256": "fa3c589b02b1dda039a56535487c64e90bc64f36f6751d527f246be8668e7290",
+    "headings": [
+      "Binding Commands (Roller Intake)\r",
+      "Robot Container Format\r",
+      "RobotContainer()\r",
+      "configureSubsystems()\r",
+      "configureButtonBindings()\r",
+      "Other Functions\r",
+      "Adding Functionality\r",
+      "The Constructor\r",
+      "Binding Commands\r",
+      "getButton()\r",
+      "Button Binding Functions\r",
+      "The Function We Chose\r",
+      "Final Remarks\r"
+    ],
+    "code_blocks": 4
+  },
+  {
+    "path": "docs/frc/1-Basics/5e-Simulation.md",
+    "bytes": 407,
+    "words_whitespace_including_code": 42,
+    "sha256": "742ef28466c28fcf850be0a440b4806574f8d776d54cabe8941cfcf476ce2576",
+    "headings": [
+      "Making Simulation Classes (Roller Intake)"
+    ],
+    "code_blocks": 0
+  },
+  {
+    "path": "docs/frc/1-Basics/6-Claw_Intake.md",
+    "bytes": 12411,
+    "words_whitespace_including_code": 1642,
+    "sha256": "bf6c2ceb3de51c4136c08546e7cf1c6b50193b0b0c3bee9461f91edbe029df65",
+    "headings": [
+      "Claw Intake\r",
+      "Overview\r",
+      "Why Pneumatics?\r",
+      "Subsystem File\r",
+      "Declaring Solenoids\r",
+      "States\r",
+      "Constructor\r",
+      "Update Function\r",
+      "State Functions\r",
+      "ShuffleBoard Functions\r",
+      "Commands\r",
+      "Close Command\r",
+      "Open Command\r",
+      "Robot Container (Bindings)\r",
+      "Constants\r",
+      "Final Remarks\r"
+    ],
+    "code_blocks": 10
+  },
+  {
+    "path": "docs/frc/1-Basics/7-Arm.md",
+    "bytes": 13802,
+    "words_whitespace_including_code": 1906,
+    "sha256": "4490cb0a5c5065589231904a58df206dd823a978e212fce648032b5bb38548b2",
+    "headings": [
+      "Arm\r",
+      "Overview\r",
+      "Subsystem File\r",
+      "Declaring Motor Controllers\r",
+      "States\r",
+      "Constructor\r",
+      "Update Function and manualControl()\r",
+      "Shuffle Board Functions\r",
+      "State Functions\r",
+      "Arm Manual Command\r",
+      "Incorrect Approach\r",
+      "Correct Approach\r",
+      "Constructor\r",
+      "initialize() and execute()\r",
+      "isFinished() and end()\r",
+      "Robot Container (Bindings)\r",
+      "Variable Declarations\r",
+      "Constructor and Bindings\r",
+      "Inline Option\r",
+      "Constants\r",
+      "Final Remarks\r"
+    ],
+    "code_blocks": 17
+  },
+  {
+    "path": "docs/frc/1-Basics/8-Elevator.md",
+    "bytes": 13334,
+    "words_whitespace_including_code": 1812,
+    "sha256": "a5c0307d7441f46edd818356a35cef8b347455dbbefae0bc26fabc639b5b987c",
+    "headings": [
+      "Elevator\r",
+      "Overview\r",
+      "Subsystem File\r",
+      "Declaring Motor Controllers\r",
+      "States\r",
+      "Constructor\r",
+      "Update Function\r",
+      "Shuffle Board Functions\r",
+      "State Functions\r",
+      "Elevator Manual Command\r",
+      "Variable Declarations\r",
+      "Constructor\r",
+      "initialize() and execute()\r",
+      "isFinished() and end()\r",
+      "Robot Container (Bindings)\r",
+      "Variable Declarations\r",
+      "Constructor and Bindings\r",
+      "Constants\r",
+      "Final Remarks\r"
+    ],
+    "code_blocks": 12
+  },
+  {
+    "path": "docs/frc/1-Basics/9-Drivetrain.md",
+    "bytes": 16023,
+    "words_whitespace_including_code": 2054,
+    "sha256": "16594ea2ba16809545fcbc36899185bd80da082eb26d47822a55d53e23a27bb4",
+    "headings": [
+      "Drivetrain\r",
+      "Overview\r",
+      "Subsystem File\r",
+      "Declarations\r",
+      "States\r",
+      "Constructor\r",
+      "update()\r",
+      "Other Functions\r",
+      "Command File\r",
+      "Declarations\r",
+      "Constructor\r",
+      "Functions\r",
+      "RobotContainer\r",
+      "Constructor\r",
+      "Drive Controller Functions\r",
+      "Conclusion\r"
+    ],
+    "code_blocks": 13
+  },
+  {
+    "path": "docs/frc/1-Basics/E-Extra_Features.md",
+    "bytes": 6452,
+    "words_whitespace_including_code": 1025,
+    "sha256": "a05829eb588114cc9bc78b18d75b4b4e793cd8382b36f6e5119cc681ce816351",
+    "headings": [
+      "Extra Features",
+      "Capping Max Speed",
+      "Precision Mode",
+      "Drivetrain Reverse and Slow Turn",
+      "Limp Mode"
+    ],
+    "code_blocks": 7
+  },
+  {
+    "path": "docs/frc/1-Basics/G-Guide.md",
+    "bytes": 7606,
+    "words_whitespace_including_code": 1104,
+    "sha256": "5f64c4f45c856f74b39232370d1b32af984b2ffe4045aced4a848b5f86346e29",
+    "headings": [
+      "Quick Guide to Making a Subsystem",
+      "Create Project from snail-robot-template (if making a new project)",
+      "Create Subsystem File",
+      "Command",
+      "RobotContainer",
+      "Examples",
+      "File Templates",
+      "Subsystem File",
+      "Command File"
+    ],
+    "code_blocks": 8
+  },
+  {
+    "path": "docs/frc/1-Basics/README.md",
+    "bytes": 354,
+    "words_whitespace_including_code": 57,
+    "sha256": "cd765349968c788f2bcc7bf04d11b9ec52d8d054a1203be6d07e948a4e32a16d",
+    "headings": [
+      "Basics\r",
+      "Goals\r",
+      "Tasks\r"
+    ],
+    "code_blocks": 0
+  },
+  {
+    "path": "docs/frc/2-Sensors_And_Shuffleboard/1-Overview.md",
+    "bytes": 2483,
+    "words_whitespace_including_code": 413,
+    "sha256": "c164f9194b2c62cfbda238daf34fe092fb6e26b588a02c4ffcc0c4fdebbbd50d",
+    "headings": [
+      "Sensors Overview\r",
+      "Encoders\r",
+      "Gyroscope\r",
+      "Limit / Bump Switches\r",
+      "Break Beam Sensors\r"
+    ],
+    "code_blocks": 0
+  },
+  {
+    "path": "docs/frc/2-Sensors_And_Shuffleboard/2-Outputting_Data.md",
+    "bytes": 4487,
+    "words_whitespace_including_code": 675,
+    "sha256": "9c508215e447f7b2579a1b9af135b14944c7a2ed6ae3a76e78c45f925f5a3400",
+    "headings": [
+      "Outputting Data\r",
+      "Subsystem Code\r",
+      "Current\r",
+      "Temperature\r",
+      "Lag Considerations\r"
+    ],
+    "code_blocks": 6
+  },
+  {
+    "path": "docs/frc/2-Sensors_And_Shuffleboard/3-Encoders.md",
+    "bytes": 10530,
+    "words_whitespace_including_code": 1421,
+    "sha256": "ad7cd2f71b5ab1591d5b30c5b3caf3c1d771c288204815c400bb4d679dad298b",
+    "headings": [
+      "Encoders\r",
+      "CTRE SRX MAG Encoder\r",
+      "Scaling\r",
+      "NEO Brushless Motors\r",
+      "Scaling\r",
+      "Uses\r",
+      "Closed Loop Control\r",
+      "Limiting Motion\r",
+      "Overrides\r"
+    ],
+    "code_blocks": 13
+  },
+  {
+    "path": "docs/frc/2-Sensors_And_Shuffleboard/4-Gyro.md",
+    "bytes": 3474,
+    "words_whitespace_including_code": 579,
+    "sha256": "7252462dd31a7766f99400748b7c93c3bc902d1d8ce05142a91ac31b469bd8bc",
+    "headings": [
+      "Gyro\r",
+      "Singleton\r",
+      "Using the Gyro\r"
+    ],
+    "code_blocks": 3
+  },
+  {
+    "path": "docs/frc/2-Sensors_And_Shuffleboard/5-Boolean_Sensors.md",
+    "bytes": 3509,
+    "words_whitespace_including_code": 535,
+    "sha256": "1bdfb65bbcdb558f51f38af1c292ac6a4bffa5a10b9271ffd3be899cfd6a54c0",
+    "headings": [
+      "Boolean Sensors\r",
+      "Limit Switch\r",
+      "Break Beam Sensors\r",
+      "Programming\r",
+      "Usage\r"
+    ],
+    "code_blocks": 3
+  },
+  {
+    "path": "docs/frc/2-Sensors_And_Shuffleboard/6-Misc_Sensors.md",
+    "bytes": 821,
+    "words_whitespace_including_code": 110,
+    "sha256": "7d4ac0bd05a699a8c55c2614cbc9208dec299e8267fbd33bc632b38a709db6c2",
+    "headings": [
+      "Misc. Sensors\r"
+    ],
+    "code_blocks": 0
+  },
+  {
+    "path": "docs/frc/2-Sensors_And_Shuffleboard/7-Constant_Tuning.md",
+    "bytes": 3242,
+    "words_whitespace_including_code": 507,
+    "sha256": "a2d5f37409502000fc23f7c2ca2c9c96eb68b34e438c7502bd8c2ef08ad8d6f9",
+    "headings": [
+      "Constant Tuning\r",
+      "Getting Constants onto Shuffleboard\r",
+      "Retrieving Constants from Shuffleboard\r"
+    ],
+    "code_blocks": 2
+  },
+  {
+    "path": "docs/frc/2-Sensors_And_Shuffleboard/8-Zeroing_Sensors.md",
+    "bytes": 2858,
+    "words_whitespace_including_code": 484,
+    "sha256": "8eae5e75e89da1f41ab98651ecbe1a2d1d72429bbacb8733042128fb77cb5ad6",
+    "headings": [
+      "Zeroing Sensors\r",
+      "When to Zero the Switch\r",
+      "Old Code\r",
+      "New Code\r"
+    ],
+    "code_blocks": 2
+  },
+  {
+    "path": "docs/frc/2-Sensors_And_Shuffleboard/README.md",
+    "bytes": 158,
+    "words_whitespace_including_code": 27,
+    "sha256": "a56acb8dcfa46bb0a7808dd57ba4d7c1c5624c2c4f62f7e1814823320d4f4ff8",
+    "headings": [
+      "Sensors & Shuffleboard\r",
+      "Goals\r"
+    ],
+    "code_blocks": 0
+  },
+  {
+    "path": "docs/frc/3-Closed_Loop_Control/1-Overview.md",
+    "bytes": 3376,
+    "words_whitespace_including_code": 566,
+    "sha256": "ca1b9b311afbd57247104ed5b7aa9ee889f45d30495e663ab2f3911d6b60c967",
+    "headings": [
+      "Overview of Closed Loop Control\r",
+      "Closed Loop Control\r",
+      "Common Types of Closed Loop Control\r",
+      "Bang Bang Control\r",
+      "PID Control on Position/Velocity\r",
+      "Vocabulary\r"
+    ],
+    "code_blocks": 0
+  },
+  {
+    "path": "docs/frc/3-Closed_Loop_Control/2-Basics_of_PID.md",
+    "bytes": 10342,
+    "words_whitespace_including_code": 1731,
+    "sha256": "789d3c8039718a0b67e2fbab6a834ef4d6c566fd1b7ec4268aa926cb3cb14b23",
+    "headings": [
+      "Basics of PID\r",
+      "Positional PID\r",
+      "P term\r",
+      "Effects of P\r",
+      "D term\r",
+      "Effects of kD\r",
+      "I term\r",
+      "Effects of kI\r",
+      "Types of Controllers\r",
+      "Example\r",
+      "Tuning PID\r",
+      "Sources\r"
+    ],
+    "code_blocks": 3
+  },
+  {
+    "path": "docs/frc/3-Closed_Loop_Control/3-Position_PID.md",
+    "bytes": 2339,
+    "words_whitespace_including_code": 412,
+    "sha256": "28e6107079d94c5c9f3de87f563d7d1fc502b844b80355edc5f453c06c1135d3",
+    "headings": [
+      "Position PID\r",
+      "Why We Might Use PIDController on a SPARK MAX\r"
+    ],
+    "code_blocks": 0
+  },
+  {
+    "path": "docs/frc/3-Closed_Loop_Control/3a-WPILib_PID.md",
+    "bytes": 7805,
+    "words_whitespace_including_code": 1019,
+    "sha256": "7573ddca65ead6a7af7c765a81bb30731e58ed87c913fcd917dcabc3772b9eea",
+    "headings": [
+      "WPILib PIDController\r",
+      "PIDController\r",
+      "Implementing PIDController\r"
+    ],
+    "code_blocks": 5
+  },
+  {
+    "path": "docs/frc/3-Closed_Loop_Control/3b-SPARK_MAX_PID.md",
+    "bytes": 5406,
+    "words_whitespace_including_code": 631,
+    "sha256": "4ebb857371b8b5765bcae8068a4c8677e770d6d381b3cd4ac160d7b3d96a42f4",
+    "headings": [
+      "SPARK MAX PID\r"
+    ],
+    "code_blocks": 5
+  },
+  {
+    "path": "docs/frc/3-Closed_Loop_Control/3c-PID_Command_And_Extras.md",
+    "bytes": 7326,
+    "words_whitespace_including_code": 1050,
+    "sha256": "f18e014e83da540734feb9e8a0005aba580b13509a097b3c44075fdda77af863",
+    "headings": [
+      "PID Command and Extras\r",
+      "PID Command\r",
+      "Extras\r",
+      "Displaying Data\r",
+      "WPILib PIDController\r",
+      "SPARK MAX PID\r",
+      "Shuffleboard Tuning\r",
+      "Maintaining Position\r",
+      "Tuning Tip\r"
+    ],
+    "code_blocks": 9
+  },
+  {
+    "path": "docs/frc/3-Closed_Loop_Control/4-Feedforward.md",
+    "bytes": 5286,
+    "words_whitespace_including_code": 855,
+    "sha256": "fcff06173b55f3619f3974b87cf26d947bd5efce3f4da546f83a06781924032b",
+    "headings": [
+      "Feedforward\r",
+      "Combining with Feedback Control\r",
+      "Different Kinds of Feedforward\r",
+      "Sources\r"
+    ],
+    "code_blocks": 2
+  },
+  {
+    "path": "docs/frc/3-Closed_Loop_Control/4a-Velocity_PID.md",
+    "bytes": 9575,
+    "words_whitespace_including_code": 1302,
+    "sha256": "bfa40f84cf54398b253ce337d1dc115b11cf2e18d38a40ea79c691bc2d118104",
+    "headings": [
+      "Velocity PID\r",
+      "Purpose\r",
+      "General Info\r",
+      "WPILib PID\r",
+      "SPARK MAX PID\r",
+      "Velocity PID Command\r",
+      "Tuning Velocity PID\r",
+      "Velocity Control\r"
+    ],
+    "code_blocks": 7
+  },
+  {
+    "path": "docs/frc/3-Closed_Loop_Control/4b-Arbitrary_Feedforward.md",
+    "bytes": 7984,
+    "words_whitespace_including_code": 1231,
+    "sha256": "4ab0e9ea8fad48031369bbc256dae2fccbde9779824617d1190c3589dac32d27",
+    "headings": [
+      "Arbitrary Feedforward\r",
+      "Elevator\r",
+      "Determining Elevator Feedforward\r",
+      "Arm\r"
+    ],
+    "code_blocks": 2
+  },
+  {
+    "path": "docs/frc/3-Closed_Loop_Control/5-Motion_Profiling.md",
+    "bytes": 19888,
+    "words_whitespace_including_code": 2879,
+    "sha256": "2389830bcee14979de78708c9bba05c78373fed8af002749fc533bddbbc47457",
+    "headings": [
+      "Motion Profiling\r",
+      "Limits of PID\r",
+      "Motion Profiling\r",
+      "Generating Trapezoidal Profile\r",
+      "Physics of Generating Trapezoidal Profiles\r",
+      "Using WPILib TrapezoidProfile\r",
+      "Using SPARK MAX Smart Motion\r",
+      "Profiled Command\r",
+      "Determining Velocity / Acceleration\r",
+      "Limits of Motion Profiling\r",
+      "Sources\r"
+    ],
+    "code_blocks": 3
+  },
+  {
+    "path": "docs/frc/3-Closed_Loop_Control/README.md",
+    "bytes": 290,
+    "words_whitespace_including_code": 44,
+    "sha256": "2d197df76366cbe5667cd1dfbf2bcd6f9fc3fa5b3c4120ebcbf0898055c5a500",
+    "headings": [
+      "Closed Loop Control\r",
+      "Goals\r"
+    ],
+    "code_blocks": 0
+  },
+  {
+    "path": "docs/frc/4-Autonomous/1-Overview.md",
+    "bytes": 3796,
+    "words_whitespace_including_code": 545,
+    "sha256": "d06994620e67afb98f54771e6ba95160548bae23df234f6f2c5db10f882dc217",
+    "headings": [
+      "Overview\r",
+      "Conceptual Aspect\r",
+      "Programming Aspect\r",
+      "Examples\r"
+    ],
+    "code_blocks": 0
+  },
+  {
+    "path": "docs/frc/4-Autonomous/2-Segmented_Trajectories.md",
+    "bytes": 5295,
+    "words_whitespace_including_code": 902,
+    "sha256": "a17f80d197b73939c01cc57cdc74f77cc5c4682a62e1dc38a8564ca3d1377aa9",
+    "headings": [
+      "Segmented Trajectories",
+      "Designing Trajectories",
+      "Programming Trajectories",
+      "Turn Angle Command",
+      "Drive Distance Command",
+      "Wrapping Up"
+    ],
+    "code_blocks": 1
+  },
+  {
+    "path": "docs/frc/4-Autonomous/3-Advanced_Trajectories.md",
+    "bytes": 1039,
+    "words_whitespace_including_code": 175,
+    "sha256": "417bbc43b6779d93d6b4703ec4548830930a2a5f4505666e0255ec4890df91e6",
+    "headings": [
+      "Advanced Trajectories"
+    ],
+    "code_blocks": 0
+  },
+  {
+    "path": "docs/frc/4-Autonomous/3a-Generating_Trajectories.md",
+    "bytes": 5616,
+    "words_whitespace_including_code": 961,
+    "sha256": "29f214c27591276c0af744af4587ec0bb57aa041df70026b8915212a489b1d66",
+    "headings": [
+      "Generating Trajectories",
+      "PathWeaver",
+      "Creating Paths",
+      "Creating Path Groups",
+      "Exporting Paths"
+    ],
+    "code_blocks": 0
+  },
+  {
+    "path": "docs/frc/4-Autonomous/3b-Generating-On-Bot.md",
+    "bytes": 4822,
+    "words_whitespace_including_code": 588,
+    "sha256": "5c2ee5b522446df69d391590d43ca9fd369b48818984fccf9082e433a8916e35",
+    "headings": [
+      "Generating Trajectories on the Robot",
+      "Creating Sendable Choosers",
+      "Generating Trajectories"
+    ],
+    "code_blocks": 4
+  },
+  {
+    "path": "docs/frc/4-Autonomous/3c-Following_Trajectories.md",
+    "bytes": 9050,
+    "words_whitespace_including_code": 1550,
+    "sha256": "2d0cfc8f744178c409d11184a88c3e9bc33e32e2b7538b53257cf762e998d720",
+    "headings": [
+      "Following Trajectories",
+      "Programming",
+      "Features",
+      "Using FRC-Drivetrain",
+      "Velocity Drive",
+      "Trajectories",
+      "Tuning"
+    ],
+    "code_blocks": 0
+  },
+  {
+    "path": "docs/frc/4-Autonomous/4-Command_Groups.md",
+    "bytes": 9171,
+    "words_whitespace_including_code": 1198,
+    "sha256": "6dbf8e173eb6c08ded823e2cbbfea64e168f3bf441d1d858372358a268fcbc20",
+    "headings": [
+      "Command Groups\r",
+      "Sequential\r",
+      "Parallel\r",
+      "ParallelRace\r",
+      "ParallelDeadline\r",
+      "Creating Command Groups\r",
+      "Timeouts\r",
+      "Trajectory Auto\r"
+    ],
+    "code_blocks": 3
+  },
+  {
+    "path": "docs/frc/4-Autonomous/5-Auto_Choosing.md",
+    "bytes": 12568,
+    "words_whitespace_including_code": 1295,
+    "sha256": "3d401e6f73475ae1d7587ec55eb991246dae5a040c5775211c4ba9eadf19ce22",
+    "headings": [
+      "Auto Choosing\r",
+      "Setup\r",
+      "RobotContainer\r",
+      "Execution\r"
+    ],
+    "code_blocks": 7
+  },
+  {
+    "path": "docs/frc/4-Autonomous/README.md",
+    "bytes": 288,
+    "words_whitespace_including_code": 46,
+    "sha256": "f8ec13966390fb3bf7265eb4de4221a8b4a1ebfd74dd36efb88c3134ca1b459b",
+    "headings": [
+      "Autonomous\r",
+      "Goals\r"
+    ],
+    "code_blocks": 0
+  },
+  {
+    "path": "docs/frc/5-Advanced_&_Misc/Advanced_Logging.md",
+    "bytes": 0,
+    "words_whitespace_including_code": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "headings": [],
+    "code_blocks": 0
+  },
+  {
+    "path": "docs/frc/5-Advanced_&_Misc/Advanced_State_Machines.md",
+    "bytes": 7987,
+    "words_whitespace_including_code": 1232,
+    "sha256": "9fef67554e29fa7d96e2e05f7667a906960ac00faf680d84c3e3dfa038018b0d",
+    "headings": [
+      "Advanced State Machines",
+      "2019 Climb",
+      "2020 Indexer",
+      "Indexer Procedure",
+      "Implementation",
+      "Other Teams"
+    ],
+    "code_blocks": 2
+  },
+  {
+    "path": "docs/frc/5-Advanced_&_Misc/Characterization.md",
+    "bytes": 5672,
+    "words_whitespace_including_code": 876,
+    "sha256": "89bf055d9147582b86f0629293d74baff03e07f7b5a850622c84aebc01e4390a",
+    "headings": [
+      "Characterization using FRC Characterization",
+      "Downloading Characterization Suite",
+      "Characterizing a System",
+      "Using the Feedforward Values",
+      "Sources"
+    ],
+    "code_blocks": 0
+  },
+  {
+    "path": "docs/frc/5-Advanced_&_Misc/Creating-Files.md",
+    "bytes": 4088,
+    "words_whitespace_including_code": 690,
+    "sha256": "3266cc9db3165e999e6a355b6aec09f2340d45e4b4a66cf565911a96d622d2e7",
+    "headings": [
+      "Creating Files",
+      "Writing Files",
+      "Accessing Files on the RoboRIO"
+    ],
+    "code_blocks": 1
+  },
+  {
+    "path": "docs/frc/5-Advanced_&_Misc/Iterative_Programming.md",
+    "bytes": 4863,
+    "words_whitespace_including_code": 658,
+    "sha256": "7039690b93ce1f440bb364591e988ed5501bded3074c37eb3f21c0faaf9c7666",
+    "headings": [
+      "Iterative Programming\r",
+      "Structure Overview\r",
+      "Programming\r",
+      "Application\r"
+    ],
+    "code_blocks": 1
+  },
+  {
+    "path": "docs/frc/5-Advanced_&_Misc/Joystick_Features.md",
+    "bytes": 5887,
+    "words_whitespace_including_code": 911,
+    "sha256": "79ae6660f5522ad60bcbdb710d644dfefc510a1098946fc82bf77a7b8d610c8e",
+    "headings": [
+      "Joystick Features",
+      "Scaled Input",
+      "Deadbanding",
+      "Scaled Deadbanding"
+    ],
+    "code_blocks": 4
+  },
+  {
+    "path": "docs/frc/5-Advanced_&_Misc/Notifier.md",
+    "bytes": 2921,
+    "words_whitespace_including_code": 460,
+    "sha256": "bc97b124a31824781e99e97bad8c9d05510332de33f26627c1c12a690fa41112",
+    "headings": [
+      "Notifier\r",
+      "General Description\r",
+      "Purpose\r",
+      "Example\r",
+      "Import\r",
+      "Declaring and Defining Notifier\r",
+      "Summary\r"
+    ],
+    "code_blocks": 2
+  },
+  {
+    "path": "docs/frc/5-Advanced_&_Misc/Other_Team's_Code.md",
+    "bytes": 2232,
+    "words_whitespace_including_code": 392,
+    "sha256": "8f4ef88ffbeaa053d38ceb57ba7cea5489d814ee03850491cd3fcc94e8182e34",
+    "headings": [
+      "How to Look at Code from other Teams",
+      "Teams to look at",
+      "What to look for",
+      "Looking for interesting code"
+    ],
+    "code_blocks": 0
+  },
+  {
+    "path": "docs/frc/5-Advanced_&_Misc/README.md",
+    "bytes": 173,
+    "words_whitespace_including_code": 28,
+    "sha256": "090539e3dc6f9840c7bbb68f8c890c2a553ee5348cf39f3df7a5f27697ee3098",
+    "headings": [
+      "Advanced Topics & Misc.\r",
+      "Goals\r"
+    ],
+    "code_blocks": 0
+  },
+  {
+    "path": "docs/frc/5-Advanced_&_Misc/Rate_Limit.md",
+    "bytes": 2056,
+    "words_whitespace_including_code": 292,
+    "sha256": "61c1c51f7a28385176db42505b7f6b4aa84b564f6141c970b07da8a520b31dad",
+    "headings": [
+      "Rate Limiting",
+      "Filters",
+      "Slew Rate Limiter",
+      "Example",
+      "Sources"
+    ],
+    "code_blocks": 2
+  },
+  {
+    "path": "docs/frc/5-Advanced_&_Misc/Servos.md",
+    "bytes": 3891,
+    "words_whitespace_including_code": 628,
+    "sha256": "e2b208e0a7c5a23d6fbdb921f65ca0cd81b35898b96d2c31471b1e49e30d32a8",
+    "headings": [
+      "Servos",
+      "Overview",
+      "Examples",
+      "Usage Cases",
+      "Programming"
+    ],
+    "code_blocks": 2
+  },
+  {
+    "path": "docs/frc/5-Advanced_&_Misc/Simulation.md",
+    "bytes": 4059,
+    "words_whitespace_including_code": 576,
+    "sha256": "a1d78138ae17a91a6482af8a57ceaaf341f3ad71b868c289645004bc2ef70e98",
+    "headings": [
+      "Simulation",
+      "How it works",
+      "How to use it",
+      "How to use it in our Code"
+    ],
+    "code_blocks": 3
+  },
+  {
+    "path": "docs/frc/5-Advanced_&_Misc/Sysid.md",
+    "bytes": 655,
+    "words_whitespace_including_code": 88,
+    "sha256": "9270d89f77feb7f1685492b62814a65c4a453eed288ca11d99f1cf13d6c5ef36",
+    "headings": [
+      "System Identification Tool in WPILib"
+    ],
+    "code_blocks": 0
+  },
+  {
+    "path": "docs/frc/README.md",
+    "bytes": 2516,
+    "words_whitespace_including_code": 353,
+    "sha256": "45663278e0dcd2099f3b65fb24cfc44ffbc3bf342e0d7d7ee73d0b198a6529c7",
+    "headings": [
+      "FRC Programming\r",
+      "Libraries\r",
+      "WPILib\r",
+      "Programming Environment\r",
+      "About Import Statements\r",
+      "Examples\r"
+    ],
+    "code_blocks": 0
+  },
+  {
+    "path": "docs/git/Git_Reference.md",
+    "bytes": 1056,
+    "words_whitespace_including_code": 191,
+    "sha256": "d464af4af123604f2d0ab471ea9d944986f996455091cc73077e060284f179d7",
+    "headings": [
+      "Git Reference\r",
+      "Terminal Commands\r",
+      "Git Commands (Note: You have to be in the folder of the Github repo to use any commands other than `clone`)\r"
+    ],
+    "code_blocks": 0
+  },
+  {
+    "path": "docs/git/How_To_Git.md",
+    "bytes": 3385,
+    "words_whitespace_including_code": 580,
+    "sha256": "b9414edd23476d3303b519cd8f72397461348bc8cfab96b3361d332ac098e2f6",
+    "headings": [
+      "How to Git (Command Line and VSCode)\r",
+      "Clone an Existing Repository and Make Changes\r",
+      "VSCode Integration\r",
+      "Add an Existing Local Project to GitHub\r"
+    ],
+    "code_blocks": 0
+  },
+  {
+    "path": "docs/git/README.md",
+    "bytes": 968,
+    "words_whitespace_including_code": 117,
+    "sha256": "29fdfdd7e091bc90498d55f52bc212cc87558caea0015cb80f6dabf492088a40",
+    "headings": [
+      "Git\r",
+      "Goals\r",
+      "References\r"
+    ],
+    "code_blocks": 0
+  },
+  {
+    "path": "docs/java/1-Basics/1-First_Program.md",
+    "bytes": 1795,
+    "words_whitespace_including_code": 294,
+    "sha256": "08b42158cf024c66af125b7c175ba59adffa92e3e2ed334fd9ec8fe0fd64687f",
+    "headings": [
+      "First Program\r",
+      "Our First Java Program\r",
+      "Running Our Program\r"
+    ],
+    "code_blocks": 2
+  },
+  {
+    "path": "docs/java/1-Basics/2-Variables.md",
+    "bytes": 6132,
+    "words_whitespace_including_code": 1001,
+    "sha256": "5580c7fb74add2c26457fcc27bc4bb9677d3545c8d3d3d7715f997ce013f9670",
+    "headings": [
+      "Variables\r",
+      "What They Are\r",
+      "Creating our First Variable\r",
+      "Using our Variable\r",
+      "Variables Example\r",
+      "Variable Types\r",
+      "Strings\r",
+      "Bonus: Casting\r"
+    ],
+    "code_blocks": 6
+  },
+  {
+    "path": "docs/java/1-Basics/3-Operators.md",
+    "bytes": 2977,
+    "words_whitespace_including_code": 557,
+    "sha256": "141e3bf541745357baf2e0f3a09ec057a87b5397ca2bdc5768042264d9b7b5f9",
+    "headings": [
+      "Operators\r",
+      "Variables\r",
+      "Shortcuts\r",
+      "More Operators\r"
+    ],
+    "code_blocks": 2
+  },
+  {
+    "path": "docs/java/1-Basics/4-Comments.md",
+    "bytes": 3067,
+    "words_whitespace_including_code": 498,
+    "sha256": "b0e5c5f8594adf18a5e2f913dbcbd5f96d2f9356fc247e6a55f29c0209c06244",
+    "headings": [
+      "Comments\r",
+      "What Comments Are\r",
+      "Multiline Comments\r",
+      "Comment Usage\r",
+      "Disclaimer\r"
+    ],
+    "code_blocks": 5
+  },
+  {
+    "path": "docs/java/1-Basics/5-Console_Input.md",
+    "bytes": 2752,
+    "words_whitespace_including_code": 440,
+    "sha256": "82631c9c644517c856d0c40983a73850236bbb95213421206830968d2201bccb",
+    "headings": [
+      "Console Input\r",
+      "Scanner\r",
+      "Import Statements\r",
+      "Using Scanner\r",
+      "Other Types You Might Want\r"
+    ],
+    "code_blocks": 1
+  },
+  {
+    "path": "docs/java/1-Basics/6-Arrays.md",
+    "bytes": 2539,
+    "words_whitespace_including_code": 439,
+    "sha256": "c35bef035643405d542df1bdf63e66fa84bb8f9f878bedfc7f09169a42cb4169",
+    "headings": [
+      "Arrays\r",
+      "What Are Arrays?\r",
+      "Making an Array\r",
+      "Assigning Variable Values To An Array\r",
+      "Making an Array with Initializer List\r"
+    ],
+    "code_blocks": 3
+  },
+  {
+    "path": "docs/java/1-Basics/README.md",
+    "bytes": 762,
+    "words_whitespace_including_code": 104,
+    "sha256": "ce0a3461ce5ae7d6fc9bb157b32839096a3db3d3820d965c75a7ba1bf91ee0e4",
+    "headings": [
+      "Basics of Java\r",
+      "Goals\r",
+      "Tasks\r",
+      "Reference\r"
+    ],
+    "code_blocks": 0
+  },
+  {
+    "path": "docs/java/1-Basics/programs/HelloWorld.md",
+    "bytes": 131,
+    "words_whitespace_including_code": 16,
+    "sha256": "6a5d4e0edda010935c8e134b455dcd9cb8e0b471fb5eeb84e33f5db743151478",
+    "headings": [],
+    "code_blocks": 1
+  },
+  {
+    "path": "docs/java/1-Basics/programs/Input.md",
+    "bytes": 418,
+    "words_whitespace_including_code": 48,
+    "sha256": "2f750b667b27a9dcec3a20a6a4d7b83386d17ed00e87a5e3199bebd3c4c162c1",
+    "headings": [],
+    "code_blocks": 1
+  },
+  {
+    "path": "docs/java/1-Basics/programs/README.md",
+    "bytes": 135,
+    "words_whitespace_including_code": 21,
+    "sha256": "637bca827d2fb1c7d7a939e9bb447470fd92fdfb487b6c834cf4f5488df88d55",
+    "headings": [
+      "Programs\r"
+    ],
+    "code_blocks": 0
+  },
+  {
+    "path": "docs/java/1-Basics/programs/Variables.md",
+    "bytes": 1248,
+    "words_whitespace_including_code": 135,
+    "sha256": "ad405f4855c903ad236a821f4a550909faf6e0359f6807073d60cd41c998c7f8",
+    "headings": [],
+    "code_blocks": 1
+  },
+  {
+    "path": "docs/java/2-Control_Flow/1-If_Statements.md",
+    "bytes": 3469,
+    "words_whitespace_including_code": 534,
+    "sha256": "2dd8e28bded833f817de727d20f6b49dbf8108d999379a6f4ac807fc057d2630",
+    "headings": [
+      "If Statements\r",
+      "Booleans With If Statements\r",
+      "Comparing Strings\r"
+    ],
+    "code_blocks": 7
+  },
+  {
+    "path": "docs/java/2-Control_Flow/2-Logical_Operators.md",
+    "bytes": 1921,
+    "words_whitespace_including_code": 290,
+    "sha256": "130ccd0e1840a9902546239da2c8270f64933da510d50a3386eeb6c31b1a3d3d",
+    "headings": [
+      "Logical Operators\r"
+    ],
+    "code_blocks": 3
+  },
+  {
+    "path": "docs/java/2-Control_Flow/3-Else_Statements.md",
+    "bytes": 1642,
+    "words_whitespace_including_code": 242,
+    "sha256": "d3bd05bb969773118dc0045adc1d5612439f1985f8cfe98c9058567400add1a0",
+    "headings": [
+      "Else Statements\r"
+    ],
+    "code_blocks": 2
+  },
+  {
+    "path": "docs/java/2-Control_Flow/4-Switch_Statements.md",
+    "bytes": 3189,
+    "words_whitespace_including_code": 430,
+    "sha256": "ae3e8fe123e1d51337d830c470912a4c9424bced96d3a73aad98f8656928169b",
+    "headings": [
+      "Switch Statements\r"
+    ],
+    "code_blocks": 2
+  },
+  {
+    "path": "docs/java/2-Control_Flow/5-While_Loops.md",
+    "bytes": 2006,
+    "words_whitespace_including_code": 354,
+    "sha256": "03f0c58ea636953ae614d42f87200ef5e2f2b112fabbe285091bfbc646028533",
+    "headings": [
+      "While Loops\r"
+    ],
+    "code_blocks": 2
+  },
+  {
+    "path": "docs/java/2-Control_Flow/6-For_Loops.md",
+    "bytes": 2146,
+    "words_whitespace_including_code": 386,
+    "sha256": "91d12f711929d351cf0aa779ea7d97b896f41cda8d790566cfccfc9a6d9ca1ef",
+    "headings": [
+      "For Loops\r"
+    ],
+    "code_blocks": 3
+  },
+  {
+    "path": "docs/java/2-Control_Flow/7-Enums.md",
+    "bytes": 2994,
+    "words_whitespace_including_code": 381,
+    "sha256": "883df38b5f2a069713e379937f6a37fdf217a16f2d07805e1a62fe88e5005f90",
+    "headings": [
+      "Enums\r",
+      "Switch Statements\r"
+    ],
+    "code_blocks": 2
+  },
+  {
+    "path": "docs/java/2-Control_Flow/8-Scope.md",
+    "bytes": 1211,
+    "words_whitespace_including_code": 192,
+    "sha256": "41e517d7810451e886875ff7f6ec0b670541dffbdc3d88040b172cc5bcbb9407",
+    "headings": [
+      "Scope\r",
+      "For Loops\r"
+    ],
+    "code_blocks": 2
+  },
+  {
+    "path": "docs/java/2-Control_Flow/README.md",
+    "bytes": 842,
+    "words_whitespace_including_code": 121,
+    "sha256": "c08fda79678c3593c0e02bea8819da69183bad44751504fc3cda7bb0a1a7541b",
+    "headings": [
+      "Control Flow\r",
+      "Goals\r",
+      "Tasks\r",
+      "Reference\r"
+    ],
+    "code_blocks": 0
+  },
+  {
+    "path": "docs/java/2-Control_Flow/programs/EvenOdd.md",
+    "bytes": 538,
+    "words_whitespace_including_code": 64,
+    "sha256": "422d8030169a4f81cf42560aa9e40a1b691095f1e5dd9430066757d682fd17a9",
+    "headings": [],
+    "code_blocks": 1
+  },
+  {
+    "path": "docs/java/2-Control_Flow/programs/Exponent.md",
+    "bytes": 652,
+    "words_whitespace_including_code": 77,
+    "sha256": "15127df96879934ca2686faf745c394fffdf95ff70bcc5a978f4f494ac06eb22",
+    "headings": [],
+    "code_blocks": 1
+  },
+  {
+    "path": "docs/java/2-Control_Flow/programs/PrintNumbers.md",
+    "bytes": 385,
+    "words_whitespace_including_code": 47,
+    "sha256": "87f35cf739fdbf760bcc6ce5826f85a9d0f762dedf99075d6670ce1780cfdf25",
+    "headings": [],
+    "code_blocks": 1
+  },
+  {
+    "path": "docs/java/2-Control_Flow/programs/README.md",
+    "bytes": 141,
+    "words_whitespace_including_code": 22,
+    "sha256": "96910b513c229fe9b0f963a58465da9b985d335dbc3fdf6fc9f819a8e527d28b",
+    "headings": [
+      "Programs\r"
+    ],
+    "code_blocks": 0
+  },
+  {
+    "path": "docs/java/2-Control_Flow/programs/SimpleChatbot.md",
+    "bytes": 1959,
+    "words_whitespace_including_code": 190,
+    "sha256": "85f0cc13a26da76cf8c47ddfa903c2fe2be9093dfc3dae837c65752f5aadbf9e",
+    "headings": [],
+    "code_blocks": 1
+  },
+  {
+    "path": "docs/java/3-Functions/1-Basics.md",
+    "bytes": 3629,
+    "words_whitespace_including_code": 400,
+    "sha256": "e9d90908d6d64393167962e6f72ef80d2691904bfddac8197d3dd92e15ff69bc",
+    "headings": [
+      "Basics\r",
+      "What a Function is\r",
+      "Function Example\r",
+      "Function Usage\r"
+    ],
+    "code_blocks": 7
+  },
+  {
+    "path": "docs/java/3-Functions/2-Functions_with_Arguments.md",
+    "bytes": 3481,
+    "words_whitespace_including_code": 481,
+    "sha256": "e4ca7854e3b15020af980ba1d432b2ed166bf6882a49e8b6d14c69b92e3aa92f",
+    "headings": [
+      "Functions with Arguments\r",
+      "Example\r",
+      "Flexibility\r",
+      "Multiple Arguments\r",
+      "System.out.println\r"
+    ],
+    "code_blocks": 7
+  },
+  {
+    "path": "docs/java/3-Functions/3-Functions_with_Return_Types.md",
+    "bytes": 3805,
+    "words_whitespace_including_code": 618,
+    "sha256": "6654d6cc048187683ceb7f63472367a80aefe0992534153cf671f3ee75848f7e",
+    "headings": [
+      "Functions with Return Types\r",
+      "Builtin Functions\r"
+    ],
+    "code_blocks": 8
+  },
+  {
+    "path": "docs/java/3-Functions/4-Overloading.md",
+    "bytes": 1756,
+    "words_whitespace_including_code": 282,
+    "sha256": "e48ea503267d395008bead15a955cc5ff6455706cccbd3c2b5d4e46ab1bf9b04",
+    "headings": [
+      "Overloading\r",
+      "What Overloading Is\r",
+      "Example of Overloading\r",
+      "Robotics Programming\r"
+    ],
+    "code_blocks": 1
+  },
+  {
+    "path": "docs/java/3-Functions/5-Lambdas.md",
+    "bytes": 174,
+    "words_whitespace_including_code": 13,
+    "sha256": "d9aa71ed7d8cb7b2c753bebc00b9f58462fc9a4c2535dd7b8bfcf36c793d0774",
+    "headings": [
+      "Lambdas",
+      "Resources"
+    ],
+    "code_blocks": 0
+  },
+  {
+    "path": "docs/java/3-Functions/README.md",
+    "bytes": 1015,
+    "words_whitespace_including_code": 135,
+    "sha256": "ec5e5f54ab3a567af9298f4f4e9d22d45cb1ede7ff3e01b028600f157ac173eb",
+    "headings": [
+      "Functions\r",
+      "Goals\r",
+      "Tasks\r",
+      "Reference\r"
+    ],
+    "code_blocks": 0
+  },
+  {
+    "path": "docs/java/3-Functions/programs/FancyText.md",
+    "bytes": 696,
+    "words_whitespace_including_code": 80,
+    "sha256": "bdd8fc5d03cf7eccc70af9fa92481e27f9603e7147d6456739814006e602549f",
+    "headings": [],
+    "code_blocks": 1
+  },
+  {
+    "path": "docs/java/3-Functions/programs/Formulas.md",
+    "bytes": 2807,
+    "words_whitespace_including_code": 231,
+    "sha256": "e65a0b2b63b3ff635e95d3029fe9183b737803bc0c7d4fca7a6ca0a87e0bcc73",
+    "headings": [],
+    "code_blocks": 1
+  },
+  {
+    "path": "docs/java/3-Functions/programs/PrintArray.md",
+    "bytes": 636,
+    "words_whitespace_including_code": 79,
+    "sha256": "4c030af0ad170ac2e3caaac9a2e37b1c8d8ca92beec5e26d7fe0db4a29551938",
+    "headings": [],
+    "code_blocks": 1
+  },
+  {
+    "path": "docs/java/3-Functions/programs/README.md",
+    "bytes": 138,
+    "words_whitespace_including_code": 21,
+    "sha256": "4b2de0830c124b153288b5dc2a92ea4a90f9dcef83e1433317409f2485ba5296",
+    "headings": [
+      "Programs\r"
+    ],
+    "code_blocks": 0
+  },
+  {
+    "path": "docs/java/3-Functions/programs/ReverseString.md",
+    "bytes": 964,
+    "words_whitespace_including_code": 95,
+    "sha256": "5001c2c41bde956299ab391200fef84e948879797942119a4c65533f134c7061",
+    "headings": [],
+    "code_blocks": 1
+  },
+  {
+    "path": "docs/java/4-Objects/1-Overview.md",
+    "bytes": 2506,
+    "words_whitespace_including_code": 426,
+    "sha256": "989730bb9ab570a244f065a449c0fb3544062e4a54c3611cd3547a778f8cb12a",
+    "headings": [
+      "Objects Overview\r",
+      "Real Life Objects\r",
+      "Programming Objects\r",
+      "Custom Datatypes\r"
+    ],
+    "code_blocks": 1
+  },
+  {
+    "path": "docs/java/4-Objects/2-Classes.md",
+    "bytes": 5549,
+    "words_whitespace_including_code": 842,
+    "sha256": "8f4a21eb2828b7280ec6c38112ff7b10a79c265c9d43235e468a92b1ed97b8f7",
+    "headings": [
+      "Classes\r",
+      "Classes Analogy\r",
+      "Java Classes\r",
+      "Properties\r",
+      "Actions\r",
+      "Static vs Nonstatic\r"
+    ],
+    "code_blocks": 8
+  },
+  {
+    "path": "docs/java/4-Objects/3-More_About_Classes.md",
+    "bytes": 8147,
+    "words_whitespace_including_code": 1177,
+    "sha256": "775c98e0f79c3ba0c480492a37555bb054ebf29518eec2b0f3d69339171a1fd7",
+    "headings": [
+      "More About Classes\r",
+      "Constructors\r",
+      "Package\r",
+      "Import\r",
+      "Access Modifiers\r",
+      "Getters and Setters\r"
+    ],
+    "code_blocks": 14
+  },
+  {
+    "path": "docs/java/4-Objects/4-Inheritance.md",
+    "bytes": 5033,
+    "words_whitespace_including_code": 700,
+    "sha256": "b2789b4abfa268a24e1f489db93d02a6a424c162de7e0eee0b550529f81d8fc2",
+    "headings": [
+      "Inheritance\r",
+      "Creating Firefighter.java\r"
+    ],
+    "code_blocks": 7
+  },
+  {
+    "path": "docs/java/4-Objects/5-Overriding.md",
+    "bytes": 5028,
+    "words_whitespace_including_code": 708,
+    "sha256": "0431fe5b095738a233cb962d6fbace66444ad6bb0a2e5051097f0610fad2954a",
+    "headings": [
+      "Overriding\r",
+      "Calling Parent Class' Original Function\r",
+      "@Override\r"
+    ],
+    "code_blocks": 8
+  },
+  {
+    "path": "docs/java/4-Objects/6-Polymorphism.md",
+    "bytes": 2146,
+    "words_whitespace_including_code": 279,
+    "sha256": "e09158f07bea98574948c95e676da28bd85d4559a49cdee3c4964dbbcb46596b",
+    "headings": [
+      "Polymorphism\r"
+    ],
+    "code_blocks": 3
+  },
+  {
+    "path": "docs/java/4-Objects/7-Abstract_Classes.md",
+    "bytes": 5590,
+    "words_whitespace_including_code": 831,
+    "sha256": "57e6d8d49ed4bc36ec7f00fdeb087c848ffd7ef0871cc5d8708feaba2615af6d",
+    "headings": [
+      "Abstract Classes\r",
+      "Abstract Methods\r",
+      "Usefulness\r"
+    ],
+    "code_blocks": 5
+  },
+  {
+    "path": "docs/java/4-Objects/README.md",
+    "bytes": 1671,
+    "words_whitespace_including_code": 222,
+    "sha256": "f301b168bcca843bf3bef182d04f84e63b476612c71beeefd06338c405f225c6",
+    "headings": [
+      "Objects\r",
+      "Goals\r",
+      "Tasks\r",
+      "Reference\r"
+    ],
+    "code_blocks": 0
+  },
+  {
+    "path": "docs/java/4-Objects/programs/Access/MainSame.md",
+    "bytes": 720,
+    "words_whitespace_including_code": 93,
+    "sha256": "1236a17e7d3c5c1a9abec2aa18dc9e7799be262ea255688ae43ca97eff210cb4",
+    "headings": [],
+    "code_blocks": 1
+  },
+  {
+    "path": "docs/java/4-Objects/programs/Access/Other.md",
+    "bytes": 372,
+    "words_whitespace_including_code": 35,
+    "sha256": "96b028daf438f13c3ccffd86160489739d61077d3ab88c27870b0387e2b5bd45",
+    "headings": [],
+    "code_blocks": 1
+  },
+  {
+    "path": "docs/java/4-Objects/programs/Access/README.md",
+    "bytes": 298,
+    "words_whitespace_including_code": 48,
+    "sha256": "501e748bc4071a007dfce98ca76fa7df9de8d796a7e414046544896bbe7866f5",
+    "headings": [
+      "Access\r"
+    ],
+    "code_blocks": 0
+  },
+  {
+    "path": "docs/java/4-Objects/programs/Access/out/MainOut.md",
+    "bytes": 751,
+    "words_whitespace_including_code": 99,
+    "sha256": "06a09a60818ca7dc945ffc7063c8ff8b80ed37e1d6b529a70091a164c1896791",
+    "headings": [],
+    "code_blocks": 1
+  },
+  {
+    "path": "docs/java/4-Objects/programs/Access/out/_sidebar.md",
+    "bytes": 1112,
+    "words_whitespace_including_code": 53,
+    "sha256": "69f0779d1483ed537d97e01bcd729967512f0e2fb6258d984a9e58c39449e54c",
+    "headings": [],
+    "code_blocks": 0
+  },
+  {
+    "path": "docs/java/4-Objects/programs/Cars/Car.md",
+    "bytes": 655,
+    "words_whitespace_including_code": 81,
+    "sha256": "3ca719e59ad16d54c3ffbb1276b911824304c38b11d49155cfbac8323e7c1141",
+    "headings": [],
+    "code_blocks": 1
+  },
+  {
+    "path": "docs/java/4-Objects/programs/Cars/Main.md",
+    "bytes": 349,
+    "words_whitespace_including_code": 33,
+    "sha256": "44bccd1bda323f075c090a44083d149fa7659015817b4dc6eb198a61e3ff84c3",
+    "headings": [],
+    "code_blocks": 1
+  },
+  {
+    "path": "docs/java/4-Objects/programs/Cars/README.md",
+    "bytes": 107,
+    "words_whitespace_including_code": 17,
+    "sha256": "dc7fe137b0ed74729c908be740e9d8c7b1872d606fc6f2ab4bcafbe77aee564b",
+    "headings": [
+      "Cars\r"
+    ],
+    "code_blocks": 0
+  },
+  {
+    "path": "docs/java/4-Objects/programs/Cars/Taxi.md",
+    "bytes": 416,
+    "words_whitespace_including_code": 57,
+    "sha256": "edfbd0eaaeb48dbb971c9b4f2669b1800bdc1f7e0eebb3353b2adb609b2c8208",
+    "headings": [],
+    "code_blocks": 1
+  },
+  {
+    "path": "docs/java/4-Objects/programs/README.md",
+    "bytes": 122,
+    "words_whitespace_including_code": 18,
+    "sha256": "de7c0505606876036ed8a4b7792a90ae65437e69c226135fd64846b07816a7ee",
+    "headings": [
+      "Programs\r"
+    ],
+    "code_blocks": 0
+  },
+  {
+    "path": "docs/java/Formatting_Guide.md",
+    "bytes": 3838,
+    "words_whitespace_including_code": 609,
+    "sha256": "04a7eb558ea48a633da6129ed29b499a2e07646f9aaa9bc25fa0add646576adc",
+    "headings": [
+      "Formatting Guide\r",
+      "Java\r",
+      "Naming\r",
+      "Spacing\r",
+      "Miscellaneous\r",
+      "FRC Code Structure\r",
+      "Git\r"
+    ],
+    "code_blocks": 3
+  },
+  {
+    "path": "docs/java/README.md",
+    "bytes": 2790,
+    "words_whitespace_including_code": 438,
+    "sha256": "fb1de465633d8db64433092ad5950020d512d088944ac9cd1a09a5d0e3cf80d5",
+    "headings": [
+      "Java\r",
+      "IDEs\r",
+      "[repl.it](https://repl.it/)\r",
+      "Why We Use Java\r",
+      "Curriculum\r",
+      "Help\r",
+      "Typos\r"
+    ],
+    "code_blocks": 0
+  },
+  {
+    "path": "docs/vision/Limelight/README.md",
+    "bytes": 4999,
+    "words_whitespace_including_code": 781,
+    "sha256": "dab5b7cd2a7c359f7af0b45195b3cc90ffcbfb13e0717e3ef50ae71e7b865d38",
+    "headings": [
+      "Limelight",
+      "Updating Limelight",
+      "Tuning Limelight Image",
+      "Receiving Target Information",
+      "Communicating With Limelight",
+      "Using Limelight Target Information",
+      "Limelight Utility Class"
+    ],
+    "code_blocks": 2
+  },
+  {
+    "path": "docs/vision/PhotonVision/Code.md",
+    "bytes": 71,
+    "words_whitespace_including_code": 13,
+    "sha256": "59a75542d4faf7f2e8a132ab58ddfca1b35c887459054fc769b923b1504b3cad",
+    "headings": [
+      "Code",
+      "New Vision Subsystem",
+      "Pose Estimation",
+      "Other Uses"
+    ],
+    "code_blocks": 0
+  },
+  {
+    "path": "docs/vision/PhotonVision/README.md",
+    "bytes": 1019,
+    "words_whitespace_including_code": 142,
+    "sha256": "961f4d05534310e9f78030bd186c8e5fc01938587b972c714480a287d5071979",
+    "headings": [
+      "PhotonVision",
+      "Hardware"
+    ],
+    "code_blocks": 0
+  },
+  {
+    "path": "docs/vision/PhotonVision/Setup.md",
+    "bytes": 320,
+    "words_whitespace_including_code": 36,
+    "sha256": "026ced06e5f3708f39b425f4ffde08726cf0e669e6c2633f2e0b261ffc331e77",
+    "headings": [
+      "Pi Setup",
+      "Configuring PhotonVision",
+      "Calibrating the Camera for April Tag Detection",
+      "Calibrating the Camera for Target Detection",
+      "Troubleshooting"
+    ],
+    "code_blocks": 0
+  },
+  {
+    "path": "docs/vision/README.md",
+    "bytes": 2144,
+    "words_whitespace_including_code": 387,
+    "sha256": "fc34062925b82de953907984d47fecf066eec4484fc2674658bc2695dd071cf4",
+    "headings": [
+      "Vision",
+      "Vision Basics",
+      "When is Vision Used?",
+      "Vision Options",
+      "External CPUs",
+      "Vision Processing"
+    ],
+    "code_blocks": 0
+  },
+  {
+    "path": "docs/vision/WPILibPi/README.md",
+    "bytes": 348,
+    "words_whitespace_including_code": 41,
+    "sha256": "f89e52bf7c7fd15aafa089c6cb95003f1b236ea08485150a78cecb5f66bb8ee0",
+    "headings": [
+      "WPILibPi"
+    ],
+    "code_blocks": 0
+  },
+  {
+    "path": "docs/website/1-Site_Layout.md/1-Folders_&_Files_in_SnailSite.md",
+    "bytes": 2247,
+    "words_whitespace_including_code": 279,
+    "sha256": "38ccee73e8a0d31443a238d2acddfd7c02236ddda2a2a6cd89a11cd040d4a058",
+    "headings": [
+      "Folders & Files in `SnailSite/`",
+      "`index.html`",
+      "Logo Update",
+      "`public/`",
+      "`src/`"
+    ],
+    "code_blocks": 1
+  },
+  {
+    "path": "docs/website/1-Site_Layout.md/2-Folders_&_Files_in_Src.md",
+    "bytes": 2923,
+    "words_whitespace_including_code": 350,
+    "sha256": "cf7c4a025730da565d7033e7712ab2891645c885d38ac1bda0070754ec03e63f",
+    "headings": [
+      "Folders & Files in `src/`",
+      "`pages/`",
+      "Outreach Pages",
+      "Image Storage"
+    ],
+    "code_blocks": 2
+  },
+  {
+    "path": "docs/website/1-Site_Layout.md/README.md",
+    "bytes": 219,
+    "words_whitespace_including_code": 34,
+    "sha256": "568de2d0295c385c4531cdea8432dfbb1c2f4faca04b5a23ce6720482cd87480",
+    "headings": [
+      "Site Layout",
+      "Goals"
+    ],
+    "code_blocks": 0
+  },
+  {
+    "path": "docs/website/2-Annual_Updates/1-Student_Leadership.md",
+    "bytes": 8774,
+    "words_whitespace_including_code": 1114,
+    "sha256": "eea643388169360e22c2527695ff086cc139b0b336f8a72fa00bfd55311d85c1",
+    "headings": [
+      "Student Leadership",
+      "Tutorial",
+      "Team Photo",
+      "More on Formatting",
+      "Detailed Breakdown"
+    ],
+    "code_blocks": 12
+  },
+  {
+    "path": "docs/website/2-Annual_Updates/2-Sponsors.md",
+    "bytes": 6598,
+    "words_whitespace_including_code": 867,
+    "sha256": "c4ba6ced77c8efdfbf0ae04c9b1a753dd2a12515ccb4b617af94679502af8712",
+    "headings": [
+      "Sponsors",
+      "Tutorial"
+    ],
+    "code_blocks": 6
+  },
+  {
+    "path": "docs/website/2-Annual_Updates/3-Awards.md",
+    "bytes": 1412,
+    "words_whitespace_including_code": 217,
+    "sha256": "a8806e105adc0bd1934c14b0ac4041bbcad775e253ed187fca1ff1ed50c5f975",
+    "headings": [
+      "Awards",
+      "Tutorial"
+    ],
+    "code_blocks": 2
+  },
+  {
+    "path": "docs/website/2-Annual_Updates/README.md",
+    "bytes": 731,
+    "words_whitespace_including_code": 125,
+    "sha256": "0178a776920bddded9c640fa6935cb29cd82923cdd21b69f52ab4696f6c91113",
+    "headings": [
+      "Annual Updates",
+      "Goals"
+    ],
+    "code_blocks": 0
+  },
+  {
+    "path": "docs/website/Getting_Started.md",
+    "bytes": 1185,
+    "words_whitespace_including_code": 179,
+    "sha256": "15cb2b301047738acd3a76c8d8d22540b21a382ce230ae5dfd7413271f2bd6ca",
+    "headings": [
+      "Getting Started"
+    ],
+    "code_blocks": 0
+  },
+  {
+    "path": "docs/website/README.md",
+    "bytes": 948,
+    "words_whitespace_including_code": 97,
+    "sha256": "221d87c8c714125a5d3cee02d6eefd1966ef5d8e24e48e03f21a5752d0947286",
+    "headings": [
+      "Basics",
+      "Prerequisites",
+      "HTML/CSS/JS"
+    ],
+    "code_blocks": 0
+  }
+]

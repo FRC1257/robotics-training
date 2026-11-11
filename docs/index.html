@@ -1,108 +1,40 @@
-<!DOCTYPE html>
-
+<!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-		<meta name="description" content="Description">
-		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">
-		<link rel="stylesheet" href="./css/prism-material-dark.css">
-		<link rel="stylesheet" href="./css/toc.css">
-		<link rel="icon" href="./media/1257snail.svg">
-		<title>Robotics Training</title>
-		<style>
-			:root {
-				--theme-color: #36bc98;
-				--link-color: #36bc98;
-    			--cover-heading-color : ;
-				--content-width: 60em;
-
-				--sidebar-nav-link-before-content             : none ;
-				--sidebar-nav-link-before-content--active     : none ;
-				--sidebar-nav-link-before-content-l1          : none ;
-				--sidebar-nav-link-before-content-l1--active  : none ;
-				--sidebar-nav-link-before-content-l2          : none ;
-				--sidebar-nav-link-before-content-l2--active  : none ;
-				--sidebar-nav-link-before-content-l3          : none ;
-				--sidebar-nav-link-before-content-l3--active  : none ;
-				--sidebar-nav-link-before-content-l4          : none ;
-				--sidebar-nav-link-before-content-l4--active  : none ;
-    			--sidebar-width                               : 18rem;
-				--sidebar-name-font-weight                    : 600;
-				--sidebar-name-font-size                      : 1.8rem;
-
-				--heading-h1-font-weight            : bold ;
-				--heading-h2-font-weight            : bold ;
-				--heading-h3-font-weight            : bold ;
-				--heading-h4-font-weight            : bold ;
-				--heading-h5-font-weight            : bold ;
-
-				--toc-width                         : 15rem ;
-			}
-		</style>
-	</head>
-	<body>
-		<div id="app"></div>
-		
-		<script>
-			window.$docsify = {
-				name: 'Robotics Training',
-				repo: '',
-				coverpage: false,
-				loadSidebar: true,
-				auto2top: true,
-				'flexible-alerts': {
-					style: 'flat'
-				},
-				search: {
-					depth: 6
-				},
-				toc: {
-					scope: '.markdown-section',
-					headings: 'h1, h2, h3, h4, h5, h6',
-					title: 'Contents',
-				},
-				sidebarDisplayLevel: 0,
-				
-				plugins: [					
-					function (hook, vm) {
-						hook.beforeEach(function(html) {
-							if (/githubusercontent\.com/.test(vm.route.file)) {
-								url = vm.route.file
-									.replace('raw.githubusercontent.com', 'github.com')
-									.replace(/\/master/, '/blob/master')
-								} else {
-									url = 'https://github.com/FRC1257/robotics-training/tree/master/docs/' + vm.route.file
-								}
-								var editHtml = '<a class="edit-button" href="' + url + '"><i class="fab fa-github"></i> Edit Page on GitHub</a>'
-								
-								return html + "<br><br>" + editHtml
-						})
-					}
-				]
-			}
-		</script>
-		
-		<script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
-
-		<!-- plugins -->
-		<script src="https://cdn.jsdelivr.net/npm/docsify-themeable@0"></script>
-		<script src="https://cdn.jsdelivr.net/npm/docsify-pagination@2/dist/docsify-pagination.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.js"></script>
-		<script src="https://unpkg.com/docsify-plugin-flexible-alerts"></script>
-		<script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-java.min.js"></script>
-        <script src="//cdn.jsdelivr.net/npm/docsify-katex@latest/dist/docsify-katex.js"></script>
-		<script src="https://unpkg.com/docsify-toc@1.0.0/dist/toc.js"></script>
-		<script src="https://kit.fontawesome.com/6ddc023efd.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"/>
-		<script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
-        
-		<link rel="stylesheet" href="./css/override.css"/>
-
-		<script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-jsx.min.js"></script>
-		<script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-tsx.min.js"></script>
-		<script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-typescript.min.js"></script>
-	</body>
-	</html>
-
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Learn FRC programming with Team 1257: guided Java and WPILib projects, interactive PID and swerve labs, and real robot code and logs.">
+  <meta name="theme-color" content="#126b54">
+  <meta property="og:title" content="Team 1257 Robotics Training">
+  <meta property="og:description" content="Build understanding. Test it in simulation. Learn from real robots.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://frc1257.github.io/robotics-training/">
+  <link rel="canonical" href="https://frc1257.github.io/robotics-training/">
+  <link rel="icon" href="./media/1257snail.svg" type="image/svg+xml">
+  <title>Team 1257 Robotics Training</title>
+  <link rel="stylesheet" href="./vendor/docsify-themeable/dist/css/theme-simple.css">
+  <link rel="stylesheet" href="./vendor/katex/dist/katex.min.css">
+  <link rel="stylesheet" href="./css/prism-material-dark.css">
+  <link rel="stylesheet" href="./css/toc.css">
+  <link rel="stylesheet" href="./css/override.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to lesson</a>
+  <div id="app">Loading the training library…</div>
+  <noscript><p>This version uses JavaScript to display Markdown. You can <a href="https://github.com/FRC1257/robotics-training/tree/main/docs">read every lesson on GitHub</a> or open the standalone labs with JavaScript enabled.</p></noscript>
+  <script src="./js/site.js"></script>
+  <script src="./vendor/docsify/lib/docsify.min.js"></script>
+  <script src="./vendor/docsify-themeable/dist/js/docsify-themeable.min.js"></script>
+  <script src="./vendor/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  <script src="./vendor/docsify/lib/plugins/search.js"></script>
+  <script src="./vendor/docsify-plugin-flexible-alerts/dist/docsify-plugin-flexible-alerts.min.js"></script>
+  <script src="./vendor/prismjs/components/prism-java.min.js"></script>
+  <script src="./vendor/prismjs/components/prism-jsx.min.js"></script>
+  <script src="./vendor/prismjs/components/prism-typescript.min.js"></script>
+  <script src="./vendor/prismjs/components/prism-tsx.min.js"></script>
+  <script src="./vendor/katex/dist/katex.min.js"></script>
+  <script src="./vendor/docsify-katex/dist/docsify-katex.js"></script>
+  <script src="./vendor/docsify-toc/dist/toc.js"></script>
+  <script src="./vendor/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
+</body>
+</html>

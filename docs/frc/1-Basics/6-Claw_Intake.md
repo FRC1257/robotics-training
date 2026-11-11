@@ -1,3 +1,5 @@
+> **Historical lesson:** This material predates the 2026 course and may use older WPILib, vendor APIs, team wrappers, and game rules. Its original version is not verified here. Do not copy its robot code into a 2026 project without migration and mentor review. Start with [the 2026 subsystem lesson](../1-Basics/5-First_Subsystem.md).
+
 # Claw Intake
 
 Now that you know the basics behind making a subystem and its supporting files, we are going to cover making other common subsystems to practice. The next few lessons will be about learning each of the major subsystems that 1257 uses and how to program them.
