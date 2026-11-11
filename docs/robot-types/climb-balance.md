@@ -29,3 +29,15 @@ For a 2023-style docking exercise, an IMU can report pitch in radians and angula
 ## Exercise
 
 Write a fake-sensor test for a hook that never confirms engagement. Expected: lifting is not authorized and the state reports timeout or the reviewed fault. For a toy balance simulation inject a reversed pitch sign: the controller should fail a sign-check test before any physical attempt. Test disable and manual abort, then explicitly list what your simple model cannot show: hook loading, contact, structural strength, partner motion and disabled retention.
+
+## Predict, experiment, explain
+
+**Predict:** Is a command to lift proof that a hook is engaged? What happens when a required input becomes invalid during a climb request?
+
+**Experiment:** With request released, enable and record the simulated asserted home switch; choose a height and request the sequence. Toggle cage detection and inspect phase, engagement-related inputs and requested output. Introduce an invalid sensor or obstruction and observe the latched fault and output. Clear the condition, release request and reset before a new attempt.
+
+**Explain:** Which gate authorized motion, and what independent evidence would be needed to establish engagement? The home control records an assumed switch event, not an automatic homing movement. The model does not execute the linked team Java or simulate structural loading and retention.
+
+**Compare the source:** [Team 2910 2025 `ClimberSubsystem.java`](https://github.com/FRCTeam2910/2025CompetitionRobot-Public/blob/1b9e161c7719da0522ec826e2a48d2afb63232a5/src/main/java/org/frc2910/robot/subsystems/climber/ClimberSubsystem.java#L128-L146). The source idles requests other than HOME while unhomed and then uses current and roller-speed conditions to manage an intake/cage candidate state. The demo adapts this idea and does not implement the source method.
+
+<!-- lab: mechanism-climb-balance -->

@@ -33,3 +33,17 @@ A sensor in the intake proves occupancy only there; handoff requires its own con
 ## Prove the contract
 
 Use fake IO to test a low-height extension request, clearance lost during motion, missing handoff confirmation, a homing timeout and a sudden invalid camera estimate. Test that an unhomed axis can enter only the explicitly supervised, bounded homing procedure—not an ordinary scoring move. Expect the planner to defer unsafe goals or fault rather than announce a successful placement. Test that interruptions lead to an intentionally designed hold/retract response without assuming software can hold a disabled mechanism. A geometry simulation verifies only modeled envelopes; physical piece grip, elevator load, hard stops and disabled retention need independent engineering review and controlled tests. Compare with the [telescoping arm](telescoping-arm.md), where shoulder angle and extension both change the endpoint and tipping demand.
+
+## Predict, experiment, explain
+
+**Predict:** What must be known before automatic motion can be requested? Why can independently valid axis targets still violate a clearance envelope?
+
+**Experiment:** With the request released, enable and record the simulated asserted home switch. Request a height of `0.2 m` with a wrist target of `0.5 rad`: the model reports `incompatible` and requests zero motion. Now choose `1.0 m` and `0.5 rad`. The model raises the elevator to at least `0.3 m` before allowing the wrist to cross `0.2 rad`. For a later low-height request it stows the wrist first. These thresholds are **hypothetical teaching assumptions**, not measured robot geometry.
+
+Add an obstruction or stale sensor during motion; inspect the latched fault and outputs. Clear the condition, release request and reset. The home control records an assumed switch event; it does not simulate an automatic homing movement.
+
+**Explain:** Name the condition that prevented or stopped movement and which axis depends on clearance. The browser’s simplified geometry is not team Java execution or a collision-verified robot model.
+
+**Compare the source:** [Team 254 2024 `ElevatorSubsystem.java`](https://github.com/Team254/FRC-2024-Public/blob/040f653744c9b18182be5f6bc51a7e505e346e59/src/main/java/com/team254/frc2024/subsystems/elevator/ElevatorSubsystem.java#L38-L47). The periodic method converts a stored position from inches to metres, while a command ends when the position reaches a supplied tolerance. The demo adapts this idea and does not implement the source method.
+
+<!-- lab: mechanism-elevator-wrist -->

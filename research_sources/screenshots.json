@@ -34,5 +34,14 @@
     "capture_method": "Playwright Chromium in GitHub Actions; actual rendered application, unedited screenshot",
     "license": "MIT, this repository original application UI",
     "note": "Desktop viewport capture of a live embedded PID lab following the parent dark theme."
+  },
+  {
+    "file": "docs/media/screenshots/mechanism-code.png",
+    "sha256": "2c263c1e12fea98b9b05826a7cc2747394c6a9b51c75107741281bb42c6419f1",
+    "source": "https://github.com/FRC1257/robotics-training/actions/runs/42965365495",
+    "source_revision": "b056d1812ee772167788f890bc46fa5cfa5c99e2",
+    "capture_method": "Playwright Chromium in GitHub Actions; actual rendered application, unedited screenshot",
+    "license": "MIT, original application UI with attributed Team 254 MIT-licensed code excerpt",
+    "note": "Desktop code panel after the ready scenario and 80 deterministic 20 ms steps; the original browser model is feeding. Java is displayed, not executed."
   }
 ]

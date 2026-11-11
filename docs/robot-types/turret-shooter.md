@@ -29,3 +29,17 @@ Distinguish the requested field bearing from the robot-relative turret setpoint;
 ## Test the interfaces
 
 With fake IO, test heading wraparound with one reachable cable-safe equivalent: expect that equivalent and a safe path to be selected. Then test a target with no safe equivalent, old pose data, a hood encoder fault and a failed piece-sensing system: expect a specific inhibited/recovery state rather than an unbounded turret request or false readiness. An ordinary digital input by itself cannot reliably identify every broken-wire fault; test actual diagnostics and preserve unknown status where detection is unavailable. Compare a simulated chassis turn while holding a fixed field bearing against your own expected geometry. A visualization tests coordinate logic, not cable stresses, game-piece flight or measured accuracy. Keep a manual fallback and safe stop under mentor review. For a simpler contrast, see [chassis-aimed shooting](fixed-shooter.md).
+
+## Predict, experiment, explain
+
+**Predict:** Can every requested angle be represented inside a turret's physical travel envelope? Is the shortest wrapped motion necessarily a safe route?
+
+**Experiment:** Enable the model, mark a piece detected and request aiming. Its **hypothetical** turret envelope is `−2.6` to `+2.6 rad`. A request of `3.1 rad` has no equivalent within that interval: expect `unreachable` and zero turn and feed requests. A request of `2π + 0.5` rad (approximately `6.783`) is equivalent to `0.5 rad` and is reachable. These are model assumptions, not the limits of the cited robot.
+
+To examine path choice, first request `+2.5 rad` and let the modeled turret arrive; then request `−2.5 rad`. It travels the longer route through the allowed interval instead of wrapping across the hard stop. After one modeled feed, clear the piece-detected input before representing another piece. Introduce a stale sensor, then release the request and clear the condition before resetting the latched fault.
+
+**Explain:** Why is an equivalent angle sometimes valid but a shorter wrapped *path* invalid? Distinguish a relative setpoint from a field bearing; this browser model accepts the former and does not simulate field-to-robot conversion or physical cable motion. It does not execute the linked Java.
+
+**Compare the source:** [Team 254 2024 `TurretIOHardware.java`](https://github.com/Team254/FRC-2024-Public/blob/040f653744c9b18182be5f6bc51a7e505e346e59/src/main/java/com/team254/frc2024/subsystems/turret/TurretIOHardware.java#L153-L167). The real hardware IO clamps the requested turret position in radians, converts units and gearing, and sends a position/velocity request to the controller. The demo adapts this idea and does not implement the source method.
+
+<!-- lab: mechanism-turret-shooter -->

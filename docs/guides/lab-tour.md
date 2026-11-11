@@ -10,6 +10,14 @@ Open the [swerve lab](../labs/swerve.html ':ignore'). With forward translation a
 
 <figure><a href="../media/screenshots/swerve-desktop.png"><img src="../media/screenshots/swerve-desktop.png" alt="Actual desktop swerve lab showing tangential module velocity arrows for pure rotation and the corresponding module state table" width="720" loading="lazy"></a><figcaption>Unedited browser capture of this repository's lab at commit e09a4dc. The diagram describes ideal kinematics, not tire or motor dynamics. Select the image to inspect the full capture.</figcaption></figure>
 
+## Connect a mechanism to its code
+
+Open the [fixed-heading shooter lesson](../robot-types/fixed-shooter.md) and its embedded demo. Hold a feed request while changing wheel speed or chassis heading. Use **Step 20 ms** to see which gate prevents feeding, then compare the model decision with Team 254’s actual readiness checks. The animation beside the code stays synchronized with the larger mechanism view. The source notes explain where the teaching model differs from the real implementation.
+
+![Actual shooter demo with a synchronized mechanism, sensor-to-output sequence and highlighted Team 254 source](../media/screenshots/mechanism-code.png)
+
+*Unedited desktop capture at commit b056d18 from the [verified browser run](https://github.com/FRC1257/robotics-training/actions/runs/42965365495). The Java excerpt is pinned and attributed; the browser runs an original JavaScript teaching model. All seven [robot-type lessons](../robot-types/README.md) include a mechanism demo.*
+
 ## PID on a phone
 
 Open the [PID lab](../labs/pid.html ':ignore'). The default plant has a constant downward load. Predict its final position with proportional feedback and no feedforward, then compare with the response after adding the stated gravity-compensation force. Use the sample table alongside the graph: error, requested output, and saturation are different quantities.

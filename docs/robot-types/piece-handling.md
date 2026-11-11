@@ -25,3 +25,15 @@ A current increase combined with low speed can suggest a jam but can also reflec
 ## Exercise and auto behavior
 
 An autonomous sequence attempts acquisition, checks a confirmed stage sensor and either continues to a scoring command or takes a timeout branch. In fake IO, inject (1) entrance blocked with no downstream confirmation, (2) a sensor disconnect that the chosen hardware diagnostics can detect, and (3) high current at near-zero speed after startup. Expected: never claim confirmed possession based solely on case 1; mark case 2 unknown; also test an undetectable disconnect and document that one level alone cannot reveal it; only enter the defined jam candidate after the chosen qualification in case 3. Test interruption and release as well as success. Physical testing must establish actual sensor placement, false detections, recovery forces and stop procedures; a software state machine alone does not prevent mechanical harm.
+
+## Predict, experiment, explain
+
+**Predict:** Does an entrance detection by itself prove that a piece reached the staging location? What should a controller do when a required sensor becomes invalid?
+
+**Experiment:** Enable and request the handling sequence; change the front-left, front-right and back sensor inputs and observe the phase and motor requests. Add an obstruction during the sequence. Inspect the fault and outputs, then clear the condition, release the request and reset.
+
+**Explain:** Identify which observation supported each transition and which information was still unknown. Compare the conceptual stages to the source method; the browser model does not run the team’s Java or model game-piece contact.
+
+**Compare the source:** [Team 2910 2025 `IntakeSubsystem.java`](https://github.com/FRCTeam2910/2025CompetitionRobot-Public/blob/1b9e161c7719da0522ec826e2a48d2afb63232a5/src/main/java/org/frc2910/robot/subsystems/intake/IntakeSubsystem.java#L131-L140). During the straight coral collection case, back-sensor detection is checked before the two-front-sensor condition. The demo adapts this idea and does not implement the source method.
+
+<!-- lab: mechanism-piece-handling -->

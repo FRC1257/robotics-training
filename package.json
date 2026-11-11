@@ -16,7 +16,8 @@
     "dev": "SITE_BASE=/ node scripts/build-site.mjs && python3 -m http.server 4173 --directory dist",
     "build": "node scripts/build-site.mjs",
     "test:browser": "playwright test",
-    "check:java": "python3 scripts/check-java.py"
+    "check:java": "python3 scripts/check-java.py",
+    "verify:mechanism-sources": "node scripts/verify-mechanism-sources.mjs"
   },
   "repository": {
     "type": "git",

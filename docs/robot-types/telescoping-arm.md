@@ -32,3 +32,15 @@ Readiness should expose which condition is blocking progress. A tighter threshol
 ## Exercise
 
 For an assumed 1 m effective arm at 0 radians, the ideal endpoint is `(1, 0) m`; at π/2 it is approximately `(0, 1) m`. Inject an invalid extension encoder, a loss of clearance during motion, and an out-of-band shoulder while a long reach is requested: the fake IO test should inhibit extension and report the reason. Then simulate a false camera jump and verify no release is authorized solely from that update. An ideal geometric model cannot prove that a real arm will resist gravity, clear its wiring, or retain a load when disabled.
+
+## Predict, experiment, explain
+
+**Predict:** For the same shoulder angle, what happens to endpoint reach as the arm extends? What should happen if a required sensor becomes stale during motion?
+
+**Experiment:** With the request released, enable and record the simulated asserted home switch, choose target shoulder angle and extension, then request movement. Inspect the endpoint, phase, clearance gate and requested outputs. Introduce a stale sensor or obstruction and observe the latched fault; release the request and clear the condition before reset.
+
+**Explain:** Use the planar endpoint equation above to distinguish the position calculation from the safety decision. Compare the model’s conceptual stages with the linked team method: the browser does not execute that Java or establish real load capacity. The home control records an assumed switch event, not an automatic homing movement.
+
+**Compare the source:** [Team 2910 2025 `ArmSubsystem.java`](https://github.com/FRCTeam2910/2025CompetitionRobot-Public/blob/1b9e161c7719da0522ec826e2a48d2afb63232a5/src/main/java/org/frc2910/robot/subsystems/arm/ArmSubsystem.java#L218-L230). In this branch, the arm requests shoulder angle and holds extension at zero until the measured shoulder is near its desired angle. The demo adapts this idea and does not implement the source method.
+
+<!-- lab: mechanism-telescoping-arm -->

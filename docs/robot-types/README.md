@@ -16,7 +16,7 @@ A robot's job and physical architecture determine the software contract: one sho
 
 The sibling research project selected 500 team-seasons as research queues and identifies source-reviewed seed cases; it does **not** claim 500 fully reviewed robot studies. A team report establishes what the team describes, not independently measured reliability, a particular event's configuration or why an alliance won. The research concepts are unbuilt analyst proposals. Each lesson links primary sources and their research source IDs; no match observation, CAD dimension or real performance value is invented. Source inventory is retained with this project at `research_sources/robot-type-teaching.json`.
 
-The snippets are **pseudocode, not executable Java**. They omit hardware setup and require a robot-specific safety review, current rules, units, limits, sensor quality and tests. Model validation, source review and real hardware testing are distinct activities. Use the [Team 1257 2026 code walkthrough](../robots/2026-code.md) when you want a pinned, concrete implementation.
+Each lesson pairs a working browser model with excerpts linked to actual team source. The model is an original teaching simulation; it does not execute the team’s Java or reproduce its robot physics. The surrounding design snippets are **pseudocode, not executable Java** and do not claim to implement a team’s code. Model validation, source review and real hardware testing are distinct activities; physical work requires robot-specific review, current rules, units, limits and sensor checks. Use the [Team 1257 2026 code walkthrough](../robots/2026-code.md) when you want a pinned, concrete implementation.
 
 ## Map all 15 research concepts to software
 

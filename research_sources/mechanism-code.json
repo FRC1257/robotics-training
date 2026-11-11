@@ -1,0 +1,125 @@
+{
+  "version": 1,
+  "purpose": "Source provenance for short MIT-licensed excerpts in mechanism demos.",
+  "sources": [
+    {
+      "slug": "fixed-shooter",
+      "source_url": "https://raw.githubusercontent.com/Team254/FRC-2024-Public/040f653744c9b18182be5f6bc51a7e505e346e59/src/main/java/com/team254/frc2024/command_factories/AimFactory.java",
+      "revision": "040f653744c9b18182be5f6bc51a7e505e346e59",
+      "file": "src/main/java/com/team254/frc2024/command_factories/AimFactory.java",
+      "retrieved_utc": "2026-11-11T04:32:48Z",
+      "source_sha256": "f42fc1264f73d4114ff43b8cfeaae646d272bb944f5beb3f4beb6aa4ed92c234",
+      "excerpt_sha256": "9439c5ecd8482deeeea289dac4012fda352a594dc67e174a09d3b30e8f94b6d5",
+      "lines": [
+        50,
+        67
+      ],
+      "source_license_url": "https://github.com/Team254/FRC-2024-Public/blob/040f653744c9b18182be5f6bc51a7e505e346e59/LICENSE",
+      "license_copy": "labs/licenses/team254-2024-MIT.txt",
+      "bounded_support": "The source checks shooter speed, turret angle, hood angle and solution validity, then combines them. Shooter speed uses RPS; angles use radians.",
+      "review": "Exact source excerpt inspected; demo behavior is not execution of team code."
+    },
+    {
+      "slug": "turret-shooter",
+      "source_url": "https://raw.githubusercontent.com/Team254/FRC-2024-Public/040f653744c9b18182be5f6bc51a7e505e346e59/src/main/java/com/team254/frc2024/subsystems/turret/TurretIOHardware.java",
+      "revision": "040f653744c9b18182be5f6bc51a7e505e346e59",
+      "file": "src/main/java/com/team254/frc2024/subsystems/turret/TurretIOHardware.java",
+      "retrieved_utc": "2026-11-11T04:32:48Z",
+      "source_sha256": "2c8cecb5e718e7480cd612208326c828cd757bc0fca411ce9cb3bacf55a2467d",
+      "excerpt_sha256": "938dd619a6b6ab3fcacaa0c2c862fcff770e148b9224ed9caecaf095bdd71ced",
+      "lines": [
+        153,
+        167
+      ],
+      "source_license_url": "https://github.com/Team254/FRC-2024-Public/blob/040f653744c9b18182be5f6bc51a7e505e346e59/LICENSE",
+      "license_copy": "labs/licenses/team254-2024-MIT.txt",
+      "bounded_support": "The real hardware IO clamps the requested turret position in radians, converts units and gearing, and sends a position/velocity request to the controller.",
+      "review": "Exact source excerpt inspected; demo behavior is not execution of team code."
+    },
+    {
+      "slug": "piece-handling",
+      "source_url": "https://raw.githubusercontent.com/FRCTeam2910/2025CompetitionRobot-Public/1b9e161c7719da0522ec826e2a48d2afb63232a5/src/main/java/org/frc2910/robot/subsystems/intake/IntakeSubsystem.java",
+      "revision": "1b9e161c7719da0522ec826e2a48d2afb63232a5",
+      "file": "src/main/java/org/frc2910/robot/subsystems/intake/IntakeSubsystem.java",
+      "retrieved_utc": "2026-11-11T04:32:49Z",
+      "source_sha256": "7432227fcee0350c335a8b7dd94366b41dd66445f86de52cf87c7b832d842831",
+      "excerpt_sha256": "7772af28cdc178b5dadfaa9c6f733b6c7a4d2896f234b05fb2e157e01177b849",
+      "lines": [
+        131,
+        140
+      ],
+      "source_license_url": "https://github.com/FRCTeam2910/2025CompetitionRobot-Public/blob/1b9e161c7719da0522ec826e2a48d2afb63232a5/LICENSE",
+      "license_copy": "labs/licenses/team2910-2025-MIT.txt",
+      "bounded_support": "During the straight coral collection case, back-sensor detection is checked before the two-front-sensor condition.",
+      "review": "Exact source excerpt inspected; demo behavior is not execution of team code."
+    },
+    {
+      "slug": "elevator-wrist",
+      "source_url": "https://raw.githubusercontent.com/Team254/FRC-2024-Public/040f653744c9b18182be5f6bc51a7e505e346e59/src/main/java/com/team254/frc2024/subsystems/elevator/ElevatorSubsystem.java",
+      "revision": "040f653744c9b18182be5f6bc51a7e505e346e59",
+      "file": "src/main/java/com/team254/frc2024/subsystems/elevator/ElevatorSubsystem.java",
+      "retrieved_utc": "2026-11-11T04:32:49Z",
+      "source_sha256": "bc35595a948718bb3f0949f5578d7b3353adbe20d1982aed6a002bbb42c908b7",
+      "excerpt_sha256": "eeaaa92b51f1780556da7052710a8a40540d2a7016fa55baae9b5a833ee4753d",
+      "lines": [
+        38,
+        47
+      ],
+      "source_license_url": "https://github.com/Team254/FRC-2024-Public/blob/040f653744c9b18182be5f6bc51a7e505e346e59/LICENSE",
+      "license_copy": "labs/licenses/team254-2024-MIT.txt",
+      "bounded_support": "The periodic method converts a stored position from inches to metres, while a command ends when the position reaches a supplied tolerance.",
+      "review": "Exact source excerpt inspected; demo behavior is not execution of team code."
+    },
+    {
+      "slug": "telescoping-arm",
+      "source_url": "https://raw.githubusercontent.com/FRCTeam2910/2025CompetitionRobot-Public/1b9e161c7719da0522ec826e2a48d2afb63232a5/src/main/java/org/frc2910/robot/subsystems/arm/ArmSubsystem.java",
+      "revision": "1b9e161c7719da0522ec826e2a48d2afb63232a5",
+      "file": "src/main/java/org/frc2910/robot/subsystems/arm/ArmSubsystem.java",
+      "retrieved_utc": "2026-11-11T04:32:49Z",
+      "source_sha256": "6c3fe21cdf2eeaa6d2af9ffb6d8b7e95704debddadebc88f523a82e7836500e1",
+      "excerpt_sha256": "a084f3739af3d72e80b5d722b7b869b19ce3e3f2d799291177ccbe0fd10d5f0a",
+      "lines": [
+        218,
+        230
+      ],
+      "source_license_url": "https://github.com/FRCTeam2910/2025CompetitionRobot-Public/blob/1b9e161c7719da0522ec826e2a48d2afb63232a5/LICENSE",
+      "license_copy": "labs/licenses/team2910-2025-MIT.txt",
+      "bounded_support": "In this branch, the arm requests shoulder angle and holds extension at zero until the measured shoulder is near its desired angle.",
+      "review": "Exact source excerpt inspected; demo behavior is not execution of team code."
+    },
+    {
+      "slug": "drivetrain",
+      "source_url": "https://raw.githubusercontent.com/FRCTeam2910/2025CompetitionRobot-Public/1b9e161c7719da0522ec826e2a48d2afb63232a5/src/main/java/org/frc2910/robot/subsystems/drive/SwerveSubsystem.java",
+      "revision": "1b9e161c7719da0522ec826e2a48d2afb63232a5",
+      "file": "src/main/java/org/frc2910/robot/subsystems/drive/SwerveSubsystem.java",
+      "retrieved_utc": "2026-11-11T04:32:49Z",
+      "source_sha256": "49c198b21067c03fb7d5b95c11b32f90ee62814a4ebb95a76b26c9d20192d9be",
+      "excerpt_sha256": "88c8659ee2451f5e706555a91f3cd85c4d76e9978f1444f75c974ef38e426c5d",
+      "lines": [
+        394,
+        406
+      ],
+      "source_license_url": "https://github.com/FRCTeam2910/2025CompetitionRobot-Public/blob/1b9e161c7719da0522ec826e2a48d2afb63232a5/LICENSE",
+      "license_copy": "labs/licenses/team2910-2025-MIT.txt",
+      "bounded_support": "The source applies alliance-dependent signs, scales velocities and makes field/robot frame conversions with a skew compensation factor.",
+      "review": "Exact source excerpt inspected; demo behavior is not execution of team code."
+    },
+    {
+      "slug": "climb-balance",
+      "source_url": "https://raw.githubusercontent.com/FRCTeam2910/2025CompetitionRobot-Public/1b9e161c7719da0522ec826e2a48d2afb63232a5/src/main/java/org/frc2910/robot/subsystems/climber/ClimberSubsystem.java",
+      "revision": "1b9e161c7719da0522ec826e2a48d2afb63232a5",
+      "file": "src/main/java/org/frc2910/robot/subsystems/climber/ClimberSubsystem.java",
+      "retrieved_utc": "2026-11-11T04:32:49Z",
+      "source_sha256": "609bcdbb6f9e6a031b33b64a6ca79dc32edd73e125cbd8e83e0579b21c667ed8",
+      "excerpt_sha256": "075167207f8676b79f8e191c59843bb125d8e7b759eebbbd61ea7a7e4319ae3d",
+      "lines": [
+        128,
+        146
+      ],
+      "source_license_url": "https://github.com/FRCTeam2910/2025CompetitionRobot-Public/blob/1b9e161c7719da0522ec826e2a48d2afb63232a5/LICENSE",
+      "license_copy": "labs/licenses/team2910-2025-MIT.txt",
+      "bounded_support": "The source idles requests other than HOME while unhomed and then uses current and roller-speed conditions to manage an intake/cage candidate state.",
+      "review": "Exact source excerpt inspected; demo behavior is not execution of team code."
+    }
+  ]
+}

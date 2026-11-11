@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Climber and cage detection: mechanism and code demo</title>
+    <link rel="stylesheet" href="labs.css" />
+    <link rel="stylesheet" href="mechanism-demo.css" />
+  </head>
+  <body data-demo="climb-balance">
+    <header>
+      <a href="../robot-types/climb-balance.html">← Robot-type lesson</a>
+      <h1>Climber and cage detection: mechanism and code</h1>
+      <p>Separate home, a simulated cage signal and the request to lift.</p>
+    </header>
+    <main id="mech" class="mech">
+      <noscript
+        ><p>
+          The interactive model requires JavaScript. Read the
+          <a href="../robot-types/climb-balance.html">mechanism lesson</a> and
+          the
+          <a
+            href="https://github.com/FRCTeam2910/2025CompetitionRobot-Public/blob/1b9e161c7719da0522ec826e2a48d2afb63232a5/src/main/java/org/frc2910/robot/subsystems/climber/ClimberSubsystem.java#L128-L146"
+            >pinned robot code</a
+          >
+          for the state sequence, units and exercises.
+        </p></noscript
+      >
+      <div class="mech-toolbar" role="group" aria-label="Simulation controls">
+        <button id="mech-run" type="button" disabled>Run</button
+        ><button id="mech-step" class="secondary" type="button" disabled>
+          Step 20 ms</button
+        ><button id="mech-reset" class="secondary" type="button" disabled>
+          Reset experiment
+        </button>
+        <span id="mech-runstate">Loading model…</span
+        ><span class="mech-clock"
+          >Model time <strong id="mech-time">0.00</strong> s</span
+        >
+      </div>
+      <p id="mech-pending" class="mech-pending" role="status" hidden>
+        Inputs changed. Step or Run to sample them; the diagram, gates and
+        source annotations show the last evaluated step.
+      </p>
+      <p
+        id="mech-announce"
+        class="visually-hidden"
+        role="status"
+        aria-live="polite"
+      ></p>
+      <div class="mech-layout">
+        <section class="card mech-stage" aria-labelledby="mechanism-title">
+          <p class="mech-kicker">Original teaching model</p>
+          <h2 id="mechanism-title">Climber and cage detection</h2>
+          <figure class="mech-figure">
+            <svg
+              id="mech-svg"
+              viewBox="0 0 480 300"
+              role="img"
+              aria-labelledby="mech-svg-title mech-svg-desc"
+            >
+              <title id="mech-svg-title">
+                Climber and cage detection animated schematic
+              </title>
+              <desc id="mech-svg-desc">
+                A conceptual mechanism view driven by the model state. Blue
+                indicates model state, dashed orange the requested goal, green
+                an asserted input, and red a reported fault or blockage.
+              </desc>
+            </svg>
+            <figcaption>
+              Conceptual schematic, not robot CAD. Blue: model state. Dashed
+              orange: requested goal. Geometry and limits are illustrative;
+              wheel spokes are slowed 25× for readability.
+            </figcaption>
+          </figure>
+          <div class="mech-status">
+            <div class="mech-phase-row">
+              <span id="mech-phase" class="mech-phase">idle</span>
+              <p id="mech-reason" class="mech-reason">Waiting for a request.</p>
+            </div>
+            <ul
+              id="mech-gates"
+              class="mech-gates"
+              aria-label="Model gates"
+            ></ul>
+            <div id="mech-help" class="mech-help" hidden></div>
+          </div>
+        </section>
+        <section class="card mech-controls" aria-labelledby="controls-title">
+          <h2 id="controls-title">Inputs and experiments</h2>
+          <p class="note">
+            Choose a scenario or adjust inputs, then Run or Step. Pausing
+            freezes model time; it does not issue a stop request.
+          </p>
+          <div
+            id="mech-scenarios"
+            class="mech-scenarios"
+            role="group"
+            aria-label="Example scenarios"
+          ></div>
+          <p id="mech-scenario-note" class="note"></p>
+          <div id="mech-inputs"></div>
+        </section>
+        <section class="card mech-readouts" aria-labelledby="readouts-title">
+          <h2 id="readouts-title">Sensor → decision → output</h2>
+          <div class="mech-readout-grid">
+            <div>
+              <table>
+                <caption>
+                  Simulated sensor values
+                </caption>
+                <tbody id="mech-sensors"></tbody>
+              </table>
+            </div>
+            <div>
+              <table>
+                <caption>
+                  Requested outputs
+                </caption>
+                <tbody id="mech-outputs"></tbody>
+              </table>
+            </div>
+          </div>
+          <figure class="mech-plot">
+            <svg
+              id="mech-plot"
+              viewBox="0 0 480 130"
+              role="img"
+              aria-label="Model history"
+            ></svg>
+            <figcaption id="mech-plot-caption"></figcaption>
+          </figure>
+        </section>
+      </div>
+      <section class="card" aria-labelledby="trace-title">
+        <h2 id="trace-title">Follow the decision</h2>
+        <p class="note">
+          The left-hand stages describe this JavaScript model. The highlighted
+          source lines show a teaching correspondence, not Java execution.
+        </p>
+        <div class="mech-trace-grid">
+          <div>
+            <h3>Same model, beside the code</h3>
+            <figure class="mech-figure mech-code-preview">
+              <svg
+                id="mech-code-svg"
+                viewBox="0 0 480 300"
+                role="img"
+                aria-label="Same mechanism state shown beside related robot source"
+              ></svg>
+            </figure>
+            <button id="mech-code-step" class="secondary" type="button">
+              Step beside code · 20 ms
+            </button>
+            <h3>Browser model now</h3>
+            <ol id="mech-path" class="mech-path">
+              <li data-stage="input">
+                <span class="stage">Operator request</span
+                ><span class="detail"></span>
+              </li>
+              <li data-stage="sensor">
+                <span class="stage">Sensor inputs</span
+                ><span class="detail"></span>
+              </li>
+              <li data-stage="condition">
+                <span class="stage">Decision and gates</span
+                ><span class="detail"></span>
+              </li>
+              <li data-stage="output">
+                <span class="stage">Requested outputs</span
+                ><span class="detail"></span>
+              </li>
+              <li data-stage="motion">
+                <span class="stage">Model motion</span
+                ><span class="detail"></span>
+              </li>
+            </ol>
+          </div>
+          <div>
+            <h3>Related real robot code</h3>
+            <div id="mech-source">
+              <p id="mech-source-fallback">
+                <a
+                  href="https://github.com/FRCTeam2910/2025CompetitionRobot-Public/blob/1b9e161c7719da0522ec826e2a48d2afb63232a5/src/main/java/org/frc2910/robot/subsystems/climber/ClimberSubsystem.java#L128-L146"
+                  >Read Team 2910 2025 source, lines 128–146</a
+                >. The model runs independently of the source excerpt.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="card mech-limits" aria-labelledby="limits-title">
+        <h2 id="limits-title">What this experiment represents</h2>
+        <p>
+          This is an original, simplified behavioral model. It does not execute
+          the team's Java, reproduce contact physics, validate a robot or
+          provide hardware tuning values. Sensor toggles are independent
+          scenario inputs; they are not generated from the drawn piece position.
+        </p>
+        <p>
+          For homed axes, Record home switch assumes a home event with the
+          request released; it does not move to a physical switch. Disabling
+          freezes the ideal mechanism and instantly stops its flywheel in this
+          model; physical inertia and coast-down are omitted. The climber model
+          does not simulate charge-station balance or prove engagement and load
+          retention.
+        </p>
+        <p>
+          <a href="../robot-types/climb-balance.html"
+            >Return to the mechanism lesson and exercises</a
+          >
+          ·
+          <a
+            href="https://github.com/FRCTeam2910/2025CompetitionRobot-Public/blob/1b9e161c7719da0522ec826e2a48d2afb63232a5/src/main/java/org/frc2910/robot/subsystems/climber/ClimberSubsystem.java#L128-L146"
+            >Full pinned robot source</a
+          >
+          · <a href="licenses/team2910-2025-MIT.txt">Team 2910 MIT notice</a>
+        </p>
+      </section>
+    </main>
+    <script type="module" src="mechanism-demo.mjs"></script>
+  </body>
+</html>

@@ -1,0 +1,371 @@
+{
+  "version": 1,
+  "demos": {
+    "fixed-shooter": {
+      "title": "Shooter readiness and aiming",
+      "team": "Team 254",
+      "season": 2024,
+      "revision": "040f653744c9b18182be5f6bc51a7e505e346e59",
+      "file": "src/main/java/com/team254/frc2024/command_factories/AimFactory.java",
+      "url": "https://github.com/Team254/FRC-2024-Public/blob/040f653744c9b18182be5f6bc51a7e505e346e59/src/main/java/com/team254/frc2024/command_factories/AimFactory.java#L50-L67",
+      "startLine": 50,
+      "endLine": 67,
+      "language": "java",
+      "excerpt": "    public static boolean onTarget(RobotContainer container, Supplier<ShooterSetpoint> setpointSupplier) {\n        var turret = container.getTurret();\n        var hood = container.getHood();\n        var shooterStage2 = container.getShooterStage2();\n        double shooterSetpoint = setpointSupplier.get().getShooterRPS();\n        boolean shooterOnTarget = Util.epsilonEquals(shooterStage2.getCurrentVelocity(), shooterSetpoint,\n                shooterSetpoint * 0.04);\n        boolean turretOnTarget = Math.abs(new Rotation2d(turret.getCurrentPosition()).rotateBy(\n                new Rotation2d(setpointSupplier.get().getTurretRadiansFromCenter()).unaryMinus())\n                .getRadians()) < Constants.TurretConstants.kTurretShootingEpsilon;\n        boolean hoodOnTarget = Util.epsilonEquals(hood.getCurrentPosition(), setpointSupplier.get().getHoodRadians(),\n                Constants.HoodConstants.kHoodShootingEpsilon);\n        boolean isValid = setpointSupplier.get().getIsValid();\n        Logger.recordOutput(\"Shooter/IsValid\", isValid);\n        Logger.recordOutput(\"Shooter/OnTarget\", shooterOnTarget);\n        Logger.recordOutput(\"Turret/OnTarget\", turretOnTarget);\n        Logger.recordOutput(\"Hood/OnTarget\", hoodOnTarget);\n        return hoodOnTarget && shooterOnTarget && turretOnTarget && isValid;\n",
+      "license": "MIT",
+      "licenseFile": "labs/licenses/team254-2024-MIT.txt",
+      "explanation": "The source checks shooter speed, turret angle, hood angle and solution validity, then combines them. Shooter speed uses RPS; angles use radians.",
+      "trace": [
+        {
+          "id": "read-speed",
+          "label": "Read shooter speed",
+          "sourceLines": [
+            54,
+            55,
+            56
+          ],
+          "explanation": "The comparison uses a speed setpoint and a 4% tolerance."
+        },
+        {
+          "id": "read-aim",
+          "label": "Check aim and validity",
+          "sourceLines": [
+            57,
+            58,
+            59,
+            60,
+            61,
+            62
+          ],
+          "explanation": "The turret and hood checks are independent of the validity flag."
+        },
+        {
+          "id": "ready",
+          "label": "Combine the checks",
+          "sourceLines": [
+            67
+          ],
+          "explanation": "All four flags must be true for this method to return true."
+        }
+      ],
+      "differences": [
+        "The cited 254 robot has a turret; a chassis-heading gate in the fixed-shooter demo is a teaching adaptation, not this source method.",
+        "This method checks readiness; it does not itself feed a piece or demonstrate sensor freshness."
+      ]
+    },
+    "turret-shooter": {
+      "title": "Turret setpoint and IO",
+      "team": "Team 254",
+      "season": 2024,
+      "revision": "040f653744c9b18182be5f6bc51a7e505e346e59",
+      "file": "src/main/java/com/team254/frc2024/subsystems/turret/TurretIOHardware.java",
+      "url": "https://github.com/Team254/FRC-2024-Public/blob/040f653744c9b18182be5f6bc51a7e505e346e59/src/main/java/com/team254/frc2024/subsystems/turret/TurretIOHardware.java#L153-L167",
+      "startLine": 153,
+      "endLine": 167,
+      "language": "java",
+      "excerpt": "    @Override\n    public void setPositionSetpoint(double radiansFromCenter, double radsPerSecond) {\n        double setpointRadians = MathUtil.clamp(\n                radiansFromCenter, Constants.TurretConstants.kTurretMinPositionRadians,\n                Constants.TurretConstants.kTurretMaxPositionRadians);\n        double setpointRotations = Units.radiansToRotations(setpointRadians);\n        double setpointRotor = setpointRotations / Constants.TurretConstants.kTurretGearRatio;\n        double ffVel = Units.radiansToRotations(radsPerSecond) / Constants.TurretConstants.kTurretGearRatio;\n        talon.setControl(positionVoltageControl.withPosition(setpointRotor).withVelocity(ffVel));\n        Logger.recordOutput(\"Turret/IO/setPositionSetpoint/radiansFromCenter\", radiansFromCenter);\n        Logger.recordOutput(\"Turret/IO/setPositionSetpoint/radsPerSecond\", radsPerSecond);\n        Logger.recordOutput(\"Turret/IO/setPositionSetpoint/ffVel\", ffVel);\n        Logger.recordOutput(\"Turret/IO/setPositionSetpoint/setpointRotor\", setpointRotor);\n        Logger.recordOutput(\"Turret/IO/setPositionSetpoint/radsPerSecondRotor\",\n                radsPerSecond / Constants.TurretConstants.kTurretGearRatio);\n",
+      "license": "MIT",
+      "licenseFile": "labs/licenses/team254-2024-MIT.txt",
+      "explanation": "The real hardware IO clamps the requested turret position in radians, converts units and gearing, and sends a position/velocity request to the controller.",
+      "trace": [
+        {
+          "id": "clamp",
+          "label": "Clamp request",
+          "sourceLines": [
+            154,
+            155,
+            156,
+            157
+          ],
+          "explanation": "Requested angle is bounded by configured turret position limits."
+        },
+        {
+          "id": "convert",
+          "label": "Convert units",
+          "sourceLines": [
+            158,
+            159,
+            160
+          ],
+          "explanation": "Angle and velocity are converted to rotor rotations and geared units."
+        },
+        {
+          "id": "command",
+          "label": "Send position request",
+          "sourceLines": [
+            161
+          ],
+          "explanation": "The motor controller receives position and feedforward velocity."
+        }
+      ],
+      "differences": [
+        "The excerpt clamps a requested angle; it does not establish cable-safe equivalent selection, homing, vision validation or collision monitoring.",
+        "The demo\u2019s explicit fault and wrap-choice guards are separate hypothetical teaching behavior."
+      ]
+    },
+    "piece-handling": {
+      "title": "Coral intake branch ordering",
+      "team": "Team 2910",
+      "season": 2025,
+      "revision": "1b9e161c7719da0522ec826e2a48d2afb63232a5",
+      "file": "src/main/java/org/frc2910/robot/subsystems/intake/IntakeSubsystem.java",
+      "url": "https://github.com/FRCTeam2910/2025CompetitionRobot-Public/blob/1b9e161c7719da0522ec826e2a48d2afb63232a5/src/main/java/org/frc2910/robot/subsystems/intake/IntakeSubsystem.java#L131-L140",
+      "startLine": 131,
+      "endLine": 140,
+      "language": "java",
+      "excerpt": "            case COLLECT_CORAL_STRAIGHT: {\n                synchronized (inputs) {\n                    if (inputs.isBackCANTRangeTripped) {\n                        yield SystemState.HOLDING_CORAL_STRAIGHT;\n                    } else if (inputs.isFrontLeftCANRangeTripped && inputs.isFrontRightCANRangeTripped) {\n                        yield SystemState.INDEX_CORAL_RIGHT_FASTER;\n                    } else {\n                        yield SystemState.COLLECTING_CORAL_STRAIGHT;\n                    }\n                }\n",
+      "license": "MIT",
+      "licenseFile": "labs/licenses/team2910-2025-MIT.txt",
+      "explanation": "During the straight coral collection case, back-sensor detection is checked before the two-front-sensor condition.",
+      "trace": [
+        {
+          "id": "back",
+          "label": "Back sensor",
+          "sourceLines": [
+            133,
+            134
+          ],
+          "explanation": "A tripped back range sensor yields the holding state."
+        },
+        {
+          "id": "front",
+          "label": "Front sensors",
+          "sourceLines": [
+            135,
+            136
+          ],
+          "explanation": "If the back sensor is not tripped and both front sensors are tripped, the state indexes right faster."
+        },
+        {
+          "id": "collect",
+          "label": "Otherwise collect",
+          "sourceLines": [
+            137,
+            138
+          ],
+          "explanation": "If neither earlier condition matches, collection continues."
+        }
+      ],
+      "differences": [
+        "Both examples check the back flag before the front flags. In the browser these are independent, manually selected scenario inputs; no CAN range hardware or automatic detection is modeled.",
+        "The single normalized roller outputs (1 collect, 0.4 handoff, 0 hold) and piece-progress animation are teaching choices. The excerpt selects named states; it does not set those normalized output values.",
+        "The excerpt does not establish sensor disconnect detection, a timeout, or confirmed scoring; the browser fault guards are separate teaching behavior."
+      ]
+    },
+    "elevator-wrist": {
+      "title": "Elevator height and completion",
+      "team": "Team 254",
+      "season": 2024,
+      "revision": "040f653744c9b18182be5f6bc51a7e505e346e59",
+      "file": "src/main/java/com/team254/frc2024/subsystems/elevator/ElevatorSubsystem.java",
+      "url": "https://github.com/Team254/FRC-2024-Public/blob/040f653744c9b18182be5f6bc51a7e505e346e59/src/main/java/com/team254/frc2024/subsystems/elevator/ElevatorSubsystem.java#L38-L47",
+      "startLine": 38,
+      "endLine": 47,
+      "language": "java",
+      "excerpt": "    @Override\n    public void periodic() {\n        super.periodic();\n        robotState.setElevatorHeight(Units.inchesToMeters(inputs.unitPosition));\n    }\n\n    public Command motionMagicSetpointCommandBlocking(double setpoint, double tolerance) {\n        return motionMagicSetpointCommand(() -> setpoint)\n                .until(() -> Util.epsilonEquals(getCurrentPosition(), setpoint, tolerance));\n    }\n",
+      "license": "MIT",
+      "licenseFile": "labs/licenses/team254-2024-MIT.txt",
+      "explanation": "The periodic method converts a stored position from inches to metres, while a command ends when the position reaches a supplied tolerance.",
+      "trace": [
+        {
+          "id": "measure",
+          "label": "Update height",
+          "sourceLines": [
+            38,
+            39,
+            40,
+            41,
+            42
+          ],
+          "explanation": "The robot state receives elevator height converted from inches to metres."
+        },
+        {
+          "id": "goal",
+          "label": "Request position",
+          "sourceLines": [
+            44,
+            45
+          ],
+          "explanation": "The method constructs a motion-magic position command."
+        },
+        {
+          "id": "tolerance",
+          "label": "Check tolerance",
+          "sourceLines": [
+            46
+          ],
+          "explanation": "The command is bounded by a position comparison."
+        }
+      ],
+      "differences": [
+        "This short source excerpt is an elevator example, not a full wrist, collision envelope, homing or timeout implementation.",
+        "Completion within tolerance is not evidence that a piece was placed or retained."
+      ]
+    },
+    "telescoping-arm": {
+      "title": "Shoulder and extension sequencing",
+      "team": "Team 2910",
+      "season": 2025,
+      "revision": "1b9e161c7719da0522ec826e2a48d2afb63232a5",
+      "file": "src/main/java/org/frc2910/robot/subsystems/arm/ArmSubsystem.java",
+      "url": "https://github.com/FRCTeam2910/2025CompetitionRobot-Public/blob/1b9e161c7719da0522ec826e2a48d2afb63232a5/src/main/java/org/frc2910/robot/subsystems/arm/ArmSubsystem.java#L218-L230",
+      "startLine": 218,
+      "endLine": 230,
+      "language": "java",
+      "excerpt": "                    } else {\n                        shoulderIO.setTargetAngle(wantedArmPose.getShoulderAngleRot2d());\n                        if (!MathUtil.isNear(\n                                wantedArmPose.getShoulderAngleRot2d().getDegrees(),\n                                shoulderInputs.shoulderAngle.getDegrees(),\n                                ArmConstants\n                                        .TOLERANCE_FOR_EXTENSION_DEGREES)) { // if we are not close enough to where the\n                            // shoulder is supposed to be, keep the\n                            // extension at zero\n                            extensionIO.setTargetExtension(0);\n                        } else {\n                            extensionIO.setTargetExtension(wantedArmPose.getExtensionLengthMeters());\n                        }\n",
+      "license": "MIT",
+      "licenseFile": "labs/licenses/team2910-2025-MIT.txt",
+      "explanation": "In this branch, the arm requests shoulder angle and holds extension at zero until the measured shoulder is near its desired angle.",
+      "trace": [
+        {
+          "id": "shoulder",
+          "label": "Request shoulder angle",
+          "sourceLines": [
+            219
+          ],
+          "explanation": "The shoulder receives the wanted pose angle."
+        },
+        {
+          "id": "gate",
+          "label": "Compare shoulder angle",
+          "sourceLines": [
+            220,
+            221,
+            222,
+            223,
+            224
+          ],
+          "explanation": "A tolerance in degrees determines which extension request to send."
+        },
+        {
+          "id": "extend",
+          "label": "Choose extension",
+          "sourceLines": [
+            227,
+            228,
+            229
+          ],
+          "explanation": "The code sends zero if not near, otherwise the wanted extension in metres."
+        }
+      ],
+      "differences": [
+        "This is one branch of a larger method; preceding branches and homing checks also affect behavior.",
+        "A zero extension target is a command, not proof of collision clearance or disabled-load retention."
+      ]
+    },
+    "drivetrain": {
+      "title": "Alliance and field-relative swerve input",
+      "team": "Team 2910",
+      "season": 2025,
+      "revision": "1b9e161c7719da0522ec826e2a48d2afb63232a5",
+      "file": "src/main/java/org/frc2910/robot/subsystems/drive/SwerveSubsystem.java",
+      "url": "https://github.com/FRCTeam2910/2025CompetitionRobot-Public/blob/1b9e161c7719da0522ec826e2a48d2afb63232a5/src/main/java/org/frc2910/robot/subsystems/drive/SwerveSubsystem.java#L394-L406",
+      "startLine": 394,
+      "endLine": 406,
+      "language": "java",
+      "excerpt": "        double xVelocity = (FieldConstants.isBlueAlliance() ? -xMagnitude * maxVelocity : xMagnitude * maxVelocity)\n                * teleopVelocityCoefficient;\n        double yVelocity = (FieldConstants.isBlueAlliance() ? -yMagnitude * maxVelocity : yMagnitude * maxVelocity)\n                * teleopVelocityCoefficient;\n        double angularVelocity = angularMagnitude * maxAngularVelocity * rotationVelocityCoefficient;\n\n        Rotation2d skewCompensationFactor =\n                Rotation2d.fromRadians(swerveInputs.Speeds.omegaRadiansPerSecond * SKEW_COMPENSATION_SCALAR);\n\n        return ChassisSpeeds.fromRobotRelativeSpeeds(\n                ChassisSpeeds.fromFieldRelativeSpeeds(\n                        new ChassisSpeeds(xVelocity, yVelocity, -angularVelocity), swerveInputs.Pose.getRotation()),\n                swerveInputs.Pose.getRotation().plus(skewCompensationFactor));\n",
+      "license": "MIT",
+      "licenseFile": "labs/licenses/team2910-2025-MIT.txt",
+      "explanation": "The source applies alliance-dependent signs, scales velocities and makes field/robot frame conversions with a skew compensation factor.",
+      "trace": [
+        {
+          "id": "alliance",
+          "label": "Alliance and scaling",
+          "sourceLines": [
+            394,
+            395,
+            396,
+            397,
+            398
+          ],
+          "explanation": "Translation signs depend on alliance; rotation is scaled separately."
+        },
+        {
+          "id": "skew",
+          "label": "Compute skew compensation",
+          "sourceLines": [
+            400,
+            401
+          ],
+          "explanation": "The angular speed contributes to a rotation compensation factor."
+        },
+        {
+          "id": "frames",
+          "label": "Convert reference frames",
+          "sourceLines": [
+            403,
+            404,
+            405,
+            406
+          ],
+          "explanation": "A field-relative conversion is followed by a robot-relative conversion using a compensated heading."
+        }
+      ],
+      "differences": [
+        "The nested conversions return a field-relative result with compensation; do not describe this excerpt as only a direct field-to-robot output.",
+        "The educational differential-drive comparison, stale-sensor checks and model trajectories are not implemented in this excerpt.",
+        "The real excerpt is from a swerve robot. Differential mode is an original nonholonomic comparison, not a claim that the source robot uses differential drive."
+      ]
+    },
+    "climb-balance": {
+      "title": "Climber homing and cage candidate",
+      "team": "Team 2910",
+      "season": 2025,
+      "revision": "1b9e161c7719da0522ec826e2a48d2afb63232a5",
+      "file": "src/main/java/org/frc2910/robot/subsystems/climber/ClimberSubsystem.java",
+      "url": "https://github.com/FRCTeam2910/2025CompetitionRobot-Public/blob/1b9e161c7719da0522ec826e2a48d2afb63232a5/src/main/java/org/frc2910/robot/subsystems/climber/ClimberSubsystem.java#L128-L146",
+      "startLine": 128,
+      "endLine": 146,
+      "language": "java",
+      "excerpt": "    private SystemState handleStateTransition() {\n        if (!isClimberHomed && wantedState != WantedState.HOME) {\n            return SystemState.IDLED;\n        }\n        switch (wantedState) {\n            case INTAKE -> {\n                if (hasCageEntered) {\n                    return SystemState.HOLDING;\n                } else if (!isAllowedToCheckIfCageHasEntered) {\n                    isAllowedToCheckIfCageHasEntered =\n                            inputs.carriageSupplyCurrent <= CLIMBER_CARRIAGE_CAGE_SUPPLY_CURRENT_THRESHOLD\n                                    && inputs.climberVelocityRPS >= 90.0;\n                } else {\n                    hasCageEntered = inputs.climberVelocityRPS <= CLIMBER_CARRIAGE_CAGE_VELOCITY_RPS_THRESHOLD;\n                    if (hasCageEntered) {\n                        return SystemState.HOLDING;\n                    }\n                }\n                return SystemState.INTAKING;\n",
+      "license": "MIT",
+      "licenseFile": "labs/licenses/team2910-2025-MIT.txt",
+      "explanation": "The source idles requests other than HOME while unhomed and then uses current and roller-speed conditions to manage an intake/cage candidate state.",
+      "trace": [
+        {
+          "id": "homed",
+          "label": "Check homing",
+          "sourceLines": [
+            128,
+            129,
+            130,
+            131
+          ],
+          "explanation": "Unhomed requests other than HOME return the idled state."
+        },
+        {
+          "id": "gate",
+          "label": "Enable cage detection",
+          "sourceLines": [
+            136,
+            137,
+            138,
+            139
+          ],
+          "explanation": "The check is enabled from a current and velocity condition."
+        },
+        {
+          "id": "cage",
+          "label": "Assess cage candidate",
+          "sourceLines": [
+            133,
+            134,
+            135,
+            140,
+            141,
+            142,
+            143,
+            144,
+            145,
+            146
+          ],
+          "explanation": "A retained candidate or subsequent velocity condition can lead to holding."
+        }
+      ],
+      "differences": [
+        "This is a 2025 cage-intake/climber code branch, not a 2023 charge-station balance implementation.",
+        "A current/speed inference or software holding state does not prove hook engagement, mechanical retention or safe load support."
+      ]
+    }
+  }
+}

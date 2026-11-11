@@ -31,8 +31,14 @@ Wheel odometry can drift or slip. Vision may correct an estimator if the pose, f
 
 Predict pure forward motion and pure rotation before running the lab. Verify each swerve module's direction and compare measured versus requested states, then intentionally reverse the assumed gyro sign in a model and describe the field-relative error. Inject a stale gyro and ensure the intended fallback is explicit. Simulated kinematics do not demonstrate traction, collision avoidance, mechanical alignment or hardware safety.
 
-## Try the kinematics
+## Predict, experiment, explain
 
-In this idealized swerve lab, predict the module vectors for pure translation, then pure rotation. The lab computes wheel vectors, not tire contact, traction or a particular team's drivetrain. Compare its robot-relative and field-relative modes before designing autonomous code.
+**Predict:** If a field-forward request is made with the robot at +90° heading, which robot-relative direction is required? What happens to outputs when heading data becomes stale?
 
-<!-- lab: swerve -->
+**Experiment:** Enable and request motion; change the forward, sideways and rotation speed inputs and inspect requested motion and state. Compare holonomic mode with the differential toggle: the same lateral request moves the holonomic model but is discarded by the differential model, while forward and turning requests remain available. The demonstration does not supply a field-frame selector; use the separate swerve lab for the heading transform. Make the required sensor stale and watch the fault and outputs. Clear the condition, release request and reset before trying again.
+
+**Explain:** Compare field-relative and robot-relative requests and identify the gate that stopped motion. This browser model illustrates the decision flow; it does not execute team Java, model traction or establish odometry accuracy. For individual module vectors, use the separate [swerve kinematics lab](../labs/swerve.html ':ignore').
+
+**Compare the source:** [Team 2910 2025 `SwerveSubsystem.java`](https://github.com/FRCTeam2910/2025CompetitionRobot-Public/blob/1b9e161c7719da0522ec826e2a48d2afb63232a5/src/main/java/org/frc2910/robot/subsystems/drive/SwerveSubsystem.java#L394-L406). The source applies alliance-dependent signs, scales velocities and makes field/robot frame conversions with a skew compensation factor. The demo adapts this idea and does not implement the source method.
+
+<!-- lab: mechanism-drivetrain -->

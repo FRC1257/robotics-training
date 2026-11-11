@@ -17,7 +17,7 @@ Once you have visited a lesson, it is marked complete. The check icon beside the
 
 ## AI-assisted lessons
 
-Some lessons and all seven interactive labs were drafted or substantially rewritten with help from an AI model during the 2026 modernization. These pages show a small "AI-assisted lesson" or "AI-assisted teaching model" label near the title.
+Some lessons and the interactive labs were drafted or substantially rewritten with help from an AI model during the 2026 modernization. These pages show a small "AI-assisted lesson" or "AI-assisted teaching model" label near the title.
 
 AI assistance does not replace review. These pages cite their sources, pin the code they quote, and where possible are checked by automated tests: Java examples compile, lab models have numerical tests, and links are checked. Tests and sources reduce mistakes but cannot prove that an explanation is clear, complete or safe for your robot. **Ask a mentor to review anything before you apply it to hardware**, and report anything that looks wrong using the "Edit this lesson" link at the bottom of each page.
 
@@ -31,3 +31,5 @@ Labs are teaching models. They make their simplifying assumptions explicit and a
 ## How to contribute
 
 Lessons are Markdown files in the repository's `docs/` folder. To embed a lab in a lesson, add a marker such as `<!-- lab: pid -->` on its own line; the available labs are `pid`, `swerve`, `scheduler`, `encoder`, `motion`, `log` and `odometry`. To label a newly drafted page, add `<!-- ai-assisted -->` at the top. Older pages are listed in `platform/content-provenance.json`.
+
+The mechanism demos also quote real robot code. Those excerpts have separate team credits, pinned file/line links and license notices. The interactive model illustrates a related idea; it does not execute the quoted Java or establish the real robot's performance.

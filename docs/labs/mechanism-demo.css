@@ -1,0 +1,978 @@
+/* Mechanism demos (mechanism-*.html). Loaded after labs.css and uses its tokens, so
+   the light team-green and near-black/lavender dark themes carry over unchanged.
+   Drawing colors keep one meaning everywhere:
+   blue = model state ("actual"), dashed orange = requested goal,
+   green = sensor input true / gate met, red = fault, blocked or obstruction input. */
+:root {
+  --m-actual: var(--plot-blue);
+  --m-goal: var(--plot-orange);
+  --m-sense: var(--plot-green);
+  --m-fault: var(--plot-red);
+  --m-piece: #d99a12;
+  --m-piece-line: #6b4a00;
+  --m-steel: #e3eae6;
+  --m-steel-2: #cbd6d1;
+  --m-steel-line: #42544d;
+  --m-dark: #34433d;
+  --m-grid: #e2e9e5;
+  --m-floor: #7f8f88;
+  --m-envelope: rgba(7, 107, 175, 0.07);
+  --m-band: rgba(38, 116, 58, 0.16);
+  --m-band-wait: rgba(196, 91, 0, 0.14);
+  --m-ok-bg: #e5f3ea;
+  --m-ok-ink: #1b5a31;
+  --m-bad-bg: #fbe9e5;
+  --m-bad-ink: #8f2412;
+  --m-wait-bg: #fdf1df;
+  --m-wait-ink: #6f3d00;
+  --m-hl: #fff3c9;
+  --m-hl-line: #b57d00;
+}
+:root[data-theme="dark"] {
+  --m-piece: #f2c14e;
+  --m-piece-line: #fbe3a4;
+  --m-steel: #2a2633;
+  --m-steel-2: #383243;
+  --m-steel-line: #bdb5cd;
+  --m-dark: #4d4659;
+  --m-grid: #221f2a;
+  --m-floor: #6f6880;
+  --m-envelope: rgba(108, 182, 242, 0.08);
+  --m-band: rgba(114, 207, 140, 0.18);
+  --m-band-wait: rgba(245, 160, 90, 0.16);
+  --m-ok-bg: #142619;
+  --m-ok-ink: #95e2aa;
+  --m-bad-bg: #2d1613;
+  --m-bad-ink: #ffa392;
+  --m-wait-bg: #2b2012;
+  --m-wait-ink: #f6c886;
+  --m-hl: #2a2340;
+  --m-hl-line: #b6a4ea;
+}
+
+/* Layout: drawing first, controls beside it on wide screens and after it on narrow ones. */
+.mech-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(250px, 330px);
+  grid-template-areas:
+    "stage controls"
+    "readouts controls";
+  gap: 0 1rem;
+  align-items: start;
+}
+.mech-stage {
+  grid-area: stage;
+}
+.mech-controls {
+  grid-area: controls;
+}
+.mech-readouts {
+  grid-area: readouts;
+}
+.mech .card h2 {
+  margin-bottom: 0.6rem;
+}
+.mech h3 {
+  margin: 0.9rem 0 0.4rem;
+  font-size: 0.95rem;
+}
+.mech-kicker {
+  margin: 0 0 0.2rem;
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.mech-intro p {
+  margin: 0.4rem 0;
+}
+.mech-credit {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* Run toolbar */
+.mech-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 0.6rem;
+}
+.mech button {
+  min-height: 2.6rem;
+  touch-action: manipulation;
+}
+.mech-toolbar .mech-clock {
+  margin-left: auto;
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.mech-clock strong {
+  color: var(--ink);
+  font-weight: 650;
+}
+#mech-run[aria-pressed="true"] {
+  background: var(--secondary);
+  color: var(--secondary-ink);
+  border-color: var(--line);
+}
+
+/* Drawing */
+.mech-figure {
+  margin: 0;
+  container-type: inline-size;
+}
+.mech-figure svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 470px;
+  background: var(--figure);
+  border: 1px solid var(--figure-line);
+  border-radius: 0.45rem;
+  font-family: inherit;
+}
+.mech-figure svg.is-fault {
+  border-color: var(--m-fault);
+  box-shadow: inset 0 0 0 2px var(--m-fault);
+}
+.mech-figure figcaption {
+  margin-top: 0.45rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+.mech-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 0.9rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.mech-legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.mech-swatch {
+  display: inline-block;
+  width: 1.4rem;
+  height: 0;
+  border-top: 3px solid var(--m-actual);
+}
+.mech-swatch.is-goal {
+  border-top: 2px dashed var(--m-goal);
+}
+.mech-swatch.is-sense {
+  border-top-color: var(--m-sense);
+}
+.mech-swatch.is-fault {
+  border-top: 3px solid var(--m-fault);
+}
+.mech-swatch.is-piece {
+  width: 0.8rem;
+  height: 0.8rem;
+  border: 1px solid var(--m-piece-line);
+  border-radius: 50%;
+  background: var(--m-piece);
+}
+
+/* SVG parts. Selectors start with .mech-figure/.mech-plot so they outrank labs.css `main svg text`. */
+.mech svg text {
+  fill: var(--plot-ink);
+  font-size: 12px;
+}
+.mech svg .m-label {
+  fill: var(--plot-muted);
+  font-size: 11px;
+}
+.mech svg .m-label-strong {
+  fill: var(--plot-ink);
+  font-size: 12px;
+  font-weight: 650;
+}
+.mech svg .m-value {
+  font-variant-numeric: tabular-nums;
+}
+.mech svg .m-steel {
+  fill: var(--m-steel);
+  stroke: var(--m-steel-line);
+  stroke-width: 1.5;
+}
+.mech svg .m-steel-2 {
+  fill: var(--m-steel-2);
+  stroke: var(--m-steel-line);
+  stroke-width: 1.2;
+}
+.mech svg .m-dark {
+  fill: var(--m-dark);
+  stroke: var(--m-steel-line);
+  stroke-width: 1;
+}
+.mech svg .m-line {
+  fill: none;
+  stroke: var(--m-steel-line);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+}
+.mech svg .m-thin {
+  stroke-width: 1;
+}
+.mech svg .m-grid {
+  fill: none;
+  stroke: var(--m-grid);
+  stroke-width: 1;
+}
+.mech svg .m-floor {
+  fill: none;
+  stroke: var(--m-floor);
+  stroke-width: 2;
+}
+.mech svg .m-floor-hatch {
+  stroke: var(--m-floor);
+  stroke-width: 1;
+}
+.mech svg .m-ruler {
+  fill: none;
+  stroke: var(--plot-muted);
+  stroke-width: 1;
+}
+.mech svg .m-envelope {
+  fill: var(--m-envelope);
+  stroke: var(--m-actual);
+  stroke-width: 1;
+  stroke-dasharray: 2 4;
+  stroke-opacity: 0.6;
+}
+.mech svg .m-actual {
+  fill: none;
+  stroke: var(--m-actual);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+}
+.mech svg .m-actual-fill {
+  fill: var(--m-actual);
+  stroke: none;
+}
+.mech svg .m-actual-part {
+  fill: color-mix(in srgb, var(--m-actual) 22%, var(--figure));
+  stroke: var(--m-actual);
+  stroke-width: 2;
+}
+.mech svg .m-goal {
+  fill: none;
+  stroke: var(--m-goal);
+  stroke-width: 2;
+  stroke-dasharray: 5 4;
+  stroke-linecap: round;
+}
+.mech svg .m-goal-fill {
+  fill: var(--m-goal);
+  stroke: none;
+}
+.mech svg text.m-goal-text {
+  fill: var(--m-goal);
+  font-weight: 650;
+}
+.mech svg text.m-actual-text {
+  fill: var(--m-actual);
+  font-weight: 650;
+}
+.mech svg .m-band {
+  fill: var(--m-band-wait);
+  stroke: none;
+}
+.mech svg .m-band.is-ok {
+  fill: var(--m-band);
+}
+.mech svg .m-track {
+  fill: none;
+  stroke: var(--m-steel-2);
+  stroke-width: 7;
+}
+.mech svg .m-gauge-band {
+  fill: none;
+  stroke: var(--m-sense);
+  stroke-opacity: 0.45;
+  stroke-width: 11;
+}
+.mech svg .m-gauge-value {
+  fill: none;
+  stroke: var(--m-actual);
+  stroke-width: 7;
+}
+.mech svg .m-sensor {
+  fill: var(--surface);
+  stroke: var(--m-steel-line);
+  stroke-width: 1.5;
+}
+.mech svg .is-on .m-sensor,
+.mech svg .m-sensor.is-on {
+  fill: var(--m-sense);
+  stroke: var(--m-sense);
+}
+.mech svg .m-beam {
+  fill: var(--m-sense);
+  stroke: var(--m-sense);
+  stroke-width: 1;
+  opacity: 0;
+}
+.mech svg .m-beam-line {
+  fill: none;
+  stroke: var(--m-steel-line);
+  stroke-width: 1;
+  stroke-dasharray: 2 3;
+  opacity: 0.5;
+}
+.mech svg .is-on .m-beam {
+  fill-opacity: 0.28;
+  opacity: 1;
+}
+.mech svg .is-on .m-beam-line {
+  stroke: var(--m-sense);
+  stroke-width: 2.5;
+  stroke-dasharray: none;
+  opacity: 1;
+}
+.mech svg .is-untrusted .m-sensor {
+  fill: var(--surface);
+  stroke: var(--m-fault);
+  stroke-dasharray: 3 2;
+}
+.mech svg .is-untrusted .m-beam,
+.mech svg .is-untrusted .m-beam-line {
+  opacity: 0.25;
+}
+.mech svg text.m-untrusted-text {
+  fill: var(--m-fault);
+  font-weight: 650;
+  font-size: 10.5px;
+}
+.mech svg .m-piece {
+  fill: var(--m-piece);
+  stroke: var(--m-piece-line);
+  stroke-width: 1.5;
+}
+.mech svg .m-obstacle {
+  fill: url(#m-hatch);
+  stroke: var(--m-fault);
+  stroke-width: 1.5;
+}
+.mech svg .m-hatch-line {
+  stroke: var(--m-fault);
+  stroke-width: 2;
+}
+.mech svg text.m-fault-text {
+  fill: var(--m-fault);
+  font-weight: 650;
+}
+.mech svg .m-arrowhead {
+  fill: var(--m-steel-line);
+}
+.mech svg .m-arrowhead.is-actual {
+  fill: var(--m-actual);
+}
+.mech svg .m-arrowhead.is-goal {
+  fill: var(--m-goal);
+}
+.mech svg .m-arrowhead.is-sense {
+  fill: var(--m-sense);
+}
+.mech svg .m-flow {
+  fill: none;
+  stroke: var(--m-sense);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.mech svg .m-blur {
+  fill: none;
+  stroke: var(--m-actual);
+  stroke-width: 3;
+  stroke-dasharray: 10 14;
+}
+.mech svg .m-tag-box {
+  fill: var(--surface);
+  stroke: var(--line);
+}
+.mech svg .m-tag.is-fault .m-tag-box {
+  fill: var(--m-bad-bg);
+  stroke: var(--m-fault);
+}
+.mech svg .m-tag.is-active .m-tag-box {
+  fill: var(--m-ok-bg);
+  stroke: var(--m-sense);
+}
+.mech svg .m-tag text {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+.mech svg .m-tag.is-fault text {
+  fill: var(--m-bad-ink);
+}
+.mech svg .m-tag.is-active text {
+  fill: var(--m-ok-ink);
+}
+.mech svg .is-hidden {
+  display: none;
+}
+/* Narrow figures (lesson frames ~310px): drop secondary labels and enlarge the rest. */
+@container (max-width: 430px) {
+  .mech svg .m-minor {
+    display: none;
+  }
+  .mech svg .m-label {
+    font-size: 15px;
+  }
+  .mech svg text {
+    font-size: 15px;
+  }
+  .mech svg .m-tag text {
+    font-size: 14px;
+  }
+}
+
+/* Phase, reason and gates */
+.mech-status {
+  display: grid;
+  gap: 0.45rem;
+  margin-top: 0.75rem;
+}
+.mech-phase-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4rem 0.6rem;
+}
+.mech-phase {
+  display: inline-block;
+  padding: 0.12rem 0.6rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface-2);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+.mech-phase[data-tone="active"] {
+  background: var(--m-ok-bg);
+  border-color: var(--m-sense);
+  color: var(--m-ok-ink);
+}
+.mech-phase[data-tone="fault"] {
+  background: var(--m-bad-bg);
+  border-color: var(--m-fault);
+  color: var(--m-bad-ink);
+}
+.mech-phase[data-tone="wait"] {
+  background: var(--m-wait-bg);
+  border-color: var(--m-goal);
+  color: var(--m-wait-ink);
+}
+.mech-reason {
+  margin: 0;
+  min-height: 1.55em;
+}
+.mech-gates {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.mech-gates li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.15rem 0.55rem 0.15rem 0.4rem;
+  border: 1px solid var(--m-fault);
+  border-radius: 999px;
+  background: var(--m-bad-bg);
+  color: var(--m-bad-ink);
+  font-size: 0.82rem;
+}
+.mech-gates li[data-ok="true"] {
+  border-color: var(--m-sense);
+  background: var(--m-ok-bg);
+  color: var(--m-ok-ink);
+}
+.mech-gates .mark {
+  font-weight: 800;
+}
+.mech-help {
+  margin: 0;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--m-goal);
+  border-radius: 0.4rem;
+  background: var(--surface-2);
+  font-size: 0.9rem;
+}
+.mech-help[data-tone="fault"] {
+  border-left-color: var(--m-fault);
+}
+.mech-help ol {
+  margin: 0.3rem 0 0;
+  padding-left: 1.2rem;
+}
+.mech-help li[data-done="true"] {
+  color: var(--m-ok-ink);
+}
+.mech-help li[data-done="true"]::marker {
+  content: "✓ ";
+}
+
+/* Controls */
+.mech-controls fieldset {
+  margin: 0 0 0.8rem;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+.mech-controls legend {
+  margin-bottom: 0.4rem;
+  padding: 0;
+  font-weight: 700;
+  font-size: 0.92rem;
+}
+.mech-stack {
+  display: grid;
+  gap: 0.5rem;
+}
+.mech-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+.mech .mech-request {
+  display: inline-flex;
+  flex: 1 1 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 2.9rem;
+  background: var(--surface);
+  color: var(--ink);
+  border: 2px solid var(--accent);
+}
+.mech .mech-request[aria-pressed="true"] {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+.mech-request-dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+}
+.mech-request[aria-pressed="true"] .mech-request-dot {
+  background: currentColor;
+}
+.mech-request-state {
+  font-weight: 500;
+  opacity: 0.85;
+}
+.mech .mech-pulse {
+  flex: 1 1 8rem;
+}
+.mech .mech-bool {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 2.5rem;
+  padding: 0.2rem 0.55rem;
+  border: 1px solid var(--line);
+  border-radius: 0.4rem;
+  background: var(--surface);
+  cursor: pointer;
+}
+.mech .mech-bool:has(input:checked) {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+.mech .mech-bool[data-kind="fault"]:has(input:checked) {
+  border-color: var(--m-fault);
+  background: var(--m-bad-bg);
+}
+.mech .mech-bool input {
+  flex: none;
+  width: 1.15rem;
+  height: 1.15rem;
+  margin: 0;
+  accent-color: var(--accent);
+}
+.mech .mech-bool small {
+  display: block;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.3;
+}
+.mech-num {
+  display: grid;
+  gap: 0.2rem;
+}
+.mech-num-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 0.4rem;
+}
+.mech .mech-num-head label {
+  display: inline;
+  font-weight: 600;
+}
+.mech-unit,
+.mech-hint {
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+.mech-hint {
+  margin-left: auto;
+  font-variant-numeric: tabular-nums;
+}
+.mech-num-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 5.4rem;
+  gap: 0.5rem;
+  align-items: center;
+}
+.mech input[type="range"] {
+  width: 100%;
+  min-height: 2rem;
+  margin: 0;
+  accent-color: var(--accent);
+}
+.mech input[type="number"] {
+  width: 100%;
+  min-height: 2.2rem;
+  padding: 0.25rem 0.4rem;
+  border: 1px solid var(--field);
+  border-radius: 0.3rem;
+  background: var(--surface);
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+.mech-scenarios {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+.mech .mech-scenarios button {
+  min-height: 2.4rem;
+  padding: 0.35rem 0.7rem;
+  background: var(--surface);
+  color: var(--accent);
+  border: 1px solid var(--field);
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+.mech .mech-scenarios button:hover {
+  background: var(--accent-soft);
+  filter: none;
+}
+.mech-controls .note {
+  margin: 0.4rem 0 0;
+  font-size: 0.84rem;
+}
+
+/* Readouts */
+.mech-readout-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: 0 1rem;
+}
+.mech table {
+  font-size: 0.88rem;
+}
+.mech td.num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.mech td .unit {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+.mech-bool-val[data-v="true"] {
+  color: var(--m-ok-ink);
+  font-weight: 650;
+}
+.mech-bool-val[data-v="false"] {
+  color: var(--muted);
+}
+.mech-plot {
+  margin: 0.8rem 0 0;
+}
+.mech-plot svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: var(--figure);
+  border: 1px solid var(--figure-line);
+  border-radius: 0.35rem;
+}
+.mech-plot .p-area {
+  fill: var(--plot-surface);
+  stroke: var(--plot-frame);
+}
+.mech-plot .p-fault {
+  fill: var(--m-fault);
+  fill-opacity: 0.16;
+}
+.mech-plot .p-actual {
+  fill: none;
+  stroke: var(--m-actual);
+  stroke-width: 2;
+}
+.mech-plot .p-goal {
+  fill: none;
+  stroke: var(--m-goal);
+  stroke-width: 2;
+  stroke-dasharray: 6 4;
+}
+.mech-plot .p-aux {
+  fill: none;
+  stroke: var(--m-sense);
+  stroke-width: 2;
+}
+.mech-plot .p-zero {
+  stroke: var(--plot-frame);
+  stroke-dasharray: 2 4;
+}
+.mech-plot figcaption {
+  margin-top: 0.35rem;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+/* Decision path and related source */
+.mech-trace-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr);
+  gap: 1rem 1.4rem;
+}
+.mech-trace-grid > div {
+  min-width: 0;
+}
+.mech-path {
+  display: grid;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: stage;
+}
+.mech-path li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.6rem minmax(0, 1fr);
+  gap: 0 0.5rem;
+  padding: 0.4rem 0.6rem 0.4rem 0.45rem;
+  border: 1px solid var(--line);
+  border-radius: 0.45rem;
+  background: var(--surface);
+  color: var(--muted);
+  counter-increment: stage;
+}
+.mech-path li::before {
+  content: counter(stage);
+  display: grid;
+  place-items: center;
+  grid-row: span 2;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+.mech-path li[data-active="true"] {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--ink);
+}
+.mech-path li[data-active="true"]::before {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+.mech-path li[data-blocked="true"] {
+  border-color: var(--m-fault);
+}
+.mech-path .stage {
+  font-weight: 700;
+  font-size: 0.86rem;
+}
+.mech-path .detail {
+  font-size: 0.84rem;
+  overflow-wrap: anywhere;
+}
+.mech-source-meta {
+  margin: 0 0 0.5rem;
+  font-size: 0.88rem;
+}
+.mech-source-meta code {
+  overflow-wrap: anywhere;
+}
+.mech-code {
+  max-height: 22rem;
+  margin: 0;
+  padding: 0.4rem 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+  border: 1px solid var(--line);
+  border-radius: 0.45rem;
+  background: var(--code);
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  tab-size: 4;
+}
+.mech-code .ln {
+  display: grid;
+  grid-template-columns: 3.2rem max-content;
+  min-width: 100%;
+  border-left: 3px solid transparent;
+}
+.mech-code .ln-no {
+  padding-right: 0.7rem;
+  color: var(--muted);
+  text-align: right;
+  user-select: none;
+}
+.mech-code .ln-text {
+  padding-right: 1rem;
+  white-space: pre;
+}
+.mech-code .ln.is-hl {
+  border-left-color: var(--m-hl-line);
+  background: var(--m-hl);
+}
+.mech-code .ln.is-hl .ln-no {
+  color: var(--ink);
+  font-weight: 700;
+}
+.mech-steps {
+  display: grid;
+  gap: 0.35rem;
+  margin: 0.6rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.mech-steps li {
+  padding: 0.4rem 0.6rem;
+  border: 1px solid var(--line);
+  border-radius: 0.4rem;
+  font-size: 0.86rem;
+}
+.mech-steps li[data-active="true"] {
+  border-color: var(--m-hl-line);
+  background: var(--m-hl);
+}
+.mech-steps .step-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.2rem 0.6rem;
+  font-weight: 650;
+}
+.mech-steps .step-lines {
+  color: var(--muted);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+.mech-steps .step-model {
+  display: block;
+  margin-top: 0.15rem;
+  color: var(--ink);
+  font-style: italic;
+}
+.mech-steps .step-model:empty {
+  display: none;
+}
+.mech details {
+  margin-top: 0.6rem;
+  font-size: 0.88rem;
+}
+.mech summary {
+  cursor: pointer;
+  font-weight: 650;
+}
+.mech details ul {
+  margin: 0.4rem 0 0;
+  padding-left: 1.2rem;
+}
+.mech-error {
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--m-fault);
+  border-radius: 0.4rem;
+  background: var(--m-bad-bg);
+  color: var(--m-bad-ink);
+}
+.mech-limits {
+  margin: 0.3rem 0 0;
+  padding-left: 1.2rem;
+}
+
+@media (max-width: 880px) {
+  .mech-layout {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "stage" "controls" "readouts";
+  }
+  .mech-trace-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (max-width: 460px) {
+  .mech .card,
+  .mech .intro {
+    padding: 0.8rem 0.75rem;
+  }
+  .mech-toolbar .mech-clock {
+    margin-left: 0;
+    flex-basis: 100%;
+  }
+  .mech-num-row {
+    grid-template-columns: minmax(0, 1fr) 4.8rem;
+  }
+  .mech-code {
+    font-size: 0.74rem;
+  }
+}
+
+/* Integration: the original model now includes a bounded turret travel sector. */
+.mech svg .m-travel-stop {
+  fill: var(--m-bad-bg);
+  stroke: var(--m-fault);
+  stroke-width: 1;
+  stroke-dasharray: 3 3;
+}
+
+.mech-pending {
+  padding: 0.5rem 0.75rem;
+  border-left: 3px solid var(--m-goal);
+  background: var(--m-wait-bg);
+  color: var(--m-wait-ink);
+  font-size: 0.9rem;
+}
+.mech-pending[hidden] {
+  display: none;
+}
+.mech table th {
+  overflow-wrap: anywhere;
+}
+.mech-code-preview {
+  margin: 0 0 0.6rem;
+}
+@container (max-width:430px) {
+  .mech svg [data-narrow-column="true"] {
+    display: none;
+  }
+}
