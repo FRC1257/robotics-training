@@ -382,7 +382,7 @@ RENDER["fixed-shooter"] = (svg) => {
   // Encoder on the top wheel feeds the gauge.
   S("path", { d: "M338 118H360L396 104", class: "m-beam-line" }, g);
   S("text", { x: 300, y: 270 + 14, class: "m-label m-minor" }, g, "");
-  const gaugeUpdate = gauge(g, 424, 96, 38, 400, "Flywheel (rad/s)");
+  const gaugeUpdate = gauge(g, 410, 96, 38, 400, "Flywheel (rad/s)");
   // Feed rollers above the path; they turn only while the model requests feed.
   const rollers = [0.39, 0.75].map((t) => {
     const c = at(t, -25),
@@ -735,7 +735,9 @@ RENDER["turret-shooter"] = (svg) => {
       encText,
       untrusted
         ? `angle reading ${untrusted} — not trusted`
-        : `error ${fmt(err, 2)} rad (inside travel)`,
+        : v.gate.limit === false
+          ? "Target unreachable: beyond travel"
+          : `error ${fmt(err, 2)} rad (inside travel)`,
     );
     encText.setAttribute(
       "class",
@@ -1981,7 +1983,7 @@ const DEMOS = {
       {
         id: "low",
         label: "Low pose",
-        set: { targetHeightM: 0.2, targetWristRad: -0.9 },
+        set: { targetHeightM: 0.2, targetWristRad: 0.5 },
         note: "This low-height, extended-wrist goal is incompatible with the illustrative clearance rule; both outputs stop.",
       },
     ],
@@ -2395,6 +2397,7 @@ let M = null,
   defaults = {},
   state,
   inputs,
+  sampledInputs = {},
   pulses = {},
   afterStep = [],
   history = [],
@@ -2425,6 +2428,7 @@ function resetExperiment(announceIt = true) {
   setRunning(false);
   state = M.createState(DEMO);
   inputs = M.defaultInputs(DEMO);
+  sampledInputs = { ...inputs };
   pulses = {};
   afterStep = [];
   vis = freshVisuals();
@@ -2449,6 +2453,7 @@ function step() {
   pulses = {};
   const prev = state;
   state = M.stepDemo(DEMO, prev, applied, DT);
+  sampledInputs = { ...applied, reset: false, home: false };
   const out = state.outputs || {};
   vis.wheel += ((state.velocityRadPerSec || 0) * DT) / WHEEL_SLOWDOWN;
   vis.feed += (out.feed || 0) * DT * 9;
@@ -2742,7 +2747,7 @@ function buildScenarios() {
 
 // ---------- readouts ----------
 function view() {
-  const desc = M.describeDemo(DEMO, state, inputs);
+  const desc = M.describeDemo(DEMO, state, sampledInputs);
   const out = Object.fromEntries(
     (desc.outputs || []).map((o) => [o.name, o.value]),
   );
@@ -2751,20 +2756,20 @@ function view() {
     typeof state.fault === "boolean" ? state.fault : gate.armed === false;
   return {
     state,
-    inputs,
+    inputs: sampledInputs,
     desc,
     out,
     gate,
     fault,
     run:
-      !!inputs.request &&
-      !!inputs.enabled &&
+      !!sampledInputs.request &&
+      !!sampledInputs.enabled &&
       !fault &&
       !state.needsRelease &&
       (!("home" in defaults) || !!state.homed),
     homed: !!state.homed,
     needsHome: "home" in defaults,
-    trusted: inputs.sensorValid !== false && !inputs.stale,
+    trusted: sampledInputs.sensorValid !== false && !sampledInputs.stale,
     moving: (desc.activeTrace || []).includes("motion"),
     vis,
     reduced: reducedMotion.matches,
@@ -2843,10 +2848,10 @@ function renderGates(v) {
 function renderHelp(v) {
   const box = ui.help,
     causes = [];
-  if (!inputs.enabled) causes.push("robot disabled");
-  if (!inputs.sensorValid) causes.push("sensor invalid");
-  if (inputs.stale) causes.push("signal stale");
-  if (inputs.obstructed) causes.push("obstruction reported");
+  if (!v.inputs.enabled) causes.push("robot disabled");
+  if (!v.inputs.sensorValid) causes.push("sensor invalid");
+  if (v.inputs.stale) causes.push("signal stale");
+  if (v.inputs.obstructed) causes.push("obstruction reported");
   let html = null;
   if (v.fault)
     html = {
@@ -2860,8 +2865,8 @@ function renderHelp(v) {
           !causes.length,
         ],
         [
-          inputs.request ? "Release the request." : "Request released.",
-          !inputs.request,
+          v.inputs.request ? "Release the request." : "Request released.",
+          !v.inputs.request,
         ],
         ["Press Reset fault.", false],
         ["Hold the request again.", false],
@@ -2873,10 +2878,10 @@ function renderHelp(v) {
       title: "No home reference — motion is blocked.",
       steps: [
         [
-          inputs.request
+          v.inputs.request
             ? "Release the request (home is ignored while it is held)."
             : "Request released.",
-          !inputs.request,
+          !v.inputs.request,
         ],
         ["Press Record home switch.", false],
       ],
@@ -2907,7 +2912,7 @@ function renderPath(v) {
     (o) => `${NAMES[o.name] || o.name} ${fmt(o.value, 2)}`,
   );
   const details = {
-    input: `Request ${inputs.request ? "held" : "released"}${inputs.enabled ? "" : " · robot disabled"}`,
+    input: `Request ${v.inputs.request ? "held" : "released"}${v.inputs.enabled ? "" : " · robot disabled"}`,
     sensor: [
       v.trusted ? "Readings valid and fresh" : `Reading ${untrustedText(v)}`,
       ...sensorsOn,
@@ -2933,7 +2938,7 @@ function renderPlot() {
     X1 = 472,
     Y0 = 10,
     Y1 = 104;
-  const x = (i) => X0 + (i / (HISTORY - 1)) * (X1 - X0),
+  const x = (i) => X0 + ((HISTORY - n + i) / (HISTORY - 1)) * (X1 - X0),
     y = (val) =>
       Y1 - ((clamp(val, p.min, p.max) - p.min) / (p.max - p.min)) * (Y1 - Y0);
   ui.plotLines.forEach((line, k) => {
@@ -3025,15 +3030,26 @@ function phaseTone(v) {
   )
     return "wait";
   if (v.run) return "active";
-  if (inputs.request || (v.needsHome && !v.homed)) return "wait";
+  if (v.inputs.request || (v.needsHome && !v.homed)) return "wait";
   return "";
 }
 function render() {
   if (!M) return;
   const v = view();
   update?.(v);
+  ui.previewUpdate?.(v);
+  const pending = Object.keys(inputs).some(
+    (key) =>
+      !["reset", "home"].includes(key) && inputs[key] !== sampledInputs[key],
+  );
+  ui.main.dataset.pending = String(pending);
+  if (ui.pending) ui.pending.hidden = !pending;
   const tone = phaseTone(v);
   ui.tag?.(
+    v.fault ? "FAULT" : String(v.desc.phase).toUpperCase(),
+    tone === "wait" ? "" : tone,
+  );
+  ui.previewTag?.(
     v.fault ? "FAULT" : String(v.desc.phase).toUpperCase(),
     tone === "wait" ? "" : tone,
   );
@@ -3245,6 +3261,8 @@ async function start() {
     gates: $("mech-gates"),
     help: $("mech-help"),
     announce: $("mech-announce"),
+    pending: $("mech-pending"),
+    previewSvg: $("mech-code-svg"),
     inputs: $("mech-inputs"),
     scenarios: $("mech-scenarios"),
     scenarioNote: $("mech-scenario-note"),
@@ -3279,6 +3297,43 @@ async function start() {
   addDefs(ui.svg);
   update = RENDER[DEMO]?.(ui.svg) || null;
   ui.tag = phaseTag(ui.svg, Number(ui.svg.viewBox.baseVal?.width) || 480);
+  // The same renderer/state is visible beside the real source, with separate SVG IDs.
+  if (ui.previewSvg) {
+    addDefs(ui.previewSvg);
+    ui.previewUpdate = RENDER[DEMO]?.(ui.previewSvg);
+    const names = new Map();
+    for (const el of ui.previewSvg.querySelectorAll("[id]")) {
+      const old = el.id;
+      names.set(old, `preview-${old}`);
+      el.id = `preview-${old}`;
+    }
+    for (const el of [ui.previewSvg, ...ui.previewSvg.querySelectorAll("*")])
+      for (const attr of [...el.attributes]) {
+        let value = attr.value.replace(
+          /url\(#([^)]+)\)/g,
+          (all, id) => `url(#${names.get(id) || id})`,
+        );
+        if (attr.name === "aria-labelledby")
+          value = value
+            .split(" ")
+            .map((id) => names.get(id) || id)
+            .join(" ");
+        if (value !== attr.value) el.setAttribute(attr.name, value);
+      }
+    ui.previewTag = phaseTag(ui.previewSvg, 480);
+  }
+  for (const figure of document.querySelectorAll(".mech-figure svg"))
+    for (const text of figure.querySelectorAll("text"))
+      if (
+        Number(text.getAttribute("x")) >= 300 &&
+        !["middle", "end"].includes(text.getAttribute("text-anchor"))
+      )
+        text.classList.add("m-column-label");
+  $("mech-code-step")?.addEventListener("click", () => {
+    setRunning(false);
+    step();
+    render();
+  });
   buildControls();
   buildScenarios();
   buildPlot();
@@ -3308,7 +3363,7 @@ async function start() {
     id: DEMO,
     state: () => structuredClone(state),
     inputs: () => ({ ...inputs }),
-    describe: () => M.describeDemo(DEMO, state, inputs),
+    describe: () => M.describeDemo(DEMO, state, sampledInputs),
     step: (n = 1) => {
       setRunning(false);
       for (let i = 0; i < n; i++) step();

@@ -54,30 +54,47 @@ for (const id of ids) {
     await page.locator('[data-scenario="ready"]').click();
     if (id === "climb-balance") await page.locator("#in-cageDetected").check();
     const initialSvg = await page.locator("#mech-svg").innerHTML();
-    await step(page, 120);
+    await step(page, 80);
     expect(await page.locator("#mech-svg").innerHTML()).not.toBe(initialSvg);
     await expect(page.locator("#mech-code .is-hl").first()).toBeAttached();
+    expect(
+      await page.locator("#mech-code-svg path, #mech-code-svg line").count(),
+    ).toBeGreaterThan(15);
+    const duplicates = await page.evaluate(() => {
+      const ids = [...document.querySelectorAll("[id]")].map((el) => el.id);
+      return ids.filter((id, i) => ids.indexOf(id) !== i);
+    });
+    expect(duplicates).toEqual([]);
+    const lastPoint = await page
+      .locator("#mech-plot polyline")
+      .first()
+      .getAttribute("points");
+    expect(
+      Number(lastPoint.trim().split(" ").at(-1).split(",")[0]),
+    ).toBeCloseTo(472, 1);
     await expect(page.locator("#mech-sensors th").first()).not.toHaveText("");
     await expect(page.locator("#mech-sensors td").first()).not.toHaveText("");
-    await page
-      .locator(".mech-stage")
-      .screenshot({
-        path: testInfo.outputPath("mechanism-light.png"),
-        animations: "disabled",
-      });
+    await page.locator(".mech-stage").screenshot({
+      path: testInfo.outputPath("mechanism-light.png"),
+      animations: "disabled",
+    });
     await page.locator("#theme-toggle").click();
     await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
-    await page
-      .locator(".mech-stage")
-      .screenshot({
-        path: testInfo.outputPath("mechanism-dark.png"),
-        animations: "disabled",
-      });
+    await page.locator(".mech-stage").screenshot({
+      path: testInfo.outputPath("mechanism-dark.png"),
+      animations: "disabled",
+    });
     expect(
       await page.evaluate(
         () => document.documentElement.scrollWidth <= innerWidth + 1,
       ),
     ).toBe(true);
+    if (id === "fixed-shooter" || id === "telescoping-arm") {
+      await page.locator(".mech-trace-grid").screenshot({
+        path: testInfo.outputPath("mechanism-with-code.png"),
+        animations: "disabled",
+      });
+    }
     await page.locator("#in-stale").check();
     await step(page);
     expect((await state(page)).fault).toBe(true);
@@ -167,4 +184,21 @@ test("turret travel and differential mode are adjustable through actual controls
   await page.locator("#in-differential").uncheck();
   await step(page);
   expect((await state(page)).outputs.vyMps).toBe(1.5);
+});
+
+test("paused controls remain pending until the next code step", async ({
+  page,
+}) => {
+  await page.goto("/labs/mechanism-piece-handling.html");
+  await ready(page);
+  await page.locator('[data-scenario="ready"]').click();
+  await step(page);
+  const before = (await state(page)).time;
+  await page.locator("#in-stale").check();
+  await expect(page.locator("#mech-pending")).toBeVisible();
+  expect((await state(page)).time).toBe(before);
+  expect((await state(page)).fault).toBe(false);
+  await page.locator("#mech-code-step").click();
+  expect((await state(page)).fault).toBe(true);
+  await expect(page.locator("#mech-pending")).toBeHidden();
 });

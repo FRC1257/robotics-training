@@ -100,7 +100,7 @@
       ],
       "differences": [
         "The excerpt clamps a requested angle; it does not establish cable-safe equivalent selection, homing, vision validation or collision monitoring.",
-        "The demo’s explicit fault and wrap-choice guards are separate hypothetical teaching behavior."
+        "The demo\u2019s explicit fault and wrap-choice guards are separate hypothetical teaching behavior."
       ]
     },
     "piece-handling": {
@@ -147,8 +147,9 @@
         }
       ],
       "differences": [
-        "The model may use beam-break or jam states to teach generic indexing; these source inputs are CAN range sensor booleans.",
-        "This excerpt does not establish sensor disconnect detection, a timeout, or confirmed successful scoring."
+        "Both examples check the back flag before the front flags. In the browser these are independent, manually selected scenario inputs; no CAN range hardware or automatic detection is modeled.",
+        "The single normalized roller outputs (1 collect, 0.4 handoff, 0 hold) and piece-progress animation are teaching choices. The excerpt selects named states; it does not set those normalized output values.",
+        "The excerpt does not establish sensor disconnect detection, a timeout, or confirmed scoring; the browser fault guards are separate teaching behavior."
       ]
     },
     "elevator-wrist": {
@@ -302,7 +303,8 @@
       ],
       "differences": [
         "The nested conversions return a field-relative result with compensation; do not describe this excerpt as only a direct field-to-robot output.",
-        "The educational differential-drive comparison, stale-sensor checks and model trajectories are not implemented in this excerpt."
+        "The educational differential-drive comparison, stale-sensor checks and model trajectories are not implemented in this excerpt.",
+        "The real excerpt is from a swerve robot. Differential mode is an original nonholonomic comparison, not a claim that the source robot uses differential drive."
       ]
     },
     "climb-balance": {

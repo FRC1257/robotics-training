@@ -954,3 +954,25 @@
   stroke-width: 1;
   stroke-dasharray: 3 3;
 }
+
+.mech-pending {
+  padding: 0.5rem 0.75rem;
+  border-left: 3px solid var(--m-goal);
+  background: var(--m-wait-bg);
+  color: var(--m-wait-ink);
+  font-size: 0.9rem;
+}
+.mech-pending[hidden] {
+  display: none;
+}
+.mech table th {
+  overflow-wrap: anywhere;
+}
+.mech-code-preview {
+  margin: 0 0 0.6rem;
+}
+@container (max-width:430px) {
+  .mech svg .m-column-label {
+    display: none;
+  }
+}

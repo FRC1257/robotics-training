@@ -37,6 +37,10 @@
           >Model time <strong id="mech-time">0.00</strong> s</span
         >
       </div>
+      <p id="mech-pending" class="mech-pending" role="status" hidden>
+        Inputs changed. Step or Run to sample them; the diagram, gates and
+        source annotations show the last evaluated step.
+      </p>
       <p
         id="mech-announce"
         class="visually-hidden"
@@ -136,6 +140,18 @@
         </p>
         <div class="mech-trace-grid">
           <div>
+            <h3>Same model, beside the code</h3>
+            <figure class="mech-figure mech-code-preview">
+              <svg
+                id="mech-code-svg"
+                viewBox="0 0 480 300"
+                role="img"
+                aria-label="Same mechanism state shown beside related robot source"
+              ></svg>
+            </figure>
+            <button id="mech-code-step" class="secondary" type="button">
+              Step beside code · 20 ms
+            </button>
             <h3>Browser model now</h3>
             <ol id="mech-path" class="mech-path">
               <li data-stage="input">
