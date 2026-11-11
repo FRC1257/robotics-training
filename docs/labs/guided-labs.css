@@ -99,3 +99,34 @@ body.guided-ready.guided-mode .mech-stage {
 body.guided-ready.guided-mode #mech-gates {
   display: none;
 }
+
+.guided-result {
+  display: none;
+}
+.guided-mode .guided-result {
+  display: block;
+  margin: 1rem 0 0;
+  font-weight: 650;
+}
+@media (min-width: 960px) {
+  body.guided-ready.guided-mode main {
+    display: grid;
+    grid-template-columns: minmax(280px, 0.8fr) minmax(0, 1.4fr);
+    gap: 1.25rem;
+    align-items: start;
+  }
+  body.guided-ready.guided-mode #lab-guide {
+    grid-column: 1;
+    grid-row: 1;
+    margin: 0;
+    position: sticky;
+    top: 1rem;
+  }
+  body.guided-ready.guided-mode
+    main
+    > :not(#lab-guide):not([data-guided-hide]):not(noscript) {
+    grid-column: 2;
+    grid-row: 1;
+    min-width: 0;
+  }
+}

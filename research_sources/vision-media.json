@@ -1,0 +1,10 @@
+{
+  "retrieved_at": "2026-11-11T15:13:56.745148+00:00",
+  "file": "docs/media/vision/tag36h11-id7.png",
+  "source_url": "https://raw.githubusercontent.com/AprilRobotics/apriltag-imgs/f3fd9a7add5bfd82a886fc65240fdb8e3c9ac5a1/tag36h11/tag36_11_00007.png",
+  "revision": "f3fd9a7add5bfd82a886fc65240fdb8e3c9ac5a1",
+  "sha256": "a3ad7d0d389512eb74e1b31fde614eefb2194ecb128416f530c8e7110dcb03f0",
+  "license": "BSD-2-Clause",
+  "license_file": "docs/media/vision/LICENSE-AprilTag.txt",
+  "modifications": "None; browser CSS displays the original PNG with nearest-neighbor scaling. Not a photograph or a measured print."
+}

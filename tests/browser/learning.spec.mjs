@@ -1,4 +1,6 @@
 import { test, expect } from "@playwright/test";
+import { readFileSync } from "node:fs";
+const catalog = JSON.parse(readFileSync("platform/catalog.json", "utf8"));
 async function capture(page, options) {
   await page.evaluate(() => window.scrollTo(0, 0));
   await page.screenshot({ ...options, animations: "disabled" });
@@ -20,7 +22,7 @@ test("home, legacy navigation, search and local progress work", async ({
   await expect(page.locator("main h1")).toHaveText(
     "Team 1257 Robotics Training",
   );
-  await expect(page.locator("[data-path-id]")).toHaveCount(6);
+  await expect(page.locator("[data-path-id]")).toHaveCount(catalog.paths.length);
   await expect(page.locator("#search-open svg")).toBeVisible();
   await expect(page.locator("#search-open")).toHaveText("");
   await expect(page.locator(".top-nav")).toHaveCount(0);

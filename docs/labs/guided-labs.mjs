@@ -15,19 +15,24 @@ export const GUIDES = {
     title: "See feedback and gravity",
     stages: [
       stage(
-        "Start with feedback",
-        "The model starts at zero with a 1 m target. With no gravity compensation, watch the blue position approach the target.",
-        [change("preset", "default"), pidSteps(150)],
+        "Gravity leaves a gap",
+        "The dashed line is the 1 m target. The blue position settles below it: feedback needs a persistent error to support the constant downward load.",
+        [change("preset", "default"), pidSteps(500)],
       ),
       stage(
         "Add gravity compensation",
         "Now the model adds 2 N of feedforward. Compare the position and error with the previous step; the controller needs less persistent error to support the load.",
-        [change("preset", "default"), change("ff", 2), pidSteps(150)],
+        [change("preset", "default"), change("ff", 2), pidSteps(500)],
       ),
       stage(
-        "Limit the output",
-        "The windup preset restricts available force. Saturation can let error accumulate; inspect the orange output and saturation time. These are simulated forces, not hardware gains.",
-        [change("preset", "windup"), pidSteps(150)],
+        "Change the target",
+        "This new experiment starts at zero with a 1.5 m target and the same gravity compensation. The blue position follows the new target. Output limits and windup are available in Explore controls.",
+        [
+          change("preset", "default"),
+          change("ff", 2),
+          change("setpoint", 1.5),
+          pidSteps(500),
+        ],
       ),
     ],
   },
@@ -37,17 +42,17 @@ export const GUIDES = {
       stage(
         "Move forward",
         "All four velocity arrows point forward when the chassis translates without turning.",
-        [change("preset", "translation")],
+        [change("preset", "translation"), change("optimize", false)],
       ),
       stage(
         "Rotate in place",
         "With no translation, each module's velocity is tangent to its circle around the center.",
-        [change("preset", "rotation")],
+        [change("preset", "rotation"), change("optimize", false)],
       ),
       stage(
         "Combine and limit",
         "Translation and rotation combine. A single scale reduces every module velocity when the speed limit is exceeded.",
-        [change("preset", "mixed")],
+        [change("preset", "mixed"), change("optimize", false)],
       ),
     ],
   },
@@ -394,6 +399,27 @@ export async function initializeGuided(doc = globalThis.document) {
     for (const action of step.actions)
       if (!findAction(doc, action)) return false;
   if (id === "pid" && !doc.getElementById("toggle")) return false;
+  if (id === "pid") {
+    const compact = doc.createElement("output");
+    compact.id = "guided-result";
+    compact.className = "guided-result";
+    doc.getElementById("plot").closest(".card").append(compact);
+    const source = doc.getElementById("summary");
+    const sync = () => {
+      compact.textContent = source.textContent
+        .split(" · ")
+        .slice(1, 3)
+        .join(" · ");
+    };
+    sync();
+    new MutationObserver(sync).observe(source, {
+      childList: true,
+      subtree: true,
+      characterData: true,
+    });
+    for (const id of ["summary", "feedback"])
+      doc.getElementById(id).dataset.guidedHide = "";
+  }
   const panel = doc.createElement("section");
   panel.id = "lab-guide";
   panel.className = "guided-panel";
@@ -516,6 +542,7 @@ export async function initializeGuided(doc = globalThis.document) {
         ? "Each step resets and advances an original teaching model; it does not run team Java."
         : "Each guided step resets its experiment. Explore keeps the current state; returning to the guide resets the current step.";
     if (!exploring) apply();
+    doc.dispatchEvent(new Event("labmodechange"));
   };
   explore.addEventListener("click", () => setExploring(true));
   returnButton.addEventListener("click", () => setExploring(false));
