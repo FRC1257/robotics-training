@@ -52,5 +52,14 @@
     "capture_method": "Playwright Chromium in GitHub Actions; actual rendered application, unedited screenshot",
     "license": "MIT, original application teaching UI",
     "note": "Guided shooter step 3 of 4; original deterministic JavaScript teaching model at 1.98 simulated seconds. Team Java is not executed."
+  },
+  {
+    "file": "docs/media/screenshots/apriltag-corners.png",
+    "sha256": "b5188c2b8c4ca1c262a5ad4e379eb709e14d5a1ce3b8f127d49993d60472e1dc",
+    "source": "https://github.com/FRC1257/robotics-training/actions/runs/43053407819",
+    "source_revision": "c968ee3",
+    "capture_method": "Playwright Chromium in GitHub Actions; actual rendered teaching application, unedited screenshot",
+    "license": "MIT application UI with the attributed BSD-2-Clause AprilRobotics marker pattern",
+    "note": "Step 2 of 7 shows ideal analytically supplied image corners and ID, not an actual detector result."
   }
 ]

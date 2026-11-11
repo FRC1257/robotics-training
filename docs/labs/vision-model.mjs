@@ -34,7 +34,7 @@ export const STEPS = [
   ],
   [
     "Move the camera",
-    "Move the physical camera forward. If the code still assumes the old 0.40 m mount, the estimated robot center shifts. Update the measured offset and the error disappears in this ideal model.",
+    "Move the physical camera along the robot’s forward axis. If the code still assumes the old 0.40 m mount, the estimated robot center shifts. Update the measured offset and the error disappears in this ideal model.",
   ],
   [
     "Let the image arrive late",

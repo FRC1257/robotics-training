@@ -152,7 +152,7 @@ function renderField(s) {
     if (index === 2) {
       $("vision-view-title").textContent = "Use the known landmark";
       $("vision-caption").textContent =
-        `Depth = 900 px × 0.165 m ÷ ${fmt(s.pixelWidth)} px = ${fmt(s.recoveredDepth)} m. All dimensions are assumed.`;
+        `The assumed field layout puts this tag at (6.00, 2.20) m. Depth = 900 px × 0.165 m ÷ ${fmt(s.pixelWidth)} px = ${fmt(s.recoveredDepth)} m.`;
       $("vision-result").textContent =
         `Camera field position ${pair(s.recoveredCamera)}`;
     } else {

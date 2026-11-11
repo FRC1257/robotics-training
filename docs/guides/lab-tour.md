@@ -12,6 +12,14 @@ Open the [guided shooter demo](../labs/mechanism-fixed-shooter.html). Each step 
 
 *Unedited desktop capture at commit 0c71dd1 from the [verified browser run](https://github.com/FRC1257/robotics-training/actions/runs/43047473739). The model is at guided step 3 of 4; it illustrates a readiness rule and does not reproduce measured robot physics.*
 
+## Watch an AprilTag become a robot position
+
+Use the [AprilTag walkthrough](../labs/vision.html) to follow pixels, supplied corners and ID, camera pose and robot pose. Move the physical camera at step 5, then update its configured offset. At steps 6–7, change the measurement delay and compare a current estimate with and without capture-time motion history. Only the control relevant to the current concept appears.
+
+![Actual AprilTag walkthrough showing an original marker pattern, four ideal corners and the decoded identity annotation](../media/screenshots/apriltag-corners.png)
+
+*Unedited screenshot from the [verified browser run](https://github.com/FRC1257/robotics-training/actions/runs/43053407819). The frame is constructed and its ideal observations are supplied analytically; this is not a physical camera capture or a running image detector.*
+
 ## Swerve translation and rotation
 
 Open the [swerve lab](../labs/swerve.html ':ignore'). With forward translation and zero rotation, every module should have the same velocity. Select rotation, disable steering optimization for the first comparison, and predict each corner's direction. Enable optimization and explain why the same physical velocity can use a negative wheel speed and a different steering angle.
