@@ -82,3 +82,5 @@ At pinned commit [`0c9a024`](https://github.com/FRC1257/2026-Robot/tree/0c9a024d
 ## Sources and related pages
 
 [PhotonVision 2026.3.3 pose estimator](https://docs.photonvision.org/en/v2026.3.3/docs/programming/photonlib/robot-pose-estimator.html) · [PhotonVision MultiTag](https://docs.photonvision.org/en/v2026.3.3/docs/apriltag-pipelines/multitag.html) · [WPILib pose estimators](https://docs.wpilib.org/en/stable/docs/software/advanced-controls/state-space/state-space-pose-estimators.html) · [Limelight MegaTag2](https://docs.limelightvision.io/docs/docs-limelight/pipeline-apriltag/apriltag-robot-localization-megatag2) · [Alignment and debugging](4-Alignment_And_Debugging.md).
+
+For a smaller, seven-step introduction, use the [AprilTag vision walkthrough](../labs/vision.html): its last steps isolate placement error from capture-time error.

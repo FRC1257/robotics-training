@@ -76,7 +76,7 @@
       "id": "vision-localization",
       "title": "Vision: pixels, pose and alignment",
       "description": "Connect image formation, calibration, coordinate transforms and timestamped pose estimates to a controlled robot approach.",
-      "estimatedMinutes": 300,
+      "estimatedMinutes": 315,
       "outcomes": [
         "Distinguish a target detection from a field-relative robot pose",
         "Explain calibration, camera transforms and capture timestamps with worked examples",
@@ -84,6 +84,7 @@
       ],
       "lessons": [
         "vision/README.md",
+        "labs/vision.html",
         "vision/1-Pixels_To_Targets.md",
         "vision/2-Geometry_And_Calibration.md",
         "vision/3-Pose_Fusion.md",

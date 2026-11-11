@@ -6,6 +6,8 @@ Robot vision turns camera images into measurements that software can use: a targ
 
 A driver camera stream and an autonomous vision pipeline solve different problems. In a stream, a person interprets the image. In a processing pipeline, software extracts measurements from frames. Both are useful; a working video stream does not establish that pose estimation is configured correctly. [WPILib explains this distinction](https://docs.wpilib.org/en/stable/docs/software/vision-processing/introduction/what-is-vision.html).
 
+Start with the [step-by-step AprilTag demo](../labs/vision.html) to see image corners become camera and robot positions, then test placement errors and delayed observations.
+
 ## Follow the whole pipeline
 
 Read this sequence from top to bottom. Each row changes the meaning of the data; the last row is a robot-program decision, not a camera output.

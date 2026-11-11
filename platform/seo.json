@@ -102,5 +102,9 @@
   "java/4-Objects/programs/README.md": {
     "title": "Java Objects Practice Programs",
     "description": "Practice Java classes and objects through small programming tasks and apply the ideas from the object-oriented lessons."
+  },
+  "labs/vision.html": {
+    "title": "AprilTag Vision: Pixels to Robot Pose",
+    "description": "Follow an AprilTag observation from image corners to camera and robot pose. Change camera placement and latency in a simple step-by-step demo."
   }
 }

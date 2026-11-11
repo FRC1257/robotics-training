@@ -166,7 +166,7 @@ test("build emits semantic pages, legacy routes, search, math and copied assets"
       );
   const sitemap = parseHTML(read("sitemap.xml")).document;
   const sitemapUrls = [...sitemap.querySelectorAll("loc")].map(n => n.textContent);
-  assert.equal(sitemapUrls.length, result.count + 14);
+  assert.equal(sitemapUrls.length, result.count + result.search.filter(page => page.section === "labs" && page.id.endsWith(".html")).length);
   assert.equal(sitemapUrls.length, new Set(sitemapUrls).size);
   assert.ok(sitemapUrls.some(url => url.endsWith("/course/labs/pid.html")));
   const pageTitles = new Set();

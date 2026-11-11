@@ -48,6 +48,7 @@
     "labs/mechanism-elevator-wrist.html",
     "labs/mechanism-telescoping-arm.html",
     "labs/mechanism-drivetrain.html",
-    "labs/mechanism-climb-balance.html"
+    "labs/mechanism-climb-balance.html",
+    "labs/vision.html"
   ]
 }
