@@ -972,7 +972,7 @@
   margin: 0 0 0.6rem;
 }
 @container (max-width:430px) {
-  .mech svg .m-column-label {
+  .mech svg [data-narrow-column="true"] {
     display: none;
   }
 }

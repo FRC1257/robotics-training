@@ -88,6 +88,25 @@ for (const id of ids) {
     });
     await page.locator("#theme-toggle").click();
     await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+    const clippedLabels = await page.locator("#mech-svg").evaluate((svg) => {
+      const bounds = svg.getBoundingClientRect();
+      return [...svg.querySelectorAll("text")]
+        .filter(
+          (t) =>
+            !t.closest("[clip-path]") &&
+            t.getClientRects().length &&
+            getComputedStyle(t).display !== "none",
+        )
+        .filter((t) => {
+          const box = t.getBoundingClientRect();
+          return (
+            box.width > 0 &&
+            (box.left < bounds.left - 2 || box.right > bounds.right + 2)
+          );
+        })
+        .map((t) => t.textContent);
+    });
+    expect(clippedLabels).toEqual([]);
     await page.locator(".mech-stage").screenshot({
       path: testInfo.outputPath("mechanism-dark.png"),
       animations: "disabled",

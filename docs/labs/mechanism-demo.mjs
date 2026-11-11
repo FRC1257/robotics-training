@@ -3329,7 +3329,7 @@ async function start() {
         Number(text.getAttribute("x")) >= 300 &&
         !["middle", "end"].includes(text.getAttribute("text-anchor"))
       )
-        text.classList.add("m-column-label");
+        text.dataset.narrowColumn = "true";
   $("mech-code-step")?.addEventListener("click", () => {
     setRunning(false);
     step();
