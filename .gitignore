@@ -2,7 +2,7 @@
 .vscode
 *.class
 node_modules/
-dist/
+/dist/
 .DS_Store
 audit/snapshots/
 research_sources/local/
