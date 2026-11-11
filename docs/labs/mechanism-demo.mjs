@@ -1193,7 +1193,13 @@ RENDER["telescoping-arm"] = (svg) => {
     "text",
     { x: 318, y: 207, class: "m-label m-minor" },
     g,
-    `L = ${L0} m (assumed) + extension`,
+    `L = ${L0} m + extension`,
+  );
+  S(
+    "text",
+    { x: 318, y: 222, class: "m-label m-minor" },
+    g,
+    "base length assumed",
   );
   const obst = obstacle(g, 330, 236, 70, 34);
   return (v) => {
@@ -1656,14 +1662,14 @@ RENDER["climb-balance"] = (svg) => {
     g,
     "home",
   );
-  S("text", { x: 340, y: 46, class: "m-label-strong" }, g, "Lift");
-  const hA = S("text", { x: 340, y: 63, class: "m-actual-text m-value" }, g),
-    hG = S("text", { x: 340, y: 79, class: "m-goal-text m-value" }, g),
-    outText = S("text", { x: 340, y: 95, class: "m-label m-value" }, g);
-  S("text", { x: 340, y: 120, class: "m-label-strong" }, g, "Evidence");
-  const cageText = S("text", { x: 340, y: 137, class: "m-label m-value" }, g),
-    homeText = S("text", { x: 340, y: 153, class: "m-label m-value" }, g),
-    sensorText = S("text", { x: 340, y: 169, class: "m-label m-value" }, g);
+  S("text", { x: 318, y: 46, class: "m-label-strong" }, g, "Lift");
+  const hA = S("text", { x: 318, y: 63, class: "m-actual-text m-value" }, g),
+    hG = S("text", { x: 318, y: 79, class: "m-goal-text m-value" }, g),
+    outText = S("text", { x: 318, y: 95, class: "m-label m-value" }, g);
+  S("text", { x: 318, y: 120, class: "m-label-strong" }, g, "Evidence");
+  const cageText = S("text", { x: 318, y: 137, class: "m-label m-value" }, g),
+    homeText = S("text", { x: 318, y: 153, class: "m-label m-value" }, g),
+    sensorText = S("text", { x: 318, y: 169, class: "m-label m-value" }, g);
   const obst = obstacle(g, 360, 214, 70, 34);
   return (v) => {
     const hgt = v.geometry.extension ?? 0,
@@ -1705,9 +1711,7 @@ RENDER["climb-balance"] = (svg) => {
     );
     setText(
       sensorText,
-      untrusted
-        ? `readings ${untrusted} — not trusted`
-        : "engagement: not measured",
+      untrusted ? `${untrusted}: untrusted` : "engagement: not measured",
     );
     sensorText.setAttribute(
       "class",
