@@ -5,6 +5,12 @@ A camera projects three-dimensional points onto a two-dimensional image. To reco
 
 **Prerequisites:** [pixels and detections](1-Pixels_To_Targets.md), basic ratios and angles. **Time:** 45–60 minutes. **You should be able to:** compute an idealized depth, explain what calibration and a mounting transform do, and distinguish a tag-relative observation from a field-relative robot pose.
 
+## Follow one observation
+
+Predict why a camera mounted ahead of the robot cannot report the robot center directly. Step through the synthetic image, corner/ID overlay and field geometry. Then move the physical camera while leaving the configured offset unchanged. In the final steps, compare an old pose with the robot's current position and test the capture timestamp. The detector observations and motion are idealized; this is a visual explanation, not a camera calibration or a full 3D pose solver.
+
+<!-- lab: vision -->
+
 ## The pinhole model: from a point to a pixel
 
 Imagine an ideal pinhole camera with the optical frame used in the OpenCV explanation: `Xc` points right, `Yc` down and `Zc` forward through the lens. For a point in front of the camera, ignoring lens distortion:

@@ -1,0 +1,123 @@
+.vision-stage {
+  min-width: 0;
+}
+.vision-stage svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--figure);
+}
+.vision-stage svg text {
+  fill: var(--ink);
+  font-family: inherit;
+  font-size: 19px;
+}
+.vision-stage .field-line {
+  stroke: var(--figure-line);
+  stroke-width: 1;
+}
+.vision-stage .camera-line {
+  stroke: var(--plot-green);
+  stroke-width: 3;
+  stroke-dasharray: 7 5;
+  fill: none;
+}
+.vision-stage .actual {
+  fill: var(--plot-blue);
+  stroke: var(--plot-blue);
+}
+.vision-stage .estimate {
+  fill: none;
+  stroke: var(--plot-orange);
+  stroke-width: 4;
+  stroke-dasharray: 7 4;
+}
+.vision-stage .camera {
+  fill: var(--plot-green);
+}
+.vision-stage .corner {
+  fill: var(--plot-orange);
+  stroke: var(--surface);
+  stroke-width: 1.2;
+}
+.vision-stage .corners {
+  stroke: var(--plot-orange);
+  fill: none;
+  stroke-width: 1.5;
+}
+.vision-stage .travel {
+  stroke: var(--plot-blue);
+  stroke-width: 3;
+  fill: none;
+}
+.vision-stage .muted {
+  fill: var(--muted);
+}
+.vision-result {
+  display: block;
+  font-weight: 650;
+  padding: 0.8rem 0;
+}
+.vision-controls {
+  margin: 1rem 0;
+  padding: 1rem 0;
+  border-top: 1px solid var(--line);
+}
+.vision-controls label {
+  display: block;
+}
+.vision-controls input[type="range"] {
+  width: 100%;
+  min-height: 44px;
+  accent-color: var(--accent);
+}
+.vision-controls output {
+  display: block;
+  font-weight: 650;
+}
+.vision-controls .vision-check {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.6rem;
+}
+.vision-check input {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--accent);
+  flex-shrink: 0;
+}
+.vision-notes {
+  max-width: 1168px;
+  margin: 1rem auto 2rem;
+  padding: 0 1rem;
+}
+.vision-notes summary {
+  cursor: pointer;
+  color: var(--muted);
+  min-height: 44px;
+}
+.vision-stage .ghost {
+  opacity: 0.28;
+}
+.vision-stage .image-background {
+  fill: var(--surface-2);
+}
+#vision-caption {
+  color: var(--muted);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .vision-stage {
+    animation: vision-appear 0.2s ease-out;
+  }
+  @keyframes vision-appear {
+    from {
+      opacity: 0.6;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}

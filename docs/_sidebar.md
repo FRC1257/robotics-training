@@ -134,6 +134,7 @@
   * [Git Reference](git/Git_Reference.md)
   * [How to Git](git/How_To_Git.md)
 * [Vision](vision/README.md)
+  * [AprilTag walkthrough](labs/vision.html)
   * [Pixels and targets](vision/1-Pixels_To_Targets.md)
   * [Geometry and calibration](vision/2-Geometry_And_Calibration.md)
   * [Pose fusion and timestamps](vision/3-Pose_Fusion.md)

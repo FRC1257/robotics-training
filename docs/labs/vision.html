@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>AprilTag vision: from pixels to robot pose</title>
+    <link rel="stylesheet" href="labs.css" />
+    <link rel="stylesheet" href="guided-labs.css" />
+    <link rel="stylesheet" href="vision.css" />
+  </head>
+  <body>
+    <header>
+      <a href="../vision/index.html">← Vision lessons</a>
+      <h1>From AprilTag to robot position</h1>
+      <p>Follow one observation. Change one thing at a time.</p>
+    </header>
+    <main>
+      <noscript
+        >This walkthrough requires JavaScript. The worked example and sources
+        below remain available.</noscript
+      >
+      <section
+        id="lab-guide"
+        class="guided-panel"
+        aria-labelledby="guided-heading"
+      >
+        <p class="guided-kicker">APRILTAG WALKTHROUGH</p>
+        <p id="vision-progress" class="guided-progress">Seven steps</p>
+        <div
+          class="guided-copy"
+          role="status"
+          aria-live="polite"
+          aria-atomic="true"
+        >
+          <h2 id="guided-heading">Capture an image</h2>
+          <p id="vision-explanation">
+            A camera image becomes a pose only after detection, geometry, known
+            field landmarks and a measured camera mount.
+          </p>
+        </div>
+        <div id="placement-controls" class="vision-controls" hidden>
+          <label for="camera-mount"
+            >Physical camera offset ahead of robot
+            <output id="mount-value">1.00 m</output></label
+          ><input
+            type="range"
+            id="camera-mount"
+            min="0"
+            max="1"
+            step="0.05"
+            value="1"
+          />
+          <label class="vision-check"
+            ><input id="fix-mount" type="checkbox" /> Update the mount offset in
+            code</label
+          >
+        </div>
+        <div id="latency-controls" class="vision-controls" hidden>
+          <label for="camera-latency"
+            >Capture-to-arrival delay
+            <output id="latency-value">200 ms</output></label
+          ><input
+            type="range"
+            id="camera-latency"
+            min="0"
+            max="400"
+            step="20"
+            value="200"
+          />
+        </div>
+        <div id="timestamp-controls" class="vision-controls" hidden>
+          <label class="vision-check"
+            ><input id="use-capture" type="checkbox" checked /> Use capture time
+            and motion history</label
+          >
+        </div>
+        <div class="guided-actions">
+          <button id="vision-back" type="button" disabled>Back</button
+          ><button id="vision-next" type="button" disabled>Next</button>
+        </div>
+        <p class="guided-note">
+          Illustrative scene. No real image detection, camera calibration or
+          robot Java runs here.
+        </p>
+      </section>
+      <section class="card vision-stage" aria-labelledby="vision-view-title">
+        <h2 id="vision-view-title">Synthetic camera image</h2>
+        <svg
+          id="vision-view"
+          viewBox="0 0 560 360"
+          role="img"
+          aria-labelledby="vision-svg-title vision-svg-desc"
+        >
+          <title id="vision-svg-title">AprilTag vision walkthrough</title>
+          <desc id="vision-svg-desc">
+            The numerical example below explains the visual.
+          </desc>
+        </svg>
+        <p id="vision-caption"></p>
+        <output
+          id="vision-result"
+          class="vision-result"
+          aria-live="polite"
+        ></output>
+      </section>
+    </main>
+    <details class="vision-notes">
+      <summary>How the model works, sources and checks</summary>
+      <h2>A worked example, not a camera test</h2>
+      <p>
+        The hypothetical robot starts at field (2.00, 2.00) m, heading zero. The
+        camera is 0.40 m forward and 0.20 m left, so its field position is
+        (2.40, 2.20) m. A known tag faces it at (6.00, 2.20) m. In this frontal
+        case, depth is 3.60 m. With assumed focal length 900 px and black-border
+        width 0.165 m, the marker spans 41.25 px: depth = focal length × tag
+        width / pixel width.
+      </p>
+      <p>
+        The tag width, field location and camera calibration are teaching
+        assumptions, not a season layout or a print specification. The original
+        PNG includes a white margin; the corner overlay measures the black
+        border. The view shows a crop of a synthetic 640 × 400 image. At a fixed
+        yaw and height, forward placement changes tag size; the lateral offset
+        is held fixed.
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>Stage</th>
+            <th>What must be known</th>
+            <th>What can go wrong</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Detection</td>
+            <td>Tag family, pattern and observed corners</td>
+            <td>Blur, occlusion, wrong ID or too few pixels</td>
+          </tr>
+          <tr>
+            <td>Camera pose</td>
+            <td>Calibration, tag geometry and field layout</td>
+            <td>Distortion, pose ambiguity, wrong layout</td>
+          </tr>
+          <tr>
+            <td>Robot pose</td>
+            <td>Measured robot-to-camera transform</td>
+            <td>Incorrect translation or orientation</td>
+          </tr>
+          <tr>
+            <td>Current estimate</td>
+            <td>Capture time and intervening motion</td>
+            <td>Clock mismatch, unavailable history or uncertain odometry</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        The demo constructs ideal corner observations and a camera-to-tag
+        transform analytically; it does not decode the PNG or solve general 3D
+        PnP. It then composes field-to-tag with the inverse camera-to-tag
+        transform, and removes the robot-to-camera transform. A physical system
+        also handles camera pitch/roll/height, distortion, ambiguity, noise,
+        multiple tags and measurement acceptance.
+      </p>
+      <p>
+        For latency, velocity is exactly 2 m/s along field +x. A 200 ms delay
+        gives 0.40 m travel. Adding that known motion illustrates why timestamps
+        matter; it is not a reproduction of WPILib's estimator or a guarantee
+        that vision is accurate. A real estimator needs compatible timestamps,
+        retained odometry, uncertainty and rejection policies.
+      </p>
+      <h2>Check your understanding</h2>
+      <ol>
+        <li>Why does decoding tag ID 7 alone not locate the robot?</li>
+        <li>
+          If the camera moves forward by 0.60 m but code retains the old mount,
+          which direction does the estimated robot center shift?
+        </li>
+        <li>
+          How far does this robot move during 300 ms? Can a timestamp fix an
+          incorrect camera mount?
+        </li>
+      </ol>
+      <p>
+        <strong>Answers:</strong> identity still needs geometry, calibration,
+        field layout and a mount transform; the estimated center shifts forward
+        by 0.60 m; travel is 0.60 m, and timestamps do not repair mount
+        geometry.
+      </p>
+      <h2>Sources and related lessons</h2>
+      <ul>
+        <li>
+          <a
+            href="https://docs.photonvision.org/en/v2026.3.3/docs/programming/photonlib/robot-pose-estimator.html"
+            >PhotonVision: field layout, camera mount and pose estimation</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://docs.photonvision.org/en/v2026.3.3/docs/apriltag-pipelines/3D-tracking.html"
+            >PhotonVision: 3D tracking and ambiguity</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://docs.wpilib.org/en/stable/docs/software/advanced-controls/state-space/state-space-pose-estimators.html"
+            >WPILib: timestamped vision and pose estimators</a
+          >
+        </li>
+        <li>
+          <a href="../vision/2-Geometry_And_Calibration.html"
+            >Camera geometry lesson</a
+          >
+          · <a href="../vision/3-Pose_Fusion.html">Pose fusion lesson</a>
+        </li>
+        <li>
+          Marker:
+          <a
+            href="https://github.com/AprilRobotics/apriltag-imgs/tree/f3fd9a7add5bfd82a886fc65240fdb8e3c9ac5a1/tag36h11"
+            >AprilRobotics tag36h11 ID 7</a
+          >, unchanged original pattern.
+          <a href="../media/vision/LICENSE-AprilTag.txt">BSD 2-Clause license</a
+          >.
+        </li>
+      </ul>
+    </details>
+    <script type="module" src="vision.mjs"></script>
+  </body>
+</html>

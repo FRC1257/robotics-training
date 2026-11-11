@@ -91,7 +91,7 @@ const completionCopy = {
   statusOn: "Completed",
 };
 // Explicit <!-- lab: name --> markers may only name these standalone labs.
-const LAB_NAMES = ["pid", "swerve", "scheduler", "encoder", "motion", "log", "odometry", "mechanism-fixed-shooter", "mechanism-turret-shooter", "mechanism-piece-handling", "mechanism-elevator-wrist", "mechanism-telescoping-arm", "mechanism-drivetrain", "mechanism-climb-balance"];
+const LAB_NAMES = ["vision", "pid", "swerve", "scheduler", "encoder", "motion", "log", "odometry", "mechanism-fixed-shooter", "mechanism-turret-shooter", "mechanism-piece-handling", "mechanism-elevator-wrist", "mechanism-telescoping-arm", "mechanism-drivetrain", "mechanism-climb-balance"];
 function readLabs() {
   const labs = new Map();
   for (const name of LAB_NAMES) {

@@ -32,3 +32,5 @@ Seven robot-type lessons now embed interactive mechanism/code demos. Students ca
 - Added automatic SEO and social previews for every lesson and lab: unique titles, prose descriptions, canonical URLs, branded PNG cards, JSON-LD, and a complete sitemap.
 - Expanded vision from image formation through calibration, pose fusion and alignment; added worked lessons on state estimation and end-to-end control-loop design.
 - Added a guided default for all 14 labs, with deterministic steps and an explicit Explore mode for the full controls.
+
+- Added a seven-step AprilTag vision demo: ideal image corners and tag ID, camera/robot transforms, camera-placement errors, and capture-time latency correction, embedded in the geometry lesson.

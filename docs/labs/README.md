@@ -4,6 +4,10 @@
 
 Start with the guided walkthrough: use **Next** to change one idea at a time and read what to notice in the visual. Choose **Explore controls** when you want to vary inputs yourself; **Return to guide** resets the current step. The labs run locally in your browser with no account or installation. They are teaching models, not validated robot simulations or hardware tuning tools.
 
+## AprilTag vision, one step at a time
+
+[Follow a camera observation to robot pose](vision.html). The seven-step walkthrough starts with a synthetic camera image and reveals corners, tag identity, camera pose and robot pose. Later steps let you move the camera, correct its configured offset and change the measurement delay. Only the relevant control appears at each step; this demo uses Back/Next rather than the full Explore interface.
+
 ## Concept labs
 
 - [PID and feedforward lab](labs/pid.html ':ignore') — investigate error, saturation, windup, and gravity compensation.
