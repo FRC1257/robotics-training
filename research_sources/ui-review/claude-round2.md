@@ -1,5 +1,7 @@
 # Claude UI review and implementation, round 2
 
+> Release verification update: the notes below describe Claude’s read/write-only sessions. The integrating agent subsequently built the site and verified 41 Node tests, 16 Java tests and 80 Chromium desktop/mobile tests at revision `e09a4dc`. See [the verification record](verification-2026-11-10.md).
+
 Claude made these changes directly in the shared checkout using only Read/Glob/Grep/Edit/Write. **Nothing has been built, tested, or rendered.** No shell, browser, or git commands were run. Everything below about the new UI comes from reading source; the only visual evidence is from screenshots of the *previous* UI.
 
 ## Evidence used
