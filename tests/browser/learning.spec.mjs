@@ -1,18 +1,7 @@
 import { test, expect } from "@playwright/test";
 async function capture(page, options) {
-  await page.evaluate(async () => {
-    window.scrollTo(0, 0);
-    await Promise.all(
-      document
-        .getAnimations()
-        .filter(
-          (animation) =>
-            animation.effect.getComputedTiming().iterations !== Infinity,
-        )
-        .map((animation) => animation.finished.catch(() => {})),
-    );
-  });
-  await page.screenshot(options);
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await page.screenshot({ ...options, animations: "disabled" });
 }
 function watch(page) {
   const errors = [];
