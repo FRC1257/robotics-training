@@ -25,6 +25,13 @@ with tempfile.TemporaryDirectory(prefix='training-java-') as directory:
         cars.append(str(target))
     subprocess.run(['javac','-d',str(out),*cars],check=True)
     count += 1
+    # Inline teaching sequence must compile too, not only the final project.
+    classes = (root/'docs/java/4-Objects/2-Classes.md').read_text()
+    inline = re.findall(r'^```java\s*\n(.*?)^```', classes, re.M | re.S)
+    index = next(i for i, body in enumerate(inline) if 'double distance(double time)' in body)
+    (out/'Car.java').write_text(inline[index])
+    (out/'Main.java').write_text('public class Main {\n' + inline[index+1] + '\n}')
+    subprocess.run(['javac','-d',str(out),str(out/'Car.java'),str(out/'Main.java')],check=True)
     subprocess.run(['javac','-d',str(out),str(root/'examples/PidDemo.java')],check=True)
     subprocess.run(['java','-cp',str(out),'PidDemo'],check=True)
-print(f'Compiled {count} complete introductory program groups and passed PID arithmetic checks.')
+print(f'Compiled {count} complete introductory program groups plus the inline Classes sequence, and passed PID arithmetic checks.')

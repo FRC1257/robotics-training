@@ -17,7 +17,7 @@ npm run dev
 
 Open `http://localhost:4173`. Lessons are statically generated from Markdown; no backend or account is needed. Run `npm run build` to generate production output for `/robotics-training/`. Set `SITE_BASE=/` for a root deployment or `SITE_ORIGIN` for a different origin. Do not edit generated `dist/` files.
 
-The robot starter has its own Gradle wrapper and five behavior tests. Follow its README. GitHub Actions runs model/content/Java checks plus desktop/mobile browser tests and retains real screenshots. Local browser execution depends on the environment's browser permissions.
+The robot starter has its own Gradle wrapper and eleven behavior/model tests. Follow its README. GitHub Actions runs model/content/Java checks plus desktop/mobile browser tests and retains real screenshots. Local browser execution depends on the environment's browser permissions.
 
 ## How it works
 

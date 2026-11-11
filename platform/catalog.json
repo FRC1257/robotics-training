@@ -3,7 +3,7 @@
     {
       "id": "newcomer-java",
       "title": "Newcomer: Java and robot basics",
-      "description": "Build programming vocabulary, practice small Java programs, and follow information and power through a robot. Time is an approximate self-paced estimate.",
+      "description": "Build programming vocabulary, practice small Java programs, and follow information and power through a robot.",
       "estimatedMinutes": 240,
       "outcomes": [
         "Explain variables, branching, loops, methods, and classes",
@@ -26,7 +26,7 @@
     {
       "id": "robot-programmer",
       "title": "Robot programmer: commands and mechanisms",
-      "description": "Connect command-based architecture, a simulated intake, scheduler behavior, and a real Team 1257 code trace. Time is an approximate self-paced estimate.",
+      "description": "Connect command-based architecture, a simulated intake, scheduler behavior, and a real Team 1257 code trace.",
       "estimatedMinutes": 330,
       "outcomes": [
         "Explain subsystem requirements and interruption",
@@ -50,7 +50,7 @@
     {
       "id": "controls-autonomous",
       "title": "Controls, localization, and autonomous",
-      "description": "Connect sensors and feedback to motion, drivetrain coordinates, paths, and recorded data. Time is an approximate self-paced estimate.",
+      "description": "Connect sensors and feedback to motion, drivetrain coordinates, paths, and recorded data.",
       "estimatedMinutes": 360,
       "outcomes": [
         "Interpret encoder units, control error, and motion constraints",
@@ -75,7 +75,7 @@
     {
       "id": "team-integration",
       "title": "Team integration: build, investigate, and communicate",
-      "description": "Bring electrical, mechanical, programming, strategy, and safety perspectives into a shared review. Time is an approximate self-paced estimate.",
+      "description": "Bring electrical, mechanical, programming, strategy, and safety perspectives into a shared review.",
       "estimatedMinutes": 240,
       "outcomes": [
         "Map power, signals, and mechanism interfaces",

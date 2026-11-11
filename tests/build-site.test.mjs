@@ -72,7 +72,7 @@ test("build emits semantic pages, legacy routes, search, math and copied assets"
   assert.equal(home.querySelectorAll("h1").length, 1);
   assert.ok(home.querySelector("main#main article"));
   assert.ok(home.querySelector("dialog#search-dialog #search-input"));
-  assert.ok(home.querySelector("button#complete-lesson[data-lesson]"));
+  assert.equal(home.querySelector("button#complete-lesson[data-lesson]"), null);
   assert.equal(
     home.querySelector("body").getAttribute("data-base"),
     "/course/",
@@ -88,7 +88,16 @@ test("build emits semantic pages, legacy routes, search, math and copied assets"
       '[data-path-id="newcomer-java"][data-path-lessons] progress',
     ),
   );
-  assert.ok(home.querySelector("#progress-import"));
+  assert.equal(home.querySelector("#progress-import"), null);
+  assert.ok(
+    parseHTML(read("guides/learning-paths.html")).document.querySelector(
+      "#progress-import",
+    ),
+  );
+  assert.ok(home.querySelector("#search-open svg[aria-hidden]"));
+  assert.ok(home.querySelector("#theme-toggle svg[aria-hidden]"));
+  assert.ok(home.querySelector(".sidebar ul ul"));
+  assert.equal(home.querySelector(".top-nav"), null);
   assert.ok(home.querySelector("#site-status"));
   assert.equal(
     home.querySelector("body").getAttribute("data-page-id"),

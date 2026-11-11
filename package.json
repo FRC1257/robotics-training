@@ -41,6 +41,7 @@
     "docsify-toc": "1.1.0",
     "katex": "0.19.1",
     "linkedom": "0.18.12",
+    "lucide-static": "1.71.0",
     "markdown-it": "14.3.3",
     "prettier": "3.9.10",
     "prismjs": "1.30.0"

@@ -14,9 +14,30 @@ test("home, legacy navigation, search and local progress work", async ({
   const errors = watch(page);
   await page.goto("/");
   await expect(page.locator("main h1")).toHaveText(
-    "Build the skills to build robots.",
+    "Team 1257 Robotics Training",
   );
-  await expect(page.locator(".path-card")).toHaveCount(4);
+  await expect(page.locator("[data-path-id]")).toHaveCount(4);
+  await expect(page.locator("#search-open svg")).toBeVisible();
+  await expect(page.locator("#search-open")).toHaveText("");
+  await expect(page.locator(".top-nav")).toHaveCount(0);
+  await expect(page.locator("#complete-lesson")).toHaveCount(0);
+  if (testInfo.project.name === "mobile")
+    await page.locator("#menu-toggle").click();
+  const javaBranch = page.getByRole("button", {
+    name: "Java pages",
+    exact: true,
+  });
+  await expect(javaBranch).toHaveAttribute("aria-expanded", "false");
+  await javaBranch.click();
+  await expect(javaBranch).toHaveAttribute("aria-expanded", "true");
+  await expect(
+    page.locator('.sidebar a[href="/java/1-Basics/index.html"]'),
+  ).toBeVisible();
+  await javaBranch.click();
+  if (testInfo.project.name === "mobile") {
+    await page.keyboard.press("Escape");
+    await expect(page.locator("#menu-toggle")).toBeFocused();
+  }
   await page.screenshot({
     path: testInfo.outputPath("home.png"),
     fullPage: true,
@@ -40,6 +61,7 @@ test("home, legacy navigation, search and local progress work", async ({
   await expect(complete).toHaveAttribute("aria-pressed", "true");
   await page.locator("#theme-toggle").click();
   await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+  await expect(page.locator("#theme-toggle svg")).toHaveCount(2);
   await page.screenshot({
     path: testInfo.outputPath("lesson-dark.png"),
     fullPage: true,
@@ -52,6 +74,33 @@ test("home, legacy navigation, search and local progress work", async ({
     );
     await expect(page.locator("#sidebar")).toBeVisible();
   }
+  expect(errors).toEqual([]);
+});
+test("hardware lesson shows sourced diagrams and actual component photographs", async ({
+  page,
+}, testInfo) => {
+  const errors = watch(page);
+  await page.goto("/foundations/system.html");
+  const images = page.locator("article img");
+  await expect(images).toHaveCount(6);
+  for (const image of await images.all()) {
+    await image.scrollIntoViewIfNeeded();
+    await expect
+      .poll(() => image.evaluate((el) => el.complete && el.naturalWidth > 0))
+      .toBeTruthy();
+  }
+  await expect(page.locator("article")).toContainText(
+    "Team 3161 and Stefen Acepcion",
+  );
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= innerWidth + 1,
+    ),
+  ).toBeTruthy();
+  await page.screenshot({
+    path: testInfo.outputPath("hardware.png"),
+    fullPage: true,
+  });
   expect(errors).toEqual([]);
 });
 test("knowledge checks explain answers and progress import validates data", async ({
@@ -74,25 +123,21 @@ test("knowledge checks explain answers and progress import validates data", asyn
     fullPage: true,
   });
   await page.locator(".progress-tools summary").click();
-  await page
-    .locator("#progress-import")
-    .setInputFiles({
-      name: "invalid.json",
-      mimeType: "application/json",
-      buffer: Buffer.from('{"version":2,"completed":{}}'),
-    });
+  await page.locator("#progress-import").setInputFiles({
+    name: "invalid.json",
+    mimeType: "application/json",
+    buffer: Buffer.from('{"version":2,"completed":{}}'),
+  });
   await expect(page.locator("#site-status")).toContainText(
     "Could not import progress",
   );
-  await page
-    .locator("#progress-import")
-    .setInputFiles({
-      name: "progress.json",
-      mimeType: "application/json",
-      buffer: Buffer.from(
-        '{"version":1,"completed":{"guides/knowledge-checks.md":"2026-11-10T12:00:00Z"}}',
-      ),
-    });
+  await page.locator("#progress-import").setInputFiles({
+    name: "progress.json",
+    mimeType: "application/json",
+    buffer: Buffer.from(
+      '{"version":1,"completed":{"guides/knowledge-checks.md":"2026-11-10T12:00:00Z"}}',
+    ),
+  });
   await expect(page.locator("#complete-lesson")).toHaveAttribute(
     "aria-pressed",
     "true",

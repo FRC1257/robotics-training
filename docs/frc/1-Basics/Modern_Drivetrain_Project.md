@@ -1,6 +1,6 @@
 # Project: swerve, localization and autonomous
 
-**Prerequisites:** the [simulated intake](5-First_Subsystem.md), PID, coordinate frames. **Time:** several sessions. **Status:** source-guided project; it is not a checked-in full swerve simulator. Use a mentor-reviewed 2026 robot simulation project for execution. Do not deploy these exercises to hardware without review.
+**Prerequisites:** the [simulated intake](5-First_Subsystem.md), PID, coordinate frames. **Time:** several sessions. **Status:** includes an executable idealized swerve trajectory exercise; it is not a full robot simulator. Do not deploy these exercises to hardware without review.
 
 ## Coordinates and module motion
 
@@ -19,6 +19,22 @@ A path is geometry; a trajectory adds timing, velocity and acceleration constrai
 Team reference: [2026 drive implementation](https://github.com/FRC1257/2026-Robot/tree/0c9a024dec1f58648d573ce26fcfd02639c5ca66/src/main/java/frc/robot/subsystems/drive), [RobotContainer](https://github.com/FRC1257/2026-Robot/blob/0c9a024dec1f58648d573ce26fcfd02639c5ca66/src/main/java/frc/robot/RobotContainer.java), and [vision](https://github.com/FRC1257/2026-Robot/tree/0c9a024dec1f58648d573ce26fcfd02639c5ca66/src/main/java/frc/robot/subsystems/vision). The pinned code builds with deprecation warnings and contains robot-specific tuning. [PathPlanner documentation](https://pathplanner.dev/) and [WPILib pose estimators](https://docs.wpilib.org/en/stable/docs/software/advanced-controls/state-space/state-space-pose-estimators.html).
 
 **Completion:** explain axes, predict module vectors, describe a bad offset, explain capture timestamps and show a short simulated trajectory and log to a mentor. If a full simulator is unavailable, complete the predictions and state clearly that the trajectory remains untested.
+
+## Run the ideal autonomous exercise
+
+Follow the [starter README](https://github.com/FRC1257/robotics-training/tree/main/examples/robot-starter) to clone the repository and enter `examples/robot-starter`. With JDK 17 and WPILib 2026.2.1 installed, run:
+
+```sh
+./gradlew test --tests frc.robot.IdealAutoTest.reportRun --rerun-tasks
+```
+
+On Windows use `gradlew.bat`. In the verified run the report shows a 3.00 s trajectory, final pose approximately `(2.000 m, 0.000 m, 0.00°)`, and peak module speed `1.114 m/s`. The run starts at `(−0.25 m, +0.30 m, +20°)` and continues feedback for two seconds after the trajectory ends. The test checks final position within 0.03 m. Run `./gradlew test` for all starter tests: trajectory endpoints and rest velocities, frame conventions, heading correction, offset tracking and module desaturation are checked separately.
+
+Open `IdealHolonomicAuto.java`. `TrajectoryGenerator` creates a straight 2 m path with a 1 m/s velocity and 1 m/s² acceleration limit. The trajectory pose's rotation represents its path tangent; `HolonomicDriveController` receives a separate desired robot heading of zero. At each 20 ms step its robot-relative chassis output becomes four swerve states. Desaturation caps wheel speeds at 1.5 m/s, then the code reconstructs achieved chassis speeds and applies a body-frame `Twist2d` with `Pose2d.exp`. This is **ideal motion**: wheel states are realized immediately and pose is exact. It has no steering lag, motor or battery dynamics, slip, sensors, vision, odometry uncertainty or collision model; it does not command hardware. The report is neither a log of the team robot nor a measurement.
+
+**Predict and test:** (1) Explain why the positive initial y error requires a correction toward negative field y. (2) At +90° heading, predict the robot-relative vector for field-forward motion; the frame test expects `(0, −1)` m/s. (3) In `IdealAutoTest`, inspect the large-offset saturation test: the peak should equal 1.5 m/s. (4) Change the initial position in `reportRun`, rerun just that test, and record the result; the existing 0.03 m assertion may fail if the scenario exceeds this ideal controller's capability. Revert the edit after exploring. If dependencies fail to resolve, check the 2026 WPILib installation and network; if an assertion fails, read the initial pose, units and sample period before tuning.
+
+Sources: [WPILib holonomic controller](https://docs.wpilib.org/en/stable/docs/software/advanced-controls/trajectories/holonomic.html), [swerve kinematics](https://docs.wpilib.org/en/stable/docs/software/kinematics-and-odometry/swerve-drive-kinematics.html), and the [2026 `HolonomicDriveController` implementation](https://github.com/wpilibsuite/allwpilib/blob/c89401250fbd412ba050f595551d0a451b7307a2/wpimath/src/main/java/edu/wpi/first/math/controller/HolonomicDriveController.java).
 
 ## Worked kinematics
 

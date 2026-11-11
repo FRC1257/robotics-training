@@ -227,7 +227,7 @@ export function searchLessons(index, query, limit = 20, options = {}) {
           String(page.title || "") + " " + String(page.id || ""),
         )
       )
-        score += 20;
+        score += /troubleshoot/i.test(String(page.id || "")) ? 50 : 20;
       score *= 0.6 + (0.4 * matched) / queryTerms.length;
       if (
         /(?:^|\/)archive\//i.test(page.id || "") ||

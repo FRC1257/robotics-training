@@ -4,91 +4,129 @@
 
 Use these questions to practice recall after the lessons. Choose one answer, then use the answer key to explain your choice. The JavaScript quiz uses the same questions; this page works as a standalone reading version.
 
-## 1. A readiness rule is enabled AND sensorHealthy. What is the result when enabled is true and sensorHealthy is false?
+## Reading version
+
+<details class="reading-question">
+<summary>1. A readiness rule is enabled AND sensorHealthy. What is the result when enabled is true and sensorHealthy is false?</summary>
 
 - **A.** true
 - **B.** false
 - **C.** It depends on the previous result
 - **D.** Java cannot evaluate it
 
-## 2. What does a DoubleSupplier such as () -> joystick.getY() let a command do?
+</details>
+
+<details class="reading-question">
+<summary>2. What does a DoubleSupplier such as () -&gt; joystick.getY() let a command do?</summary>
 
 - **A.** Read the joystick whenever the supplier is called
 - **B.** Read the joystick only when the supplier is created
 - **C.** Automatically reserve the drivetrain subsystem
 - **D.** Run the scheduler in a separate thread
 
-## 3. Two interruptible commands require the same subsystem. If the second is scheduled while the first is running, what should you expect?
+</details>
+
+<details class="reading-question">
+<summary>3. Two interruptible commands require the same subsystem. If the second is scheduled while the first is running, what should you expect?</summary>
 
 - **A.** Both normally control the subsystem at the same time
 - **B.** The first is interrupted and the second may take the requirement
 - **C.** The subsystem is permanently disabled
 - **D.** The first command finishes naturally before the second starts
 
-## 4. When can a subsystem default command run?
+</details>
+
+<details class="reading-question">
+<summary>4. When can a subsystem default command run?</summary>
 
 - **A.** Only once at startup
 - **B.** When the subsystem is available and the scheduler schedules its default
 - **C.** While a conflicting command owns the same requirement
 - **D.** Only while the robot is powered off
 
-## 5. With error defined as target minus measurement, previous error 1.0 m and current error 0.8 m after 0.1 s, what is the error derivative?
+</details>
+
+<details class="reading-question">
+<summary>5. With error defined as target minus measurement, previous error 1.0 m and current error 0.8 m after 0.1 s, what is the error derivative?</summary>
 
 - **A.** +2 m/s
 - **B.** −2 m/s
 - **C.** −0.2 m/s
 - **D.** +0.2 m/s
 
-## 6. What can happen when a controller output is saturated while integral error continues to accumulate?
+</details>
+
+<details class="reading-question">
+<summary>6. What can happen when a controller output is saturated while integral error continues to accumulate?</summary>
 
 - **A.** Integral windup may delay recovery after the error changes
 - **B.** The integral term is guaranteed to remain zero
 - **C.** A motor gains unlimited torque
 - **D.** The sensor automatically recalibrates
 
-## 7. What is the role of a gravity feedforward term on an arm?
+</details>
+
+<details class="reading-question">
+<summary>7. What is the role of a gravity feedforward term on an arm?</summary>
 
 - **A.** Provide an estimated output to help counter gravity
 - **B.** Replace every sensor and safety limit
 - **C.** Measure the arm angle directly
 - **D.** Guarantee perfect tracking under any load
 
-## 8. Using +x forward, +y left and counterclockwise positive heading, what robot-relative vector corresponds to field-forward (1, 0) m/s when the robot heading is +90°?
+</details>
+
+<details class="reading-question">
+<summary>8. Using +x forward, +y left and counterclockwise positive heading, what robot-relative vector corresponds to field-forward (1, 0) m/s when the robot heading is +90°?</summary>
 
 - **A.** (1, 0) m/s
 - **B.** (0, −1) m/s
 - **C.** (0, +1) m/s
 - **D.** (−1, 0) m/s
 
-## 9. An encoder measures 12 motor turns through a 6:1 motor-to-output reduction. Ignoring slip and sign, how many turns does the output make?
+</details>
+
+<details class="reading-question">
+<summary>9. An encoder measures 12 motor turns through a 6:1 motor-to-output reduction. Ignoring slip and sign, how many turns does the output make?</summary>
 
 - **A.** 2
 - **B.** 6
 - **C.** 12
 - **D.** 72
 
-## 10. Before a home reference is recorded, what does the encoder lab assume about its reference?
+</details>
+
+<details class="reading-question">
+<summary>10. Before a home reference is recorded, what does the encoder lab assume about its reference?</summary>
 
 - **A.** It assumes zero reference turns; that does not prove physical home
 - **B.** It proves the mechanism is at its physical home switch
 - **C.** It reads a limit switch without wiring or simulation
 - **D.** It automatically knows the drum diameter
 
-## 11. A camera observation arrives after a delay. Which time is needed to associate it with the robot state when the image was taken?
+</details>
+
+<details class="reading-question">
+<summary>11. A camera observation arrives after a delay. Which time is needed to associate it with the robot state when the image was taken?</summary>
 
 - **A.** The image capture timestamp
 - **B.** Only the time at which the dashboard displayed it
 - **C.** The scheduled end of the next match
 - **D.** The moment the code file was saved
 
-## 12. A historical log shows an enable transition near a battery-voltage sample. What is supported by that proximity alone?
+</details>
+
+<details class="reading-question">
+<summary>12. A historical log shows an enable transition near a battery-voltage sample. What is supported by that proximity alone?</summary>
 
 - **A.** The transition caused the voltage change
 - **B.** The two samples occurred near each other in recorded time
 - **C.** The robot won its match
 - **D.** The sampled voltage was the lowest voltage in the full log
 
-<details>
+</details>
+
+<details class="answer-key">
 <summary>Show answers and explanations</summary>
 
 

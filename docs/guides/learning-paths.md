@@ -4,7 +4,7 @@ Choose the path closest to your goal. The time estimates are planning aids; take
 
 ## Newcomer: Java and robot basics
 
-Build programming vocabulary, practice small Java programs, and follow information and power through a robot. Time is an approximate self-paced estimate.
+Build programming vocabulary, practice small Java programs, and follow information and power through a robot.
 
 **Outcomes:** Explain variables, branching, loops, methods, and classes; Compile and check small Java programs; Trace a robot command from operator input to mechanism.
 
@@ -23,7 +23,7 @@ Build programming vocabulary, practice small Java programs, and follow informati
 
 ## Robot programmer: commands and mechanisms
 
-Connect command-based architecture, a simulated intake, scheduler behavior, and a real Team 1257 code trace. Time is an approximate self-paced estimate.
+Connect command-based architecture, a simulated intake, scheduler behavior, and a real Team 1257 code trace.
 
 **Outcomes:** Explain subsystem requirements and interruption; Build or trace a command-based intake in simulation; Distinguish robot code from evidence of deployed behavior.
 
@@ -43,7 +43,7 @@ Connect command-based architecture, a simulated intake, scheduler behavior, and 
 
 ## Controls, localization, and autonomous
 
-Connect sensors and feedback to motion, drivetrain coordinates, paths, and recorded data. Time is an approximate self-paced estimate.
+Connect sensors and feedback to motion, drivetrain coordinates, paths, and recorded data.
 
 **Outcomes:** Interpret encoder units, control error, and motion constraints; Predict swerve motion and explain odometry uncertainty; Trace a real autonomous selection and investigate a real log without overstating it.
 
@@ -64,7 +64,7 @@ Connect sensors and feedback to motion, drivetrain coordinates, paths, and recor
 
 ## Team integration: build, investigate, and communicate
 
-Bring electrical, mechanical, programming, strategy, and safety perspectives into a shared review. Time is an approximate self-paced estimate.
+Bring electrical, mechanical, programming, strategy, and safety perspectives into a shared review.
 
 **Outcomes:** Map power, signals, and mechanism interfaces; Develop a safe troubleshooting and test plan; Report observations, uncertainty, and decisions across subteams.
 

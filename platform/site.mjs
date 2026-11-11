@@ -36,12 +36,13 @@ const getCatalog = () =>
 async function recommendNext() {
   try {
     const catalog = await getCatalog();
-    for (const card of document.querySelectorAll(".path-card[data-path-id]")) {
-      const path = catalog.paths.find((p) => p.id === card.dataset.pathId);
+    for (const item of document.querySelectorAll("[data-path-id]")) {
+      const path = catalog.paths.find((p) => p.id === item.dataset.pathId);
       const next = path?.lessons.find(
         (id) => !Object.hasOwn(progress.data.completed, id),
       );
-      if (next) card.href = courseHref(next, base);
+      const link = item.matches("a") ? item : item.querySelector("a.path-link");
+      if (next && link) link.href = courseHref(next, base);
     }
     const path = catalog.paths.find((p) => p.lessons.includes(pageId));
     if (!path || !complete) return;
@@ -80,25 +81,31 @@ function refreshProgress() {
   const done = Object.hasOwn(progress.data.completed, pageId);
   if (complete) {
     complete.textContent = done
-      ? "Completed · mark incomplete"
-      : "Mark lesson complete";
+      ? complete.dataset.doneLabel || "Completed · mark incomplete"
+      : complete.dataset.label || "Mark lesson complete";
     complete.setAttribute("aria-pressed", String(done));
   }
   if ($("progress-summary"))
     $("progress-summary").textContent =
       `${Object.keys(progress.data.completed).length} lessons completed on this browser`;
+  // Home shows path progress only once started; the learning-paths table always does.
   for (const el of document.querySelectorAll("[data-path-lessons]")) {
     try {
       const p = pathProgress(
         JSON.parse(el.dataset.pathLessons),
         progress.data.completed,
       );
+      const show = el.dataset.progressReveal !== "started" || p.done > 0;
       const label = el.querySelector("[data-path-progress]");
-      if (label) label.textContent = `${p.done} of ${p.total} completed`;
+      if (label) {
+        label.textContent = `${p.done} of ${p.total} completed`;
+        label.hidden = !show;
+      }
       const bar = el.querySelector("progress");
       if (bar) {
         bar.max = p.total || 1;
         bar.value = p.done;
+        bar.hidden = !show;
       }
     } catch {}
   }
@@ -178,21 +185,20 @@ window.addEventListener("storage", (event) => {
   }
 });
 
-let theme = "light";
-try {
-  theme =
-    localStorageSafe.getItem("frc1257-theme") ||
-    (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-} catch {}
+// The inline head script usually set the theme before paint; labs rely on this fallback.
+let theme = document.documentElement.dataset.theme;
+if (theme !== "dark" && theme !== "light") {
+  theme = "light";
+  try {
+    theme =
+      localStorageSafe.getItem("frc1257-theme") ||
+      (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+  } catch {}
+}
+// The label stays "Dark theme"; aria-pressed carries the state and CSS swaps icons.
 function applyTheme() {
   document.documentElement.dataset.theme = theme;
-  $("theme-toggle")?.setAttribute(
-    "aria-label",
-    theme === "dark" ? "Use light theme" : "Use dark theme",
-  );
-  if ($("theme-toggle"))
-    $("theme-toggle").textContent =
-      theme === "dark" ? "Light theme" : "Dark theme";
+  $("theme-toggle")?.setAttribute("aria-pressed", String(theme === "dark"));
 }
 applyTheme();
 $("theme-toggle")?.addEventListener("click", () => {
@@ -202,16 +208,73 @@ $("theme-toggle")?.addEventListener("click", () => {
     localStorageSafe.setItem("frc1257-theme", theme);
   } catch {}
 });
-$("menu-toggle")?.addEventListener("click", () => {
-  const open = document.body.classList.toggle("menu-open");
-  $("menu-toggle").setAttribute("aria-expanded", String(open));
+
+const sidebarEl = $("sidebar"),
+  menuButton = $("menu-toggle");
+// Scroll the sidebar itself (not the page) so the current lesson is in view.
+function revealCurrent() {
+  const current = sidebarEl?.querySelector("[aria-current]");
+  if (!current) return;
+  const item = current.getBoundingClientRect(),
+    box = sidebarEl.getBoundingClientRect();
+  if (item.top < box.top || item.bottom > box.bottom)
+    sidebarEl.scrollTop += item.top - box.top - box.height / 3;
+}
+for (const button of document.querySelectorAll(
+  ".nav-twisty,.nav-group-toggle",
+)) {
+  button.addEventListener("click", () => {
+    const list = $(button.getAttribute("aria-controls"));
+    if (!list) return;
+    const open = button.getAttribute("aria-expanded") !== "true";
+    button.setAttribute("aria-expanded", String(open));
+    list.hidden = !open;
+    list.classList.remove("nav-reveal");
+    if (open) {
+      void list.offsetWidth;
+      list.classList.add("nav-reveal");
+    }
+  });
+}
+const drawerQuery = matchMedia("(max-width: 950px)");
+let scrim;
+if (menuButton && sidebarEl) {
+  scrim = document.createElement("div");
+  scrim.className = "nav-scrim";
+  scrim.addEventListener("click", () => setMenu(false));
+  document.body.append(scrim);
+}
+function setMenu(open, { restoreFocus = true } = {}) {
+  if (!menuButton || !sidebarEl) return;
+  const wasOpen = document.body.classList.contains("menu-open");
+  if (open === wasOpen) return;
+  document.body.classList.toggle("menu-open", open);
+  menuButton.setAttribute("aria-expanded", String(open));
+  menuButton.dataset.tip = open ? "Close menu" : "Menu";
+  for (const el of document.querySelectorAll("#main, .toc, .site-footer"))
+    el.inert = open;
+  if (open) {
+    const target =
+      sidebarEl.querySelector("[aria-current]") ||
+      sidebarEl.querySelector("a[href], button");
+    target?.focus({ preventScroll: true });
+    revealCurrent();
+  } else if (restoreFocus) menuButton.focus();
+}
+menuButton?.addEventListener("click", () =>
+  setMenu(!document.body.classList.contains("menu-open")),
+);
+sidebarEl?.addEventListener("click", (event) => {
+  if (event.target.closest("a[href]")) setMenu(false, { restoreFocus: false });
+});
+drawerQuery.addEventListener?.("change", (event) => {
+  if (!event.matches) setMenu(false, { restoreFocus: false });
 });
 document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") {
-    document.body.classList.remove("menu-open");
-    $("menu-toggle")?.setAttribute("aria-expanded", "false");
-  }
+  if (event.key === "Escape" && document.body.classList.contains("menu-open"))
+    setMenu(false);
 });
+revealCurrent();
 
 const dialog = $("search-dialog"),
   input = $("search-input"),
