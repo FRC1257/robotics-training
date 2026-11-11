@@ -1,4 +1,5 @@
 import fs from "node:fs";
+import { pageSeo, seoHead, writeSocialCard } from "./site-seo.mjs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import MarkdownIt from "markdown-it";
@@ -354,14 +355,22 @@ function renderArticle(md, markdown, source, base, catalog, context) {
     row.innerHTML = meta;
     article.querySelector("h1").after(row);
   }
-  return { html: article.innerHTML, title, text, toc, ai };
+  const summary = [...article.querySelectorAll("p")]
+    .filter(p => !p.closest("blockquote, .callout, .lesson-meta, .lab-embed, .home-paths") && !/^(Prerequisites|Status|Time|Historical lesson)[:：]/i.test(p.textContent.trim()))
+    .map(p => p.textContent.replace(/\s+/g, " ").trim()).find(t => t.length >= 50) || text.replace(title, "").trim();
+  return { html: article.innerHTML, title, text, summary, toc, ai };
 }
 // Labs keep their own stylesheet. In a lesson iframe (?embed=1) the head script marks
 // the document so labs.css hides this bar and the lab header, and the parent's theme wins.
 const labBoot = `try{var d=document.documentElement,t,e=new URLSearchParams(location.search).get("embed")==="1"&&window.parent!==window;if(e){try{if(parent.location.origin===location.origin){d.dataset.embed="1";t=parent.document.documentElement.dataset.theme}}catch(x){}}if(t!=="dark"&&t!=="light")t=localStorage.getItem("frc1257-theme");if(t!=="dark"&&t!=="light")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";d.dataset.theme=t}catch(x){}`;
-function decorateLab(html, source, base, aiAssisted) {
+function decorateLab(html, source, base, aiAssisted, outDir) {
   const { document } = parseHTML(html),
     body = document.querySelector("body");
+  const meta = pageSeo({source, title: document.querySelector("h1")?.textContent || document.title, summary: document.querySelector("body > header p")?.textContent, base});
+  for (const node of document.head.querySelectorAll('title, meta[name="description"], link[rel="canonical"], meta[property^="og:"], meta[name^="twitter:"], script[type="application/ld+json"]')) node.remove();
+  const head = document.createElement("template"); head.innerHTML = seoHead(meta, base);
+  document.head.append(...head.content.childNodes);
+  writeSocialCard(meta, outDir);
   body.setAttribute("data-page-id", source);
   body.setAttribute("data-page-title", document.title || "Interactive lab");
   body.setAttribute("data-base", base);
@@ -570,7 +579,7 @@ function searchDialog(base, sections) {
   return `<dialog id="search-dialog" class="palette" aria-labelledby="search-title"><h2 id="search-title" class="visually-hidden">Search lessons</h2><div class="palette-bar">${icon("search")}<label class="visually-hidden" for="search-input">Search lessons, labs and code</label><input id="search-input" type="search" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="search-results" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="go" placeholder="Search lessons, labs and code"><span class="palette-spinner" aria-hidden="true"></span><button id="search-clear" class="icon-btn" type="button" aria-label="Clear search" hidden>${icon("x")}</button><button id="search-close" class="palette-close" type="button" aria-label="Close search"><kbd>Esc</kbd>${icon("x")}</button></div><div class="palette-meta"><label for="search-section">Section</label><select id="search-section" aria-label="Search section"><option value="">All sections</option>${options}</select><p id="search-status" role="status" aria-live="polite"></p></div><div class="palette-body"><ul id="search-results" role="listbox" aria-label="Search results"></ul><p class="palette-actions"><button id="search-retry" type="button" hidden>${icon("rotate-ccw")}<span>Try again</span></button><button id="search-widen" type="button" hidden>Search all sections</button></p><div id="search-empty" class="palette-empty"><p class="palette-heading">Suggested searches</p><ul class="chip-list">${chips}</ul><p class="palette-heading">Browse</p><ul class="topic-list">${topics}</ul></div></div><div class="palette-foot" aria-hidden="true"><span><kbd>↑</kbd><kbd>↓</kbd> move</span><span><kbd>↵</kbd> open</span><span><kbd>Esc</kbd> close</span><span class="palette-private">Searches never leave this device</span></div></dialog>`;
 }
 function siteFooter(base) {
-  return `<footer class="site-footer"><nav aria-label="Site"><a href="${esc(hrefFor("guides/learning-paths.md", base))}">Learning paths and progress</a><a href="${esc(aboutHref(base, ""))}">About this course</a><a href="https://github.com/FRC1257/robotics-training">Source on GitHub</a></nav><p>Team 1257 Robotics Training · Progress and searches stay in this browser; no analytics.</p></footer>`;
+  return `<footer class="site-footer"><nav aria-label="Site"><a href="${esc(hrefFor("guides/learning-paths.md", base))}">Learning paths and progress</a><a href="${esc(aboutHref(base, ""))}">About this course</a><a href="https://github.com/FRC1257/robotics-training">Source on GitHub</a><a href="${esc(base)}sitemap.xml">Sitemap</a></nav><p>Team 1257 Robotics Training · Progress and searches stay in this browser; no analytics.</p></footer>`;
 }
 function pageTemplate({
   source,
@@ -583,20 +592,15 @@ function pageTemplate({
   prev,
   next,
   chrome,
+  seo,
 }) {
-  const href = hrefFor(source, base),
-    origin = (process.env.SITE_ORIGIN || "https://frc1257.github.io").replace(
-      /\/$/,
-      "",
-    ),
-    canonical = origin + href,
-    id = source;
+  const id = source;
   // A rail longer than a dozen entries stops being a summary; skip it.
   const tocHtml =
     toc.length && toc.length <= 12
       ? `<nav aria-label="On this page"><h2>On this page</h2><ul>${toc.map((t) => `<li><a href="#${esc(t.id)}">${esc(t.text)}</a></li>`).join("")}</ul></nav>`
       : "";
-  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(title)} | Team 1257 Robotics Training</title><meta name="description" content="${esc(description)}"><link rel="canonical" href="${esc(canonical)}"><meta property="og:type" content="article"><meta property="og:title" content="${esc(title)} | Team 1257 Robotics Training"><meta property="og:description" content="${esc(description)}"><meta property="og:url" content="${esc(canonical)}"><link rel="icon" href="${esc(base)}media/1257snail.svg" type="image/svg+xml">${themeBoot}<link rel="stylesheet" href="${esc(base)}assets/katex.min.css"><link rel="stylesheet" href="${esc(base)}assets/site.css">${noscriptStyle}<script type="module" src="${esc(base)}assets/site.mjs"></script></head><body data-page-id="${esc(id)}" data-page-title="${esc(title)}" data-base="${esc(base)}"><a class="skip-link" href="#main">Skip to content</a><noscript><p class="noscript-note">Lessons and navigation are available without JavaScript. Search, progress, legacy link redirects, and interactive labs require JavaScript.</p></noscript>${siteHeader(base)}${chrome.search}<progress id="reading-progress" value="0" max="100" aria-label="Reading progress"></progress><p id="site-status" class="visually-hidden" role="status" aria-live="polite"></p><div class="site-layout"><aside id="sidebar" class="sidebar">${sidebar(tree, source)}</aside><main id="main" class="lesson"><article>${html}</article><footer class="lesson-footer">${isLesson(source) ? lessonProgress(base) : ""}<nav class="lesson-pager" aria-label="Lesson progression">${prev ? `<a rel="prev" href="${esc(prev.href)}"><small>Previous</small><span>${esc(prev.label)}</span></a>` : ""}${next ? `<a rel="next" href="${esc(next.href)}"><small>Next</small><span>${esc(next.label)}</span></a>` : ""}</nav><p class="lesson-source"><a href="https://github.com/FRC1257/robotics-training/edit/main/docs/${source.split("/").map(encodeURIComponent).join("/")}">Edit this lesson</a> · <a href="https://raw.githubusercontent.com/FRC1257/robotics-training/main/docs/${source.split("/").map(encodeURIComponent).join("/")}">View source</a></p></footer></main><aside class="toc">${tocHtml}</aside></div>${chrome.footer}</body></html>`;
+  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">${seoHead(seo, base)}<link rel="icon" href="${esc(base)}media/1257snail.svg" type="image/svg+xml">${themeBoot}<link rel="stylesheet" href="${esc(base)}assets/katex.min.css"><link rel="stylesheet" href="${esc(base)}assets/site.css">${noscriptStyle}<script type="module" src="${esc(base)}assets/site.mjs"></script></head><body data-page-id="${esc(id)}" data-page-title="${esc(title)}" data-base="${esc(base)}"><a class="skip-link" href="#main">Skip to content</a><noscript><p class="noscript-note">Lessons and navigation are available without JavaScript. Search, progress, legacy link redirects, and interactive labs require JavaScript.</p></noscript>${siteHeader(base)}${chrome.search}<progress id="reading-progress" value="0" max="100" aria-label="Reading progress"></progress><p id="site-status" class="visually-hidden" role="status" aria-live="polite"></p><div class="site-layout"><aside id="sidebar" class="sidebar">${sidebar(tree, source)}</aside><main id="main" class="lesson"><article>${html}</article><footer class="lesson-footer">${isLesson(source) ? lessonProgress(base) : ""}<nav class="lesson-pager" aria-label="Lesson progression">${prev ? `<a rel="prev" href="${esc(prev.href)}"><small>Previous</small><span>${esc(prev.label)}</span></a>` : ""}${next ? `<a rel="next" href="${esc(next.href)}"><small>Next</small><span>${esc(next.label)}</span></a>` : ""}</nav><p class="lesson-source"><a href="https://github.com/FRC1257/robotics-training/edit/main/docs/${source.split("/").map(encodeURIComponent).join("/")}">Edit this lesson</a> · <a href="https://raw.githubusercontent.com/FRC1257/robotics-training/main/docs/${source.split("/").map(encodeURIComponent).join("/")}">View source</a></p></footer></main><aside class="toc">${tocHtml}</aside></div>${chrome.footer}</body></html>`;
 }
 export function buildSite({
   base = process.env.SITE_BASE || "/robotics-training/",
@@ -634,8 +638,8 @@ export function buildSite({
     const markdown = fs.readFileSync(path.join(docs, source), "utf8"),
       article = renderArticle(md, markdown, source, base, catalog, context),
       title = article.title,
-      description =
-        article.text.slice(0, 157).trim() || `Team 1257 training: ${title}`,
+      seo = pageSeo({source, title, summary: article.summary, base}),
+      description = seo.description,
       idx = entries.findIndex((e) => e.source === source),
       prev = idx > 0 ? entries[idx - 1] : null,
       next = idx >= 0 && idx + 1 < entries.length ? entries[idx + 1] : null;
@@ -654,8 +658,10 @@ export function buildSite({
         prev,
         next,
         chrome,
+        seo,
       }),
     );
+    writeSocialCard(seo, outDir);
     titles[source] = title;
     for (const route of legacyRoutes(source))
       routeMap[route] = hrefFor(source, base);
@@ -693,6 +699,7 @@ export function buildSite({
           file,
           base,
           context.provenance.labs.has(file),
+          outDir,
         ),
       );
     else fs.copyFileSync(path.join(docs, file), dest);
@@ -703,6 +710,7 @@ export function buildSite({
     const document = parseHTML(
       fs.readFileSync(path.join(docs, source), "utf8"),
     ).document;
+    urls.push(pageSeo({source, title: document.title, base}).canonical);
     const title = document.querySelector("h1")?.textContent || source;
     titles[source] = title;
     const text =

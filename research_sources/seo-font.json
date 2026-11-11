@@ -1,0 +1,12 @@
+{
+  "retrieved_at": "2026-11-11T14:50:37.212009+00:00",
+  "upstream_font": "https://raw.githubusercontent.com/rsms/inter/e3a3d4c57d5ecc01453a575621882a384c1995a3/docs/font-files/InterVariable.ttf",
+  "upstream_license": "https://raw.githubusercontent.com/rsms/inter/3ac1bd32a473ea60d40d8f444820247e96dd7e70/LICENSE.txt",
+  "upstream_sha256": "4989b125924991b90d05b2d16e0e388c48f7d5bb8b30539bbf9c755278d0ccaf",
+  "derivation": "fontTools.varLib.instancer.instantiateVariableFont with opsz=14, wght=400 and wght=700; original Inter family name retained; static instances used by resvg without system fonts",
+  "files": {
+    "scripts/fonts/Inter-Bold.ttf": "62d5979f683866389e99defc075675af9d1cd6bbc0a6692a0f29bb47818f7980",
+    "scripts/fonts/Inter-Regular.ttf": "7a764f138516e10bdf82c15b8ae7e58f43bfb3becae43cf9ce804298a76592e4",
+    "scripts/fonts/OFL-Inter.txt": "262481e844521b326f5ecd053e59b98c8b2da78c8ee1bdbb6e8174305e54935a"
+  }
+}
