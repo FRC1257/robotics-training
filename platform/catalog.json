@@ -73,10 +73,32 @@
       ]
     },
     {
+      "id": "vision-localization",
+      "title": "Vision: pixels, pose and alignment",
+      "description": "Connect image formation, calibration, coordinate transforms and timestamped pose estimates to a controlled robot approach.",
+      "estimatedMinutes": 300,
+      "outcomes": [
+        "Distinguish a target detection from a field-relative robot pose",
+        "Explain calibration, camera transforms and capture timestamps with worked examples",
+        "Design measurement acceptance and target-loss behavior before tuning alignment"
+      ],
+      "lessons": [
+        "vision/README.md",
+        "vision/1-Pixels_To_Targets.md",
+        "vision/2-Geometry_And_Calibration.md",
+        "vision/3-Pose_Fusion.md",
+        "vision/PhotonVision/Setup.md",
+        "vision/PhotonVision/Code.md",
+        "vision/4-Alignment_And_Debugging.md",
+        "frc/6-Architecture/8-State_Estimation.md",
+        "frc/6-Architecture/9-Control_Loop_Design.md"
+      ]
+    },
+    {
       "id": "software-architecture",
       "title": "Software architecture: IO, replay, and calibration",
       "description": "Separate hardware from behavior, build repeatable simulation, and validate calibration and sensor data.",
-      "estimatedMinutes": 360,
+      "estimatedMinutes": 450,
       "outcomes": [
         "Inject real, simulated and replay inputs without rewriting mechanism behavior",
         "Build a bounded interpolation table and explain its measurement limits",
@@ -89,6 +111,8 @@
         "frc/6-Architecture/4-Interpolation_Tables.md",
         "frc/6-Architecture/6-Timing_And_State.md",
         "frc/6-Architecture/7-Filtering_And_Validity.md",
+        "frc/6-Architecture/8-State_Estimation.md",
+        "frc/6-Architecture/9-Control_Loop_Design.md",
         "frc/6-Architecture/5-Integration_Project.md"
       ]
     },

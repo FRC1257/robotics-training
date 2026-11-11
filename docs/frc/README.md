@@ -38,3 +38,7 @@ The [2026 robot walkthrough](../robots/2026-code.md) traces interfaces, subsyste
 Runnable examples include their imports and dependencies. Your editor can suggest imports, but check the package and API version: two classes with similar names can have different behavior. A compile error is useful evidence about the example's contract, rather than something to hide with a different import.
 
 Use the [debugging playbooks](../guides/troubleshooting.md) when observed behavior differs from your prediction, and use the [mentor guide](../guides/mentors.md) to review an exercise with someone else.
+
+## Connect measurements to decisions
+
+Read [state estimation](6-Architecture/8-State_Estimation.md) to distinguish raw measurements, drift, bias and a calculated robot state. Follow it with [control-loop design](6-Architecture/9-Control_Loop_Design.md): a goal becomes a profile, feedforward and feedback produce an output, and the mechanism returns a new measurement. The [vision sequence](../vision/README.md) follows camera pixels through geometry, pose estimation and a controlled approach. Each lesson includes worked examples and questions, with simplified labs where useful.
