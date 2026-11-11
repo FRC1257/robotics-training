@@ -167,7 +167,11 @@ for (const lab of [
     await page.goto(`/labs/${lab}.html`);
     await expect(page.locator("h1")).toBeVisible();
     if (lab === "pid") {
-      await page.locator("#step").click();
+      // Reset and pause with a single Step event before an animation frame can advance it.
+      await page.locator("#reset").evaluate((button) => {
+        button.click();
+        document.getElementById("step").click();
+      });
       await expect(page.locator("#summary")).toContainText("Time");
       await expect(page.locator("#sample-table tr").first()).toBeVisible();
       // Capture a complete, repeatable ten-second teaching response via the actual Step control.
