@@ -1,3 +1,5 @@
+> **Historical lesson:** This material predates the 2026 course and may use older WPILib, vendor APIs, team wrappers, and game rules. Its original version is not verified here. Do not copy its robot code into a 2026 project without migration and mentor review. Start with [the 2026 subsystem lesson](../1-Basics/5-First_Subsystem.md).
+
 # WPILib PIDController
 
 To handle PID calculations, the first option we have is to use the WPILib `PIDController` class. We will start with a basic elevator subsystem and add PID functionality to it so that on the press of a button, we can move to a predetermined setpoint.
@@ -46,7 +48,7 @@ public class Elevator extends SnailSubsystem {
 }
 ```
 
-Currently, we only have the `MANUAL` state set up. In order to implement PID control, we need to add another state, `PID`. However before we do that, let's review some information about [`PIDController`](https://first.wpi.edu/FRC/roborio/release/docs/java/edu/wpi/first/wpilibj/controller/PIDController.html) in WPILib.
+Currently, we only have the `MANUAL` state set up. In order to implement PID control, we need to add another state, `PID`. However before we do that, let's review some information about [`PIDController`](https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/math/controller/PIDController.html) in WPILib.
 
 ## PIDController
 

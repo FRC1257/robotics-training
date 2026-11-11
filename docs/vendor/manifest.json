@@ -1,0 +1,80 @@
+[
+  {
+    "name": "docsify",
+    "version": "5.1.0",
+    "license": "MIT",
+    "files": {
+      "lib/docsify.min.js": "80efc76ea587e1c08f944f9d0046a02d07a57f0ad6828dc87db20b51e7f07975",
+      "lib/plugins/search.js": "07668f30b65445327121761225ac3569c295371886741c12b0297061e650d9f6"
+    }
+  },
+  {
+    "name": "docsify-themeable",
+    "version": "0.9.0",
+    "license": "MIT",
+    "files": {
+      "dist/css/theme-simple.css": "3002232108e34a975b9713cd45fc242c8de71db3de57fcef003e8f6d0a39fac2",
+      "dist/js/docsify-themeable.min.js": "6d59e3ed8216f9efef11d8c823a8919d5d83ed27460f2f0dbe0ecde241fd4d12"
+    }
+  },
+  {
+    "name": "docsify-pagination",
+    "version": "2.10.1",
+    "license": "MIT",
+    "files": {
+      "dist/docsify-pagination.min.js": "175f5c8ba6f0ebcff545b24c80c33c789bfab81a5954c7a9d0e6afd34c922585"
+    }
+  },
+  {
+    "name": "docsify-plugin-flexible-alerts",
+    "version": "1.3.0",
+    "license": "MIT",
+    "files": {
+      "dist/docsify-plugin-flexible-alerts.min.js": "36c0d7326b04a811106428babbd83999dd28bc7f64c13c4758f28d0636fcf21f"
+    }
+  },
+  {
+    "name": "docsify-katex",
+    "version": "2.0.2",
+    "license": "MIT",
+    "files": {
+      "dist/docsify-katex.js": "39b6809b7f7c6d7c85c63cfa6aa4485d5f8d41d691a304da4249678396ebb532"
+    }
+  },
+  {
+    "name": "docsify-toc",
+    "version": "1.1.0",
+    "license": "ISC",
+    "files": {
+      "dist/toc.js": "cc423fe9d1b79d2600250d5f1d68c785c298d38a43940dd6daa1501cf840248e"
+    }
+  },
+  {
+    "name": "docsify-sidebar-collapse",
+    "version": "1.3.5",
+    "license": "MIT",
+    "files": {
+      "dist/docsify-sidebar-collapse.min.js": "0222f37f6822c0fad2c5122edd35207bd87f75d040001d7a8171b3861b7f2031"
+    }
+  },
+  {
+    "name": "prismjs",
+    "version": "1.30.0",
+    "license": "MIT",
+    "files": {
+      "components/prism-java.min.js": "4c2dc81dfc9efa51e38a7573938065288c63c64850f01a32f8a7b20a3e24c5a7",
+      "components/prism-jsx.min.js": "0c8b80e4d98f6813ef95fd0e7ae2862cc0804ec305e0ad1f99c0a4bb7c28f865",
+      "components/prism-typescript.min.js": "852f5513bb9ca9db247f86ecfce74acc91c541749d34929157240518fef8152a",
+      "components/prism-tsx.min.js": "752c15ed4ff1d03e042b407b332892e1097d5f5e348861e2e26db20d71b349bf"
+    }
+  },
+  {
+    "name": "katex",
+    "version": "0.19.1",
+    "license": "MIT",
+    "files": {
+      "dist/katex.min.js": "fa140498b8cfc8302cbe5e7cb1bdbc1f952bc38b3fa258ede09e73edbf9a74bc",
+      "dist/katex.min.css": "00e0b094171b07f58422075f469b4feac2b2f7bce1aeec943c08da4d697f4dcf"
+    }
+  }
+]

@@ -14,7 +14,7 @@ WPILib contains a lot of classes that help with managing motors, sensors, and sy
 
 [WPILib Documentation](https://docs.wpilib.org/en/latest/index.html)
 
-[Javadocs Documentation](http://first.wpi.edu/FRC/roborio/beta/docs/java/)
+[Javadocs Documentation](https://github.wpilib.org/allwpilib/docs/release/java/)
 
 ## Programming Environment
 

@@ -1,0 +1,352 @@
+[
+  {
+    "path": "docs/documentation/img/typingcat.gif",
+    "bytes": 7712339,
+    "sha256": "f486aa8498b7e14624191d7b38f92ef7e0a097846f6f04bae053b954dafed081"
+  },
+  {
+    "path": "docs/documentation/img/maxwell.gif",
+    "bytes": 3272323,
+    "sha256": "ef954f33142b90143692c8a8654c7e49eb360e57cfba6db6ad79fccc47741914"
+  },
+  {
+    "path": "docs/frc/5-Advanced_&_Misc/img/intakedown.jpg",
+    "bytes": 1817724,
+    "sha256": "6ecd90ca8d3641dde870ff2c63fdc3c6eb74761e3321a6ac32e68fae87eaf082"
+  },
+  {
+    "path": "docs/documentation/img/happycat.gif",
+    "bytes": 1540810,
+    "sha256": "9951d3a708ee8ce455d6852971fb9f23e9e614eb4e7faa9584a6beeea87c9d25"
+  },
+  {
+    "path": "docs/frc/4-Autonomous/img/PathweaverGroups.png",
+    "bytes": 1480916,
+    "sha256": "83ab47772bbd3716215ec02bdb16f57cfe7215b27eb56e78dec319dc776c48ab"
+  },
+  {
+    "path": "docs/frc/4-Autonomous/img/PathweaverReverse.png",
+    "bytes": 1477908,
+    "sha256": "675bd17b8c68d85bd7b98954ff6cbdd99d6c2deb43e868a7b2cde3a909c3e162"
+  },
+  {
+    "path": "docs/frc/4-Autonomous/img/PathweaverPaths.png",
+    "bytes": 1476840,
+    "sha256": "fb62ae1c35ac732a9151fffa9866336766040685622f32b77c6bb848f1149ca4"
+  },
+  {
+    "path": "docs/frc/4-Autonomous/img/PathweaverInterface.png",
+    "bytes": 1467191,
+    "sha256": "030c95fd7c4ebc685cff9a7674d039fb109d83dca61af456f8fe65e09fb506fc"
+  },
+  {
+    "path": "docs/frc/5-Advanced_&_Misc/img/revsmartservo.png",
+    "bytes": 1136820,
+    "sha256": "64fb57a6917573342758d6e8ce6c995cec8e14775efed20ceb1ade2f1f0ec351"
+  },
+  {
+    "path": "docs/frc/1-Basics/img/SPARKMAX.png",
+    "bytes": 759387,
+    "sha256": "9c80a7fdeea8c5e41e59cf044289713ed4ea1cd482c2e52fa9146d0112d4b768"
+  },
+  {
+    "path": "docs/website/2-Annual_Updates/img/leadof4demo.png",
+    "bytes": 703480,
+    "sha256": "0886bf6c3b2fd704b1ce941cee7a7798b4462b2223b385459e8726530914da00"
+  },
+  {
+    "path": "docs/frc/1-Basics/img/NEOvs550.png",
+    "bytes": 664982,
+    "sha256": "1eed795812d8ae586c36d4a1390426cf8742dda845e683b282137f458ddd18d9"
+  },
+  {
+    "path": "docs/frc/5-Advanced_&_Misc/img/AmazonBasicsController.jpg",
+    "bytes": 370009,
+    "sha256": "a419bf1603602ea74d821b9307af0a299ceaf67245d66b0c253ed8b3151a7b49"
+  },
+  {
+    "path": "docs/website/2-Annual_Updates/img/sponsortiers.png",
+    "bytes": 347498,
+    "sha256": "f1c945a70273057010055520ef2791410c515bf90af026b06a9b3485e80e0876"
+  },
+  {
+    "path": "docs/media/snail_white.png",
+    "bytes": 261865,
+    "sha256": "7c931c7d8b1449ce01ee5fcc485bf06a0a48248f811e59be1f8e230cab13e567"
+  },
+  {
+    "path": "docs/media/snail_black.png",
+    "bytes": 257453,
+    "sha256": "2dce071b87e897e4422bc590177b9b1dc64914675d79017c780172e8d194dbe5"
+  },
+  {
+    "path": "docs/frc/1-Basics/img/drivetrain.png",
+    "bytes": 147871,
+    "sha256": "146b5391b496ed67a9b570d6cc23a4c902e955e981ed2bd5e7cc5e8ce0cdee63"
+  },
+  {
+    "path": "docs/frc/2-Sensors_And_Shuffleboard/img/2019robot.jpg",
+    "bytes": 145944,
+    "sha256": "b3e5aa94c6194d2fc4c38e890d9b28dc527701f9119df92d2b3e8a0e7272d1ed"
+  },
+  {
+    "path": "docs/frc/2-Sensors_And_Shuffleboard/img/navx.jpg",
+    "bytes": 132479,
+    "sha256": "7d995459266634242420730fd0974f9ca2766292448710fbb74daa2a3157f343"
+  },
+  {
+    "path": "docs/media/1257snail.svg",
+    "bytes": 128524,
+    "sha256": "92ea96784d351db6973e80ebd1d67219dc0e45dd0672fbd688c98f4e628ffee3"
+  },
+  {
+    "path": "docs/frc/5-Advanced_&_Misc/img/intakeup.jpg",
+    "bytes": 119171,
+    "sha256": "05d6234e896c4dcbeb478ac56370e4455a5e0313a2a637c53a5ca25f7b308f31"
+  },
+  {
+    "path": "docs/frc/1-Basics/img/pcm.jpg",
+    "bytes": 119156,
+    "sha256": "383cc9f6095bc7c562bc096b588b23b085f3016871e7cd1d705cd6fd3a955448"
+  },
+  {
+    "path": "docs/documentation/img/sidebarCode.png",
+    "bytes": 110330,
+    "sha256": "916f5b70c6447358c9ce28d85caf83e490de9dcc407e9502a92f563de4fc4bc8"
+  },
+  {
+    "path": "docs/frc/1-Basics/img/2019Robot.jpg",
+    "bytes": 95197,
+    "sha256": "561a35824664a667c3a4f517e4d0a048f188b40346d2d0519aa19b06ad807f42"
+  },
+  {
+    "path": "docs/frc/1-Basics/img/intake2056.jpg",
+    "bytes": 92218,
+    "sha256": "57cf895309b17d927af491ff7a9e0e5e353a6c0f29cf048c8694ea0f1ede683b"
+  },
+  {
+    "path": "docs/frc/1-Basics/img/REVVendorCheck.jpg",
+    "bytes": 91653,
+    "sha256": "143597b4d6e1da9d19ecd70870ec67709ce347059a198d608daf60cebf3343ac"
+  },
+  {
+    "path": "docs/frc/2-Sensors_And_Shuffleboard/img/yawpitchroll.png",
+    "bytes": 85434,
+    "sha256": "dee76e9949912a5fe397ae1afb107be1dc658912b0c04ebc476311bf41e7a6cf"
+  },
+  {
+    "path": "docs/frc/2-Sensors_And_Shuffleboard/img/adxrs450.jpg",
+    "bytes": 84528,
+    "sha256": "563bc816eef01dfdbf0ffc62c3292797cb2e1eafec119ac9e40fcdb1d3e8bca8"
+  },
+  {
+    "path": "docs/frc/4-Autonomous/img/2020FieldDiagram.jpg",
+    "bytes": 79486,
+    "sha256": "30a685d5c7c03791ca39f4ee78196f0c5217daf8f0b73da3c2048c9f1935b82a"
+  },
+  {
+    "path": "docs/frc/2-Sensors_And_Shuffleboard/img/bumpswitch.jpg",
+    "bytes": 65795,
+    "sha256": "1a3ca72f6a896dd60338102c997a08c2cb223c965a1cf2921ee197f6298aef35"
+  },
+  {
+    "path": "docs/website/2-Annual_Updates/img/friendgood.png",
+    "bytes": 57555,
+    "sha256": "5d94c95b555c3b8d8951c0c74ede0336dff947125b1152c2dca055667525cb8e"
+  },
+  {
+    "path": "docs/frc/1-Basics/img/rollerintake.jpg",
+    "bytes": 51245,
+    "sha256": "e2a8ecf795b3a80068855b032457a7155d27604f1cd1c04c88b180ba728686db"
+  },
+  {
+    "path": "docs/frc/1-Basics/img/solenoid.jpg",
+    "bytes": 51157,
+    "sha256": "3dd0d96ed238237780a0603d21dcc4b78332de9c937924565091af9737318838"
+  },
+  {
+    "path": "docs/frc/5-Advanced_&_Misc/img/ScaledInputsDesmos.jpg",
+    "bytes": 49632,
+    "sha256": "ffea732862b0878b61bdb9a7cafaf9e0ab86502a3a6134803ca8f87de2f77e14"
+  },
+  {
+    "path": "docs/frc/5-Advanced_&_Misc/img/LinearInputDesmos.jpg",
+    "bytes": 42453,
+    "sha256": "d7f4aa557b7de8c4e9f829edcc688159b908beee239f5cd39b967a46eb7a23f7"
+  },
+  {
+    "path": "docs/website/2-Annual_Updates/img/friendsbetter.png",
+    "bytes": 42387,
+    "sha256": "78a29e7aeb08ce5ade0ed707a51a39d4fc03cb9539708477bd0e4667efe3a458"
+  },
+  {
+    "path": "docs/documentation/img/sidebarSite.png",
+    "bytes": 39070,
+    "sha256": "c0fb8fe524b69e9a35711e9e196a642caca0f9670bfa0966ca3416bcc178a4d7"
+  },
+  {
+    "path": "docs/frc/1-Basics/img/elevatorExtended.jpeg",
+    "bytes": 35126,
+    "sha256": "b46ca6cd32d0af042f852bca5753c70c8df6f63f18da8f438c2dc0a586af8a4a"
+  },
+  {
+    "path": "docs/frc/2-Sensors_And_Shuffleboard/img/shuffleboard.png",
+    "bytes": 33802,
+    "sha256": "9d57c443bdc28c537cdf6005a4b88962557b480f8547391bd4f0160152db0160"
+  },
+  {
+    "path": "docs/frc/3-Closed_Loop_Control/img/trapezoidal-profile.jpg",
+    "bytes": 32606,
+    "sha256": "15a91abde1e618952877638e5554dd8553a267c76e05b2f3135701d167f632f8"
+  },
+  {
+    "path": "docs/website/2-Annual_Updates/img/friendsbad.png",
+    "bytes": 31220,
+    "sha256": "6ab76f894bd5a48bd690c38fd4931c5f11b8d85397f6a5d3f3ad3c626eb11088"
+  },
+  {
+    "path": "docs/documentation/img/folderStruct.png",
+    "bytes": 30715,
+    "sha256": "24cf79499f4b94f73aef16989970252075ad01d2340da41bf173b3eead1b6d4d"
+  },
+  {
+    "path": "docs/documentation/img/sidebarFolder.png",
+    "bytes": 27456,
+    "sha256": "3085b1c59d6fdaa7d35d842c1e3d2da616e8c88a9c7467442d713b15a1de384f"
+  },
+  {
+    "path": "docs/frc/5-Advanced_&_Misc/img/hitecservo.jpg",
+    "bytes": 27412,
+    "sha256": "9a6392087f6d8442878d32352a4bd40ee3841802e4b43527296ad422d002a02b"
+  },
+  {
+    "path": "docs/documentation/img/folderStructDocsContent.png",
+    "bytes": 25395,
+    "sha256": "e540827b7e12c684a6c59ed532f04427b048ff63d67c06c4df7fe731fb4195fc"
+  },
+  {
+    "path": "docs/frc/5-Advanced_&_Misc/img/sim-gui.webp",
+    "bytes": 24624,
+    "sha256": "e981491699974402edb76f73508906790fb806f4d7ba7373efbb2921765f9c18"
+  },
+  {
+    "path": "docs/website/1-Site_Layout.md/img/srcfolderstruct.png",
+    "bytes": 23667,
+    "sha256": "05246d38a881ee507e0c09b443357433480456fa87559cbd230ab6c9e1ab1941"
+  },
+  {
+    "path": "docs/frc/1-Basics/img/cylinder.jpg",
+    "bytes": 22386,
+    "sha256": "71a9540b9c34ec6ff0df2c8dcf0b8c6a3af62ea65314fd34be5c684981582204"
+  },
+  {
+    "path": "docs/frc/5-Advanced_&_Misc/img/BasicDeadband.jpg",
+    "bytes": 22088,
+    "sha256": "7a5dcf65242e450a8711d51e82477f7b265384699362def135d622f51639aec0"
+  },
+  {
+    "path": "docs/frc/5-Advanced_&_Misc/img/ScaledDeadband.jpg",
+    "bytes": 20722,
+    "sha256": "72977c743c1a1bc263c496df47113a16e6d9c416143535530f7e12c953c7421f"
+  },
+  {
+    "path": "docs/frc/3-Closed_Loop_Control/img/graphs_p.png",
+    "bytes": 18449,
+    "sha256": "2f549dd76916be3b7fb41dd7451f34aee7fa27774bb56f5a042534e6eaac3f12"
+  },
+  {
+    "path": "docs/frc/4-Autonomous/img/Pathweaver.png",
+    "bytes": 17557,
+    "sha256": "6d8bbac431c695353e8b7197e1b84ecfe19ba8d81e74d463d49400b6ec7000a6"
+  },
+  {
+    "path": "docs/frc/1-Basics/img/singleActing.gif",
+    "bytes": 16665,
+    "sha256": "84ed131bac72975fc7d7ce743400d1ed15b6056f2827bbf8247728d405ec2b76"
+  },
+  {
+    "path": "docs/frc/1-Basics/img/controller.jpg",
+    "bytes": 16198,
+    "sha256": "360aa0c171514f010639f002e349142daa3883e8ded8fa6a11909f82f9bf976e"
+  },
+  {
+    "path": "docs/website/1-Site_Layout.md/img/basefolderstruct.png",
+    "bytes": 16088,
+    "sha256": "e83fa45a5b3adcc98b16d8aaf4fbb30d9e76de9357f8c7a4b0ba45d3a7219b1e"
+  },
+  {
+    "path": "docs/java/1-Basics/img/HighlightedMain.png",
+    "bytes": 15128,
+    "sha256": "f10a491c94c1ca78030a7875aeca0522e32109adb2f1db7a14587733b93c6988"
+  },
+  {
+    "path": "docs/frc/1-Basics/img/doubleActing.gif",
+    "bytes": 14882,
+    "sha256": "19aa447b4ef80dffb8f4e9b004a0c90d36045a48b0e8658d90cf7b0b865b079c"
+  },
+  {
+    "path": "docs/frc/1-Basics/img/compressor.jpg",
+    "bytes": 13428,
+    "sha256": "357eaa660547e194f598e8014594775c70a827ee40220b8c8fa846c2ee338ae8"
+  },
+  {
+    "path": "docs/frc/5-Advanced_&_Misc/img/run_sim.webp",
+    "bytes": 10714,
+    "sha256": "cb34eb52e2fe676797341cce63029e11c2bd0a543646b6c6795c0183fac5b635"
+  },
+  {
+    "path": "docs/frc/1-Basics/img/openClaw.jpeg",
+    "bytes": 9518,
+    "sha256": "ecd365a863d1f94f261082622f214674eff54ab1dea6930ab5309013a2dbc672"
+  },
+  {
+    "path": "docs/frc/1-Basics/img/closedClaw.jpeg",
+    "bytes": 8296,
+    "sha256": "90ffd0bdc925d15ba22c4975b581c0af6fff5fdc75d32eb1c72bac1a4d72e41e"
+  },
+  {
+    "path": "docs/documentation/img/folderStructDocsShow.png",
+    "bytes": 5705,
+    "sha256": "a706665ddcdcc39a13ebba6791e6ce155ca08b410db53083279614b5e035d936"
+  },
+  {
+    "path": "docs/index.html",
+    "bytes": 4318,
+    "sha256": "0fa0cb06e69ab35a96df64f95293eec14d184a00fcfa6d3f9d2b710623e78444"
+  },
+  {
+    "path": "docs/frc/5-Advanced_&_Misc/img/sim_pick.webp",
+    "bytes": 4068,
+    "sha256": "71d79de433fcac4eb91ea8787adc7e0bed02c0261bd5c41c4104d3fb01b0ab70"
+  },
+  {
+    "path": "docs/css/prism-material-dark.css",
+    "bytes": 2497,
+    "sha256": "29ea4d99a546aed056ca31d39a5ab75cf6452f1b85a5aff324b8a97f900d731f"
+  },
+  {
+    "path": "docs/frc/5-Advanced_&_Misc/img/mechanism2d-widget.webp",
+    "bytes": 1972,
+    "sha256": "fd172819467337ec07364c59c7260694aaeae81bbdd996dd63754f2de3aa4e0d"
+  },
+  {
+    "path": "docs/css/toc.css",
+    "bytes": 1915,
+    "sha256": "f399f405bb45d215b53705c568553f6b95afe0c731593f0a7453b387f01405a6"
+  },
+  {
+    "path": "docs/frc/1-Basics/img/elevator.jpg",
+    "bytes": 1423,
+    "sha256": "a0f4e35d6bab5e0f70cbd8fdbaa04367ac696b18b6d4d34532f0bdb90f7b7f9b"
+  },
+  {
+    "path": "docs/css/override.css",
+    "bytes": 304,
+    "sha256": "56b5c873f3a8d90a184654c1e1a6e81f4fd057e5ea243432e109217828fa1eb4"
+  },
+  {
+    "path": "docs/.nojekyll",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]

@@ -1,0 +1,3902 @@
+[
+  {
+    "source": "docs/README.md",
+    "line": 6,
+    "image": false,
+    "label": "Programming Resources",
+    "target": "https://tinyurl.com/1257Programming",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_coverpage.md",
+    "line": 1,
+    "image": true,
+    "label": "logo",
+    "target": "media/1257snail.svg",
+    "local_target": "docs/media/1257snail.svg",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_coverpage.md",
+    "line": 7,
+    "image": false,
+    "label": "Get Started",
+    "target": "#main",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_coverpage.md",
+    "line": 8,
+    "image": false,
+    "label": "GitHub",
+    "target": "https://github.com/FRC1257",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 1,
+    "image": false,
+    "label": "Home",
+    "target": "/",
+    "local_target": "docs/README.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 2,
+    "image": false,
+    "label": "Java",
+    "target": "java/README.md",
+    "local_target": "docs/java/README.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 3,
+    "image": false,
+    "label": "Basics",
+    "target": "java/1-Basics/README.md",
+    "local_target": "docs/java/1-Basics/README.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 4,
+    "image": false,
+    "label": "First Program",
+    "target": "java/1-Basics/1-First_Program.md",
+    "local_target": "docs/java/1-Basics/1-First_Program.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 5,
+    "image": false,
+    "label": "Variables",
+    "target": "java/1-Basics/2-Variables.md",
+    "local_target": "docs/java/1-Basics/2-Variables.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 6,
+    "image": false,
+    "label": "Operators",
+    "target": "java/1-Basics/3-Operators.md",
+    "local_target": "docs/java/1-Basics/3-Operators.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 7,
+    "image": false,
+    "label": "Comments",
+    "target": "java/1-Basics/4-Comments.md",
+    "local_target": "docs/java/1-Basics/4-Comments.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 8,
+    "image": false,
+    "label": "Console Input",
+    "target": "java/1-Basics/5-Console_Input.md",
+    "local_target": "docs/java/1-Basics/5-Console_Input.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 9,
+    "image": false,
+    "label": "Arrays",
+    "target": "java/1-Basics/6-Arrays.md",
+    "local_target": "docs/java/1-Basics/6-Arrays.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 10,
+    "image": false,
+    "label": "Programs",
+    "target": "java/1-Basics/programs/README.md",
+    "local_target": "docs/java/1-Basics/programs/README.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 11,
+    "image": false,
+    "label": "Hello World",
+    "target": "java/1-Basics/programs/HelloWorld.md",
+    "local_target": "docs/java/1-Basics/programs/HelloWorld.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 12,
+    "image": false,
+    "label": "Input",
+    "target": "java/1-Basics/programs/Input.md",
+    "local_target": "docs/java/1-Basics/programs/Input.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 13,
+    "image": false,
+    "label": "Variables",
+    "target": "java/1-Basics/programs/Variables.md",
+    "local_target": "docs/java/1-Basics/programs/Variables.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 14,
+    "image": false,
+    "label": "Control Flow",
+    "target": "java/2-Control_Flow/README.md",
+    "local_target": "docs/java/2-Control_Flow/README.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 15,
+    "image": false,
+    "label": "If Statements",
+    "target": "java/2-Control_Flow/1-If_Statements.md",
+    "local_target": "docs/java/2-Control_Flow/1-If_Statements.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 16,
+    "image": false,
+    "label": "Logical Operators",
+    "target": "java/2-Control_Flow/2-Logical_Operators.md",
+    "local_target": "docs/java/2-Control_Flow/2-Logical_Operators.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 17,
+    "image": false,
+    "label": "Else Statements",
+    "target": "java/2-Control_Flow/3-Else_Statements.md",
+    "local_target": "docs/java/2-Control_Flow/3-Else_Statements.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 18,
+    "image": false,
+    "label": "Switch Statements",
+    "target": "java/2-Control_Flow/4-Switch_Statements.md",
+    "local_target": "docs/java/2-Control_Flow/4-Switch_Statements.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 19,
+    "image": false,
+    "label": "While Loops",
+    "target": "java/2-Control_Flow/5-While_Loops.md",
+    "local_target": "docs/java/2-Control_Flow/5-While_Loops.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 20,
+    "image": false,
+    "label": "For Loops",
+    "target": "java/2-Control_Flow/6-For_Loops.md",
+    "local_target": "docs/java/2-Control_Flow/6-For_Loops.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 21,
+    "image": false,
+    "label": "Enums",
+    "target": "java/2-Control_Flow/7-Enums.md",
+    "local_target": "docs/java/2-Control_Flow/7-Enums.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 22,
+    "image": false,
+    "label": "Scope",
+    "target": "java/2-Control_Flow/8-Scope.md",
+    "local_target": "docs/java/2-Control_Flow/8-Scope.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 23,
+    "image": false,
+    "label": "Programs",
+    "target": "java/2-Control_Flow/programs/README.md",
+    "local_target": "docs/java/2-Control_Flow/programs/README.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 24,
+    "image": false,
+    "label": "EvenOdd",
+    "target": "java/2-Control_Flow/programs/EvenOdd.md",
+    "local_target": "docs/java/2-Control_Flow/programs/EvenOdd.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 25,
+    "image": false,
+    "label": "Exponent",
+    "target": "java/2-Control_Flow/programs/Exponent.md",
+    "local_target": "docs/java/2-Control_Flow/programs/Exponent.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 26,
+    "image": false,
+    "label": "Print Numbers",
+    "target": "java/2-Control_Flow/programs/PrintNumbers.md",
+    "local_target": "docs/java/2-Control_Flow/programs/PrintNumbers.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 27,
+    "image": false,
+    "label": "Simple Chatbot",
+    "target": "java/2-Control_Flow/programs/SimpleChatbot.md",
+    "local_target": "docs/java/2-Control_Flow/programs/SimpleChatbot.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 28,
+    "image": false,
+    "label": "Functions",
+    "target": "java/3-Functions/README.md",
+    "local_target": "docs/java/3-Functions/README.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 29,
+    "image": false,
+    "label": "Basics",
+    "target": "java/3-Functions/1-Basics.md",
+    "local_target": "docs/java/3-Functions/1-Basics.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 30,
+    "image": false,
+    "label": "Functions with Arguments",
+    "target": "java/3-Functions/2-Functions_with_Arguments.md",
+    "local_target": "docs/java/3-Functions/2-Functions_with_Arguments.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 31,
+    "image": false,
+    "label": "Functions with Return Types",
+    "target": "java/3-Functions/3-Functions_with_Return_Types.md",
+    "local_target": "docs/java/3-Functions/3-Functions_with_Return_Types.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 32,
+    "image": false,
+    "label": "Overloading",
+    "target": "java/3-Functions/4-Overloading.md",
+    "local_target": "docs/java/3-Functions/4-Overloading.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 33,
+    "image": false,
+    "label": "Lambdas",
+    "target": "java/3-Functions/5-Lambdas.md",
+    "local_target": "docs/java/3-Functions/5-Lambdas.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 34,
+    "image": false,
+    "label": "Programs",
+    "target": "java/3-Functions/programs/README.md",
+    "local_target": "docs/java/3-Functions/programs/README.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 35,
+    "image": false,
+    "label": "Fancy Text",
+    "target": "java/3-Functions/programs/FancyText.md",
+    "local_target": "docs/java/3-Functions/programs/FancyText.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 36,
+    "image": false,
+    "label": "Formulas",
+    "target": "java/3-Functions/programs/Formulas.md",
+    "local_target": "docs/java/3-Functions/programs/Formulas.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 37,
+    "image": false,
+    "label": "Print an Array",
+    "target": "java/3-Functions/programs/PrintArray.md",
+    "local_target": "docs/java/3-Functions/programs/PrintArray.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 38,
+    "image": false,
+    "label": "Reverse a String",
+    "target": "java/3-Functions/programs/ReverseString.md",
+    "local_target": "docs/java/3-Functions/programs/ReverseString.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 39,
+    "image": false,
+    "label": "Objects",
+    "target": "java/4-Objects/README.md",
+    "local_target": "docs/java/4-Objects/README.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 40,
+    "image": false,
+    "label": "Overview",
+    "target": "java/4-Objects/1-Overview.md",
+    "local_target": "docs/java/4-Objects/1-Overview.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 41,
+    "image": false,
+    "label": "Classes",
+    "target": "java/4-Objects/2-Classes.md",
+    "local_target": "docs/java/4-Objects/2-Classes.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 42,
+    "image": false,
+    "label": "More About Classes",
+    "target": "java/4-Objects/3-More_About_Classes.md",
+    "local_target": "docs/java/4-Objects/3-More_About_Classes.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 43,
+    "image": false,
+    "label": "Inheritance",
+    "target": "java/4-Objects/4-Inheritance.md",
+    "local_target": "docs/java/4-Objects/4-Inheritance.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 44,
+    "image": false,
+    "label": "Overriding",
+    "target": "java/4-Objects/5-Overriding.md",
+    "local_target": "docs/java/4-Objects/5-Overriding.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 45,
+    "image": false,
+    "label": "Polymorphism",
+    "target": "java/4-Objects/6-Polymorphism.md",
+    "local_target": "docs/java/4-Objects/6-Polymorphism.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 46,
+    "image": false,
+    "label": "Abstract Classes",
+    "target": "java/4-Objects/7-Abstract_Classes.md",
+    "local_target": "docs/java/4-Objects/7-Abstract_Classes.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 47,
+    "image": false,
+    "label": "Programs",
+    "target": "java/4-Objects/programs/README.md",
+    "local_target": "docs/java/4-Objects/programs/README.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 48,
+    "image": false,
+    "label": "Access",
+    "target": "java/4-Objects/programs/Access/README.md",
+    "local_target": "docs/java/4-Objects/programs/Access/README.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 49,
+    "image": false,
+    "label": "Out",
+    "target": "java/4-Objects/programs/Access/out/MainOut.md",
+    "local_target": "docs/java/4-Objects/programs/Access/out/MainOut.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 50,
+    "image": false,
+    "label": "MainSame",
+    "target": "java/4-Objects/programs/Access/MainSame.md",
+    "local_target": "docs/java/4-Objects/programs/Access/MainSame.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 51,
+    "image": false,
+    "label": "Other",
+    "target": "java/4-Objects/programs/Access/Other.md",
+    "local_target": "docs/java/4-Objects/programs/Access/Other.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 52,
+    "image": false,
+    "label": "Cars",
+    "target": "java/4-Objects/programs/Cars/README.md",
+    "local_target": "docs/java/4-Objects/programs/Cars/README.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 53,
+    "image": false,
+    "label": "Main",
+    "target": "java/4-Objects/programs/Cars/Main.md",
+    "local_target": "docs/java/4-Objects/programs/Cars/Main.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 54,
+    "image": false,
+    "label": "Car",
+    "target": "java/4-Objects/programs/Cars/Car.md",
+    "local_target": "docs/java/4-Objects/programs/Cars/Car.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 55,
+    "image": false,
+    "label": "Taxi",
+    "target": "java/4-Objects/programs/Cars/Taxi.md",
+    "local_target": "docs/java/4-Objects/programs/Cars/Taxi.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 56,
+    "image": false,
+    "label": "1257 Formatting Guide",
+    "target": "java/Formatting_Guide.md",
+    "local_target": "docs/java/Formatting_Guide.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 57,
+    "image": false,
+    "label": "FRC",
+    "target": "frc/README.md",
+    "local_target": "docs/frc/README.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 58,
+    "image": false,
+    "label": "Basics",
+    "target": "frc/1-Basics/README.md",
+    "local_target": "docs/frc/1-Basics/README.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 59,
+    "image": false,
+    "label": "Program Setup",
+    "target": "frc/1-Basics/1a-Setup.md",
+    "local_target": "docs/frc/1-Basics/1a-Setup.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 60,
+    "image": false,
+    "label": "Match Structure",
+    "target": "frc/1-Basics/1b-Match_Structure.md",
+    "local_target": "docs/frc/1-Basics/1b-Match_Structure.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 61,
+    "image": false,
+    "label": "Motors",
+    "target": "frc/1-Basics/2a-Motors.md",
+    "local_target": "docs/frc/1-Basics/2a-Motors.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 62,
+    "image": false,
+    "label": "Vendor Dependencies",
+    "target": "frc/1-Basics/2b-Vendor_Dependencies.md",
+    "local_target": "docs/frc/1-Basics/2b-Vendor_Dependencies.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 63,
+    "image": false,
+    "label": "Pneumatics",
+    "target": "frc/1-Basics/3-Pneumatics.md",
+    "local_target": "docs/frc/1-Basics/3-Pneumatics.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 64,
+    "image": false,
+    "label": "Command-Based",
+    "target": "frc/1-Basics/4a-Command_Based.md",
+    "local_target": "docs/frc/1-Basics/4a-Command_Based.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 65,
+    "image": false,
+    "label": "Architecture",
+    "target": "frc/1-Basics/4b-Architecture.md",
+    "local_target": "docs/frc/1-Basics/4b-Architecture.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 66,
+    "image": false,
+    "label": "First Subsystem",
+    "target": "frc/1-Basics/5-First_Subsystem.md",
+    "local_target": "docs/frc/1-Basics/5-First_Subsystem.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 67,
+    "image": false,
+    "label": "Roller Intake",
+    "target": "frc/1-Basics/5a-Roller_Intake.md",
+    "local_target": "docs/frc/1-Basics/5a-Roller_Intake.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 68,
+    "image": false,
+    "label": "Constants",
+    "target": "frc/1-Basics/5b-Constants.md",
+    "local_target": "docs/frc/1-Basics/5b-Constants.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 69,
+    "image": false,
+    "label": "Making Commands",
+    "target": "frc/1-Basics/5c-Making_Commands.md",
+    "local_target": "docs/frc/1-Basics/5c-Making_Commands.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 70,
+    "image": false,
+    "label": "Binding Commands",
+    "target": "frc/1-Basics/5d-Binding_Commands.md",
+    "local_target": "docs/frc/1-Basics/5d-Binding_Commands.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 71,
+    "image": false,
+    "label": "Simulation",
+    "target": "frc/1-Basics/5e-Simulation.md",
+    "local_target": "docs/frc/1-Basics/5e-Simulation.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 72,
+    "image": false,
+    "label": "Claw Intake",
+    "target": "frc/1-Basics/6-Claw_Intake.md",
+    "local_target": "docs/frc/1-Basics/6-Claw_Intake.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 73,
+    "image": false,
+    "label": "Arm",
+    "target": "frc/1-Basics/7-Arm.md",
+    "local_target": "docs/frc/1-Basics/7-Arm.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 74,
+    "image": false,
+    "label": "Elevator",
+    "target": "frc/1-Basics/8-Elevator.md",
+    "local_target": "docs/frc/1-Basics/8-Elevator.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 75,
+    "image": false,
+    "label": "Drivetrain",
+    "target": "frc/1-Basics/9-Drivetrain.md",
+    "local_target": "docs/frc/1-Basics/9-Drivetrain.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 76,
+    "image": false,
+    "label": "Extra Features",
+    "target": "frc/1-Basics/E-Extra_Features.md",
+    "local_target": "docs/frc/1-Basics/E-Extra_Features.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 77,
+    "image": false,
+    "label": "Basic Subsystem Guide",
+    "target": "frc/1-Basics/G-Guide.md",
+    "local_target": "docs/frc/1-Basics/G-Guide.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 78,
+    "image": false,
+    "label": "Sensors and Shuffleboard",
+    "target": "frc/2-Sensors_And_Shuffleboard/README.md",
+    "local_target": "docs/frc/2-Sensors_And_Shuffleboard/README.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 79,
+    "image": false,
+    "label": "Overview",
+    "target": "frc/2-Sensors_And_Shuffleboard/1-Overview.md",
+    "local_target": "docs/frc/2-Sensors_And_Shuffleboard/1-Overview.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 80,
+    "image": false,
+    "label": "Outputting Data",
+    "target": "frc/2-Sensors_And_Shuffleboard/2-Outputting_Data.md",
+    "local_target": "docs/frc/2-Sensors_And_Shuffleboard/2-Outputting_Data.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 81,
+    "image": false,
+    "label": "Encoders",
+    "target": "frc/2-Sensors_And_Shuffleboard/3-Encoders.md",
+    "local_target": "docs/frc/2-Sensors_And_Shuffleboard/3-Encoders.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 82,
+    "image": false,
+    "label": "Gyro",
+    "target": "frc/2-Sensors_And_Shuffleboard/4-Gyro.md",
+    "local_target": "docs/frc/2-Sensors_And_Shuffleboard/4-Gyro.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 83,
+    "image": false,
+    "label": "Boolean Sensors",
+    "target": "frc/2-Sensors_And_Shuffleboard/5-Boolean_Sensors.md",
+    "local_target": "docs/frc/2-Sensors_And_Shuffleboard/5-Boolean_Sensors.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 84,
+    "image": false,
+    "label": "Misc. Sensors",
+    "target": "frc/2-Sensors_And_Shuffleboard/6-Misc_Sensors.md",
+    "local_target": "docs/frc/2-Sensors_And_Shuffleboard/6-Misc_Sensors.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 85,
+    "image": false,
+    "label": "Constant Tuning",
+    "target": "frc/2-Sensors_And_Shuffleboard/7-Constant_Tuning.md",
+    "local_target": "docs/frc/2-Sensors_And_Shuffleboard/7-Constant_Tuning.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 86,
+    "image": false,
+    "label": "Closed Loop Control",
+    "target": "frc/3-Closed_Loop_Control/README.md",
+    "local_target": "docs/frc/3-Closed_Loop_Control/README.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 87,
+    "image": false,
+    "label": "Overview",
+    "target": "frc/3-Closed_Loop_Control/1-Overview.md",
+    "local_target": "docs/frc/3-Closed_Loop_Control/1-Overview.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 88,
+    "image": false,
+    "label": "Basics of PID",
+    "target": "frc/3-Closed_Loop_Control/2-Basics_of_PID.md",
+    "local_target": "docs/frc/3-Closed_Loop_Control/2-Basics_of_PID.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 89,
+    "image": false,
+    "label": "Position PID",
+    "target": "frc/3-Closed_Loop_Control/3-Position_PID.md",
+    "local_target": "docs/frc/3-Closed_Loop_Control/3-Position_PID.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 90,
+    "image": false,
+    "label": "WPILib PID",
+    "target": "frc/3-Closed_Loop_Control/3a-WPILib_PID.md",
+    "local_target": "docs/frc/3-Closed_Loop_Control/3a-WPILib_PID.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 91,
+    "image": false,
+    "label": "SPARK MAX PID",
+    "target": "frc/3-Closed_Loop_Control/3b-SPARK_MAX_PID.md",
+    "local_target": "docs/frc/3-Closed_Loop_Control/3b-SPARK_MAX_PID.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 92,
+    "image": false,
+    "label": "Command + Extras",
+    "target": "frc/3-Closed_Loop_Control/3c-PID_Command_And_Extras.md",
+    "local_target": "docs/frc/3-Closed_Loop_Control/3c-PID_Command_And_Extras.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 93,
+    "image": false,
+    "label": "Feedforward",
+    "target": "frc/3-Closed_Loop_Control/4-Feedforward.md",
+    "local_target": "docs/frc/3-Closed_Loop_Control/4-Feedforward.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 94,
+    "image": false,
+    "label": "Velocity PID",
+    "target": "frc/3-Closed_Loop_Control/4a-Velocity_PID.md",
+    "local_target": "docs/frc/3-Closed_Loop_Control/4a-Velocity_PID.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 95,
+    "image": false,
+    "label": "Arbitrary Feedforward",
+    "target": "frc/3-Closed_Loop_Control/4b-Arbitrary_Feedforward.md",
+    "local_target": "docs/frc/3-Closed_Loop_Control/4b-Arbitrary_Feedforward.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 96,
+    "image": false,
+    "label": "Motion Profiling",
+    "target": "frc/3-Closed_Loop_Control/5-Motion_Profiling.md",
+    "local_target": "docs/frc/3-Closed_Loop_Control/5-Motion_Profiling.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 97,
+    "image": false,
+    "label": "Autonomous",
+    "target": "frc/4-Autonomous/README.md",
+    "local_target": "docs/frc/4-Autonomous/README.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 98,
+    "image": false,
+    "label": "Overview",
+    "target": "frc/4-Autonomous/1-Overview.md",
+    "local_target": "docs/frc/4-Autonomous/1-Overview.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 99,
+    "image": false,
+    "label": "Segmented Trajectories",
+    "target": "frc/4-Autonomous/2-Segmented_Trajectories.md",
+    "local_target": "docs/frc/4-Autonomous/2-Segmented_Trajectories.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 100,
+    "image": false,
+    "label": "Advanced Trajectories",
+    "target": "frc/4-Autonomous/3-Advanced_Trajectories.md",
+    "local_target": "docs/frc/4-Autonomous/3-Advanced_Trajectories.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 101,
+    "image": false,
+    "label": "Generating Trajectories",
+    "target": "frc/4-Autonomous/3a-Generating_Trajectories.md",
+    "local_target": "docs/frc/4-Autonomous/3a-Generating_Trajectories.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 102,
+    "image": false,
+    "label": "Generating Trajectories on the Robot",
+    "target": "frc/4-Autonomous/3b-Generating-On-Bot.md",
+    "local_target": "docs/frc/4-Autonomous/3b-Generating-On-Bot.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 103,
+    "image": false,
+    "label": "Following Trajectories",
+    "target": "frc/4-Autonomous/3c-Following_Trajectories.md",
+    "local_target": "docs/frc/4-Autonomous/3c-Following_Trajectories.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 104,
+    "image": false,
+    "label": "Command Groups",
+    "target": "frc/4-Autonomous/4-Command_Groups.md",
+    "local_target": "docs/frc/4-Autonomous/4-Command_Groups.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 105,
+    "image": false,
+    "label": "Auto Choosing",
+    "target": "frc/4-Autonomous/5-Auto_Choosing.md",
+    "local_target": "docs/frc/4-Autonomous/5-Auto_Choosing.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 106,
+    "image": false,
+    "label": "Advanced & Misc.",
+    "target": "frc/5-Advanced_&_Misc/README.md",
+    "local_target": "docs/frc/5-Advanced_&_Misc/README.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 107,
+    "image": false,
+    "label": "Advanced State Machines",
+    "target": "frc/5-Advanced_&_Misc/Advanced_State_Machines.md",
+    "local_target": "docs/frc/5-Advanced_&_Misc/Advanced_State_Machines.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 108,
+    "image": false,
+    "label": "Characterization using FRC Characterization",
+    "target": "frc/5-Advanced_&_Misc/Characterization.md",
+    "local_target": "docs/frc/5-Advanced_&_Misc/Characterization.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 109,
+    "image": false,
+    "label": "Characterization using Sysid",
+    "target": "frc/5-Advanced_&_Misc/Characterization-Sysid.md",
+    "local_target": "docs/frc/5-Advanced_&_Misc/Characterization-Sysid.md",
+    "local_exists": false,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 110,
+    "image": false,
+    "label": "Iterative Programming",
+    "target": "frc/5-Advanced_&_Misc/Iterative_Programming.md",
+    "local_target": "docs/frc/5-Advanced_&_Misc/Iterative_Programming.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 111,
+    "image": false,
+    "label": "Joystick Features",
+    "target": "frc/5-Advanced_&_Misc/Joystick_Features.md",
+    "local_target": "docs/frc/5-Advanced_&_Misc/Joystick_Features.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 112,
+    "image": false,
+    "label": "Notifier",
+    "target": "frc/5-Advanced_&_Misc/Notifier.md",
+    "local_target": "docs/frc/5-Advanced_&_Misc/Notifier.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 113,
+    "image": false,
+    "label": "Other Team's Code",
+    "target": "frc/5-Advanced_&_Misc/Other_Team's_Code.md",
+    "local_target": "docs/frc/5-Advanced_&_Misc/Other_Team's_Code.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 114,
+    "image": false,
+    "label": "Rate Limiting",
+    "target": "frc/5-Advanced_&_Misc/Rate_Limit.md",
+    "local_target": "docs/frc/5-Advanced_&_Misc/Rate_Limit.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 115,
+    "image": false,
+    "label": "Servos",
+    "target": "frc/5-Advanced_&_Misc/Servos.md",
+    "local_target": "docs/frc/5-Advanced_&_Misc/Servos.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 116,
+    "image": false,
+    "label": "Creating Files",
+    "target": "frc/5-Advanced_&_Misc/Creating-Files.md",
+    "local_target": "docs/frc/5-Advanced_&_Misc/Creating-Files.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 117,
+    "image": false,
+    "label": "Simulation",
+    "target": "frc/5-Advanced_&_Misc/Simulation.md",
+    "local_target": "docs/frc/5-Advanced_&_Misc/Simulation.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 118,
+    "image": false,
+    "label": "Advantage Scope",
+    "target": "frc/5-Advanced_&_Misc/Advanced_Logging.md",
+    "local_target": "docs/frc/5-Advanced_&_Misc/Advanced_Logging.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 119,
+    "image": false,
+    "label": "Git / GitHub",
+    "target": "git/README.md",
+    "local_target": "docs/git/README.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 120,
+    "image": false,
+    "label": "Git Reference",
+    "target": "git/Git_Reference.md",
+    "local_target": "docs/git/Git_Reference.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 121,
+    "image": false,
+    "label": "How to Git",
+    "target": "git/How_To_Git.md",
+    "local_target": "docs/git/How_To_Git.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 122,
+    "image": false,
+    "label": "Vision",
+    "target": "vision/README.md",
+    "local_target": "docs/vision/README.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 123,
+    "image": false,
+    "label": "PhotonVision",
+    "target": "vision/PhotonVision/README.md",
+    "local_target": "docs/vision/PhotonVision/README.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 124,
+    "image": false,
+    "label": "Setup",
+    "target": "vision/PhotonVision/Setup.md",
+    "local_target": "docs/vision/PhotonVision/Setup.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 125,
+    "image": false,
+    "label": "Code",
+    "target": "vision/PhotonVision/Code.md",
+    "local_target": "docs/vision/PhotonVision/Code.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 126,
+    "image": false,
+    "label": "Limelight",
+    "target": "vision/Limelight/README.md",
+    "local_target": "docs/vision/Limelight/README.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 127,
+    "image": false,
+    "label": "WPILibPi",
+    "target": "vision/WPILibPi/README.md",
+    "local_target": "docs/vision/WPILibPi/README.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 128,
+    "image": false,
+    "label": "Documentation",
+    "target": "documentation/README.md",
+    "local_target": "docs/documentation/README.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 129,
+    "image": false,
+    "label": "Website",
+    "target": "website/README.md",
+    "local_target": "docs/website/README.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 130,
+    "image": false,
+    "label": "Getting Started",
+    "target": "website/Getting_Started.md",
+    "local_target": "docs/website/Getting_Started.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 131,
+    "image": false,
+    "label": "Site Layout",
+    "target": "website/1-Site_Layout.md/README.md",
+    "local_target": "docs/website/1-Site_Layout.md/README.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 132,
+    "image": false,
+    "label": "Folders & Files in `SnailSite/`",
+    "target": "website/1-Site_Layout.md/1-Folders_&_Files_in_SnailSite.md",
+    "local_target": "docs/website/1-Site_Layout.md/1-Folders_&_Files_in_SnailSite.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 133,
+    "image": false,
+    "label": "Folders & Files in `src/`",
+    "target": "website/1-Site_Layout.md/2-Folders_&_Files_in_Src.md",
+    "local_target": "docs/website/1-Site_Layout.md/2-Folders_&_Files_in_Src.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 134,
+    "image": false,
+    "label": "Annual Updates",
+    "target": "website/2-Annual_Updates/README.md",
+    "local_target": "docs/website/2-Annual_Updates/README.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 135,
+    "image": false,
+    "label": "Student Leadership",
+    "target": "website/2-Annual_Updates/1-Student_Leadership.md",
+    "local_target": "docs/website/2-Annual_Updates/1-Student_Leadership.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 136,
+    "image": false,
+    "label": "Sponsors",
+    "target": "website/2-Annual_Updates/2-Sponsors.md",
+    "local_target": "docs/website/2-Annual_Updates/2-Sponsors.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/_sidebar.md",
+    "line": 137,
+    "image": false,
+    "label": "Awards",
+    "target": "website/2-Annual_Updates/3-Awards.md",
+    "local_target": "docs/website/2-Annual_Updates/3-Awards.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/documentation/README.md",
+    "line": 5,
+    "image": false,
+    "label": "GitHub",
+    "target": "https://github.com/",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/documentation/README.md",
+    "line": 10,
+    "image": false,
+    "label": "VSCode",
+    "target": "https://code.visualstudio.com/",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/documentation/README.md",
+    "line": 11,
+    "image": false,
+    "label": "GitHub Desktop",
+    "target": "https://desktop.github.com/",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/documentation/README.md",
+    "line": 24,
+    "image": false,
+    "label": "Markdown",
+    "target": "https://www.markdownguide.org/",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/documentation/README.md",
+    "line": 33,
+    "image": false,
+    "label": "this",
+    "target": "https://markdownlivepreview.com/",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/documentation/README.md",
+    "line": 35,
+    "image": false,
+    "label": "This",
+    "target": "https://www.markdownguide.org/cheat-sheet/#basic-syntax",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/documentation/README.md",
+    "line": 116,
+    "image": false,
+    "label": "here",
+    "target": "https://github.com/fzankl/docsify-plugin-flexible-alerts/blob/main/README.md",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/documentation/README.md",
+    "line": 194,
+    "image": true,
+    "label": "folder structure",
+    "target": "img/folderStruct.png",
+    "local_target": "docs/documentation/img/folderStruct.png",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/documentation/README.md",
+    "line": 202,
+    "image": true,
+    "label": "docs folder",
+    "target": "img/folderStructDocsShow.png",
+    "local_target": "docs/documentation/img/folderStructDocsShow.png",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/documentation/README.md",
+    "line": 206,
+    "image": true,
+    "label": "docs content",
+    "target": "img/folderStructDocsContent.png",
+    "local_target": "docs/documentation/img/folderStructDocsContent.png",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/documentation/README.md",
+    "line": 224,
+    "image": true,
+    "label": "sidebar code",
+    "target": "img/sidebarCode.png",
+    "local_target": "docs/documentation/img/sidebarCode.png",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/documentation/README.md",
+    "line": 228,
+    "image": true,
+    "label": "sidebar folders",
+    "target": "img/sidebarFolder.png",
+    "local_target": "docs/documentation/img/sidebarFolder.png",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/documentation/README.md",
+    "line": 230,
+    "image": false,
+    "label": "website",
+    "target": "https://frc1257.github.io/robotics-training/#/java/1-Basics/1-First_Program",
+    "local_target": "docs/java/1-Basics/1-First_Program.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/documentation/README.md",
+    "line": 232,
+    "image": true,
+    "label": "sidebar on website",
+    "target": "img/sidebarSite.png",
+    "local_target": "docs/documentation/img/sidebarSite.png",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/documentation/README.md",
+    "line": 255,
+    "image": true,
+    "label": "cat gif",
+    "target": "img/typingcat.gif",
+    "local_target": "docs/documentation/img/typingcat.gif",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/1-Basics/1a-Setup.md",
+    "line": 9,
+    "image": false,
+    "label": "github.com",
+    "target": "https://github.com",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/1-Basics/1a-Setup.md",
+    "line": 11,
+    "image": false,
+    "label": "Snail Robot Template",
+    "target": "https://github.com/FRC1257/snail-robot-template",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/1-Basics/1a-Setup.md",
+    "line": 15,
+    "image": false,
+    "label": "Editing on GitHub",
+    "target": "#editing-on-github",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/1-Basics/1a-Setup.md",
+    "line": 15,
+    "image": false,
+    "label": "Editing on Visual Studio Code",
+    "target": "#editing-on-visual-studio-code",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/1-Basics/1a-Setup.md",
+    "line": 31,
+    "image": false,
+    "label": "Setting Up WPILib",
+    "target": "https://docs.wpilib.org/en/latest/docs/getting-started/getting-started-frc-control-system/wpilib-setup.html",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/1-Basics/1a-Setup.md",
+    "line": 39,
+    "image": false,
+    "label": "GitHub Desktop Download",
+    "target": "https://desktop.github.com/",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/1-Basics/1b-Match_Structure.md",
+    "line": 9,
+    "image": false,
+    "label": "Autonomous section",
+    "target": "https://frc1257.github.io/robotics-training/#/frc/4-Autonomous/README",
+    "local_target": "docs/frc/4-Autonomous/README.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/1-Basics/2a-Motors.md",
+    "line": 13,
+    "image": true,
+    "label": "SPARK MAX",
+    "target": "img/SPARKMAX.png",
+    "local_target": "docs/frc/1-Basics/img/SPARKMAX.png",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/1-Basics/2a-Motors.md",
+    "line": 13,
+    "image": true,
+    "label": "NEO 550",
+    "target": "img/NEOvs550.png",
+    "local_target": "docs/frc/1-Basics/img/NEOvs550.png",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/1-Basics/2a-Motors.md",
+    "line": 53,
+    "image": false,
+    "label": "Brushed vs. Brushless motors here",
+    "target": "https://cordlessdrillzone.com/drill-wars/brushless-vs-brushed-motor/",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/1-Basics/2a-Motors.md",
+    "line": 99,
+    "image": false,
+    "label": "CTRE",
+    "target": "http://www.ctr-electronics.com/control-system.html?p=3",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/1-Basics/2b-Vendor_Dependencies.md",
+    "line": 5,
+    "image": false,
+    "label": "Motors",
+    "target": "https://frc1257.github.io/robotics-training/#/frc/1-Basics/2-Motors",
+    "local_target": "docs/frc/1-Basics/2-Motors.md",
+    "local_exists": false,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/1-Basics/2b-Vendor_Dependencies.md",
+    "line": 5,
+    "image": false,
+    "label": "website",
+    "target": "http://www.revrobotics.com/sparkmax-software/",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/1-Basics/2b-Vendor_Dependencies.md",
+    "line": 21,
+    "image": false,
+    "label": "Adding an offline-installed Library",
+    "target": "https://docs.wpilib.org/en/latest/docs/software/wpilib-overview/3rd-party-libraries.html",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/1-Basics/2b-Vendor_Dependencies.md",
+    "line": 23,
+    "image": false,
+    "label": "Talon SRX motor controller (or other motor controllers from CTRE)",
+    "target": "https://phoenix-documentation.readthedocs.io/en/latest/ch05a_CppJava.html",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/1-Basics/2b-Vendor_Dependencies.md",
+    "line": 23,
+    "image": false,
+    "label": "navX-MXP gyroscope",
+    "target": "https://pdocs.kauailabs.com/navx-mxp/software/roborio-libraries/java/",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/1-Basics/3-Pneumatics.md",
+    "line": 15,
+    "image": true,
+    "label": "Cylinder",
+    "target": "img/cylinder.jpg",
+    "local_target": "docs/frc/1-Basics/img/cylinder.jpg",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/1-Basics/3-Pneumatics.md",
+    "line": 19,
+    "image": true,
+    "label": "Single-Acting Cylinder",
+    "target": "img/singleActing.gif",
+    "local_target": "docs/frc/1-Basics/img/singleActing.gif",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/1-Basics/3-Pneumatics.md",
+    "line": 19,
+    "image": true,
+    "label": "Double-Acting Cylinder",
+    "target": "img/doubleActing.gif",
+    "local_target": "docs/frc/1-Basics/img/doubleActing.gif",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/1-Basics/3-Pneumatics.md",
+    "line": 29,
+    "image": true,
+    "label": "Solenoid",
+    "target": "img/solenoid.jpg",
+    "local_target": "docs/frc/1-Basics/img/solenoid.jpg",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/1-Basics/3-Pneumatics.md",
+    "line": 39,
+    "image": true,
+    "label": "Compressor",
+    "target": "img/compressor.jpg",
+    "local_target": "docs/frc/1-Basics/img/compressor.jpg",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/1-Basics/3-Pneumatics.md",
+    "line": 39,
+    "image": true,
+    "label": "PCM",
+    "target": "img/pcm.jpg",
+    "local_target": "docs/frc/1-Basics/img/pcm.jpg",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/1-Basics/3-Pneumatics.md",
+    "line": 47,
+    "image": true,
+    "label": "2056 Intake",
+    "target": "img/intake2056.jpg",
+    "local_target": "docs/frc/1-Basics/img/intake2056.jpg",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/1-Basics/3-Pneumatics.md",
+    "line": 65,
+    "image": false,
+    "label": "Motors.md",
+    "target": "https://frc1257.github.io/robotics-training/#/frc/1-Basics/2-Motors",
+    "local_target": "docs/frc/1-Basics/2-Motors.md",
+    "local_exists": false,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/1-Basics/4a-Command_Based.md",
+    "line": 50,
+    "image": false,
+    "label": "press here",
+    "target": "https://drive.google.com/file/d/14_5zEcy0pHjJd9FZBrlYS0tvzkuuFQxd/view?usp=sharing",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/1-Basics/4b-Architecture.md",
+    "line": 27,
+    "image": false,
+    "label": "`RobotContainer.java`",
+    "target": "https://github.com/FRC1257/2020-Robot/blob/master/src/main/java/frc/robot/RobotContainer.java",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/1-Basics/4b-Architecture.md",
+    "line": 63,
+    "image": false,
+    "label": "`Constants.java`",
+    "target": "https://github.com/FRC1257/2020-Robot/blob/master/src/main/java/frc/robot/Constants.java",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/1-Basics/4b-Architecture.md",
+    "line": 65,
+    "image": false,
+    "label": "inner static classes",
+    "target": "https://www.geeksforgeeks.org/static-class-in-java/",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/1-Basics/5-First_Subsystem.md",
+    "line": 5,
+    "image": false,
+    "label": "here",
+    "target": "https://github.com/FRC1257/training-programs/tree/master/basics/roller-intake",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/1-Basics/5a-Roller_Intake.md",
+    "line": 20,
+    "image": true,
+    "label": "intake",
+    "target": "img/rollerintake.jpg",
+    "local_target": "docs/frc/1-Basics/img/rollerintake.jpg",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/1-Basics/5a-Roller_Intake.md",
+    "line": 28,
+    "image": false,
+    "label": "press here",
+    "target": "https://drive.google.com/file/d/1OdYeyfamvG7weoWkQY1DDX4__NVKelgm/view?usp=sharing",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/1-Basics/5a-Roller_Intake.md",
+    "line": 38,
+    "image": false,
+    "label": "Polymorphism page",
+    "target": "https://frc1257.github.io/robotics-training/#/java/4-Objects/6-Polymorphism",
+    "local_target": "docs/java/4-Objects/6-Polymorphism.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/1-Basics/5a-Roller_Intake.md",
+    "line": 114,
+    "image": false,
+    "label": "enums.",
+    "target": "https://frc1257.github.io/robotics-training/#/java/2-Control_Flow/7-Enums",
+    "local_target": "docs/java/2-Control_Flow/7-Enums.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/1-Basics/5a-Roller_Intake.md",
+    "line": 248,
+    "image": false,
+    "label": "encapsulation",
+    "target": "https://www.geeksforgeeks.org/encapsulation-in-java/",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/1-Basics/5b-Constants.md",
+    "line": 121,
+    "image": false,
+    "label": "this link",
+    "target": "https://beginnersbook.com/2013/04/java-static-class-block-methods-variables/",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/1-Basics/5c-Making_Commands.md",
+    "line": 9,
+    "image": false,
+    "label": "press here",
+    "target": "https://drive.google.com/file/d/1OdYeyfamvG7weoWkQY1DDX4__NVKelgm/view?usp=sharing",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/1-Basics/5c-Making_Commands.md",
+    "line": 217,
+    "image": false,
+    "label": "Documentation",
+    "target": "https://docs.wpilib.org/en/stable/docs/software/commandbased/commands.html",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/1-Basics/5d-Binding_Commands.md",
+    "line": 7,
+    "image": false,
+    "label": "press here",
+    "target": "https://drive.google.com/file/d/1OdYeyfamvG7weoWkQY1DDX4__NVKelgm/view?usp=sharing",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/1-Basics/5d-Binding_Commands.md",
+    "line": 131,
+    "image": false,
+    "label": "JoystickButton",
+    "target": "https://first.wpi.edu/FRC/roborio/release/docs/java/edu/wpi/first/wpilibj2/command/button/JoystickButton.html",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/1-Basics/5d-Binding_Commands.md",
+    "line": 151,
+    "image": false,
+    "label": "here",
+    "target": "https://docs.wpilib.org/en/latest/docs/software/commandbased/binding-commands-to-triggers.html",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/1-Basics/5d-Binding_Commands.md",
+    "line": 222,
+    "image": false,
+    "label": "here",
+    "target": "https://github.com/FRC1257/training-programs/tree/master/basics/roller-intake",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/1-Basics/5e-Simulation.md",
+    "line": 4,
+    "image": false,
+    "label": "repository",
+    "target": "https://github.com/FRC1257/virtual-robot",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/1-Basics/5e-Simulation.md",
+    "line": 5,
+    "image": false,
+    "label": "classes",
+    "target": "https://docs.wpilib.org/en/stable/docs/software/wpilib-tools/robot-simulation/introduction.html",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/1-Basics/6-Claw_Intake.md",
+    "line": 7,
+    "image": true,
+    "label": "openClaw",
+    "target": "img/openClaw.jpeg",
+    "local_target": "docs/frc/1-Basics/img/openClaw.jpeg",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/1-Basics/6-Claw_Intake.md",
+    "line": 7,
+    "image": true,
+    "label": "closedClaw",
+    "target": "img/closedClaw.jpeg",
+    "local_target": "docs/frc/1-Basics/img/closedClaw.jpeg",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/1-Basics/6-Claw_Intake.md",
+    "line": 299,
+    "image": false,
+    "label": "here",
+    "target": "https://github.com/FRC1257/training-programs/tree/master/basics/claw-intake",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/1-Basics/7-Arm.md",
+    "line": 7,
+    "image": true,
+    "label": "FRC 1257's 2019 Robot Arm",
+    "target": "img/2019Robot.jpg",
+    "local_target": "docs/frc/1-Basics/img/2019Robot.jpg",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/1-Basics/7-Arm.md",
+    "line": 355,
+    "image": false,
+    "label": "here",
+    "target": "https://github.com/FRC1257/training-programs/tree/master/basics/arm",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/1-Basics/8-Elevator.md",
+    "line": 7,
+    "image": true,
+    "label": "Elevator CAD",
+    "target": "img/elevatorExtended.jpeg",
+    "local_target": "docs/frc/1-Basics/img/elevatorExtended.jpeg",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/1-Basics/8-Elevator.md",
+    "line": 134,
+    "image": false,
+    "label": "Arm",
+    "target": "frc/1-Basics/7-Arm.md",
+    "local_target": "docs/frc/1-Basics/frc/1-Basics/7-Arm.md",
+    "local_exists": false,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/1-Basics/9-Drivetrain.md",
+    "line": 9,
+    "image": true,
+    "label": "Drivetrain",
+    "target": "img/drivetrain.png",
+    "local_target": "docs/frc/1-Basics/img/drivetrain.png",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/1-Basics/9-Drivetrain.md",
+    "line": 11,
+    "image": false,
+    "label": "Source",
+    "target": "https://www.simbotics.org/wp-content/uploads/2019/12/simbotseminarseries-drivetraindesign.pdf",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/1-Basics/9-Drivetrain.md",
+    "line": 32,
+    "image": false,
+    "label": "here",
+    "target": "https://github.com/wpilibsuite/allwpilib/blob/master/wpilibj/src/main/java/edu/wpi/first/wpilibj/drive/DifferentialDrive.java",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/1-Basics/9-Drivetrain.md",
+    "line": 60,
+    "image": false,
+    "label": "enum:",
+    "target": "https://frc1257.github.io/robotics-training/#/java/2-Control_Flow/7-Enums",
+    "local_target": "docs/java/2-Control_Flow/7-Enums.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/1-Basics/9-Drivetrain.md",
+    "line": 314,
+    "image": false,
+    "label": "here",
+    "target": "https://github.com/FRC1257/training-programs/tree/master/basics/drivetrain",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/1-Basics/E-Extra_Features.md",
+    "line": 130,
+    "image": false,
+    "label": "https://github.com/FRC1257/training-programs",
+    "target": "https://github.com/FRC1257/training-programs",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/1-Basics/G-Guide.md",
+    "line": 88,
+    "image": false,
+    "label": "examples",
+    "target": "https://github.com/FRC1257/training-programs",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/2-Sensors_And_Shuffleboard/1-Overview.md",
+    "line": 15,
+    "image": true,
+    "label": "yaw pitch and roll",
+    "target": "img/yawpitchroll.png",
+    "local_target": "docs/frc/2-Sensors_And_Shuffleboard/img/yawpitchroll.png",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/2-Sensors_And_Shuffleboard/2-Outputting_Data.md",
+    "line": 5,
+    "image": true,
+    "label": "Shuffleboard",
+    "target": "img/shuffleboard.png",
+    "local_target": "docs/frc/2-Sensors_And_Shuffleboard/img/shuffleboard.png",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/2-Sensors_And_Shuffleboard/4-Gyro.md",
+    "line": 9,
+    "image": true,
+    "label": "NavX",
+    "target": "img/navx.jpg",
+    "local_target": "docs/frc/2-Sensors_And_Shuffleboard/img/navx.jpg",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/2-Sensors_And_Shuffleboard/4-Gyro.md",
+    "line": 13,
+    "image": true,
+    "label": "ADXRS450",
+    "target": "img/adxrs450.jpg",
+    "local_target": "docs/frc/2-Sensors_And_Shuffleboard/img/adxrs450.jpg",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/2-Sensors_And_Shuffleboard/5-Boolean_Sensors.md",
+    "line": 11,
+    "image": true,
+    "label": "VEX Bump Switch",
+    "target": "img/bumpswitch.jpg",
+    "local_target": "docs/frc/2-Sensors_And_Shuffleboard/img/bumpswitch.jpg",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/2-Sensors_And_Shuffleboard/5-Boolean_Sensors.md",
+    "line": 61,
+    "image": true,
+    "label": "2019 Robot",
+    "target": "img/2019robot.jpg",
+    "local_target": "docs/frc/2-Sensors_And_Shuffleboard/img/2019robot.jpg",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/2-Sensors_And_Shuffleboard/6-Misc_Sensors.md",
+    "line": 8,
+    "image": false,
+    "label": "here.",
+    "target": "https://docs.wpilib.org/en/latest/docs/software/sensors/ultrasonics-software.html",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/2-Sensors_And_Shuffleboard/6-Misc_Sensors.md",
+    "line": 12,
+    "image": false,
+    "label": "JavaDocs",
+    "target": "http://www.revrobotics.com/content/sw/color-sensor-v3/sdk/docs/javadoc/index.html",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/2-Sensors_And_Shuffleboard/6-Misc_Sensors.md",
+    "line": 13,
+    "image": false,
+    "label": "Example Code",
+    "target": "https://github.com/REVrobotics/Color-Sensor-v3-Examples",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/3-Closed_Loop_Control/1-Overview.md",
+    "line": 32,
+    "image": false,
+    "label": "Controls Glossary",
+    "target": "https://docs.wpilib.org/en/latest/docs/software/advanced-controls/introduction/controls-glossary.html",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/3-Closed_Loop_Control/2-Basics_of_PID.md",
+    "line": 46,
+    "image": false,
+    "label": "MATLAB and Simulink Control Tutorials",
+    "target": "http://ctms.engin.umich.edu/CTMS/index.php?example=MotorPosition&section=ControlPID",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/3-Closed_Loop_Control/2-Basics_of_PID.md",
+    "line": 48,
+    "image": true,
+    "label": "PID Graphs for differing kP",
+    "target": "img/graphs_p.png",
+    "local_target": "docs/frc/3-Closed_Loop_Control/img/graphs_p.png",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/3-Closed_Loop_Control/2-Basics_of_PID.md",
+    "line": 94,
+    "image": false,
+    "label": "Integral windup",
+    "target": "https://en.wikipedia.org/wiki/Integral_windup",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/3-Closed_Loop_Control/2-Basics_of_PID.md",
+    "line": 147,
+    "image": false,
+    "label": "WPILib Docs - Introduction to PID",
+    "target": "https://docs.wpilib.org/en/stable/docs/software/advanced-control/introduction/introduction-to-pid.html",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/3-Closed_Loop_Control/2-Basics_of_PID.md",
+    "line": 148,
+    "image": false,
+    "label": "MATLAB - Understanding PID Control",
+    "target": "https://www.youtube.com/watch?v=wkfEZmsQqiA",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/3-Closed_Loop_Control/2-Basics_of_PID.md",
+    "line": 149,
+    "image": false,
+    "label": "Controlling Self Driving Cars",
+    "target": "https://www.youtube.com/watch?v=4Y7zG48uHRo",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/3-Closed_Loop_Control/3a-WPILib_PID.md",
+    "line": 49,
+    "image": false,
+    "label": "`PIDController`",
+    "target": "https://first.wpi.edu/FRC/roborio/release/docs/java/edu/wpi/first/wpilibj/controller/PIDController.html",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/3-Closed_Loop_Control/3b-SPARK_MAX_PID.md",
+    "line": 3,
+    "image": false,
+    "label": "here",
+    "target": "http://www.revrobotics.com/content/sw/max/sw-docs/java/com/revrobotics/CANPIDController.html",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/3-Closed_Loop_Control/3b-SPARK_MAX_PID.md",
+    "line": 96,
+    "image": false,
+    "label": "documentation",
+    "target": "http://www.revrobotics.com/content/sw/max/sw-docs/java/com/revrobotics/CANPIDController.html",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/3-Closed_Loop_Control/3c-PID_Command_And_Extras.md",
+    "line": 152,
+    "image": false,
+    "label": "here",
+    "target": "https://github.com/FRC1257/2019-Robot-Command/blob/master/src/main/java/frc/robot/subsystems/cargointake/CargoArm.java",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/3-Closed_Loop_Control/5-Motion_Profiling.md",
+    "line": 15,
+    "image": false,
+    "label": "Linear Motion Tips",
+    "target": "https://www.linearmotiontips.com/how-to-calculate-velocity/",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/3-Closed_Loop_Control/5-Motion_Profiling.md",
+    "line": 17,
+    "image": true,
+    "label": "Trapezoid Velocity Motion Profile",
+    "target": "./img/trapezoidal-profile.jpg",
+    "local_target": "docs/frc/3-Closed_Loop_Control/img/trapezoidal-profile.jpg",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/4-Autonomous/3a-Generating_Trajectories.md",
+    "line": 11,
+    "image": true,
+    "label": "Pathweaver",
+    "target": "img/Pathweaver.png",
+    "local_target": "docs/frc/4-Autonomous/img/Pathweaver.png",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/4-Autonomous/3a-Generating_Trajectories.md",
+    "line": 26,
+    "image": true,
+    "label": "PathWeaver Editing Interface",
+    "target": "img/PathweaverInterface.png",
+    "local_target": "docs/frc/4-Autonomous/img/PathweaverInterface.png",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/4-Autonomous/3a-Generating_Trajectories.md",
+    "line": 34,
+    "image": true,
+    "label": "PathWeaver Drawing Paths",
+    "target": "./img/PathweaverPaths.png",
+    "local_target": "docs/frc/4-Autonomous/img/PathweaverPaths.png",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/4-Autonomous/3a-Generating_Trajectories.md",
+    "line": 40,
+    "image": true,
+    "label": "PathWeaver Drawing Reversed Paths",
+    "target": "./img/PathweaverReverse.png",
+    "local_target": "docs/frc/4-Autonomous/img/PathweaverReverse.png",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/4-Autonomous/3a-Generating_Trajectories.md",
+    "line": 46,
+    "image": true,
+    "label": "PathWeaver Path Groups",
+    "target": "./img/PathweaverGroups.png",
+    "local_target": "docs/frc/4-Autonomous/img/PathweaverGroups.png",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/4-Autonomous/3b-Generating-On-Bot.md",
+    "line": 37,
+    "image": false,
+    "label": "PathWeaver",
+    "target": "https://docs.wpilib.org/en/stable/docs/software/wpilib-tools/pathweaver/index.html",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/4-Autonomous/3b-Generating-On-Bot.md",
+    "line": 39,
+    "image": false,
+    "label": "`GenerateTrajectories`",
+    "target": "https://github.com/FRC1257/2023-Robot/blob/master/src/main/java/frc/robot/commands/GenerateTrajedies.java",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/4-Autonomous/3b-Generating-On-Bot.md",
+    "line": 41,
+    "image": false,
+    "label": "WPILib Trajectory Generation",
+    "target": "https://docs.wpilib.org/en/stable/docs/software/advanced-controls/trajectories/trajectory-generation.html#trajectory-generation",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/4-Autonomous/3c-Following_Trajectories.md",
+    "line": 7,
+    "image": false,
+    "label": "https://github.com/Ryan10145/frc-drivetrain",
+    "target": "https://github.com/Ryan10145/frc-drivetrain",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/4-Autonomous/4-Command_Groups.md",
+    "line": 3,
+    "image": false,
+    "label": "here",
+    "target": "https://docs.wpilib.org/en/latest/docs/software/commandbased/command-groups.html",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/4-Autonomous/4-Command_Groups.md",
+    "line": 92,
+    "image": false,
+    "label": "here",
+    "target": "https://docs.wpilib.org/en/latest/docs/software/commandbased/convenience-features.html",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/4-Autonomous/4-Command_Groups.md",
+    "line": 123,
+    "image": true,
+    "label": "2020 Field Diagram",
+    "target": "img/2020FieldDiagram.jpg",
+    "local_target": "docs/frc/4-Autonomous/img/2020FieldDiagram.jpg",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/4-Autonomous/4-Command_Groups.md",
+    "line": 128,
+    "image": false,
+    "label": "CommandScheduler",
+    "target": "https://docs.wpilib.org/en/latest/docs/software/commandbased/command-scheduler.html",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/4-Autonomous/4-Command_Groups.md",
+    "line": 135,
+    "image": false,
+    "label": "here",
+    "target": "https://github.com/FRC1257/2020-Robot/tree/master/src/main/java/frc/robot/commands/auto",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/4-Autonomous/5-Auto_Choosing.md",
+    "line": 11,
+    "image": false,
+    "label": "enums",
+    "target": "https://frc1257.github.io/robotics-training/#/java/2-Control_Flow/7-Enums",
+    "local_target": "docs/java/2-Control_Flow/7-Enums.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/5-Advanced_&_Misc/Advanced_State_Machines.md",
+    "line": 131,
+    "image": false,
+    "label": "here",
+    "target": "https://docs.google.com/presentation/d/1vrv-aebFZg28hukV3vMppd1Hblmn5c8zNrXZs6sEqlE/edit#slide=id.g75dbcb7fac_0_95",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/5-Advanced_&_Misc/Characterization.md",
+    "line": 9,
+    "image": false,
+    "label": "this link",
+    "target": "https://www.python.org/downloads/",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/5-Advanced_&_Misc/Characterization.md",
+    "line": 28,
+    "image": false,
+    "label": "here",
+    "target": "https://docs.wpilib.org/en/stable/docs/software/wpilib-tools/robot-characterization/characterization-routine.html",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/5-Advanced_&_Misc/Characterization.md",
+    "line": 32,
+    "image": false,
+    "label": "this article",
+    "target": "https://docs.wpilib.org/en/stable/docs/software/wpilib-tools/robot-characterization/viewing-diagnostics.html",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/5-Advanced_&_Misc/Characterization.md",
+    "line": 51,
+    "image": false,
+    "label": "WPILib Docs - Robot Characterization",
+    "target": "https://docs.wpilib.org/en/stable/docs/software/wpilib-tools/robot-characterization/introduction.html",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/5-Advanced_&_Misc/Creating-Files.md",
+    "line": 44,
+    "image": false,
+    "label": "this article",
+    "target": "https://www.w3schools.com/java/java_try_catch.asp",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/5-Advanced_&_Misc/Creating-Files.md",
+    "line": 48,
+    "image": false,
+    "label": "FileZilla",
+    "target": "https://filezilla-project.org/download.php?type=client",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/5-Advanced_&_Misc/Creating-Files.md",
+    "line": 59,
+    "image": false,
+    "label": "this document from WPILib",
+    "target": "https://docs.wpilib.org/en/stable/docs/software/roborio-info/roborio-ftp.html",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/5-Advanced_&_Misc/Iterative_Programming.md",
+    "line": 27,
+    "image": false,
+    "label": "Driver Station",
+    "target": "https://docs.wpilib.org/en/latest/docs/software/driverstation/driver-station.html",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/5-Advanced_&_Misc/Iterative_Programming.md",
+    "line": 43,
+    "image": false,
+    "label": "2019 code",
+    "target": "https://github.com/FRC1257/2019-Robot",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/5-Advanced_&_Misc/Iterative_Programming.md",
+    "line": 51,
+    "image": false,
+    "label": "Basics",
+    "target": "https://frc1257.github.io/robotics-training/#/frc/1-Basics/README",
+    "local_target": "docs/frc/1-Basics/README.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/5-Advanced_&_Misc/Joystick_Features.md",
+    "line": 3,
+    "image": false,
+    "label": "this",
+    "target": "https://www.chiefdelphi.com/t/joystick-scaling-deadband/355153",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/5-Advanced_&_Misc/Joystick_Features.md",
+    "line": 7,
+    "image": true,
+    "label": "Amazon Basics Controller",
+    "target": "img/AmazonBasicsController.jpg",
+    "local_target": "docs/frc/5-Advanced_&_Misc/img/AmazonBasicsController.jpg",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/5-Advanced_&_Misc/Joystick_Features.md",
+    "line": 17,
+    "image": true,
+    "label": "Linear Input Graph",
+    "target": "img/LinearInputDesmos.jpg",
+    "local_target": "docs/frc/5-Advanced_&_Misc/img/LinearInputDesmos.jpg",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/5-Advanced_&_Misc/Joystick_Features.md",
+    "line": 25,
+    "image": true,
+    "label": "Scaled Input Graph",
+    "target": "img/ScaledInputsDesmos.jpg",
+    "local_target": "docs/frc/5-Advanced_&_Misc/img/ScaledInputsDesmos.jpg",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/5-Advanced_&_Misc/Joystick_Features.md",
+    "line": 43,
+    "image": false,
+    "label": "here",
+    "target": "https://www.tutorialspoint.com/java/lang/math_signum_float.htm",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/5-Advanced_&_Misc/Joystick_Features.md",
+    "line": 55,
+    "image": true,
+    "label": "Basic Deadband",
+    "target": "img/BasicDeadband.jpg",
+    "local_target": "docs/frc/5-Advanced_&_Misc/img/BasicDeadband.jpg",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/5-Advanced_&_Misc/Joystick_Features.md",
+    "line": 73,
+    "image": true,
+    "label": "Scaled Deadband",
+    "target": "img/ScaledDeadband.jpg",
+    "local_target": "docs/frc/5-Advanced_&_Misc/img/ScaledDeadband.jpg",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/5-Advanced_&_Misc/Joystick_Features.md",
+    "line": 88,
+    "image": false,
+    "label": "here",
+    "target": "https://www.tutorialspoint.com/java/lang/math_signum_float.htm",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/5-Advanced_&_Misc/Joystick_Features.md",
+    "line": 90,
+    "image": false,
+    "label": "source",
+    "target": "https://www.chiefdelphi.com/t/joystick-scaling-deadband/355153",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/5-Advanced_&_Misc/Notifier.md",
+    "line": 37,
+    "image": false,
+    "label": "Elevator Subsystem",
+    "target": "Basics/Elevator.md",
+    "local_target": "docs/frc/5-Advanced_&_Misc/Basics/Elevator.md",
+    "local_exists": false,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/5-Advanced_&_Misc/Notifier.md",
+    "line": 42,
+    "image": false,
+    "label": "Documentation",
+    "target": "https://first.wpi.edu/FRC/roborio/beta/docs/java/edu/wpi/first/wpilibj/Notifier.html",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/5-Advanced_&_Misc/Other_Team's_Code.md",
+    "line": 17,
+    "image": false,
+    "label": "254's code",
+    "target": "https://github.com/Team254",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/5-Advanced_&_Misc/Other_Team's_Code.md",
+    "line": 20,
+    "image": false,
+    "label": "6328",
+    "target": "https://github.com/Mechanical-Advantage/RobotCode2023/blob/main/src/main/java/org/littletonrobotics/frc2023/RobotContainer.java",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/5-Advanced_&_Misc/Rate_Limit.md",
+    "line": 27,
+    "image": false,
+    "label": "this page",
+    "target": "https://github.com/FRC1257/2020-Robot/blob/master/src/main/java/frc/robot/commands/drivetrain/ClosedLoopDriveCommand.java",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/5-Advanced_&_Misc/Rate_Limit.md",
+    "line": 31,
+    "image": false,
+    "label": "here",
+    "target": "https://docs.wpilib.org/en/stable/docs/software/advanced-controls/filters/introduction.html",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/5-Advanced_&_Misc/Rate_Limit.md",
+    "line": 33,
+    "image": false,
+    "label": "here",
+    "target": "https://first.wpi.edu/FRC/roborio/release/docs/java/edu/wpi/first/wpilibj/SlewRateLimiter.html",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/5-Advanced_&_Misc/Servos.md",
+    "line": 9,
+    "image": true,
+    "label": "Hitec HS-322HD Servo",
+    "target": "img/hitecservo.jpg",
+    "local_target": "docs/frc/5-Advanced_&_Misc/img/hitecservo.jpg",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/5-Advanced_&_Misc/Servos.md",
+    "line": 9,
+    "image": true,
+    "label": "REV Smart Servo & Programmer",
+    "target": "img/revsmartservo.png",
+    "local_target": "docs/frc/5-Advanced_&_Misc/img/revsmartservo.png",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/5-Advanced_&_Misc/Servos.md",
+    "line": 11,
+    "image": false,
+    "label": "REV Smart Servo",
+    "target": "https://www.revrobotics.com/rev-41-1097/",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/5-Advanced_&_Misc/Servos.md",
+    "line": 15,
+    "image": false,
+    "label": "here",
+    "target": "https://docs.revrobotics.com/15mm/actuators/servos/smart-robot-servo",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/5-Advanced_&_Misc/Servos.md",
+    "line": 19,
+    "image": true,
+    "label": "Servo Intake Up",
+    "target": "img/intakeup.jpg",
+    "local_target": "docs/frc/5-Advanced_&_Misc/img/intakeup.jpg",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/5-Advanced_&_Misc/Servos.md",
+    "line": 19,
+    "image": true,
+    "label": "Servo Intake Down",
+    "target": "img/intakedown.jpg",
+    "local_target": "docs/frc/5-Advanced_&_Misc/img/intakedown.jpg",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/5-Advanced_&_Misc/Simulation.md",
+    "line": 5,
+    "image": false,
+    "label": "WPILib",
+    "target": "https://docs.wpilib.org/en/stable/docs/software/wpilib-tools/robot-simulation/index.html",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/5-Advanced_&_Misc/Simulation.md",
+    "line": 8,
+    "image": true,
+    "label": "Run Sim",
+    "target": "img/run_sim.webp",
+    "local_target": "docs/frc/5-Advanced_&_Misc/img/run_sim.webp",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/5-Advanced_&_Misc/Simulation.md",
+    "line": 11,
+    "image": true,
+    "label": "Select Sim",
+    "target": "img/sim_pick.webp",
+    "local_target": "docs/frc/5-Advanced_&_Misc/img/sim_pick.webp",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/5-Advanced_&_Misc/Simulation.md",
+    "line": 14,
+    "image": true,
+    "label": "Sim Screen",
+    "target": "img/sim-gui.webp",
+    "local_target": "docs/frc/5-Advanced_&_Misc/img/sim-gui.webp",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/5-Advanced_&_Misc/Simulation.md",
+    "line": 25,
+    "image": false,
+    "label": "WPILib",
+    "target": "https://docs.wpilib.org/en/stable/docs/software/wpilib-tools/robot-simulation/physics-sim.html",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/5-Advanced_&_Misc/Simulation.md",
+    "line": 74,
+    "image": true,
+    "label": "Widget",
+    "target": "img/mechanism2d-widget.webp",
+    "local_target": "docs/frc/5-Advanced_&_Misc/img/mechanism2d-widget.webp",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/5-Advanced_&_Misc/Sysid.md",
+    "line": 4,
+    "image": false,
+    "label": "Sysid Documentation",
+    "target": "https://docs.wpilib.org/en/stable/docs/software/pathplanning/system-identification/index.html",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/README.md",
+    "line": 13,
+    "image": false,
+    "label": "More Details",
+    "target": "https://docs.wpilib.org/en/latest/docs/software/wpilib-overview/what-is-wpilib.html",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/README.md",
+    "line": 15,
+    "image": false,
+    "label": "WPILib Documentation",
+    "target": "https://docs.wpilib.org/en/latest/index.html",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/README.md",
+    "line": 17,
+    "image": false,
+    "label": "Javadocs Documentation",
+    "target": "http://first.wpi.edu/FRC/roborio/beta/docs/java/",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/README.md",
+    "line": 31,
+    "image": false,
+    "label": "2023 Robot",
+    "target": "https://github.com/FRC1257/2023-Robot/tree/master",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/README.md",
+    "line": 32,
+    "image": false,
+    "label": "2022 Robot",
+    "target": "https://github.com/FRC1257/2022-Robot/tree/master",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/README.md",
+    "line": 33,
+    "image": false,
+    "label": "2020 Robot",
+    "target": "https://github.com/FRC1257/2020-Robot/tree/master",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/frc/README.md",
+    "line": 34,
+    "image": false,
+    "label": "Example Subsystems",
+    "target": "https://github.com/FRC1257/training-programs",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/git/README.md",
+    "line": 8,
+    "image": false,
+    "label": "here.",
+    "target": "https://education.github.com/git-cheat-sheet-education.pdf",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/git/README.md",
+    "line": 18,
+    "image": false,
+    "label": "Quick Command Line Tutorial",
+    "target": "https://www.cs.princeton.edu/courses/archive/spr05/cos126/cmd-prompt.html",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/git/README.md",
+    "line": 19,
+    "image": false,
+    "label": "Git Parable for Understanding Git System",
+    "target": "http://tom.preston-werner.com/2009/05/19/the-git-parable.html",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/git/README.md",
+    "line": 20,
+    "image": false,
+    "label": "Interactive Tutorials",
+    "target": "https://learngitbranching.js.org/",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/git/README.md",
+    "line": 21,
+    "image": false,
+    "label": "Github for Poets (Examples)",
+    "target": "https://www.youtube.com/watch?v=BCQHnlnPusY",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/java/1-Basics/1-First_Program.md",
+    "line": 5,
+    "image": false,
+    "label": "repl.it",
+    "target": "http://www.repl.it",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/java/1-Basics/1-First_Program.md",
+    "line": 17,
+    "image": true,
+    "label": "Highlighted Main",
+    "target": "img/HighlightedMain.png",
+    "local_target": "docs/java/1-Basics/img/HighlightedMain.png",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/java/1-Basics/3-Operators.md",
+    "line": 59,
+    "image": false,
+    "label": "here",
+    "target": "https://www.geeksforgeeks.org/operators-in-java/",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/java/1-Basics/README.md",
+    "line": 19,
+    "image": false,
+    "label": "Variables (Exercises at the Bottom)",
+    "target": "https://introcs.cs.princeton.edu/java/12types/",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/java/1-Basics/README.md",
+    "line": 20,
+    "image": false,
+    "label": "Operators",
+    "target": "https://www.geeksforgeeks.org/operators-in-java/",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/java/1-Basics/README.md",
+    "line": 21,
+    "image": false,
+    "label": "Cheatsheet",
+    "target": "https://introcs.cs.princeton.edu/java/11cheatsheet/",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/java/2-Control_Flow/README.md",
+    "line": 20,
+    "image": false,
+    "label": "Conditionals/Loops (Exercises at the Bottom)",
+    "target": "https://introcs.cs.princeton.edu/java/13flow/",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/java/2-Control_Flow/README.md",
+    "line": 21,
+    "image": false,
+    "label": "Operators",
+    "target": "https://www.geeksforgeeks.org/operators-in-java/",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/java/2-Control_Flow/README.md",
+    "line": 22,
+    "image": false,
+    "label": "Cheatsheet",
+    "target": "https://introcs.cs.princeton.edu/java/11cheatsheet/",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/java/3-Functions/5-Lambdas.md",
+    "line": 6,
+    "image": false,
+    "label": "W3Schools",
+    "target": "https://www.w3schools.com/java/java_lambda.asp",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/java/3-Functions/5-Lambdas.md",
+    "line": 7,
+    "image": false,
+    "label": "Video",
+    "target": "https://youtu.be/tj5sLSFjVj4?feature=shared",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/java/3-Functions/README.md",
+    "line": 21,
+    "image": false,
+    "label": "Functions Guide",
+    "target": "https://www.programiz.com/java-programming/methods#introduction",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/java/3-Functions/README.md",
+    "line": 22,
+    "image": false,
+    "label": "Interactive Functions Tutorial",
+    "target": "https://www.learnjavaonline.org/en/Functions",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/java/3-Functions/README.md",
+    "line": 23,
+    "image": false,
+    "label": "Functions (Exercises at the Bottom)",
+    "target": "https://introcs.cs.princeton.edu/java/21function/",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/java/3-Functions/README.md",
+    "line": 24,
+    "image": false,
+    "label": "Cheatsheet",
+    "target": "https://introcs.cs.princeton.edu/java/11cheatsheet/",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/java/4-Objects/7-Abstract_Classes.md",
+    "line": 130,
+    "image": false,
+    "label": "Java World",
+    "target": "https://www.javaworld.com/article/2077421/learn-java/abstract-classes-vs-interfaces.html",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/java/4-Objects/7-Abstract_Classes.md",
+    "line": 132,
+    "image": false,
+    "label": "What is the Purpose of an Abstract Class in Java?",
+    "target": "https://www.quora.com/What-is-the-purpose-of-Abstract-Class-in-Java",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/java/4-Objects/README.md",
+    "line": 30,
+    "image": false,
+    "label": "Understanding Objects",
+    "target": "https://docs.oracle.com/javase/tutorial/java/concepts/object.html",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/java/4-Objects/README.md",
+    "line": 31,
+    "image": false,
+    "label": "Creating Classes Modeled Off of Objects",
+    "target": "https://docs.oracle.com/javase/tutorial/java/concepts/class.html",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/java/4-Objects/README.md",
+    "line": 32,
+    "image": false,
+    "label": "Objects and Classes",
+    "target": "https://www.tutorialspoint.com/java/java_object_classes.htm",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/java/4-Objects/README.md",
+    "line": 33,
+    "image": false,
+    "label": "Inheritance",
+    "target": "https://docs.oracle.com/javase/tutorial/java/concepts/inheritance.html",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/java/4-Objects/README.md",
+    "line": 34,
+    "image": false,
+    "label": "Cheatsheet",
+    "target": "https://introcs.cs.princeton.edu/java/11cheatsheet/",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/java/4-Objects/programs/Access/out/_sidebar.md",
+    "line": 1,
+    "image": false,
+    "label": "Home",
+    "target": "/",
+    "local_target": "docs/README.md",
+    "local_exists": true,
+    "resolution_caveat": "Nested Docsify sidebar base needs renderer verification"
+  },
+  {
+    "source": "docs/java/4-Objects/programs/Access/out/_sidebar.md",
+    "line": 2,
+    "image": false,
+    "label": "Java",
+    "target": "java/README.md",
+    "local_target": "docs/java/4-Objects/programs/Access/out/java/README.md",
+    "local_exists": false,
+    "resolution_caveat": "Nested Docsify sidebar base needs renderer verification"
+  },
+  {
+    "source": "docs/java/4-Objects/programs/Access/out/_sidebar.md",
+    "line": 3,
+    "image": false,
+    "label": "Basics",
+    "target": "java/1-Basics/README.md",
+    "local_target": "docs/java/4-Objects/programs/Access/out/java/1-Basics/README.md",
+    "local_exists": false,
+    "resolution_caveat": "Nested Docsify sidebar base needs renderer verification"
+  },
+  {
+    "source": "docs/java/4-Objects/programs/Access/out/_sidebar.md",
+    "line": 4,
+    "image": false,
+    "label": "Control Flow",
+    "target": "java/2-Control_Flow/README.md",
+    "local_target": "docs/java/4-Objects/programs/Access/out/java/2-Control_Flow/README.md",
+    "local_exists": false,
+    "resolution_caveat": "Nested Docsify sidebar base needs renderer verification"
+  },
+  {
+    "source": "docs/java/4-Objects/programs/Access/out/_sidebar.md",
+    "line": 5,
+    "image": false,
+    "label": "Functions",
+    "target": "java/3-Functions/README.md",
+    "local_target": "docs/java/4-Objects/programs/Access/out/java/3-Functions/README.md",
+    "local_exists": false,
+    "resolution_caveat": "Nested Docsify sidebar base needs renderer verification"
+  },
+  {
+    "source": "docs/java/4-Objects/programs/Access/out/_sidebar.md",
+    "line": 6,
+    "image": false,
+    "label": "Objects",
+    "target": "java/4-Objects/README.md",
+    "local_target": "docs/java/4-Objects/programs/Access/out/java/4-Objects/README.md",
+    "local_exists": false,
+    "resolution_caveat": "Nested Docsify sidebar base needs renderer verification"
+  },
+  {
+    "source": "docs/java/4-Objects/programs/Access/out/_sidebar.md",
+    "line": 7,
+    "image": false,
+    "label": "Overview",
+    "target": "java/4-Objects/1-Overview.md",
+    "local_target": "docs/java/4-Objects/programs/Access/out/java/4-Objects/1-Overview.md",
+    "local_exists": false,
+    "resolution_caveat": "Nested Docsify sidebar base needs renderer verification"
+  },
+  {
+    "source": "docs/java/4-Objects/programs/Access/out/_sidebar.md",
+    "line": 8,
+    "image": false,
+    "label": "Classes",
+    "target": "java/4-Objects/2-Classes.md",
+    "local_target": "docs/java/4-Objects/programs/Access/out/java/4-Objects/2-Classes.md",
+    "local_exists": false,
+    "resolution_caveat": "Nested Docsify sidebar base needs renderer verification"
+  },
+  {
+    "source": "docs/java/4-Objects/programs/Access/out/_sidebar.md",
+    "line": 9,
+    "image": false,
+    "label": "More About Classes",
+    "target": "java/4-Objects/3-More_About_Classes.md",
+    "local_target": "docs/java/4-Objects/programs/Access/out/java/4-Objects/3-More_About_Classes.md",
+    "local_exists": false,
+    "resolution_caveat": "Nested Docsify sidebar base needs renderer verification"
+  },
+  {
+    "source": "docs/java/4-Objects/programs/Access/out/_sidebar.md",
+    "line": 10,
+    "image": false,
+    "label": "Inheritance",
+    "target": "java/4-Objects/4-Inheritance.md",
+    "local_target": "docs/java/4-Objects/programs/Access/out/java/4-Objects/4-Inheritance.md",
+    "local_exists": false,
+    "resolution_caveat": "Nested Docsify sidebar base needs renderer verification"
+  },
+  {
+    "source": "docs/java/4-Objects/programs/Access/out/_sidebar.md",
+    "line": 11,
+    "image": false,
+    "label": "Overriding",
+    "target": "java/4-Objects/5-Overriding.md",
+    "local_target": "docs/java/4-Objects/programs/Access/out/java/4-Objects/5-Overriding.md",
+    "local_exists": false,
+    "resolution_caveat": "Nested Docsify sidebar base needs renderer verification"
+  },
+  {
+    "source": "docs/java/4-Objects/programs/Access/out/_sidebar.md",
+    "line": 12,
+    "image": false,
+    "label": "Polymorphism",
+    "target": "java/4-Objects/6-Polymorphism.md",
+    "local_target": "docs/java/4-Objects/programs/Access/out/java/4-Objects/6-Polymorphism.md",
+    "local_exists": false,
+    "resolution_caveat": "Nested Docsify sidebar base needs renderer verification"
+  },
+  {
+    "source": "docs/java/4-Objects/programs/Access/out/_sidebar.md",
+    "line": 13,
+    "image": false,
+    "label": "Programs",
+    "target": "java/4-Objects/programs/README.md",
+    "local_target": "docs/java/4-Objects/programs/Access/out/java/4-Objects/programs/README.md",
+    "local_exists": false,
+    "resolution_caveat": "Nested Docsify sidebar base needs renderer verification"
+  },
+  {
+    "source": "docs/java/4-Objects/programs/Access/out/_sidebar.md",
+    "line": 14,
+    "image": false,
+    "label": "Access",
+    "target": "java/4-Objects/programs/Access/README.md",
+    "local_target": "docs/java/4-Objects/programs/Access/out/java/4-Objects/programs/Access/README.md",
+    "local_exists": false,
+    "resolution_caveat": "Nested Docsify sidebar base needs renderer verification"
+  },
+  {
+    "source": "docs/java/4-Objects/programs/Access/out/_sidebar.md",
+    "line": 15,
+    "image": false,
+    "label": "Out",
+    "target": "java/4-Objects/programs/Access/out/MainOut.md",
+    "local_target": "docs/java/4-Objects/programs/Access/out/java/4-Objects/programs/Access/out/MainOut.md",
+    "local_exists": false,
+    "resolution_caveat": "Nested Docsify sidebar base needs renderer verification"
+  },
+  {
+    "source": "docs/java/4-Objects/programs/Access/out/_sidebar.md",
+    "line": 16,
+    "image": false,
+    "label": "MainOut",
+    "target": "java/4-Objects/programs/Access/out/MainOut.md",
+    "local_target": "docs/java/4-Objects/programs/Access/out/java/4-Objects/programs/Access/out/MainOut.md",
+    "local_exists": false,
+    "resolution_caveat": "Nested Docsify sidebar base needs renderer verification"
+  },
+  {
+    "source": "docs/java/4-Objects/programs/Access/out/_sidebar.md",
+    "line": 17,
+    "image": false,
+    "label": "MainSame",
+    "target": "java/4-Objects/programs/Access/MainSame.md",
+    "local_target": "docs/java/4-Objects/programs/Access/out/java/4-Objects/programs/Access/MainSame.md",
+    "local_exists": false,
+    "resolution_caveat": "Nested Docsify sidebar base needs renderer verification"
+  },
+  {
+    "source": "docs/java/4-Objects/programs/Access/out/_sidebar.md",
+    "line": 18,
+    "image": false,
+    "label": "Other",
+    "target": "java/4-Objects/programs/Access/Other.md",
+    "local_target": "docs/java/4-Objects/programs/Access/out/java/4-Objects/programs/Access/Other.md",
+    "local_exists": false,
+    "resolution_caveat": "Nested Docsify sidebar base needs renderer verification"
+  },
+  {
+    "source": "docs/java/4-Objects/programs/Access/out/_sidebar.md",
+    "line": 19,
+    "image": false,
+    "label": "Cars",
+    "target": "java/4-Objects/programs/Cars/README.md",
+    "local_target": "docs/java/4-Objects/programs/Access/out/java/4-Objects/programs/Cars/README.md",
+    "local_exists": false,
+    "resolution_caveat": "Nested Docsify sidebar base needs renderer verification"
+  },
+  {
+    "source": "docs/java/4-Objects/programs/Access/out/_sidebar.md",
+    "line": 20,
+    "image": false,
+    "label": "1257 Formatting Guide",
+    "target": "java/Formatting_Guide.md",
+    "local_target": "docs/java/4-Objects/programs/Access/out/java/Formatting_Guide.md",
+    "local_exists": false,
+    "resolution_caveat": "Nested Docsify sidebar base needs renderer verification"
+  },
+  {
+    "source": "docs/java/4-Objects/programs/Access/out/_sidebar.md",
+    "line": 21,
+    "image": false,
+    "label": "FRC",
+    "target": "frc/README.md",
+    "local_target": "docs/java/4-Objects/programs/Access/out/frc/README.md",
+    "local_exists": false,
+    "resolution_caveat": "Nested Docsify sidebar base needs renderer verification"
+  },
+  {
+    "source": "docs/java/4-Objects/programs/Access/out/_sidebar.md",
+    "line": 22,
+    "image": false,
+    "label": "Git / GitHub",
+    "target": "git/README.md",
+    "local_target": "docs/java/4-Objects/programs/Access/out/git/README.md",
+    "local_exists": false,
+    "resolution_caveat": "Nested Docsify sidebar base needs renderer verification"
+  },
+  {
+    "source": "docs/java/4-Objects/programs/Access/out/_sidebar.md",
+    "line": 23,
+    "image": false,
+    "label": "Vision",
+    "target": "vision/README.md",
+    "local_target": "docs/java/4-Objects/programs/Access/out/vision/README.md",
+    "local_exists": false,
+    "resolution_caveat": "Nested Docsify sidebar base needs renderer verification"
+  },
+  {
+    "source": "docs/java/Formatting_Guide.md",
+    "line": 3,
+    "image": false,
+    "label": "here",
+    "target": "https://google.github.io/styleguide/javaguide.html#s4.7-grouping-parentheses",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/java/README.md",
+    "line": 5,
+    "image": false,
+    "label": "TutorialsPoint",
+    "target": "https://www.tutorialspoint.com/java/java_basic_datatypes.htm",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/java/README.md",
+    "line": 6,
+    "image": false,
+    "label": "Princeton",
+    "target": "https://introcs.cs.princeton.edu/java/home/",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/java/README.md",
+    "line": 7,
+    "image": false,
+    "label": "More Advanced Reference (Oracle)",
+    "target": "https://docs.oracle.com/javase/tutorial/java/index.html",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/java/README.md",
+    "line": 8,
+    "image": false,
+    "label": "Exercises",
+    "target": "http://programmingbydoing.com/",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/java/README.md",
+    "line": 9,
+    "image": false,
+    "label": "Cheatsheet",
+    "target": "https://introcs.cs.princeton.edu/java/11cheatsheet/",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/java/README.md",
+    "line": 13,
+    "image": false,
+    "label": "Visual Studio Code",
+    "target": "https://code.visualstudio.com/",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/java/README.md",
+    "line": 15,
+    "image": false,
+    "label": "repl.it",
+    "target": "https://repl.it/",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/java/README.md",
+    "line": 17,
+    "image": false,
+    "label": "repl.it",
+    "target": "https://repl.it/",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/vision/Limelight/README.md",
+    "line": 7,
+    "image": false,
+    "label": "official Limelight documentation",
+    "target": "https://docs.limelightvision.io/en/latest/",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/vision/Limelight/README.md",
+    "line": 36,
+    "image": false,
+    "label": "here",
+    "target": "https://docs.limelightvision.io/en/latest/networktables_api.html",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/vision/Limelight/README.md",
+    "line": 44,
+    "image": false,
+    "label": "here",
+    "target": "https://docs.limelightvision.io/en/latest/networktables_api.html",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/vision/Limelight/README.md",
+    "line": 57,
+    "image": false,
+    "label": "here",
+    "target": "https://github.com/FRC1257/2020-Robot/blob/master/src/main/java/frc/robot/util/Limelight.java",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/vision/PhotonVision/README.md",
+    "line": 2,
+    "image": false,
+    "label": "here",
+    "target": "https://photonvision.org/",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/vision/PhotonVision/README.md",
+    "line": 6,
+    "image": false,
+    "label": "official PhotonVision documentation",
+    "target": "https://docs.photonvision.org/en/latest/",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/vision/PhotonVision/README.md",
+    "line": 9,
+    "image": false,
+    "label": "Video for Linux",
+    "target": "https://en.wikipedia.org/wiki/Video4Linux",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/vision/PhotonVision/README.md",
+    "line": 9,
+    "image": false,
+    "label": "Axis 206 camera",
+    "target": "https://www.axis.com/en-us/products/axis-206",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/vision/PhotonVision/Setup.md",
+    "line": 2,
+    "image": false,
+    "label": "here",
+    "target": "https://docs.photonvision.org/en/latest/docs/getting-started/raspberry-pi.html",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/vision/README.md",
+    "line": 7,
+    "image": false,
+    "label": "link",
+    "target": "https://www.youtube.com/watch?v=rLwOkAJqImo",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/vision/WPILibPi/README.md",
+    "line": 4,
+    "image": false,
+    "label": "WPILibPi Documentation",
+    "target": "https://docs.wpilib.org/en/stable/docs/software/vision-processing/wpilibpi/index.html",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/website/1-Site_Layout.md/1-Folders_&_Files_in_SnailSite.md",
+    "line": 5,
+    "image": true,
+    "label": "base folder structure",
+    "target": "img/basefolderstruct.png",
+    "local_target": "docs/website/1-Site_Layout.md/img/basefolderstruct.png",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/website/1-Site_Layout.md/2-Folders_&_Files_in_Src.md",
+    "line": 5,
+    "image": true,
+    "label": "src folder structure",
+    "target": "img/srcfolderstruct.png",
+    "local_target": "docs/website/1-Site_Layout.md/img/srcfolderstruct.png",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/website/1-Site_Layout.md/2-Folders_&_Files_in_Src.md",
+    "line": 11,
+    "image": false,
+    "label": "frc1257.org",
+    "target": "https://frc1257.org/",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/website/1-Site_Layout.md/2-Folders_&_Files_in_Src.md",
+    "line": 11,
+    "image": false,
+    "label": "frc1257.org/leadership",
+    "target": "https://frc1257.org/leadership",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/website/2-Annual_Updates/1-Student_Leadership.md",
+    "line": 103,
+    "image": false,
+    "label": "More on Formatting",
+    "target": "https://frc1257.github.io/robotics-training/#/website/2-Annual_Updates/1-Student_Leadership?id=more-on-formatting",
+    "local_target": "docs/website/2-Annual_Updates/1-Student_Leadership.md",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/website/2-Annual_Updates/1-Student_Leadership.md",
+    "line": 193,
+    "image": true,
+    "label": "demo of four",
+    "target": "img/leadof4demo.png",
+    "local_target": "docs/website/2-Annual_Updates/img/leadof4demo.png",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/website/2-Annual_Updates/2-Sponsors.md",
+    "line": 7,
+    "image": true,
+    "label": "sponsor tiers",
+    "target": "img/sponsortiers.png",
+    "local_target": "docs/website/2-Annual_Updates/img/sponsortiers.png",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/website/2-Annual_Updates/2-Sponsors.md",
+    "line": 15,
+    "image": true,
+    "label": "list good",
+    "target": "img/friendgood.png",
+    "local_target": "docs/website/2-Annual_Updates/img/friendgood.png",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/website/2-Annual_Updates/2-Sponsors.md",
+    "line": 19,
+    "image": true,
+    "label": "list bad",
+    "target": "img/friendsbad.png",
+    "local_target": "docs/website/2-Annual_Updates/img/friendsbad.png",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/website/2-Annual_Updates/2-Sponsors.md",
+    "line": 35,
+    "image": true,
+    "label": "list better",
+    "target": "img/friendsbetter.png",
+    "local_target": "docs/website/2-Annual_Updates/img/friendsbetter.png",
+    "local_exists": true,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/website/Getting_Started.md",
+    "line": 3,
+    "image": false,
+    "label": "`npm`",
+    "target": "https://www.npmjs.com/",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/website/Getting_Started.md",
+    "line": 5,
+    "image": false,
+    "label": "repository",
+    "target": "https://github.com/FRC1257/team-website-new/tree/main",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/website/Getting_Started.md",
+    "line": 15,
+    "image": false,
+    "label": "frc1257.org",
+    "target": "https://frc1257.org",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/website/README.md",
+    "line": 3,
+    "image": false,
+    "label": "frc1257.org",
+    "target": "https://frc1257.org/",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/website/README.md",
+    "line": 3,
+    "image": false,
+    "label": "here",
+    "target": "https://github.com/FRC1257/team-website-new",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/website/README.md",
+    "line": 10,
+    "image": false,
+    "label": "Typescript",
+    "target": "https://www.typescriptlang.org/",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/website/README.md",
+    "line": 11,
+    "image": false,
+    "label": "React",
+    "target": "https://react.dev/",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/website/README.md",
+    "line": 12,
+    "image": false,
+    "label": "TailwindCSS",
+    "target": "https://tailwindcss.com/",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/website/README.md",
+    "line": 13,
+    "image": false,
+    "label": "Vite",
+    "target": "https://vite.dev/",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/website/README.md",
+    "line": 14,
+    "image": false,
+    "label": "Vercel",
+    "target": "https://vercel.com/",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/website/README.md",
+    "line": 20,
+    "image": false,
+    "label": "codecademy",
+    "target": "https://www.codecademy.com/catalog/subject/web-development",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/website/README.md",
+    "line": 21,
+    "image": false,
+    "label": "web.dev",
+    "target": "https://web.dev/learn",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  },
+  {
+    "source": "docs/website/README.md",
+    "line": 22,
+    "image": false,
+    "label": "Mozilla",
+    "target": "https://developer.mozilla.org/en-US/docs/Learn_web_development",
+    "local_target": null,
+    "local_exists": null,
+    "resolution_caveat": null
+  }
+]

@@ -1,3 +1,5 @@
+> **Historical lesson:** This material predates the 2026 course and may use older WPILib, vendor APIs, team wrappers, and game rules. Its original version is not verified here. Do not copy its robot code into a 2026 project without migration and mentor review. Start with [the 2026 subsystem lesson](../1-Basics/5-First_Subsystem.md).
+
 # Overview of Closed Loop Control
 
 Up until now, we have been using pretty much entirely `open-loop control`, which is when the value that we sent to our actuators is determined solely by the input from something like a controller and does not use sensor feedback. For what we've dealt with so far, where we wanted the user to be able to control the mechanism's speed via a joystick or a button press, this has worked fine. However, if we wanted to do something such as move our mechanism to a setpoint, this becomes more difficult. For instance, in the 2019 game, we had 2 different setpoints for our arm that we used for scoring the cargo balls: one for the cargo ship goal height and one for the lowest rocket goal height.

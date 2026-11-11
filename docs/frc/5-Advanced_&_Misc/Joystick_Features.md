@@ -1,3 +1,5 @@
+> **Historical lesson:** This material predates the 2026 course and may use older WPILib, vendor APIs, team wrappers, and game rules. Its original version is not verified here. Do not copy its robot code into a 2026 project without migration and mentor review. Start with [the 2026 subsystem lesson](../1-Basics/5-First_Subsystem.md).
+
 # Joystick Features
 
 (Note: this post is mainly based off a paper from [this](https://www.chiefdelphi.com/t/joystick-scaling-deadband/355153) forum post.)

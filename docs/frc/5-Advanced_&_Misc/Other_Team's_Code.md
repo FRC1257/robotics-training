@@ -1,3 +1,5 @@
+> **Historical lesson:** This material predates the 2026 course and may use older WPILib, vendor APIs, team wrappers, and game rules. Its original version is not verified here. Do not copy its robot code into a 2026 project without migration and mentor review. Start with [the 2026 subsystem lesson](../1-Basics/5-First_Subsystem.md).
+
 # How to Look at Code from other Teams
 The code that we have in this training is just a small sample of what we have done in the past. There are many other teams that have code that is publicly available. This is a great resource to learn from and to see how other teams do things.
 

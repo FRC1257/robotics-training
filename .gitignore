@@ -1,3 +1,12 @@
 *.log
 .vscode
 *.class
+node_modules/
+dist/
+.DS_Store
+audit/snapshots/
+research_sources/local/
+**/build/
+**/.gradle/
+test-results/
+playwright-report/

@@ -1,0 +1,72 @@
+[
+  {
+    "path": "docs/frc/1-Basics/4b-Architecture.md",
+    "line": 4,
+    "text": "> For 2024, we are using the Advantage Kit architecture. This page will be updated some time before then."
+  },
+  {
+    "path": "docs/frc/1-Basics/5a-Roller_Intake.md",
+    "line": 4,
+    "text": "> For 2024, this is only one part of the process: creating the RollerIntakeIOSparkMax file. This will be updated later. "
+  },
+  {
+    "path": "docs/frc/1-Basics/5c-Making_Commands.md",
+    "line": 214,
+    "text": "TODO"
+  },
+  {
+    "path": "docs/frc/1-Basics/5e-Simulation.md",
+    "line": 3,
+    "text": "New for 2024 and will be updated soon. "
+  },
+  {
+    "path": "docs/frc/4-Autonomous/3b-Generating-On-Bot.md",
+    "line": 113,
+    "text": "TODO "
+  },
+  {
+    "path": "docs/frc/4-Autonomous/5-Auto_Choosing.md",
+    "line": 285,
+    "text": "TODO: add screenshots of Shuffleboard choosers, just for visualization"
+  },
+  {
+    "path": "docs/frc/5-Advanced_&_Misc/Characterization.md",
+    "line": 45,
+    "text": "TODO: Add examples"
+  },
+  {
+    "path": "docs/frc/5-Advanced_&_Misc/Simulation.md",
+    "line": 89,
+    "text": "TODO add more info here"
+  },
+  {
+    "path": "docs/frc/5-Advanced_&_Misc/Sysid.md",
+    "line": 6,
+    "text": "TODO"
+  },
+  {
+    "path": "docs/java/3-Functions/5-Lambdas.md",
+    "line": 3,
+    "text": "TODO need to teach for Advantage Kit"
+  },
+  {
+    "path": "docs/vision/Limelight/README.md",
+    "line": 53,
+    "text": "TODO"
+  },
+  {
+    "path": "docs/vision/PhotonVision/Code.md",
+    "line": 8,
+    "text": "TODO"
+  },
+  {
+    "path": "docs/vision/PhotonVision/Setup.md",
+    "line": 12,
+    "text": "TODO"
+  },
+  {
+    "path": "docs/vision/WPILibPi/README.md",
+    "line": 6,
+    "text": "TODO"
+  }
+]

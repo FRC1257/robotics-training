@@ -1,3 +1,5 @@
+> **Historical lesson:** This material predates the 2026 course and may use older WPILib, vendor APIs, team wrappers, and game rules. Its original version is not verified here. Do not copy its robot code into a 2026 project without migration and mentor review. Start with [the 2026 subsystem lesson](../1-Basics/5-First_Subsystem.md).
+
 # Constant Tuning
 
 One thing that we commonly do with our robot is constant tuning. Essentially, we have constants such as intake speeds that we want to fine tune so that they work effectively. However, redeploying code to the robot can take anywhere from 30 seconds to a minute, making it desirable to update constants without needing to redeploy code. Luckily, we can do this with Shuffleboard.

@@ -1,3 +1,5 @@
+> **Historical lesson:** This material predates the 2026 course and may use older WPILib, vendor APIs, team wrappers, and game rules. Its original version is not verified here. Do not copy its robot code into a 2026 project without migration and mentor review. Start with [the 2026 subsystem lesson](../1-Basics/5-First_Subsystem.md).
+
 # SPARK MAX PID
 
 With the SPARK MAX PID system, the process is a bit different, but not too complicated. We first create a `CANPIDController` object from the SPARK MAX motor object, and then we assign it a setpoint to reach. Then, the onboard controller will do the calculations to arrive at the setpoint with the loaded constants. We will go over this in detail next. Click [here](http://www.revrobotics.com/content/sw/max/sw-docs/java/com/revrobotics/CANPIDController.html) to find the documentation on the `CANPIDController`.

@@ -1,0 +1,110 @@
+{
+  "checked_at_utc": "2026-11-11T01:38:26.154408+00:00",
+  "javac": "javac 17.0.18",
+  "scope": "Selected complete introductory Java examples compiled, not executed; one invalid lesson class compiled to reproduce error. Numerical PID checks, no dynamic or robot simulation.",
+  "results": [
+    {
+      "check": "docs/java/1-Basics/programs/HelloWorld.md",
+      "expected_success": true,
+      "compile_success": true,
+      "expectation_met": true,
+      "compiler_output": ""
+    },
+    {
+      "check": "docs/java/1-Basics/programs/Input.md",
+      "expected_success": true,
+      "compile_success": true,
+      "expectation_met": true,
+      "compiler_output": ""
+    },
+    {
+      "check": "docs/java/1-Basics/programs/Variables.md",
+      "expected_success": true,
+      "compile_success": true,
+      "expectation_met": true,
+      "compiler_output": ""
+    },
+    {
+      "check": "docs/java/2-Control_Flow/programs/EvenOdd.md",
+      "expected_success": true,
+      "compile_success": true,
+      "expectation_met": true,
+      "compiler_output": ""
+    },
+    {
+      "check": "docs/java/2-Control_Flow/programs/Exponent.md",
+      "expected_success": true,
+      "compile_success": true,
+      "expectation_met": true,
+      "compiler_output": ""
+    },
+    {
+      "check": "docs/java/2-Control_Flow/programs/PrintNumbers.md",
+      "expected_success": true,
+      "compile_success": true,
+      "expectation_met": true,
+      "compiler_output": ""
+    },
+    {
+      "check": "docs/java/2-Control_Flow/programs/SimpleChatbot.md",
+      "expected_success": true,
+      "compile_success": true,
+      "expectation_met": true,
+      "compiler_output": ""
+    },
+    {
+      "check": "docs/java/3-Functions/programs/FancyText.md",
+      "expected_success": true,
+      "compile_success": true,
+      "expectation_met": true,
+      "compiler_output": ""
+    },
+    {
+      "check": "docs/java/3-Functions/programs/Formulas.md",
+      "expected_success": true,
+      "compile_success": true,
+      "expectation_met": true,
+      "compiler_output": ""
+    },
+    {
+      "check": "docs/java/3-Functions/programs/PrintArray.md",
+      "expected_success": true,
+      "compile_success": true,
+      "expectation_met": true,
+      "compiler_output": ""
+    },
+    {
+      "check": "docs/java/3-Functions/programs/ReverseString.md",
+      "expected_success": true,
+      "compile_success": true,
+      "expectation_met": true,
+      "compiler_output": ""
+    },
+    {
+      "check": "Cars complete three-file example",
+      "expected_success": true,
+      "compile_success": true,
+      "expectation_met": true,
+      "compiler_output": ""
+    },
+    {
+      "check": "Classes lesson Actions Car as published",
+      "expected_success": false,
+      "compile_success": false,
+      "expectation_met": true,
+      "compiler_output": "<temporary-directory>/Car.java:12: error: incompatible types: possible lossy conversion from double to int\n        return speed * time;\n                     ^\n1 error\n"
+    },
+    {
+      "check": "D sign with error=setpoint-measurement",
+      "published_contribution": 1.0,
+      "correct_contribution": -1.0,
+      "defect_reproduced": true
+    },
+    {
+      "check": "Integral accumulation over 1s constant error=2",
+      "published_increment": 0.0,
+      "correct_increment": 2.0,
+      "defect_reproduced": true
+    }
+  ]
+}

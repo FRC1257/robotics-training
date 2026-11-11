@@ -1,3 +1,5 @@
+> **Historical lesson:** This material predates the 2026 course and may use older WPILib, vendor APIs, team wrappers, and game rules. Its original version is not verified here. Do not copy its robot code into a 2026 project without migration and mentor review. Start with [the 2026 subsystem lesson](../1-Basics/5-First_Subsystem.md).
+
 # Notifier
 
 ## General Description
@@ -34,9 +36,9 @@ public RobotContainer() {
 ```
 
 1. First, a private instance object of the `Notifier` class is declared.
-2. Then, the object is defined with the constructor. The constructor takes in a function. In order to pass in a function a `::` operator is used. To read more about it, please go ot the the [Elevator Subsystem](Basics/Elevator.md) file, where we discussed it when we learned about how to pass in the controller joystick input. Now, the `Notifier` knows what function it is responsible for calling in parallel with the rest of the robot code.
+2. Then, the object is defined with the constructor. The constructor takes in a function. In order to pass in a function a `::` operator is used. To read more about it, please go ot the the [Elevator Subsystem](../1-Basics/8-Elevator.md) file, where we discussed it when we learned about how to pass in the controller joystick input. Now, the `Notifier` knows what function it is responsible for calling in parallel with the rest of the robot code.
 3. After the notifier is defined, the `startPeriodic()` function is called. A double is passed in as a parameter which is the period between the times the notifier is executed. In the above example, the notifier is run every hundredth of a second or at 100 Hz.
 
 ## Summary
 
-Now you know how to use the notifier. If you want to know more about its functionality, feel free to check out the [Documentation](https://first.wpi.edu/FRC/roborio/beta/docs/java/edu/wpi/first/wpilibj/Notifier.html) or ask a senior programming member.
+Now you know how to use the notifier. If you want to know more about its functionality, feel free to check out the [Documentation](https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/wpilibj/Notifier.html) or ask a senior programming member.

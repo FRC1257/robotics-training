@@ -1,3 +1,5 @@
+> **Historical lesson:** This material predates the 2026 course and may use older WPILib, vendor APIs, team wrappers, and game rules. Its original version is not verified here. Do not copy its robot code into a 2026 project without migration and mentor review. Start with [the 2026 subsystem lesson](../1-Basics/5-First_Subsystem.md).
+
 # Gyro
 
 As we went over in the `Overview`, a gyroscope is a sensor that measures the angle of our robot relative to a set reference angle. For instance, if we start our robot while facing north, 90 deg corresponds to east and -90 deg corresponds to west. Generally, gyroscopes use the ranges -180 deg through 180 deg.

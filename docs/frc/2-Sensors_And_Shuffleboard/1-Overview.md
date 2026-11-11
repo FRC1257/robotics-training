@@ -1,3 +1,5 @@
+> **Historical lesson:** This material predates the 2026 course and may use older WPILib, vendor APIs, team wrappers, and game rules. Its original version is not verified here. Do not copy its robot code into a 2026 project without migration and mentor review. Start with [the 2026 subsystem lesson](../1-Basics/5-First_Subsystem.md).
+
 # Sensors Overview
 
 One of the first ways we can augment our robot is including sensors, or devices that measure values with our robot. For instance, we can have sensors that measure angles, position, distance, and velocity. There are different sensors that do various things, and we will go over some of them here.

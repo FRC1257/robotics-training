@@ -1,3 +1,5 @@
+> **Historical lesson:** This material predates the 2026 course and may use older WPILib, vendor APIs, team wrappers, and game rules. Its original version is not verified here. Do not copy its robot code into a 2026 project without migration and mentor review. Start with [the 2026 subsystem lesson](../1-Basics/5-First_Subsystem.md).
+
 # Generating Trajectories on the Robot
 In the 2023 season, the team experimented with a fully customizable auto. We did this by using the Shuffleboard to choose score positions for our auto and then generating trajectories on the robot. 
 
@@ -110,4 +112,4 @@ private void normalAuto() {
 
 That's it! We used this sort of structure to create multiple more autos: for example hit and run, 3 piece auto, and move forward.
 
-TODO 
+**Exercise:** Trace the fallback branch and identify the final robot pose in a simulation. The code above is a historical 2023 example; its team-specific commands and field positions must not be reused for a different season without review. 

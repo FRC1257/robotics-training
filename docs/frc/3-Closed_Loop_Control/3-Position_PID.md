@@ -1,3 +1,5 @@
+> **Historical lesson:** This material predates the 2026 course and may use older WPILib, vendor APIs, team wrappers, and game rules. Its original version is not verified here. Do not copy its robot code into a 2026 project without migration and mentor review. Start with [the 2026 subsystem lesson](../1-Basics/5-First_Subsystem.md).
+
 # Position PID
 
 We now have a basic overview of what PID does. For a quick summary, we use a combination of various terms to drive our error in some field to 0. For instance, our error could be our distance from the setpoint, our difference between desired velocity and current velocity, our angular displacement from a setpoint, etc.

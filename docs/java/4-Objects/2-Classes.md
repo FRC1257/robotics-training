@@ -8,7 +8,7 @@ Think of how objects are made in today's world. We have countless objects, such 
 
 ## Java Classes
 
-In Java, each class, or each blueprint, is in its own file. The class name should match up with the file name. For instance, a class called `Car` should be in a file named `Car.java`. All classes should be in UpperCase, with no spaces and the first letter of each word capitalized.
+In Java, a public top-level class must be declared in a file with the same name. A file can also contain additional non-public classes. For instance, a class called `Car` should be in a file named `Car.java`. All classes should be in UpperCase, with no spaces and the first letter of each word capitalized.
 
 Once we have this new file called `Car.java`, here is how we make a new class in that file:
 
@@ -18,7 +18,7 @@ public class Car {
 }
 ```
 
-That's all we need to make the most basic class, or blueprint. Now let's see how we can use that class to construct an object. Notice that in this new file, we don't put `public static void main(String[] args)`. This is because we can only have one of those in the program.
+That's all we need to make the most basic class, or blueprint. Now let's see how we can use that class to construct an object. Notice that in this new file, we don't put `public static void main(String[] args)`. A program may contain several classes with `main` methods; the Java launcher selects which class to run.
 
 Back in our `public static void main(String[] args)` function, we can use this new class/blueprint to make an object.
 
@@ -80,7 +80,7 @@ public class Car {
         System.out.println("Drove " + (speed * time));
     }
 
-    int distance(double time) {
+    double distance(double time) {
         return speed * time;
     }
 }
@@ -99,8 +99,8 @@ public static void main(String[] args) {
     System.out.println(carObject.color);
     System.out.println(carObject.speed);
 
-    car.driveFor(12.0);
-    System.out.println("Distance: " + car.driveFor(24.0));
+    carObject.driveFor(12.0);
+    System.out.println("Distance: " + carObject.distance(24.0));
 }
 ```
 

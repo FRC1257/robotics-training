@@ -1,3 +1,5 @@
+> **Historical lesson:** This material predates the 2026 course and may use older WPILib, vendor APIs, team wrappers, and game rules. Its original version is not verified here. Do not copy its robot code into a 2026 project without migration and mentor review. Start with [the 2026 subsystem lesson](../1-Basics/5-First_Subsystem.md).
+
 # Segmented Trajectories
 
 As mentioned in the overview, one of the most difficult parts of the autonomous routine is maneuviring the robot around the field efficiently. The first method we will use to solve this problem is through segmented trajectories, which just means that we use a combination of driving straight forward a specific distance and turning a specific distance to reach our final destination. For simplicity's sake, we normally use only 90 degree angles while doing this to reduce the propagation of error in our final result as much as possible.

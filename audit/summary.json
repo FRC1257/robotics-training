@@ -1,0 +1,321 @@
+{
+  "audited_at_utc": "2026-11-11T01:39:39.649115+00:00",
+  "commit": "53ceaf61aeb80be597791c99bb50a3b123e8c71b",
+  "markdown_files": 141,
+  "markdown_by_section": {
+    "README.md": 1,
+    "_coverpage.md": 1,
+    "_sidebar.md": 1,
+    "documentation": 1,
+    "frc": 63,
+    "git": 3,
+    "java": 56,
+    "vision": 6,
+    "website": 9
+  },
+  "whitespace_words_including_code": 75482,
+  "markdown_link_occurrences": 390,
+  "missing_local_occurrences": 27,
+  "missing_local_unique_targets": 25,
+  "missing_sidebar_links": [
+    {
+      "source": "docs/_sidebar.md",
+      "line": 109,
+      "image": false,
+      "label": "Characterization using Sysid",
+      "target": "frc/5-Advanced_&_Misc/Characterization-Sysid.md",
+      "local_target": "docs/frc/5-Advanced_&_Misc/Characterization-Sysid.md",
+      "local_exists": false,
+      "resolution_caveat": null
+    }
+  ],
+  "missing_local_links": [
+    {
+      "source": "docs/_sidebar.md",
+      "line": 109,
+      "image": false,
+      "label": "Characterization using Sysid",
+      "target": "frc/5-Advanced_&_Misc/Characterization-Sysid.md",
+      "local_target": "docs/frc/5-Advanced_&_Misc/Characterization-Sysid.md",
+      "local_exists": false,
+      "resolution_caveat": null
+    },
+    {
+      "source": "docs/frc/1-Basics/2b-Vendor_Dependencies.md",
+      "line": 5,
+      "image": false,
+      "label": "Motors",
+      "target": "https://frc1257.github.io/robotics-training/#/frc/1-Basics/2-Motors",
+      "local_target": "docs/frc/1-Basics/2-Motors.md",
+      "local_exists": false,
+      "resolution_caveat": null
+    },
+    {
+      "source": "docs/frc/1-Basics/3-Pneumatics.md",
+      "line": 65,
+      "image": false,
+      "label": "Motors.md",
+      "target": "https://frc1257.github.io/robotics-training/#/frc/1-Basics/2-Motors",
+      "local_target": "docs/frc/1-Basics/2-Motors.md",
+      "local_exists": false,
+      "resolution_caveat": null
+    },
+    {
+      "source": "docs/frc/1-Basics/8-Elevator.md",
+      "line": 134,
+      "image": false,
+      "label": "Arm",
+      "target": "frc/1-Basics/7-Arm.md",
+      "local_target": "docs/frc/1-Basics/frc/1-Basics/7-Arm.md",
+      "local_exists": false,
+      "resolution_caveat": null
+    },
+    {
+      "source": "docs/frc/5-Advanced_&_Misc/Notifier.md",
+      "line": 37,
+      "image": false,
+      "label": "Elevator Subsystem",
+      "target": "Basics/Elevator.md",
+      "local_target": "docs/frc/5-Advanced_&_Misc/Basics/Elevator.md",
+      "local_exists": false,
+      "resolution_caveat": null
+    },
+    {
+      "source": "docs/java/4-Objects/programs/Access/out/_sidebar.md",
+      "line": 2,
+      "image": false,
+      "label": "Java",
+      "target": "java/README.md",
+      "local_target": "docs/java/4-Objects/programs/Access/out/java/README.md",
+      "local_exists": false,
+      "resolution_caveat": "Nested Docsify sidebar base needs renderer verification"
+    },
+    {
+      "source": "docs/java/4-Objects/programs/Access/out/_sidebar.md",
+      "line": 3,
+      "image": false,
+      "label": "Basics",
+      "target": "java/1-Basics/README.md",
+      "local_target": "docs/java/4-Objects/programs/Access/out/java/1-Basics/README.md",
+      "local_exists": false,
+      "resolution_caveat": "Nested Docsify sidebar base needs renderer verification"
+    },
+    {
+      "source": "docs/java/4-Objects/programs/Access/out/_sidebar.md",
+      "line": 4,
+      "image": false,
+      "label": "Control Flow",
+      "target": "java/2-Control_Flow/README.md",
+      "local_target": "docs/java/4-Objects/programs/Access/out/java/2-Control_Flow/README.md",
+      "local_exists": false,
+      "resolution_caveat": "Nested Docsify sidebar base needs renderer verification"
+    },
+    {
+      "source": "docs/java/4-Objects/programs/Access/out/_sidebar.md",
+      "line": 5,
+      "image": false,
+      "label": "Functions",
+      "target": "java/3-Functions/README.md",
+      "local_target": "docs/java/4-Objects/programs/Access/out/java/3-Functions/README.md",
+      "local_exists": false,
+      "resolution_caveat": "Nested Docsify sidebar base needs renderer verification"
+    },
+    {
+      "source": "docs/java/4-Objects/programs/Access/out/_sidebar.md",
+      "line": 6,
+      "image": false,
+      "label": "Objects",
+      "target": "java/4-Objects/README.md",
+      "local_target": "docs/java/4-Objects/programs/Access/out/java/4-Objects/README.md",
+      "local_exists": false,
+      "resolution_caveat": "Nested Docsify sidebar base needs renderer verification"
+    },
+    {
+      "source": "docs/java/4-Objects/programs/Access/out/_sidebar.md",
+      "line": 7,
+      "image": false,
+      "label": "Overview",
+      "target": "java/4-Objects/1-Overview.md",
+      "local_target": "docs/java/4-Objects/programs/Access/out/java/4-Objects/1-Overview.md",
+      "local_exists": false,
+      "resolution_caveat": "Nested Docsify sidebar base needs renderer verification"
+    },
+    {
+      "source": "docs/java/4-Objects/programs/Access/out/_sidebar.md",
+      "line": 8,
+      "image": false,
+      "label": "Classes",
+      "target": "java/4-Objects/2-Classes.md",
+      "local_target": "docs/java/4-Objects/programs/Access/out/java/4-Objects/2-Classes.md",
+      "local_exists": false,
+      "resolution_caveat": "Nested Docsify sidebar base needs renderer verification"
+    },
+    {
+      "source": "docs/java/4-Objects/programs/Access/out/_sidebar.md",
+      "line": 9,
+      "image": false,
+      "label": "More About Classes",
+      "target": "java/4-Objects/3-More_About_Classes.md",
+      "local_target": "docs/java/4-Objects/programs/Access/out/java/4-Objects/3-More_About_Classes.md",
+      "local_exists": false,
+      "resolution_caveat": "Nested Docsify sidebar base needs renderer verification"
+    },
+    {
+      "source": "docs/java/4-Objects/programs/Access/out/_sidebar.md",
+      "line": 10,
+      "image": false,
+      "label": "Inheritance",
+      "target": "java/4-Objects/4-Inheritance.md",
+      "local_target": "docs/java/4-Objects/programs/Access/out/java/4-Objects/4-Inheritance.md",
+      "local_exists": false,
+      "resolution_caveat": "Nested Docsify sidebar base needs renderer verification"
+    },
+    {
+      "source": "docs/java/4-Objects/programs/Access/out/_sidebar.md",
+      "line": 11,
+      "image": false,
+      "label": "Overriding",
+      "target": "java/4-Objects/5-Overriding.md",
+      "local_target": "docs/java/4-Objects/programs/Access/out/java/4-Objects/5-Overriding.md",
+      "local_exists": false,
+      "resolution_caveat": "Nested Docsify sidebar base needs renderer verification"
+    },
+    {
+      "source": "docs/java/4-Objects/programs/Access/out/_sidebar.md",
+      "line": 12,
+      "image": false,
+      "label": "Polymorphism",
+      "target": "java/4-Objects/6-Polymorphism.md",
+      "local_target": "docs/java/4-Objects/programs/Access/out/java/4-Objects/6-Polymorphism.md",
+      "local_exists": false,
+      "resolution_caveat": "Nested Docsify sidebar base needs renderer verification"
+    },
+    {
+      "source": "docs/java/4-Objects/programs/Access/out/_sidebar.md",
+      "line": 13,
+      "image": false,
+      "label": "Programs",
+      "target": "java/4-Objects/programs/README.md",
+      "local_target": "docs/java/4-Objects/programs/Access/out/java/4-Objects/programs/README.md",
+      "local_exists": false,
+      "resolution_caveat": "Nested Docsify sidebar base needs renderer verification"
+    },
+    {
+      "source": "docs/java/4-Objects/programs/Access/out/_sidebar.md",
+      "line": 14,
+      "image": false,
+      "label": "Access",
+      "target": "java/4-Objects/programs/Access/README.md",
+      "local_target": "docs/java/4-Objects/programs/Access/out/java/4-Objects/programs/Access/README.md",
+      "local_exists": false,
+      "resolution_caveat": "Nested Docsify sidebar base needs renderer verification"
+    },
+    {
+      "source": "docs/java/4-Objects/programs/Access/out/_sidebar.md",
+      "line": 15,
+      "image": false,
+      "label": "Out",
+      "target": "java/4-Objects/programs/Access/out/MainOut.md",
+      "local_target": "docs/java/4-Objects/programs/Access/out/java/4-Objects/programs/Access/out/MainOut.md",
+      "local_exists": false,
+      "resolution_caveat": "Nested Docsify sidebar base needs renderer verification"
+    },
+    {
+      "source": "docs/java/4-Objects/programs/Access/out/_sidebar.md",
+      "line": 16,
+      "image": false,
+      "label": "MainOut",
+      "target": "java/4-Objects/programs/Access/out/MainOut.md",
+      "local_target": "docs/java/4-Objects/programs/Access/out/java/4-Objects/programs/Access/out/MainOut.md",
+      "local_exists": false,
+      "resolution_caveat": "Nested Docsify sidebar base needs renderer verification"
+    },
+    {
+      "source": "docs/java/4-Objects/programs/Access/out/_sidebar.md",
+      "line": 17,
+      "image": false,
+      "label": "MainSame",
+      "target": "java/4-Objects/programs/Access/MainSame.md",
+      "local_target": "docs/java/4-Objects/programs/Access/out/java/4-Objects/programs/Access/MainSame.md",
+      "local_exists": false,
+      "resolution_caveat": "Nested Docsify sidebar base needs renderer verification"
+    },
+    {
+      "source": "docs/java/4-Objects/programs/Access/out/_sidebar.md",
+      "line": 18,
+      "image": false,
+      "label": "Other",
+      "target": "java/4-Objects/programs/Access/Other.md",
+      "local_target": "docs/java/4-Objects/programs/Access/out/java/4-Objects/programs/Access/Other.md",
+      "local_exists": false,
+      "resolution_caveat": "Nested Docsify sidebar base needs renderer verification"
+    },
+    {
+      "source": "docs/java/4-Objects/programs/Access/out/_sidebar.md",
+      "line": 19,
+      "image": false,
+      "label": "Cars",
+      "target": "java/4-Objects/programs/Cars/README.md",
+      "local_target": "docs/java/4-Objects/programs/Access/out/java/4-Objects/programs/Cars/README.md",
+      "local_exists": false,
+      "resolution_caveat": "Nested Docsify sidebar base needs renderer verification"
+    },
+    {
+      "source": "docs/java/4-Objects/programs/Access/out/_sidebar.md",
+      "line": 20,
+      "image": false,
+      "label": "1257 Formatting Guide",
+      "target": "java/Formatting_Guide.md",
+      "local_target": "docs/java/4-Objects/programs/Access/out/java/Formatting_Guide.md",
+      "local_exists": false,
+      "resolution_caveat": "Nested Docsify sidebar base needs renderer verification"
+    },
+    {
+      "source": "docs/java/4-Objects/programs/Access/out/_sidebar.md",
+      "line": 21,
+      "image": false,
+      "label": "FRC",
+      "target": "frc/README.md",
+      "local_target": "docs/java/4-Objects/programs/Access/out/frc/README.md",
+      "local_exists": false,
+      "resolution_caveat": "Nested Docsify sidebar base needs renderer verification"
+    },
+    {
+      "source": "docs/java/4-Objects/programs/Access/out/_sidebar.md",
+      "line": 22,
+      "image": false,
+      "label": "Git / GitHub",
+      "target": "git/README.md",
+      "local_target": "docs/java/4-Objects/programs/Access/out/git/README.md",
+      "local_exists": false,
+      "resolution_caveat": "Nested Docsify sidebar base needs renderer verification"
+    },
+    {
+      "source": "docs/java/4-Objects/programs/Access/out/_sidebar.md",
+      "line": 23,
+      "image": false,
+      "label": "Vision",
+      "target": "vision/README.md",
+      "local_target": "docs/java/4-Objects/programs/Access/out/vision/README.md",
+      "local_exists": false,
+      "resolution_caveat": "Nested Docsify sidebar base needs renderer verification"
+    }
+  ],
+  "pages_not_linked_directly_from_root_sidebar": [
+    "docs/frc/2-Sensors_And_Shuffleboard/8-Zeroing_Sensors.md",
+    "docs/frc/5-Advanced_&_Misc/Sysid.md"
+  ],
+  "todo_occurrences": 14,
+  "todo_files": 14,
+  "empty_files": [
+    "docs/frc/5-Advanced_&_Misc/Advanced_Logging.md"
+  ],
+  "script_tags_with_external_src": 13,
+  "iframe_count_outside_code_fences": 11,
+  "iframes_without_title_attribute": 10,
+  "method_limits": [
+    "Markdown destinations extracted heuristically; no reference-style links, anchors or rendered DOM validation.",
+    "Direct sidebar omission is not proof of an orphan.",
+    "All markdown files scanned; semantic deep review sampled the principal learning journeys."
+  ]
+}

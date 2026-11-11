@@ -1,14 +1,16 @@
-.docsify-pagination-container {
-    margin-top: 2rem !important;
-}
-
-.edit-button {
-    background-color: rgb(250, 250, 250);
-    padding: 5px;
-    border-radius: 10px;
-    border: 1px solid rgba(0, 0, 0, 0.07) !important;
-}
-
-.edit-button:hover {
-    background-color: rgb(240, 240, 240);
-}
+:root { --theme-color:#126b54; --link-color:#126b54; --content-width:66em; --sidebar-width:19rem; --sidebar-name-font-weight:700; --sidebar-name-font-size:1.5rem; --toc-width:13rem; --base-line-height:1.75; --heading-h1-font-weight:700; --heading-h2-font-weight:650; }
+:focus-visible { outline:3px solid #9d4b00; outline-offset:4px; }
+.skip-link { position:fixed; left:1rem; top:-8rem; z-index:999; padding:.7rem 1rem; background:#fff; color:#123c30; border:2px solid; }
+.skip-link:focus { top:1rem; }
+.markdown-section { overflow-wrap:anywhere; }
+.markdown-section h1 { letter-spacing:-.025em; }
+.markdown-section pre { max-width:100%; overflow-x:auto; }
+.markdown-section table { display:block; overflow-x:auto; }
+.markdown-section img { max-width:100%; height:auto; }
+.resource-embed { display:block; max-width:100%; width:100%; min-height:20rem; border:1px solid #cbd8d2; border-radius:.5rem; }
+iframe[src*="youtube.com"] { aspect-ratio:16 / 9; height:auto; min-height:0; }
+.lesson-footer { margin-top:3rem; border-top:1px solid #cbd8d2; padding:1.5rem 0; color:#45594f; font-size:.9rem; }
+.edit-button { display:inline-block; border:1px solid #126b54; border-radius:.4rem; padding:.5rem .8rem; text-decoration:none; }
+.docsify-pagination-container { margin-top:2rem!important; }
+@media(max-width:600px) { .markdown-section { padding:1rem 1.2rem; } .markdown-section h1 { font-size:2rem; } }
+@media(prefers-reduced-motion:reduce) { *, *::before, *::after { scroll-behavior:auto!important; animation:none!important; transition:none!important; } }
