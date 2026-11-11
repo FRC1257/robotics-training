@@ -314,6 +314,12 @@ if (labFrames.length)
       frame.closest(".lab-embed")?.setAttribute("data-sized", "");
     }
   });
+// Register before requesting the initial handshake. Cached iframes can finish
+// before the parent's module has run; their original height report may be lost.
+for (const frame of labFrames) {
+  frame.addEventListener("load", () => sendTheme(frame));
+  sendTheme(frame);
+}
 if (embedded) {
   window.addEventListener("message", (event) => {
     const data = event.data;
@@ -323,6 +329,7 @@ if (embedded) {
       theme = data.theme;
       root.dataset.theme = theme;
       $("theme-toggle")?.setAttribute("aria-pressed", String(theme === "dark"));
+      requestAnimationFrame(() => sendHeight(true));
     }
   });
   // Links inside the frame (sources, notes) open in the lesson's window, not the frame.
@@ -334,16 +341,17 @@ if (embedded) {
     } catch {}
   };
   let lastHeight = 0;
-  const sendHeight = () => {
+  const sendHeight = (force = false) => {
     const height = Math.ceil(document.body.getBoundingClientRect().height);
-    if (height && Math.abs(height - lastHeight) > 1) {
+    if (height && (force || Math.abs(height - lastHeight) > 1)) {
       lastHeight = height;
       post({ type: "height", height });
     }
   };
-  new ResizeObserver(sendHeight).observe(document.body);
-  addEventListener("load", sendHeight);
+  new ResizeObserver(() => sendHeight()).observe(document.body);
+  addEventListener("load", () => sendHeight(true));
   post({ type: "ready" });
+  sendHeight(true);
 }
 
 const sidebarEl = $("sidebar"),
