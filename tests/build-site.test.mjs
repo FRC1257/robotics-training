@@ -110,6 +110,19 @@ test("build emits semantic pages, legacy routes, search, math and copied assets"
     pid.querySelector('article a[href="/course/labs/pid.html"]').textContent,
     "PID lab",
   );
+  assert.ok(
+    pid.querySelector(
+      'iframe[src="/course/labs/pid.html?embed=1"][title][loading="lazy"]',
+    ),
+  );
+  assert.ok(
+    pid.querySelector('.lesson-meta #complete-lesson[data-auto="visit"] svg'),
+  );
+  assert.ok(pid.querySelector(".lesson-footer .progress-tools"));
+  assert.match(
+    pid.querySelector(".lesson-meta").textContent,
+    /AI-assisted lesson/,
+  );
   assert.ok(pid.querySelector("aside.sidebar a[aria-current=page]"));
   assert.ok(pid.querySelector("link[rel=canonical]"));
   const math = read("frc/3-Closed_Loop_Control/5-Motion_Profiling.html");
@@ -154,6 +167,26 @@ test("build emits semantic pages, legacy routes, search, math and copied assets"
   const missing = [];
   for (const file of walk(output).filter((f) => f.endsWith(".html"))) {
     const doc = parseHTML(fs.readFileSync(file, "utf8")).document;
+    const article = doc.querySelector("article");
+    if (article) {
+      assert.equal(
+        article.querySelectorAll("h1").length,
+        1,
+        `${file}: exactly one visible page title`,
+      );
+      for (const quote of article.querySelectorAll("blockquote"))
+        assert.doesNotMatch(
+          quote.textContent,
+          /\[!(NOTE|TIP|WARNING|ATTENTION|IMPORTANT|CAUTION)\]/,
+          `${file}: callout rendered`,
+        );
+    }
+    const ids = [...doc.querySelectorAll("[id]")].map((el) => el.id);
+    assert.equal(
+      ids.length,
+      new Set(ids).size,
+      `${file}: unique element identifiers`,
+    );
     for (const el of doc.querySelectorAll("[href],[src]")) {
       const raw = el.getAttribute("href") ?? el.getAttribute("src");
       if (!raw || raw.startsWith("#") || /^(?:[a-z][\w+.-]*:|\/\/)/i.test(raw))

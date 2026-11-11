@@ -55,7 +55,12 @@
     {
       "id": "pid-derivative",
       "prompt": "With error defined as target minus measurement, previous error 1.0 m and current error 0.8 m after 0.1 s, what is the error derivative?",
-      "choices": ["+2 m/s", "−2 m/s", "−0.2 m/s", "+0.2 m/s"],
+      "choices": [
+        "+2 m/s",
+        "−2 m/s",
+        "−0.2 m/s",
+        "+0.2 m/s"
+      ],
       "answer": 1,
       "explanation": "(0.8 − 1.0) / 0.1 = −2 m/s. The error is decreasing.",
       "lesson": "frc/3-Closed_Loop_Control/2-Basics_of_PID.md"
@@ -89,7 +94,12 @@
     {
       "id": "swerve-frame",
       "prompt": "Using +x forward, +y left and counterclockwise positive heading, what robot-relative vector corresponds to field-forward (1, 0) m/s when the robot heading is +90°?",
-      "choices": ["(1, 0) m/s", "(0, −1) m/s", "(0, +1) m/s", "(−1, 0) m/s"],
+      "choices": [
+        "(1, 0) m/s",
+        "(0, −1) m/s",
+        "(0, +1) m/s",
+        "(−1, 0) m/s"
+      ],
       "answer": 1,
       "explanation": "Rotate the field-relative vector by the negative heading: field-forward is robot-right at +90°, or (0, −1) m/s.",
       "lesson": "frc/1-Basics/Modern_Drivetrain_Project.md"
@@ -97,7 +107,12 @@
     {
       "id": "encoder-ratio",
       "prompt": "An encoder measures 12 motor turns through a 6:1 motor-to-output reduction. Ignoring slip and sign, how many turns does the output make?",
-      "choices": ["2", "6", "12", "72"],
+      "choices": [
+        "2",
+        "6",
+        "12",
+        "72"
+      ],
       "answer": 0,
       "explanation": "A 6:1 motor-to-output reduction means six motor turns per output turn, so 12 / 6 = 2.",
       "lesson": "labs/encoder.html"
@@ -140,6 +155,84 @@
       "answer": 1,
       "explanation": "The samples have recorded times, but a causal claim requires additional context and evidence. Sparse sampling also can miss extrema.",
       "lesson": "robots/2024-log.md"
+    },
+    {
+      "id": "io-boundary",
+      "prompt": "What should change when the same subsystem behavior runs against simulation instead of hardware?",
+      "choices": [
+        "The implementation supplied through its IO interface",
+        "Every command and button binding",
+        "The meaning of radians per second",
+        "The command scheduler requirement rules"
+      ],
+      "answer": 0,
+      "explanation": "An IO boundary lets behavior consume the same contract while real and simulated implementations obtain measurements and apply requests differently. The model still needs validation.",
+      "lesson": "frc/6-Architecture/1-IO_Interfaces.md"
+    },
+    {
+      "id": "sim-order",
+      "prompt": "In the training roller, a sample is read before the next voltage request is calculated. What does the sample describe?",
+      "choices": [
+        "The future effect of the voltage about to be requested",
+        "The plant after the previously applied output interval",
+        "Proof that the real motor received its requested voltage",
+        "A prediction unaffected by timing"
+      ],
+      "answer": 1,
+      "explanation": "The sample describes the plant after the prior output interval. The new output request affects the following interval; update ordering is part of the model contract.",
+      "lesson": "frc/6-Architecture/2-Simulation_IO.md"
+    },
+    {
+      "id": "replay-input",
+      "prompt": "Which input must be reproducible to compare a replayed decision with the original decision?",
+      "choices": [
+        "Only encoder position",
+        "Only the final output voltage",
+        "Every external input relevant to the decision, including requests and time",
+        "Only the robot class name"
+      ],
+      "answer": 2,
+      "explanation": "A repeatable decision needs all relevant inputs, requests and timing. Replaying recorded sensor values does not guarantee that unlogged operator intent or wall-clock reads are reproduced.",
+      "lesson": "frc/6-Architecture/3-Logging_Replay.md"
+    },
+    {
+      "id": "table-boundary",
+      "prompt": "A table is validated only from 1 to 3 meters. Our CalibrationTable wrapper is queried at 4 meters. What happens?",
+      "choices": [
+        "It proves the 3-meter value works at 4 meters",
+        "It extrapolates automatically",
+        "It returns OptionalDouble.empty() for the caller to handle",
+        "It inserts a new measured sample"
+      ],
+      "answer": 2,
+      "explanation": "The teaching wrapper rejects queries outside its input domain. The underlying WPILib map instead clamps to an endpoint; neither behavior establishes that an unmeasured setting works physically.",
+      "lesson": "frc/6-Architecture/4-Interpolation_Tables.md"
+    },
+    {
+      "id": "filter-validity",
+      "prompt": "A speed sample is NaN but its timestamp is current. What should the validity check conclude?",
+      "choices": [
+        "It is valid because it is fresh",
+        "It is invalid despite being fresh",
+        "It is a measured zero",
+        "A moving average guarantees a valid replacement"
+      ],
+      "answer": 1,
+      "explanation": "Freshness and numerical validity are different checks. Do not turn an unknown measurement into a zero or assume that smoothing proves validity. Choose an explicit fault policy.",
+      "lesson": "frc/6-Architecture/7-Filtering_And_Validity.md"
+    },
+    {
+      "id": "hysteresis-state",
+      "prompt": "Ready enters below 5 rad/s error and exits above 8 rad/s. If already ready and the error becomes 6 rad/s, what is the next state?",
+      "choices": [
+        "Not ready",
+        "Ready, retaining the previous state between thresholds",
+        "Unknown regardless of sensor health",
+        "The error must be set to zero"
+      ],
+      "answer": 1,
+      "explanation": "Hysteresis retains the prior state between entry and exit thresholds. This example assumes a valid measurement; handling stale or invalid measurements requires a separate explicit policy.",
+      "lesson": "frc/6-Architecture/7-Filtering_And_Validity.md"
     }
   ]
 }

@@ -1,3 +1,5 @@
+<!-- ai-assisted -->
+
 # Teach and review a practical skill
 
 Ask students to predict behavior, demonstrate it, explain the result, and diagnose a small intentional fault. Reading completion alone does not establish readiness for hardware.

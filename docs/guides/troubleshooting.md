@@ -1,3 +1,5 @@
+<!-- ai-assisted -->
+
 # Debug with evidence
 
 Change one thing at a time. Record the symptom, expectation, revision, environment, and first point where the evidence differs from your expectation.

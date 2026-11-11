@@ -1,3 +1,5 @@
+<!-- ai-assisted -->
+
 # Sources, rights and limitations
 
 Sources were retrieved 2026-11-11 UTC. Revisions and hashes identify the inspected snapshots; a repository's current default branch may change. The source inventory and extraction script are also retained in the project under `research_sources/frc1257/`.

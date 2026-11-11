@@ -1,0 +1,169 @@
+{
+  "purpose": "Evidence inventory for programming lessons; no private source snapshots reproduced.",
+  "scope": "Source-reviewed seeds and unbuilt original concept proposals, not 500 fully reviewed robot studies.",
+  "research_snapshot_inputs": [
+    {
+      "research_project_path": "research/concepts/2022-2023.md",
+      "sha256": "a6602bf5c78db27134e7690f971a6cff4161ada4d42906b1bc0a7c7c2935f780"
+    },
+    {
+      "research_project_path": "research/concepts/2024-2025.md",
+      "sha256": "9d454cfeed82a6fe849df6405d4d7ee6a5f9e96848117b8a909dd920946165f8"
+    },
+    {
+      "research_project_path": "research/concepts/2026.md",
+      "sha256": "54fb264bbe3be2d8f91b4b1249d096527dc71b92977e5e2d5b23730d4bb1a0af"
+    },
+    {
+      "research_project_path": "artifacts/progress.json",
+      "sha256": "938f85d6b6c3d9ac308c25be7e35ae58be19538fdb2307cfe9d65edc9161ee7b"
+    }
+  ],
+  "sources": [
+    {
+      "id": "E22-254-BINDER",
+      "title": "2022 Sideways Technical Binder",
+      "url": "https://media.team254.com/2022/10/8f2407a5-Team_254_Tech_Binder_2022.pdf",
+      "publisher": "Team 254",
+      "retrieval_utc": "2026-10-04T15:49:03.358799+00:00",
+      "revision": "October 2022 release; 24 pages",
+      "locator": "PDF pp. 13–19 for intake/serializer and drive; PDF pp. 18–19 (printed headings 17–19) for elevator/reaction-arm/stinger climb; pp. 21–23 software",
+      "source_snapshot_sha256": "2d367a5942551240c19d10dae03addd7b0b6d1769bf06ae8a2fb2da347c23740",
+      "support": "Cargo pipeline, strategy objectives, turret/shooter and traversal architecture.",
+      "scope": "Source-reported design or intended software; no independent gameplay, dimensional verification, or causal win claim."
+    },
+    {
+      "id": "E22-1678-ROBOT",
+      "title": "2022 Robot — Margie",
+      "url": "https://www.citruscircuits.org/2022-robot",
+      "publisher": "Team 1678",
+      "retrieval_utc": "2026-10-04T15:49:03.359002+00:00",
+      "revision": "Live team archive snapshot",
+      "locator": "Scoring and robot description",
+      "source_snapshot_sha256": "1ff88db04e20f5ba75693ddf4d9971d66238379a8a54be8ba646ddc3c0129dbd",
+      "support": "Reported intake, color handling, shooter and traversal capability.",
+      "scope": "Source-reported design or intended software; no independent gameplay, dimensional verification, or causal win claim."
+    },
+    {
+      "id": "E23-254-SEASON",
+      "title": "2023 CHARGED UP — Breakdown",
+      "url": "https://www.team254.com/first/2023/",
+      "publisher": "Team 254",
+      "retrieval_utc": "2026-10-04T15:49:03.990989+00:00",
+      "revision": "Live team archive snapshot",
+      "locator": "Robot abilities and competition schedule",
+      "source_snapshot_sha256": "6691882d16600ba320f20a720ff93f79e8d946e7a0bd9133d5b5f67b9c041ba4",
+      "support": "Elevator/laterator, cube intake and intended fork capability.",
+      "scope": "Source-reported design or intended software; no independent gameplay, dimensional verification, or causal win claim."
+    },
+    {
+      "id": "E23-254-CODE",
+      "title": "FRC-2023-Public README",
+      "url": "https://raw.githubusercontent.com/Team254/FRC-2023-Public/main/README.md",
+      "publisher": "Team 254",
+      "retrieval_utc": "2026-10-04T15:50:32.978745+00:00",
+      "revision": "main README bytes captured; not immutable historical competition commit",
+      "locator": "Code Highlights: config verification, pose correction, auto align, limp mode",
+      "source_snapshot_sha256": "1acc3a4333e8875df762b522dd2d999db69801c905c776e6e7d9b0ba49c433b4",
+      "support": "Documented alignment, vision filtering and contact-yielding control.",
+      "scope": "Source-reported design or intended software; no independent gameplay, dimensional verification, or causal win claim."
+    },
+    {
+      "id": "E23-2910-RELEASE",
+      "title": "2023 Phantom CAD/binder Q&A",
+      "url": "https://www.chiefdelphi.com/t/2910-cad-and-tech-binder-release-2023/436653",
+      "publisher": "Team 2910 representatives",
+      "retrieval_utc": "2026-10-04T15:50:32.978829+00:00",
+      "revision": "Published 2023-05-05",
+      "locator": "Replies 8–13; identities tied to team technical answers",
+      "source_snapshot_sha256": "17bc335aa5a9b87b5f8409fa6bf91316fbddb191b1fea6885947a0c96c98606c",
+      "support": "Cone offset, auto-align gates, driver tradeoff and extension sequencing.",
+      "scope": "Source-reported design or intended software; no independent gameplay, dimensional verification, or causal win claim."
+    },
+    {
+      "id": "2024-0254-binder",
+      "title": "2024 Vortex Technical Binder",
+      "url": "https://media.team254.com/2024/10/8f2607a0-2024-Tech-Binder.pdf",
+      "publisher": "Team 254",
+      "retrieval_utc": "2026-10-04T15:49:05.396112+00:00",
+      "revision": "October 2024 release; 22 pages",
+      "locator": "PDF pp. 10–15; software context",
+      "source_snapshot_sha256": "25fcc563703258b5c2ad0dd4ea169df86564555318043e755bf126fc3b6fb631",
+      "support": "Intake, turret-independent feeder, shooter and amp/trap/source assembly.",
+      "scope": "Source-reported design or intended software; no independent gameplay, dimensional verification, or causal win claim."
+    },
+    {
+      "id": "2024-0254-code",
+      "title": "FRC-2024-Public README",
+      "url": "https://raw.githubusercontent.com/Team254/FRC-2024-Public/main/README.md",
+      "publisher": "Team 254",
+      "retrieval_utc": "2026-10-04T15:49:05.496809+00:00",
+      "revision": "main README bytes captured; not competition commit proof",
+      "locator": "Code highlights: aiming, readiness, compensation, auto branches and logging",
+      "source_snapshot_sha256": "67cbf4e5e17be722aa2187b4f80feee4d1a514f208c71a22dc5336875b837a98",
+      "support": "Documented software features; not built or run here.",
+      "scope": "Source-reported design or intended software; no independent gameplay, dimensional verification, or causal win claim."
+    },
+    {
+      "id": "2025-1323-release",
+      "title": "2025 binder technical Q&A",
+      "url": "https://www.chiefdelphi.com/t/1323-2025-tech-binder/500435",
+      "publisher": "Team 1323 representative R.C",
+      "retrieval_utc": "2026-10-04T15:49:08.810850+00:00",
+      "revision": "Published 2025-04-24",
+      "locator": "Replies 7, 9, 12 and 17",
+      "source_snapshot_sha256": "5b6d199bde203df678001abcba3c1ba2011f87ab78920c784a4aa3d271aa2a7f",
+      "support": "Sensor handoffs, driver selection, material and weight/manufacturing explanations.",
+      "scope": "Source-reported design or intended software; no independent gameplay, dimensional verification, or causal win claim."
+    },
+    {
+      "id": "2025-2910-code",
+      "title": "2025CompetitionRobot-Public README",
+      "url": "https://raw.githubusercontent.com/FRCTeam2910/2025CompetitionRobot-Public/main/README.md",
+      "publisher": "Team 2910",
+      "retrieval_utc": "2026-10-04T15:50:33.729707+00:00",
+      "revision": "main README captured; source not built",
+      "locator": "Notable features and Organization",
+      "source_snapshot_sha256": "1ae00724fe8e634a93d4cee05eb855afeecc48fece5959be4f7a5d790152e096",
+      "support": "Scoring, algae and climb automation plus configuration/state architecture.",
+      "scope": "Source-reported design or intended software; no independent gameplay, dimensional verification, or causal win claim."
+    },
+    {
+      "id": "E26-RULES",
+      "title": "2026 REBUILT Game Manual",
+      "url": "https://firstfrc.blob.core.windows.net/frc2026/Manual/2026GameManual.pdf",
+      "publisher": "FIRST",
+      "retrieval_utc": "2026-10-04T15:50:33.893246+00:00",
+      "revision": "TU22; 166 pages",
+      "locator": "Sections 6.4–6.5.3, Tables 6-2–6-5, pp. 44–48",
+      "source_snapshot_sha256": "5c67300fc412a1eed8ca9dc37fb6644aee05795a2befed1f69736643cbf95139",
+      "support": "Match shifts, hub state, scoring and event-specific RP baseline.",
+      "scope": "Source-reported design or intended software; no independent gameplay, dimensional verification, or causal win claim."
+    },
+    {
+      "id": "E26-1678-ROBOT",
+      "title": "2026 Limestone robot description",
+      "url": "https://www.citruscircuits.org/2026-robot",
+      "publisher": "Team 1678",
+      "retrieval_utc": "2026-10-04T15:49:11.414174+00:00",
+      "revision": "Live archive snapshot",
+      "locator": "Scoring, ball tunnel, drivetrain, hopper, operating interface and electrical",
+      "source_snapshot_sha256": "1d2a1e040ea2a0e2c84fc6d2bf8584a1988b5e5e31324ab71afc9ff3e33e9cec",
+      "support": "Wide intake/feed/shooter, expanding storage, servicing and Level1 claim.",
+      "scope": "Source-reported design or intended software; no independent gameplay, dimensional verification, or causal win claim."
+    },
+    {
+      "id": "E26-1678-CODE",
+      "title": "C2026-Public README",
+      "url": "https://raw.githubusercontent.com/frc1678/C2026-Public/main/README.md",
+      "publisher": "Team 1678",
+      "retrieval_utc": "2026-10-04T15:50:33.904386+00:00",
+      "revision": "main README captured; code not built",
+      "locator": "Highlights and notable packages",
+      "source_snapshot_sha256": "09ddff756d3b497c91ad121db164fc42fb8e45ed11756398ae5ae1529d5a8605",
+      "support": "Dynamic targets, LED/readiness, driver layout, pose, sequencing and log analysis tool.",
+      "scope": "Source-reported design or intended software; no independent gameplay, dimensional verification, or causal win claim."
+    }
+  ],
+  "programming_examples": "Original hypothetical, explicitly non-executable pseudocode; no assertions of source-team implementation."
+}

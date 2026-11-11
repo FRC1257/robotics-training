@@ -1,8 +1,14 @@
+<!-- ai-assisted -->
+
 # Safety and inspection
 
 Safety begins before a robot is enabled: identify people in the work area, energy sources, moving mechanisms, pinch points, sharp edges, and a safe way to stop. Use the team's mentor-led procedures and FIRST's [safety resources](https://www.firstinspires.org/resources/library/safety). A program checklist supports judgment; it cannot substitute for current rules, component instructions, training, or qualified review.
 
 **Energy is not only the battery.** A raised arm can fall; springs, pressurized air, spinning wheels and suspended loads can store energy. Before hands enter a mechanism, disable, isolate the relevant energy, safely restrain or lower moving parts, and verify the condition with the team procedure. Tell others who controls re-energization. Do not rely on a software command alone to prevent motion during service. For powered testing, define a clear test area, keep people away from motion, designate an operator ready to disable, and start with a limited, controlled test.
+
+![Close-up photograph of the main circuit breaker and power distribution hub on a WPILib wiring demonstration board](../media/learning/breaker.jpg)
+
+*WPILib's example shows a main breaker and distribution hub. A real team's disconnect must be identified and accessible under the applicable rules; the photograph is not an isolation procedure. [WPILib wiring guide](https://docs.wpilib.org/en/stable/docs/zero-to-robot/step-1/intro-to-frc-robot-wiring.html), FIRST and WPILib contributors, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/); GPS metadata removed.*
 
 ## Practice an inspection mindset
 

@@ -25,21 +25,22 @@ function show(text, name) {
       bs = bounds(b),
       vs = bounds(v),
       y = (n, range) => 290 - ((n - range[0]) / (range[1] - range[0])) * 240;
+    // Colors live in labs.css (.plot-*, .is-*) so the figure follows the theme.
     let svg =
-      '<rect x="70" y="50" width="760" height="240" fill="#fff" stroke="#899"/>';
+      '<rect class="plot-area" x="70" y="50" width="760" height="240"/>';
     const e = nums(enabled);
     for (let i = 0; i < e.length; i++)
       if (e[i].value) {
         const end = e[i + 1]?.seconds ?? t1;
-        svg += `<rect x="${x(e[i].seconds)}" y="50" width="${Math.max(0, x(end) - x(e[i].seconds))}" height="240" fill="#dcebdc"/>`;
+        svg += `<rect class="plot-band" x="${x(e[i].seconds)}" y="50" width="${Math.max(0, x(end) - x(e[i].seconds))}" height="240"/>`;
       }
-    for (const [points, range, color] of [
-      [b, bs, "#075d93"],
-      [v, vs, "#b75200"],
+    for (const [points, range, tone] of [
+      [b, bs, "is-blue"],
+      [v, vs, "is-orange"],
     ])
       for (const p of points)
-        svg += `<circle cx="${x(p.seconds)}" cy="${y(p.value, range)}" r="4" fill="${color}"/>`;
-    svg += `<text x="70" y="325">${t0.toFixed(2)} s</text><text x="830" y="325" text-anchor="end">${t1.toFixed(2)} s</text><text x="10" y="45" fill="#075d93">${bs[1].toFixed(2)} V</text><text x="10" y="295" fill="#075d93">${bs[0].toFixed(2)} V</text><text x="835" y="45" fill="#b75200">${vs[1].toFixed(2)}</text><text x="835" y="295" fill="#b75200">${vs[0].toFixed(2)}</text>`;
+        svg += `<circle class="plot-point ${tone}" cx="${x(p.seconds)}" cy="${y(p.value, range)}" r="4"/>`;
+    svg += `<text x="70" y="325">${t0.toFixed(2)} s</text><text x="830" y="325" text-anchor="end">${t1.toFixed(2)} s</text><text class="plot-label is-blue" x="10" y="45">${bs[1].toFixed(2)} V</text><text class="plot-label is-blue" x="10" y="295">${bs[0].toFixed(2)} V</text><text class="plot-label is-orange" x="835" y="45">${vs[1].toFixed(2)}</text><text class="plot-label is-orange" x="835" y="295">${vs[0].toFixed(2)}</text>`;
     $("plot").innerHTML = svg;
     $("scales").textContent =
       "Time in seconds. Blue points: battery voltage, left axis (V). Orange points: module 0 angular velocity, right axis (rad/s). Green shading: recorded enabled state. Absence of shading before the first transition is unknown, not proof of disabled state.";

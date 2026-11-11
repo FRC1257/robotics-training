@@ -1,3 +1,5 @@
+<!-- ai-assisted -->
+
 # Robotics foundations
 
 A robot is a system: mechanical choices, wiring, control software, people, and match decisions affect one another. These short lessons give every subteam a common vocabulary. Start with the system map, then use the other lessons as needed.

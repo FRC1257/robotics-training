@@ -1,3 +1,5 @@
+<!-- ai-assisted -->
+
 # Team 1257 robot case studies
 
 Use a real robot project to connect concepts from the lessons to code. The 2025 and 2026 walkthroughs use separate pinned season snapshots; do not assume their configurations or dependencies match. Follow the links to inspect the exact source before adapting anything.

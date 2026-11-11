@@ -1,3 +1,5 @@
+<!-- ai-assisted -->
+
 # Knowledge checks
 
 <section id="knowledge-check" aria-labelledby="knowledge-check-title"><h2 id="knowledge-check-title">Try a quick knowledge check</h2><div id="quiz-body"></div><p id="quiz-status" role="status"></p></section>
@@ -157,3 +159,62 @@ Use these questions to practice recall after the lessons. Choose one answer, the
 </details>
 
 Try explaining an answer aloud, then revisit any lesson you missed. These checks teach concepts; a correct answer does not establish robot readiness or replace a mentor-reviewed hardware test.
+
+<details>
+<summary>Advanced architecture checks — reading version</summary>
+
+### What should change when the same subsystem behavior runs against simulation instead of hardware?
+
+1. The implementation supplied through its IO interface
+2. Every command and button binding
+3. The meaning of radians per second
+4. The command scheduler requirement rules
+
+**Answer: 1.** An IO boundary lets behavior consume the same contract while real and simulated implementations obtain measurements and apply requests differently. The model still needs validation. [Review the lesson](../frc/6-Architecture/1-IO_Interfaces.md).
+
+### In the training roller, a sample is read before the next voltage request is calculated. What does the sample describe?
+
+1. The future effect of the voltage about to be requested
+2. The plant after the previously applied output interval
+3. Proof that the real motor received its requested voltage
+4. A prediction unaffected by timing
+
+**Answer: 2.** The sample describes the plant after the prior output interval. The new output request affects the following interval; update ordering is part of the model contract. [Review the lesson](../frc/6-Architecture/2-Simulation_IO.md).
+
+### Which input must be reproducible to compare a replayed decision with the original decision?
+
+1. Only encoder position
+2. Only the final output voltage
+3. Every external input relevant to the decision, including requests and time
+4. Only the robot class name
+
+**Answer: 3.** A repeatable decision needs all relevant inputs, requests and timing. Replaying recorded sensor values does not guarantee that unlogged operator intent or wall-clock reads are reproduced. [Review the lesson](../frc/6-Architecture/3-Logging_Replay.md).
+
+### A table is validated only from 1 to 3 meters. Our CalibrationTable wrapper is queried at 4 meters. What happens?
+
+1. It proves the 3-meter value works at 4 meters
+2. It extrapolates automatically
+3. It returns OptionalDouble.empty() for the caller to handle
+4. It inserts a new measured sample
+
+**Answer: 3.** The teaching wrapper rejects queries outside its input domain. The underlying WPILib map instead clamps to an endpoint; neither behavior establishes that an unmeasured setting works physically. [Review the lesson](../frc/6-Architecture/4-Interpolation_Tables.md).
+
+### A speed sample is NaN but its timestamp is current. What should the validity check conclude?
+
+1. It is valid because it is fresh
+2. It is invalid despite being fresh
+3. It is a measured zero
+4. A moving average guarantees a valid replacement
+
+**Answer: 2.** Freshness and numerical validity are different checks. Do not turn an unknown measurement into a zero or assume that smoothing proves validity. Choose an explicit fault policy. [Review the lesson](../frc/6-Architecture/7-Filtering_And_Validity.md).
+
+### Ready enters below 5 rad/s error and exits above 8 rad/s. If already ready and the error becomes 6 rad/s, what is the next state?
+
+1. Not ready
+2. Ready, retaining the previous state between thresholds
+3. Unknown regardless of sensor health
+4. The error must be set to zero
+
+**Answer: 2.** Hysteresis retains the prior state between entry and exit thresholds. This example assumes a valid measurement; handling stale or invalid measurements requires a separate explicit policy. [Review the lesson](../frc/6-Architecture/7-Filtering_And_Validity.md).
+
+</details>

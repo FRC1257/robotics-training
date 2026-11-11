@@ -17,6 +17,13 @@ const groups = [
   ["tune", "tuning", "tuned"],
   ["troubleshooting", "troubleshoot", "diagnose", "debug", "fault"],
   ["estimate", "estimation", "estimator"],
+  ["subsystem", "sub system"],
+  ["interface", "interfaces", "abstraction", "abstractions", "io"],
+  ["simulation", "simulate", "simulated", "sim"],
+  ["interpolation", "interpolate", "interpolating", "lookup", "table"],
+  ["latency", "delay", "delayed"],
+  ["filter", "filters", "filtering", "smoothing"],
+  ["units", "unit", "conversion", "convert"],
 ];
 const stem = (s) => {
   if (s.length > 6 && s.endsWith("ing"))
@@ -31,6 +38,7 @@ export function tokenize(value) {
   return (
     String(value ?? "")
       .normalize("NFKC")
+      .replace(/sub[\s_-]*system/gi, "Subsystem")
       .replace(/([a-z\d])([A-Z])/g, "$1 $2")
       .replace(/([A-Z])([A-Z][a-z])/g, "$1 $2")
       .toLowerCase()
@@ -70,7 +78,7 @@ export function buildSearchIndex(index) {
         vocabulary.add(word);
         df.set(word, (df.get(word) || 0) + 1);
       }
-      return { page, fields, all };
+      return { page, fields, all, normalizedTitle: tokenize(page.title).join(" "), normalizedText: tokenize(page.text || "").join(" ") };
     });
   const result = { records, df, vocabulary };
   cache.set(index, result);
@@ -127,59 +135,70 @@ function alternatives(term, vocabulary) {
   return options;
 }
 function makeSnippet(page, terms) {
-  const body = String(page.text || page.excerpt || "")
-    .replace(/\s+/g, " ")
-    .trim();
+  const body = String(page.text || page.excerpt || "").replace(/\s+/g, " ").trim();
   if (!body) return "";
   const lower = body.toLowerCase();
+  // Generated plaintext begins with the page title, followed on many lessons by
+  // short metadata sentences. Prefer actual prose while retaining source text.
+  const title = String(page.title || "").trim();
+  let floor = title && lower.startsWith(title.toLowerCase()) ? title.length : 0;
+  while (body[floor] === " ") floor++;
+  for (let i = 0; i < 6 && floor < body.length; i++) {
+    const rest = body.slice(floor);
+    if (!/^(?:prerequisites?|time|outcomes?|status|baseline)\s*:/i.test(rest)) break;
+    const end = rest.search(/[.!?](?:\s|$)/);
+    if (end < 0 || end > 500) break;
+    floor += end + 1;
+    while (body[floor] === " ") floor++;
+  }
+  // Never discard a short document merely because it consists of metadata.
+  if (floor >= body.length) floor = 0;
   let pos = -1;
   for (const word of terms) {
     if (word.length < 3) continue;
-    const at = lower.indexOf(word.toLowerCase());
+    const at = lower.indexOf(word.toLowerCase(), floor);
     if (at >= 0 && (pos < 0 || at < pos)) pos = at;
   }
-  if (pos < 0) pos = 0;
-  let start = Math.max(0, pos - 75),
-    end = Math.min(body.length, start + 220);
-  if (start > 0) {
-    const n = body.indexOf(" ", start);
-    if (n >= 0 && n < pos) start = n + 1;
+  if (pos < 0) pos = floor;
+  let start = Math.max(floor, pos - 75), end = Math.min(body.length, Math.max(floor, pos - 75) + 220);
+  if (start > floor) {
+    const next = body.indexOf(" ", start);
+    if (next >= 0 && next < pos) start = next + 1;
   }
   if (end < body.length) {
-    const n = body.lastIndexOf(" ", end);
-    if (n > start) end = n;
+    const last = body.lastIndexOf(" ", end);
+    if (last > start) end = last;
   }
-  return (
-    (start ? "…" : "") + body.slice(start, end) + (end < body.length ? "…" : "")
-  );
+  return (start ? "…" : "") + body.slice(start, end) + (end < body.length ? "…" : "");
 }
 export function searchLessons(index, query, limit = 20, options = {}) {
   if (typeof query !== "string" || !query.trim()) return [];
-  const q = tokens(query.slice(0, 256)).slice(0, 8);
+  const q = tokens(query.slice(0, 256).replace(/\bfeed[\s-]+forward\b/gi, "feedforward").replace(/\blow[\s-]*pass\s+filters?\b/gi, "filter")).slice(0, 8);
   if (!q.length) return [];
   const built = buildSearchIndex(index),
     queryTerms = [...new Set(q)],
     expanded = queryTerms.map((t) => alternatives(t, built.vocabulary)),
-    phrase = tokenize(query).join(" "),
+    phrase = tokenize(query.slice(0, 256)).join(" "),
     limitNum = Number.isFinite(Number(limit))
       ? Math.max(0, Math.min(100, Math.floor(Number(limit))))
       : 20,
     section =
       typeof options?.section === "string" ? options.section.toLowerCase() : "";
   return built.records
-    .flatMap(({ page, fields }) => {
+    .flatMap(({ page, fields, normalizedTitle, normalizedText }) => {
       if (section && String(page.section || "").toLowerCase() !== section)
         return [];
       let score = 0,
         matched = 0,
         fuzzyUsed = false;
       const matchedTerms = [],
-        snippetWords = [];
+        snippetWords = [], usedWords = new Set();
       for (let i = 0; i < queryTerms.length; i++) {
         let best = 0,
           bestWord = "",
           fuzzy = false;
         for (const [word, meta] of expanded[i]) {
+          if (usedWords.has(word)) continue;
           const idf = Math.log(
             1 + (built.records.length + 1) / ((built.df.get(word) || 0) + 1),
           );
@@ -200,17 +219,16 @@ export function searchLessons(index, query, limit = 20, options = {}) {
           score += best;
           matchedTerms.push(queryTerms[i]);
           snippetWords.push(bestWord);
+          usedWords.add(bestWord);
           fuzzyUsed ||= fuzzy;
         }
       }
       const threshold =
         queryTerms.length === 1 ? 1 : Math.min(2, queryTerms.length);
       if (matched < threshold) return [];
-      const normalizedTitle = tokenize(page.title).join(" "),
-        normalizedText = tokenize(page.text || "").join(" ");
       if (phrase.length > 2 && normalizedTitle.includes(phrase)) score += 18;
       else if (phrase.length > 2 && normalizedText.includes(phrase)) score += 5;
-      const compact = query.trim();
+      const compact = query.slice(0, 256).trim();
       if (
         /^[A-Za-z][A-Za-z0-9]{3,}$/.test(compact) &&
         /[a-z][A-Z]/.test(compact) &&

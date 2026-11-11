@@ -16,6 +16,8 @@ P responds to present error. I accumulates error over time and can help persiste
 
 **Exercise:** with constant error 2 m for three 0.1 s samples, the integral increases by 0.2 m·s per sample to 0.6 m·s. With previous error 1 m and current error 0.8 m over 0.1 s, derivative is −2 m/s and `kD=0.1` contributes −0.2 output. Run `PidDemo`; compare its assertions and explain the signs. Then explore unstable values only in simulation.
 
+<!-- lab: pid -->
+
 For real mechanisms use WPILib's tested `PIDController`, appropriate feedforward, output limits, correct sensor units, and mechanical limits. Do not copy simulation gains onto a robot. With a mentor, clear the area, secure the robot, establish travel/output limits and an immediate disable plan, verify sensor polarity at low output, then use small gains and small setpoint changes. Stop immediately for unexpected movement or oscillation. Review logs before the next trial; do not deliberately create violent oscillation.
 
 **Troubleshooting:** motion away from the target suggests incorrect polarity or units; noise-sensitive output suggests derivative/noise problems; sluggishness may be an output limit or insufficient feedforward. Check these before changing gains.

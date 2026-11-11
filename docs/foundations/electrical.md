@@ -1,3 +1,5 @@
+<!-- ai-assisted -->
+
 # Electrical power, CAN, and troubleshooting
 
 The battery supplies energy; the power distribution device routes protected power to loads; controllers regulate motors; and the roboRIO runs robot code. **CAN is a communications network**, not the motor's power supply. Device status, sensor data and control requests can travel over it, while each device still needs its appropriate power connection. The [WPILib hardware overview](https://docs.wpilib.org/en/stable/docs/controls-overviews/control-system-hardware.html) and [wiring best practices](https://docs.wpilib.org/en/stable/docs/hardware/hardware-basics/wiring-best-practices.html) give component context and maintenance advice.

@@ -1,3 +1,5 @@
+<!-- ai-assisted -->
+
 # Maintain the learning library
 
 Lessons live in `docs/` as Markdown. The static builder renders ordinary HTML pages, converts local lesson links, highlights code, renders math, and builds a full-text search index. Students can read the lesson without JavaScript; search, progress, and interactive labs add behavior in the browser.
@@ -42,6 +44,14 @@ Link the relevant official reference and exact code revision.
 ```
 
 Use a single H1 and sequential H2/H3 headings. Keep paragraphs focused and use lists for steps. Tables work well for comparing symptoms or units; do not force long prose into narrow columns.
+
+## AI assistance and embedded labs
+
+Mark AI-assisted lessons with `<!-- ai-assisted -->` before the H1. The page displays a compact provenance note. This labels the lesson text and teaching code; real photographs and screenshots retain their own captions and source credits. Describe review and execution evidence accurately rather than treating an AI label or a passing test as validation of hardware behavior.
+
+Use `<!-- lab: pid -->` to embed a supported local lab at a deliberate teaching point. The supported names are `pid`, `swerve`, `scheduler`, `encoder`, `motion`, `log` and `odometry`. Introduce a question before the experiment and explain what to inspect afterwards. Keep the standalone lab link available for a larger workspace. Do not embed every demo in an index page.
+
+Opening a lesson records completion as a visit, not proof of understanding. The top check icon permits a manual toggle, and progress import/export/reset lives in the footer.
 
 ## Links and media
 

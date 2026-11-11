@@ -134,6 +134,8 @@ primaryEncoder.setVelocityConversionFactor(1 / 48.0 * Math.PI * 6 / 60);
 > [!NOTE]
 > In this case we do not have to divide by `4096.0` since the default units are already in revolutions. Additionally, for velocity, we have to divide by 60 to convert the units from per minute to per second.
 
+<!-- lab: encoder -->
+
 ## Uses
 
 We have many possible uses for encoders, but two of the most common are listed here.

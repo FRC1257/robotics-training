@@ -1,3 +1,5 @@
+<!-- ai-assisted -->
+
 # Interactive labs
 
 Predict, experiment, and explain your result. These labs run locally in your browser with no account or installation. They are teaching models, not validated robot simulations or hardware tuning tools.

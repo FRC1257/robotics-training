@@ -60,18 +60,19 @@ function render() {
     .join("");
   const scale = 140 / Math.max(p.length, p.width),
     xy = (x, y) => [250 - y * scale, 200 - x * scale];
+  // Colors live in labs.css (.robot-*, .plot-*, .is-*) so the diagram follows the theme.
   let html =
-    '<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3 z" fill="#075d93"/></marker></defs>';
+    '<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path class="plot-point is-blue" d="M0,0 L0,6 L6,3 z"/></marker></defs>';
   const [left, top] = xy(p.length / 2, p.width / 2);
-  html += `<rect x="${left}" y="${top}" width="${p.width * scale}" height="${p.length * scale}" fill="#e4edf4" stroke="#263f55"/><text x="250" y="25" text-anchor="middle">Forward (+x) ↑</text>`;
+  html += `<rect class="robot-body" x="${left}" y="${top}" width="${p.width * scale}" height="${p.length * scale}"/><text x="250" y="25" text-anchor="middle">Forward (+x) ↑</text>`;
   for (const m of r.modules) {
     const [x, y] = xy(m.x, m.y),
       dx = -m.vy * 25,
       dy = -m.vx * 25;
-    html += `<circle cx="${x}" cy="${y}" r="5" fill="#263f55"/><line x1="${x}" y1="${y}" x2="${x + dx}" y2="${y + dy}" stroke="#075d93" stroke-width="4" marker-end="url(#arrow)"/>`;
+    html += `<circle class="robot-module" cx="${x}" cy="${y}" r="5"/><line class="plot-line is-blue" x1="${x}" y1="${y}" x2="${x + dx}" y2="${y + dy}" stroke-width="4" marker-end="url(#arrow)"/>`;
   }
   const [cx, cy] = xy(p.centerX, p.centerY);
-  html += `<text x="${cx}" y="${cy}" text-anchor="middle" font-size="22" fill="#a32b15">×</text>`;
+  html += `<text class="robot-center" x="${cx}" y="${cy}" text-anchor="middle" font-size="22">×</text>`;
   $("diagram").innerHTML = html;
 }
 for (const id of [...ids, "fieldRelative", "optimize"])

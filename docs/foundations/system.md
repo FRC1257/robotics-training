@@ -1,3 +1,5 @@
+<!-- ai-assisted -->
+
 # Follow power and signals through a robot
 
 A driver asks the robot to act. The robot controller runs code, sends a request to a motor controller, and the motor turns a mechanism. Sensors can report what happened. A separate electrical path delivers energy to those devices. Follow both paths: a correct command cannot move an unpowered motor, and a powered controller still needs a valid command.

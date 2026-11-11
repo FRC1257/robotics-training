@@ -1,3 +1,5 @@
+<!-- ai-assisted -->
+
 # Integration projects: build, measure, explain
 
 Use these projects after the linked lessons. Work in pairs or across subteams. Each project has a concrete handoff and a check for understanding. Browser labs are simplified teaching models; historical code is a source snapshot; neither establishes a real robot's performance. Time ranges are rough self-paced estimates and do not include hardware fabrication or mentor scheduling.
@@ -29,6 +31,10 @@ First predict how a larger proportional gain changes the model response. Change 
 **Expected check:** the log records enabled `True` at 19,307,236 µs and voltage approximately 11.66 V at 19,690,089 µs. These are independent samples, not proof that enabling caused the voltage change. The excerpt is sparse; it cannot identify transient peaks. Use the linked original recording and metadata for any deeper analysis.
 
 **Deliver:** a prediction, a before/after table of lab settings and observed model response, two source-labeled log observations with units and timestamps, and three unanswered questions. Include a sketch of which additional signals and test conditions could distinguish competing explanations. Do not infer a match outcome, robot displacement, or a causal relationship from this excerpt.
+
+![WPILib system identification interface with analysis settings and velocity and acceleration plots](../media/learning/sysid.png)
+
+*WPILib's SysId documentation example shows analysis inputs and diagnostic plots. Its data and gains are unrelated to the 2024 log exercise; do not copy them to a robot. [WPILib software overview](https://docs.wpilib.org/en/stable/docs/controls-overviews/control-system-software.html), FIRST and WPILib contributors, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).*
 
 ## 4. Review a 2026 command chain as a team
 

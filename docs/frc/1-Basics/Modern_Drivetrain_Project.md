@@ -1,3 +1,5 @@
+<!-- ai-assisted -->
+
 # Project: swerve, localization and autonomous
 
 **Prerequisites:** the [simulated intake](5-First_Subsystem.md), PID, coordinate frames. **Time:** several sessions. **Status:** includes an executable idealized swerve trajectory exercise; it is not a full robot simulator. Do not deploy these exercises to hardware without review.
@@ -8,9 +10,13 @@ WPILib robot coordinates are +x forward, +y left and counterclockwise positive r
 
 **Predict:** with pure forward translation every wheel points forward at the same speed; with pure rotation vectors are tangential. Check in the [swerve lab](../../labs/swerve.html). Wheel speed desaturation preserves proportions when a request exceeds the limit. Module optimization can reverse wheel direction to reduce steering rotation. A wrong absolute encoder offset or module order can make straight-line requests veer; check each module at low output with a mentor. [WPILib kinematics](https://docs.wpilib.org/en/stable/docs/software/kinematics-and-odometry/swerve-drive-kinematics.html).
 
+<!-- lab: swerve -->
+
 ## Odometry and vision
 
 Integrate gyro heading and measured module positions to estimate pose. Odometry drifts with slip and sensor error. Convert field-relative requests using heading; a heading sign or zero error rotates the response. Fuse calibrated vision pose estimates at their capture timestamps with uncertainty, rather than replacing pose with every frame. Follow [PhotonVision setup](../../vision/PhotonVision/Setup.md) and [integration](../../vision/PhotonVision/Code.md). Compare odometry-only and fused tracks to a separately known pose; neither is automatically ground truth.
+
+<!-- lab: odometry -->
 
 ## Autonomous and logging
 

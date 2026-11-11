@@ -1,0 +1,97 @@
+{
+  "source": "FIRST and WPILib contributors, WPILib documentation",
+  "source_revision": "4dff7c3773ad321677d42c3f911408665e05b499",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "license_source": "https://github.com/wpilibsuite/wpilib-docs/blob/4dff7c3773ad321677d42c3f911408665e05b499/license.txt",
+  "assets": [
+    {
+      "file": "docs/media/learning/simulation-gui.png",
+      "source_url": "https://raw.githubusercontent.com/wpilibsuite/wpilib-docs/4dff7c3773ad321677d42c3f911408665e05b499/source/docs/software/wpilib-tools/robot-simulation/images/sim-gui-with-labels.png",
+      "source_revision": "4dff7c3773ad321677d42c3f911408665e05b499",
+      "retrieved_utc": "2026-11-11T03:40:20Z",
+      "source_sha256": "dbfb45c22a34efad750c9397fa98c1bea321156fc11095ad7bbe758c24e8b645",
+      "local_sha256": "dbfb45c22a34efad750c9397fa98c1bea321156fc11095ad7bbe758c24e8b645",
+      "dimensions": "1282 \u00d7 752",
+      "description": "WPILib Robot Simulation GUI example",
+      "changes": "unchanged"
+    },
+    {
+      "file": "docs/media/learning/mechanism-sim.png",
+      "source_url": "https://raw.githubusercontent.com/wpilibsuite/wpilib-docs/4dff7c3773ad321677d42c3f911408665e05b499/source/docs/software/wpilib-tools/robot-simulation/drivesim-tutorial/images/simgui.png",
+      "source_revision": "4dff7c3773ad321677d42c3f911408665e05b499",
+      "retrieved_utc": "2026-11-11T03:40:20Z",
+      "source_sha256": "66b99703206e1fedfffe38ef5410582316d317738161086c730d6eff827bc4f3",
+      "local_sha256": "66b99703206e1fedfffe38ef5410582316d317738161086c730d6eff827bc4f3",
+      "dimensions": "1050 \u00d7 620",
+      "description": "WPILib simulated drivetrain and encoder view",
+      "changes": "unchanged"
+    },
+    {
+      "file": "docs/media/learning/log-plot.png",
+      "source_url": "https://raw.githubusercontent.com/wpilibsuite/wpilib-docs/4dff7c3773ad321677d42c3f911408665e05b499/source/docs/software/dashboards/glass/images/advantagescope-plot.png",
+      "source_revision": "4dff7c3773ad321677d42c3f911408665e05b499",
+      "retrieved_utc": "2026-11-11T03:40:20Z",
+      "source_sha256": "b09d91ee1a8ffd7ddedc11a685b906d1be4bb0f858163ded831e80b6e092fb99",
+      "local_sha256": "b09d91ee1a8ffd7ddedc11a685b906d1be4bb0f858163ded831e80b6e092fb99",
+      "dimensions": "2194 \u00d7 1628",
+      "description": "AdvantageScope plotting example in WPILib documentation",
+      "changes": "unchanged"
+    },
+    {
+      "file": "docs/media/learning/field-dashboard.png",
+      "source_url": "https://raw.githubusercontent.com/wpilibsuite/wpilib-docs/4dff7c3773ad321677d42c3f911408665e05b499/source/docs/software/dashboards/glass/images/advantagescope-field2d.png",
+      "source_revision": "4dff7c3773ad321677d42c3f911408665e05b499",
+      "retrieved_utc": "2026-11-11T03:40:20Z",
+      "source_sha256": "474fcb450212d0963da4e7a3999076599e68f24e0194d936d4c2f2610a59efaf",
+      "local_sha256": "474fcb450212d0963da4e7a3999076599e68f24e0194d936d4c2f2610a59efaf",
+      "dimensions": "1449 \u00d7 1000",
+      "description": "AdvantageScope example 2023 field visualization",
+      "changes": "unchanged"
+    },
+    {
+      "file": "docs/media/learning/drivetrain.png",
+      "source_url": "https://raw.githubusercontent.com/wpilibsuite/wpilib-docs/4dff7c3773ad321677d42c3f911408665e05b499/source/docs/software/hardware-apis/motors/images/am-14u4-6in-mecanum-upgrade.png",
+      "source_revision": "4dff7c3773ad321677d42c3f911408665e05b499",
+      "retrieved_utc": "2026-11-11T03:40:20Z",
+      "source_sha256": "034f52431c0fa54d5258f34da53ae811898362c01a6a4679760cd9a9a462c635",
+      "local_sha256": "034f52431c0fa54d5258f34da53ae811898362c01a6a4679760cd9a9a462c635",
+      "dimensions": "670 \u00d7 413",
+      "description": "WPILib mecanum chassis rendering",
+      "changes": "unchanged"
+    },
+    {
+      "file": "docs/media/learning/breaker.jpg",
+      "source_url": "https://raw.githubusercontent.com/wpilibsuite/wpilib-docs/4dff7c3773ad321677d42c3f911408665e05b499/source/docs/zero-to-robot/step-1/images/how-to-wire-a-simple-robot/circuit-breaker-REV.jpg",
+      "source_revision": "4dff7c3773ad321677d42c3f911408665e05b499",
+      "retrieved_utc": "2026-11-11T03:40:21Z",
+      "source_sha256": "11bd708b26cfa3cbbc5afae203488c417d8fffed742d3a3432ab1bcffbab5cc5",
+      "local_sha256": "b2b41a83a1ade520bd0a8e0604c178e1dc4dde2e55bce36507aa957f3d1358db",
+      "dimensions": "499 \u00d7 374",
+      "description": "WPILib training board breaker photograph",
+      "changes": "GPS metadata removed; pixels unchanged"
+    },
+    {
+      "file": "docs/media/learning/sysid.png",
+      "source_url": "https://raw.githubusercontent.com/wpilibsuite/wpilib-docs/4dff7c3773ad321677d42c3f911408665e05b499/source/docs/controls-overviews/images/control-system-software/sysid.png",
+      "source_revision": "4dff7c3773ad321677d42c3f911408665e05b499",
+      "retrieved_utc": "2026-11-11T03:40:21Z",
+      "source_sha256": "c11af5b29ad5f7c0dbd224047f5dc22f152d4cabacfc467a24cce55cc6ddb5ae",
+      "local_sha256": "c11af5b29ad5f7c0dbd224047f5dc22f152d4cabacfc467a24cce55cc6ddb5ae",
+      "dimensions": "1920 \u00d7 1080",
+      "description": "WPILib SysId example screenshot",
+      "changes": "unchanged"
+    },
+    {
+      "file": "docs/media/learning/swerve-display.png",
+      "source_url": "https://raw.githubusercontent.com/wpilibsuite/wpilib-docs/4dff7c3773ad321677d42c3f911408665e05b499/source/docs/software/kinematics-and-odometry/images/advantagescope-swerve.png",
+      "source_revision": "4dff7c3773ad321677d42c3f911408665e05b499",
+      "retrieved_utc": "2026-11-11T03:40:21Z",
+      "source_sha256": "a0544acb9607dcd3324bcc4647072a00305bf0fb7a1aca9e3397a40523fa1470",
+      "local_sha256": "a0544acb9607dcd3324bcc4647072a00305bf0fb7a1aca9e3397a40523fa1470",
+      "dimensions": "2170 \u00d7 1750",
+      "description": "AdvantageScope swerve display example",
+      "changes": "unchanged"
+    }
+  ]
+}

@@ -1,3 +1,5 @@
+<!-- ai-assisted -->
+
 # Strategy and scouting with uncertainty
 
 A match plan connects the game's scoring opportunities to what an alliance can reliably do. Start with the season's official manual and team updates, then turn rules into questions: What actions score? When are they available? How do penalties, field access, and the other robots affect them? FIRST's [introduction to scouting](https://www.firstinspires.org/sites/default/files/uploads/resource_library/frc/team-resources/frc_intro_scouting.pdf) and [technical resources](https://www.firstinspires.org/resources/library/frc/technical-resources) introduce scouting and analysis.
@@ -9,6 +11,10 @@ A scout records observations to improve decisions, not merely to rank teams. Def
 Suppose a scout sees 3 successes in 4 observed attempts by one robot. The observed rate is `3 / 4 = 75%`; the sample is small and excludes any attempts the scout could not see. Four observations do not establish that the robot will succeed 75% of the time in different conditions. If another observer counts two successes from the same video, preserve the disagreement and resolve the definition or visibility issue before using a single number. This is a made-up training example, not a team result.
 
 Alliance scores and wins describe the alliance outcome, not one robot's causal contribution. Separate a directly recorded event from a model estimate and from a hypothesis: "we observed three successful attempts" differs from "a model estimates contribution" and from "this mechanism caused the win." Compare similar tasks, time windows, defense and teammates where possible. Avoid claiming precision that the data does not support.
+
+![AdvantageScope example showing a 2023 game-field visualization with an illustrated robot, trajectory and game pieces](../media/learning/field-dashboard.png)
+
+*An AdvantageScope field display in WPILib documentation. It visualizes a selected pose and trajectory; it is not video, scouting observation, or a Team 1257 match. The illustrated 2023 field is historical: use the current game manual when planning. [Field visualization guide](https://docs.wpilib.org/en/stable/docs/software/dashboards/glass/field2d-widget.html), FIRST and WPILib contributors, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).*
 
 ## Turn evidence into a plan
 
