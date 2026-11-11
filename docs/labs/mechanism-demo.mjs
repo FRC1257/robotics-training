@@ -2344,6 +2344,7 @@ const PULSES = {
   },
 };
 const NAMES = {
+  turnRadPerSec: "Turn rate",
   frontLeft: "Front-left (FL)",
   frontRight: "Front-right (FR)",
   backSensor: "Back",

@@ -57,9 +57,17 @@ for (const id of ids) {
     await step(page, 80);
     expect(await page.locator("#mech-svg").innerHTML()).not.toBe(initialSvg);
     await expect(page.locator("#mech-code .is-hl").first()).toBeAttached();
-    expect(
-      await page.locator("#mech-code-svg path, #mech-code-svg line").count(),
-    ).toBeGreaterThan(15);
+    const transforms = (selector) =>
+      page
+        .locator(selector)
+        .evaluate((svg) =>
+          [...svg.querySelectorAll("[transform]")].map((el) =>
+            el.getAttribute("transform"),
+          ),
+        );
+    expect(await transforms("#mech-code-svg")).toEqual(
+      await transforms("#mech-svg"),
+    );
     const duplicates = await page.evaluate(() => {
       const ids = [...document.querySelectorAll("[id]")].map((el) => el.id);
       return ids.filter((id, i) => ids.indexOf(id) !== i);
