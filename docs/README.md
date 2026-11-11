@@ -1,3 +1,5 @@
+<!-- ai-assisted -->
+
 # Team 1257 Robotics Training
 
 Team 1257's handbook for programming competition robots. Start with a small working project, experiment with a concept, and learn to explain what the robot is doing.
@@ -20,6 +22,7 @@ Team 1257's handbook for programming competition robots. Start with a small work
 - [Git and GitHub](git/README.md): version control for team code.
 - [Vision](vision/README.md): PhotonVision, Limelight and WPILibPi.
 - [Robot foundations](foundations/README.md): power, signals, mechanisms, strategy and safety.
+- [Programming by robot type](robot-types/README.md): what changes for shooters, piece handlers, articulated scorers, drivetrains and climbers.
 - [Documentation](documentation/README.md) and [the team website](website/README.md): maintaining this library and frc1257.org.
 
 ## Learning paths

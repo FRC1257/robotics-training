@@ -20,3 +20,5 @@ PostHog integration was explicitly deferred by the user. The site initializes no
 The runnable starter now includes an original idealized holonomic autonomous trajectory exercise with offset recovery and module speed limits. Its eleven tests separate numerical/command behavior from hardware validation.
 
 After user feedback, Claude reviewed actual screenshots and implemented a compact handbook UI: restored nested navigation, icon controls, keyboard tooltips, a mobile drawer and restrained motion. The homepage no longer uses the generic system diagram; the hardware lesson uses an attributed WPILib diagram and actual component photographs.
+
+A second review expands the course with seven architecture lessons: IO interfaces, simulation IO, logging/replay, interpolation, integration, timing/state and filtering/validity. Five new runnable Java tests cover IO sample ordering and calibration policies. Search adds advanced robotics terminology, and six additional knowledge questions cover those topics. Real attributed WPILib media illustrates relevant generated pages. AI-assisted material has explicit provenance labels.

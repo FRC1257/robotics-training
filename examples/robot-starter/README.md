@@ -39,3 +39,15 @@ Ideal auto: trajectory 3.00 s; final pose x=2.000 m y=0.000 m heading=0.00 deg; 
 `IdealHolonomicAuto` generates a two-meter rest-to-rest trajectory, starts the robot at (−0.25 m, +0.30 m, +20°), and corrects toward the path with WPILib's holonomic controller. Every 20 ms it converts the commanded robot-relative chassis speeds to swerve states, caps module speeds at 1.5 m/s, converts them back and integrates the ideal chassis motion. The run includes two seconds of feedback after the trajectory ends. `./gradlew test` also checks endpoints, a field-to-robot frame transformation, a correction at 90°, offset recovery and a case that reaches the wheel-speed cap. See the [guided project](../../docs/frc/1-Basics/Modern_Drivetrain_Project.md) for predictions and a troubleshooting exercise.
 
 This is an automated numerical exercise, separate from the intake dashboard button. Module states are assumed to be realized immediately. There is no steering delay, acceleration/voltage/current limit, slip, gyro or encoder noise, odometry drift, vision, path obstacles or hardware; the printed pose is simulated truth, not an estimated or measured pose. Do not use these gains or the result as hardware validation.
+
+## Advanced architecture examples
+
+`RollerIOTraining` demonstrates dependency injection, one sampled input per loop, and a deterministic first-order simulated roller. `CalibrationTable` wraps WPILib interpolation with validated samples and rejects queries outside its stated domain. These are teaching examples with hypothetical values; they do not implement hardware or AdvantageKit replay.
+
+Run the five focused tests from this directory:
+
+```sh
+./gradlew test --tests frc.robot.ArchitectureLessonsTest
+```
+
+Use `gradlew.bat` on Windows. The complete `./gradlew test` suite contains 16 tests across the intake, ideal autonomous, and architecture exercises. Follow the [advanced architecture lessons](../../docs/frc/6-Architecture/1-IO_Interfaces.md) for the code walkthrough and expected results.

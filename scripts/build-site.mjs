@@ -64,6 +64,106 @@ const slug = (s) =>
     .trim()
     .replace(/[^\p{L}\p{N}\s_-]/gu, "")
     .replace(/\s+/g, "-") || "section";
+// Ring plus check; CSS fills the ring and draws the check when aria-pressed is true.
+const completeIcon = `<svg class="complete-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><circle class="ring" cx="12" cy="12" r="9.25" pathLength="1"/><path class="check" d="m7.75 12.4 2.9 2.9 5.6-5.8" pathLength="1"/></svg>`;
+function completionToggle({ id, source, auto, noun, label, tipOff, tipOn, statusOff, statusOn, extraClass = "" }) {
+  return `<button${id ? ` id="${id}"` : ""} class="icon-btn complete-toggle${extraClass}" type="button" data-complete-toggle data-lesson="${esc(source)}"${auto ? ' data-auto="visit"' : ""} data-noun="${esc(noun)}" data-tip-off="${esc(tipOff)}" data-tip-on="${esc(tipOn)}" data-status-off="${esc(statusOff)}" data-status-on="${esc(statusOn)}" data-tip="${esc(tipOff)}" aria-pressed="false" aria-label="${esc(label || `${noun} complete`)}">${completeIcon}</button>`;
+}
+// Lessons complete on visit; the knowledge checks only when the reader says so.
+const completionCopy = {
+  default: {
+    noun: "Lesson",
+    auto: true,
+    tipOff: "Mark lesson complete",
+    tipOn: "Completed on this browser · select to undo",
+    statusOff: "Not completed",
+    statusOn: "Completed",
+  },
+  "guides/knowledge-checks.md": {
+    noun: "Knowledge checks",
+    label: "Checks reviewed",
+    auto: false,
+    tipOff: "Mark checks reviewed",
+    tipOn: "Reviewed on this browser · select to undo",
+    statusOff: "Not reviewed",
+    statusOn: "Reviewed",
+  },
+};
+// Explicit <!-- lab: name --> markers may only name these standalone labs.
+const LAB_NAMES = ["pid", "swerve", "scheduler", "encoder", "motion", "log", "odometry"];
+function readLabs() {
+  const labs = new Map();
+  for (const name of LAB_NAMES) {
+    const file = path.join(docs, "labs", `${name}.html`);
+    if (!fs.existsSync(file)) continue;
+    const { document } = parseHTML(fs.readFileSync(file, "utf8"));
+    labs.set(name, {
+      id: `labs/${name}.html`,
+      title: document.querySelector("h1")?.textContent.trim() || document.title,
+      summary:
+        document.querySelector("body > header p")?.textContent.replace(/\s+/g, " ").trim() || "",
+    });
+  }
+  return labs;
+}
+function readProvenance() {
+  const file = path.join(root, "platform/content-provenance.json");
+  const data = fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, "utf8")) : {};
+  const list = (key) => {
+    const items = Array.isArray(data[key]) ? data[key] : [];
+    for (const item of items)
+      if (!fs.existsSync(path.join(docs, item)))
+        console.warn(`content-provenance.json lists a missing page: ${item}`);
+    return new Set(items);
+  };
+  return { lessons: list("lessons"), labs: list("labs") };
+}
+const aboutHref = (base, hash) => hrefFor("guides/about-this-course.md", base) + hash;
+function provenanceBadge(base, label) {
+  return `<a class="provenance-badge" href="${esc(aboutHref(base, "#ai-assisted-lessons"))}">${icon("sparkles")}<span>${esc(label)}</span></a>`;
+}
+// GitHub-style "> [!NOTE]" blockquotes and the "Historical lesson" banner become callouts.
+const CALLOUTS = {
+  note: ["Note", "info"],
+  tip: ["Tip", "lightbulb"],
+  important: ["Important", "message-square-warning"],
+  warning: ["Warning", "triangle-alert"],
+  caution: ["Caution", "octagon-alert"],
+  history: ["Historical lesson", "history"],
+};
+const CALLOUT_ALIASES = { attention: "warning", danger: "caution", info: "note", hint: "tip" };
+function renderCallouts(article, document) {
+  for (const quote of [...article.querySelectorAll("blockquote")]) {
+    const first = quote.firstElementChild;
+    if (!first || first.tagName !== "P") continue;
+    const marker = first.innerHTML.match(/^\s*\[!(\w+)\][ \t]*\n?/),
+      history = first.innerHTML.match(/^\s*<strong>Historical lesson:?<\/strong>:?\s*/i);
+    let kind;
+    if (marker) {
+      const name = marker[1].toLowerCase();
+      kind = CALLOUT_ALIASES[name] || name;
+      if (!CALLOUTS[kind]) continue;
+      first.innerHTML = first.innerHTML.slice(marker[0].length);
+    } else if (history) {
+      kind = "history";
+      first.innerHTML = first.innerHTML.slice(history[0].length);
+    } else continue;
+    if (!first.innerHTML.trim()) first.remove();
+    const [label, iconName] = CALLOUTS[kind],
+      box = document.createElement("div");
+    box.setAttribute("class", `callout callout-${kind}`);
+    box.setAttribute("role", "note");
+    box.innerHTML = `<p class="callout-title">${icon(iconName)}<span>${label}</span></p>${quote.innerHTML}`;
+    quote.replaceWith(box);
+  }
+}
+function labEmbed(lab, base, aiAssisted) {
+  const href = base + lab.id,
+    key = lab.id.replace(/^labs\/|\.html$/g, ""),
+    titleId = `lab-${key}-title`;
+  const kicker = `Interactive lab${aiAssisted ? " · AI-assisted teaching model" : ""}`;
+  return `<div class="lab-embed-head"><span class="lab-embed-icon">${icon("flask-conical")}</span><div class="lab-embed-text"><p class="lab-embed-kicker">${esc(kicker)}</p><p class="lab-embed-title" id="${titleId}">${esc(lab.title)}</p>${lab.summary ? `<p class="lab-embed-summary">${esc(lab.summary)}</p>` : ""}</div><div class="lab-embed-actions">${completionToggle({ source: lab.id, noun: "Lab", tipOff: "Mark lab complete", tipOn: "Lab completed on this browser · select to undo", statusOff: "Not completed", statusOn: "Completed", extraClass: " lab-complete" })}<a class="lab-open" href="${esc(href)}">Open full lab${icon("external-link")}</a></div></div><iframe src="${esc(href)}?embed=1" title="${esc(lab.title)} (interactive)" loading="lazy"></iframe><noscript><p class="lab-embed-noscript">This lab needs JavaScript. <a href="${esc(href)}">Open the full lab page</a> to read its model and experiment.</p></noscript>`;
+}
 function walk(dir, rel = "") {
   return fs
     .readdirSync(path.join(dir, rel), { withFileTypes: true })
@@ -120,19 +220,28 @@ function titleOf(markdown, source) {
     ? found[1].replace(/[`*_]/g, "").trim()
     : path.posix.basename(source, ".md").replaceAll("_", " ");
 }
-function renderArticle(md, markdown, source, base, catalog) {
+function renderArticle(md, markdown, source, base, catalog, context) {
   let rendered = md.render(markdown);
   // Generated path links use docs-root paths so the resolver below applies the base.
   if (rendered.includes("<!-- learning-paths -->"))
     rendered = rendered.replace("<!-- learning-paths -->", pathList(catalog));
   if (source === "guides/learning-paths.md")
-    rendered = rendered.replace(/<h2[\s>]/, (h2) => pathOverview(catalog) + h2);
+    rendered = rendered.replace(/<h2[\s>]/, (h2) => pathOverview(catalog, base) + h2);
+  // Lab markers become empty placeholders now and full embeds after the search text is taken.
+  rendered = rendered.replace(/<!--\s*lab:\s*([\w-]+)\s*-->/g, (_, name) => {
+    if (!context.labs.has(name))
+      throw new Error(
+        `${source}: unknown lab marker "${name}". Use one of: ${LAB_NAMES.join(", ")}.`,
+      );
+    return `<div data-lab-marker="${name}"></div>`;
+  });
   const { document } = parseHTML(
     `<html><body><article>${rendered}</article></body></html>`,
   );
   const article = document.querySelector("article"),
     counts = new Map(),
     toc = [];
+  renderCallouts(article, document);
   for (const h of article.querySelectorAll("h1,h2,h3")) {
     const name = h.textContent.trim(),
       key = slug(name),
@@ -172,9 +281,43 @@ function renderArticle(md, markdown, source, base, catalog) {
     );
     iframe.setAttribute("loading", "lazy");
   }
-  return { html: article.innerHTML, text: rawText(document), toc };
+  // Search text and descriptions exclude the controls and embeds added below.
+  const text = rawText(document);
+  for (const placeholder of [...article.querySelectorAll("[data-lab-marker]")]) {
+    const lab = context.labs.get(placeholder.getAttribute("data-lab-marker")),
+      section = document.createElement("section");
+    section.setAttribute("class", "lab-embed");
+    section.setAttribute("id", "lab-embed-" + lab.id.replace(/^labs\/|\.html$/g, ""));
+    section.setAttribute("aria-labelledby", `lab-${lab.id.replace(/^labs\/|\.html$/g, "")}-title`);
+    section.innerHTML = labEmbed(lab, base, context.provenance.labs.has(lab.id));
+    placeholder.replaceWith(section);
+  }
+  for (const h of article.querySelectorAll("h2[id],h3[id]")) {
+    const anchor = document.createElement("a");
+    anchor.setAttribute("class", "heading-anchor");
+    anchor.setAttribute("href", `#${h.id}`);
+    anchor.setAttribute("aria-hidden", "true");
+    anchor.setAttribute("tabindex", "-1");
+    anchor.textContent = "#";
+    h.append(anchor);
+  }
+  const ai =
+      /<!--\s*ai-assisted\s*-->/i.test(markdown) || context.provenance.lessons.has(source),
+    meta = lessonMeta(source, base, ai);
+  if (meta) {
+    const h1 = article.querySelector("h1"),
+      row = document.createElement("div");
+    row.setAttribute("class", "lesson-meta");
+    row.innerHTML = meta;
+    if (h1) h1.after(row);
+    else article.prepend(row);
+  }
+  return { html: article.innerHTML, text, toc, ai };
 }
-function decorateLab(html, source, base) {
+// Labs keep their own stylesheet. In a lesson iframe (?embed=1) the head script marks
+// the document so labs.css hides this bar and the lab header, and the parent's theme wins.
+const labBoot = `try{var d=document.documentElement,t,e=new URLSearchParams(location.search).get("embed")==="1"&&window.parent!==window;if(e){try{if(parent.location.origin===location.origin){d.dataset.embed="1";t=parent.document.documentElement.dataset.theme}}catch(x){}}if(t!=="dark"&&t!=="light")t=localStorage.getItem("frc1257-theme");if(t!=="dark"&&t!=="light")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";d.dataset.theme=t}catch(x){}`;
+function decorateLab(html, source, base, aiAssisted) {
   const { document } = parseHTML(html),
     body = document.querySelector("body");
   body.setAttribute("data-page-id", source);
@@ -186,23 +329,23 @@ function decorateLab(html, source, base) {
     const resolved = resolveReference(raw, source, docs, base);
     if (resolved) a.setAttribute("href", resolved);
   }
-  const toolbar = document.createElement("section");
+  const boot = document.createElement("script");
+  boot.textContent = labBoot;
+  document.head.prepend(boot);
+  const toolbar = document.createElement("nav");
   toolbar.setAttribute("class", "course-toolbar");
-  toolbar.setAttribute("aria-label", "Course progress");
-  toolbar.innerHTML = `<a href="${esc(hrefFor("labs/README.md", base))}">Course labs</a> <button id="complete-lesson" type="button" data-lesson="${esc(source)}" data-label="Mark lab complete">Mark lab complete</button> <span id="progress-summary">Progress is available when JavaScript is enabled.</span><span id="site-status" role="status" aria-live="polite"></span>`;
+  toolbar.setAttribute("aria-label", "Course");
+  toolbar.innerHTML = `<!-- Icons: ${esc(iconLicense())}, see assets/LICENSE-Lucide.txt --><a class="course-home" href="${esc(base)}"><img src="${esc(base)}media/1257snail.svg" alt="" width="24" height="24"><span>1257 Training</span></a><span class="course-sep" aria-hidden="true">/</span><a href="${esc(hrefFor("labs/README.md", base))}">Course labs</a><span class="course-spacer"></span>${aiAssisted ? `<a class="provenance-badge" href="${esc(aboutHref(base, "#ai-assisted-lessons"))}">${icon("sparkles")}<span>AI-assisted teaching model</span></a>` : ""}<span class="completion">${completionToggle({ id: "complete-lesson", source, auto: true, noun: "Lab", tipOff: "Mark lab complete", tipOn: "Completed on this browser · select to undo", statusOff: "Not completed", statusOn: "Completed" })}<span class="completion-status" aria-hidden="true"></span></span><button id="theme-toggle" class="icon-btn" type="button" aria-label="Dark theme" aria-pressed="false" data-tip="Dark theme">${icon("moon")}${icon("sun")}</button><span id="site-status" class="visually-hidden" role="status" aria-live="polite"></span>`;
   body.prepend(toolbar);
-  const style = document.createElement("style");
-  style.textContent =
-    ".course-toolbar{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;padding:.75rem 1rem;background:#e3edf5;color:#172339}.course-toolbar a{color:#075d93}.course-toolbar button{font:inherit}.course-toolbar span{font-size:.9rem}";
-  document.head.append(style);
   const script = document.createElement("script");
   script.type = "module";
   script.src = base + "assets/site.mjs";
   body.append(script);
   return document.toString();
 }
-function notFound(base) {
-  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Page not found | Team 1257</title><link rel="stylesheet" href="${esc(base)}assets/site.css"><script type="module" src="${esc(base)}assets/site.mjs"></script></head><body data-base="${esc(base)}" data-page-id="404" data-page-title="Page not found"><main id="main" class="lesson"><h1>Page not found</h1><p>The lesson may have moved. Try the home page or search the training library.</p><p><a href="${esc(base)}">Go to the home page</a> <button id="search-open" type="button">Search lessons</button></p><dialog id="search-dialog" aria-labelledby="search-title"><h2 id="search-title">Search lessons</h2><button id="search-close" type="button">Close</button><label for="search-input">Search by topic</label><input id="search-input" type="search"><p id="search-status" role="status"></p><ul id="search-results"></ul></dialog><p id="site-status" role="status" aria-live="polite"></p><noscript>Search and automatic legacy link redirects require JavaScript.</noscript></main></body></html>`;
+function notFound(base, chrome) {
+  const link = (source, label) => `<li><a href="${esc(hrefFor(source, base))}">${esc(label)}</a></li>`;
+  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Page not found | Team 1257 Robotics Training</title><meta name="robots" content="noindex"><link rel="icon" href="${esc(base)}media/1257snail.svg" type="image/svg+xml">${themeBoot}<link rel="stylesheet" href="${esc(base)}assets/site.css">${noscriptStyle}<script type="module" src="${esc(base)}assets/site.mjs"></script></head><body class="page-404" data-base="${esc(base)}" data-page-id="404" data-page-title="Page not found"><a class="skip-link" href="#main">Skip to content</a>${siteHeader(base, { menu: false })}${chrome.search}<p id="site-status" class="visually-hidden" role="status" aria-live="polite"></p><main id="main" class="lesson not-found"><article><p class="not-found-code">404</p><h1>Page not found</h1><p>This lesson may have moved. Old <code>#/</code> links are redirected automatically when a match exists.</p><p class="not-found-actions"><button class="button-primary" type="button" data-open-search>${icon("search")}<span>Search lessons</span></button> <a class="button" href="${esc(base)}">Go to the home page</a></p><h2>Popular starting points</h2><ul>${link("guides/start-here.md", "Start here")}${link("guides/learning-paths.md", "Learning paths")}${link("labs/README.md", "Interactive labs")}${link("guides/troubleshooting.md", "Troubleshooting")}</ul><noscript><p>Search and automatic legacy link redirects require JavaScript.</p></noscript></article></main>${chrome.footer}</body></html>`;
 }
 
 // _sidebar.md lines are either links or plain group labels ("* Guides").
@@ -299,7 +442,7 @@ function pathList(catalog) {
     .join("")}</ul>`;
 }
 // Learning paths page: the one home for path progress and progress tools.
-function pathOverview(catalog) {
+function pathOverview(catalog, base) {
   if (!catalog.paths.length) return "";
   const rows = catalog.paths
     .map(
@@ -307,38 +450,84 @@ function pathOverview(catalog) {
         `<tr ${pathHooks(p, "always")}><td><a class="path-link" href="${esc(firstLesson(p))}">${esc(p.title)}</a></td><td>${p.lessons.length}</td><td>${hours(p.estimatedMinutes)}</td><td class="path-status">${pathStatus(p)}<noscript>Needs JavaScript</noscript></td></tr>`,
     )
     .join("");
-  return `<h2>Paths at a glance</h2><p class="path-note">Times are approximate self-paced estimates. Each path link opens your next unfinished activity.</p><table class="path-table"><thead><tr><th scope="col">Path</th><th scope="col">Activities</th><th scope="col">Time</th><th scope="col">Progress</th></tr></thead><tbody>${rows}</tbody></table><div class="progress-panel"><p id="progress-summary">Progress is available when JavaScript is enabled.</p>${progressTools(true)}</div>`;
+  return `<h2>Paths at a glance</h2><p class="path-note">Times are approximate self-paced estimates. Each path link opens your next unfinished activity.</p><table class="path-table"><thead><tr><th scope="col">Path</th><th scope="col">Activities</th><th scope="col">Time</th><th scope="col">Progress</th></tr></thead><tbody>${rows}</tbody></table><div class="progress-panel"><p id="progress-summary">Progress is available when JavaScript is enabled.</p>${progressCaveat(base)}${progressTools(true)}</div>`;
 }
 function progressTools(open = false) {
-  return `<details class="progress-tools"${open ? " open" : ""}><summary>Manage progress</summary><div class="progress-tools-body"><p>Progress is saved locally in this browser.</p><button id="progress-export" type="button">Export progress</button><label for="progress-import">Import progress</label><input id="progress-import" type="file" accept="application/json,.json"><button id="progress-reset" type="button">Reset progress</button></div></details>`;
+  return `<details class="progress-tools"${open ? " open" : ""}><summary>Manage progress</summary><div class="progress-tools-body"><p>Progress is saved only in this browser. Export a copy to move it to another device.</p><button id="progress-export" type="button">Export progress</button><label for="progress-import">Import progress</label><input id="progress-import" type="file" accept="application/json,.json"><button id="progress-reset" type="button">Reset progress</button></div></details>`;
 }
+const progressCaveat = (base) =>
+  `<p class="progress-caveat">Opening a lesson marks it complete on this browser. That records a visit, not understanding. Test yourself with the <a href="${esc(hrefFor("guides/knowledge-checks.md", base))}">knowledge checks</a> and labs. <a href="${esc(aboutHref(base, "#progress-on-this-browser"))}">How progress works</a></p>`;
 // Section landing pages and the learning-paths hub are not completable lessons.
 const isLesson = (source) =>
   source !== "README.md" &&
   !source.endsWith("/README.md") &&
   source !== "guides/learning-paths.md";
-const completionLabels = {
-  "guides/knowledge-checks.md": [
-    "Mark checks reviewed",
-    "Reviewed · mark not reviewed",
-  ],
-};
-function lessonActions(source) {
-  const [label, done] = completionLabels[source] || [];
-  const labels = label
-    ? ` data-label="${esc(label)}" data-done-label="${esc(done)}"`
-    : "";
-  return `<div class="lesson-actions"><button id="complete-lesson" type="button" data-lesson="${esc(source)}"${labels}>${esc(label || "Mark lesson complete")}</button><p id="progress-summary">Progress is available when JavaScript is enabled.</p>${progressTools()}</div>`;
+// Sits under the H1: the completion toggle and, where relevant, the provenance link.
+function lessonMeta(source, base, ai) {
+  let html = "";
+  if (isLesson(source)) {
+    const copy = completionCopy[source] || completionCopy.default;
+    html += `<span class="completion">${completionToggle({ ...copy, id: "complete-lesson", source, extraClass: " tip-start" })}<span class="completion-status" aria-hidden="true"></span></span>`;
+  }
+  if (ai) html += provenanceBadge(base, "AI-assisted lesson");
+  return html;
+}
+// Footer progress block: the compact next step, summary, caveat and tools.
+function lessonProgress(base) {
+  return `<section class="lesson-progress" aria-label="Your progress"><p id="next-activity" class="next-activity" hidden></p><div class="lesson-progress-row"><p id="progress-summary">Progress is available when JavaScript is enabled.</p>${progressTools()}</div>${progressCaveat(base)}</section>`;
 }
 // Runs before first paint so a saved or system dark theme never flashes light.
 const themeBoot = `<script>try{var t=localStorage.getItem("frc1257-theme");if(t!=="dark"&&t!=="light")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.dataset.theme=t}catch(e){}</script>`;
 // Without JS the drawer, toggles and search cannot work, so the tree is shown in place.
-const noscriptStyle = `<noscript><style>#search-open,#theme-toggle,#menu-toggle,.nav-twisty,.nav-group-toggle svg{display:none!important}.nav-branch>ul[hidden]{display:block}@media (max-width:950px){.sidebar{position:static;transform:none;visibility:visible;width:auto;height:auto;box-shadow:none;border-right:0;border-bottom:1px solid var(--line)}}</style></noscript>`;
-function siteHeader(base) {
-  return `<header class="site-header"><!-- Icons: ${esc(iconLicense())}, see assets/LICENSE-Lucide.txt --><a class="site-logo" href="${esc(base)}" aria-label="Team 1257 training home"><img src="${esc(base)}media/1257snail.svg" alt="" width="32" height="32"><span>1257 <strong>Robotics Training</strong></span></a><div class="header-actions"><button id="search-open" class="icon-btn" type="button" aria-haspopup="dialog" aria-label="Search lessons" aria-keyshortcuts="Control+K Meta+K" data-tip="Search (Ctrl/⌘ K)">${icon("search")}</button><button id="theme-toggle" class="icon-btn" type="button" aria-label="Dark theme" aria-pressed="false" data-tip="Dark theme">${icon("moon")}${icon("sun")}</button><button id="menu-toggle" class="icon-btn" type="button" aria-expanded="false" aria-controls="sidebar" aria-label="Lesson menu" data-tip="Menu">${icon("menu")}${icon("x")}</button></div></header>`;
+const noscriptStyle = `<noscript><style>#search-open,#theme-toggle,#menu-toggle,.completion,.lab-complete,.lesson-progress,[data-open-search],.nav-twisty,.nav-group-toggle svg{display:none!important}.nav-branch>ul[hidden]{display:block}@media (max-width:950px){.sidebar{position:static;transform:none;visibility:visible;width:auto;height:auto;box-shadow:none;border-right:0;border-bottom:1px solid var(--line)}}</style></noscript>`;
+function siteHeader(base, { menu = true } = {}) {
+  return `<header class="site-header"><!-- Icons: ${esc(iconLicense())}, see assets/LICENSE-Lucide.txt --><a class="site-logo" href="${esc(base)}" aria-label="Team 1257 training home"><img src="${esc(base)}media/1257snail.svg" alt="" width="32" height="32"><span>1257 <strong>Robotics Training</strong></span></a><div class="header-actions"><button id="search-open" class="icon-btn" type="button" aria-haspopup="dialog" aria-label="Search lessons" aria-keyshortcuts="Control+K Meta+K" data-tip="Search (Ctrl/⌘ K)">${icon("search")}</button><button id="theme-toggle" class="icon-btn" type="button" aria-label="Dark theme" aria-pressed="false" data-tip="Dark theme">${icon("moon")}${icon("sun")}</button>${menu ? `<button id="menu-toggle" class="icon-btn" type="button" aria-expanded="false" aria-controls="sidebar" aria-label="Lesson menu" data-tip="Menu">${icon("menu")}${icon("x")}</button>` : ""}</div></header>`;
 }
-function searchDialog() {
-  return `<dialog id="search-dialog" aria-labelledby="search-title"><div class="search-header"><h2 id="search-title">Search lessons</h2><button id="search-close" class="icon-btn" type="button" aria-label="Close search" data-tip="Close (Esc)">${icon("x")}</button></div><label for="search-input">Search by topic or keyword</label><input id="search-input" type="search" autocomplete="off"><p id="search-status" role="status" aria-live="polite">Search topics, code and troubleshooting across the whole library.</p><ul id="search-results"></ul></dialog>`;
+const SECTION_ORDER = [
+  ["java", "Java"],
+  ["frc", "Robot programming"],
+  ["labs", "Interactive labs"],
+  ["foundations", "Robot foundations"],
+  ["robots", "Real robots"],
+  ["vision", "Vision"],
+  ["git", "Git and GitHub"],
+  ["guides", "Guides"],
+  ["documentation", "Documentation"],
+  ["website", "Team website"],
+];
+const SUGGESTED_SEARCHES = [
+  "PID tuning",
+  "swerve",
+  "encoder units",
+  "command scheduler",
+  "odometry",
+  "arrays",
+  "git branch",
+  "vision timestamps",
+];
+// Command-palette markup; platform/search-ui.mjs adds the behavior.
+function searchDialog(base, sections) {
+  const options = SECTION_ORDER.filter(([key]) => sections.has(key))
+    .map(([key, label]) => `<option value="${key}">${esc(label)}</option>`)
+    .join("");
+  const chips = SUGGESTED_SEARCHES.map(
+    (q) => `<li><button class="chip" type="button" data-query="${esc(q)}">${esc(q)}</button></li>`,
+  ).join("");
+  const topics = [
+    ["guides/start-here.md", "Start here"],
+    ["java/README.md", "Java"],
+    ["frc/README.md", "Robot programming"],
+    ["labs/README.md", "Interactive labs"],
+    ["guides/learning-paths.md", "Learning paths"],
+    ["guides/troubleshooting.md", "Troubleshooting"],
+  ]
+    .filter(([source]) => fs.existsSync(path.join(docs, source)))
+    .map(([source, label]) => `<li><a href="${esc(hrefFor(source, base))}">${icon("arrow-right")}<span>${esc(label)}</span></a></li>`)
+    .join("");
+  return `<dialog id="search-dialog" class="palette" aria-labelledby="search-title"><h2 id="search-title" class="visually-hidden">Search lessons</h2><div class="palette-bar">${icon("search")}<label class="visually-hidden" for="search-input">Search lessons, labs and code</label><input id="search-input" type="search" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="search-results" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="go" placeholder="Search lessons, labs and code"><span class="palette-spinner" aria-hidden="true"></span><button id="search-clear" class="icon-btn" type="button" aria-label="Clear search" hidden>${icon("x")}</button><button id="search-close" class="palette-close" type="button" aria-label="Close search"><kbd>Esc</kbd>${icon("x")}</button></div><div class="palette-meta"><label for="search-section">Section</label><select id="search-section" aria-label="Search section"><option value="">All sections</option>${options}</select><p id="search-status" role="status" aria-live="polite"></p></div><div class="palette-body"><ul id="search-results" role="listbox" aria-label="Search results"></ul><p class="palette-actions"><button id="search-retry" type="button" hidden>${icon("rotate-ccw")}<span>Try again</span></button><button id="search-widen" type="button" hidden>Search all sections</button></p><div id="search-empty" class="palette-empty"><p class="palette-heading">Suggested searches</p><ul class="chip-list">${chips}</ul><p class="palette-heading">Browse</p><ul class="topic-list">${topics}</ul></div></div><div class="palette-foot" aria-hidden="true"><span><kbd>↑</kbd><kbd>↓</kbd> move</span><span><kbd>↵</kbd> open</span><span><kbd>Esc</kbd> close</span><span class="palette-private">Searches never leave this device</span></div></dialog>`;
+}
+function siteFooter(base) {
+  return `<footer class="site-footer"><nav aria-label="Site"><a href="${esc(hrefFor("guides/learning-paths.md", base))}">Learning paths and progress</a><a href="${esc(aboutHref(base, ""))}">About this course</a><a href="https://github.com/FRC1257/robotics-training">Source on GitHub</a></nav><p>Team 1257 Robotics Training · Progress and searches stay in this browser; no analytics.</p></footer>`;
 }
 function pageTemplate({
   source,
@@ -350,6 +539,7 @@ function pageTemplate({
   tree,
   prev,
   next,
+  chrome,
 }) {
   const href = hrefFor(source, base),
     origin = (process.env.SITE_ORIGIN || "https://frc1257.github.io").replace(
@@ -363,7 +553,7 @@ function pageTemplate({
     toc.length && toc.length <= 12
       ? `<nav aria-label="On this page"><h2>On this page</h2><ul>${toc.map((t) => `<li><a href="#${esc(t.id)}">${esc(t.text)}</a></li>`).join("")}</ul></nav>`
       : "";
-  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(title)} | Team 1257 Robotics Training</title><meta name="description" content="${esc(description)}"><link rel="canonical" href="${esc(canonical)}"><meta property="og:type" content="article"><meta property="og:title" content="${esc(title)} | Team 1257 Robotics Training"><meta property="og:description" content="${esc(description)}"><meta property="og:url" content="${esc(canonical)}"><link rel="icon" href="${esc(base)}media/1257snail.svg" type="image/svg+xml">${themeBoot}<link rel="stylesheet" href="${esc(base)}assets/katex.min.css"><link rel="stylesheet" href="${esc(base)}assets/site.css">${noscriptStyle}<script type="module" src="${esc(base)}assets/site.mjs"></script></head><body data-page-id="${esc(id)}" data-page-title="${esc(title)}" data-base="${esc(base)}"><a class="skip-link" href="#main">Skip to content</a><noscript><p class="noscript-note">Lessons and navigation are available without JavaScript. Search, progress, legacy link redirects, and interactive labs require JavaScript.</p></noscript>${siteHeader(base)}${searchDialog()}<progress id="reading-progress" value="0" max="100" aria-label="Reading progress"></progress><p id="site-status" role="status" aria-live="polite"></p><div class="site-layout"><aside id="sidebar" class="sidebar">${sidebar(tree, source)}</aside><main id="main" class="lesson"><article>${html}</article>${isLesson(source) ? lessonActions(id) : ""}<footer class="lesson-footer"><nav aria-label="Lesson progression">${prev ? `<a rel="prev" href="${esc(prev.href)}"><small>Previous</small><span>${esc(prev.label)}</span></a>` : ""}${next ? `<a rel="next" href="${esc(next.href)}"><small>Next</small><span>${esc(next.label)}</span></a>` : ""}</nav><p><a href="https://github.com/FRC1257/robotics-training/edit/main/docs/${source.split("/").map(encodeURIComponent).join("/")}">Edit this lesson</a> · <a href="https://raw.githubusercontent.com/FRC1257/robotics-training/main/docs/${source.split("/").map(encodeURIComponent).join("/")}">View source</a></p></footer></main><aside class="toc">${tocHtml}</aside></div><footer class="site-footer"><p>Team 1257 Robotics Training · Learn, experiment, and share what you discover.</p></footer></body></html>`;
+  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(title)} | Team 1257 Robotics Training</title><meta name="description" content="${esc(description)}"><link rel="canonical" href="${esc(canonical)}"><meta property="og:type" content="article"><meta property="og:title" content="${esc(title)} | Team 1257 Robotics Training"><meta property="og:description" content="${esc(description)}"><meta property="og:url" content="${esc(canonical)}"><link rel="icon" href="${esc(base)}media/1257snail.svg" type="image/svg+xml">${themeBoot}<link rel="stylesheet" href="${esc(base)}assets/katex.min.css"><link rel="stylesheet" href="${esc(base)}assets/site.css">${noscriptStyle}<script type="module" src="${esc(base)}assets/site.mjs"></script></head><body data-page-id="${esc(id)}" data-page-title="${esc(title)}" data-base="${esc(base)}"><a class="skip-link" href="#main">Skip to content</a><noscript><p class="noscript-note">Lessons and navigation are available without JavaScript. Search, progress, legacy link redirects, and interactive labs require JavaScript.</p></noscript>${siteHeader(base)}${chrome.search}<progress id="reading-progress" value="0" max="100" aria-label="Reading progress"></progress><p id="site-status" class="visually-hidden" role="status" aria-live="polite"></p><div class="site-layout"><aside id="sidebar" class="sidebar">${sidebar(tree, source)}</aside><main id="main" class="lesson"><article>${html}</article><footer class="lesson-footer">${isLesson(source) ? lessonProgress(base) : ""}<nav class="lesson-pager" aria-label="Lesson progression">${prev ? `<a rel="prev" href="${esc(prev.href)}"><small>Previous</small><span>${esc(prev.label)}</span></a>` : ""}${next ? `<a rel="next" href="${esc(next.href)}"><small>Next</small><span>${esc(next.label)}</span></a>` : ""}</nav><p class="lesson-source"><a href="https://github.com/FRC1257/robotics-training/edit/main/docs/${source.split("/").map(encodeURIComponent).join("/")}">Edit this lesson</a> · <a href="https://raw.githubusercontent.com/FRC1257/robotics-training/main/docs/${source.split("/").map(encodeURIComponent).join("/")}">View source</a></p></footer></main><aside class="toc">${tocHtml}</aside></div>${chrome.footer}</body></html>`;
 }
 export function buildSite({
   base = process.env.SITE_BASE || "/robotics-training/",
@@ -380,13 +570,20 @@ export function buildSite({
     entries = allEntries.filter((e) => e.href),
     catalog = readCatalog(),
     md = makeMarkdown(),
+    context = { labs: readLabs(), provenance: readProvenance() },
+    sections = new Set([
+      "labs",
+      ...sources.filter((s) => s.includes("/")).map((s) => s.split("/")[0]),
+    ]),
+    chrome = { search: searchDialog(base, sections), footer: siteFooter(base) },
+    titles = {},
     routeMap = {},
     search = [],
     urls = [];
   for (const source of sources) {
     const markdown = fs.readFileSync(path.join(docs, source), "utf8"),
       title = titleOf(markdown, source),
-      article = renderArticle(md, markdown, source, base, catalog),
+      article = renderArticle(md, markdown, source, base, catalog, context),
       description =
         article.text.slice(0, 157).trim() || `Team 1257 training: ${title}`,
       idx = entries.findIndex((e) => e.source === source),
@@ -406,8 +603,10 @@ export function buildSite({
         tree,
         prev,
         next,
+        chrome,
       }),
     );
+    titles[source] = title;
     for (const route of legacyRoutes(source))
       routeMap[route] = hrefFor(source, base);
     search.push({
@@ -439,7 +638,12 @@ export function buildSite({
     if (file.startsWith("labs/") && file.endsWith(".html"))
       fs.writeFileSync(
         dest,
-        decorateLab(fs.readFileSync(path.join(docs, file), "utf8"), file, base),
+        decorateLab(
+          fs.readFileSync(path.join(docs, file), "utf8"),
+          file,
+          base,
+          context.provenance.labs.has(file),
+        ),
       );
     else fs.copyFileSync(path.join(docs, file), dest);
   }
@@ -450,6 +654,7 @@ export function buildSite({
       fs.readFileSync(path.join(docs, source), "utf8"),
     ).document;
     const title = document.querySelector("h1")?.textContent || source;
+    titles[source] = title;
     const text =
       document.querySelector("main")?.textContent.replace(/\s+/g, " ").trim() ||
       "";
@@ -474,6 +679,11 @@ export function buildSite({
       )
         fs.copyFileSync(path.join(platform, file), path.join(assetDir, file));
   }
+  // Small id → title map so the footer can name the next activity without the search index.
+  fs.writeFileSync(
+    path.join(assetDir, "lesson-titles.json"),
+    JSON.stringify(titles),
+  );
   const katexDist = path.join(root, "node_modules/katex/dist");
   fs.copyFileSync(
     path.join(katexDist, "katex.min.css"),
@@ -494,7 +704,7 @@ export function buildSite({
   fs.cpSync(path.join(katexDist, "fonts"), path.join(assetDir, "fonts"), {
     recursive: true,
   });
-  fs.writeFileSync(path.join(outDir, "404.html"), notFound(base));
+  fs.writeFileSync(path.join(outDir, "404.html"), notFound(base, chrome));
   const origin = (
     process.env.SITE_ORIGIN || "https://frc1257.github.io"
   ).replace(/\/$/, "");

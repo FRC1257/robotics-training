@@ -1,3 +1,5 @@
+<!-- ai-assisted -->
+
 # Choose a reliable reference
 
 Use this library for projects and team context; use matching official documentation to resolve APIs, configuration and rules.

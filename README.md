@@ -17,18 +17,18 @@ npm run dev
 
 Open `http://localhost:4173`. Lessons are statically generated from Markdown; no backend or account is needed. Run `npm run build` to generate production output for `/robotics-training/`. Set `SITE_BASE=/` for a root deployment or `SITE_ORIGIN` for a different origin. Do not edit generated `dist/` files.
 
-The robot starter has its own Gradle wrapper and eleven behavior/model tests. Follow its README. GitHub Actions runs model/content/Java checks plus desktop/mobile browser tests and retains real screenshots. Local browser execution depends on the environment's browser permissions.
+The robot starter has its own Gradle wrapper and sixteen behavior/model tests. Follow its README. GitHub Actions runs model/content/Java checks plus desktop/mobile browser tests and retains real screenshots. Local browser execution depends on the environment's browser permissions.
 
 ## How it works
 
-- `docs/`: Markdown lessons, standalone labs and source media. Historical examples are labeled.
+- `docs/`: Markdown lessons, embedded/standalone labs and source media. Historical examples are labeled.
 - `platform/`: shared styles, local search, progress, knowledge checks and curated paths.
 - `scripts/build-site.mjs`: HTML, code highlighting, math, metadata, sitemap, search index and legacy route generation.
 - `tests/`: numerical, routing, search, progress and browser behavior checks.
 - `examples/`: independently runnable Java exercises and the WPILib simulation starter.
 - `research_sources/`: pinned code/log/media provenance, textbook adaptations and link-check evidence.
 
-Search ranks topics and code identifiers, expands robotics synonyms, tolerates bounded spelling errors, provides contextual snippets and demotes historical material. Search queries stay in the browser. Learning progress is local, exportable and importable; it does not certify hardware competence. Knowledge checks include explanations and links to the matching lessons. PostHog configuration is deferred at the user's request; no tracking is initialized.
+Search ranks topics and code identifiers, expands robotics synonyms, tolerates bounded spelling errors, provides contextual snippets and demotes historical material. Search queries stay in the browser. Opening a lesson marks it visited/completed automatically; the check icon can toggle that state. Learning progress is local, exportable and importable; it does not certify hardware competence. Knowledge checks include explanations and links to the matching lessons. PostHog configuration is deferred at the user's request; no tracking is initialized.
 
 Old Docsify hash links are mapped to generated pages. The source shell and vendored compatibility runtime remain in `docs/` for historical tooling; they are excluded from the published static output. The current platform uses local assets and renders lesson text without JavaScript.
 

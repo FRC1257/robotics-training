@@ -1,3 +1,5 @@
+<!-- ai-assisted -->
+
 # Explore a concept in the browser
 
 Each lab pairs a question with controls, a visual result, and numbers you can inspect. Start with a prediction before changing a setting. Explain the result to another student and connect it to the matching code example.

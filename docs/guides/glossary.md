@@ -1,3 +1,5 @@
+<!-- ai-assisted -->
+
 # Robotics vocabulary
 
 | Term | Working definition |

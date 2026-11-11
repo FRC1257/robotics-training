@@ -1,3 +1,5 @@
+<!-- ai-assisted -->
+
 # Your first weeks on the programming team
 
 You do not need a robot to begin. Work through a short project, explain it to another student, then use the simulator to test behavior.

@@ -11,4 +11,6 @@ The last argument reserves the intake; `runEnd` also provides a stop action when
 
 **Exercise:** start the command and disable early. Expected: output returns to zero. Start another command requiring the same subsystem and explain why the scheduler interrupts the first. If a motor would keep running, inspect `end`/`runEnd` and requirements. See [WPILib commands](https://docs.wpilib.org/en/stable/docs/software/commandbased/commands.html).
 
+<!-- lab: scheduler -->
+
 [Archived original lesson](../archive/Making_Commands_legacy.md) (historical APIs; unverified).

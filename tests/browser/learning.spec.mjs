@@ -20,7 +20,7 @@ test("home, legacy navigation, search and local progress work", async ({
   await expect(page.locator("main h1")).toHaveText(
     "Team 1257 Robotics Training",
   );
-  await expect(page.locator("[data-path-id]")).toHaveCount(4);
+  await expect(page.locator("[data-path-id]")).toHaveCount(6);
   await expect(page.locator("#search-open svg")).toBeVisible();
   await expect(page.locator("#search-open")).toHaveText("");
   await expect(page.locator(".top-nav")).toHaveCount(0);
@@ -59,6 +59,9 @@ test("home, legacy navigation, search and local progress work", async ({
   await expect(page).toHaveURL(/guides\/start-here.html/);
   await expect(page.locator("article h1")).toContainText("first weeks");
   const complete = page.locator("#complete-lesson");
+  await expect(complete).toHaveAttribute("aria-pressed", "true");
+  await complete.click();
+  await expect(complete).toHaveAttribute("aria-pressed", "false");
   await complete.click();
   await expect(complete).toHaveAttribute("aria-pressed", "true");
   await page.reload();
@@ -179,7 +182,6 @@ for (const lab of [
       );
       await expect(page.locator("#rows tr")).toHaveCount(29);
     }
-    await page.locator("#complete-lesson").click();
     await expect(page.locator("#complete-lesson")).toHaveAttribute(
       "aria-pressed",
       "true",

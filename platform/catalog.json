@@ -73,6 +73,46 @@
       ]
     },
     {
+      "id": "software-architecture",
+      "title": "Software architecture: IO, replay, and calibration",
+      "description": "Separate hardware from behavior, build repeatable simulation, and validate calibration and sensor data.",
+      "estimatedMinutes": 360,
+      "outcomes": [
+        "Inject real, simulated and replay inputs without rewriting mechanism behavior",
+        "Build a bounded interpolation table and explain its measurement limits",
+        "Test timing, state and invalid sensor handling"
+      ],
+      "lessons": [
+        "frc/6-Architecture/1-IO_Interfaces.md",
+        "frc/6-Architecture/2-Simulation_IO.md",
+        "frc/6-Architecture/3-Logging_Replay.md",
+        "frc/6-Architecture/4-Interpolation_Tables.md",
+        "frc/6-Architecture/6-Timing_And_State.md",
+        "frc/6-Architecture/7-Filtering_And_Validity.md",
+        "frc/6-Architecture/5-Integration_Project.md"
+      ]
+    },
+    {
+      "id": "robot-types",
+      "title": "Programming by robot type",
+      "description": "Translate a robot role and mechanism layout into sensors, control goals, command ownership and failure handling.",
+      "estimatedMinutes": 360,
+      "outcomes": [
+        "Compare chassis aiming with turret aiming and elevators with telescoping arms",
+        "Map all fifteen research concepts to explicit software contracts",
+        "Specify simulation and failure tests for a chosen architecture"
+      ],
+      "lessons": [
+        "robot-types/fixed-shooter.md",
+        "robot-types/turret-shooter.md",
+        "robot-types/piece-handling.md",
+        "robot-types/elevator-wrist.md",
+        "robot-types/telescoping-arm.md",
+        "robot-types/drivetrain.md",
+        "robot-types/climb-balance.md"
+      ]
+    },
+    {
       "id": "team-integration",
       "title": "Team integration: build, investigate, and communicate",
       "description": "Bring electrical, mechanical, programming, strategy, and safety perspectives into a shared review.",

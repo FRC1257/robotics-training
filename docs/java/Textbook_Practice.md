@@ -1,3 +1,5 @@
+<!-- ai-assisted -->
+
 # Java practice: predict, run, explain
 
 **Prerequisites:** Java basics, control flow and classes. **Time:** 45–60 minutes. These exercises adapt the sequence in the supplied *1257 Parallel Universe Programming 2026–2027*, pages 6–7 and 11; their code and answers below were written for this course.

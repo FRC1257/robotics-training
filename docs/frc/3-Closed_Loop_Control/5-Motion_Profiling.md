@@ -28,6 +28,8 @@ There are various types of motion profiles, but the most basic one that we will 
 
 Sometimes, the distance we need to go is so short that we don't have time to go to a cruising velocity. We can instead use a triangular motion profile instead, which is just where $t_c = 0$, or we spend no time cruising. Instead, halfway through our motion, we go straight from accelerating to deccelerating.
 
+<!-- lab: motion -->
+
 We don't actually have to worry about generating these profiles alone, since WPILib provides the `TrapezoidProfile` class to handle all of these calculations for us. However, I'm going to take a dive into deriving these physics below. Feel free to skip it if you're not interested.
 
 ### Physics of Generating Trapezoidal Profiles

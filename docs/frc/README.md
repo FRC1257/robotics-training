@@ -1,35 +1,40 @@
-# FRC Programming
+<!-- ai-assisted -->
+# FRC robot programming
 
-***If you haven't gone through the Java tutorials yet, go through those first.***
+Start here after you can write a Java class, call methods, use an interface, and explain a loop. The goal is to turn driver requests into predictable robot behavior, then use measurements and tests to explain that behavior.
 
-## Libraries
+## Start with one working mechanism
 
-To program robots, we use a combination of Java and WPILib. Essentially, there is a lot of code that goes into programming robots, most of which is incredibly complicated and time-consuming. As a result, to help access things like motors, time things like the different robot periods, and manage complicated procedures like PID, we use already written code. All of this code is compiled into something called a library called WPILib.
+1. [Set up the programming tools](1-Basics/1a-Setup.md).
+2. Read [command-based programming](1-Basics/4a-Command_Based.md) and [architecture](1-Basics/4b-Architecture.md).
+3. Build the [first simulated subsystem](1-Basics/5-First_Subsystem.md). Run its tests before adapting it to hardware.
+4. Explore [sensors](2-Sensors_And_Shuffleboard/1-Overview.md), [closed-loop control](3-Closed_Loop_Control/1-Overview.md), and [autonomous](4-Autonomous/1-Overview.md).
 
-## WPILib
+The included starter pins **Java 17 and WPILib 2026.2.1** so the examples have a reproducible environment. Season-specific vendor APIs and older team code have different requirements. Follow each lesson's version notes instead of mixing snippets from different years.
 
-WPILib contains a lot of classes that help with managing motors, sensors, and sync your robot. They also give different structures for maintaining the flow of the robot program.
+## Separate behavior from devices
 
-[More Details](https://docs.wpilib.org/en/latest/docs/software/wpilib-overview/what-is-wpilib.html)
+Once one subsystem works, learn how teams keep the same behavior while changing its source of measurements and outputs:
 
-[WPILib Documentation](https://docs.wpilib.org/en/latest/index.html)
+- [IO interfaces and dependency injection](6-Architecture/1-IO_Interfaces.md): where `SubsystemIO` fits and what it owns.
+- [Simulation IO](6-Architecture/2-Simulation_IO.md): implementing `SubsystemIOSim`, time steps, and model limits.
+- [Logging and replay](6-Architecture/3-Logging_Replay.md): input snapshots, timestamps, and reproducibility.
+- [Interpolation tables](6-Architecture/4-Interpolation_Tables.md): turning measured calibration data into a bounded lookup.
+- [Integration project](6-Architecture/5-Integration_Project.md): connect the pieces and verify their contracts.
+- [Timing and state](6-Architecture/6-Timing_And_State.md): deterministic logic and explicit transitions.
 
-[Javadocs Documentation](https://github.wpilib.org/allwpilib/docs/release/java/)
+These IO names describe a design pattern, not a required WPILib superclass. The lessons distinguish ordinary Java/WPILib examples from AdvantageKit-specific APIs.
 
-## Programming Environment
+- [Filtering and validity](6-Architecture/7-Filtering_And_Validity.md): noise, delay, hysteresis, and stale measurements.
 
-For robot programming, we use something called Visual Studio Code, which offers a lot of features as well as the ability to compile and deploy robot code (if you install the WPILib extension). However, for learning it is essential for you to get as much practice as possible on your own, so if you do not have a computer available we can use direct editing in GitHub with our robot template. We will go over how to make a template project from this in the Basics section.
+## Read actual team code
 
-## About Import Statements
+The [2026 robot walkthrough](../robots/2026-code.md) traces interfaces, subsystem periodic updates, logging and simulation in a pinned Team 1257 revision. Compare it with the [2025 walkthrough](../robots/2025-code.md) and investigate [a real 2024 log](../robots/2024-log.md). Code shows what was implemented; it does not establish that a mechanism performed successfully at an event.
 
-In this section, there will be a lot of `import` statements that pull code from other sections. In some code examples, we may have all of the required `import` statements, in some we may have too many, and in some we may have too few. We won't pay particular attention to this because when we program the robot, peer-review it, and check it, we will have IDEs that can automatically generate these `import` statements.
+## Use documentation while you program
 
-## Examples
+[WPILib](https://docs.wpilib.org/en/stable/docs/software/wpilib-overview/what-is-wpilib.html) provides robot program structure, device interfaces, control math, simulation and testing support. Vendor libraries add device-specific APIs. The [WPILib Java reference](https://github.wpilib.org/allwpilib/docs/release/java/) gives exact method signatures.
 
-One of the best ways to learn robot programming is to try stuff out and look at examples. I would strongly recommend that you look at our previous robot code going back to 2020 since those are the best examples we have of our current programming architecture and style.
+Runnable examples include their imports and dependencies. Your editor can suggest imports, but check the package and API version: two classes with similar names can have different behavior. A compile error is useful evidence about the example's contract, rather than something to hide with a different import.
 
-[2023 Robot](https://github.com/FRC1257/2023-Robot/tree/master)
-[2022 Robot](https://github.com/FRC1257/2022-Robot/tree/master)
-[2020 Robot](https://github.com/FRC1257/2020-Robot/tree/master)
-[Example Subsystems](https://github.com/FRC1257/training-programs)
-
+Use the [debugging playbooks](../guides/troubleshooting.md) when observed behavior differs from your prediction, and use the [mentor guide](../guides/mentors.md) to review an exercise with someone else.
