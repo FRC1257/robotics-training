@@ -17,6 +17,7 @@ jobs:
           cache: npm
       - run: npm ci --ignore-scripts
       - run: npm run check
+      - run: npm run build
   robot-starter:
     runs-on: ubuntu-latest
     steps:
@@ -25,6 +26,7 @@ jobs:
         with:
           distribution: temurin
           java-version: '17'
+      - run: python3 scripts/check-java.py
       - run: ./gradlew test
         working-directory: examples/robot-starter
   browser:
@@ -37,7 +39,7 @@ jobs:
           cache: npm
       - run: npm ci --ignore-scripts
       - run: npx playwright install --with-deps chromium
-      - run: npx playwright test
+      - run: npm run test:browser
       - uses: actions/upload-artifact@v4
         if: always()
         with:

@@ -1,6 +1,6 @@
 # 2026 simulation starter
 
-Java 17, Gradle 8.11 wrapper, GradleRIO/WPILib 2026.2.1 and WPILib New Commands (vendordep file); no third-party vendor libraries. The wrapper, settings and commands vendordep derive from [Team 1257's 2026 project at 0c9a024](https://github.com/FRC1257/2026-Robot/tree/0c9a024dec1f58648d573ce26fcfd02639c5ca66). The starter has no deploy configuration or hardware access. It models requested intake output only, not motor physics.
+Java 17, Gradle 8.11 wrapper, GradleRIO/WPILib 2026.2.1 and WPILib New Commands (vendordep file); no third-party vendor libraries. The wrapper, settings and commands vendordep derive from [Team 1257's 2026 project at 0c9a024](https://github.com/FRC1257/2026-Robot/tree/0c9a024dec1f58648d573ce26fcfd02639c5ca66). The starter has no deploy configuration or hardware access. The intake models requested output only. A separate autonomous exercise models ideal swerve kinematics without motors or sensors.
 
 Install the 2026 WPILib tools and JDK 17. From a terminal, clone the training repository and enter the starter directory:
 
@@ -21,3 +21,21 @@ On Windows use `gradlew.bat`. In the simulated Driver Station enable the robot. 
 On November 10, 2026, `./gradlew build` passed on macOS with Temurin 17.0.18. Tests check clamping, timeout, cancellation, conflicting requirements and disabling. `simulateJava` initialized the GUI and robot program on the same machine; the dashboard interaction was not exercised. This does not verify a physical robot. See [the lesson](../../docs/frc/1-Basics/5-First_Subsystem.md) for the task and troubleshooting.
 
 See [third-party notices and licenses](gradle/NOTICE.md) for the wrapper and WPILib vendordep.
+
+## Ideal autonomous exercise
+
+From this directory run:
+
+```sh
+./gradlew test --tests frc.robot.IdealAutoTest.reportRun --rerun-tasks
+```
+
+On Windows substitute `gradlew.bat`. The report on the verified Java 17 build is:
+
+```text
+Ideal auto: trajectory 3.00 s; final pose x=2.000 m y=0.000 m heading=0.00 deg; peak module speed=1.114 m/s
+```
+
+`IdealHolonomicAuto` generates a two-meter rest-to-rest trajectory, starts the robot at (−0.25 m, +0.30 m, +20°), and corrects toward the path with WPILib's holonomic controller. Every 20 ms it converts the commanded robot-relative chassis speeds to swerve states, caps module speeds at 1.5 m/s, converts them back and integrates the ideal chassis motion. The run includes two seconds of feedback after the trajectory ends. `./gradlew test` also checks endpoints, a field-to-robot frame transformation, a correction at 90°, offset recovery and a case that reaches the wheel-speed cap. See the [guided project](../../docs/frc/1-Basics/Modern_Drivetrain_Project.md) for predictions and a troubleshooting exercise.
+
+This is an automated numerical exercise, separate from the intake dashboard button. Module states are assumed to be realized immediately. There is no steering delay, acceleration/voltage/current limit, slip, gyro or encoder noise, odometry drift, vision, path obstacles or hardware; the printed pose is simulated truth, not an estimated or measured pose. Do not use these gains or the result as hardware validation.

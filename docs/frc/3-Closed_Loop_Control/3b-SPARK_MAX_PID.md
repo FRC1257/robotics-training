@@ -2,7 +2,7 @@
 
 # SPARK MAX PID
 
-With the SPARK MAX PID system, the process is a bit different, but not too complicated. We first create a `CANPIDController` object from the SPARK MAX motor object, and then we assign it a setpoint to reach. Then, the onboard controller will do the calculations to arrive at the setpoint with the loaded constants. We will go over this in detail next. Click [here](http://www.revrobotics.com/content/sw/max/sw-docs/java/com/revrobotics/CANPIDController.html) to find the documentation on the `CANPIDController`.
+With the SPARK MAX PID system, the process is a bit different, but not too complicated. We first create a `CANPIDController` object from the SPARK MAX motor object, and then we assign it a setpoint to reach. Then, the onboard controller will do the calculations to arrive at the setpoint with the loaded constants. We will go over this in detail next. The linked [current closed-loop documentation](https://docs.revrobotics.com/revlib/spark/closed-loop) uses newer APIs; consult the [2025 migration guide](https://docs.revrobotics.com/revlib/archive/24-to-present) before adapting this historical example.
 
 First, we need to do the same as the `PIDController` implementation by creating our constants.
 
@@ -95,7 +95,7 @@ public class Elevator extends SnailSubsystem {
 }
 ```
 
-**Quick Note: if you have two different set of PID gains (constants), you can specify an optional parameter after each constant to add the PID slot that you want to use. This allows you to switch between constants if you need to use that feature. Read the [documentation](http://www.revrobotics.com/content/sw/max/sw-docs/java/com/revrobotics/CANPIDController.html) for more info.**
+**Quick Note: if you have two different set of PID gains (constants), you can specify an optional parameter after each constant to add the PID slot that you want to use. This allows you to switch between constants if you need to use that feature. Current [slot configuration documentation](https://docs.revrobotics.com/revlib/spark/closed-loop) uses newer REVLib APIs.**
 
 Next, we need to make our `update()` function with the `PID` state. The main difference here is that to make the SPARK MAX start using PID, we go to the `CANPIDController` and just tell it where we want to go. It handles everything else.
 

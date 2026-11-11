@@ -1,6 +1,6 @@
-# Learn to program a robot
+# Team 1257 Robotics Training
 
-Welcome to Team 1257's training library. Start with a small working project, experiment with a concept, and learn to explain what the robot is doing.
+Team 1257's handbook for programming competition robots. Start with a small working project, experiment with a concept, and learn to explain what the robot is doing.
 
 ## Choose your next step
 
@@ -12,6 +12,21 @@ Welcome to Team 1257's training library. Start with a small working project, exp
 | Working on the team robot | [Real robot case studies](robots/README.md) | A source-backed code trace or log investigation |
 | Something is broken | [Debugging playbooks](guides/troubleshooting.md) | A reproducible symptom and evidence for the next check |
 | Teaching or reviewing work | [Mentor guide](guides/mentors.md) | A practical review of student understanding |
+
+## Curriculum
+
+- [Java](java/README.md): basics, control flow, functions and objects, each with practice programs.
+- [FRC robot programming](frc/README.md): setup, motors, command-based subsystems, sensors, closed-loop control and autonomous.
+- [Git and GitHub](git/README.md): version control for team code.
+- [Vision](vision/README.md): PhotonVision, Limelight and WPILibPi.
+- [Robot foundations](foundations/README.md): power, signals, mechanisms, strategy and safety.
+- [Documentation](documentation/README.md) and [the team website](website/README.md): maintaining this library and frc1257.org.
+
+## Learning paths
+
+<!-- learning-paths -->
+
+Each path links to your next unfinished activity in this browser. [Learning paths](guides/learning-paths.md) lists every activity and has the progress export and import tools.
 
 ## Try an idea before wiring hardware
 

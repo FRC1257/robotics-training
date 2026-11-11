@@ -1,0 +1,20 @@
+[
+  {
+    "file": "docs/media/screenshots/pid-mobile.png",
+    "sha256": "751d051955aef39f0a7cc616b46b00cfbb657a52d34d3e1fbe40d04017dc073f",
+    "source": "https://github.com/FRC1257/robotics-training/actions/runs/42945983264",
+    "source_revision": "9ea99c1762c86f703e14f749bd0b5b62f327e659",
+    "capture_method": "Playwright Chromium in GitHub Actions, actual rendered app, unedited full-page screenshot",
+    "license": "MIT, this repository original application UI",
+    "note": "Captured before static platform migration; screenshot demonstrates the lab UI at this revision."
+  },
+  {
+    "file": "docs/media/screenshots/swerve-desktop.png",
+    "sha256": "4646a11bbef915607b2f78d31a8e0eea321450b02526e674953ca2c35921e3a2",
+    "source": "https://github.com/FRC1257/robotics-training/actions/runs/42945983264",
+    "source_revision": "9ea99c1762c86f703e14f749bd0b5b62f327e659",
+    "capture_method": "Playwright Chromium in GitHub Actions, actual rendered app, unedited full-page screenshot",
+    "license": "MIT, this repository original application UI",
+    "note": "Captured before static platform migration; screenshot demonstrates the lab UI at this revision."
+  }
+]

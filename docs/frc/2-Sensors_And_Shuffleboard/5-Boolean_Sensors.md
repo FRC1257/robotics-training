@@ -1,88 +1,20 @@
-> **Historical lesson:** This material predates the 2026 course and may use older WPILib, vendor APIs, team wrappers, and game rules. Its original version is not verified here. Do not copy its robot code into a 2026 project without migration and mentor review. Start with [the 2026 subsystem lesson](../1-Basics/5-First_Subsystem.md).
+# Boolean sensors and polarity
 
-# Boolean Sensors
+**Prerequisites:** electrical signals, Java booleans and the [encoder lab](../../labs/encoder.html). **Time:** 25 minutes. A digital input reads an electrical logic level; the physical meaning depends on the sensor, wiring and pull-up or pull-down configuration. A normally open switch wired to ground on a pull-up input commonly reads `false` when pressed, but this is an example, not a universal rule. A break-beam output's polarity likewise depends on its device and wiring. Consult its documentation and verify both states with a mentor before commanding a mechanism.
 
-We will go over two types of sensors that return `boolean` (true/false) values: limit switches and break beam sensors.
+## Interpret a switch
 
-## Limit Switch
-
-A sensor that we frequently use is a limit switch, which is essentially either a mechanical or magnetic switch that triggers when something happens.
-
-There are a great variety of switches, but one that we have used in the past is a bump switch, which looks something like this:
-
-![VEX Bump Switch](img/bumpswitch.jpg ':size=300x300')
-
-When the switch is pressed, the sensor will return `true` and when not, the sensor will return `false`.
-
-## Break Beam Sensors
-
-Break beam sensors are another type of sensor that essentially create an invisible beam between a transmitter and a receiver. When the beam is not broken, the sensor returns `true` and when it is, the sensor returns `false`.
-
-## Programming
-
-The way that we use these two sensors (and pretty much all sensors that return booleans) is that we use a class from WPILib called `DigitalInput`. To do so, we first need to know the DIO part on the RoboRIO that the sensor is plugged into. We can get this information from the electronics and it will most of the time be somewhere from 0 through 2.
-
-We simply need to make a `DigitalInput` object inside of our subsystem's class and pass in the ID in the constructor.
+For an explicitly verified active-low input only:
 
 ```java
-import static frc.robot.Constants.ElectricalLayout.*;
-
-public class Arm extends SnailSubsystem {
-    ...
-
-    DigitalInput limitSwitchBottom;
-
-    public Arm () {
-        limitSwitchBottom = new DigitalInput(ARM_LIMIT_SWITCH_PORT_ID); // port defined in Constants
-    }
-}
+boolean rawHigh = limitSwitch.get();  // DigitalInput; electrical level
+boolean pressed = !rawHigh;           // this wiring only
 ```
 
-Then, if we want to access it, we can use `limitSwitchBottom.get()`, which will return the boolean as dictated above.
+This is an excerpt requiring a project-defined `DigitalInput`, not a complete robot program. For active-high wiring use `pressed = rawHigh`. Label and log both the raw level and interpreted state. Test switch released and pressed with motors disabled; test an unplugged wire as well because some wiring can appear pressed or unpressed on a fault. A switch reading alone does not prove a mechanism is safe or homed.
 
-```java
-public class Arm extends SnailSubsystem {
-    ...
+## Limits and homing
 
-    @Override
-    public void displayShuffleboard() {
-        SmartDashboard.putBoolean("Arm Limit Switch Bottom", limitSwitchBottom.get());
-    }
-}
-```
+Once polarity and motion direction are confirmed, a reviewed control can prevent movement *toward* the limit while permitting movement away. Define explicit fail-safe behavior for disconnected, stuck or contradictory switches, and use appropriate independent hardware protections. A switch edge can establish a reference only if it corresponds to a known physical position; account for hysteresis, bounce and repeatability. See [zeroing sensors](8-Zeroing_Sensors.md).
 
-> [!WARNING]
-> Remember that the limit switch and the break beam sensors have different conditions for when they return true or not. The limit switch returns true if something is touching it, while the breakbeam sensor returns true if someone is NOT in contact.
-
-## Usage
-
-One way we use limit switches a lot is to limit the motion of our mechanisms. For instance, we don't want our arm to move too far down against a mechanical stop since then it will stall the motor and potentially destroy it. As a result, we put a limit switch at the bottom to prevent the arm from going downwards when it is already at the bottom.
-
-We did this on our 2019 robot, which is pictured below (the bump switch ended up going right below where the purple sticker says "Boat," in the circled area, so that the intake arm would rest on the switch at its lowest position. We did not have the switch on this iteration of the robot).
-
-![2019 Robot](img/2019robot.jpg ':size=900x600')
-
-We programmed it like the following:
-
-```java
-public class Arm extends SnailSubsystem {
-    ...
-
-    private double speed;
-
-    private DigitalInput limitSwitchBottom;
-
-    public Arm() {
-        limitSwitchBottom = new DigitalInput(ARM_LIMIT_SWITCH_BOT_ID);
-    }
-
-    @Override
-    public void update() {
-        if(speed < 0 && limitSwitchBottom.get()) {
-            speed = 0; // prevent arm from moving down while the limit switch is pressed
-        }
-
-        // do stuff with the speed variable
-    }
-}
-```
+**Exercise:** with active-low wiring, raw `true` means not pressed and raw `false` means pressed. Verify this truth table in the encoder lab; change to active-high and predict the result before checking. If the result seems inverted, review wiring and measured voltage before changing software. A pressed limit should inhibit further motion toward it, not necessarily motion away. Source: [WPILib digital inputs](https://docs.wpilib.org/en/stable/docs/software/hardware-apis/sensors/digital-inputs-software.html).

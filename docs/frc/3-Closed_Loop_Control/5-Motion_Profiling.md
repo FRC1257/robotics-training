@@ -164,12 +164,12 @@ public void update() {
             double positionOutput = positionError * Constants.Elevator.ELEVATOR_PROFILE_P;
 
             // pass the new setpoint into the velocity PID controller and then calcualte
-            velocityPIDController.setSetpoint(desiredVelocity)
+            velocityPIDController.setSetpoint(desiredVelocity);
             double velocityOutput = velocityPIDController.calculate(encoder.getVelocity());
             double velocityFeedforward = desiredVelocity * Constants.Elevator.ELEVATOR_PROFILE_VEL_F;
 
             // add them all up and pass into our motor!
-            motor.set(positionOutput + velocityOutput + velocityFeedforward)
+            motor.set(positionOutput + velocityOutput + velocityFeedforward);
             break;
     }
 }

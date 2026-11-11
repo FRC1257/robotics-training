@@ -10,7 +10,7 @@ A drivetrain is defined as "the group of components that deliver power to the dr
 
 ![Drivetrain](img/drivetrain.png ':size=400x300')
 
-[Source](https://www.simbotics.org/wp-content/uploads/2019/12/simbotseminarseries-drivetraindesign.pdf)
+The image was attributed to an older Simbotics drivetrain presentation; the original presentation link is unavailable. [WPILib differential-drive kinematics](https://docs.wpilib.org/en/stable/docs/software/kinematics-and-odometry/differential-drive-kinematics.html) offers related instruction, but is not the source of this image.
 
 On 1257, we almost always use a normal kitbot 6 wheel tank drive, similar to the one pictured above. On this type of drivetrain, the wheels are fixed and therefore cannot be rotated clockwise nor counterclockwise (unlike a car, where the front wheels can rotate to turn). While this may seem restrictive to movement, it is much easier to both build and program.
 
@@ -31,7 +31,7 @@ We can pass in values (i.e. inputs from the controller's joysticks) into a `Diff
 Then, `DifferentialDrive` will take in these commands, do the math, and then update the motors accordingly to make the robot perform this action.
 
 > [!NOTE]
-> Click [here](https://github.com/wpilibsuite/allwpilib/blob/master/wpilibj/src/main/java/edu/wpi/first/wpilibj/drive/DifferentialDrive.java) for `DifferentialDrive`'s source code.
+> Click [here](https://github.com/wpilibsuite/allwpilib/blob/c89401250fbd412ba050f595551d0a451b7307a2/wpilibj/src/main/java/edu/wpi/first/wpilibj/drive/DifferentialDrive.java) for `DifferentialDrive`'s source code.
 
 This is what we have so far in our file, with all the appropriate import statements:
 
@@ -87,13 +87,13 @@ The state we introduced above can be considered the "operating mode" or "configu
         backLeftMotor = new CANSparkMax(DRIVE_BACK_LEFT, MotorType.kBrushless);
         backRightMotor = new CANSparkMax(DRIVE_BACK_RIGHT, MotorType.kBrushless);
 
-        backLeftMotor.follow(frontLeftMotor);
-        backRightMotor.follow(frontRightMotor);
-
         frontLeftMotor.restoreFactoryDefaults();
         frontRightMotor.restoreFactoryDefaults();
         backLeftMotor.restoreFactoryDefaults();
         backRightMotor.restoreFactoryDefaults();
+
+        backLeftMotor.follow(frontLeftMotor);
+        backRightMotor.follow(frontRightMotor);
 
         frontLeftMotor.setSmartCurrentLimit(NEO_CURRENT_LIMIT);
         frontRightMotor.setSmartCurrentLimit(NEO_CURRENT_LIMIT);
@@ -117,7 +117,7 @@ In the constructor, we'll take all our declarations and initialize them. Most of
 
 1. Initialize each motor with respective ID variables, and set the brushed/brushless mode with `MotorType.kBrushless`.
 2. Use `restoreFactoryDefaults()` to reset any of the motors' internal settings.
-3. Use `setSmartCurrentLimit()` to apply the appropriate current limit value (for NEOs, we generally do 80 amps)
+3. Use `setSmartCurrentLimit()` to apply the appropriate current limit value (the correct value depends on the motor, controller, wiring and mechanism; have a mentor review it)
 4. Set the front two motors to brake mode and back two motors to coast mode with `setIdleMode()`.
 5. Initialize the `DifferentialDrive` object by passing in the two front motors (front left and then front right), and then set driving speeds to 0.
 
@@ -167,7 +167,7 @@ As of right now, we have declared and initialized everything, and added the `upd
         this.speedForward = speedForward;
         this.speedTurn = speedTurn;
 
-        state = defaultState;
+        state = State.MANUAL;
     }
 ```
 With this, we can modify the driving speeds using passed-in values, and then change the state to the default state (manual control).

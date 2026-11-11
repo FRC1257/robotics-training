@@ -1,0 +1,18 @@
+{
+  "title": "1257 Parallel Universe Programming 2026\u20132027",
+  "source": "User-supplied Copy of 1257 Programming Textbook.pdf",
+  "pages": 44,
+  "bytes": 4149096,
+  "sha256": "94451257d2a67e1bd9b462bc55b715c84a749dbf71f4522efd549d7b76fc677b",
+  "review_date": "2026-11-10",
+  "use": "Corrected exercise sequence and team architecture context. Original PDF not redistributed.",
+  "adaptations": [
+    "docs/java/Textbook_Practice.md",
+    "docs/guides/resources.md"
+  ],
+  "review_notes": [
+    "Java primitive generic arguments must use wrapper types, e.g. Integer.",
+    "Motion profiling does not guarantee zero overshoot or hardware protection.",
+    "Controls and vendor details cross-checked against primary sources and pinned team code."
+  ]
+}

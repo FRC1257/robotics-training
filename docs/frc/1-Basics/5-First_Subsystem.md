@@ -1,6 +1,6 @@
 # First subsystem: simulated intake
 
-**Prerequisites:** [architecture](4b-Architecture.md), Java methods and lambdas. **Time:** 45 minutes. **Baseline:** Java 17, WPILib 2026.2.1. This exercise has no physical motor. Follow the [starter README](https://github.com/FRC1257/robotics-training/tree/master/examples/robot-starter) to build and run it.
+**Prerequisites:** [architecture](4b-Architecture.md), Java methods and lambdas. **Time:** 45 minutes. **Baseline:** Java 17, WPILib 2026.2.1. This exercise has no physical motor. Follow the [starter README](https://github.com/FRC1257/robotics-training/tree/main/examples/robot-starter) to build and run it.
 
 Open `SimIntake.java`: it extends `SubsystemBase`, stores an output in the range −1 to 1, and publishes it from `periodic`. Open `Robot.java`: the scheduler runs every robot loop, and the command uses `runEnd` with the intake as a requirement. It starts at 0.5 and stops at timeout or interruption. Disabled initialization also stops the output. No motor, sensor, or plant dynamics are modeled.
 

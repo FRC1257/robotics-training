@@ -1,0 +1,5096 @@
+{
+  "generated_at_utc": "2026-11-11T02:30:57.505729+00:00",
+  "method": {
+    "workers": 6,
+    "timeout_seconds": 12,
+    "request": "GET; fragments removed; 404/410 retried once",
+    "scope": "Markdown destinations, bare URLs, and HTML href/src references in docs; vendor excluded; archived pages flagged",
+    "security": "URLs with credentials, sensitive query keys, localhost or non-global IP literals omitted; sensitive redirects suppressed"
+  },
+  "skipped_sensitive_or_invalid_occurrences": 1,
+  "results": [
+    {
+      "request_url": "http://programmingbydoing.com/",
+      "occurrences": [
+        {
+          "path": "docs/java/README.md",
+          "line": 8,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:48.546780+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "http://programmingbydoing.com/",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "http://tom.preston-werner.com/2009/05/19/the-git-parable.html",
+      "occurrences": [
+        {
+          "path": "docs/git/README.md",
+          "line": 19,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:48.546965+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://tom.preston-werner.com/2009/05/19/the-git-parable.html",
+          "redirects": [
+            {
+              "status": 301,
+              "url": "https://tom.preston-werner.com/2009/05/19/the-git-parable.html"
+            }
+          ]
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "http://www.ctr-electronics.com/control-system.html?p=3",
+      "occurrences": [
+        {
+          "path": "docs/frc/1-Basics/2a-Motors.md",
+          "line": 101,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:48.547040+00:00",
+          "status": 404,
+          "category": "not_found",
+          "final_url": "https://store.ctr-electronics.com/control-system.html?p=3",
+          "redirects": [
+            {
+              "status": 301,
+              "url": "https://www.ctr-electronics.com/control-system.html?p=3"
+            },
+            {
+              "status": 301,
+              "url": "https://store.ctr-electronics.com/control-system.html?p=3"
+            }
+          ]
+        },
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:48.876233+00:00",
+          "status": 404,
+          "category": "not_found",
+          "final_url": "https://store.ctr-electronics.com/control-system.html?p=3",
+          "redirects": [
+            {
+              "status": 301,
+              "url": "https://www.ctr-electronics.com/control-system.html?p=3"
+            },
+            {
+              "status": 301,
+              "url": "https://store.ctr-electronics.com/control-system.html?p=3"
+            }
+          ]
+        }
+      ],
+      "confirmed_not_found": true
+    },
+    {
+      "request_url": "http://www.repl.it",
+      "occurrences": [
+        {
+          "path": "docs/java/1-Basics/1-First_Program.md",
+          "line": 5,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:48.547099+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://replit.com/",
+          "redirects": [
+            {
+              "status": 302,
+              "url": "https://www.replit.com/"
+            },
+            {
+              "status": 301,
+              "url": "https://replit.com/"
+            }
+          ]
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "http://www.revrobotics.com/content/sw/color-sensor-v3/sdk/docs/javadoc/index.html",
+      "occurrences": [
+        {
+          "path": "docs/frc/2-Sensors_And_Shuffleboard/6-Misc_Sensors.md",
+          "line": 14,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:48.547159+00:00",
+          "status": 404,
+          "category": "not_found",
+          "final_url": "https://www.revrobotics.com/content/sw/color-sensor-v3/sdk/docs/javadoc/index.html",
+          "redirects": [
+            {
+              "status": 301,
+              "url": "https://www.revrobotics.com/content/sw/color-sensor-v3/sdk/docs/javadoc/index.html"
+            }
+          ]
+        },
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:49.108092+00:00",
+          "status": 404,
+          "category": "not_found",
+          "final_url": "https://www.revrobotics.com/content/sw/color-sensor-v3/sdk/docs/javadoc/index.html",
+          "redirects": [
+            {
+              "status": 301,
+              "url": "https://www.revrobotics.com/content/sw/color-sensor-v3/sdk/docs/javadoc/index.html"
+            }
+          ]
+        }
+      ],
+      "confirmed_not_found": true
+    },
+    {
+      "request_url": "http://www.revrobotics.com/content/sw/max/sdk/REVRobotics.json",
+      "occurrences": [
+        {
+          "path": "docs/frc/1-Basics/2b-Vendor_Dependencies.md",
+          "line": 18,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:48.547207+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://software-metadata.revrobotics.com/REVLib.json",
+          "redirects": [
+            {
+              "status": 301,
+              "url": "https://software-metadata.revrobotics.com/REVLib.json"
+            }
+          ]
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "http://www.revrobotics.com/content/sw/max/sw-docs/java/com/revrobotics/CANPIDController.html",
+      "occurrences": [
+        {
+          "path": "docs/frc/3-Closed_Loop_Control/3b-SPARK_MAX_PID.md",
+          "line": 5,
+          "historical": false
+        },
+        {
+          "path": "docs/frc/3-Closed_Loop_Control/3b-SPARK_MAX_PID.md",
+          "line": 98,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:48.656747+00:00",
+          "status": 404,
+          "category": "not_found",
+          "final_url": "https://www.revrobotics.com/content/sw/max/sw-docs/java/com/revrobotics/CANPIDController.html",
+          "redirects": [
+            {
+              "status": 301,
+              "url": "https://www.revrobotics.com/content/sw/max/sw-docs/java/com/revrobotics/CANPIDController.html"
+            }
+          ]
+        },
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:49.117986+00:00",
+          "status": 404,
+          "category": "not_found",
+          "final_url": "https://www.revrobotics.com/content/sw/max/sw-docs/java/com/revrobotics/CANPIDController.html",
+          "redirects": [
+            {
+              "status": 301,
+              "url": "https://www.revrobotics.com/content/sw/max/sw-docs/java/com/revrobotics/CANPIDController.html"
+            }
+          ]
+        }
+      ],
+      "confirmed_not_found": true
+    },
+    {
+      "request_url": "http://www.revrobotics.com/sparkmax-software/",
+      "occurrences": [
+        {
+          "path": "docs/frc/1-Basics/2b-Vendor_Dependencies.md",
+          "line": 7,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:48.676650+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://www.revrobotics.com/software/",
+          "redirects": [
+            {
+              "status": 301,
+              "url": "https://www.revrobotics.com/software/"
+            }
+          ]
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://app.diagrams.net/?lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=Command%20Based%20Flowchart.drawio",
+      "occurrences": [
+        {
+          "path": "docs/frc/1-Basics/4a-Command_Based.md",
+          "line": 54,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:48.777102+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1&title=Command%20Based%20Flowchart.drawio",
+          "redirects": [
+            {
+              "status": 301,
+              "url": "https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1&title=Command%20Based%20Flowchart.drawio"
+            }
+          ]
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://app.diagrams.net/?lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=Roller%20Intake%20Flowchart.drawio",
+      "occurrences": [
+        {
+          "path": "docs/frc/archive/Making_Commands_legacy.md",
+          "line": 13,
+          "historical": true
+        },
+        {
+          "path": "docs/frc/archive/Roller_Intake_legacy.md",
+          "line": 34,
+          "historical": true
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:48.928462+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1&title=Roller%20Intake%20Flowchart.drawio",
+          "redirects": [
+            {
+              "status": 301,
+              "url": "https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1&title=Roller%20Intake%20Flowchart.drawio"
+            }
+          ]
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://blog.wesleyac.com/posts/intro-to-control-part-five-feedforward-motion-profiling",
+      "occurrences": [
+        {
+          "path": "docs/frc/3-Closed_Loop_Control/5-Motion_Profiling.md",
+          "line": 278,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:48.969301+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://blog.wesleyac.com/posts/intro-to-control-part-five-feedforward-motion-profiling",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://choreo.autos/",
+      "occurrences": [
+        {
+          "path": "docs/guides/resources.md",
+          "line": 11,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:49.039008+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://choreo.autos/",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://code.visualstudio.com/",
+      "occurrences": [
+        {
+          "path": "docs/documentation/README.md",
+          "line": 10,
+          "historical": false
+        },
+        {
+          "path": "docs/java/README.md",
+          "line": 13,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:49.077329+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://code.visualstudio.com/",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://cordlessdrillzone.com/drill-wars/brushless-vs-brushed-motor/",
+      "occurrences": [
+        {
+          "path": "docs/frc/1-Basics/2a-Motors.md",
+          "line": 55,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:49.100289+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://cordlessdrillzone.com/drill-wars/brushless-vs-brushed-motor/",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://desktop.github.com/",
+      "occurrences": [
+        {
+          "path": "docs/documentation/README.md",
+          "line": 11,
+          "historical": false
+        },
+        {
+          "path": "docs/frc/1-Basics/1a-Setup.md",
+          "line": 41,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:49.182168+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/apps/desktop",
+          "redirects": [
+            {
+              "status": 301,
+              "url": "https://github.com/apps/desktop"
+            }
+          ]
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://developer.mozilla.org/en-US/docs/Learn_web_development",
+      "occurrences": [
+        {
+          "path": "docs/website/README.md",
+          "line": 22,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:49.218531+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://developer.mozilla.org/en-US/docs/Learn_web_development",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://docs.advantagekit.org/",
+      "occurrences": [
+        {
+          "path": "docs/frc/5-Advanced_&_Misc/Advanced_Logging.md",
+          "line": 7,
+          "historical": false
+        },
+        {
+          "path": "docs/guides/resources.md",
+          "line": 12,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:49.278984+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://docs.advantagekit.org/",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://docs.advantagescope.org/",
+      "occurrences": [
+        {
+          "path": "docs/frc/5-Advanced_&_Misc/Advanced_Logging.md",
+          "line": 7,
+          "historical": false
+        },
+        {
+          "path": "docs/guides/resources.md",
+          "line": 12,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:49.297994+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://docs.advantagescope.org/",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://docs.google.com/presentation/d/1vrv-aebFZg28hukV3vMppd1Hblmn5c8zNrXZs6sEqlE/edit",
+      "occurrences": [
+        {
+          "path": "docs/frc/5-Advanced_&_Misc/Advanced_State_Machines.md",
+          "line": 133,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:49.379540+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://docs.google.com/presentation/d/1vrv-aebFZg28hukV3vMppd1Hblmn5c8zNrXZs6sEqlE/edit",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://docs.google.com/presentation/d/e/2PACX-1vSVQb1zfvkKVTH10OOZ76JOG49clUGdtJ4lggAwKyy6wUGJkcD1Qj6NqyMKi1EvCDwnq9S2bvHgZsZW/embed",
+      "occurrences": [
+        {
+          "path": "docs/documentation/README.md",
+          "line": 131,
+          "historical": false
+        },
+        {
+          "path": "docs/documentation/README.md",
+          "line": 136,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:49.394585+00:00",
+          "status": 410,
+          "category": "not_found",
+          "final_url": "https://docs.google.com/presentation/d/e/2PACX-1vSVQb1zfvkKVTH10OOZ76JOG49clUGdtJ4lggAwKyy6wUGJkcD1Qj6NqyMKi1EvCDwnq9S2bvHgZsZW/embed",
+          "redirects": []
+        },
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:49.547390+00:00",
+          "status": 410,
+          "category": "not_found",
+          "final_url": "https://docs.google.com/presentation/d/e/2PACX-1vSVQb1zfvkKVTH10OOZ76JOG49clUGdtJ4lggAwKyy6wUGJkcD1Qj6NqyMKi1EvCDwnq9S2bvHgZsZW/embed",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": true
+    },
+    {
+      "request_url": "https://docs.limelightvision.io/",
+      "occurrences": [
+        {
+          "path": "docs/vision/Limelight/README.md",
+          "line": 3,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:49.494775+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://docs.limelightvision.io/",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://docs.marswars.org/labs",
+      "occurrences": [
+        {
+          "path": "docs/guides/resources.md",
+          "line": 16,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:49.538894+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://docs.marswars.org/labs",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://docs.oracle.com/javase/tutorial/java/concepts/class.html",
+      "occurrences": [
+        {
+          "path": "docs/java/4-Objects/README.md",
+          "line": 31,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:49.571807+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://docs.oracle.com/javase/tutorial/java/concepts/class.html",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://docs.oracle.com/javase/tutorial/java/concepts/inheritance.html",
+      "occurrences": [
+        {
+          "path": "docs/java/4-Objects/README.md",
+          "line": 33,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:49.578532+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://docs.oracle.com/javase/tutorial/java/concepts/inheritance.html",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://docs.oracle.com/javase/tutorial/java/concepts/object.html",
+      "occurrences": [
+        {
+          "path": "docs/java/4-Objects/README.md",
+          "line": 30,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:49.585374+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://docs.oracle.com/javase/tutorial/java/concepts/object.html",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://docs.oracle.com/javase/tutorial/java/index.html",
+      "occurrences": [
+        {
+          "path": "docs/java/README.md",
+          "line": 7,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:49.592070+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://docs.oracle.com/javase/tutorial/java/index.html",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://docs.oracle.com/javase/tutorial/java/javaOO/classes.html",
+      "occurrences": [
+        {
+          "path": "docs/java/Textbook_Practice.md",
+          "line": 9,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:49.649163+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://docs.oracle.com/javase/tutorial/java/javaOO/classes.html",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html",
+      "occurrences": [
+        {
+          "path": "docs/java/3-Functions/5-Lambdas.md",
+          "line": 21,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:49.667971+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://docs.photonvision.org/en/latest/",
+      "occurrences": [
+        {
+          "path": "docs/vision/PhotonVision/README.md",
+          "line": 6,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:49.683078+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://docs.photonvision.org/en/latest/",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://docs.photonvision.org/en/v2026.3.3/",
+      "occurrences": [
+        {
+          "path": "docs/guides/resources.md",
+          "line": 10,
+          "historical": false
+        },
+        {
+          "path": "docs/vision/PhotonVision/Setup.md",
+          "line": 5,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:49.687933+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://docs.photonvision.org/en/v2026.3.3/",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://docs.photonvision.org/en/v2026.3.3/docs/apriltag-pipelines/multitag.html",
+      "occurrences": [
+        {
+          "path": "docs/vision/PhotonVision/Setup.md",
+          "line": 8,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:49.720950+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://docs.photonvision.org/en/v2026.3.3/docs/apriltag-pipelines/multitag.html",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://docs.photonvision.org/en/v2026.3.3/docs/calibration/calibration.html",
+      "occurrences": [
+        {
+          "path": "docs/vision/PhotonVision/Setup.md",
+          "line": 6,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:49.741311+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://docs.photonvision.org/en/v2026.3.3/docs/calibration/calibration.html",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://docs.photonvision.org/en/v2026.3.3/docs/programming/photonlib/robot-pose-estimator.html",
+      "occurrences": [
+        {
+          "path": "docs/vision/PhotonVision/Code.md",
+          "line": 9,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:49.754064+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://docs.photonvision.org/en/v2026.3.3/docs/programming/photonlib/robot-pose-estimator.html",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://docs.revrobotics.com/15mm/actuators/servos/smart-robot-servo",
+      "occurrences": [
+        {
+          "path": "docs/frc/5-Advanced_&_Misc/Servos.md",
+          "line": 17,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:49.763183+00:00",
+          "status": 404,
+          "category": "not_found",
+          "final_url": "https://docs.revrobotics.com/15mm/actuators/servos/smart-robot-servo",
+          "redirects": []
+        },
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:49.920345+00:00",
+          "status": 404,
+          "category": "not_found",
+          "final_url": "https://docs.revrobotics.com/15mm/actuators/servos/smart-robot-servo",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": true
+    },
+    {
+      "request_url": "https://docs.revrobotics.com/revlib",
+      "occurrences": [
+        {
+          "path": "docs/guides/resources.md",
+          "line": 8,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:49.787532+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://docs.revrobotics.com/revlib",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://docs.wpilib.org/en/latest/docs/getting-started/getting-started-frc-control-system/wpilib-setup.html",
+      "occurrences": [
+        {
+          "path": "docs/frc/1-Basics/1a-Setup.md",
+          "line": 33,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:49.795154+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://docs.wpilib.org/en/latest/docs/getting-started/getting-started-frc-control-system/wpilib-setup.html",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://docs.wpilib.org/en/latest/docs/software/advanced-controls/introduction/controls-glossary.html",
+      "occurrences": [
+        {
+          "path": "docs/frc/3-Closed_Loop_Control/1-Overview.md",
+          "line": 34,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:49.803792+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://docs.wpilib.org/en/latest/docs/software/advanced-controls/introduction/controls-glossary.html",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://docs.wpilib.org/en/latest/docs/software/commandbased/command-groups.html",
+      "occurrences": [
+        {
+          "path": "docs/frc/4-Autonomous/4-Command_Groups.md",
+          "line": 5,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:49.829876+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://docs.wpilib.org/en/latest/docs/software/commandbased/command-groups.html",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://docs.wpilib.org/en/latest/docs/software/commandbased/command-scheduler.html",
+      "occurrences": [
+        {
+          "path": "docs/frc/4-Autonomous/4-Command_Groups.md",
+          "line": 130,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:49.848749+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://docs.wpilib.org/en/latest/docs/software/commandbased/command-scheduler.html",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://docs.wpilib.org/en/latest/docs/software/commandbased/convenience-features.html",
+      "occurrences": [
+        {
+          "path": "docs/frc/4-Autonomous/4-Command_Groups.md",
+          "line": 94,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:49.858095+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://docs.wpilib.org/en/latest/docs/software/commandbased/convenience-features.html",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://docs.wpilib.org/en/latest/docs/software/driverstation/driver-station.html",
+      "occurrences": [
+        {
+          "path": "docs/frc/5-Advanced_&_Misc/Iterative_Programming.md",
+          "line": 29,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:49.897166+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://docs.wpilib.org/en/latest/docs/software/driverstation/driver-station.html",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://docs.wpilib.org/en/latest/docs/software/sensors/ultrasonics-software.html",
+      "occurrences": [
+        {
+          "path": "docs/frc/2-Sensors_And_Shuffleboard/6-Misc_Sensors.md",
+          "line": 10,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:49.902021+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://docs.wpilib.org/en/latest/docs/software/sensors/ultrasonics-software.html",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://docs.wpilib.org/en/latest/docs/software/wpilib-overview/3rd-party-libraries.html",
+      "occurrences": [
+        {
+          "path": "docs/frc/1-Basics/2b-Vendor_Dependencies.md",
+          "line": 23,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:49.911430+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://docs.wpilib.org/en/latest/docs/software/wpilib-overview/3rd-party-libraries.html",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://docs.wpilib.org/en/latest/docs/software/wpilib-overview/what-is-wpilib.html",
+      "occurrences": [
+        {
+          "path": "docs/frc/README.md",
+          "line": 13,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:49.913768+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://docs.wpilib.org/en/latest/docs/software/wpilib-overview/what-is-wpilib.html",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://docs.wpilib.org/en/latest/index.html",
+      "occurrences": [
+        {
+          "path": "docs/frc/README.md",
+          "line": 15,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:49.917461+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://docs.wpilib.org/en/latest/index.html",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://docs.wpilib.org/en/stable/",
+      "occurrences": [
+        {
+          "path": "docs/guides/resources.md",
+          "line": 7,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:49.960282+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://docs.wpilib.org/en/stable/",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://docs.wpilib.org/en/stable/docs/controls-overviews/control-system-hardware.html",
+      "occurrences": [
+        {
+          "path": "docs/foundations/electrical.md",
+          "line": 3,
+          "historical": false
+        },
+        {
+          "path": "docs/foundations/system.md",
+          "line": 3,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:49.981258+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://docs.wpilib.org/en/stable/docs/controls-overviews/control-system-hardware.html",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://docs.wpilib.org/en/stable/docs/hardware/hardware-basics/wiring-best-practices.html",
+      "occurrences": [
+        {
+          "path": "docs/foundations/electrical.md",
+          "line": 3,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:49.981570+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://docs.wpilib.org/en/stable/docs/hardware/hardware-basics/wiring-best-practices.html",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://docs.wpilib.org/en/stable/docs/software/advanced-control/controllers/trapezoidal-profiles.html",
+      "occurrences": [
+        {
+          "path": "docs/frc/3-Closed_Loop_Control/5-Motion_Profiling.md",
+          "line": 279,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:49.985153+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://docs.wpilib.org/en/stable/docs/software/advanced-control/controllers/trapezoidal-profiles.html",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://docs.wpilib.org/en/stable/docs/software/advanced-controls/controllers/feedforward.html",
+      "occurrences": [
+        {
+          "path": "docs/frc/3-Closed_Loop_Control/4-Feedforward.md",
+          "line": 31,
+          "historical": false
+        },
+        {
+          "path": "docs/labs/pid.html",
+          "line": 1,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:49.985198+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://docs.wpilib.org/en/stable/docs/software/advanced-controls/controllers/feedforward.html",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://docs.wpilib.org/en/stable/docs/software/advanced-controls/controllers/pidcontroller.html",
+      "occurrences": [
+        {
+          "path": "docs/frc/3-Closed_Loop_Control/2-Basics_of_PID.md",
+          "line": 23,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:50.026108+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://docs.wpilib.org/en/stable/docs/software/advanced-controls/controllers/pidcontroller.html",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://docs.wpilib.org/en/stable/docs/software/advanced-controls/controllers/trapezoidal-profiles.html",
+      "occurrences": [
+        {
+          "path": "docs/labs/motion.html",
+          "line": 1,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:50.048431+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://docs.wpilib.org/en/stable/docs/software/advanced-controls/controllers/trapezoidal-profiles.html",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://docs.wpilib.org/en/stable/docs/software/advanced-controls/filters/introduction.html",
+      "occurrences": [
+        {
+          "path": "docs/frc/5-Advanced_&_Misc/Rate_Limit.md",
+          "line": 33,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:50.048637+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://docs.wpilib.org/en/stable/docs/software/advanced-controls/filters/introduction.html",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://docs.wpilib.org/en/stable/docs/software/advanced-controls/introduction/introduction-to-pid.html",
+      "occurrences": [
+        {
+          "path": "docs/frc/3-Closed_Loop_Control/2-Basics_of_PID.md",
+          "line": 23,
+          "historical": false
+        },
+        {
+          "path": "docs/labs/pid.html",
+          "line": 1,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:50.048815+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://docs.wpilib.org/en/stable/docs/software/advanced-controls/introduction/introduction-to-pid.html",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://docs.wpilib.org/en/stable/docs/software/advanced-controls/state-space/state-space-pose-estimators.html",
+      "occurrences": [
+        {
+          "path": "docs/frc/1-Basics/Modern_Drivetrain_Project.md",
+          "line": 19,
+          "historical": false
+        },
+        {
+          "path": "docs/labs/odometry.html",
+          "line": 1,
+          "historical": false
+        },
+        {
+          "path": "docs/vision/PhotonVision/Code.md",
+          "line": 9,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:50.055439+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://docs.wpilib.org/en/stable/docs/software/advanced-controls/state-space/state-space-pose-estimators.html",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://docs.wpilib.org/en/stable/docs/software/advanced-controls/system-identification/analyzing-gains.html",
+      "occurrences": [
+        {
+          "path": "docs/foundations/mechanical.md",
+          "line": 11,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:50.066201+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://docs.wpilib.org/en/stable/docs/software/advanced-controls/system-identification/analyzing-gains.html",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://docs.wpilib.org/en/stable/docs/software/advanced-controls/system-identification/introduction.html",
+      "occurrences": [
+        {
+          "path": "docs/frc/3-Closed_Loop_Control/4-Feedforward.md",
+          "line": 31,
+          "historical": false
+        },
+        {
+          "path": "docs/frc/5-Advanced_&_Misc/Sysid.md",
+          "line": 9,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:50.095512+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://docs.wpilib.org/en/stable/docs/software/advanced-controls/system-identification/introduction.html",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://docs.wpilib.org/en/stable/docs/software/advanced-controls/system-identification/running-routine.html",
+      "occurrences": [
+        {
+          "path": "docs/frc/5-Advanced_&_Misc/Sysid.md",
+          "line": 9,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:50.118090+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://docs.wpilib.org/en/stable/docs/software/advanced-controls/system-identification/running-routine.html",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://docs.wpilib.org/en/stable/docs/software/advanced-controls/trajectories/trajectory-generation.html",
+      "occurrences": [
+        {
+          "path": "docs/frc/4-Autonomous/3b-Generating-On-Bot.md",
+          "line": 43,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:50.118493+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://docs.wpilib.org/en/stable/docs/software/advanced-controls/trajectories/trajectory-generation.html",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://docs.wpilib.org/en/stable/docs/software/can-devices/can-addressing.html",
+      "occurrences": [
+        {
+          "path": "docs/foundations/electrical.md",
+          "line": 9,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:50.118874+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://docs.wpilib.org/en/stable/docs/software/can-devices/can-addressing.html",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://docs.wpilib.org/en/stable/docs/software/commandbased/binding-commands-to-triggers.html",
+      "occurrences": [
+        {
+          "path": "docs/frc/1-Basics/5d-Binding_Commands.md",
+          "line": 12,
+          "historical": false
+        },
+        {
+          "path": "docs/labs/scheduler.html",
+          "line": 1,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:50.122869+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://docs.wpilib.org/en/stable/docs/software/commandbased/binding-commands-to-triggers.html",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://docs.wpilib.org/en/stable/docs/software/commandbased/command-scheduler.html",
+      "occurrences": [
+        {
+          "path": "docs/labs/scheduler.html",
+          "line": 1,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:50.124647+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://docs.wpilib.org/en/stable/docs/software/commandbased/command-scheduler.html",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://docs.wpilib.org/en/stable/docs/software/commandbased/commands.html",
+      "occurrences": [
+        {
+          "path": "docs/frc/1-Basics/5c-Making_Commands.md",
+          "line": 12,
+          "historical": false
+        },
+        {
+          "path": "docs/frc/archive/Making_Commands_legacy.md",
+          "line": 219,
+          "historical": true
+        },
+        {
+          "path": "docs/java/3-Functions/5-Lambdas.md",
+          "line": 21,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:50.280040+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://docs.wpilib.org/en/stable/docs/software/commandbased/commands.html",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://docs.wpilib.org/en/stable/docs/software/commandbased/index.html",
+      "occurrences": [
+        {
+          "path": "docs/frc/1-Basics/4b-Architecture.md",
+          "line": 9,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:50.280282+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://docs.wpilib.org/en/stable/docs/software/commandbased/index.html",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://docs.wpilib.org/en/stable/docs/software/commandbased/subsystems.html",
+      "occurrences": [
+        {
+          "path": "docs/frc/1-Basics/5-First_Subsystem.md",
+          "line": 9,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:50.315774+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://docs.wpilib.org/en/stable/docs/software/commandbased/subsystems.html",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://docs.wpilib.org/en/stable/docs/software/hardware-apis/sensors/digital-inputs-software.html",
+      "occurrences": [
+        {
+          "path": "docs/frc/2-Sensors_And_Shuffleboard/5-Boolean_Sensors.md",
+          "line": 20,
+          "historical": false
+        },
+        {
+          "path": "docs/frc/2-Sensors_And_Shuffleboard/8-Zeroing_Sensors.md",
+          "line": 20,
+          "historical": false
+        },
+        {
+          "path": "docs/labs/encoder.html",
+          "line": 1,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:50.315901+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://docs.wpilib.org/en/stable/docs/software/hardware-apis/sensors/digital-inputs-software.html",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://docs.wpilib.org/en/stable/docs/software/hardware-apis/sensors/encoders-software.html",
+      "occurrences": [
+        {
+          "path": "docs/labs/encoder.html",
+          "line": 1,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:50.326713+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://docs.wpilib.org/en/stable/docs/software/hardware-apis/sensors/encoders-software.html",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://docs.wpilib.org/en/stable/docs/software/kinematics-and-odometry/intro-and-chassis-speeds.html",
+      "occurrences": [
+        {
+          "path": "docs/labs/swerve.html",
+          "line": 1,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:50.332748+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://docs.wpilib.org/en/stable/docs/software/kinematics-and-odometry/intro-and-chassis-speeds.html",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://docs.wpilib.org/en/stable/docs/software/kinematics-and-odometry/swerve-drive-kinematics.html",
+      "occurrences": [
+        {
+          "path": "docs/frc/1-Basics/Modern_Drivetrain_Project.md",
+          "line": 9,
+          "historical": false
+        },
+        {
+          "path": "docs/labs/swerve.html",
+          "line": 1,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:50.354506+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://docs.wpilib.org/en/stable/docs/software/kinematics-and-odometry/swerve-drive-kinematics.html",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://docs.wpilib.org/en/stable/docs/software/roborio-info/roborio-brownouts.html",
+      "occurrences": [
+        {
+          "path": "docs/foundations/electrical.md",
+          "line": 18,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:50.355543+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://docs.wpilib.org/en/stable/docs/software/roborio-info/roborio-brownouts.html",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://docs.wpilib.org/en/stable/docs/software/roborio-info/roborio-ftp.html",
+      "occurrences": [
+        {
+          "path": "docs/frc/5-Advanced_&_Misc/Creating-Files.md",
+          "line": 61,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:50.394778+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://docs.wpilib.org/en/stable/docs/software/roborio-info/roborio-ftp.html",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://docs.wpilib.org/en/stable/docs/software/telemetry/datalog.html",
+      "occurrences": [
+        {
+          "path": "docs/frc/5-Advanced_&_Misc/Advanced_Logging.md",
+          "line": 7,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:50.396466+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://docs.wpilib.org/en/stable/docs/software/telemetry/datalog.html",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://docs.wpilib.org/en/stable/docs/software/vision-processing/index.html",
+      "occurrences": [
+        {
+          "path": "docs/vision/WPILibPi/README.md",
+          "line": 3,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:50.399362+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://docs.wpilib.org/en/stable/docs/software/vision-processing/index.html",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://docs.wpilib.org/en/stable/docs/software/wpilib-tools/pathweaver/index.html",
+      "occurrences": [
+        {
+          "path": "docs/frc/4-Autonomous/3b-Generating-On-Bot.md",
+          "line": 39,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:50.416313+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://docs.wpilib.org/en/stable/docs/software/wpilib-tools/pathweaver/index.html",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://docs.wpilib.org/en/stable/docs/software/wpilib-tools/robot-simulation/index.html",
+      "occurrences": [
+        {
+          "path": "docs/frc/archive/Simulation_legacy.md",
+          "line": 7,
+          "historical": true
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:50.417566+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://docs.wpilib.org/en/stable/docs/software/wpilib-tools/robot-simulation/index.html",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://docs.wpilib.org/en/stable/docs/software/wpilib-tools/robot-simulation/physics-sim.html",
+      "occurrences": [
+        {
+          "path": "docs/frc/1-Basics/5e-Simulation.md",
+          "line": 7,
+          "historical": false
+        },
+        {
+          "path": "docs/frc/5-Advanced_&_Misc/Simulation.md",
+          "line": 7,
+          "historical": false
+        },
+        {
+          "path": "docs/frc/archive/Simulation_legacy.md",
+          "line": 27,
+          "historical": true
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:50.419380+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://docs.wpilib.org/en/stable/docs/software/wpilib-tools/robot-simulation/physics-sim.html",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://drive.google.com/file/d/14_5zEcy0pHjJd9FZBrlYS0tvzkuuFQxd/view?usp=sharing",
+      "occurrences": [
+        {
+          "path": "docs/frc/1-Basics/4a-Command_Based.md",
+          "line": 52,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:50.455750+00:00",
+          "status": 404,
+          "category": "not_found",
+          "final_url": "https://drive.google.com/file/d/14_5zEcy0pHjJd9FZBrlYS0tvzkuuFQxd/view?usp=sharing",
+          "redirects": []
+        },
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:51.081114+00:00",
+          "status": 404,
+          "category": "not_found",
+          "final_url": "https://drive.google.com/file/d/14_5zEcy0pHjJd9FZBrlYS0tvzkuuFQxd/view?usp=sharing",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": true
+    },
+    {
+      "request_url": "https://drive.google.com/file/d/1OdYeyfamvG7weoWkQY1DDX4__NVKelgm/view?usp=sharing",
+      "occurrences": [
+        {
+          "path": "docs/frc/archive/Making_Commands_legacy.md",
+          "line": 11,
+          "historical": true
+        },
+        {
+          "path": "docs/frc/archive/Roller_Intake_legacy.md",
+          "line": 30,
+          "historical": true
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:50.462609+00:00",
+          "status": 404,
+          "category": "not_found",
+          "final_url": "https://drive.google.com/file/d/1OdYeyfamvG7weoWkQY1DDX4__NVKelgm/view?usp=sharing",
+          "redirects": []
+        },
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:50.877302+00:00",
+          "status": 404,
+          "category": "not_found",
+          "final_url": "https://drive.google.com/file/d/1OdYeyfamvG7weoWkQY1DDX4__NVKelgm/view?usp=sharing",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": true
+    },
+    {
+      "request_url": "https://education.github.com/git-cheat-sheet-education.pdf",
+      "occurrences": [
+        {
+          "path": "docs/git/README.md",
+          "line": 8,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:50.465581+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://education.github.com/git-cheat-sheet-education.pdf",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://en.wikipedia.org/wiki/Pneumatic_cylinder",
+      "occurrences": [
+        {
+          "path": "docs/frc/1-Basics/3-Pneumatics.md",
+          "line": 23,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:50.474128+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://en.wikipedia.org/wiki/Pneumatic_cylinder",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://en.wikipedia.org/wiki/Video4Linux",
+      "occurrences": [
+        {
+          "path": "docs/vision/PhotonVision/README.md",
+          "line": 9,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:50.479102+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://en.wikipedia.org/wiki/Video4Linux",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://filezilla-project.org/download.php?type=client",
+      "occurrences": [
+        {
+          "path": "docs/frc/5-Advanced_&_Misc/Creating-Files.md",
+          "line": 50,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:50.490006+00:00",
+          "status": 403,
+          "category": "blocked",
+          "final_url": "https://filezilla-project.org/download.php?type=client",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://firstfrc.blob.core.windows.net/frc2026/Manual/HTML/2026GameManual.htm",
+      "occurrences": [
+        {
+          "path": "docs/foundations/safety.md",
+          "line": 9,
+          "historical": false
+        },
+        {
+          "path": "docs/foundations/system.md",
+          "line": 7,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:50.536895+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://firstfrc.blob.core.windows.net/frc2026/Manual/HTML/2026GameManual.htm",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://frc1257.github.io/robotics-training/",
+      "occurrences": [
+        {
+          "path": "docs/documentation/README.md",
+          "line": 230,
+          "historical": false
+        },
+        {
+          "path": "docs/frc/1-Basics/1b-Match_Structure.md",
+          "line": 11,
+          "historical": false
+        },
+        {
+          "path": "docs/frc/1-Basics/9-Drivetrain.md",
+          "line": 62,
+          "historical": false
+        },
+        {
+          "path": "docs/frc/4-Autonomous/5-Auto_Choosing.md",
+          "line": 13,
+          "historical": false
+        },
+        {
+          "path": "docs/frc/5-Advanced_&_Misc/Iterative_Programming.md",
+          "line": 53,
+          "historical": false
+        },
+        {
+          "path": "docs/frc/archive/Roller_Intake_legacy.md",
+          "line": 40,
+          "historical": true
+        },
+        {
+          "path": "docs/frc/archive/Roller_Intake_legacy.md",
+          "line": 116,
+          "historical": true
+        },
+        {
+          "path": "docs/index.html",
+          "line": 11,
+          "historical": false
+        },
+        {
+          "path": "docs/index.html",
+          "line": 12,
+          "historical": false
+        },
+        {
+          "path": "docs/website/2-Annual_Updates/1-Student_Leadership.md",
+          "line": 103,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:50.536949+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://frc1257.github.io/robotics-training/",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://frc1257.org",
+      "occurrences": [
+        {
+          "path": "docs/website/Getting_Started.md",
+          "line": 15,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:50.536993+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://frc1257.org",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://frc1257.org/",
+      "occurrences": [
+        {
+          "path": "docs/website/1-Site_Layout.md/2-Folders_&_Files_in_Src.md",
+          "line": 11,
+          "historical": false
+        },
+        {
+          "path": "docs/website/README.md",
+          "line": 3,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:50.603728+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://frc1257.org/",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://frc1257.org/leadership",
+      "occurrences": [
+        {
+          "path": "docs/website/1-Site_Layout.md/2-Folders_&_Files_in_Src.md",
+          "line": 11,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:50.624100+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://frc1257.org/leadership",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://frcdesign.org/",
+      "occurrences": [
+        {
+          "path": "docs/guides/resources.md",
+          "line": 14,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:50.652289+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://frcdesign.org/",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://frcelectrical.org/",
+      "occurrences": [
+        {
+          "path": "docs/guides/resources.md",
+          "line": 15,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:50.673842+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://frcelectrical.org/",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://git-scm.com/downloads",
+      "occurrences": [
+        {
+          "path": "docs/git/How_To_Git.md",
+          "line": 3,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:50.696384+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://git-scm.com/downloads/",
+          "redirects": [
+            {
+              "status": 301,
+              "url": "https://git-scm.com/downloads/"
+            }
+          ]
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com",
+      "occurrences": [
+        {
+          "path": "docs/frc/1-Basics/1a-Setup.md",
+          "line": 11,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:50.761909+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/",
+      "occurrences": [
+        {
+          "path": "docs/documentation/README.md",
+          "line": 5,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:50.811470+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257",
+      "occurrences": [
+        {
+          "path": "docs/_coverpage.md",
+          "line": 8,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:50.821865+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/2019-Robot",
+      "occurrences": [
+        {
+          "path": "docs/frc/5-Advanced_&_Misc/Iterative_Programming.md",
+          "line": 45,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:50.825674+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/2019-Robot",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/2019-Robot-Command/blob/master/src/main/java/frc/robot/subsystems/cargointake/CargoArm.java",
+      "occurrences": [
+        {
+          "path": "docs/frc/3-Closed_Loop_Control/3c-PID_Command_And_Extras.md",
+          "line": 154,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:50.913269+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/2019-Robot-Command/blob/master/src/main/java/frc/robot/subsystems/cargointake/CargoArm.java",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/2020-Robot/blob/master/src/main/java/frc/robot/commands/drivetrain/ClosedLoopDriveCommand.java",
+      "occurrences": [
+        {
+          "path": "docs/frc/5-Advanced_&_Misc/Rate_Limit.md",
+          "line": 29,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:50.937118+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/2020-Robot/blob/master/src/main/java/frc/robot/commands/drivetrain/ClosedLoopDriveCommand.java",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/2020-Robot/tree/master",
+      "occurrences": [
+        {
+          "path": "docs/frc/README.md",
+          "line": 33,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:51.201433+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/2020-Robot/tree/master",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/2020-Robot/tree/master/src/main/java/frc/robot/commands/auto",
+      "occurrences": [
+        {
+          "path": "docs/frc/4-Autonomous/4-Command_Groups.md",
+          "line": 137,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:51.259555+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/2020-Robot/tree/master/src/main/java/frc/robot/commands/auto",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/2022-Robot/tree/master",
+      "occurrences": [
+        {
+          "path": "docs/frc/README.md",
+          "line": 32,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:51.259725+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/2022-Robot/tree/master",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/2023-Robot/blob/master/src/main/java/frc/robot/commands/GenerateTrajedies.java",
+      "occurrences": [
+        {
+          "path": "docs/frc/4-Autonomous/3b-Generating-On-Bot.md",
+          "line": 41,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:51.286025+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/2023-Robot/blob/master/src/main/java/frc/robot/commands/GenerateTrajedies.java",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/2023-Robot/tree/master",
+      "occurrences": [
+        {
+          "path": "docs/frc/README.md",
+          "line": 31,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:51.308298+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/2023-Robot/tree/master",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/2024-Logs/blob/686c0d0f14ac1ce2d2c71fd57ca9d5b5c903a5dd/LICENSE",
+      "occurrences": [
+        {
+          "path": "docs/robots/2024-log.md",
+          "line": 3,
+          "historical": false
+        },
+        {
+          "path": "docs/robots/sources.md",
+          "line": 9,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:51.614632+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/2024-Logs/blob/686c0d0f14ac1ce2d2c71fd57ca9d5b5c903a5dd/LICENSE",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/2024-Logs/blob/686c0d0f14ac1ce2d2c71fd57ca9d5b5c903a5dd/README.md",
+      "occurrences": [
+        {
+          "path": "docs/robots/2024-log.md",
+          "line": 3,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:51.649289+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/2024-Logs/blob/686c0d0f14ac1ce2d2c71fd57ca9d5b5c903a5dd/README.md",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/2024-Logs/blob/686c0d0f14ac1ce2d2c71fd57ca9d5b5c903a5dd/Week-of-1-29/Log_24-02-01_16-45-53.wpilog",
+      "occurrences": [
+        {
+          "path": "docs/robots/2024-log.md",
+          "line": 3,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:51.673220+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/2024-Logs/blob/686c0d0f14ac1ce2d2c71fd57ca9d5b5c903a5dd/Week-of-1-29/Log_24-02-01_16-45-53.wpilog",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/2025-Robot/blob/944e4602061d51e6d2c02b08d6d680a89712f091/AdvantageKit-License.md",
+      "occurrences": [
+        {
+          "path": "docs/robots/sources.md",
+          "line": 8,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:51.699205+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/2025-Robot/blob/944e4602061d51e6d2c02b08d6d680a89712f091/AdvantageKit-License.md",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/2025-Robot/blob/944e4602061d51e6d2c02b08d6d680a89712f091/WPILib-License.md",
+      "occurrences": [
+        {
+          "path": "docs/robots/sources.md",
+          "line": 8,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:51.720958+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/2025-Robot/blob/944e4602061d51e6d2c02b08d6d680a89712f091/WPILib-License.md",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/2025-Robot/blob/944e4602061d51e6d2c02b08d6d680a89712f091/build.gradle",
+      "occurrences": [
+        {
+          "path": "docs/robots/2025-code.md",
+          "line": 5,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:51.811731+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/2025-Robot/blob/944e4602061d51e6d2c02b08d6d680a89712f091/build.gradle",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/2025-Robot/blob/944e4602061d51e6d2c02b08d6d680a89712f091/src/main/java/frc/robot/Robot.java",
+      "occurrences": [
+        {
+          "path": "docs/robots/2025-code.md",
+          "line": 9,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:51.975755+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/2025-Robot/blob/944e4602061d51e6d2c02b08d6d680a89712f091/src/main/java/frc/robot/Robot.java",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/2025-Robot/blob/944e4602061d51e6d2c02b08d6d680a89712f091/src/main/java/frc/robot/RobotContainer.java",
+      "occurrences": [
+        {
+          "path": "docs/robots/2025-code.md",
+          "line": 10,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:51.996707+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/2025-Robot/blob/944e4602061d51e6d2c02b08d6d680a89712f091/src/main/java/frc/robot/RobotContainer.java",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/2025-Robot/blob/944e4602061d51e6d2c02b08d6d680a89712f091/src/main/java/frc/robot/subsystems/drive/Drive.java",
+      "occurrences": [
+        {
+          "path": "docs/robots/2025-code.md",
+          "line": 18,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:52.001609+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/2025-Robot/blob/944e4602061d51e6d2c02b08d6d680a89712f091/src/main/java/frc/robot/subsystems/drive/Drive.java",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/2025-Robot/blob/944e4602061d51e6d2c02b08d6d680a89712f091/src/main/java/frc/robot/subsystems/elevator/Elevator.java",
+      "occurrences": [
+        {
+          "path": "docs/robots/2025-code.md",
+          "line": 11,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:52.013074+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/2025-Robot/blob/944e4602061d51e6d2c02b08d6d680a89712f091/src/main/java/frc/robot/subsystems/elevator/Elevator.java",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/2025-Robot/blob/944e4602061d51e6d2c02b08d6d680a89712f091/src/main/java/frc/robot/subsystems/elevator/ElevatorIOSparkMax.java",
+      "occurrences": [
+        {
+          "path": "docs/robots/2025-code.md",
+          "line": 12,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:52.020074+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/2025-Robot/blob/944e4602061d51e6d2c02b08d6d680a89712f091/src/main/java/frc/robot/subsystems/elevator/ElevatorIOSparkMax.java",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/2025-Robot/blob/944e4602061d51e6d2c02b08d6d680a89712f091/src/main/java/frc/robot/util/autonomous/CustomAutoChooser.java",
+      "occurrences": [
+        {
+          "path": "docs/robots/2025-code.md",
+          "line": 20,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:52.175277+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/2025-Robot/blob/944e4602061d51e6d2c02b08d6d680a89712f091/src/main/java/frc/robot/util/autonomous/CustomAutoChooser.java",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/2025-Robot/blob/944e4602061d51e6d2c02b08d6d680a89712f091/vendordeps/AdvantageKit.json",
+      "occurrences": [
+        {
+          "path": "docs/robots/2025-code.md",
+          "line": 5,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:52.281130+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/2025-Robot/blob/944e4602061d51e6d2c02b08d6d680a89712f091/vendordeps/AdvantageKit.json",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/2025-Robot/blob/944e4602061d51e6d2c02b08d6d680a89712f091/vendordeps/PathplannerLib-2025.2.6.json",
+      "occurrences": [
+        {
+          "path": "docs/robots/2025-code.md",
+          "line": 5,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:52.343231+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/2025-Robot/blob/944e4602061d51e6d2c02b08d6d680a89712f091/vendordeps/PathplannerLib-2025.2.6.json",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/2025-Robot/blob/944e4602061d51e6d2c02b08d6d680a89712f091/vendordeps/Phoenix6-25.3.1.json",
+      "occurrences": [
+        {
+          "path": "docs/robots/2025-code.md",
+          "line": 5,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:52.355336+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/2025-Robot/blob/944e4602061d51e6d2c02b08d6d680a89712f091/vendordeps/Phoenix6-25.3.1.json",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/2025-Robot/blob/944e4602061d51e6d2c02b08d6d680a89712f091/vendordeps/REVLib.json",
+      "occurrences": [
+        {
+          "path": "docs/robots/2025-code.md",
+          "line": 5,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:52.365582+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/2025-Robot/blob/944e4602061d51e6d2c02b08d6d680a89712f091/vendordeps/REVLib.json",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/2025-Robot/blob/944e4602061d51e6d2c02b08d6d680a89712f091/vendordeps/photonlib.json",
+      "occurrences": [
+        {
+          "path": "docs/robots/2025-code.md",
+          "line": 5,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:52.367164+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/2025-Robot/blob/944e4602061d51e6d2c02b08d6d680a89712f091/vendordeps/photonlib.json",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/2025-Robot/tree/944e4602061d51e6d2c02b08d6d680a89712f091",
+      "occurrences": [
+        {
+          "path": "docs/robots/2025-code.md",
+          "line": 3,
+          "historical": false
+        },
+        {
+          "path": "docs/robots/sources.md",
+          "line": 8,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:52.503085+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/2025-Robot/tree/944e4602061d51e6d2c02b08d6d680a89712f091",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/2025-Robot/tree/944e4602061d51e6d2c02b08d6d680a89712f091/src/main/deploy/pathplanner",
+      "occurrences": [
+        {
+          "path": "docs/robots/2025-code.md",
+          "line": 20,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:52.602780+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/2025-Robot/tree/944e4602061d51e6d2c02b08d6d680a89712f091/src/main/deploy/pathplanner",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/2026-Robot/blob/0c9a024dec1f58648d573ce26fcfd02639c5ca66/build.gradle",
+      "occurrences": [
+        {
+          "path": "docs/robots/2026-code.md",
+          "line": 3,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:52.641221+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/2026-Robot/blob/0c9a024dec1f58648d573ce26fcfd02639c5ca66/build.gradle",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/2026-Robot/blob/0c9a024dec1f58648d573ce26fcfd02639c5ca66/src/main/java/frc/robot/Robot.java",
+      "occurrences": [
+        {
+          "path": "docs/frc/5-Advanced_&_Misc/Advanced_Logging.md",
+          "line": 5,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:52.650683+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/2026-Robot/blob/0c9a024dec1f58648d573ce26fcfd02639c5ca66/src/main/java/frc/robot/Robot.java",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/2026-Robot/blob/0c9a024dec1f58648d573ce26fcfd02639c5ca66/src/main/java/frc/robot/RobotContainer.java",
+      "occurrences": [
+        {
+          "path": "docs/frc/1-Basics/Modern_Drivetrain_Project.md",
+          "line": 19,
+          "historical": false
+        },
+        {
+          "path": "docs/robots/2026-code.md",
+          "line": 7,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:52.678978+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/2026-Robot/blob/0c9a024dec1f58648d573ce26fcfd02639c5ca66/src/main/java/frc/robot/RobotContainer.java",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/2026-Robot/blob/0c9a024dec1f58648d573ce26fcfd02639c5ca66/src/main/java/frc/robot/subsystems/ActiveFloor/ActiveFloor.java",
+      "occurrences": [
+        {
+          "path": "docs/robots/2026-code.md",
+          "line": 19,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:52.730079+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/2026-Robot/blob/0c9a024dec1f58648d573ce26fcfd02639c5ca66/src/main/java/frc/robot/subsystems/ActiveFloor/ActiveFloor.java",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/2026-Robot/blob/0c9a024dec1f58648d573ce26fcfd02639c5ca66/src/main/java/frc/robot/subsystems/ActiveFloor/ActiveFloorIOSparkMax.java",
+      "occurrences": [
+        {
+          "path": "docs/robots/2026-code.md",
+          "line": 19,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:52.870918+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/2026-Robot/blob/0c9a024dec1f58648d573ce26fcfd02639c5ca66/src/main/java/frc/robot/subsystems/ActiveFloor/ActiveFloorIOSparkMax.java",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/2026-Robot/blob/0c9a024dec1f58648d573ce26fcfd02639c5ca66/src/main/java/frc/robot/subsystems/Hopper/HopperIntake/HopperIntakeIO.java",
+      "occurrences": [
+        {
+          "path": "docs/frc/5-Advanced_&_Misc/Advanced_Logging.md",
+          "line": 5,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:52.891337+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/2026-Robot/blob/0c9a024dec1f58648d573ce26fcfd02639c5ca66/src/main/java/frc/robot/subsystems/Hopper/HopperIntake/HopperIntakeIO.java",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/2026-Robot/blob/0c9a024dec1f58648d573ce26fcfd02639c5ca66/src/main/java/frc/robot/subsystems/Hopper/HopperPivot/HopperPivot.java",
+      "occurrences": [
+        {
+          "path": "docs/robots/2026-code.md",
+          "line": 21,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:52.953609+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/2026-Robot/blob/0c9a024dec1f58648d573ce26fcfd02639c5ca66/src/main/java/frc/robot/subsystems/Hopper/HopperPivot/HopperPivot.java",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/2026-Robot/blob/0c9a024dec1f58648d573ce26fcfd02639c5ca66/src/main/java/frc/robot/subsystems/Hopper/HopperPivot/HopperPivotIOSim.java",
+      "occurrences": [
+        {
+          "path": "docs/robots/2026-code.md",
+          "line": 27,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:52.989990+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/2026-Robot/blob/0c9a024dec1f58648d573ce26fcfd02639c5ca66/src/main/java/frc/robot/subsystems/Hopper/HopperPivot/HopperPivotIOSim.java",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/2026-Robot/blob/0c9a024dec1f58648d573ce26fcfd02639c5ca66/src/main/java/frc/robot/subsystems/Hopper/HopperPivot/HopperPivotIOSparkMax.java",
+      "occurrences": [
+        {
+          "path": "docs/robots/2026-code.md",
+          "line": 21,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:53.049766+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/2026-Robot/blob/0c9a024dec1f58648d573ce26fcfd02639c5ca66/src/main/java/frc/robot/subsystems/Hopper/HopperPivot/HopperPivotIOSparkMax.java",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/2026-Robot/blob/0c9a024dec1f58648d573ce26fcfd02639c5ca66/src/main/java/frc/robot/subsystems/Kicker/Kicker.java",
+      "occurrences": [
+        {
+          "path": "docs/robots/2026-code.md",
+          "line": 20,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:53.167201+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/2026-Robot/blob/0c9a024dec1f58648d573ce26fcfd02639c5ca66/src/main/java/frc/robot/subsystems/Kicker/Kicker.java",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/2026-Robot/blob/0c9a024dec1f58648d573ce26fcfd02639c5ca66/src/main/java/frc/robot/subsystems/Kicker/KickerIOSim.java",
+      "occurrences": [
+        {
+          "path": "docs/robots/2026-code.md",
+          "line": 27,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:53.219727+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/2026-Robot/blob/0c9a024dec1f58648d573ce26fcfd02639c5ca66/src/main/java/frc/robot/subsystems/Kicker/KickerIOSim.java",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/2026-Robot/blob/0c9a024dec1f58648d573ce26fcfd02639c5ca66/src/main/java/frc/robot/subsystems/Kicker/KickerIOSparkMax.java",
+      "occurrences": [
+        {
+          "path": "docs/robots/2026-code.md",
+          "line": 20,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:53.251958+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/2026-Robot/blob/0c9a024dec1f58648d573ce26fcfd02639c5ca66/src/main/java/frc/robot/subsystems/Kicker/KickerIOSparkMax.java",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/2026-Robot/blob/0c9a024dec1f58648d573ce26fcfd02639c5ca66/src/main/java/frc/robot/subsystems/drive/Drive.java",
+      "occurrences": [
+        {
+          "path": "docs/vision/PhotonVision/Code.md",
+          "line": 5,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:53.284394+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/2026-Robot/blob/0c9a024dec1f58648d573ce26fcfd02639c5ca66/src/main/java/frc/robot/subsystems/drive/Drive.java",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/2026-Robot/blob/0c9a024dec1f58648d573ce26fcfd02639c5ca66/src/main/java/frc/robot/subsystems/vision/VisionIO.java",
+      "occurrences": [
+        {
+          "path": "docs/vision/PhotonVision/Code.md",
+          "line": 5,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:53.356152+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/2026-Robot/blob/0c9a024dec1f58648d573ce26fcfd02639c5ca66/src/main/java/frc/robot/subsystems/vision/VisionIO.java",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/2026-Robot/blob/0c9a024dec1f58648d573ce26fcfd02639c5ca66/src/main/java/frc/robot/subsystems/vision/VisionIOPhoton.java",
+      "occurrences": [
+        {
+          "path": "docs/vision/PhotonVision/Code.md",
+          "line": 5,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:53.399216+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/2026-Robot/blob/0c9a024dec1f58648d573ce26fcfd02639c5ca66/src/main/java/frc/robot/subsystems/vision/VisionIOPhoton.java",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/2026-Robot/blob/0c9a024dec1f58648d573ce26fcfd02639c5ca66/src/main/java/frc/robot/util/autonomous/AutoChooser.java",
+      "occurrences": [
+        {
+          "path": "docs/robots/2026-code.md",
+          "line": 31,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:53.524850+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/2026-Robot/blob/0c9a024dec1f58648d573ce26fcfd02639c5ca66/src/main/java/frc/robot/util/autonomous/AutoChooser.java",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/2026-Robot/blob/0c9a024dec1f58648d573ce26fcfd02639c5ca66/vendordeps/AdvantageKit.json",
+      "occurrences": [
+        {
+          "path": "docs/robots/2026-code.md",
+          "line": 3,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:53.651378+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/2026-Robot/blob/0c9a024dec1f58648d573ce26fcfd02639c5ca66/vendordeps/AdvantageKit.json",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/2026-Robot/blob/0c9a024dec1f58648d573ce26fcfd02639c5ca66/vendordeps/REVLib.json",
+      "occurrences": [
+        {
+          "path": "docs/robots/2026-code.md",
+          "line": 3,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:53.657332+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/2026-Robot/blob/0c9a024dec1f58648d573ce26fcfd02639c5ca66/vendordeps/REVLib.json",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/2026-Robot/blob/0c9a024dec1f58648d573ce26fcfd02639c5ca66/vendordeps/photonlib.json",
+      "occurrences": [
+        {
+          "path": "docs/robots/2026-code.md",
+          "line": 3,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:53.666719+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/2026-Robot/blob/0c9a024dec1f58648d573ce26fcfd02639c5ca66/vendordeps/photonlib.json",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/2026-Robot/tree/0c9a024dec1f58648d573ce26fcfd02639c5ca66",
+      "occurrences": [
+        {
+          "path": "docs/robots/2026-code.md",
+          "line": 3,
+          "historical": false
+        },
+        {
+          "path": "docs/robots/sources.md",
+          "line": 7,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:53.730469+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/2026-Robot/tree/0c9a024dec1f58648d573ce26fcfd02639c5ca66",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/2026-Robot/tree/0c9a024dec1f58648d573ce26fcfd02639c5ca66/src/main/deploy/pathplanner/paths",
+      "occurrences": [
+        {
+          "path": "docs/robots/2026-code.md",
+          "line": 31,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:53.908218+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/2026-Robot/tree/0c9a024dec1f58648d573ce26fcfd02639c5ca66/src/main/deploy/pathplanner/paths",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/2026-Robot/tree/0c9a024dec1f58648d573ce26fcfd02639c5ca66/src/main/java/frc/robot/subsystems/Hopper/HopperIntake",
+      "occurrences": [
+        {
+          "path": "docs/frc/1-Basics/4b-Architecture.md",
+          "line": 7,
+          "historical": false
+        },
+        {
+          "path": "docs/frc/1-Basics/5a-Roller_Intake.md",
+          "line": 7,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:53.959746+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/2026-Robot/tree/0c9a024dec1f58648d573ce26fcfd02639c5ca66/src/main/java/frc/robot/subsystems/Hopper/HopperIntake",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/2026-Robot/tree/0c9a024dec1f58648d573ce26fcfd02639c5ca66/src/main/java/frc/robot/subsystems/drive",
+      "occurrences": [
+        {
+          "path": "docs/frc/1-Basics/Modern_Drivetrain_Project.md",
+          "line": 19,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:53.962289+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/2026-Robot/tree/0c9a024dec1f58648d573ce26fcfd02639c5ca66/src/main/java/frc/robot/subsystems/drive",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/2026-Robot/tree/0c9a024dec1f58648d573ce26fcfd02639c5ca66/src/main/java/frc/robot/subsystems/vision",
+      "occurrences": [
+        {
+          "path": "docs/frc/1-Basics/Modern_Drivetrain_Project.md",
+          "line": 19,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:54.004875+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/2026-Robot/tree/0c9a024dec1f58648d573ce26fcfd02639c5ca66/src/main/java/frc/robot/subsystems/vision",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/robotics-training",
+      "occurrences": [
+        {
+          "path": "docs/git/How_To_Git.md",
+          "line": 8,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:54.112769+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/robotics-training",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/robotics-training.git",
+      "occurrences": [
+        {
+          "path": "docs/git/How_To_Git.md",
+          "line": 9,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:54.180070+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/robotics-training",
+          "redirects": [
+            {
+              "status": 301,
+              "url": "https://github.com/FRC1257/robotics-training"
+            }
+          ]
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/robotics-training/blob/master/examples/PidDemo.java",
+      "occurrences": [
+        {
+          "path": "docs/frc/3-Closed_Loop_Control/2-Basics_of_PID.md",
+          "line": 3,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:54.199600+00:00",
+          "status": 404,
+          "category": "not_found",
+          "final_url": "https://github.com/FRC1257/robotics-training/blob/master/examples/PidDemo.java",
+          "redirects": []
+        },
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:54.509286+00:00",
+          "status": 404,
+          "category": "not_found",
+          "final_url": "https://github.com/FRC1257/robotics-training/blob/master/examples/PidDemo.java",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": true
+    },
+    {
+      "request_url": "https://github.com/FRC1257/robotics-training/tree/main/docs",
+      "occurrences": [
+        {
+          "path": "docs/index.html",
+          "line": 24,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:54.228779+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/robotics-training/tree/main/docs",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/robotics-training/tree/master/examples/robot-starter",
+      "occurrences": [
+        {
+          "path": "docs/frc/1-Basics/5-First_Subsystem.md",
+          "line": 3,
+          "historical": false
+        },
+        {
+          "path": "docs/frc/1-Basics/5e-Simulation.md",
+          "line": 3,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:54.246747+00:00",
+          "status": 404,
+          "category": "not_found",
+          "final_url": "https://github.com/FRC1257/robotics-training/tree/master/examples/robot-starter",
+          "redirects": []
+        },
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:54.531310+00:00",
+          "status": 404,
+          "category": "not_found",
+          "final_url": "https://github.com/FRC1257/robotics-training/tree/master/examples/robot-starter",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": true
+    },
+    {
+      "request_url": "https://github.com/FRC1257/snail-robot-template",
+      "occurrences": [
+        {
+          "path": "docs/frc/1-Basics/1a-Setup.md",
+          "line": 13,
+          "historical": false
+        },
+        {
+          "path": "docs/frc/1-Basics/G-Guide.md",
+          "line": 9,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:54.385675+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/snail-robot-template",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/team-website-new",
+      "occurrences": [
+        {
+          "path": "docs/website/README.md",
+          "line": 3,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:54.508932+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/team-website-new",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/team-website-new/tree/abe29e575619736f5f199c18021ea97c7f03dd7d/SnailSite/public/pics/robots",
+      "occurrences": [
+        {
+          "path": "docs/robots/sources.md",
+          "line": 17,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:54.509139+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/team-website-new/tree/abe29e575619736f5f199c18021ea97c7f03dd7d/SnailSite/public/pics/robots",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/team-website-new/tree/main",
+      "occurrences": [
+        {
+          "path": "docs/website/Getting_Started.md",
+          "line": 5,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:54.543131+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/team-website-new/tree/main",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/training-programs",
+      "occurrences": [
+        {
+          "path": "docs/frc/1-Basics/E-Extra_Features.md",
+          "line": 132,
+          "historical": false
+        },
+        {
+          "path": "docs/frc/1-Basics/G-Guide.md",
+          "line": 90,
+          "historical": false
+        },
+        {
+          "path": "docs/frc/README.md",
+          "line": 34,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:54.589848+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/training-programs",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/training-programs/tree/master/basics/arm",
+      "occurrences": [
+        {
+          "path": "docs/frc/1-Basics/7-Arm.md",
+          "line": 357,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:54.609336+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/training-programs/tree/master/basics/arm",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/training-programs/tree/master/basics/claw-intake",
+      "occurrences": [
+        {
+          "path": "docs/frc/1-Basics/6-Claw_Intake.md",
+          "line": 301,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:54.835817+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/training-programs/tree/master/basics/claw-intake",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/training-programs/tree/master/basics/drivetrain",
+      "occurrences": [
+        {
+          "path": "docs/frc/1-Basics/9-Drivetrain.md",
+          "line": 316,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:54.855965+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/training-programs/tree/master/basics/drivetrain",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/FRC1257/training-programs/tree/master/basics/elevator",
+      "occurrences": [
+        {
+          "path": "docs/frc/1-Basics/8-Elevator.md",
+          "line": 299,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:54.858027+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/FRC1257/training-programs/tree/master/basics/elevator",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/Mechanical-Advantage/RobotCode2023/blob/main/src/main/java/org/littletonrobotics/frc2023/RobotContainer.java",
+      "occurrences": [
+        {
+          "path": "docs/frc/5-Advanced_&_Misc/Other_Team's_Code.md",
+          "line": 22,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:54.911510+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/Mechanical-Advantage/RobotCode2023/blob/main/src/main/java/org/littletonrobotics/frc2023/RobotContainer.java",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/REVrobotics/Color-Sensor-v3-Examples",
+      "occurrences": [
+        {
+          "path": "docs/frc/2-Sensors_And_Shuffleboard/6-Misc_Sensors.md",
+          "line": 15,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:54.913345+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/REVrobotics/Color-Sensor-v3-Examples",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/Ryan10145/frc-drivetrain",
+      "occurrences": [
+        {
+          "path": "docs/frc/4-Autonomous/3-Advanced_Trajectories.md",
+          "line": 16,
+          "historical": false
+        },
+        {
+          "path": "docs/frc/4-Autonomous/3c-Following_Trajectories.md",
+          "line": 9,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:54.946421+00:00",
+          "status": 404,
+          "category": "not_found",
+          "final_url": "https://github.com/Ryan10145/frc-drivetrain",
+          "redirects": []
+        },
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:55.133771+00:00",
+          "status": 404,
+          "category": "not_found",
+          "final_url": "https://github.com/Ryan10145/frc-drivetrain",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": true
+    },
+    {
+      "request_url": "https://github.com/Team254",
+      "occurrences": [
+        {
+          "path": "docs/frc/5-Advanced_&_Misc/Other_Team's_Code.md",
+          "line": 19,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:55.161683+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/Team254",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/fzankl/docsify-plugin-flexible-alerts/blob/main/README.md",
+      "occurrences": [
+        {
+          "path": "docs/documentation/README.md",
+          "line": 116,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:55.191322+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.com/fzankl/docsify-plugin-flexible-alerts/blob/main/README.md",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.com/wpilibsuite/allwpilib/blob/master/wpilibj/src/main/java/edu/wpi/first/wpilibj/drive/DifferentialDrive.java",
+      "occurrences": [
+        {
+          "path": "docs/frc/1-Basics/9-Drivetrain.md",
+          "line": 34,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:55.198681+00:00",
+          "status": 404,
+          "category": "not_found",
+          "final_url": "https://github.com/wpilibsuite/allwpilib/blob/main/wpilibj/src/main/java/edu/wpi/first/wpilibj/drive/DifferentialDrive.java",
+          "redirects": [
+            {
+              "status": 302,
+              "url": "https://github.com/wpilibsuite/allwpilib/blob/main/wpilibj/src/main/java/edu/wpi/first/wpilibj/drive/DifferentialDrive.java"
+            }
+          ]
+        },
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:55.563002+00:00",
+          "status": 404,
+          "category": "not_found",
+          "final_url": "https://github.com/wpilibsuite/allwpilib/blob/main/wpilibj/src/main/java/edu/wpi/first/wpilibj/drive/DifferentialDrive.java",
+          "redirects": [
+            {
+              "status": 302,
+              "url": "https://github.com/wpilibsuite/allwpilib/blob/main/wpilibj/src/main/java/edu/wpi/first/wpilibj/drive/DifferentialDrive.java"
+            }
+          ]
+        }
+      ],
+      "confirmed_not_found": true
+    },
+    {
+      "request_url": "https://github.wpilib.org/allwpilib/docs/release/java/",
+      "occurrences": [
+        {
+          "path": "docs/frc/README.md",
+          "line": 17,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:55.285112+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.wpilib.org/allwpilib/docs/release/java/",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/math/controller/PIDController.html",
+      "occurrences": [
+        {
+          "path": "docs/frc/3-Closed_Loop_Control/3a-WPILib_PID.md",
+          "line": 51,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:55.336954+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/math/controller/PIDController.html",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/math/filter/SlewRateLimiter.html",
+      "occurrences": [
+        {
+          "path": "docs/frc/5-Advanced_&_Misc/Rate_Limit.md",
+          "line": 35,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:55.352181+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/math/filter/SlewRateLimiter.html",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/wpilibj/Notifier.html",
+      "occurrences": [
+        {
+          "path": "docs/frc/5-Advanced_&_Misc/Notifier.md",
+          "line": 44,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:55.393023+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/wpilibj/Notifier.html",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://google.github.io/styleguide/javaguide.html",
+      "occurrences": [
+        {
+          "path": "docs/java/Formatting_Guide.md",
+          "line": 3,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:55.417658+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://google.github.io/styleguide/javaguide.html",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://introcs.cs.princeton.edu/java/11cheatsheet/",
+      "occurrences": [
+        {
+          "path": "docs/java/1-Basics/README.md",
+          "line": 21,
+          "historical": false
+        },
+        {
+          "path": "docs/java/2-Control_Flow/README.md",
+          "line": 22,
+          "historical": false
+        },
+        {
+          "path": "docs/java/3-Functions/README.md",
+          "line": 24,
+          "historical": false
+        },
+        {
+          "path": "docs/java/4-Objects/README.md",
+          "line": 34,
+          "historical": false
+        },
+        {
+          "path": "docs/java/README.md",
+          "line": 9,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:55.468473+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://introcs.cs.princeton.edu/java/11cheatsheet/",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://introcs.cs.princeton.edu/java/12types/",
+      "occurrences": [
+        {
+          "path": "docs/java/1-Basics/README.md",
+          "line": 19,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:55.468608+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://introcs.cs.princeton.edu/java/12types/",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://introcs.cs.princeton.edu/java/13flow/",
+      "occurrences": [
+        {
+          "path": "docs/java/2-Control_Flow/README.md",
+          "line": 20,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:55.484674+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://introcs.cs.princeton.edu/java/13flow/",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://introcs.cs.princeton.edu/java/21function/",
+      "occurrences": [
+        {
+          "path": "docs/java/3-Functions/README.md",
+          "line": 23,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:55.538143+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://introcs.cs.princeton.edu/java/21function/",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://introcs.cs.princeton.edu/java/home/",
+      "occurrences": [
+        {
+          "path": "docs/java/README.md",
+          "line": 6,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:55.545153+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://introcs.cs.princeton.edu/java/home/",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://learnfrc.com/",
+      "occurrences": [
+        {
+          "path": "docs/guides/resources.md",
+          "line": 17,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:55.545222+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://learnfrc.com/",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://learngitbranching.js.org/",
+      "occurrences": [
+        {
+          "path": "docs/git/README.md",
+          "line": 20,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:55.545291+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://learngitbranching.js.org/",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://markdownlivepreview.com/",
+      "occurrences": [
+        {
+          "path": "docs/documentation/README.md",
+          "line": 33,
+          "historical": false
+        },
+        {
+          "path": "docs/documentation/README.md",
+          "line": 47,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:55.590868+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://markdownlivepreview.com/",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://pathplanner.dev/",
+      "occurrences": [
+        {
+          "path": "docs/frc/1-Basics/Modern_Drivetrain_Project.md",
+          "line": 19,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:55.590923+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://pathplanner.dev/",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://pathplanner.dev/home.html",
+      "occurrences": [
+        {
+          "path": "docs/guides/resources.md",
+          "line": 11,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:55.622819+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://pathplanner.dev/home.html",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://pdocs.kauailabs.com/navx-mxp/software/roborio-libraries/java/",
+      "occurrences": [
+        {
+          "path": "docs/frc/1-Basics/2b-Vendor_Dependencies.md",
+          "line": 25,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:55.654792+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://pdocs.kauailabs.com/navx-mxp/software/roborio-libraries/java/",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://phoenix-documentation.readthedocs.io/en/latest/ch05a_CppJava.html",
+      "occurrences": [
+        {
+          "path": "docs/frc/1-Basics/2b-Vendor_Dependencies.md",
+          "line": 25,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:55.658178+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://v5.docs.ctr-electronics.com/en/latest/ch05a_CppJava.html",
+          "redirects": [
+            {
+              "status": 302,
+              "url": "https://v5.docs.ctr-electronics.com/en/latest/ch05a_CppJava.html"
+            }
+          ]
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://photonvision.org/",
+      "occurrences": [
+        {
+          "path": "docs/vision/PhotonVision/README.md",
+          "line": 2,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:55.669374+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://photonvision.org/",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://placehold.co/600x600",
+      "occurrences": [
+        {
+          "path": "docs/website/2-Annual_Updates/1-Student_Leadership.md",
+          "line": 37,
+          "historical": false
+        },
+        {
+          "path": "docs/website/2-Annual_Updates/1-Student_Leadership.md",
+          "line": 43,
+          "historical": false
+        },
+        {
+          "path": "docs/website/2-Annual_Updates/1-Student_Leadership.md",
+          "line": 121,
+          "historical": false
+        },
+        {
+          "path": "docs/website/2-Annual_Updates/1-Student_Leadership.md",
+          "line": 144,
+          "historical": false
+        },
+        {
+          "path": "docs/website/2-Annual_Updates/1-Student_Leadership.md",
+          "line": 150,
+          "historical": false
+        },
+        {
+          "path": "docs/website/2-Annual_Updates/1-Student_Leadership.md",
+          "line": 174,
+          "historical": false
+        },
+        {
+          "path": "docs/website/2-Annual_Updates/1-Student_Leadership.md",
+          "line": 180,
+          "historical": false
+        },
+        {
+          "path": "docs/website/2-Annual_Updates/1-Student_Leadership.md",
+          "line": 187,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:55.671301+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://placehold.co/600x600",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://raw.githubusercontent.com/FRC1257/2024-Logs/686c0d0f14ac1ce2d2c71fd57ca9d5b5c903a5dd/Week-of-1-29/Log_24-02-01_16-45-53.wpilog",
+      "occurrences": [
+        {
+          "path": "docs/robots/sources.md",
+          "line": 9,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:55.672993+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://raw.githubusercontent.com/FRC1257/2024-Logs/686c0d0f14ac1ce2d2c71fd57ca9d5b5c903a5dd/Week-of-1-29/Log_24-02-01_16-45-53.wpilog",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://react.dev/",
+      "occurrences": [
+        {
+          "path": "docs/website/README.md",
+          "line": 11,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:55.686487+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://react.dev/",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://repl.it/",
+      "occurrences": [
+        {
+          "path": "docs/java/README.md",
+          "line": 15,
+          "historical": false
+        },
+        {
+          "path": "docs/java/README.md",
+          "line": 17,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:55.717143+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://replit.com/",
+          "redirects": [
+            {
+              "status": 302,
+              "url": "https://replit.com/"
+            }
+          ]
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://spectrum3847.org/resources/training/",
+      "occurrences": [
+        {
+          "path": "docs/guides/resources.md",
+          "line": 16,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:55.740133+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://spectrum3847.org/resources/training/",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://tailwindcss.com/",
+      "occurrences": [
+        {
+          "path": "docs/website/README.md",
+          "line": 12,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:55.769873+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://tailwindcss.com/",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://v6.docs.ctr-electronics.com/en/stable/",
+      "occurrences": [
+        {
+          "path": "docs/guides/resources.md",
+          "line": 9,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:55.815126+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://v6.docs.ctr-electronics.com/en/stable/",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://vercel.com/",
+      "occurrences": [
+        {
+          "path": "docs/website/README.md",
+          "line": 14,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:55.828988+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://vercel.com/",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://vite.dev/",
+      "occurrences": [
+        {
+          "path": "docs/website/README.md",
+          "line": 13,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:55.850627+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://vite.dev/",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://web.dev/learn",
+      "occurrences": [
+        {
+          "path": "docs/website/README.md",
+          "line": 21,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:55.878132+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://web.dev/learn",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://www.axis.com/en-us/products/axis-206",
+      "occurrences": [
+        {
+          "path": "docs/vision/PhotonVision/README.md",
+          "line": 9,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:55.881470+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://www.axis.com/en-us/products/axis-206/support",
+          "redirects": [
+            {
+              "status": 301,
+              "url": "https://www.axis.com/en-us/products/axis-206/support"
+            }
+          ]
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://www.chiefdelphi.com/t/joystick-scaling-deadband/355153",
+      "occurrences": [
+        {
+          "path": "docs/frc/5-Advanced_&_Misc/Joystick_Features.md",
+          "line": 5,
+          "historical": false
+        },
+        {
+          "path": "docs/frc/5-Advanced_&_Misc/Joystick_Features.md",
+          "line": 92,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:55.884009+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://www.chiefdelphi.com/t/joystick-scaling-deadband/355153",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://www.citruscircuits.org/resources",
+      "occurrences": [
+        {
+          "path": "docs/guides/resources.md",
+          "line": 19,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:55.934209+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://www.citruscircuits.org/resources",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://www.codecademy.com/catalog/subject/web-development",
+      "occurrences": [
+        {
+          "path": "docs/website/README.md",
+          "line": 20,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:56.007299+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://www.codecademy.com/catalog/subject/web-development",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://www.cs.princeton.edu/courses/archive/spr05/cos126/cmd-prompt.html",
+      "occurrences": [
+        {
+          "path": "docs/git/README.md",
+          "line": 18,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:56.009300+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://www.cs.princeton.edu/courses/archive/spr05/cos126/cmd-prompt.html",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://www.firstinspires.org/resources/library/frc/technical-resources",
+      "occurrences": [
+        {
+          "path": "docs/foundations/strategy.md",
+          "line": 3,
+          "historical": false
+        },
+        {
+          "path": "docs/guides/resources.md",
+          "line": 13,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:56.026680+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://www.firstinspires.org/resources/library/frc/technical-resources",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://www.firstinspires.org/resources/library/safety",
+      "occurrences": [
+        {
+          "path": "docs/foundations/safety.md",
+          "line": 3,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:56.079451+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://www.firstinspires.org/resources/library/safety",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://www.firstinspires.org/sites/default/files/uploads/resource_library/frc/team-resources/frc_intro_scouting.pdf",
+      "occurrences": [
+        {
+          "path": "docs/foundations/strategy.md",
+          "line": 3,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:56.119224+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://info.firstinspires.org/hubfs/web/program/frc/resources/intro-scouting.pdf",
+          "redirects": [
+            {
+              "status": 301,
+              "url": "https://info.firstinspires.org/hubfs/web/program/frc/resources/intro-scouting.pdf"
+            }
+          ]
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://www.geeksforgeeks.org/encapsulation-in-java/",
+      "occurrences": [
+        {
+          "path": "docs/frc/archive/Roller_Intake_legacy.md",
+          "line": 250,
+          "historical": true
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:56.142514+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://www.geeksforgeeks.org/java/encapsulation-in-java/",
+          "redirects": [
+            {
+              "status": 307,
+              "url": "https://www.geeksforgeeks.org/java/encapsulation-in-java/"
+            }
+          ]
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://www.geeksforgeeks.org/operators-in-java/",
+      "occurrences": [
+        {
+          "path": "docs/java/1-Basics/3-Operators.md",
+          "line": 59,
+          "historical": false
+        },
+        {
+          "path": "docs/java/1-Basics/README.md",
+          "line": 20,
+          "historical": false
+        },
+        {
+          "path": "docs/java/2-Control_Flow/README.md",
+          "line": 21,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:56.148364+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://www.geeksforgeeks.org/java/operators-in-java/",
+          "redirects": [
+            {
+              "status": 307,
+              "url": "https://www.geeksforgeeks.org/java/operators-in-java/"
+            }
+          ]
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://www.javaworld.com/article/2077421/learn-java/abstract-classes-vs-interfaces.html",
+      "occurrences": [
+        {
+          "path": "docs/java/4-Objects/7-Abstract_Classes.md",
+          "line": 130,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:56.175256+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://www.infoworld.com/",
+          "redirects": [
+            {
+              "status": 301,
+              "url": "https://www.infoworld.com/"
+            }
+          ]
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://www.learnjavaonline.org/en/Functions",
+      "occurrences": [
+        {
+          "path": "docs/java/3-Functions/README.md",
+          "line": 22,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:56.224268+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://www.learnjavaonline.org/en/Functions",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://www.linearmotiontips.com/how-to-calculate-velocity/",
+      "occurrences": [
+        {
+          "path": "docs/frc/3-Closed_Loop_Control/5-Motion_Profiling.md",
+          "line": 17,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:56.294335+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://www.linearmotiontips.com/how-to-calculate-velocity/",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://www.markdownguide.org/",
+      "occurrences": [
+        {
+          "path": "docs/documentation/README.md",
+          "line": 24,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:56.370501+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://www.markdownguide.org/",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://www.markdownguide.org/cheat-sheet/",
+      "occurrences": [
+        {
+          "path": "docs/documentation/README.md",
+          "line": 35,
+          "historical": false
+        },
+        {
+          "path": "docs/documentation/README.md",
+          "line": 49,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:56.370623+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://www.markdownguide.org/cheat-sheet/",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://www.npmjs.com/",
+      "occurrences": [
+        {
+          "path": "docs/website/Getting_Started.md",
+          "line": 3,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:56.416999+00:00",
+          "status": 403,
+          "category": "blocked",
+          "final_url": "https://www.npmjs.com/",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://www.programiz.com/java-programming/methods",
+      "occurrences": [
+        {
+          "path": "docs/java/3-Functions/README.md",
+          "line": 21,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:56.463223+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://www.programiz.com/java-programming/methods",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://www.quora.com/What-is-the-purpose-of-Abstract-Class-in-Java",
+      "occurrences": [
+        {
+          "path": "docs/java/4-Objects/7-Abstract_Classes.md",
+          "line": 132,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:56.469998+00:00",
+          "status": 403,
+          "category": "blocked",
+          "final_url": "https://www.quora.com/What-is-the-purpose-of-Abstract-Class-in-Java",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://www.revrobotics.com/rev-41-1097/",
+      "occurrences": [
+        {
+          "path": "docs/frc/5-Advanced_&_Misc/Servos.md",
+          "line": 13,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:56.505969+00:00",
+          "status": 404,
+          "category": "not_found",
+          "final_url": "https://www.revrobotics.com/rev-41-1097/",
+          "redirects": []
+        },
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:56.855113+00:00",
+          "status": 404,
+          "category": "not_found",
+          "final_url": "https://www.revrobotics.com/rev-41-1097/",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": true
+    },
+    {
+      "request_url": "https://www.simbotics.org/resources/",
+      "occurrences": [
+        {
+          "path": "docs/guides/resources.md",
+          "line": 19,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:56.530921+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://www.simbotics.org/resources/",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://www.simbotics.org/wp-content/uploads/2019/12/simbotseminarseries-drivetraindesign.pdf",
+      "occurrences": [
+        {
+          "path": "docs/frc/1-Basics/9-Drivetrain.md",
+          "line": 13,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:56.533520+00:00",
+          "status": 404,
+          "category": "not_found",
+          "final_url": "https://www.simbotics.org/wp-content/uploads/2019/12/simbotseminarseries-drivetraindesign.pdf",
+          "redirects": []
+        },
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:56.610129+00:00",
+          "status": 404,
+          "category": "not_found",
+          "final_url": "https://www.simbotics.org/wp-content/uploads/2019/12/simbotseminarseries-drivetraindesign.pdf",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": true
+    },
+    {
+      "request_url": "https://www.spartanrobotics.org/workshops",
+      "occurrences": [
+        {
+          "path": "docs/guides/resources.md",
+          "line": 18,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:56.582231+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://www.spartanrobotics.org/workshops",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://www.team254.com/resources/",
+      "occurrences": [
+        {
+          "path": "docs/guides/resources.md",
+          "line": 18,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:56.660006+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://www.team254.com/resources/",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://www.tutorialspoint.com/java/java_basic_datatypes.htm",
+      "occurrences": [
+        {
+          "path": "docs/java/README.md",
+          "line": 5,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:56.665040+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://www.tutorialspoint.com/java/java_basic_datatypes.htm",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://www.tutorialspoint.com/java/java_object_classes.htm",
+      "occurrences": [
+        {
+          "path": "docs/java/4-Objects/README.md",
+          "line": 32,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:56.673173+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://www.tutorialspoint.com/java/java_object_classes.htm",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://www.tutorialspoint.com/java/lang/math_signum_float.htm",
+      "occurrences": [
+        {
+          "path": "docs/frc/5-Advanced_&_Misc/Joystick_Features.md",
+          "line": 45,
+          "historical": false
+        },
+        {
+          "path": "docs/frc/5-Advanced_&_Misc/Joystick_Features.md",
+          "line": 90,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:56.752241+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://www.tutorialspoint.com/java/lang/math_signum_float.htm",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://www.typescriptlang.org/",
+      "occurrences": [
+        {
+          "path": "docs/website/README.md",
+          "line": 10,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:56.784610+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://www.typescriptlang.org/",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://www.w3schools.com/java/java_try_catch.asp",
+      "occurrences": [
+        {
+          "path": "docs/frc/5-Advanced_&_Misc/Creating-Files.md",
+          "line": 46,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:56.834331+00:00",
+          "status": 403,
+          "category": "blocked",
+          "final_url": "https://www.w3schools.com/java/java_try_catch.asp",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://www.youtube.com/embed/5bxq2N02pJM?start=14",
+      "occurrences": [
+        {
+          "path": "docs/frc/4-Autonomous/1-Overview.md",
+          "line": 33,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:56.966328+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://www.youtube.com/embed/5bxq2N02pJM?start=14",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://www.youtube.com/embed/O-Ys8Ash1J4",
+      "occurrences": [
+        {
+          "path": "docs/documentation/README.md",
+          "line": 169,
+          "historical": false
+        },
+        {
+          "path": "docs/documentation/README.md",
+          "line": 174,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:57.067613+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://www.youtube.com/embed/O-Ys8Ash1J4",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://www.youtube.com/embed/aFZy8iibMD0?start=20",
+      "occurrences": [
+        {
+          "path": "docs/frc/4-Autonomous/1-Overview.md",
+          "line": 23,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:57.090804+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://www.youtube.com/embed/aFZy8iibMD0?start=20",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://www.youtube.com/embed/pfhBCb6bXpE?start=4",
+      "occurrences": [
+        {
+          "path": "docs/frc/4-Autonomous/1-Overview.md",
+          "line": 27,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:57.139737+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://www.youtube.com/embed/pfhBCb6bXpE?start=4",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://www.youtube.com/watch?v=BCQHnlnPusY",
+      "occurrences": [
+        {
+          "path": "docs/git/README.md",
+          "line": 21,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:57.150280+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://www.youtube.com/watch?v=BCQHnlnPusY",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://www.youtube.com/watch?v=JlKwRAvDue8",
+      "occurrences": [
+        {
+          "path": "docs/frc/1-Basics/3-Pneumatics.md",
+          "line": 51,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:57.172762+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://www.youtube.com/watch?v=JlKwRAvDue8",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    },
+    {
+      "request_url": "https://www.youtube.com/watch?v=rLwOkAJqImo",
+      "occurrences": [
+        {
+          "path": "docs/vision/README.md",
+          "line": 7,
+          "historical": false
+        }
+      ],
+      "attempts": [
+        {
+          "retrieved_at_utc": "2026-11-11T02:30:57.201998+00:00",
+          "status": 200,
+          "category": "ok",
+          "final_url": "https://www.youtube.com/watch?v=rLwOkAJqImo",
+          "redirects": []
+        }
+      ],
+      "confirmed_not_found": false
+    }
+  ]
+}

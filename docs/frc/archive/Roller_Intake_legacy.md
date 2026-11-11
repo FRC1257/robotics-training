@@ -27,11 +27,11 @@ For this tutorial, we'll assume that a single SPARK MAX motor controller is used
 
 ## Flowchart
 
-Before we get into going over the code, we're going to review a flowchart of our code and generally how the subsystem will fit into the command-based model. Make sure you zoom in to see the details. If the flowchart does not load, please [press here](https://drive.google.com/file/d/1OdYeyfamvG7weoWkQY1DDX4__NVKelgm/view?usp=sharing) to view a copy of it.
+The original historical roller-intake flowchart is no longer publicly accessible. The following separately created diagram illustrates a **different 2026 scoring command**, not the old roller-intake design. In both cases, bindings schedule commands that direct subsystem behavior; consult the code for the actual implementation.
 
-The green sections will be handled by our subsystem class, while the red sections will be handled by the `RobotContainer` file.
+![Diagram of the 2026 scoring command flow](../../media/robots/2026-command-flow.svg)
 
-<iframe frameborder="0" style="width:100%;height:343px;" src="https://app.diagrams.net/?lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=Roller%20Intake%20Flowchart.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1OdYeyfamvG7weoWkQY1DDX4__NVKelgm%26export%3Ddownload"></iframe>
+Read the [2026 code walkthrough](../../robots/2026-code.md) for the source, sequence and simulation limitations.
 
 Now that we have the basics out of the way, it's time to start coding!
 

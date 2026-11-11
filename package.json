@@ -13,7 +13,10 @@
     "validate": "node scripts/validate.mjs",
     "test": "node --test tests/*.test.mjs",
     "check": "npm run validate && npm test",
-    "dev": "python3 -m http.server 4173 --directory docs"
+    "dev": "SITE_BASE=/ node scripts/build-site.mjs && python3 -m http.server 4173 --directory dist",
+    "build": "node scripts/build-site.mjs",
+    "test:browser": "playwright test",
+    "check:java": "python3 scripts/check-java.py"
   },
   "repository": {
     "type": "git",
@@ -38,7 +41,9 @@
     "docsify-toc": "1.1.0",
     "katex": "0.19.1",
     "linkedom": "0.18.12",
+    "lucide-static": "1.71.0",
     "markdown-it": "14.3.3",
+    "prettier": "3.9.10",
     "prismjs": "1.30.0"
   },
   "private": true

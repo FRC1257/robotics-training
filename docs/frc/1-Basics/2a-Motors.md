@@ -98,7 +98,7 @@ Now, to apply power to the motor and make it move at a speed, we can use `motor.
 
 ## Other Motor Controllers
 
-The SPARK MAX is not the only motor controller we could use—in the past, 1257 has used Talon SRXs and Victor SPXs (both by [CTRE](http://www.ctr-electronics.com/control-system.html?p=3)).
+The SPARK MAX is not the only motor controller we could use—in the past, 1257 has used Talon SRXs and Victor SPXs (both by [CTRE](https://v5.docs.ctr-electronics.com/en/stable/ch13_MC.html)).
 
 While the motor controller may differ, the general process of controlling the motor is most the same. If Talon SRXs were being used, changes would go towards the class name (now `WPI_TalonSRX`) and any functions taken from that class (e.g. `setIdleMode()` would be `setNeutralMode()`, and `setSmartCurrentLimit()` would be `configContinuousCurrentLimit()`.
 

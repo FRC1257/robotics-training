@@ -1,1 +1,211 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Swerve kinematics lab</title><link rel="stylesheet" href="labs.css"></head><body><header><a href="../#/labs/">← Labs</a><h1>Swerve kinematics lab</h1><p>Predict module directions before changing the controls.</p></header><main><noscript>This lab requires JavaScript. The model and experiment are described below.</noscript><section class="intro"><h2>Try it</h2><ol><li>Predict all four wheel directions for pure forward translation. Select the translation preset.</li><li>Predict which modules point where during counterclockwise rotation. Select rotation.</li><li>Challenge: choose mixed motion and lower the speed limit. Explain why every wheel is scaled by the same factor. Toggle optimization and explain the negative wheel speeds.</li></ol><p>WPILib coordinates: +x is forward, +y is left, and positive rotation is counterclockwise. Angles are measured counterclockwise from +x. The diagram looks down on the robot: forward is up and left is left. This is ideal kinematics only: no slip, steering dynamics, torque limits, or odometry.</p></section><div class="layout"><section class="card"><h2>Controls</h2><div class="controls"><label>Preset <select id="preset"><option value="translation">Forward translation</option><option value="rotation">Pure rotation</option><option value="mixed">Mixed motion</option><option value="field">Field-relative</option></select></label><label>vx (m/s) <input id="vx" type="number" min="-5" max="5" step="0.1" value="1"></label><label>vy (m/s) <input id="vy" type="number" min="-5" max="5" step="0.1" value="0"></label><label>ω (rad/s) <input id="omega" type="number" min="-10" max="10" step="0.1" value="0"></label><label>Heading (degrees) <input id="heading" type="number" min="-360" max="360" step="5" value="0"></label><label>Field-relative input <input id="fieldRelative" type="checkbox"></label><label>Length (m) <input id="length" type="number" min="0.1" max="2" step="0.1" value="0.6"></label><label>Width (m) <input id="width" type="number" min="0.1" max="2" step="0.1" value="0.6"></label><label>Center x (m) <input id="centerX" type="number" min="-2" max="2" step="0.1" value="0"></label><label>Center y (m) <input id="centerY" type="number" min="-2" max="2" step="0.1" value="0"></label><label>Speed limit (m/s) <input id="maxSpeed" type="number" min="0.1" max="10" step="0.1" value="4"></label><label>Current angle (degrees) <input id="currentAngle" type="number" min="-360" max="360" step="5" value="0"></label><label>Optimize steering <input id="optimize" type="checkbox" checked></label><button id="reset">Reset</button></div><p class="note">Current angle is shared by all modules for this experiment. Optimization uses the shortest turn within 90°; a negative speed reverses the wheel.</p></section><section class="card"><h2>Module states</h2><svg id="diagram" viewBox="0 0 500 400" role="img" aria-label="Top view of the robot and module velocity arrows. Exact values follow in the table."></svg><p id="result" class="status"></p><table><thead><tr><th>Module</th><th>Speed (m/s)</th><th>Angle (deg)</th></tr></thead><tbody id="states"></tbody></table><p>Arrows show actual velocity after desaturation, including reversed wheel speed. The center of rotation is marked ×.</p></section></div><section class="card"><h2>Model</h2><p>For module position <code>(x, y)</code> measured from the chosen center of rotation, <code>vᵢ = (vx − ωy, vy + ωx)</code>. Field-relative translation is rotated by minus the robot heading into the robot frame. If the fastest module exceeds the speed limit, all speeds are multiplied by the same factor. At zero speed the displayed angle stays at the selected current angle.</p><p><a href="https://docs.wpilib.org/en/stable/docs/software/kinematics-and-odometry/intro-and-chassis-speeds.html">WPILib: Chassis speeds and coordinates</a> · <a href="https://docs.wpilib.org/en/stable/docs/software/kinematics-and-odometry/swerve-drive-kinematics.html">WPILib: Swerve drive kinematics</a></p></section></main><script type="module" src="swerve.mjs"></script></body></html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Swerve kinematics lab</title>
+    <link rel="stylesheet" href="labs.css" />
+  </head>
+  <body>
+    <header>
+      <a href="../#/labs/">← Labs</a>
+      <h1>Swerve kinematics lab</h1>
+      <p>Predict module directions before changing the controls.</p>
+    </header>
+    <main>
+      <noscript
+        >This lab requires JavaScript. The model and experiment are described
+        below.</noscript
+      >
+      <section class="intro">
+        <h2>Try it</h2>
+        <ol>
+          <li>
+            Predict all four wheel directions for pure forward translation.
+            Select the translation preset.
+          </li>
+          <li>
+            Predict which modules point where during counterclockwise rotation.
+            Select rotation.
+          </li>
+          <li>
+            Challenge: choose mixed motion and lower the speed limit. Explain
+            why every wheel is scaled by the same factor. Toggle optimization
+            and explain the negative wheel speeds.
+          </li>
+        </ol>
+        <p>
+          WPILib coordinates: +x is forward, +y is left, and positive rotation
+          is counterclockwise. Angles are measured counterclockwise from +x. The
+          diagram looks down on the robot: forward is up and left is left. This
+          is ideal kinematics only: no slip, steering dynamics, torque limits,
+          or odometry.
+        </p>
+      </section>
+      <div class="layout">
+        <section class="card">
+          <h2>Controls</h2>
+          <div class="controls">
+            <label
+              >Preset
+              <select id="preset">
+                <option value="translation">Forward translation</option>
+                <option value="rotation">Pure rotation</option>
+                <option value="mixed">Mixed motion</option>
+                <option value="field">Field-relative</option>
+              </select></label
+            ><label
+              >vx (m/s)
+              <input
+                id="vx"
+                type="number"
+                min="-5"
+                max="5"
+                step="0.1"
+                value="1" /></label
+            ><label
+              >vy (m/s)
+              <input
+                id="vy"
+                type="number"
+                min="-5"
+                max="5"
+                step="0.1"
+                value="0" /></label
+            ><label
+              >ω (rad/s)
+              <input
+                id="omega"
+                type="number"
+                min="-10"
+                max="10"
+                step="0.1"
+                value="0" /></label
+            ><label
+              >Heading (degrees)
+              <input
+                id="heading"
+                type="number"
+                min="-360"
+                max="360"
+                step="5"
+                value="0" /></label
+            ><label
+              >Field-relative input
+              <input id="fieldRelative" type="checkbox" /></label
+            ><label
+              >Length (m)
+              <input
+                id="length"
+                type="number"
+                min="0.1"
+                max="2"
+                step="0.1"
+                value="0.6" /></label
+            ><label
+              >Width (m)
+              <input
+                id="width"
+                type="number"
+                min="0.1"
+                max="2"
+                step="0.1"
+                value="0.6" /></label
+            ><label
+              >Center x (m)
+              <input
+                id="centerX"
+                type="number"
+                min="-2"
+                max="2"
+                step="0.1"
+                value="0" /></label
+            ><label
+              >Center y (m)
+              <input
+                id="centerY"
+                type="number"
+                min="-2"
+                max="2"
+                step="0.1"
+                value="0" /></label
+            ><label
+              >Speed limit (m/s)
+              <input
+                id="maxSpeed"
+                type="number"
+                min="0.1"
+                max="10"
+                step="0.1"
+                value="4" /></label
+            ><label
+              >Current angle (degrees)
+              <input
+                id="currentAngle"
+                type="number"
+                min="-360"
+                max="360"
+                step="5"
+                value="0" /></label
+            ><label
+              >Optimize steering
+              <input id="optimize" type="checkbox" checked /></label
+            ><button id="reset">Reset</button>
+          </div>
+          <p class="note">
+            Current angle is shared by all modules for this experiment.
+            Optimization uses the shortest turn within 90°; a negative speed
+            reverses the wheel.
+          </p>
+        </section>
+        <section class="card">
+          <h2>Module states</h2>
+          <svg
+            id="diagram"
+            viewBox="0 0 500 400"
+            role="img"
+            aria-label="Top view of the robot and module velocity arrows. Exact values follow in the table."
+          ></svg>
+          <p id="result" class="status"></p>
+          <table>
+            <thead>
+              <tr>
+                <th>Module</th>
+                <th>Speed (m/s)</th>
+                <th>Angle (deg)</th>
+              </tr>
+            </thead>
+            <tbody id="states"></tbody>
+          </table>
+          <p>
+            Arrows show actual velocity after desaturation, including reversed
+            wheel speed. The center of rotation is marked ×.
+          </p>
+        </section>
+      </div>
+      <section class="card">
+        <h2>Model</h2>
+        <p>
+          For module position <code>(x, y)</code> measured from the chosen
+          center of rotation, <code>vᵢ = (vx − ωy, vy + ωx)</code>.
+          Field-relative translation is rotated by minus the robot heading into
+          the robot frame. If the fastest module exceeds the speed limit, all
+          speeds are multiplied by the same factor. At zero speed the displayed
+          angle stays at the selected current angle.
+        </p>
+        <p>
+          <a
+            href="https://docs.wpilib.org/en/stable/docs/software/kinematics-and-odometry/intro-and-chassis-speeds.html"
+            >WPILib: Chassis speeds and coordinates</a
+          >
+          ·
+          <a
+            href="https://docs.wpilib.org/en/stable/docs/software/kinematics-and-odometry/swerve-drive-kinematics.html"
+            >WPILib: Swerve drive kinematics</a
+          >
+        </p>
+      </section>
+    </main>
+    <script type="module" src="swerve.mjs"></script>
+  </body>
+</html>

@@ -1,28 +1,274 @@
-import test from 'node:test';
-import assert from 'node:assert/strict';
-import {pidStep,initialPID,swerve} from '../docs/labs/models.mjs';
-const close=(a,b,tol=1e-9)=>assert.ok(Math.abs(a-b)<tol,`${a} != ${b}`);
-const base={setpoint:1,kp:0,ki:1,kd:0,ff:0,limit:100,antiwindup:false,mass:1,gravity:0,drag:0,disturbance:0};
-test('PID integrates constant error over time and first derivative starts at zero',()=>{let s=initialPID();s=pidStep(s,{...base,mass:1e99},.02);s=pidStep(s,{...base,mass:1e99},.02);close(s.integral,.04);close(s.output,.04);const first=pidStep(initialPID(),{...base,ki:0,kd:5});close(first.output,0)});
-test('PID derivative opposes rising measurement for a fixed setpoint',()=>{const s={...initialPID(),position:.2,previousError:1};const next=pidStep(s,{...base,ki:0,kd:1},.02);close(next.output,-10)});
-test('conditional integration stops windup into saturation and allows unwinding',()=>{const p={...base,ki:10,limit:1,antiwindup:true};const s=pidStep(initialPID(),p,1);close(s.integral,0);const recovering=pidStep({...initialPID(),position:2,integral:1},p,.02);assert.ok(recovering.integral<1)});
-test('pure translation gives equal module velocities',()=>{const r=swerve({vx:1,vy:2,omega:0,optimize:false});for(const m of r.modules){close(m.vx,1);close(m.vy,2);close(m.speed,Math.sqrt(5));}});
-test('positive rotation has expected module directions and center of rotation',()=>{const r=swerve({vx:0,vy:0,omega:2,length:1,width:1,optimize:false});close(r.modules[0].vx,-1);close(r.modules[0].vy,1);close(r.modules[3].vx,1);close(r.modules[3].vy,-1);const pivot=swerve({vx:0,vy:0,omega:2,length:1,width:1,centerX:.5,centerY:.5,optimize:false});close(pivot.modules[0].speed,0)});
-test('field transform and desaturation preserve directions',()=>{const field=swerve({vx:1,vy:0,omega:0,heading:Math.PI/2,fieldRelative:true,optimize:false});close(field.robotVx,0);close(field.robotVy,-1);const r=swerve({vx:3,vy:0,omega:2,length:1,width:1,maxSpeed:2,optimize:false});close(r.scale,2/Math.sqrt(17));close(Math.max(...r.modules.map(m=>m.speed)),2);close(r.modules[0].vx,2*r.scale);close(r.modules[0].vy,1*r.scale)});
-test('optimization reverses speed to reduce steering travel, with stable zero angle',()=>{const r=swerve({vx:-1,vy:0,omega:0,currentAngle:0,optimize:true});close(r.modules[0].speed,-1);close(r.modules[0].angle,0);const zero=swerve({vx:0,vy:0,omega:0,currentAngle:.7});close(zero.modules[0].angle,.7)});
+import test from "node:test";
+import assert from "node:assert/strict";
+import { pidStep, initialPID, swerve } from "../docs/labs/models.mjs";
+const close = (a, b, tol = 1e-9) =>
+  assert.ok(Math.abs(a - b) < tol, `${a} != ${b}`);
+const base = {
+  setpoint: 1,
+  kp: 0,
+  ki: 1,
+  kd: 0,
+  ff: 0,
+  limit: 100,
+  antiwindup: false,
+  mass: 1,
+  gravity: 0,
+  drag: 0,
+  disturbance: 0,
+};
+test("PID integrates constant error over time and first derivative starts at zero", () => {
+  let s = initialPID();
+  s = pidStep(s, { ...base, mass: 1e99 }, 0.02);
+  s = pidStep(s, { ...base, mass: 1e99 }, 0.02);
+  close(s.integral, 0.04);
+  close(s.output, 0.04);
+  const first = pidStep(initialPID(), { ...base, ki: 0, kd: 5 });
+  close(first.output, 0);
+});
+test("PID derivative opposes rising measurement for a fixed setpoint", () => {
+  const s = { ...initialPID(), position: 0.2, previousError: 1 };
+  const next = pidStep(s, { ...base, ki: 0, kd: 1 }, 0.02);
+  close(next.output, -10);
+});
+test("conditional integration stops windup into saturation and allows unwinding", () => {
+  const p = { ...base, ki: 10, limit: 1, antiwindup: true };
+  const s = pidStep(initialPID(), p, 1);
+  close(s.integral, 0);
+  const recovering = pidStep(
+    { ...initialPID(), position: 2, integral: 1 },
+    p,
+    0.02,
+  );
+  assert.ok(recovering.integral < 1);
+});
+test("pure translation gives equal module velocities", () => {
+  const r = swerve({ vx: 1, vy: 2, omega: 0, optimize: false });
+  for (const m of r.modules) {
+    close(m.vx, 1);
+    close(m.vy, 2);
+    close(m.speed, Math.sqrt(5));
+  }
+});
+test("positive rotation has expected module directions and center of rotation", () => {
+  const r = swerve({
+    vx: 0,
+    vy: 0,
+    omega: 2,
+    length: 1,
+    width: 1,
+    optimize: false,
+  });
+  close(r.modules[0].vx, -1);
+  close(r.modules[0].vy, 1);
+  close(r.modules[3].vx, 1);
+  close(r.modules[3].vy, -1);
+  const pivot = swerve({
+    vx: 0,
+    vy: 0,
+    omega: 2,
+    length: 1,
+    width: 1,
+    centerX: 0.5,
+    centerY: 0.5,
+    optimize: false,
+  });
+  close(pivot.modules[0].speed, 0);
+});
+test("field transform and desaturation preserve directions", () => {
+  const field = swerve({
+    vx: 1,
+    vy: 0,
+    omega: 0,
+    heading: Math.PI / 2,
+    fieldRelative: true,
+    optimize: false,
+  });
+  close(field.robotVx, 0);
+  close(field.robotVy, -1);
+  const r = swerve({
+    vx: 3,
+    vy: 0,
+    omega: 2,
+    length: 1,
+    width: 1,
+    maxSpeed: 2,
+    optimize: false,
+  });
+  close(r.scale, 2 / Math.sqrt(17));
+  close(Math.max(...r.modules.map((m) => m.speed)), 2);
+  close(r.modules[0].vx, 2 * r.scale);
+  close(r.modules[0].vy, 1 * r.scale);
+});
+test("optimization reverses speed to reduce steering travel, with stable zero angle", () => {
+  const r = swerve({
+    vx: -1,
+    vy: 0,
+    omega: 0,
+    currentAngle: 0,
+    optimize: true,
+  });
+  close(r.modules[0].speed, -1);
+  close(r.modules[0].angle, 0);
+  const zero = swerve({ vx: 0, vy: 0, omega: 0, currentAngle: 0.7 });
+  close(zero.modules[0].angle, 0.7);
+});
 
-import {initialScheduler,schedulerStep,encoderReading} from '../docs/labs/models.mjs';
-test('default requirement yields to held command, release cancels and restores default',()=>{let s=schedulerStep(initialScheduler());assert.equal(s.active,'default');s=schedulerStep(s,'press');assert.deepEqual(s.events,['default.end(interrupted)','held.initialize()','held.execute()']);assert.equal(s.motor,1);s=schedulerStep(s,'release');assert.deepEqual(s.events,['held.end(interrupted)','default.initialize()']);assert.equal(s.motor,0);s=schedulerStep(s);assert.deepEqual(s.events,['default.execute()']);});
-test('conflict interrupts held command and does not restart until another rising edge',()=>{let s=schedulerStep(initialScheduler(),'press');s=schedulerStep(s,'conflict');assert.deepEqual(s.events,['held.end(interrupted)','conflict.initialize()','conflict.execute()']);assert.equal(s.motor,-1);s=schedulerStep(s,'release');assert.equal(s.active,'conflict');assert.equal(s.motor,-1);s=schedulerStep(s,'finish');assert.deepEqual(s.events,['conflict.end(finished)','default.initialize()']);assert.equal(s.motor,0);s=schedulerStep(s,'press');assert.equal(s.active,'held')});
-test('held binding does not reschedule on finish until released and pressed again',()=>{let s=schedulerStep(initialScheduler(),'press');s=schedulerStep(s,'conflict');s=schedulerStep(s,'finish');s=schedulerStep(s,'press');assert.equal(s.active,'default');s=schedulerStep(s,'release');s=schedulerStep(s,'press');assert.equal(s.active,'held')});
-test('encoder conversion, inversion, measured home and active-low interpretation',()=>{const p={motorTurns:12,ratio:6,diameter:.1};let r=encoderReading({...p,rawSwitch:false,activeLow:false});close(r.outputTurns,2);close(r.distance,.2*Math.PI);assert.equal(r.pressed,false);assert.equal(r.reference,'assumed zero');r=encoderReading({...p,inverted:true,homed:true,homeMotorTurns:6,rawSwitch:false,activeLow:true});close(r.outputTurns,-1);close(r.distance,-.1*Math.PI);assert.equal(r.pressed,true);assert.equal(r.reference,'measured home');assert.equal(encoderReading({...p,rawSwitch:true,activeLow:true}).pressed,false)});
-import {motionProfile} from '../docs/labs/models.mjs';
-test('trapezoid respects limits and reaches rest at destination',()=>{let r=motionProfile(10,2,1,0);close(r.duration,7);close(r.cruiseTime,3);r=motionProfile(10,2,1,3);close(r.position,4);close(r.velocity,2);r=motionProfile(10,2,1,7);close(r.position,10);close(r.velocity,0)});
-test('short move is triangular with no cruise',()=>{let r=motionProfile(1,3,1,1);close(r.duration,2);close(r.cruiseTime,0);close(r.peakVelocity,1);close(r.position,.5);close(r.velocity,1);r=motionProfile(1,3,1,2);close(r.position,1);close(r.velocity,0)});
-import {parseLogCSV,odometryExperiment} from '../docs/labs/models.mjs';
-import {readFileSync} from 'node:fs';
-const sample=readFileSync(new URL('../docs/media/robots/2024-log-excerpt.csv',import.meta.url),'utf8');
-test('log parser retains independent microsecond timestamps and signal types',()=>{const data=parseLogCSV(sample);const en=data.find(d=>d.timestampUs===19307236);assert.equal(en.seconds,19.307236);assert.equal(en.value,true);assert.equal(data.find(d=>d.timestampUs===19690089).signal,'/SystemStats/BatteryVoltage');assert.ok(data.every((d,i)=>!i||d.timestampUs>=data[i-1].timestampUs))});
-test('log parser handles quoting and rejects invalid values, types, and malformed CSV',()=>{assert.equal(parseLogCSV(sample.replace('/DriverStation/Enabled','"/DriverStation/Enabled"')).length,29);assert.throws(()=>parseLogCSV(sample.replace('1137158,','1.2,')),/timestamp/);assert.throws(()=>parseLogCSV(sample.replace('False,boolean','maybe,boolean')),/boolean/);assert.throws(()=>parseLogCSV(sample.replace('False,boolean','False,double')),/signal or type/);assert.throws(()=>parseLogCSV(sample+'"broken'),/quote/);assert.throws(()=>parseLogCSV('x'.repeat(1_000_001)),/1 MB/)});
-test('odometry experiment is deterministic and gain zero preserves odometry',()=>{const a=odometryExperiment({gain:0}),b=odometryExperiment({gain:0});assert.deepEqual(a,b);assert.deepEqual(a.corrected,a.odom);assert.ok(a.odometryError>0);assert.equal(a.observations[0].captureTime,1);close(a.observations[0].deliveryTime,1.5)});
-test('delayed observation is applied only after arrival and uses capture index',()=>{const before=odometryExperiment({steps:14,latencySteps:5,gain:1});assert.equal(before.observations.length,0);assert.deepEqual(before.corrected,before.odom);const after=odometryExperiment({steps:15,latencySteps:5,gain:1});assert.equal(after.observations.length,1);assert.equal(after.observations[0].capture,10);assert.notDeepEqual(after.corrected[15],after.odom[15]);close(after.corrected[10].x,after.observations[0].x)});
+import {
+  initialScheduler,
+  schedulerStep,
+  encoderReading,
+} from "../docs/labs/models.mjs";
+test("default requirement yields to held command, release cancels and restores default", () => {
+  let s = schedulerStep(initialScheduler());
+  assert.equal(s.active, "default");
+  s = schedulerStep(s, "press");
+  assert.deepEqual(s.events, [
+    "default.end(interrupted)",
+    "held.initialize()",
+    "held.execute()",
+  ]);
+  assert.equal(s.motor, 1);
+  s = schedulerStep(s, "release");
+  assert.deepEqual(s.events, ["held.end(interrupted)", "default.initialize()"]);
+  assert.equal(s.motor, 0);
+  s = schedulerStep(s);
+  assert.deepEqual(s.events, ["default.execute()"]);
+});
+test("conflict interrupts held command and does not restart until another rising edge", () => {
+  let s = schedulerStep(initialScheduler(), "press");
+  s = schedulerStep(s, "conflict");
+  assert.deepEqual(s.events, [
+    "held.end(interrupted)",
+    "conflict.initialize()",
+    "conflict.execute()",
+  ]);
+  assert.equal(s.motor, -1);
+  s = schedulerStep(s, "release");
+  assert.equal(s.active, "conflict");
+  assert.equal(s.motor, -1);
+  s = schedulerStep(s, "finish");
+  assert.deepEqual(s.events, [
+    "conflict.end(finished)",
+    "default.initialize()",
+  ]);
+  assert.equal(s.motor, 0);
+  s = schedulerStep(s, "press");
+  assert.equal(s.active, "held");
+});
+test("held binding does not reschedule on finish until released and pressed again", () => {
+  let s = schedulerStep(initialScheduler(), "press");
+  s = schedulerStep(s, "conflict");
+  s = schedulerStep(s, "finish");
+  s = schedulerStep(s, "press");
+  assert.equal(s.active, "default");
+  s = schedulerStep(s, "release");
+  s = schedulerStep(s, "press");
+  assert.equal(s.active, "held");
+});
+test("encoder conversion, inversion, measured home and active-low interpretation", () => {
+  const p = { motorTurns: 12, ratio: 6, diameter: 0.1 };
+  let r = encoderReading({ ...p, rawSwitch: false, activeLow: false });
+  close(r.outputTurns, 2);
+  close(r.distance, 0.2 * Math.PI);
+  assert.equal(r.pressed, false);
+  assert.equal(r.reference, "assumed zero");
+  r = encoderReading({
+    ...p,
+    inverted: true,
+    homed: true,
+    homeMotorTurns: 6,
+    rawSwitch: false,
+    activeLow: true,
+  });
+  close(r.outputTurns, -1);
+  close(r.distance, -0.1 * Math.PI);
+  assert.equal(r.pressed, true);
+  assert.equal(r.reference, "measured home");
+  assert.equal(
+    encoderReading({ ...p, rawSwitch: true, activeLow: true }).pressed,
+    false,
+  );
+});
+import { motionProfile } from "../docs/labs/models.mjs";
+test("trapezoid respects limits and reaches rest at destination", () => {
+  let r = motionProfile(10, 2, 1, 0);
+  close(r.duration, 7);
+  close(r.cruiseTime, 3);
+  r = motionProfile(10, 2, 1, 3);
+  close(r.position, 4);
+  close(r.velocity, 2);
+  r = motionProfile(10, 2, 1, 7);
+  close(r.position, 10);
+  close(r.velocity, 0);
+});
+test("short move is triangular with no cruise", () => {
+  let r = motionProfile(1, 3, 1, 1);
+  close(r.duration, 2);
+  close(r.cruiseTime, 0);
+  close(r.peakVelocity, 1);
+  close(r.position, 0.5);
+  close(r.velocity, 1);
+  r = motionProfile(1, 3, 1, 2);
+  close(r.position, 1);
+  close(r.velocity, 0);
+});
+import { parseLogCSV, odometryExperiment } from "../docs/labs/models.mjs";
+import { readFileSync } from "node:fs";
+const sample = readFileSync(
+  new URL("../docs/media/robots/2024-log-excerpt.csv", import.meta.url),
+  "utf8",
+);
+test("log parser retains independent microsecond timestamps and signal types", () => {
+  const data = parseLogCSV(sample);
+  const en = data.find((d) => d.timestampUs === 19307236);
+  assert.equal(en.seconds, 19.307236);
+  assert.equal(en.value, true);
+  assert.equal(
+    data.find((d) => d.timestampUs === 19690089).signal,
+    "/SystemStats/BatteryVoltage",
+  );
+  assert.ok(
+    data.every((d, i) => !i || d.timestampUs >= data[i - 1].timestampUs),
+  );
+});
+test("log parser handles quoting and rejects invalid values, types, and malformed CSV", () => {
+  assert.equal(
+    parseLogCSV(
+      sample.replace("/DriverStation/Enabled", '"/DriverStation/Enabled"'),
+    ).length,
+    29,
+  );
+  assert.throws(
+    () => parseLogCSV(sample.replace("1137158,", "1.2,")),
+    /timestamp/,
+  );
+  assert.throws(
+    () => parseLogCSV(sample.replace("False,boolean", "maybe,boolean")),
+    /boolean/,
+  );
+  assert.throws(
+    () => parseLogCSV(sample.replace("False,boolean", "False,double")),
+    /signal or type/,
+  );
+  assert.throws(() => parseLogCSV(sample + '"broken'), /quote/);
+  assert.throws(() => parseLogCSV("x".repeat(1_000_001)), /1 MB/);
+});
+test("odometry experiment is deterministic and gain zero preserves odometry", () => {
+  const a = odometryExperiment({ gain: 0 }),
+    b = odometryExperiment({ gain: 0 });
+  assert.deepEqual(a, b);
+  assert.deepEqual(a.corrected, a.odom);
+  assert.ok(a.odometryError > 0);
+  assert.equal(a.observations[0].captureTime, 1);
+  close(a.observations[0].deliveryTime, 1.5);
+});
+test("delayed observation is applied only after arrival and uses capture index", () => {
+  const before = odometryExperiment({ steps: 14, latencySteps: 5, gain: 1 });
+  assert.equal(before.observations.length, 0);
+  assert.deepEqual(before.corrected, before.odom);
+  const after = odometryExperiment({ steps: 15, latencySteps: 5, gain: 1 });
+  assert.equal(after.observations.length, 1);
+  assert.equal(after.observations[0].capture, 10);
+  assert.notDeepEqual(after.corrected[15], after.odom[15]);
+  close(after.corrected[10].x, after.observations[0].x);
+});

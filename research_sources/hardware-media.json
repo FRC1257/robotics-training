@@ -1,0 +1,76 @@
+{
+  "source": "FIRST and WPILib contributors, WPILib documentation",
+  "source_revision": "4dff7c3773ad321677d42c3f911408665e05b499",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "license_source": "https://github.com/wpilibsuite/wpilib-docs/blob/4dff7c3773ad321677d42c3f911408665e05b499/license.txt",
+  "diagram_credit": "FRC Team 3161 and Stefen Acepcion, as credited by WPILib hardware overview",
+  "assets": [
+    {
+      "file": "docs/media/hardware/frc-control-system-layout-rev.svg",
+      "source_url": "https://raw.githubusercontent.com/wpilibsuite/wpilib-docs/4dff7c3773ad321677d42c3f911408665e05b499/source/docs/controls-overviews/images/frc-control-system-layout-rev.svg",
+      "source_revision": "4dff7c3773ad321677d42c3f911408665e05b499",
+      "retrieved_utc": "2026-11-11T02:57:10Z",
+      "source_sha256": "0e7bde164b1ddb38f0a33e0c6e74c0a505c484b91dcbd252b5cbdb54f8b51255",
+      "local_sha256": "0e7bde164b1ddb38f0a33e0c6e74c0a505c484b91dcbd252b5cbdb54f8b51255",
+      "dimensions": "2592 \u00d7 1728 viewBox",
+      "description": "Official REV control-system diagram; credit Team 3161 and Stefen Acepcion",
+      "changes": "unchanged"
+    },
+    {
+      "file": "docs/media/hardware/layout-REV.jpg",
+      "source_url": "https://raw.githubusercontent.com/wpilibsuite/wpilib-docs/4dff7c3773ad321677d42c3f911408665e05b499/source/docs/zero-to-robot/step-1/images/how-to-wire-a-simple-robot/layout-REV.jpg",
+      "source_revision": "4dff7c3773ad321677d42c3f911408665e05b499",
+      "retrieved_utc": "2026-11-11T02:57:10Z",
+      "source_sha256": "e6b844b8b6c80b6801ee5a864d8d74b9f9f4f917fdd4ebc5132391856b09a158",
+      "local_sha256": "8197277d6b7ed8443a621b350d6e7eced69bebed1987d1fdfa2ab3d1bceaad57",
+      "dimensions": "4032 \u00d7 3024",
+      "description": "Training board photograph",
+      "changes": "GPS metadata removed; image pixels and orientation retained"
+    },
+    {
+      "file": "docs/media/hardware/roborio-can.jpg",
+      "source_url": "https://raw.githubusercontent.com/wpilibsuite/wpilib-docs/4dff7c3773ad321677d42c3f911408665e05b499/source/docs/zero-to-robot/step-1/images/how-to-wire-a-simple-robot/roborio-can.jpg",
+      "source_revision": "4dff7c3773ad321677d42c3f911408665e05b499",
+      "retrieved_utc": "2026-11-11T02:57:10Z",
+      "source_sha256": "61825dcf9ed44d73397b77681a3911aac3c0b084c6722fd2456f977cb0bb7d6c",
+      "local_sha256": "e09ff3273c6e7facc9bd585d5bf69dc8c608780bf51e62618bba92b7abb7cefd",
+      "dimensions": "4032 \u00d7 3024",
+      "description": "roboRIO CAN connector photograph",
+      "changes": "GPS metadata removed; image pixels and orientation retained"
+    },
+    {
+      "file": "docs/media/hardware/pdh-power.jpg",
+      "source_url": "https://raw.githubusercontent.com/wpilibsuite/wpilib-docs/4dff7c3773ad321677d42c3f911408665e05b499/source/docs/zero-to-robot/step-1/images/how-to-wire-a-simple-robot/pdh-power.jpg",
+      "source_revision": "4dff7c3773ad321677d42c3f911408665e05b499",
+      "retrieved_utc": "2026-11-11T02:57:10Z",
+      "source_sha256": "c1fe158b52a22bc40e71777fb0cb8c6a19d82ed628acb0eb9a66e4ba99fa3613",
+      "local_sha256": "a9b17b62d77cbc6f56e58000166829664c897d1b557119b3088298f1121e35ab",
+      "dimensions": "4032 \u00d7 3024",
+      "description": "Power distribution hub photograph",
+      "changes": "GPS metadata removed; image pixels and orientation retained"
+    },
+    {
+      "file": "docs/media/hardware/can-bus-sparks.jpg",
+      "source_url": "https://raw.githubusercontent.com/wpilibsuite/wpilib-docs/4dff7c3773ad321677d42c3f911408665e05b499/source/docs/zero-to-robot/step-1/images/how-to-wire-a-simple-robot/can-bus-sparks.jpg",
+      "source_revision": "4dff7c3773ad321677d42c3f911408665e05b499",
+      "retrieved_utc": "2026-11-11T02:57:10Z",
+      "source_sha256": "b156345a75ea7c210a0b3184bb9efc418dc0c469d37d94a968ea4d4a3fc7190e",
+      "local_sha256": "b156345a75ea7c210a0b3184bb9efc418dc0c469d37d94a968ea4d4a3fc7190e",
+      "dimensions": "1892 \u00d7 764",
+      "description": "WPILib annotated CAN wiring photograph",
+      "changes": "unchanged"
+    },
+    {
+      "file": "docs/media/hardware/ctre-magnetic-encoder.png",
+      "source_url": "https://raw.githubusercontent.com/wpilibsuite/wpilib-docs/4dff7c3773ad321677d42c3f911408665e05b499/source/docs/hardware/sensors/images/encoders-hardware/ctre-magnetic-encoder.png",
+      "source_revision": "4dff7c3773ad321677d42c3f911408665e05b499",
+      "retrieved_utc": "2026-11-11T02:57:10Z",
+      "source_sha256": "ca48e67f8ec7efac114a31ef11805006fea74ffc15c59ce978561b0530d10245",
+      "local_sha256": "ca48e67f8ec7efac114a31ef11805006fea74ffc15c59ce978561b0530d10245",
+      "dimensions": "532 \u00d7 375",
+      "description": "CTRE magnetic encoder image",
+      "changes": "unchanged"
+    }
+  ]
+}
