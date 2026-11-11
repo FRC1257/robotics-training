@@ -2,7 +2,15 @@
 
 # Explore a concept in the browser
 
-Each lab pairs a question with controls, a visual result, and numbers you can inspect. Start with a prediction before changing a setting. Explain the result to another student and connect it to the matching code example.
+Each lab opens with a short guided walkthrough: one explanation and one visual at a time. Use **Back** and **Next** to compare the staged results. Choose **Explore controls** for the full experiments described below; returning to the guide resets the current step. Start with a prediction, then explain the result to another student.
+
+## Begin with one idea
+
+Open the [guided shooter demo](../labs/mechanism-fixed-shooter.html). Each step pairs a short explanation with the mechanism's actual model state. Compare the speed and heading gates before feeding. On desktop, the explanation sits beside the visual; on phones, they stack. The full sliders, sensor switches and source-code panel are available through **Explore controls**.
+
+![Actual guided shooter walkthrough with a short step explanation beside the mechanism](../media/screenshots/guided-shooter.png)
+
+*Unedited desktop capture at commit 0c71dd1 from the [verified browser run](https://github.com/FRC1257/robotics-training/actions/runs/43047473739). The model is at guided step 3 of 4; it illustrates a readiness rule and does not reproduce measured robot physics.*
 
 ## Swerve translation and rotation
 

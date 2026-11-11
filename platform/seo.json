@@ -1,0 +1,106 @@
+{
+  "README.md": {
+    "title": "FRC Programming Lessons & Interactive Labs | Team 1257",
+    "description": "Learn FRC robot programming with Team 1257. Free Java and WPILib lessons, interactive PID and swerve demos, and real competition robot code."
+  },
+  "java/README.md": {
+    "title": "Java Programming for FRC",
+    "description": "Learn Java for FIRST Robotics Competition: variables, control flow, methods, classes and objects, with exercises for new robot programmers."
+  },
+  "frc/README.md": {
+    "title": "FRC Robot Programming with Java and WPILib",
+    "description": "Build command-based FRC robot software with Java and WPILib. Learn subsystems, sensors, PID, autonomous routines, simulation and logging."
+  },
+  "labs/README.md": {
+    "title": "Interactive FRC Programming Labs",
+    "description": "Experiment with PID, swerve, motion profiles, commands, odometry and robot mechanisms. Step through visual models beside real robot code."
+  },
+  "robot-types/README.md": {
+    "title": "How to Program Different FRC Robot Mechanisms",
+    "description": "Program shooters, turrets, elevators, arms, intakes, drivetrains and climbers with interactive demos and source-backed FRC robot examples."
+  },
+  "robots/README.md": {
+    "title": "Team 1257 Robot Code and Log Walkthroughs",
+    "description": "Trace real Team 1257 robot code and inspect a recorded competition robot log. Connect command-based architecture to practical FRC examples."
+  },
+  "guides/start-here.md": {
+    "title": "Start Learning FRC Robot Programming",
+    "description": "New to FRC programming? Set up your tools, choose a Java or robot programming path, and run your first small project with Team 1257."
+  },
+  "git/README.md": {
+    "title": "Git and GitHub for FRC Teams",
+    "description": "Learn version control for your FRC team: repositories, commits, branches and collaboration with Git and GitHub."
+  },
+  "vision/README.md": {
+    "title": "Robot Vision for FRC",
+    "description": "Explore FRC robot vision with PhotonVision, Limelight and WPILibPi, including camera setup and practical vision programming lessons."
+  },
+  "foundations/README.md": {
+    "title": "FRC Robot Foundations",
+    "description": "Understand how an FRC robot works: power distribution, signals, motors, sensors, mechanisms and the software that coordinates them."
+  },
+  "labs/pid.html": {
+    "title": "PID and Feedforward Interactive Lab",
+    "description": "Tune PID gains and feedforward in a visual teaching model. Compare tracking error, saturation, windup and gravity compensation one step at a time."
+  },
+  "labs/swerve.html": {
+    "title": "Swerve Drive Kinematics Interactive Lab",
+    "description": "Explore swerve drive translation, rotation, field-relative control, wheel speed limits and steering optimization with live module vectors."
+  },
+  "labs/scheduler.html": {
+    "title": "Command-Based Scheduler Interactive Lab",
+    "description": "Step through WPILib-style command scheduling. Explore subsystem requirements, command interruption, release behavior and default commands."
+  },
+  "labs/encoder.html": {
+    "title": "Encoder Units and Homing Interactive Lab",
+    "description": "Convert encoder turns to mechanism distance. Experiment with gearing, units, home-switch polarity and position references in an interactive model."
+  },
+  "labs/motion.html": {
+    "title": "Motion Profile Interactive Lab",
+    "description": "Compare triangular and trapezoidal motion profiles. Change distance, acceleration and velocity limits and inspect the reference trajectory."
+  },
+  "labs/odometry.html": {
+    "title": "Odometry and Delayed Vision Interactive Lab",
+    "description": "Explore odometry drift and a simplified timestamped vision correction. Compare pose estimates and inspect the effect of delayed measurements."
+  },
+  "labs/log.html": {
+    "title": "FRC Robot Log Explorer",
+    "description": "Inspect an excerpt from a real Team 1257 robot recording. Compare voltage, velocity and enabled signals while tracking their separate timestamps."
+  },
+  "frc/1-Basics/README.md": {
+    "title": "FRC Robot Programming Basics",
+    "description": "Set up your FRC programming environment and learn robot subsystems, command-based architecture, motors, simulation and your first WPILib project."
+  },
+  "java/3-Functions/1-Basics.md": {
+    "title": "Java Methods and Functions",
+    "description": "Learn how Java methods organize reusable code, then practice defining and calling functions for clear, maintainable robot programs."
+  },
+  "website/README.md": {
+    "title": "Maintain the Team 1257 Website",
+    "description": "Learn the layout and maintenance workflow for Team 1257’s website, including annual updates and practical editing tasks."
+  },
+  "java/1-Basics/2-Variables.md": {
+    "title": "Java Variables and Types",
+    "description": "Learn to declare and use Java variables. Explore primitive types, strings, assignments and casts with concrete examples and practice."
+  },
+  "java/1-Basics/programs/Variables.md": {
+    "title": "Java Variables Practice Program",
+    "description": "Practice Java variables in a small programming exercise. Apply declarations, assignments and types after reading the variables lesson."
+  },
+  "java/1-Basics/programs/README.md": {
+    "title": "Java Basics Practice Programs",
+    "description": "Practice Java fundamentals with small programs on variables, input and arrays, and connect the exercises to the matching lessons."
+  },
+  "java/2-Control_Flow/programs/README.md": {
+    "title": "Java Control Flow Practice Programs",
+    "description": "Practice Java conditions and loops with control-flow programming exercises and links to the related lessons."
+  },
+  "java/3-Functions/programs/README.md": {
+    "title": "Java Functions Practice Programs",
+    "description": "Practice breaking a Java program into reusable methods with function exercises and links to the related lessons."
+  },
+  "java/4-Objects/programs/README.md": {
+    "title": "Java Objects Practice Programs",
+    "description": "Practice Java classes and objects through small programming tasks and apply the ideas from the object-oriented lessons."
+  }
+}

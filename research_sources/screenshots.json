@@ -43,5 +43,14 @@
     "capture_method": "Playwright Chromium in GitHub Actions; actual rendered application, unedited screenshot",
     "license": "MIT, original application UI with attributed Team 254 MIT-licensed code excerpt",
     "note": "Desktop code panel after the ready scenario and 80 deterministic 20 ms steps; the original browser model is feeding. Java is displayed, not executed."
+  },
+  {
+    "file": "docs/media/screenshots/guided-shooter.png",
+    "sha256": "eb2fce21d3b98dee67681d64653aecd5f54e4e315130e2434d0c37bb1fb0f6ce",
+    "source": "https://github.com/FRC1257/robotics-training/actions/runs/43047473739",
+    "source_revision": "0c71dd1c51c29bf102b243e4c7219d780b2239b4",
+    "capture_method": "Playwright Chromium in GitHub Actions; actual rendered application, unedited screenshot",
+    "license": "MIT, original application teaching UI",
+    "note": "Guided shooter step 3 of 4; original deterministic JavaScript teaching model at 1.98 simulated seconds. Team Java is not executed."
   }
 ]

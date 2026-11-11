@@ -107,6 +107,7 @@ test("embedded PID runs in the lesson, follows theme and does not complete merel
       ),
     ),
   ).toBe(false);
+  await frame.locator("#lab-guide-explore").click();
   await frame.locator("#step").click();
   await expect(frame.locator("#summary")).toContainText("Time");
   const pausedSummary = await frame.locator("#summary").innerText();

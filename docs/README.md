@@ -2,7 +2,7 @@
 
 # Team 1257 Robotics Training
 
-Team 1257's handbook for programming competition robots. Start with a small working project, experiment with a concept, and learn to explain what the robot is doing.
+Team 1257’s free handbook for FIRST Robotics Competition (FRC) programming. Learn Java and WPILib, experiment with interactive robot demos, and trace real competition robot code. Start with a small working project and learn to explain what the robot is doing.
 
 ## Choose your next step
 

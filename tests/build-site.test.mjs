@@ -164,9 +164,41 @@ test("build emits semantic pages, legacy routes, search, math and copied assets"
           ? walk(path.join(dir, d.name))
           : [path.join(dir, d.name)],
       );
+  const sitemap = parseHTML(read("sitemap.xml")).document;
+  const sitemapUrls = [...sitemap.querySelectorAll("loc")].map(n => n.textContent);
+  assert.equal(sitemapUrls.length, result.count + 14);
+  assert.equal(sitemapUrls.length, new Set(sitemapUrls).size);
+  assert.ok(sitemapUrls.some(url => url.endsWith("/course/labs/pid.html")));
+  const pageTitles = new Set();
   const missing = [];
   for (const file of walk(output).filter((f) => f.endsWith(".html"))) {
     const doc = parseHTML(fs.readFileSync(file, "utf8")).document;
+    const relative = path.relative(output, file).split(path.sep).join("/");
+    if (relative !== "404.html") {
+      const canonical = doc.querySelector('link[rel="canonical"]').getAttribute("href");
+      assert.equal(canonical, "https://frc1257.github.io/course/" + relative.split("/").map(encodeURIComponent).join("/"));
+      assert.ok(sitemapUrls.includes(canonical), `${relative}: in sitemap`);
+      assert.equal(doc.head.querySelectorAll("title").length, 1);
+      assert.ok(!pageTitles.has(doc.title), `${relative}: unique search title`);
+      pageTitles.add(doc.title);
+      const description = doc.querySelector('meta[name="description"]').getAttribute("content");
+      assert.ok(description.length >= 40 && description.length <= 175, `${relative}: useful description (${description.length})`);
+      assert.equal(doc.querySelector('meta[property="og:url"]').getAttribute("content"), canonical);
+      const image = doc.querySelector('meta[property="og:image"]').getAttribute("content");
+      assert.equal(doc.querySelector('meta[name="twitter:image"]').getAttribute("content"), image);
+      assert.equal(doc.querySelector('meta[name="twitter:card"]').getAttribute("content"), "summary_large_image");
+      const png = fs.readFileSync(path.join(output, new URL(image).pathname.slice("/course/".length)));
+      assert.equal(png.subarray(1,4).toString(), "PNG");
+      assert.equal(png.readUInt32BE(16),1200); assert.equal(png.readUInt32BE(20),630);
+      const schema = JSON.parse(doc.querySelector('script[type="application/ld+json"]').textContent);
+      assert.equal(schema['@context'], 'https://schema.org');
+      assert.ok(schema['@graph'].some(x => x.url === canonical && x['@id'].endsWith('#page')));
+      if (relative !== 'index.html') assert.ok(schema['@graph'].some(x => x['@type'] === 'BreadcrumbList'));
+      assert.equal(doc.querySelector('meta[name="robots"]').getAttribute("content").includes('noindex'),false);
+    } else {
+      assert.equal(doc.querySelector('meta[name="robots"]').getAttribute('content'),'noindex');
+      assert.ok(!sitemapUrls.some(url => url.endsWith('/404.html')));
+    }
     const article = doc.querySelector("main.lesson > article");
     if (article) {
       assert.equal(

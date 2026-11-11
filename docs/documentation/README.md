@@ -76,3 +76,15 @@ Run content/model checks and relevant Java tests before committing. The CI workf
 Add new entry points to `docs/_sidebar.md`; update `platform/catalog.json` when changing curated paths. The builder generates per-page metadata and a sitemap. Do not hand-edit `dist/`.
 
 Use GitHub review to ask for a correction rather than silently upgrading an uncertain claim. State whether an example was inspected, built, simulated, or tested on hardware, and keep that distinction attached to the result.
+
+## Search results and link previews
+
+The build emits a canonical URL, description, Open Graph and large-image Twitter card, JSON-LD, and a 1200 × 630 PNG for every lesson and standalone lab. Cards use the team logo and bundled OFL-licensed Inter font; no image-generation service, system font, browser or API key is required. Images are fingerprinted from page copy and rendering inputs so updated cards receive new URLs.
+
+Write a clear first paragraph: it supplies the default description. Use `platform/seo.json` for a more precise search title and description, especially on section indexes. Keep descriptions factual and under 160 characters; do not add keywords, ratings or completion claims. Visible lesson headings stay independent of search titles.
+
+`sitemap.xml` contains canonical lesson and lab URLs and excludes the 404 page and embedded query variants. The project-level `robots.txt` points to it, but crawlers only use robots rules at the **host root** (`https://frc1257.github.io/robots.txt`). This project cannot change that file. A site owner can submit the public sitemap in Search Console. No indexing, ranking or rich-result appearance is guaranteed. `SITE_BASE` controls project paths and `SITE_ORIGIN` controls the public origin; set both for another deployment.
+
+## Guided experiments
+
+All 14 labs open in a short walkthrough with Back/Next and an Explore option. The shared `docs/labs/guided-labs.mjs` adapts existing controls; it does not replace the underlying models. Each step resets and applies a deterministic scenario. Keep the narration specific to what the model actually shows, and preserve a useful numeric or textual result for readers who cannot interpret the diagram. Explore restores the full interface and keeps the current model state; returning resets the current walkthrough step. The layer fails open if its controls are unavailable, so static explanations and the original experiment remain available.

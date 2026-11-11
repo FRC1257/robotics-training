@@ -2,7 +2,7 @@
 
 # Interactive labs
 
-Predict, experiment, and explain your result. These labs run locally in your browser with no account or installation. They are teaching models, not validated robot simulations or hardware tuning tools.
+Start with the guided walkthrough: use **Next** to change one idea at a time and read what to notice in the visual. Choose **Explore controls** when you want to vary inputs yourself; **Return to guide** resets the current step. The labs run locally in your browser with no account or installation. They are teaching models, not validated robot simulations or hardware tuning tools.
 
 ## Concept labs
 
@@ -19,7 +19,7 @@ Predict, experiment, and explain your result. These labs run locally in your bro
 
 ## Mechanisms and real robot code
 
-Open a robot-type lesson to use its embedded demo beside the explanation. Each pairs an original browser model with a short, pinned, MIT-licensed excerpt from Team 254 or Team 2910. Use Run/Pause and 20 ms steps to compare sensor inputs, decisions and outputs; the browser does not execute the team's Java.
+Open a robot-type lesson to use its embedded demo beside the explanation. Each pairs an original browser model with a short, pinned, MIT-licensed excerpt from Team 254 or Team 2910. Follow the short walkthrough first, then choose **Explore controls** for Run/Pause, 20 ms steps, sensor inputs, decisions and outputs; the browser does not execute the team's Java.
 
 | Mechanism lesson | Try changing | Full-size demo |
 | --- | --- | --- |

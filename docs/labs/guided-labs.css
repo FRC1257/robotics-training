@@ -1,0 +1,132 @@
+/* Scoped to successful initialization so the underlying labs always fail open. */
+body.guided-ready.guided-mode [data-guided-hide] {
+  display: none !important;
+}
+body.guided-ready.guided-mode .layout,
+body.guided-ready.guided-mode .mech-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+}
+body.guided-ready.guided-mode .mech-layout {
+  grid-template-areas: "stage";
+}
+body.guided-ready.guided-mode .mech-stage {
+  max-width: 100%;
+}
+.guided-panel {
+  margin: 1rem 0;
+  padding: 1.2rem 1.35rem;
+  border: 1px solid var(--line, #b7cbd8);
+  border-radius: 0.65rem;
+  background: var(--surface, #fff);
+  color: var(--ink, #172339);
+}
+.guided-panel h2 {
+  font-size: 1.3rem;
+  margin: 0.15rem 0 0.35rem;
+}
+.guided-panel h3 {
+  font-size: 1.1rem;
+  margin: 0.2rem 0;
+}
+.guided-panel p {
+  margin: 0.45rem 0;
+}
+.guided-kicker {
+  font-size: 0.75rem;
+  letter-spacing: 0.09em;
+  font-weight: 750;
+  color: var(--muted, #43576a);
+}
+.guided-progress {
+  font-weight: 650;
+}
+.guided-copy {
+  min-height: 5rem;
+}
+.guided-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.9rem;
+}
+.guided-actions button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.guided-explore,
+.guided-return {
+  margin-left: auto;
+}
+.guided-note,
+.guided-data-status {
+  font-size: 0.9rem;
+  color: var(--muted, #43576a);
+}
+.guided-data-status:empty {
+  display: none;
+}
+.guided-panel.is-exploring .guided-kicker,
+.guided-panel.is-exploring .guided-progress,
+.guided-panel.is-exploring .guided-copy,
+.guided-panel.is-exploring .guided-data-status,
+.guided-panel.is-exploring .guided-actions button:not(.guided-return) {
+  display: none;
+}
+.guided-panel.is-exploring .guided-actions {
+  margin-top: 0.4rem;
+}
+.guided-panel.is-exploring .guided-return {
+  margin-left: 0;
+}
+@media (max-width: 600px) {
+  .guided-panel {
+    padding: 1rem;
+  }
+  .guided-copy {
+    min-height: 0;
+  }
+  .guided-explore,
+  .guided-return {
+    margin-left: 0;
+  }
+  .guided-actions button {
+    min-height: 44px;
+  }
+}
+
+/* Keep the one useful phase/reason; the full gate checklist lives in Explore. */
+body.guided-ready.guided-mode #mech-gates {
+  display: none;
+}
+
+.guided-result {
+  display: none;
+}
+.guided-mode .guided-result {
+  display: block;
+  margin: 1rem 0 0;
+  font-weight: 650;
+}
+@media (min-width: 960px) {
+  body.guided-ready.guided-mode main {
+    display: grid;
+    grid-template-columns: minmax(280px, 0.8fr) minmax(0, 1.4fr);
+    gap: 1.25rem;
+    align-items: start;
+  }
+  body.guided-ready.guided-mode #lab-guide {
+    grid-column: 1;
+    grid-row: 1;
+    margin: 0;
+    position: sticky;
+    top: 1rem;
+  }
+  body.guided-ready.guided-mode
+    main
+    > :not(#lab-guide):not([data-guided-hide]):not(noscript) {
+    grid-column: 2;
+    grid-row: 1;
+    min-width: 0;
+  }
+}

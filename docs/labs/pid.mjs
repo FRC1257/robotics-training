@@ -69,7 +69,8 @@ function render() {
     ctx = c.getContext("2d"),
     w = c.width,
     h = c.height,
-    colors = plotColors(c);
+    colors = plotColors(c),
+    guided = document.body.classList.contains("guided-mode");
   ctx.clearRect(0, 0, w, h);
   const positions = samples.map((s) => s.position).concat([p.setpoint, 0]);
   let min = Math.min(...positions) - 0.2,
@@ -88,10 +89,14 @@ function render() {
   ctx.lineTo(w, y(p.setpoint));
   ctx.stroke();
   ctx.setLineDash([]);
-  for (const [key, color, convert] of [
-    ["position", colors.blue, y],
-    ["output", colors.orange, (v) => h / 2 - (v / p.limit) * h * 0.5],
-  ]) {
+  const series = [["position", colors.blue, y]];
+  if (!guided)
+    series.push([
+      "output",
+      colors.orange,
+      (v) => h / 2 - (v / p.limit) * h * 0.5,
+    ]);
+  for (const [key, color, convert] of series) {
     ctx.strokeStyle = color;
     ctx.lineWidth = 2;
     ctx.beginPath();
@@ -101,8 +106,9 @@ function render() {
     });
     ctx.stroke();
   }
-  $("plot-scale").textContent =
-    `Time: ${samples[0].time.toFixed(2)}–${(samples[0].time + 10).toFixed(2)} s. Left axis: position ${min.toFixed(2)}–${max.toFixed(2)} m (blue) and setpoint (dashed). Right axis: output ±${p.limit.toFixed(2)} N (orange); zero is centered.`;
+  $("plot-scale").textContent = guided
+    ? `Ten simulated seconds. Blue: position. Dashed: target. Vertical scale: ${min.toFixed(2)}–${max.toFixed(2)} m.`
+    : `Time: ${samples[0].time.toFixed(2)}–${(samples[0].time + 10).toFixed(2)} s. Left axis: position ${min.toFixed(2)}–${max.toFixed(2)} m (blue) and setpoint (dashed). Right axis: output ±${p.limit.toFixed(2)} N (orange); zero is centered.`;
   $("sample-table").innerHTML = samples
     .filter((_, i) => i % 50 === 0 || i === samples.length - 1)
     .slice(-5)
@@ -166,3 +172,5 @@ reset();
 onThemeChange(render);
 $("toggle").textContent = running ? "Pause" : "Run";
 requestAnimationFrame(frame);
+
+document.addEventListener("labmodechange", render);

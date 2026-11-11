@@ -33,6 +33,7 @@
   "homepage": "https://github.com/FRC1257/robotics-training#readme",
   "devDependencies": {
     "@playwright/test": "1.65.0",
+    "@resvg/resvg-js": "2.6.2",
     "docsify": "5.1.0",
     "docsify-katex": "2.0.2",
     "docsify-pagination": "2.10.1",
